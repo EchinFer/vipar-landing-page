@@ -1,0 +1,49 @@
+---
+import type { ServiceSection } from "../types";
+import SectionContainer from "./SectionContainer.astro";
+import ServiceCard from "./ServiceCard.astro";
+
+interface Props {
+  seccionServicios: ServiceSection;
+}
+
+const { seccionServicios } = Astro.props;
+
+const { titulo, texto, servicios } = seccionServicios;
+---
+
+<SectionContainer id="constructions" class="constructions">
+  <div class="section-header">
+    <h2>{titulo}</h2>
+  </div>
+
+  <div class="container-list">
+    {
+      servicios.map((servicio) => (
+        <ServiceCard
+          imagen={servicio.imagen}
+          titulo={servicio.titulo}
+          serviceDetails={servicio.details}
+        />
+      ))
+    }
+  </div>
+</SectionContainer>
+<style>
+  .container-list {
+    display: grid;
+    width: 100%;
+    gap: var(--grid-gap);
+    grid-auto-columns: 1fr;
+    grid-gap: var(--grid-gap);
+    will-change: transform;
+    -webkit-animation: slideTop 0.8s ease;
+    animation: slideTop 0.8s ease;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1024px) {
+    .container-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

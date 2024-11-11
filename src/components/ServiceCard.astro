@@ -1,0 +1,80 @@
+---
+interface Props {
+  imagen: string;
+  titulo: string;
+  serviceDetails: string[];
+}
+const { imagen, titulo, serviceDetails } = Astro.props;
+---
+
+<article class="card-item">
+  <div class="card-item-img global-image global-image-orientation">
+    <img src={imagen} alt={titulo} />
+  </div>
+  <div class="row">
+    <div class="col-xl-12 align-items-center"></div>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">{titulo}</h4>
+    <div class="card-item-excerpt">
+      {
+        serviceDetails &&
+          serviceDetails.map((subservicio) => <p set:html={subservicio} />)
+      }
+    </div>
+  </div>
+</article>
+
+<style>
+  .card-item-img {
+    margin-bottom: 2vh;
+    cursor: pointer;
+  }
+  .card-item-img:hover {
+    transform: translateY(-3px);
+}
+
+  .card-title {
+    font-size: 16px !important;
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 490px;
+    margin: 1vh 0 0;
+  }
+  .card-item {
+    background: #fff;
+    position: relative;
+    border-radius: 0;
+  }
+
+  .card-item .card-bg {
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .card-item .card-body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .card-item-excerpt {
+    margin-top: 0.2vh;
+  }
+  .card-item-excerpt p {
+    font-size: 14px !important;
+    line-height: 1.8;
+    font-weight: 400;
+    display: -webkit-box;
+    overflow-y: hidden;
+    max-width: 540px;
+    margin: 0;
+    margin-top: 1.1vh;
+    padding-right: 0.4vw;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+</style>

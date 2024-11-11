@@ -1,0 +1,54 @@
+---
+const currentPathname = new URL(Astro.request.url).pathname;
+const menuItems = [
+  {
+    id: 1,
+    title: "Inicio",
+    url: "/",
+  },
+  {
+    id: 2,
+    title: "Nosotros",
+    url: "/nosotros/",
+  },
+  {
+    id: 3,
+    title: "Servicios",
+    url: "/servicios/",
+  },
+  {
+    id: 4,
+    title: "Contacto",
+    url: "/contacto/",
+  },
+];
+---
+
+<header id="header" class="header d-flex align-items-center">
+  <div
+    class="container-fluid container-xl d-flex align-items-center justify-content-between"
+  >
+    <a href="/" class="logo d-flex align-items-center">
+      <h1>VIPAR S.A<span>.</span></h1>
+    </a>
+
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    <nav id="navbar" class="navbar">
+      <ul>
+        {
+          menuItems.map((menuItem) => (
+            <li>
+              <a
+                href={menuItem.url}
+                class:list={[{ active: currentPathname === menuItem.url }]}
+              >
+                {menuItem.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

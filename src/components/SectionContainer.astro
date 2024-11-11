@@ -1,0 +1,18 @@
+<section>
+  <div
+    id={Astro.props.id}
+    class:list={["section-container", Astro.props.class]}
+  >
+    <slot />
+  </div>
+</section>
+<style>
+  .section-container {
+    box-sizing: initial;
+    max-width: var(--max-width-global-wrap);
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: var(--margin-wrap-left-right);
+    padding-left: var(--margin-wrap-left-right);
+  }
+</style>
