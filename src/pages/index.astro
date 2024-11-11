@@ -6,6 +6,7 @@ import HeroSection from "@components/HeroSection.astro";
 import ServiceSection from "@components/ServiceSection.astro";
 import { getHomePageData } from "@lib/query";
 import ServiceConstructionSection from "@components/ServiceConstructionSection.astro";
+import ProjectsSection from "@components/ProjectsSection.astro";
 
 const homePageData: HomePageData = await getHomePageData();
 console.log({ homePageData });
@@ -24,60 +25,7 @@ const { service_section, construction_service_section } = homePageData;
   <ServiceConstructionSection seccionServicios={construction_service_section} />
 
   <!-- Our Projects Section -->
-  <!-- <section id="projects" class="projects">
-    <div class="container">
-      <div class="section-header">
-        <h2>Nuestras Obras</h2>
-        <p>
-          Te presentamos algunos de nuestros proyectos destacados que demuestran
-          nuestra experiencia y calidad en el sector.
-        </p>
-      </div>
-
-      <div class="portfolio-isotope">
-        <ul class="portfolio-flters">
-          <li data-filter="*" class="filter-active">Todo</li>
-          {
-            obras &&
-              obras.map((obra, index) => (
-                <li data-filter={`.filter-${obra.category?.[0]?.slug}`}>
-                  {obra.category?.[0]?.name}
-                </li>
-              ))
-          }
-        </ul>
-
-        <div class="row gy-4 portfolio-container">
-          {
-            obras &&
-              obras.map((obra, index) => (
-                <div
-                  class={`col-lg-4 col-md-6 portfolio-item filter-${obra.category?.[0]?.slug}`}
-                >
-                  <div class="portfolio-content h-100">
-                    <img
-                      src={obra.imagen}
-                      class="img-fluid"
-                      alt={obra.post_title}
-                    />
-                    <div class="portfolio-info">
-                      <h4>{obra.post_title}</h4>
-                      <p>{obra.descripcion}</p>
-                      <a href={obra.imagen} class="glightbox preview-link">
-                        <i class="bi bi-zoom-in" />
-                      </a>
-                      <a href={`/obras/${obra.slug}`} class="details-link">
-                        <i class="bi bi-link-45deg" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))
-          }
-        </div>
-      </div>
-    </div>
-  </section> -->
+  <ProjectsSection projects={homePageData.projects_section} />
   <!-- Comentario: El "portfolio-item" se podría componentizar como XXXProjectItemXXX para reutilizar la estructura en otras secciones similares -->
 
   <!-- Clients Section -->

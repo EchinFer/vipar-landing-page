@@ -1,3 +1,22 @@
+export interface PostCategory {
+  term_id: number;
+  name: string;
+  slug: string;
+  term_group: number;
+  term_taxonomy_id: number;
+  taxonomy: string;
+  description: string;
+  parent: number;
+  count: number;
+  filter: string;
+  cat_ID: number;
+  category_count: number;
+  category_description: string;
+  cat_name: string;
+  category_nicename: string;
+  category_parent: number;
+}
+
 export interface ServiceDetail {
   imagen: string;
   titulo: string;
@@ -11,8 +30,8 @@ export interface ServiceSection {
 }
 
 export interface ConstructionServiceSection extends ServiceSection {
-    texto_imagen: string;
-    imagen: string;
+  texto_imagen: string;
+  imagen: string;
 }
 
 export interface StartSection {
@@ -34,6 +53,8 @@ export interface Project {
   descripcion: string;
   imagen: string;
   link: string;
+  categorias: PostCategory[];
+  slug: string;
 }
 
 export interface ProjectsSection extends Array<Project> {}
