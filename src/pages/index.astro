@@ -5,10 +5,11 @@ import type { HomePageData } from "../types";
 import HeroSection from "@components/HeroSection.astro";
 import ServiceSection from "@components/ServiceSection.astro";
 import { getHomePageData } from "@lib/query";
+import ServiceConstructionSection from "@components/ServiceConstructionSection.astro";
 
 const homePageData: HomePageData = await getHomePageData();
 console.log({ homePageData });
-const { service_section } = homePageData;
+const { service_section, construction_service_section } = homePageData;
 ---
 
 <Layout title="Home Page">
@@ -19,6 +20,8 @@ const { service_section } = homePageData;
   <!-- Servicios Section -->
   <ServiceSection seccionServicios={service_section} />
   <!-- Comentario: Cada "card-item" podría ser un componente llamado XXXServiceCardXXX, ya que se repite dentro de la sección de servicios -->
+
+  <ServiceConstructionSection seccionServicios={construction_service_section} />
 
   <!-- Our Projects Section -->
   <!-- <section id="projects" class="projects">

@@ -10,6 +10,11 @@ export interface ServiceSection {
   servicios: ServiceDetail[];
 }
 
+export interface ConstructionServiceSection extends ServiceSection {
+    texto_imagen: string;
+    imagen: string;
+}
+
 export interface StartSection {
   titulo: string;
   texto: string;
@@ -51,6 +56,7 @@ export interface BlogSection {
 
 export interface HomePageData {
   service_section: ServiceSection;
+  construction_service_section: ConstructionServiceSection;
   start_section: StartSection;
   features_section: FeaturesSection;
   projects_section: ProjectsSection;

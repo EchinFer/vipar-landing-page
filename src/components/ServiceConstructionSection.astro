@@ -1,18 +1,27 @@
 ---
-import type { ServiceSection } from "../types";
+import type { ConstructionServiceSection, ServiceSection } from "../types";
 import SectionContainer from "./SectionContainer.astro";
 import ServiceCard from "./ServiceCard.astro";
 
 interface Props {
-  seccionServicios: ServiceSection;
+  seccionServicios: ConstructionServiceSection;
 }
 
 const { seccionServicios } = Astro.props;
 
-const { titulo, servicios } = seccionServicios;
+const { titulo, servicios, texto_imagen, imagen } = seccionServicios;
 ---
 
 <SectionContainer id="constructions" class="constructions">
+  <div class="section-image-top-wrapper">
+    <h2>{texto_imagen}</h2>
+    <img
+      src={imagen}
+      class="section-image-top"
+      alt="Servicios Construcción"
+    />
+    <div class="section-overlay"></div>
+  </div>
   <div class="section-header">
     <h2>{titulo}</h2>
   </div>
@@ -30,6 +39,34 @@ const { titulo, servicios } = seccionServicios;
   </div>
 </SectionContainer>
 <style>
+  .section-image-top-wrapper {
+    position: relative;
+    margin: 80px 0;
+    width: 100%;
+    height: 650px;
+  }
+  .section-image-top-wrapper h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    text-align: center;
+    z-index: 1;
+    color: white;
+  }
+  .section-image-top {
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+  }
+  .section-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
   .container-list {
     display: grid;
     width: 100%;
