@@ -1,8 +1,23 @@
-<section
-  id={Astro.props.id}
-  class:list={["section-container", Astro.props.class]}
->
-  <slot />
+---
+interface Props {
+  id: string;
+  containerClass?: string;
+  class: string;
+  fullWidth?: boolean;
+}
+
+const { containerClass, fullWidth = false } = Astro.props;
+
+const container = fullWidth
+  ? "section-container-full-width"
+  : "section-container";
+const sectionClass = fullWidth ? "section-full-width" : "";
+---
+
+<section id={Astro.props.id} class:list={[sectionClass, Astro.props.class]}>
+  <div class:list={[container, containerClass]}>
+    <slot />
+  </div>
 </section>
 <style>
   .section-container {
@@ -12,5 +27,13 @@
     margin-left: auto;
     padding-right: var(--margin-wrap-left-right);
     padding-left: var(--margin-wrap-left-right);
+  }
+
+  .section-container-full-width {
+    box-sizing: initial;
+  }
+
+  .section-full-width {
+    padding: 0 !important;
   }
 </style>
