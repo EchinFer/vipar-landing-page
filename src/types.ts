@@ -61,6 +61,7 @@ export interface ProjectsSection extends Array<Project> {}
 
 export interface Client {
   imagen: string;
+  nombre: string;
 }
 
 export interface ClientsSection extends Array<Client> {}

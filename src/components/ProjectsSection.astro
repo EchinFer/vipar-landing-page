@@ -1,15 +1,23 @@
 ---
 import SectionContainer from "@components/SectionContainer.astro";
-import type { ProjectsSection } from "@types";
+import type { PostCategory, ProjectsSection } from "@types";
+import ProjectCard from "./ProjectCard.astro";
 interface Props {
   projects: ProjectsSection;
 }
 
 const { projects: obras } = Astro.props;
 
-const categorias = obras.flatMap((obra) => obra.categorias?.map((cat) => cat));
+const categorias: PostCategory[] = obras.flatMap(
+  (obra) => obra.categorias ?? []
+);
 
-const uniqueCategorias = [...new Set(categorias)];
+const uniqueCategorias: PostCategory[] = categorias.reduce((acc, cat) => {
+  if (!acc.some((existingCat) => existingCat.term_id === cat.term_id)) {
+    acc.push(cat);
+  }
+  return acc;
+}, [] as PostCategory[]);
 ---
 
 <SectionContainer id="projects" class="projects">
@@ -32,32 +40,64 @@ const uniqueCategorias = [...new Set(categorias)];
     </ul>
 
     <div class="row gy-4 portfolio-container">
-      {
-        obras &&
-          obras.map((obra, index) => (
-            <div
-              class={`col-lg-4 col-md-6 portfolio-item filter-${obra.categorias?.[0]?.slug}`}
-            >
-              <div class="portfolio-content h-100">
-                <img
-                  src={obra.imagen}
-                  class="img-fluid"
-                  alt={obra.titulo}
-                />
-                <div class="portfolio-info">
-                  <h4>{obra.titulo}</h4>
-                  <p>{obra.descripcion}</p>
-                  <a href={obra.imagen} class="glightbox preview-link">
-                    <i class="bi bi-zoom-in" />
-                  </a>
-                  <a href={`/obras/${obra.slug}`} class="details-link">
-                    <i class="bi bi-link-45deg" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))
-      }
+      {obras && obras.map((obra) => <ProjectCard project={obra} />)}
     </div>
   </div>
 </SectionContainer>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    "use strict";
+
+    /**
+     * Initiate glightbox for image previews
+     */
+    const glightbox = GLightbox({
+      selector: ".glightbox",
+    });
+
+    /**
+     * Portfolio isotope and filter
+     */
+    let portfolionIsotope = document.querySelector(".portfolio-isotope");
+    console.log(portfolionIsotope);
+    if (portfolionIsotope) {
+      let portfolioFilter =
+        portfolionIsotope.getAttribute("data-portfolio-filter") || "*";
+      let portfolioLayout =
+        portfolionIsotope.getAttribute("data-portfolio-layout") || "masonry";
+      let portfolioSort =
+        portfolionIsotope.getAttribute("data-portfolio-sort") ||
+        "original-order";
+
+      window.addEventListener("load", () => {
+        let portfolioIsotope = new Isotope(
+          document.querySelector(".portfolio-container"),
+          {
+            itemSelector: ".portfolio-item",
+            layoutMode: portfolioLayout,
+            filter: portfolioFilter,
+            sortBy: portfolioSort,
+          }
+        );
+
+        let menuFilters = document.querySelectorAll(
+          ".portfolio-isotope .portfolio-flters li"
+        );
+        menuFilters.forEach(function (el) {
+          el.addEventListener("click", function () {
+            document
+              .querySelector(
+                ".portfolio-isotope .portfolio-flters .filter-active"
+              )
+              .classList.remove("filter-active");
+            this.classList.add("filter-active");
+            portfolioIsotope.arrange({
+              filter: this.getAttribute("data-filter"),
+            });
+          });
+        });
+      });
+    }
+  });
+</script>

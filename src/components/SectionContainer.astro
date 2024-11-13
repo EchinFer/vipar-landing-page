@@ -1,10 +1,8 @@
-<section>
-  <div
-    id={Astro.props.id}
-    class:list={["section-container", Astro.props.class]}
-  >
-    <slot />
-  </div>
+<section
+  id={Astro.props.id}
+  class:list={["section-container", Astro.props.class]}
+>
+  <slot />
 </section>
 <style>
   .section-container {

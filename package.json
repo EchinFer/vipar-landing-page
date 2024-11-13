@@ -11,12 +11,17 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "aos": "^2.3.4",
     "astro": "^4.16.10",
     "bootstrap": "^5.3.3",
+    "glightbox": "^3.3.0",
+    "isotope-layout": "^3.0.6",
     "sass": "^1.80.6",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@types/bootstrap": "^5.2.10"
+    "@types/aos": "^3.0.7",
+    "@types/bootstrap": "^5.2.10",
+    "@types/isotope-layout": "^3.0.14"
   }
 }

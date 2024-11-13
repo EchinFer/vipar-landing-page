@@ -7,6 +7,8 @@ import ServiceSection from "@components/ServiceSection.astro";
 import { getHomePageData } from "@lib/query";
 import ServiceConstructionSection from "@components/ServiceConstructionSection.astro";
 import ProjectsSection from "@components/ProjectsSection.astro";
+import ClientsSection from "@components/ClientsSection.astro";
+import ContactSection from "@components/ContactSection.astro";
 
 const homePageData: HomePageData = await getHomePageData();
 console.log({ homePageData });
@@ -29,29 +31,10 @@ const { service_section, construction_service_section } = homePageData;
   <!-- Comentario: El "portfolio-item" se podría componentizar como XXXProjectItemXXX para reutilizar la estructura en otras secciones similares -->
 
   <!-- Clients Section -->
-  <!-- <section id="recent-blog-posts" class="recent-blog-posts section-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2>Nuestros clientes</h2>
-      </div>
-      <div class="row gy-5">
-        {
-          clientes &&
-            clientes.map((cliente, index) => (
-              <div class="col-xl-2 col-md-3">
-                <div class="post-item position-relative h-100">
-                  <div class="post-img position-relative overflow-hidden">
-                    <img src={cliente.imagen} class="img-fluid w-100" alt="" />
-                  </div>
-                </div>
-              </div>
-            ))
-        }
-      </div>
-    </div>
-  </section> -->
+  <ClientsSection clients={homePageData.clients_section} />
   <!-- Comentario: Cada "post-item" de clientes podría convertirse en un componente llamado XXXClientItemXXX si hay reutilización -->
 
+  <ContactSection />
   <!-- Get Started Section -->
   <!-- <section id="get-started" class="get-started section-bg">
     <div class="container">

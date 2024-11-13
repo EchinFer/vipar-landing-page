@@ -21,6 +21,7 @@
   --max-width-global-wrap: 1600px;
   --grid-gap: 40px;
   --margin-wrap-left-right: 5vw;
+  --margin-wrap-top-bottom: 50px;
 }
 
 /* Colors */
@@ -67,7 +68,7 @@ h6 {
 # Sections & Section Header
 --------------------------------------------------------------*/
 section {
-  padding: 80px 0;
+  padding: 77px 0;
   overflow: hidden;
 }
 
@@ -885,6 +886,7 @@ section {
 .projects .portfolio-content {
   position: relative;
   overflow: hidden;
+  aspect-ratio: 4 / 3;
 }
 
 .projects .portfolio-content img {
@@ -1716,7 +1718,7 @@ section {
   padding: 10px 12px;
 }
 
-.contact .php-email-form input[type="submit"] {
+.contact .php-email-form button[type="submit"] {
   background: var(--color-primary);
   border: 0;
   padding: 10px 35px;

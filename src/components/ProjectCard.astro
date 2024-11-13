@@ -1,0 +1,29 @@
+---
+import type { Project } from "@types";
+import ZoomInIcon from "./icons/ZoomInIcon.astro";
+import BoxArrowUpRightIcon from "./icons/BoxArrowUpRightIcon.astro";
+
+interface Props {
+  project: Project;
+}
+
+const {
+  project: { titulo, descripcion, imagen, slug, categorias },
+} = Astro.props;
+---
+
+<div class={`col-lg-4 col-md-6 portfolio-item filter-${categorias?.[0]?.slug}`}>
+  <div class="portfolio-content h-100">
+    <img src={imagen} class="img-fluid" alt={titulo} />
+    <div class="portfolio-info">
+      <h4>{titulo}</h4>
+      <p>{descripcion}</p>
+      <a href={imagen} class="glightbox preview-link">
+        <ZoomInIcon />
+      </a>
+      <a href={`/obras/${slug}`} class="details-link">
+        <BoxArrowUpRightIcon />
+      </a>
+    </div>
+  </div>
+</div>

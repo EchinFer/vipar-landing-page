@@ -2,7 +2,11 @@
 import Header from "@components/Header.astro";
 import "@styles/bootstrap.scss";
 import "@styles/global.css";
-import "@assets/js/main";
+
+import "@assets/vendor/aos/aos.css";
+import "@assets/vendor/glightbox/css/glightbox.min.css";
+import "@assets/vendor/glightbox/css/plyr.min.css";
+import ClientProvider from "./ClientProvider.astro";
 interface Props {
   title: string;
 }
@@ -22,7 +26,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <Header />
-    <slot />
+    <slot />    
     <script>
       // Import only what you need
       import "bootstrap/js/dist/alert";
@@ -38,6 +42,7 @@ const { title } = Astro.props;
       import "bootstrap/js/dist/toast";
       import "bootstrap/js/dist/tooltip";
     </script>
+    <ClientProvider client:load />
   </body>
 </html>
 <style is:global></style>
