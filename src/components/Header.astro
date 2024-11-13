@@ -1,4 +1,6 @@
 ---
+import { LOGO_TEXT } from "src/constants";
+
 const currentPathname = new URL(Astro.request.url).pathname;
 const menuItems = [
   {
@@ -29,7 +31,7 @@ const menuItems = [
     class="container-fluid container-xl d-flex align-items-center justify-content-between"
   >
     <a href="/" class="logo d-flex align-items-center">
-      <h1>VIPAR S.A<span>.</span></h1>
+      <h1>{LOGO_TEXT}<span>.</span></h1>
     </a>
 
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
