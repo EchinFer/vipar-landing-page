@@ -1,0 +1,7 @@
+---
+import { telephone } from "src/constants";
+
+const whatsapp = `https://wa.me/${telephone.replace(/\s/g, "")}`;
+---
+
+<a href={whatsapp} target="_blank">{telephone}</a>

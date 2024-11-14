@@ -1,29 +1,7 @@
 ---
-import { LOGO_TEXT } from "src/constants";
+import { LOGO_TEXT, MENU_ITEMS } from "src/constants";
 
 const currentPathname = new URL(Astro.request.url).pathname;
-const menuItems = [
-  {
-    id: 1,
-    title: "Inicio",
-    url: "/",
-  },
-  {
-    id: 2,
-    title: "Nosotros",
-    url: "/nosotros/",
-  },
-  {
-    id: 3,
-    title: "Servicios",
-    url: "/servicios/",
-  },
-  {
-    id: 4,
-    title: "Contacto",
-    url: "/contacto/",
-  },
-];
 ---
 
 <header id="header" class="header d-flex align-items-center">
@@ -39,7 +17,7 @@ const menuItems = [
     <nav id="navbar" class="navbar">
       <ul>
         {
-          menuItems.map((menuItem) => (
+          MENU_ITEMS.map((menuItem) => (
             <li>
               <a
                 href={menuItem.url}

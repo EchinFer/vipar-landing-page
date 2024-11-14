@@ -1646,6 +1646,10 @@ section {
   margin-bottom: 0;
 }
 
+.contact .info-item a {
+  color: inherit;
+}
+
 .contact .php-email-form {
   width: 100%;
   background: #fff;

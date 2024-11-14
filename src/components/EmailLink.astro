@@ -1,0 +1,8 @@
+---
+import { email, LOGO_TEXT } from "src/constants";
+
+const subject = `Tengo una pregunta sobre ${LOGO_TEXT}`;
+const mailto = `mailto:${email}?subject=${subject}`;
+---
+
+<a href={mailto}>{email}</a>

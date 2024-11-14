@@ -1,17 +1,20 @@
 ---
+import { address, email, telephone } from "src/constants";
+import EmailLink from "./EmailLink.astro";
 import GoogleMapLocation from "./GoogleMapLocation.astro";
 import SectionContainer from "./SectionContainer.astro";
+import TelephoneLink from "./TelephoneLink.astro";
 import EnvelopeIcon from "./icons/EnvelopeIcon.astro";
 import GeoAltIcon from "./icons/GeoAltIcon.astro";
 import TelephoneIcon from "./icons/TelephoneIcon.astro";
 
 const seccion1 = {
   direccion_titulo: "Nuestra Dirección",
-  direccion_informacion: "123 Calle Principal, Ciudad, País",
+  direccion_informacion: address,
   correo_titulo: "Correo Electrónico",
-  correo_informacion: "contacto@ejemplo.com",
+  correo_informacion: email,
   telefono_titulo: "Teléfono",
-  telefono_informacion: "+123 456 7890",
+  telefono_informacion: telephone,
 };
 ---
 
@@ -36,7 +39,7 @@ const seccion1 = {
       >
         <EnvelopeIcon />
         <h3>{seccion1.correo_titulo}</h3>
-        <p>{seccion1.correo_informacion}</p>
+        <EmailLink />
       </div>
     </div>
 
@@ -46,72 +49,22 @@ const seccion1 = {
       >
         <TelephoneIcon />
         <h3>{seccion1.telefono_titulo}</h3>
-        <p>{seccion1.telefono_informacion}</p>
+        <TelephoneLink />
       </div>
-    </div><!-- End Info Item -->
-  </div>
-
-  <div class="row gy-4 mt-1">
-    <div class="col-lg-6">
-      <GoogleMapLocation />
-    </div>
-
-    <div class="col-lg-6">
-      <form
-        action="/forms/contact.php"
-        method="post"
-        role="form"
-        class="php-email-form"
-      >
-        <div class="row gy-4">
-          <div class="col-lg-6 form-group">
-            <input
-              type="text"
-              name="name"
-              class="form-control"
-              id="name"
-              placeholder="Tu Nombre"
-              required
-            />
-          </div>
-          <div class="col-lg-6 form-group">
-            <input
-              type="email"
-              class="form-control"
-              name="email"
-              id="email"
-              placeholder="Tu Correo"
-              required
-            />
-          </div>
-        </div>
-        <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            name="subject"
-            id="subject"
-            placeholder="Asunto"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <textarea
-            class="form-control"
-            name="message"
-            rows="5"
-            placeholder="Mensaje"
-            required></textarea>
-        </div>
-        <div class="my-3">
-          <div class="loading">Cargando</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Tu mensaje ha sido enviado. ¡Gracias!</div>
-        </div>
-        <div class="text-center">
-          <button type="submit">Enviar Mensaje</button>
-        </div>
-      </form>
     </div>
   </div>
 </SectionContainer>
+<SectionContainer id="contact-map" class="contact-map" fullWidth>
+  <div class="row gy-4 mt-1">
+    <div class="col-lg-12">
+      <div class="map-container"><GoogleMapLocation /></div>
+    </div>
+  </div>
+</SectionContainer>
+
+<style>
+  .map-container {
+    min-height: 400px;
+    height: 100%;
+  }
+</style>
