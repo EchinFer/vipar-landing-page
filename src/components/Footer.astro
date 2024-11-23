@@ -5,8 +5,8 @@ import FacebookIcon from "./icons/FacebookIcon.astro";
 import InstagramIcon from "./icons/InstagramIcon.astro";
 import LinkdnIcon from "./icons/LinkdnIcon.astro";
 import TwitterXIcon from "./icons/TwitterXIcon.astro";
+import LastProject from "./LastProject.astro";
 import TelephoneLink from "./TelephoneLink.astro";
-import NewsLetterForm from "./NewsLetterForm.astro";
 ---
 
 <footer id="footer" class="footer">
@@ -16,14 +16,21 @@ import NewsLetterForm from "./NewsLetterForm.astro";
         <div class="col-lg-4 col-md-6">
           <div class="footer-info">
             <h3>{LOGO_TEXT}</h3>
-            <p>
-              {address}
+            <div>
+              <strong>Dirección:</strong>
+              <a
+                href="https://maps.app.goo.gl/QGPCNXD9RqXEyDDN8"
+                target="_blank"
+                class="text-decoration-none"
+              >
+                {address}
+              </a>
               <br />
               <strong>Teléfono:</strong>
               <TelephoneLink /><br />
               <strong>Correo electrónico:</strong>
               <EmailLink /><br />
-            </p>
+            </div>
             <div class="social-links d-flex mt-3">
               <a
                 href="#"
@@ -70,8 +77,8 @@ import NewsLetterForm from "./NewsLetterForm.astro";
           </ul>
         </div>
         <div class="col-lg-3 col-md-4 footer-links">
-          <h4>Newsletter</h4>
-          <NewsLetterForm />
+          <h4>Última obra</h4>
+          <LastProject />
         </div>
       </div>
     </div>

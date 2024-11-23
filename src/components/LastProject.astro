@@ -1,0 +1,84 @@
+---
+import { getUltimaObra } from "@lib/query";
+import type { Project } from "@types";
+
+const { titulo, imagen }: Project = await getUltimaObra();
+---
+
+<div class="portfolio-container">
+  <div class="portfolio-content">
+    <img src={imagen} class="portfolio-image" alt={titulo} />
+  </div>
+</div>
+
+<style>
+  /* Contenedor principal */
+  .portfolio-container {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #1a1a1a;
+    cursor: pointer;
+  }
+
+  /* Imagen */
+  .portfolio-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid #004080; /* Línea decorativa */
+    transition: transform 0.3s ease;
+  }
+
+  /* Información */
+  .portfolio-info {
+    padding: 1rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .portfolio-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ccff;
+  }
+
+  .portfolio-description {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+
+  /* Acciones */
+  .portfolio-actions {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .action-link,
+  .action-zoom {
+    color: #00ccff;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .action-link:hover,
+  .action-zoom:hover {
+    color: #ffcc00;
+  }
+
+  /* Efectos de hover */
+  .portfolio-content:hover .portfolio-image {
+    transform: scale(1.05);
+  }
+</style>

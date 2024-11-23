@@ -1,6 +1,7 @@
 ---
 import type { ClientsSection } from "@types";
 import SectionContainer from "./SectionContainer.astro";
+import { Image } from 'astro:assets';
 
 interface Props {
   clients: ClientsSection;
@@ -19,10 +20,12 @@ const { clients } = Astro.props;
         <div class="col-xl-2 col-md-3">
           <div class="post-item position-relative h-100">
             <div class="post-img position-relative overflow-hidden">
-              <img
+              <Image
                 src={cliente.imagen}
                 class="img-fluid w-100"
                 alt={cliente.nombre}
+                height={250}
+                width={250}
               />
             </div>
           </div>

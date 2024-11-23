@@ -45,6 +45,9 @@ const { title } = Astro.props;
       import "bootstrap/js/dist/tab";
       import "bootstrap/js/dist/toast";
       import "bootstrap/js/dist/tooltip";
+      import { AOS } from "public/vendor/aos/aos";
+
+      AOS.init();
     </script>
     <ClientProvider client:load />
   </body>
