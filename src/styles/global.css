@@ -121,6 +121,19 @@ section {
     max-width: 60%;
   }
 }
+@media (max-width: 1279px) {
+  section {
+    margin-top: 10px;
+    padding: 15px 0;
+    margin-bottom: 10px;
+  }
+  .section-header h2:before {
+    display: none;
+  }
+  .section-header h2:after {
+    display: none;
+  }
+}
 
 /*--------------------------------------------------------------
 # Breadcrumbs
@@ -292,6 +305,17 @@ section {
 
 .header .logo h1 span {
   color: var(--color-primary);
+}
+
+@media (max-width: 1279px) {
+  .header {
+    padding-left: 0;
+    padding-bottom: 0;
+    background-color: #fff;
+  }
+  .header i {
+    color: var(--color-primary);
+  }
 }
 
 /*--------------------------------------------------------------

@@ -77,4 +77,10 @@ const { imagen, titulo, serviceDetails } = Astro.props;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
   }
+
+  @media (max-width: 1279px) {
+    .card-item {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 </style>
