@@ -1,7 +1,7 @@
 ---
 import type { ClientsSection } from "@types";
 import SectionContainer from "./SectionContainer.astro";
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 interface Props {
   clients: ClientsSection;
@@ -17,9 +17,12 @@ const { clients } = Astro.props;
   <div class="row gy-5 pb-4">
     {
       clients.map((cliente) => (
-        <div class="col-xl-2 col-md-3">
-          <div class="post-item position-relative h-100">
-            <div class="post-img position-relative overflow-hidden">
+        <div class="col-xl-2 col-md-2">
+          <div class="post-item position-relative">
+            <div
+              class="post-img position-relative overflow-hidden"
+              style={`background-color: ${cliente.color_fondo};`}
+            >
               <Image
                 src={cliente.imagen}
                 class="img-fluid w-100"

@@ -50,11 +50,15 @@ export interface FeaturesSection {
 
 export interface Project {
   titulo: string;
+  post_title: string;
   descripcion: string;
   imagen: string;
   link: string;
-  categorias: PostCategory[];
+  category: PostCategory[];
   slug: string;
+  imagenes: string[]; 
+  cliente: string;
+  fecha: string;
 }
 
 export interface ProjectsSection extends Array<Project> {}
@@ -62,6 +66,7 @@ export interface ProjectsSection extends Array<Project> {}
 export interface Client {
   imagen: string;
   nombre: string;
+  color_fondo?: string;
 }
 
 export interface ClientsSection extends Array<Client> {}

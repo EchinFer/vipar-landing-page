@@ -1,0 +1,241 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+const teamMembers = [
+  {
+    name: "Walter White",
+    position: "Chief Executive Officer",
+    image: "/assets/img/team/team-1.jpg",
+    description:
+      "Aliquam iure quaerat voluptatem praesentium possimus unde laudantium vel dolorum distinctio dire flow",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Sarah Jhonson",
+    position: "Product Manager",
+    image: "/assets/img/team/team-2.jpg",
+    description:
+      "Labore ipsam sit consequatur exercitationem rerum laboriosam laudantium aut quod dolores exercitationem ut",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "William Anderson",
+    position: "CTO",
+    image: "/assets/img/team/team-3.jpg",
+    description:
+      "Illum minima ea autem doloremque ipsum quidem quas aspernatur modi ut praesentium vel tque sed facilis at qui",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Amanda Jepson",
+    position: "Accountant",
+    image: "/assets/img/team/team-4.jpg",
+    description:
+      "Magni voluptatem accusamus assumenda cum nisi aut qui dolorem voluptate sed et veniam quasi quam consectetur",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Brian Doe",
+    position: "Marketing",
+    image: "/assets/img/team/team-5.jpg",
+    description:
+      "Qui consequuntur quos accusamus magnam quo est molestiae eius laboriosam sunt doloribus quia impedit laborum velit",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Josepha Palas",
+    position: "Operation",
+    image: "/assets/img/team/team-6.jpg",
+    description:
+      "Sint sint eveniet explicabo amet consequatur nesciunt error enim rerum earum et omnis fugit eligendi cupiditate vel",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+];
+---
+
+<Layout title="Nosotros">
+  <main id="main">
+    <!-- Breadcrumbs -->
+    <div
+      class="breadcrumbs d-flex align-items-center"
+      style="background-image: url('/img/breadcrumbs-bg.jpg');"
+    >
+      <div
+        class="container position-relative d-flex flex-column align-items-center"
+        data-aos="fade"
+      >
+        <h2>About</h2>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>About</li>
+        </ol>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row position-relative">
+          <div
+            class="col-lg-7 about-img"
+            style="background-image: url('/img/about.jpg');"
+          >
+          </div>
+          <div class="col-lg-7">
+            <h2>Dos generaciones de experiencia</h2>
+            <div class="our-story">
+              <h4>¡Operando desde el año 2000!</h4>
+              <h3>Nuestra Historia</h3>
+              <p>
+                Vipar S.A. es una empresa paraguaya con la experiencia de dos
+                generaciones dedicadas a la comercialización de cristal. Nuestra
+                experiencia se traduce en diseños innovadores e instalaciones de
+                cristales templados para la industria de la construcción,
+                desarrollos inmobiliarios y viviendas.
+              </p>
+              <ul>
+                <li>
+                  <i class="bi bi-check-circle"></i>
+                  <span>Aplicación de los más altos estándares de calidad.</span
+                  >
+                </li>
+                <li>
+                  <i class="bi bi-check-circle"></i>
+                  <span
+                    >Soluciones para constructores, desarrolladores y
+                    particulares.</span
+                  >
+                </li>
+                <li>
+                  <i class="bi bi-check-circle"></i>
+                  <span
+                    >Respaldo de las marcas más competitivas del mercado.</span
+                  >
+                </li>
+              </ul>
+              <p>
+                Con una fe firme en Dios y un compromiso con la patria, Vipar ha
+                cultivado relaciones con clientes y amigos que han sido
+                fundamentales para su crecimiento continuo y sostenible.
+              </p>
+
+              <div
+                class="watch-video d-flex align-items-center position-relative"
+              >
+                <i class="bi bi-play-circle"></i>
+                <a
+                  href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                  class="glightbox stretched-link">Watch Video</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+    <section id="mission-vision" class="mission-vision section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-6">
+            <h3>Misión</h3>
+            <p>
+              Brindar calidad y alta terminación en la colocación de vidrieras,
+              mamparas, cielorrasos, divisorias de oficinas y todo lo
+              relacionado al ramo de la construcción. Nuestro objetivo es
+              distinguirnos y lograr un alto posicionamiento en el mercado
+              mediante un servicio rápido y garantizado.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <h3>Visión</h3>
+            <p>
+              Ser una empresa de prestigio nacional, reconocida por la
+              excelencia en sus productos y servicios. Comprometida con la
+              mejora continua, alianzas estratégicas y la satisfacción del
+              cliente, mientras fomenta el desarrollo integral de su recurso
+              humano.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Mission and Vision Section -->
+
+    <!-- Our Team Section -->
+    <section id="team" class="team">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Our Team</h2>
+          <p>
+            Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro
+            incidunt dolores placeat sunt id nobis omnis tiledo stran delop
+          </p>
+        </div>
+        <div class="row gy-5">
+          {
+            teamMembers.map((member, index) => (
+              <div
+                class="col-lg-4 col-md-6 member"
+                data-aos="fade-up"
+                data-aos-delay={`${(index + 1) * 100}`}
+              >
+                <div class="member-img">
+                  <img src={member.image} class="img-fluid" alt={member.name} />
+                  <div class="social">
+                    <a href={member.social.twitter}>
+                      <i class="bi bi-twitter" />
+                    </a>
+                    <a href={member.social.facebook}>
+                      <i class="bi bi-facebook" />
+                    </a>
+                    <a href={member.social.instagram}>
+                      <i class="bi bi-instagram" />
+                    </a>
+                    <a href={member.social.linkedin}>
+                      <i class="bi bi-linkedin" />
+                    </a>
+                  </div>
+                </div>
+                <div class="member-info text-center">
+                  <h4>{member.name}</h4>
+                  <span>{member.position}</span>
+                  <p>{member.description}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section><!-- End Our Team Section -->
+  </main>
+</Layout>

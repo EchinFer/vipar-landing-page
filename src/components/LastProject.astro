@@ -1,13 +1,15 @@
 ---
 import { getUltimaObra } from "@lib/query";
 import type { Project } from "@types";
+import ZoomInIcon from "./icons/ZoomInIcon.astro";
+import ProjectCard from "./ProjectCard.astro";
 
-const { titulo, imagen }: Project = await getUltimaObra();
+const project: Project = await getUltimaObra();
 ---
 
-<div class="portfolio-container">
-  <div class="portfolio-content">
-    <img src={imagen} class="portfolio-image" alt={titulo} />
+<div class="projects">
+  <div class="portfolio-container">
+    <ProjectCard project={project} />
   </div>
 </div>
 
@@ -15,8 +17,8 @@ const { titulo, imagen }: Project = await getUltimaObra();
   /* Contenedor principal */
   .portfolio-container {
     position: relative;
-    max-width: 300px;
-    margin: 0 auto;
+    max-width: 260px;
+    margin: 0;
     text-align: center;
     overflow: hidden;
     border-radius: 8px;

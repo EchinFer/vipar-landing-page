@@ -1,0 +1,153 @@
+---
+export const prerender = false;
+
+const { obra } = Astro.params;
+import Layout from "@layouts/Layout.astro";
+import { getProjectBySlug } from "@lib/query";
+import type { Project } from "@types";
+
+if (!obra) {
+  return {
+    status: 404,
+    error: new Error("No se encontró la obra"),
+  };
+}
+const project: Project = await getProjectBySlug(obra);
+
+console.log({
+  project,
+});
+---
+
+<Layout title={`Obras - ${project.post_title}`}>
+  <main id="main">
+    <!-- Breadcrumbs -->
+    <div
+      class="breadcrumbs d-flex align-items-center"
+      style="background-image: url('/img/breadcrumbs-bg.jpg');"
+    >
+      <div
+        class="container position-relative d-flex flex-column align-items-center"
+        data-aos="fade"
+      >
+        <h2>Obras</h2>
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/obras">Obras</a></li>
+          <li>{project.titulo}</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Project Details Section -->
+    <section id="project-details" class="project-details">
+      <div class="row justify-content-between gy-4 mb-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-12 text-center">
+          <h2>{project.post_title}</h2>
+        </div>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="position-relative h-100">
+          <!-- Image Slider -->
+          <div class="slides-1 portfolio-details-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+              {
+                project.imagenes.map((img) => (
+                  <div class="swiper-slide">
+                    <img src={img} alt={project.titulo} />
+                  </div>
+                ))
+              }
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="row justify-content-between gy-4 mt-4">
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+              <h2 class="portfolio-title">{project.titulo}</h2>
+              <p set:html={project.descripcion} />
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="portfolio-info">
+              <h3>Información del Proyecto</h3>
+              <ul>
+                <li>
+                  <strong>Categorías:</strong>
+                  {project.category.map((cat) => cat.name).join(", ")}
+                </li>
+                <li><strong>Cliente:</strong> {project.cliente}</li>
+                <li><strong>Fecha:</strong> {project.fecha}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    "use strict";
+
+    /**
+     * Init swiper slider with 1 slide at once in desktop view
+     */
+    new Swiper(".slides-1", {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      slidesPerView: "auto",
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    /**
+     * Init swiper slider with 2 slides at once in desktop view
+     */
+    new Swiper(".slides-2", {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      slidesPerView: "auto",
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+
+        1200: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+      },
+    });
+  });
+</script>

@@ -1,4 +1,6 @@
 ---
+import Logo from "@assets/image/logo.png"
+import { Image } from "astro:assets";
 import { LOGO_TEXT, MENU_ITEMS } from "src/constants";
 
 const currentPathname = new URL(Astro.request.url).pathname;
@@ -9,7 +11,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
     class="container-fluid container-xl d-flex align-items-center justify-content-between"
   >
     <a href="/" class="logo d-flex align-items-center">
-      <h1>{LOGO_TEXT}<span>.</span></h1>
+        <Image src={Logo} alt={LOGO_TEXT} />
     </a>
 
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>

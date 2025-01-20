@@ -1,0 +1,107 @@
+---
+import ContactSection from "@components/ContactSection.astro";
+import Layout from "@layouts/Layout.astro";
+
+const teamMembers = [
+  {
+    name: "Walter White",
+    position: "Chief Executive Officer",
+    image: "/assets/img/team/team-1.jpg",
+    description:
+      "Aliquam iure quaerat voluptatem praesentium possimus unde laudantium vel dolorum distinctio dire flow",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Sarah Jhonson",
+    position: "Product Manager",
+    image: "/assets/img/team/team-2.jpg",
+    description:
+      "Labore ipsam sit consequatur exercitationem rerum laboriosam laudantium aut quod dolores exercitationem ut",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "William Anderson",
+    position: "CTO",
+    image: "/assets/img/team/team-3.jpg",
+    description:
+      "Illum minima ea autem doloremque ipsum quidem quas aspernatur modi ut praesentium vel tque sed facilis at qui",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Amanda Jepson",
+    position: "Accountant",
+    image: "/assets/img/team/team-4.jpg",
+    description:
+      "Magni voluptatem accusamus assumenda cum nisi aut qui dolorem voluptate sed et veniam quasi quam consectetur",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Brian Doe",
+    position: "Marketing",
+    image: "/assets/img/team/team-5.jpg",
+    description:
+      "Qui consequuntur quos accusamus magnam quo est molestiae eius laboriosam sunt doloribus quia impedit laborum velit",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Josepha Palas",
+    position: "Operation",
+    image: "/assets/img/team/team-6.jpg",
+    description:
+      "Sint sint eveniet explicabo amet consequatur nesciunt error enim rerum earum et omnis fugit eligendi cupiditate vel",
+    social: {
+      twitter: "#",
+      facebook: "#",
+      instagram: "#",
+      linkedin: "#",
+    },
+  },
+];
+---
+
+<Layout title="Nosotros">
+  <main id="main">
+    <!-- Breadcrumbs -->
+    <div
+      class="breadcrumbs d-flex align-items-center"
+      style="background-image: url('/img/breadcrumbs-bg.jpg');"
+    >
+      <div
+        class="container position-relative d-flex flex-column align-items-center"
+        data-aos="fade"
+      >
+        <h2>Contacto</h2>
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li>Contacto</li>
+        </ol>
+      </div>
+    </div>
+    <ContactSection />
+  </main>
+</Layout>

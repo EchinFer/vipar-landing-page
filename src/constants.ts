@@ -8,10 +8,15 @@ export const MENU_ITEMS = [
     title: "Inicio",
     url: "/",
   },
+//   {
+//     id: 2,
+//     title: "Nosotros",
+//     url: "/nosotros/",
+//   },
   {
     id: 2,
-    title: "Nosotros",
-    url: "/nosotros/",
+    title: "Obras",
+    url: "/obras/",
   },
   {
     id: 3,

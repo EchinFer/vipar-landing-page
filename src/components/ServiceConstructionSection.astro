@@ -5,24 +5,34 @@ import ServiceCard from "./ServiceCard.astro";
 
 interface Props {
   seccionServicios: ConstructionServiceSection;
+  showBanner?: boolean;
 }
 
-const { seccionServicios } = Astro.props;
+const { seccionServicios, showBanner = true } = Astro.props;
 
 const { titulo, servicios, texto_imagen, imagen } = seccionServicios;
 ---
 
-<SectionContainer
-  id="services-construction"
-  class="services-construction"
-  fullWidth
->
-  <div class="section-image-top-wrapper">
-    <h2>{texto_imagen}</h2>
-    <img src={imagen} class="section-image-top" alt="Servicios Construcción" />
-    <div class="section-overlay"></div>
-  </div>
-</SectionContainer>
+{
+  showBanner && (
+    <SectionContainer
+      id="services-construction"
+      class="services-construction"
+      fullWidth
+    >
+      <div class="section-image-top-wrapper">
+        <h2>{texto_imagen}</h2>
+        <img
+          src={imagen}
+          class="section-image-top"
+          alt="Servicios Construcción"
+        />
+        <div class="section-overlay" />
+      </div>
+    </SectionContainer>
+  )
+}
+
 <SectionContainer id="constructions" class="constructions">
   <div class="section-header">
     <h2>{titulo}</h2>

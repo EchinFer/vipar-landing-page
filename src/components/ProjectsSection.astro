@@ -8,9 +8,7 @@ interface Props {
 
 const { projects: obras } = Astro.props;
 
-const categorias: PostCategory[] = obras.flatMap(
-  (obra) => obra.categorias ?? []
-);
+const categorias: PostCategory[] = obras.flatMap((obra) => obra.category ?? []);
 
 const uniqueCategorias: PostCategory[] = categorias.reduce((acc, cat) => {
   if (!acc.some((existingCat) => existingCat.term_id === cat.term_id)) {
@@ -18,10 +16,11 @@ const uniqueCategorias: PostCategory[] = categorias.reduce((acc, cat) => {
   }
   return acc;
 }, [] as PostCategory[]);
+
 ---
 
 <SectionContainer id="projects" class="projects">
-  <div class="section-header">
+  <div class="section-header" id="nuestras-obras">
     <h2>Nuestras Obras</h2>
     <p>
       Te presentamos algunos de nuestros proyectos destacados que demuestran
@@ -40,7 +39,16 @@ const uniqueCategorias: PostCategory[] = categorias.reduce((acc, cat) => {
     </ul>
 
     <div class="row gy-4 portfolio-container">
-      {obras && obras.map((obra) => <ProjectCard project={obra} />)}
+      {
+        obras &&
+          obras.map((obra) => (
+            <div
+              class={`col-lg-4 col-md-6 portfolio-item filter-${obra.category?.[0]?.slug}`}
+            >
+              <ProjectCard project={obra} />
+            </div>
+          ))
+      }
     </div>
   </div>
 </SectionContainer>
@@ -60,7 +68,7 @@ const uniqueCategorias: PostCategory[] = categorias.reduce((acc, cat) => {
      * Portfolio isotope and filter
      */
     let portfolionIsotope = document.querySelector(".portfolio-isotope");
-    console.log(portfolionIsotope);
+    console.log({ portfolionIsotope });
     if (portfolionIsotope) {
       let portfolioFilter =
         portfolionIsotope.getAttribute("data-portfolio-filter") || "*";

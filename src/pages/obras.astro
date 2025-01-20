@@ -1,0 +1,41 @@
+---
+import ProjectsSection from "@components/ProjectsSection.astro";
+import Layout from "@layouts/Layout.astro";
+import { getProjectPageData } from "@lib/query";
+import type { PostCategory } from "@types";
+
+const obras = await getProjectPageData();
+const categorias: PostCategory[] = obras.flatMap(
+  (obra) => obra.category ?? []
+);
+
+const uniqueCategorias: PostCategory[] = categorias.reduce((acc, cat) => {
+  if (!acc.some((existingCat) => existingCat.term_id === cat.term_id)) {
+    acc.push(cat);
+  }
+  return acc;
+}, [] as PostCategory[]);
+---
+
+<Layout title="Obras">
+  <main id="main">
+    <!-- Breadcrumbs -->
+    <div
+      class="breadcrumbs d-flex align-items-center"
+      style="background-image: url('/img/breadcrumbs-bg.jpg');"
+    >
+      <div
+        class="container position-relative d-flex flex-column align-items-center"
+        data-aos="fade"
+      >
+        <h2>Obras</h2>
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li>Obras</li>
+        </ol>
+      </div>
+    </div>
+
+    <ProjectsSection projects={obras} />
+  </main>
+</Layout>
