@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/node": "^9.0.2",
     "aos": "^2.3.4",
-    "astro": "^4.16.10",
+    "astro": "^5.2",
     "bootstrap": "^5.3.3",
     "glightbox": "^3.3.0",
     "isotope-layout": "^3.0.6",
