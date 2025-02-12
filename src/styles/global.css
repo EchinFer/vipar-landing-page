@@ -31,11 +31,12 @@
   --breakpoint-desktop: 1024px;
 
   --color-default: #45475b; /* Azul oscuro del logo */
-  --color-primary: #357abd; /* Tonalidad clara del azul */
+  --color-primary: #1c256e; /* Tonalidad clara del azul */
   --color-secondary: #4a90e2; /* Azul oscuro */
   --color-accent: #45475b; /* Blanco como color de acento */
   --color-light: #4a90e2; /* Blanco */
   --color-primary-hover: #357abd; /* Azul oscuro */
+  --color-dark: #1c256e; /* Azul oscuro */
 }
 
 /* Smooth scroll behavior */
@@ -123,7 +124,6 @@ section {
 }
 @media (max-width: 1279px) {
   section {
-    margin-top: 10px;
     padding: 15px 0;
     margin-bottom: 10px;
   }
@@ -149,7 +149,7 @@ section {
 
 .breadcrumbs:before {
   content: "";
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.75);
   position: absolute;
   inset: 0;
 }
@@ -169,7 +169,7 @@ section {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .breadcrumbs ol a {
@@ -275,12 +275,15 @@ section {
 --------------------------------------------------------------*/
 .header {
   z-index: 997;
-  position: absolute;
-  padding: 15px 0;
-  padding-top: 0;
+  position: sticky;
+  padding: 15px 0px;
   top: 0;
   left: 0;
   right: 0;
+  background-color: var(--color-primary);
+  box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.5);
+  max-height: 85px;
+  height: 100%;
 }
 
 .header .logo {
@@ -310,11 +313,9 @@ section {
 @media (max-width: 1279px) {
   .header {
     padding-left: 0;
-    padding-bottom: 0;
-    background-color: #fff;
   }
   .header i {
-    color: var(--color-primary);
+    color: white;
   }
 }
 
@@ -904,7 +905,7 @@ section {
 
 .projects .portfolio-flters li:hover,
 .projects .portfolio-flters li.filter-active {
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .projects .portfolio-flters li:first-child {
