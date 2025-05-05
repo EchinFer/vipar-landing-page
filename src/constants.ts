@@ -1,4 +1,6 @@
 export const CMS_API_URL = import.meta.env.CMS_API_URL;
+export const SITE_URL = import.meta.env.SITE_URL || "https://vipar.com.py";
+export const MEASUREMENT_ID = import.meta.env.MEASUREMENT_ID || "G-XXXXXXX";
 
 export const LOGO_TEXT = "VIPAR S.A";
 
@@ -8,11 +10,11 @@ export const MENU_ITEMS = [
     title: "Inicio",
     url: "/",
   },
-//   {
-//     id: 2,
-//     title: "Nosotros",
-//     url: "/nosotros/",
-//   },
+  //   {
+  //     id: 2,
+  //     title: "Nosotros",
+  //     url: "/nosotros/",
+  //   },
   {
     id: 2,
     title: "Obras",

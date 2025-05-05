@@ -1,6 +1,9 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
+import compress from "vite-plugin-compression";
+import sitemap from "@astrojs/sitemap";
+import partytown from '@astrojs/partytown'
 
 const { NODE_TLS_REJECT_UNAUTHORIZED } = loadEnv(
   // @ts-ignore
@@ -18,4 +21,15 @@ export default defineConfig({
   output: "static",
   base: "/",
   site,
+  integrations: [
+    sitemap(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
+  vite: {
+    plugins: [compress()],
+  },
 });

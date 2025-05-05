@@ -12,6 +12,8 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/node": "^9.2.1",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/sitemap": "^3.3.1",
     "@astrojs/vercel": "^8.1.4",
     "aos": "^2.3.4",
     "astro": "^5.7.10",
@@ -24,6 +26,7 @@
   "devDependencies": {
     "@types/aos": "^3.0.7",
     "@types/bootstrap": "^5.2.10",
-    "@types/isotope-layout": "^3.0.14"
+    "@types/isotope-layout": "^3.0.14",
+    "vite-plugin-compression": "^0.5.1"
   }
 }

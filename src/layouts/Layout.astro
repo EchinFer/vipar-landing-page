@@ -8,13 +8,17 @@ import "@assets/vendor/glightbox/css/glightbox.min.css";
 import "@assets/vendor/glightbox/css/plyr.min.css";
 import "@assets/vendor/swiper/swiper-bundle.min.css";
 import "@assets/vendor/bootstrap-icons/bootstrap-icons.css";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 import ClientProvider from "./ClientProvider.astro";
 import Footer from "@components/Footer.astro";
 import WhatsappFAB from "@components/WhatsappFAB.astro";
+import { MEASUREMENT_ID, SITE_URL } from "src/constants";
 interface Props {
   title: string;
 }
+
+const metaDescription =
+  "Empresa paraguaya con dos generaciones de experiencia en cristales templados para construcción, desarrollos inmobiliarios, comercios y hogares.";
 
 const { title } = Astro.props;
 ---
@@ -22,15 +26,57 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", MEASUREMENT_ID);
+    </script>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="robots" content="index, follow" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="canonical" href={SITE_URL} />
+
+    <!-- SEO Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content={metaDescription}
+    />
+    <meta property="og:image" content={`${SITE_URL}/img/vipar-og.webp`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={SITE_URL} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content={metaDescription}
+    />
+    <meta name="twitter:image" content={`${SITE_URL}/img/vipar-og.webp`} />
+
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
     <Header />
