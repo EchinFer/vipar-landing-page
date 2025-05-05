@@ -1,22 +1,20 @@
 ---
-export const prerender = false;
-
-const { obra } = Astro.params;
 import Layout from "@layouts/Layout.astro";
-import { getProjectBySlug } from "@lib/query";
-import type { Project } from "@types";
+import { getAllObras, getProjectPageData } from "@lib/query";
 
-if (!obra) {
-  return {
-    status: 404,
-    error: new Error("No se encontró la obra"),
-  };
+export async function getStaticPaths() {
+  const projects = await getAllObras();
+  return projects.map((project) => {
+    return {
+      params: { slug: project.slug },
+      props: { project },
+    };
+  });
 }
-const project: Project = await getProjectBySlug(obra);
 
-console.log({
-  project,
-});
+const { project } = Astro.props;
+
+console.log("Project Data:", project);
 ---
 
 <Layout title={`Obras - ${project.post_title}`}>
@@ -41,7 +39,11 @@ console.log({
 
     <!-- Project Details Section -->
     <section id="project-details" class="project-details">
-      <div class="row justify-content-between gy-4 mb-3" data-aos="fade-up" data-aos-delay="100">
+      <div
+        class="row justify-content-between gy-4 mb-3"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <div class="col-lg-12 text-center">
           <h2>{project.post_title}</h2>
         </div>

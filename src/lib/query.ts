@@ -19,6 +19,12 @@ export const getProjectPageData = async (): Promise<Project[]> => {
   );
 };
 
+export const getAllObras = async (): Promise<Project[]> => {
+  return await fetch(`${CMS_API_URL}/custom/v2/all-obras`).then((response) =>
+    response.json()
+  );
+};
+
 export const getProjectBySlug = async (slug: string): Promise<Project> => {
   return await fetch(`${CMS_API_URL}/custom/v2/project/${slug}`).then(
     (response) => response.json()
