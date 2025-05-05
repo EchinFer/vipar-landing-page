@@ -4,9 +4,10 @@ interface Props {
   containerClass?: string;
   class: string;
   fullWidth?: boolean;
+  ariaLabelledby?: string;
 }
 
-const { containerClass, fullWidth = false } = Astro.props;
+const { containerClass, fullWidth = false, ariaLabelledby } = Astro.props;
 
 const container = fullWidth
   ? "section-container-full-width"
@@ -14,7 +15,11 @@ const container = fullWidth
 const sectionClass = fullWidth ? "section-full-width" : "";
 ---
 
-<section id={Astro.props.id} class:list={[sectionClass, Astro.props.class]}>
+<section
+  id={Astro.props.id}
+  class:list={[sectionClass, Astro.props.class]}
+  aria-labelledby={ariaLabelledby}
+>
   <div class:list={[container, containerClass]}>
     <slot />
   </div>

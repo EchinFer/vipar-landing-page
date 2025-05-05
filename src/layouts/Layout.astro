@@ -24,7 +24,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- Google tag (gtag.js) -->
     <script
@@ -52,10 +52,7 @@ const { title } = Astro.props;
 
     <!-- SEO Open Graph -->
     <meta property="og:title" content={title} />
-    <meta
-      property="og:description"
-      content={metaDescription}
-    />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:image" content={`${SITE_URL}/img/vipar-og.webp`} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={SITE_URL} />
@@ -63,10 +60,7 @@ const { title } = Astro.props;
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta
-      name="twitter:description"
-      content={metaDescription}
-    />
+    <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={`${SITE_URL}/img/vipar-og.webp`} />
 
     <!-- Favicon -->
@@ -84,7 +78,6 @@ const { title } = Astro.props;
     <WhatsappFAB />
     <Footer />
     <script>
-      // Import only what you need
       import "bootstrap/js/dist/alert";
       import "bootstrap/js/dist/button";
       import "bootstrap/js/dist/carousel";
@@ -101,6 +94,136 @@ const { title } = Astro.props;
       AOS.init();
     </script>
     <ClientProvider />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Vipar",
+        "description": "Vipar S.A. es una empresa paraguaya con la experiencia de dos generaciones dedicadas a la comercialización de cristal e instalación de cristales templados para la industria de la construcción, desarrollos inmobiliarios y viviendas.",
+        "url": "https://vipar.com.py/",
+        "logo": "https://vipar.com.py/img/logo.png",
+        "image": "https://vipar.com.py/img/og.webp",
+        "email": "info@vipar.com.py",
+        "telephone": "+595981256510",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Pdte. Franco",
+          "addressLocality": "Ñemby",
+          "addressRegion": "Dpto Central",
+          "postalCode": "111212",
+          "addressCountry": "PY"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "07:00",
+            "closes": "17:00"
+          }
+        ],
+        "areaServed": "PY",
+        "sameAs": [
+          "https://www.instagram.com/vipar_py/",
+          "https://www.facebook.com/vipar.vidrios"
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Box de baño",
+              "description": "Instalación de box de baño en acrílico, cristal templado y otros materiales como safonadas."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cielo raso",
+              "description": "Soluciones en cielorrasos de PVC, yeso junta tomada, Durlock y sistemas desmontables."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cortinas",
+              "description": "Cortinas verticales y horizontales personalizadas para interiores y oficinas."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fachadas",
+              "description": "Diseño e instalación de fachadas tipo muro cortina, sistema glazing y entubado."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mamparas divisorias",
+              "description": "Mamparas en eucatex, cristal templado y tabique de Durlock para ambientes interiores."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Puertas",
+              "description": "Puertas corredizas, batientes y plegables en cristal templado o PVC para hogares y oficinas."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ventanas",
+              "description": "Ventanas de aluminio y cristal templado: modelos basculantes y corredizos."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Carpintería de Aluminio",
+              "description": "Fabricación e instalación de puertas batientes y corredizas de aluminio a medida."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Supervisión técnica y fiscalización de obras",
+              "description": "Control de calidad, inspecciones, auditorías técnicas y gestión de incidencias en obras."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Dirección de proyectos de construcción",
+              "description": "Planificación estratégica, coordinación de equipos y seguimiento presupuestario de obras."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestión de seguridad en construcción",
+              "description": "Supervisión de protocolos de seguridad, capacitaciones e inspecciones técnicas en obra."
+            }
+          }
+        ]
+      }
+    </script>
   </body>
 </html>
 <style is:global></style>

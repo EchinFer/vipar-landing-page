@@ -7,15 +7,18 @@ interface Props {
 const { imagen, titulo, serviceDetails } = Astro.props;
 ---
 
-<article class="card-item">
+<article class="card-item" role="listitem">
   <div class="card-item-img global-image global-image-orientation">
-    <img src={imagen} alt={titulo} />
-  </div>
-  <div class="row">
-    <div class="col-xl-12 align-items-center"></div>
+    <img
+      src={imagen}
+      alt={`Imagen ilustrativa del servicio ${titulo}`}
+      width="500"
+      height="300"
+      loading="lazy"
+    />
   </div>
   <div class="card-body">
-    <h4 class="card-title">{titulo}</h4>
+    <h3 class="card-title">{titulo}</h3>
     <div class="card-item-excerpt">
       {
         serviceDetails &&
@@ -32,7 +35,7 @@ const { imagen, titulo, serviceDetails } = Astro.props;
   }
   .card-item-img:hover {
     transform: translateY(-3px);
-}
+  }
 
   .card-title {
     font-size: 16px !important;

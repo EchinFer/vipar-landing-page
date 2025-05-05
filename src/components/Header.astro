@@ -6,23 +6,36 @@ import { LOGO_TEXT, MENU_ITEMS } from "src/constants";
 const currentPathname = new URL(Astro.request.url).pathname;
 ---
 
-<header id="header" class="header d-flex align-items-center">
+<header
+  id="header"
+  class="header d-flex align-items-center"
+  aria-label="Menú principal"
+>
   <div
     class="container-fluid container-xl d-flex align-items-center justify-content-between"
   >
     <a href="/" class="logo d-flex align-items-center">
-      <Image src={Logo} alt={LOGO_TEXT} />
+      <Image
+        src={Logo}
+        alt={LOGO_TEXT}
+        width={1484}
+        height={368}
+        loading="eager"
+      />
     </a>
 
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-    <nav id="navbar" class="navbar">
+    <nav id="navbar" class="navbar" aria-label="Navegación principal">
       <ul>
         {
           MENU_ITEMS.map((menuItem) => (
             <li>
               <a
                 href={menuItem.url}
+                aria-current={
+                  currentPathname === menuItem.url ? "page" : undefined
+                }
                 class:list={[{ active: currentPathname === menuItem.url }]}
               >
                 {menuItem.title}

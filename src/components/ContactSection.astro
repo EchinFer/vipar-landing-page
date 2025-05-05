@@ -18,19 +18,19 @@ const seccion1 = {
 };
 ---
 
-<SectionContainer id="contact" class="contact">
+<SectionContainer id="contact" class="contact" ariaLabelledby="contact">
   <div class="section-header">
     <h2>Contáctanos</h2>
   </div>
   <div class="row gy-4">
     <div class="col-lg-6">
-      <div
+      <address
         class="info-item d-flex flex-column justify-content-center align-items-center"
       >
-        <GeoAltIcon />
+        <GeoAltIcon aria-label="Ubicación" title="Ubicación" />
         <h3>{seccion1.direccion_titulo}</h3>
         <p>{seccion1.direccion_informacion}</p>
-      </div>
+      </address>
     </div>
 
     <div class="col-lg-3 col-md-6">
@@ -54,7 +54,7 @@ const seccion1 = {
     </div>
   </div>
 </SectionContainer>
-<SectionContainer id="contact-map" class="contact-map" fullWidth>
+<SectionContainer id="contact-map" class="contact-map" fullWidth ariaLabelledby="contact">
   <div class="row gy-4 mt-1">
     <div class="col-lg-12">
       <div class="map-container"><GoogleMapLocation /></div>
