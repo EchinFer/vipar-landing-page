@@ -10,8 +10,12 @@ const { NODE_TLS_REJECT_UNAUTHORIZED } = loadEnv(
   ""
 );
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = NODE_TLS_REJECT_UNAUTHORIZED;
+// @ts-ignore
+const site = process.env.ASTRO_SITE_URL || "https://example.com";
 
 // https://astro.build/config
 export default defineConfig({
   output: "static",
+  base: "/",
+  site,
 });
