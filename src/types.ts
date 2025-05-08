@@ -50,7 +50,6 @@ export interface FeaturesSection {
 
 export interface Project {
   titulo: string;
-  post_title: string;
   descripcion: string;
   imagen: string;
   link: string;
