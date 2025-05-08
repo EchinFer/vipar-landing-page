@@ -52,7 +52,25 @@ const messagePreview =
   href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messagePreview)}`}
   target="_blank"
   class="whatsapp-button"
+  id="whatsapp-button"
   aria-label="Chat on WhatsApp"
 >
   <WhatsappIcon />
 </a>
+
+<script>
+  const whatsappButton = document.getElementById("whatsapp-button");
+  whatsappButton?.addEventListener("click", function () {
+    // @ts-ignore
+    if (typeof window !== "undefined" && window.gtag) {
+      // @ts-ignore
+      window.gtag("event", "whatsapp_click", {
+        event_category: "engagement",
+        event_label: "WhatsApp FAB",
+        value: 1,
+      });
+    } else {
+      console.log("Evento de WhatsApp clic registrado");
+    }
+  });
+</script>

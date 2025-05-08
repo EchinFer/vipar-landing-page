@@ -12,7 +12,6 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/node": "^9.2.1",
-    "@astrojs/partytown": "^2.1.4",
     "@astrojs/sitemap": "^3.3.1",
     "@astrojs/vercel": "^8.1.4",
     "aos": "^2.3.4",
