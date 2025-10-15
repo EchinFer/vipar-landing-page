@@ -53,7 +53,14 @@ const { project } = Astro.props;
           <div class="slides-1 portfolio-details-slider swiper">
             <div class="swiper-wrapper align-items-center">
               {
-                project.imagenes.map((img) => (
+                project.imagen && (
+                  <div class="swiper-slide">
+                    <img src={project.imagen} alt={project.titulo} />
+                  </div>
+                )
+              }
+              {
+                project.imagenes && project.imagenes.map((img) => (
                   <div class="swiper-slide">
                     <img src={img} alt={project.titulo} />
                   </div>
