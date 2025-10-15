@@ -1,4 +1,4 @@
-import type { HomePageData, Project } from "@types";
+import type { HomePageData, Project, Servicio, ServicioDetallado } from "@types";
 import { CMS_API_URL } from "src/constants";
 
 export const getHomePageData = async (): Promise<HomePageData> => {
@@ -27,6 +27,19 @@ export const getAllObras = async (): Promise<Project[]> => {
 
 export const getProjectBySlug = async (slug: string): Promise<Project> => {
   return await fetch(`${CMS_API_URL}/custom/v2/project/${slug}`).then(
+    (response) => response.json()
+  );
+};
+
+// Funciones para Servicios
+export const getAllServicios = async (): Promise<Servicio[]> => {
+  return await fetch(`${CMS_API_URL}/custom/v2/servicios`).then((response) =>
+    response.json()
+  );
+};
+
+export const getServicioById = async (id: number): Promise<ServicioDetallado> => {
+  return await fetch(`${CMS_API_URL}/custom/v2/servicio/${id}`).then(
     (response) => response.json()
   );
 };

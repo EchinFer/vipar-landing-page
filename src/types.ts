@@ -89,3 +89,31 @@ export interface HomePageData {
   clients_section: ClientsSection;
   blog_section: BlogSection;
 }
+
+// Nuevos tipos para Servicios
+export interface Subservicio {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  imagen: string;
+  precio: string;
+}
+
+export interface Servicio {
+  id: number;
+  titulo: string;
+  slug: string;
+  titulo_secundario: string;
+  descripcion: string;
+  descripcion_corta: string;
+  descripcion_larga: string;
+  icono: {
+    url: string;
+    alt?: string;
+  };
+  subservicios: Subservicio[];
+}
+
+export interface ServicioDetallado extends Servicio {
+  obras_relacionadas?: Project[];
+}

@@ -1,0 +1,258 @@
+---
+import Layout from "@layouts/Layout.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import { getAllServicios, getServicioById } from "@lib/query";
+
+export async function getStaticPaths() {
+  const servicios = await getAllServicios();
+  
+  // Obtener los datos completos de cada servicio
+  const serviciosConDetalles = await Promise.all(
+    servicios.map(async (servicio) => {
+      const servicioDetallado = await getServicioById(servicio.id);
+      return servicioDetallado;
+    })
+  );
+
+  return serviciosConDetalles.map((servicio) => {
+    return {
+      params: { slug: servicio.slug },
+      props: { servicio },
+    };
+  });
+}
+
+const { servicio } = Astro.props;
+---
+
+<Layout title={`Servicios - ${servicio.titulo}`}>
+  <main id="main">
+    <!-- Breadcrumbs -->
+    <div
+      class="breadcrumbs d-flex align-items-center"
+      style="background-image: url('/img/breadcrumbs-bg.jpg');"
+    >
+      <div
+        class="container position-relative d-flex flex-column align-items-center"
+        data-aos="fade"
+      >
+        <h2>Servicios</h2>
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/servicios">Servicios</a></li>
+          <li>{servicio.titulo}</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <!-- Información Principal del Servicio -->
+          <div class="col-lg-12">
+            <div class="service-description">
+              <div class="text-center mb-4">
+                {servicio.icono?.url && (
+                  <img 
+                    src={servicio.icono.url} 
+                    alt={servicio.icono.alt || servicio.titulo}
+                    class="service-icon mb-3"
+                    style="max-width: 80px; height: auto;"
+                  />
+                )}
+                <h2 class="service-title">{servicio.titulo}</h2>
+                {servicio.titulo_secundario && (
+                  <h4 class="text-muted">{servicio.titulo_secundario}</h4>
+                )}
+              </div>
+              
+              {servicio.descripcion_corta && (
+                <div class="alert alert-info">
+                  <p class="mb-0">{servicio.descripcion_corta}</p>
+                </div>
+              )}
+
+              {servicio.descripcion && (
+                <div class="mb-4">
+                  <h3>Descripción</h3>
+                  <p set:html={servicio.descripcion} />
+                </div>
+              )}
+
+              {servicio.descripcion_larga && (
+                <div class="mb-4">
+                  <div set:html={servicio.descripcion_larga} />
+                </div>
+              )}
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Subservicios -->
+        {servicio.subservicios && servicio.subservicios.length > 0 && (
+          <div class="subservicios-section mt-5">
+            <div class="row gy-3">
+              {servicio.subservicios.map((subservicio, index) => (
+                <div class="col-lg-6 col-md-6">
+                  <div class="subservicio-item">
+                    <div class="d-flex align-items-start">
+                      <div class="subservicio-number">
+                        {(index + 1).toString().padStart(2, '0')}
+                      </div>
+                      <div class="flex-grow-1">
+                        <h5 class="subservicio-title">{subservicio.nombre}</h5>
+                        {subservicio.descripcion && (
+                          <p class="subservicio-desc mb-2">{subservicio.descripcion}</p>
+                        )}
+                        {subservicio.precio && (
+                          <span class="subservicio-precio">
+                            <i class="bi bi-tag-fill"></i> {subservicio.precio}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Obras Relacionadas -->
+        {servicio.obras_relacionadas && servicio.obras_relacionadas.length > 0 && (
+          <div class="obras-relacionadas-section mt-5">
+            <h3 class="mb-4">Obras Relacionadas</h3>
+            <div class="row gy-4">
+              {servicio.obras_relacionadas.map((obra) => (
+                <div class="col-lg-4 col-md-6">
+                  <ProjectCard project={obra} />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .service-details {
+    padding: 60px 0;
+  }
+
+  .service-icon {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  }
+
+  .service-title {
+    color: var(--heading-color, #1e4356);
+    font-weight: 700;
+  }
+
+  .service-description h3 {
+    color: var(--heading-color, #1e4356);
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .service-info {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .service-info h3 {
+    color: var(--heading-color, #1e4356);
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .service-info ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .service-info ul li:last-child {
+    border-bottom: none;
+  }
+
+  .subservicios-section h3,
+  .obras-relacionadas-section h3 {
+    color: var(--heading-color, #1e4356);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .subservicio-item {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color, #007bff);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+
+  .subservicio-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .subservicio-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color, #007bff);
+    margin-right: 20px;
+    min-width: 45px;
+    opacity: 0.3;
+  }
+
+  .subservicio-title {
+    color: var(--heading-color, #1e4356);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+
+  .subservicio-desc {
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .subservicio-precio {
+    display: inline-block;
+    background: #e7f4ff;
+    color: var(--primary-color, #007bff);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .subservicio-precio i {
+    margin-right: 5px;
+  }
+
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+  }
+
+  @media (max-width: 992px) {
+    .service-info {
+      margin-top: 30px;
+      position: relative !important;
+      top: 0 !important;
+    }
+  }
+</style>
