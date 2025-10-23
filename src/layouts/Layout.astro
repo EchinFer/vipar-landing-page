@@ -15,12 +15,24 @@ import WhatsappFAB from "@components/WhatsappFAB.astro";
 import { MEASUREMENT_ID, SITE_URL } from "src/constants";
 interface Props {
   title: string;
+  description?: string;
+  keywords?: string;
+  canonical?: string;
+  ogImage?: string;
 }
 
-const metaDescription =
+const defaultDescription =
   "Empresa paraguaya con dos generaciones de experiencia en cristales templados para construcción, desarrollos inmobiliarios, comercios y hogares.";
 
-const { title } = Astro.props;
+const defaultKeywords = "cristales templados, vidrios templados Paraguay, carpintería de aluminio, box de baño, fachadas vidrio, mamparas divisorias, ventanas aluminio, construcción Paraguay";
+
+const { 
+  title, 
+  description = defaultDescription, 
+  keywords = defaultKeywords,
+  canonical = SITE_URL,
+  ogImage = `${SITE_URL}/img/vipar-og.webp`
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -44,24 +56,25 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name="description" content={metaDescription} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
     <meta name="robots" content="index, follow" />
     <meta name="generator" content={Astro.generator} />
 
-    <link rel="canonical" href={SITE_URL} />
+    <link rel="canonical" href={canonical} />
 
     <!-- SEO Open Graph -->
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={metaDescription} />
-    <meta property="og:image" content={`${SITE_URL}/img/vipar-og.webp`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={SITE_URL} />
+    <meta property="og:url" content={canonical} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={metaDescription} />
-    <meta name="twitter:image" content={`${SITE_URL}/img/vipar-og.webp`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

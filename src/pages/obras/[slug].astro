@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { getAllObras, getProjectPageData } from "@lib/query";
+import { SITE_URL } from "src/constants";
 
 export async function getStaticPaths() {
   const projects = await getAllObras();
@@ -14,9 +15,23 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 
+// SEO optimizado por obra
+const title = `${project.titulo} - Obra Realizada | VIPAR Paraguay`;
+const description = project.descripcion 
+  ? `${project.descripcion.replace(/<[^>]*>/g, '').substring(0, 150)}... Proyecto de ${project.category.map(c => c.name).join(', ')} realizado por VIPAR.`
+  : `Obra de ${project.category.map(c => c.name).join(', ')}: ${project.titulo}. Instalación profesional en Paraguay.`;
+
+const keywords = `${project.titulo}, ${project.category.map(c => c.name).join(', ')}, obras cristales templados, proyectos construcción, instalación profesional Paraguay`;
+const canonical = `${SITE_URL}/obras/${project.slug}`;
 ---
 
-<Layout title={`Obras - ${project.titulo}`}>
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonical={canonical}
+  ogImage={project.imagen || `${SITE_URL}/img/vipar-og.webp`}
+>
   <main id="main">
     <!-- Breadcrumbs -->
     <div
@@ -97,6 +112,27 @@ const { project } = Astro.props;
       </div>
     </section>
   </main>
+
+  <!-- Schema.org para la obra -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": project.titulo,
+    "description": project.descripcion?.replace(/<[^>]*>/g, '') || `Obra: ${project.titulo}`,
+    "image": project.imagen || (project.imagenes && project.imagenes[0]),
+    "creator": {
+      "@type": "Organization",
+      "name": "Vipar",
+      "url": SITE_URL
+    },
+    "datePublished": project.fecha,
+    "keywords": project.category.map(c => c.name).join(', '),
+    "genre": project.category.map(c => c.name).join(', '),
+    "about": {
+      "@type": "Thing",
+      "name": project.category[0]?.name || "Construcción"
+    }
+  })} />
 </Layout>
 
 <script is:inline>

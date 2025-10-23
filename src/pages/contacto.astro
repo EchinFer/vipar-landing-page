@@ -1,6 +1,12 @@
 ---
 import ContactSection from "@components/ContactSection.astro";
 import Layout from "@layouts/Layout.astro";
+import { SITE_URL } from "src/constants";
+
+const title = "Contacto - Solicitar Presupuesto | VIPAR Paraguay";
+const description = "Contáctanos para solicitar presupuesto de cristales templados, carpintería de aluminio, box de baño y más. Ubicados en Ñemby, Paraguay. ☎ +595981256510 ✉ info@vipar.com.py";
+const keywords = "contacto VIPAR, presupuesto cristales templados, cotizar carpintería aluminio, solicitar presupuesto Paraguay, ubicación VIPAR Ñemby, teléfono cristales templados";
+const canonical = `${SITE_URL}/contacto`;
 
 const teamMembers = [
   {
@@ -84,7 +90,12 @@ const teamMembers = [
 ];
 ---
 
-<Layout title="Nosotros">
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonical={canonical}
+>
   <main id="main">
     <!-- Breadcrumbs -->
     <div

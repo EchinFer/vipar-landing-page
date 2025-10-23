@@ -2,11 +2,22 @@
 import Layout from "@layouts/Layout.astro";
 import { getAllServicios } from "@lib/query";
 import type { Servicio } from "@types";
+import { SITE_URL } from "src/constants";
 
 const servicios: Servicio[] = await getAllServicios();
+
+const title = "Servicios de Cristales Templados y Carpintería de Aluminio | VIPAR";
+const description = "Servicios especializados en cristales templados, carpintería de aluminio, box de baño, fachadas vidrio, mamparas divisorias, ventanas, puertas y cielorrasos. Instalación profesional en Paraguay.";
+const keywords = "servicios cristales templados, carpintería aluminio Paraguay, box baño cristal, fachadas vidrio, mamparas oficina, ventanas aluminio, puertas cristal, cielorrasos PVC, instalación cristales";
+const canonical = `${SITE_URL}/servicios`;
 ---
 
-<Layout title="Servicios">
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  canonical={canonical}
+>
   <main id="main">
     <!-- Breadcrumbs -->
     <div

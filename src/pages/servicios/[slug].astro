@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 import { getAllServicios, getServicioById } from "@lib/query";
+import { SITE_URL } from "src/constants";
 
 export async function getStaticPaths() {
   const servicios = await getAllServicios();
@@ -23,9 +24,23 @@ export async function getStaticPaths() {
 }
 
 const { servicio } = Astro.props;
+
+// SEO optimizado por servicio
+const title = `${servicio.titulo} - Instalación Profesional | VIPAR Paraguay`;
+const description = servicio.descripcion_corta 
+  ? `${servicio.descripcion_corta.substring(0, 150)}... Servicios profesionales en Paraguay. ✓ Calidad garantizada ✓ Experiencia comprobada`
+  : `Servicios de ${servicio.titulo} en Paraguay. Instalación profesional de cristales templados, carpintería de aluminio y más. Calidad garantizada.`;
+
+const keywords = `${servicio.titulo}, ${servicio.subservicios?.map(s => s.nombre).join(', ')}, cristales templados, carpintería aluminio, instalación Paraguay`;
+const canonical = `${SITE_URL}/servicios/${servicio.slug}`;
 ---
 
-<Layout title={`Servicios - ${servicio.titulo}`}>
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonical={canonical}
+>
   <main id="main">
     <!-- Breadcrumbs -->
     <div
@@ -136,6 +151,45 @@ const { servicio } = Astro.props;
       </div>
     </section>
   </main>
+
+  <!-- Schema.org para el servicio -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": servicio.titulo,
+    "description": servicio.descripcion_corta || servicio.descripcion || `Servicio de ${servicio.titulo}`,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Vipar",
+      "url": SITE_URL,
+      "telephone": "+595981256510",
+      "email": "info@vipar.com.py",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pdte. Franco",
+        "addressLocality": "Ñemby",
+        "addressRegion": "Dpto Central",
+        "addressCountry": "PY"
+      }
+    },
+    "areaServed": "PY",
+    "url": canonical,
+    ...(servicio.subservicios && servicio.subservicios.length > 0 && {
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": `Opciones de ${servicio.titulo}`,
+        "itemListElement": servicio.subservicios.map((sub, index) => ({
+          "@type": "Offer",
+          "position": index + 1,
+          "itemOffered": {
+            "@type": "Service",
+            "name": sub.nombre,
+            "description": sub.descripcion || ""
+          }
+        }))
+      }
+    })
+  })} />
 </Layout>
 
 <style>

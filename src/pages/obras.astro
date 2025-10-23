@@ -3,6 +3,7 @@ import ProjectsSection from "@components/ProjectsSection.astro";
 import Layout from "@layouts/Layout.astro";
 import { getProjectPageData } from "@lib/query";
 import type { PostCategory } from "@types";
+import { SITE_URL } from "src/constants";
 
 const obras = await getProjectPageData();
 const categorias: PostCategory[] = obras.flatMap(
@@ -15,9 +16,19 @@ const uniqueCategorias: PostCategory[] = categorias.reduce((acc, cat) => {
   }
   return acc;
 }, [] as PostCategory[]);
+
+const title = "Obras y Proyectos Realizados - Cristales Templados | VIPAR";
+const description = "Portafolio de obras realizadas con cristales templados, carpintería de aluminio, fachadas vidrio y mamparas. Proyectos de construcción en Paraguay con calidad garantizada.";
+const keywords = "obras cristales templados, proyectos construcción Paraguay, fachadas vidrio, instalaciones cristal, obras carpintería aluminio, portfolio construcción, proyectos realizados";
+const canonical = `${SITE_URL}/obras`;
 ---
 
-<Layout title="Obras">
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonical={canonical}
+>
   <main id="main">
     <!-- Breadcrumbs -->
     <div

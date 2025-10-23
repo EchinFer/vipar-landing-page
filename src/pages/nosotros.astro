@@ -1,5 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import { SITE_URL } from "src/constants";
+
+const title = "Sobre Nosotros - Dos Generaciones de Experiencia | VIPAR";
+const description = "VIPAR S.A. - Empresa paraguaya con dos generaciones de experiencia en cristales templados. Operando desde el año 2000. ✓ Alta terminación ✓ Calidad garantizada ✓ Instalación profesional en construcción.";
+const keywords = "VIPAR Paraguay, empresa cristales templados, historia VIPAR, experiencia construcción, empresa familiar Paraguay, cristales desde 2000, calidad construcción";
+const canonical = `${SITE_URL}/nosotros`;
 
 const teamMembers = [
   {
@@ -83,7 +89,12 @@ const teamMembers = [
 ];
 ---
 
-<Layout title="Nosotros">
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonical={canonical}
+>
   <main id="main">
     <!-- Breadcrumbs -->
     <div

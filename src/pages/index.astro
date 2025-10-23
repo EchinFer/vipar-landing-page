@@ -9,12 +9,22 @@ import Layout from "@layouts/Layout.astro";
 import { getHomePageData } from "@lib/query";
 import "@styles/home.css";
 import type { HomePageData } from "../types";
+import { SITE_URL } from "src/constants";
 
 const homePageData: HomePageData = await getHomePageData();
 const { service_section, construction_service_section } = homePageData;
+
+const title = "Cristales Templados y Carpintería de Aluminio | VIPAR Paraguay";
+const description = "Empresa líder en cristales templados, carpintería de aluminio, box de baño, fachadas vidrio y mamparas divisorias. Dos generaciones de experiencia en Paraguay. ✓ Calidad garantizada ✓ Instalación profesional";
+const keywords = "cristales templados Paraguay, vidrios templados, carpintería de aluminio, box de baño cristal, fachadas vidrio, mamparas divisorias, ventanas aluminio, puertas cristal templado, construcción Paraguay, vidrios Asunción";
 ---
 
-<Layout title="Cristales templados de calidad para obras y viviendas | VIPAR">
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  canonical={SITE_URL}
+>
   <HeroSection />
 
   <ServiceSection seccionServicios={service_section} />
@@ -23,7 +33,3 @@ const { service_section, construction_service_section } = homePageData;
   <ClientsSection clients={homePageData.clients_section} />
   <ContactSection />
 </Layout>
-
-<style>
-  /* Puedes agregar aquí los estilos relevantes */
-</style>
