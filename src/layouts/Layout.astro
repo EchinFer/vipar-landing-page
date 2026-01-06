@@ -90,7 +90,7 @@ const {
             <script is:inline define:vars={{ MEASUREMENT_ID }}>
               gtag('js', new Date());
               // basic config; cookies still blocked until consent update
-              gtag('config', MEASUREMENT_ID, { 'anonymize_ip': true });
+              gtag('config', `${MEASUREMENT_ID}`, { 'anonymize_ip': true });
             </script>
           </>
         )
