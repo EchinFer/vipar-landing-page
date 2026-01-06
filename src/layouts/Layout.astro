@@ -74,18 +74,23 @@ const {
       {
         MEASUREMENT_ID && MEASUREMENT_ID !== "G-XXXXXXX" && (
           <>
-            <!-- Google tag (gtag.js) -->
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}
-            ></script>
-            <script is:inline define:vars={{ MEASUREMENT_ID }}>
+            <!-- Google Consent Mode: default deny until user gives consent -->
+            <script is:inline>
               window.dataLayer = window.dataLayer || [];
-              function gtag() {
-                dataLayer.push(arguments);
-              }
-              gtag("js", new Date());
-              gtag("config", MEASUREMENT_ID);
+              function gtag(){dataLayer.push(arguments);} 
+              // set default consent to denied so gtag won't set analytics/ad cookies
+              gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'wait_for_update': 500
+              });
+            </script>
+            <!-- Load gtag.js (it will respect consent state above) -->
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}></script>
+            <script is:inline define:vars={{ MEASUREMENT_ID }}>
+              gtag('js', new Date());
+              // basic config; cookies still blocked until consent update
+              gtag('config', MEASUREMENT_ID, { 'anonymize_ip': true });
             </script>
           </>
         )
@@ -106,6 +111,48 @@ const {
     </main>
 
     <Footer />
+    <!-- Cookie / Consent banner (improved, fixed to footer) -->
+    <div id="consent-banner" class="consent-banner" aria-hidden="true" role="dialog" aria-live="polite">
+      <div class="consent-inner container d-flex align-items-center justify-content-between">
+        <div class="d-flex gap-3 align-items-center">
+          <div class="consent-logo" aria-hidden="true">VIPAR</div>
+          <div class="consent-text">
+            <strong>Usamos cookies</strong>
+            <div class="small">Usamos cookies propias y de terceros para mejorar la experiencia, analizar tráfico y ofrecer servicios. Podés aceptar todas o configurar tus preferencias.</div>
+          </div>
+        </div>
+        <div class="consent-actions d-flex gap-2 align-items-center">
+          <button id="consent-preferences" class="btn btn-outline-secondary">Preferencias</button>
+          <button id="consent-reject" class="btn btn-light">Rechazar</button>
+          <button id="consent-accept" class="btn btn-primary w-100">Aceptar todas</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preferences modal (simple) -->
+    <div id="consent-modal" class="consent-modal" aria-hidden="true" role="dialog">
+      <div class="consent-modal__backdrop" aria-hidden="true"></div>
+      <div class="consent-modal__inner">
+        <h4>Preferencias de cookies</h4>
+        <p class="small text-muted">Seleccioná qué tipos de cookies autorizás:</p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="pref-necessary" disabled checked>
+          <label class="form-check-label" for="pref-necessary">Necesarias (siempre permitidas)</label>
+        </div>
+        <div class="form-check mt-2">
+          <input class="form-check-input" type="checkbox" id="pref-analytics">
+          <label class="form-check-label" for="pref-analytics">Analíticas (Analytics)</label>
+        </div>
+        <div class="form-check mt-2">
+          <input class="form-check-input" type="checkbox" id="pref-marketing">
+          <label class="form-check-label" for="pref-marketing">Marketing y anuncios</label>
+        </div>
+        <div class="d-flex justify-content-end gap-2 mt-3">
+          <button id="pref-cancel" class="btn btn-light">Cancelar</button>
+          <button id="pref-save" class="btn btn-primary">Guardar preferencias</button>
+        </div>
+      </div>
+    </div>
     <WhatsappFAB />
     <ClientProvider />
     <script type="application/ld+json">
@@ -238,6 +285,141 @@ const {
         ]
       }
     </script>
+    <script is:inline>
+      (function(){
+        var banner = document.getElementById('consent-banner');
+        var modal = document.getElementById('consent-modal');
+        var acceptBtn = document.getElementById('consent-accept');
+        var rejectBtn = document.getElementById('consent-reject');
+        var prefBtn = document.getElementById('consent-preferences');
+        var prefSave = document.getElementById('pref-save');
+        var prefCancel = document.getElementById('pref-cancel');
+        var prefAnalytics = document.getElementById('pref-analytics');
+        var prefMarketing = document.getElementById('pref-marketing');
+        var CONSENT_KEY = 'vipar_consent_v1';
+
+        function hideBanner(){ if(banner) banner.style.display='none'; }
+        function showBanner(){ if(banner) banner.style.display='block'; }
+        function showModal(){
+          if(modal){
+            modal.setAttribute('aria-hidden','false');
+            modal.style.display='flex';
+            // hide banner so modal appears above it
+            if(banner) banner.style.display = 'none';
+            // focus first interactive
+            setTimeout(function(){ var f = document.getElementById('pref-analytics'); if(f) f.focus(); }, 150);
+          }
+        }
+
+        function hideModal(){
+          if(modal){
+            modal.setAttribute('aria-hidden','true');
+            modal.style.display='none';
+            // if user hasn't saved consent, show banner again
+            try{ var s = readStored(); if(!s) showBanner(); }catch(e){ showBanner(); }
+          }
+        }
+
+        function readStored(){
+          try{ var s = localStorage.getItem(CONSENT_KEY); return s ? JSON.parse(s) : null; }catch(e){ return null; }
+        }
+
+        function saveStored(obj){ try{ localStorage.setItem(CONSENT_KEY, JSON.stringify(obj)); }catch(e){} }
+
+        function applyConsent(obj){
+          // obj: { analytics: bool, marketing: bool }
+          if(window.gtag){
+            var analyticsState = obj.analytics ? 'granted' : 'denied';
+            var adState = obj.marketing ? 'granted' : 'denied';
+            // Update Consent Mode signals including ad_user_data and ad_personalization
+            gtag('consent','update',{
+              'analytics_storage': analyticsState,
+              'ad_storage': adState,
+              'ad_user_data': adState,
+              'ad_personalization': adState
+            });
+
+            // Inform GA about the consent object (useful for debugging/analysis)
+            gtag('event','consent_update',{analytics: obj.analytics, marketing: obj.marketing});
+
+            // Send explicit accept/reject events so you can mark them as conversions if desired
+            if(obj.analytics){
+              gtag('event','consent_accept',{method: 'banner', analytics: true, marketing: !!obj.marketing});
+              try{ gtag('set', {'user_properties': { consent_analytics: 'granted' }}); }catch(e){}
+            } else {
+              gtag('event','consent_reject',{method: 'banner', analytics: false, marketing: !!obj.marketing});
+              try{ gtag('set', {'user_properties': { consent_analytics: 'denied' }}); }catch(e){}
+            }
+          }
+        }
+
+        // initialize
+        var stored = readStored();
+        if(!stored){ showBanner(); } else { applyConsent(stored); }
+
+        // Accept all
+        if(acceptBtn) acceptBtn.addEventListener('click', function(){
+          var obj = { analytics: true, marketing: true };
+          saveStored(obj); applyConsent(obj); hideBanner();
+        });
+
+        // Reject all (only necessary cookies)
+        if(rejectBtn) rejectBtn.addEventListener('click', function(){
+          var obj = { analytics: false, marketing: false };
+          saveStored(obj); applyConsent(obj); hideBanner();
+        });
+
+        // Open preferences
+        if(prefBtn) prefBtn.addEventListener('click', function(){
+          var s = readStored() || { analytics: false, marketing: false };
+          prefAnalytics.checked = !!s.analytics;
+          prefMarketing.checked = !!s.marketing;
+          showModal();
+        });
+
+        // Save preferences
+        if(prefSave) prefSave.addEventListener('click', function(){
+          var obj = { analytics: !!prefAnalytics.checked, marketing: !!prefMarketing.checked };
+          saveStored(obj); applyConsent(obj); hideModal(); hideBanner();
+        });
+
+        if(prefCancel) prefCancel.addEventListener('click', function(){ hideModal(); });
+      })();
+    </script>
   </body>
 </html>
 <style is:global></style>
+<style is:global>
+.consent-banner{
+  position:fixed;left:0;right:0;bottom:20px;z-index:99999;display:none;}
+.consent-inner{max-width:1100px;margin:0 auto;background:#fff;border-radius:10px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+.consent-text{max-width:75%}
+.consent-actions button{margin-left:8px}
+@media(max-width:768px){.consent-inner{flex-direction:column;gap:10px;text-align:center}.consent-text{max-width:100%}}
+  .consent-banner{position:fixed;left:0;right:0;bottom:0;z-index:99999;display:none;background:#ffffff;box-shadow:0 -8px 30px rgba(7,12,20,0.06)}
+  .consent-inner{max-width:1200px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-family:var(--font-default)}
+  .consent-logo{font-weight:700;color:var(--color-primary);padding-left:4px}
+  .consent-text strong{display:block;font-size:15px;color:var(--color-dark)}
+  .consent-text .small{color:#6c757d}
+  .consent-actions .btn{min-width:110px;border-radius:8px}
+  .consent-actions .btn{white-space:nowrap;word-break:normal}
+  .consent-actions .btn-primary{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
+  .consent-actions .btn-primary:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover)}
+  .consent-actions .btn-outline-secondary{color:var(--color-primary);border-color:var(--color-primary);background:transparent}
+  .consent-actions .btn-light{background:#f7f7f8;border:1px solid #e9eaec}
+  /* modal */
+  .consent-modal{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100002;justify-content:center;padding:20px;width:100%;max-width:100vw}
+  .consent-modal__backdrop{position:fixed;inset:0;z-index:100001}
+  .consent-modal__inner{width:420px;max-width:92vw;background:#fff;border-radius:12px;padding:20px;box-shadow:0 20px 50px rgba(7,12,20,0.18);border:1px solid rgba(20,24,40,0.04);z-index:100002}
+  .consent-modal__inner h4{margin:0 0 8px;color:var(--color-secondary);font-family:var(--font-primary)}
+  .consent-modal__inner .form-check-label{color:var(--color-default)}
+  .consent-modal__inner .btn-primary{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
+  .consent-modal__inner .btn-primary:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover)}
+  @media(max-width:768px){.consent-inner{flex-direction:column;align-items:flex-start}.consent-actions{width:100%;display:flex;justify-content:center}}
+  /* mobile: modal as bottom sheet */
+  @media(max-width:576px){
+    .consent-modal{top:auto;left:0;right:0;bottom:0;transform:none;padding:0}
+    .consent-modal__backdrop{display:block}
+    .consent-modal__inner{width:100%;border-radius:12px 12px 0 0;max-height:80vh;overflow:auto}
+  }
+</style>
