@@ -1,5 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import { telephone } from "src/constants";
+
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desde la web.";
 ---
 
 <section id="hero" class="hero" aria-label="Introducción al sitio">
@@ -29,7 +33,29 @@ import { Image } from "astro:assets";
               para desarrollos inmobiliarios, viviendas y la industria de la
               construcción en Paraguay.
             </p>
+            <ul class="list-unstyled d-flex flex-column flex-md-row gap-2 gap-md-4 mb-3" style="max-width: 920px;">
+              <li class="d-flex align-items-center gap-2">
+                <i class="bi bi-shield-check"></i>
+                <span>Instalación profesional</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <i class="bi bi-award"></i>
+                <span>Dos generaciones de experiencia</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <i class="bi bi-chat-dots"></i>
+                <span>Asesoría y presupuesto claro</span>
+              </li>
+            </ul>
             <div>
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                target="_blank"
+                rel="noopener"
+                class="btn-get-started me-2"
+                aria-label="Solicitar presupuesto por WhatsApp"
+                >Solicitar presupuesto</a
+              >
               <a
                 href="#nuestras-obras"
                 class="btn-get-started"

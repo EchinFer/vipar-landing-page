@@ -35,3 +35,10 @@ export const MENU_ITEMS = [
 export const telephone = "+595981256510";
 export const email = "info@vipar.com.py";
 export const address = "San Francisco 770 c/ Sexta Bo. Salinas, Ñemby";
+
+export const SOCIAL_LINKS = {
+  instagram: "https://www.instagram.com/vipar_py/",
+  facebook: "https://www.facebook.com/vipar.vidrios",
+  twitter: "",
+  linkedin: "",
+} as const;

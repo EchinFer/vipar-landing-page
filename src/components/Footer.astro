@@ -1,10 +1,8 @@
 ---
-import { LOGO_TEXT, MENU_ITEMS, address } from "src/constants";
+import { LOGO_TEXT, MENU_ITEMS, SOCIAL_LINKS, address } from "src/constants";
 import EmailLink from "./EmailLink.astro";
 import FacebookIcon from "./icons/FacebookIcon.astro";
 import InstagramIcon from "./icons/InstagramIcon.astro";
-import LinkdnIcon from "./icons/LinkdnIcon.astro";
-import TwitterXIcon from "./icons/TwitterXIcon.astro";
 import LastProject from "./LastProject.astro";
 import TelephoneLink from "./TelephoneLink.astro";
 ---
@@ -32,26 +30,28 @@ import TelephoneLink from "./TelephoneLink.astro";
               <EmailLink /><br />
             </div>
             <div class="social-links d-flex mt-3">
-              <a
-                href="#"
-                class="d-flex align-items-center justify-content-center"
-                ><TwitterXIcon /></a
-              >
-              <a
-                href="#"
-                class="d-flex align-items-center justify-content-center"
-                ><FacebookIcon /></a
-              >
-              <a
-                href="#"
-                class="d-flex align-items-center justify-content-center"
-                ><InstagramIcon /></a
-              >
-              <a
-                href="#"
-                class="d-flex align-items-center justify-content-center"
-                ><LinkdnIcon /></a
-              >
+              {SOCIAL_LINKS.facebook && (
+                <a
+                  href={SOCIAL_LINKS.facebook}
+                  target="_blank"
+                  rel="noopener"
+                  class="d-flex align-items-center justify-content-center"
+                  aria-label="Facebook VIPAR"
+                >
+                  <FacebookIcon />
+                </a>
+              )}
+              {SOCIAL_LINKS.instagram && (
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener"
+                  class="d-flex align-items-center justify-content-center"
+                  aria-label="Instagram VIPAR"
+                >
+                  <InstagramIcon />
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -72,8 +72,8 @@ import TelephoneLink from "./TelephoneLink.astro";
         <div class="col-lg-3 col-md-4 footer-links">
           <h4>Nuestros Servicios</h4>
           <ul>
-            <li><a href="#">Acabados y Terminaciones</a></li>
-            <li><a href="#">Fiscalización y Dirección de Obras</a></li>
+            <li><a href="/servicios/">Ver todos los servicios</a></li>
+            <li><a href="/contacto/">Solicitar presupuesto</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-4 footer-links">

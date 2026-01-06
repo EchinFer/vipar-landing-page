@@ -4,6 +4,7 @@ import EmailLink from "./EmailLink.astro";
 import GoogleMapLocation from "./GoogleMapLocation.astro";
 import SectionContainer from "./SectionContainer.astro";
 import TelephoneLink from "./TelephoneLink.astro";
+import ContactForm from "./ContactForm.astro";
 import EnvelopeIcon from "./icons/EnvelopeIcon.astro";
 import GeoAltIcon from "./icons/GeoAltIcon.astro";
 import TelephoneIcon from "./icons/TelephoneIcon.astro";
@@ -51,6 +52,25 @@ const seccion1 = {
         <h3>{seccion1.telefono_titulo}</h3>
         <TelephoneLink />
       </div>
+    </div>
+  </div>
+
+  <div class="row gy-4 mt-4">
+    <div class="col-lg-5">
+      <div class="p-3 p-md-4 bg-light h-100">
+        <h3 class="h5 mb-3">Pedí presupuesto con confianza</h3>
+        <ul class="list-unstyled mb-3">
+          <li class="mb-2"><i class="bi bi-check2-circle me-2"></i>Respondemos en horario laboral</li>
+          <li class="mb-2"><i class="bi bi-check2-circle me-2"></i>Presupuesto claro y asesoría</li>
+          <li class="mb-2"><i class="bi bi-check2-circle me-2"></i>Instalación profesional</li>
+        </ul>
+        <p class="text-muted mb-0" style="font-size: 14px;">
+          Tip: si podés, adjuntá medidas aproximadas y una foto en WhatsApp.
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <ContactForm />
     </div>
   </div>
 </SectionContainer>

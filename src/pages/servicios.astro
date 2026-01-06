@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import { getAllServicios } from "@lib/query";
 import type { Servicio } from "@types";
-import { SITE_URL } from "src/constants";
+import { SITE_URL, telephone } from "src/constants";
 
 const servicios: Servicio[] = await getAllServicios();
 
@@ -42,8 +42,8 @@ const canonical = `${SITE_URL}/servicios`;
         <div class="section-header">
           <h2>Nuestros Servicios</h2>
           <p>
-            Ofrecemos una amplia gama de servicios especializados para satisfacer
-            todas tus necesidades de construcción y renovación.
+            Soluciones en cristales templados y carpintería de aluminio para hogares, comercios y obras.
+            Si ya sabés lo que necesitás, podés cotizar por WhatsApp en 1 minuto.
           </p>
         </div>
 
@@ -64,6 +64,20 @@ const canonical = `${SITE_URL}/servicios`;
                       </small>
                     </div>
                   )}
+
+                  <div class="service-actions mt-4 d-flex gap-2 flex-wrap">
+                    <a class="btn btn-sm btn-outline-primary" href={`/servicios/${servicio.slug}`}>
+                      Ver detalles
+                    </a>
+                    <a
+                      class="btn btn-sm btn-success"
+                      target="_blank"
+                      rel="noopener"
+                      href={`https://wa.me/${telephone.replace(/[^\d]/g, "")}?text=${encodeURIComponent(`Hola, quiero cotizar el servicio: ${servicio.titulo}.`)}`}
+                    >
+                      <i class="bi bi-whatsapp me-1"></i>Cotizar
+                    </a>
+                  </div>
                 </div>
               </div>
             ))
@@ -108,6 +122,11 @@ const canonical = `${SITE_URL}/servicios`;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+  }
+
+  .service-actions {
+    position: relative;
+    z-index: 2;
   }
 
   .service-item:hover {

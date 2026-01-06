@@ -1,9 +1,16 @@
-<form
-  action="/forms/contact.php"
-  method="post"
-  role="form"
-  class="php-email-form"
->
+---
+import { email, telephone } from "src/constants";
+
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const adminApiBaseRaw = String(import.meta.env.ADMIN_API || "");
+const cmsApiBase = adminApiBaseRaw
+  .trim()
+  .replace(/^http:\/\//i, "https://")
+  .replace(/\/+$/, "");
+const wpLeadsEndpoint = cmsApiBase ? `${cmsApiBase}/vipar/v1/leads` : "";
+---
+
+<form role="form" class="php-email-form" id="contact-form">
   <div class="row gy-4">
     <div class="col-lg-6 form-group">
       <input
@@ -11,8 +18,9 @@
         name="name"
         class="form-control"
         id="name"
-        placeholder="Tu Nombre"
+        placeholder="Tu nombre"
         required
+        autocomplete="name"
       />
     </div>
     <div class="col-lg-6 form-group">
@@ -21,48 +29,227 @@
         class="form-control"
         name="email"
         id="email"
-        placeholder="Tu Correo"
+        placeholder="Tu correo"
         required
+        autocomplete="email"
       />
     </div>
+    <div class="col-lg-6 form-group">
+      <input
+        type="tel"
+        class="form-control"
+        name="phone"
+        id="phone"
+        placeholder="Tu teléfono (opcional)"
+        autocomplete="tel"
+      />
+    </div>
+    <div class="col-lg-6 form-group">
+      <input
+        type="text"
+        class="form-control"
+        name="city"
+        id="city"
+        placeholder="Ciudad / zona"
+      />
+    </div>
+    <div class="col-12 form-group">
+      <textarea
+        class="form-control"
+        name="message"
+        id="message"
+        rows="5"
+        placeholder="Contanos qué necesitás (medidas aproximadas, tipo de ambiente, etc.)"
+        required></textarea>
+    </div>
+
+    <!-- Honeypot: debe quedar vacío. Bots suelen completarlo. -->
+    <div
+      style="position:absolute;left:-9999px;opacity:0;pointer-events:none;"
+      aria-hidden="true"
+    >
+      <label>
+        Website
+        <input type="text" name="website" tabindex="-1" autocomplete="off" />
+      </label>
+    </div>
+
+    <!-- Mini captcha (sencillo) -->
+    <div class="col-12">
+      <div class="p-3 bg-light">
+        <label for="captcha_answer" class="form-label mb-2">
+          Verificación rápida: ¿cuánto es <strong
+            ><span id="captcha_a">?</span> + <span id="captcha_b">?</span
+            ></strong
+          >?
+        </label>
+        <input type="hidden" name="captcha_a" id="captcha_a_input" />
+        <input type="hidden" name="captcha_b" id="captcha_b_input" />
+        <input
+          type="number"
+          class="form-control"
+          name="captcha_answer"
+          id="captcha_answer"
+          inputmode="numeric"
+          placeholder="Respuesta"
+          required
+        />
+        <small class="text-muted"
+          >Esto ayuda a filtrar envíos automáticos.</small
+        >
+      </div>
+    </div>
   </div>
-  <div class="my-3">
-    <div class="loading">Cargando</div>
-    <div class="error-message"></div>
-    <div class="sent-message">Tu mensaje ha sido enviado. ¡Gracias!</div>
+
+  <div class="my-3" id="form-status" style="display:none;">
+    <div
+      class="alert alert-success mb-0"
+      id="form-success"
+      style="display:none;"
+    >
+      ¡Listo! Recibimos tu consulta. Te contactaremos en horario laboral.
+    </div>
+    <div class="alert alert-danger mb-0" id="form-error" style="display:none;">
+    </div>
   </div>
-  <div class="text-center">
-    <button type="submit">Enviar Mensaje</button>
+
+  <div class="d-flex flex-column flex-sm-row gap-2">
+    <button type="submit" class="btn btn-primary">
+      <i class="bi bi-send me-2"></i>Enviar consulta
+    </button>
+    <a
+      class="btn btn-success"
+      target="_blank"
+      rel="noopener"
+      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, quiero solicitar un presupuesto. Me comunico desde la web.")}`}
+    >
+      <i class="bi bi-whatsapp me-2"></i>WhatsApp
+    </a>
+    <a
+      class="btn btn-outline-secondary"
+      href={`mailto:${email}?subject=${encodeURIComponent("Solicitud de presupuesto")}`}
+    >
+      <i class="bi bi-envelope me-2"></i>Enviar por correo
+    </a>
   </div>
+
+  <noscript>
+    <p class="mt-3">
+      Si no podés usar el formulario, escribinos a <a href={`mailto:${email}`}
+        >{email}</a
+      >
+      o por WhatsApp.
+    </p>
+  </noscript>
 </form>
-<script>
-  interface ContactForm {
-    name: string;
-    email: string;
+
+<script is:inline define:vars={{ wpLeadsEndpoint }}>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const success = document.getElementById("form-success");
+  const error = document.getElementById("form-error");
+
+  // Mini-captcha: generamos una suma simple en el cliente.
+  const aEl = document.getElementById("captcha_a");
+  const bEl = document.getElementById("captcha_b");
+  const aInput = document.getElementById("captcha_a_input");
+  const bInput = document.getElementById("captcha_b_input");
+
+  function seedCaptcha() {
+    const a = Math.floor(Math.random() * 9) + 1;
+    const b = Math.floor(Math.random() * 9) + 1;
+    if (aEl) aEl.textContent = String(a);
+    if (bEl) bEl.textContent = String(b);
+    if (aInput) aInput.value = String(a);
+    if (bInput) bInput.value = String(b);
   }
 
-  async function handleSubmit(event: Event): Promise<void> {
+  seedCaptcha();
+
+  function showSuccess() {
+    status.style.display = "block";
+    error.style.display = "none";
+    success.style.display = "block";
+  }
+
+  function showError(message) {
+    status.style.display = "block";
+    success.style.display = "none";
+    error.style.display = "block";
+    error.textContent = message;
+  }
+
+  form?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const formElement = event.target as HTMLFormElement;
+
+    const formElement = event.currentTarget;
     const formData = new FormData(formElement);
-    const data: ContactForm = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-    };
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const city = String(formData.get("city") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+    const website = String(formData.get("website") || "").trim();
+    const captchaA = String(formData.get("captcha_a") || "").trim();
+    const captchaB = String(formData.get("captcha_b") || "").trim();
+    const captchaAnswer = String(formData.get("captcha_answer") || "").trim();
+
+    if (!name || !email || !message) {
+      showError("Completá nombre, correo y mensaje.");
+      return;
+    }
+
+    if (!wpLeadsEndpoint) {
+      showError(
+        "Falta configurar ADMIN_API para enviar el formulario. Probá por WhatsApp."
+      );
+      return;
+    }
+
+    if (!captchaA || !captchaB || !captchaAnswer) {
+      showError("Completá la verificación rápida (captcha).");
+      return;
+    }
 
     try {
-      const response = await fetch("/api/save-contact", {
+      const res = await fetch(wpLeadsEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          city,
+          message,
+          source: "vipar-landing",
+          page: typeof window !== "undefined" ? window.location.href : "",
+          website,
+          captcha_a: captchaA,
+          captcha_b: captchaB,
+          captcha_answer: captchaAnswer,
+        }),
       });
-      if (response.ok) {
-        alert("Contacto guardado con éxito.");
-      } else {
-        alert("Hubo un problema al guardar el contacto.");
+
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok) {
+        const statusCode = res.status;
+        const msg =
+          data?.error ||
+          (statusCode === 403
+            ? "Verificación inválida. Probá de nuevo."
+            : statusCode === 429
+              ? "Demasiadas solicitudes. Intentá más tarde."
+              : "No se pudo enviar. Probá por WhatsApp.");
+        showError(msg);
+        return;
       }
-    } catch (error) {
-      alert("Error de red.");
+
+      showSuccess();
+      formElement.reset();
+      seedCaptcha();
+    } catch (e) {
+      showError("Error de red o CORS. Probá por WhatsApp.");
     }
-  }
+  });
 </script>

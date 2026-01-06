@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 import { getAllServicios, getServicioById } from "@lib/query";
-import { SITE_URL } from "src/constants";
+import { SITE_URL, address, email, telephone } from "src/constants";
 
 export async function getStaticPaths() {
   const servicios = await getAllServicios();
@@ -31,8 +31,13 @@ const description = servicio.descripcion_corta
   ? `${servicio.descripcion_corta.substring(0, 150)}... Servicios profesionales en Paraguay. ✓ Calidad garantizada ✓ Experiencia comprobada`
   : `Servicios de ${servicio.titulo} en Paraguay. Instalación profesional de cristales templados, carpintería de aluminio y más. Calidad garantizada.`;
 
-const keywords = `${servicio.titulo}, ${servicio.subservicios?.map(s => s.nombre).join(', ')}, cristales templados, carpintería aluminio, instalación Paraguay`;
+const subserviceKeywords = servicio.subservicios?.map((s) => s.nombre).join(", ") ?? "";
+const keywords = `${servicio.titulo}, ${subserviceKeywords}, cristales templados, carpintería aluminio, instalación Paraguay`;
 const canonical = `${SITE_URL}/servicios/${servicio.slug}`;
+
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const whatsappMessage = `Hola, quiero cotizar el servicio: ${servicio.titulo}. Me comunico desde su página web.`;
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 ---
 
 <Layout 
@@ -64,8 +69,8 @@ const canonical = `${SITE_URL}/servicios/${servicio.slug}`;
     <section id="service-details" class="service-details">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
-          <!-- Información Principal del Servicio -->
-          <div class="col-lg-12">
+          <!-- Contenido principal -->
+          <div class="col-lg-8">
             <div class="service-description">
               <div class="text-center mb-4">
                 {servicio.icono?.url && (
@@ -88,6 +93,16 @@ const canonical = `${SITE_URL}/servicios/${servicio.slug}`;
                 </div>
               )}
 
+              <div class="mb-4">
+                <h3>¿Qué incluye?</h3>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="bi bi-check2-circle me-2"></i>Asesoría y recomendaciones según tu espacio</li>
+                  <li class="mb-2"><i class="bi bi-check2-circle me-2"></i>Presupuesto claro con materiales y alcance</li>
+                  <li class="mb-2"><i class="bi bi-check2-circle me-2"></i>Instalación profesional y terminaciones</li>
+                  <li class="mb-2"><i class="bi bi-check2-circle me-2"></i>Soporte post-instalación</li>
+                </ul>
+              </div>
+
               {servicio.descripcion && (
                 <div class="mb-4">
                   <h3>Descripción</h3>
@@ -103,11 +118,70 @@ const canonical = `${SITE_URL}/servicios/${servicio.slug}`;
             </div>
           </div>
 
+          <!-- Sidebar de confianza + CTA -->
+          <div class="col-lg-4">
+            <aside class="service-info position-sticky" style="top: 100px;" aria-label="Cotización y datos de contacto">
+              <h3>Cotizá este servicio</h3>
+
+              <div class="d-grid gap-2 mb-3">
+                <a class="btn btn-success" href={whatsappLink} target="_blank" rel="noopener">
+                  <i class="bi bi-whatsapp me-2"></i>WhatsApp
+                </a>
+                <a class="btn btn-outline-primary" href={`tel:${telephone.replace(/\s/g, "")}`}>
+                  <i class="bi bi-telephone me-2"></i>Llamar
+                </a>
+                <a class="btn btn-outline-secondary" href={`mailto:${email}?subject=${encodeURIComponent(`Consulta sobre ${servicio.titulo}`)}`}>
+                  <i class="bi bi-envelope me-2"></i>Enviar correo
+                </a>
+              </div>
+
+              <ul class="list-unstyled mb-3">
+                <li class="mb-2"><i class="bi bi-shield-check me-2"></i>Calidad e instalación profesional</li>
+                <li class="mb-2"><i class="bi bi-award me-2"></i>Experiencia de dos generaciones</li>
+                <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>{address}</li>
+                <li class="mb-2"><i class="bi bi-clock me-2"></i>Lun–Vie 07:00–17:00</li>
+              </ul>
+
+              <p class="mb-0 text-muted" style="font-size: 14px;">
+                Escribinos con tu ubicación y una foto/medidas aproximadas para una respuesta más rápida.
+              </p>
+            </aside>
+          </div>
+
+        </div>
+
+        <!-- Cómo trabajamos -->
+        <div class="mt-5">
+          <h3 class="mb-4 text-center">¿Cómo trabajamos?</h3>
+          <div class="row gy-3">
+            <div class="col-lg-4 col-md-6">
+              <div class="step-item h-100">
+                <div class="step-number">01</div>
+                <h5 class="mb-2">Medición y asesoría</h5>
+                <p class="mb-0 text-muted">Relevamos tu necesidad y te recomendamos la mejor solución.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="step-item h-100">
+                <div class="step-number">02</div>
+                <h5 class="mb-2">Presupuesto claro</h5>
+                <p class="mb-0 text-muted">Te enviamos un presupuesto con alcance y materiales.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="step-item h-100">
+                <div class="step-number">03</div>
+                <h5 class="mb-2">Fabricación e instalación</h5>
+                <p class="mb-0 text-muted">Coordinamos la instalación con terminaciones profesionales.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Subservicios -->
         {servicio.subservicios && servicio.subservicios.length > 0 && (
           <div class="subservicios-section mt-5">
+            <h3 class="mb-4">Opciones disponibles</h3>
             <div class="row gy-3">
               {servicio.subservicios.map((subservicio, index) => (
                 <div class="col-lg-6 col-md-6">
@@ -134,6 +208,51 @@ const canonical = `${SITE_URL}/servicios/${servicio.slug}`;
             </div>
           </div>
         )}
+
+        <!-- Preguntas frecuentes -->
+        <div class="mt-5">
+          <h3 class="mb-4 text-center">Preguntas frecuentes</h3>
+          <div class="accordion" id="serviceFaq">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOneCollapse" aria-expanded="true" aria-controls="faqOneCollapse">
+                  ¿Qué información necesito para cotizar más rápido?
+                </button>
+              </h2>
+              <div id="faqOneCollapse" class="accordion-collapse collapse show" aria-labelledby="faqOne" data-bs-parent="#serviceFaq">
+                <div class="accordion-body">
+                  Ubicación, fotos del lugar y medidas aproximadas (alto/ancho). Si ya tenés plano o referencia, también ayuda.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwoCollapse" aria-expanded="false" aria-controls="faqTwoCollapse">
+                  ¿Incluye instalación?
+                </button>
+              </h2>
+              <div id="faqTwoCollapse" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#serviceFaq">
+                <div class="accordion-body">
+                  Sí, trabajamos con instalación profesional. El alcance exacto depende del tipo de servicio y se detalla en el presupuesto.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThreeCollapse" aria-expanded="false" aria-controls="faqThreeCollapse">
+                  ¿En qué zona trabajan?
+                </button>
+              </h2>
+              <div id="faqThreeCollapse" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#serviceFaq">
+                <div class="accordion-body">
+                  Atendemos Paraguay. Contanos tu ciudad/barrio para confirmar agenda y tiempos estimados.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Obras Relacionadas -->
         {servicio.obras_relacionadas && servicio.obras_relacionadas.length > 0 && (
@@ -233,6 +352,20 @@ const canonical = `${SITE_URL}/servicios/${servicio.slug}`;
 
   .service-info ul li:last-child {
     border-bottom: none;
+  }
+
+  .step-item {
+    background: #fff;
+    padding: 22px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .step-number {
+    font-weight: 700;
+    color: var(--primary-color, #007bff);
+    opacity: 0.6;
+    margin-bottom: 10px;
   }
 
   .subservicios-section h3,
