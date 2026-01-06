@@ -38,6 +38,7 @@ export const address = "San Francisco 770 c/ Sexta Bo. Salinas, Ñemby";
 
 export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/vipar_py/",
+  tiktok: "https://www.tiktok.com/@vipar.s.a",
   facebook: "https://www.facebook.com/vipar.vidrios",
   twitter: "",
   linkedin: "",

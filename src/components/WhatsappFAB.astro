@@ -1,76 +1,143 @@
 ---
-import { telephone } from "src/constants";
+import { SOCIAL_LINKS, telephone } from "src/constants";
+import InstagramIcon from "./icons/InstagramIcon.astro";
+import TiktokIcon from "./icons/TiktokIcon.astro";
 import WhatsappIcon from "./icons/WhatsappIcon.astro";
 
-const whatsappNumber = telephone;
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
 const messagePreview =
   "¡Hola! Estoy interesado en conocer más sobre sus servicios. Me comunico desde su página web y agradecería su atención.";
 ---
 
 <style>
-  .whatsapp-button {
+  .fab-stack {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #25d366;
-    color: white;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+  }
+
+  .fab-btn {
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: 24px;
-    z-index: 1000;
-    cursor: pointer;
-    text-decoration: none;
-    animation: pulse 2s infinite;
+    padding: 0;
   }
 
-  .whatsapp-button:hover {
-    background-color: #20b358;
+  .fab-btn--label {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1px;
   }
 
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-      box-shadow: 0 0 10px rgba(37, 211, 102, 0.7);
-    }
-    50% {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(37, 211, 102, 1);
-    }
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 10px rgba(37, 211, 102, 0.7);
-    }
+  .fab-btn--instagram {
+    border: 0;
+    color: #fff;
+    background: radial-gradient(
+        circle at 30% 110%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+      );
+  }
+
+  .fab-btn--instagram:hover {
+    color: #fff;
+    filter: brightness(0.95);
+  }
+
+  .fab-btn--tiktok {
+    border: 0;
+    color: #fff;
+    background: #000;
+    box-shadow:
+      0 6px 16px rgba(0, 0, 0, 0.25),
+      -2px 0 0 #25f4ee,
+      2px 0 0 #fe2c55;
+  }
+
+  .fab-btn--tiktok:hover {
+    color: #fff;
+    filter: brightness(0.95);
   }
 </style>
 
-<a
-  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messagePreview)}`}
-  target="_blank"
-  class="whatsapp-button"
-  id="whatsapp-button"
-  aria-label="Chat on WhatsApp"
->
-  <WhatsappIcon />
-</a>
+<div class="fab-stack" aria-label="Accesos directos">
+  <a
+    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messagePreview)}`}
+    target="_blank"
+    class="btn btn-success text-white rounded-circle shadow fab-btn"
+    id="whatsapp-fab"
+    aria-label="WhatsApp VIPAR"
+    rel="noopener"
+  >
+    <WhatsappIcon />
+  </a>
+
+  {
+    SOCIAL_LINKS.instagram && (
+      <a
+        href={SOCIAL_LINKS.instagram}
+        target="_blank"
+        class="btn rounded-circle shadow fab-btn fab-btn--instagram"
+        id="instagram-fab"
+        aria-label="Instagram VIPAR"
+        rel="noopener"
+      >
+        <InstagramIcon />
+      </a>
+    )
+  }
+
+  {
+    SOCIAL_LINKS.tiktok && (
+      <a
+        href={SOCIAL_LINKS.tiktok}
+        target="_blank"
+        class="btn rounded-circle fab-btn fab-btn--label fab-btn--tiktok"
+        id="tiktok-fab"
+        aria-label="TikTok VIPAR"
+        rel="noopener"
+      >
+        <TiktokIcon />
+      </a>
+    )
+  }
+</div>
 
 <script>
-  const whatsappButton = document.getElementById("whatsapp-button");
-  whatsappButton?.addEventListener("click", function () {
+  function trackFabClick(eventName, label) {
     // @ts-ignore
     if (typeof window !== "undefined" && window.gtag) {
       // @ts-ignore
-      window.gtag("event", "whatsapp_click", {
+      window.gtag("event", eventName, {
         event_category: "engagement",
-        event_label: "WhatsApp FAB",
+        event_label: label,
         value: 1,
       });
-    } else {
-      console.log("Evento de WhatsApp clic registrado");
     }
+  }
+
+  document
+    .getElementById("whatsapp-fab")
+    ?.addEventListener("click", function () {
+      trackFabClick("whatsapp_click", "WhatsApp FAB");
+    });
+
+  document
+    .getElementById("instagram-fab")
+    ?.addEventListener("click", function () {
+      trackFabClick("instagram_click", "Instagram FAB");
+    });
+
+  document.getElementById("tiktok-fab")?.addEventListener("click", function () {
+    trackFabClick("tiktok_click", "TikTok FAB");
   });
 </script>
