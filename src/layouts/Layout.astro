@@ -286,105 +286,93 @@ const {
       }
     </script>
     <script is:inline>
-      (function(){
-        var banner = document.getElementById('consent-banner');
-        var modal = document.getElementById('consent-modal');
-        var acceptBtn = document.getElementById('consent-accept');
-        var rejectBtn = document.getElementById('consent-reject');
-        var prefBtn = document.getElementById('consent-preferences');
-        var prefSave = document.getElementById('pref-save');
-        var prefCancel = document.getElementById('pref-cancel');
-        var prefAnalytics = document.getElementById('pref-analytics');
-        var prefMarketing = document.getElementById('pref-marketing');
-        var CONSENT_KEY = 'vipar_consent_v1';
+      document.addEventListener('DOMContentLoaded', function(){
+        (function(){
+          var banner = document.getElementById('consent-banner');
+          var modal = document.getElementById('consent-modal');
+          var acceptBtn = document.getElementById('consent-accept');
+          var rejectBtn = document.getElementById('consent-reject');
+          var prefBtn = document.getElementById('consent-preferences');
+          var prefSave = document.getElementById('pref-save');
+          var prefCancel = document.getElementById('pref-cancel');
+          var prefAnalytics = document.getElementById('pref-analytics');
+          var prefMarketing = document.getElementById('pref-marketing');
+          var CONSENT_KEY = 'vipar_consent_v1';
 
-        function hideBanner(){ if(banner) banner.style.display='none'; }
-        function showBanner(){ if(banner) banner.style.display='block'; }
-        function showModal(){
-          if(modal){
-            modal.setAttribute('aria-hidden','false');
-            modal.style.display='flex';
-            // hide banner so modal appears above it
-            if(banner) banner.style.display = 'none';
-            // focus first interactive
-            setTimeout(function(){ var f = document.getElementById('pref-analytics'); if(f) f.focus(); }, 150);
-          }
-        }
-
-        function hideModal(){
-          if(modal){
-            modal.setAttribute('aria-hidden','true');
-            modal.style.display='none';
-            // if user hasn't saved consent, show banner again
-            try{ var s = readStored(); if(!s) showBanner(); }catch(e){ showBanner(); }
-          }
-        }
-
-        function readStored(){
-          try{ var s = localStorage.getItem(CONSENT_KEY); return s ? JSON.parse(s) : null; }catch(e){ return null; }
-        }
-
-        function saveStored(obj){ try{ localStorage.setItem(CONSENT_KEY, JSON.stringify(obj)); }catch(e){} }
-
-        function applyConsent(obj){
-          // obj: { analytics: bool, marketing: bool }
-          if(window.gtag){
-            var analyticsState = obj.analytics ? 'granted' : 'denied';
-            var adState = obj.marketing ? 'granted' : 'denied';
-            // Update Consent Mode signals including ad_user_data and ad_personalization
-            gtag('consent','update',{
-              'analytics_storage': analyticsState,
-              'ad_storage': adState,
-              'ad_user_data': adState,
-              'ad_personalization': adState
-            });
-
-            // Inform GA about the consent object (useful for debugging/analysis)
-            gtag('event','consent_update',{analytics: obj.analytics, marketing: obj.marketing});
-
-            // Send explicit accept/reject events so you can mark them as conversions if desired
-            if(obj.analytics){
-              gtag('event','consent_accept',{method: 'banner', analytics: true, marketing: !!obj.marketing});
-              try{ gtag('set', {'user_properties': { consent_analytics: 'granted' }}); }catch(e){}
-            } else {
-              gtag('event','consent_reject',{method: 'banner', analytics: false, marketing: !!obj.marketing});
-              try{ gtag('set', {'user_properties': { consent_analytics: 'denied' }}); }catch(e){}
+          function hideBanner(){ if(banner) banner.style.display='none'; }
+          function showBanner(){ if(banner) banner.style.display='block'; }
+          function showModal(){
+            if(modal){
+              modal.setAttribute('aria-hidden','false');
+              modal.style.display='flex';
+              if(banner) banner.style.display = 'none';
+              setTimeout(function(){ var f = document.getElementById('pref-analytics'); if(f) f.focus(); }, 150);
             }
           }
-        }
 
-        // initialize
-        var stored = readStored();
-        if(!stored){ showBanner(); } else { applyConsent(stored); }
+          function hideModal(){
+            if(modal){
+              modal.setAttribute('aria-hidden','true');
+              modal.style.display='none';
+              try{ var s = readStored(); if(!s) showBanner(); }catch(e){ showBanner(); }
+            }
+          }
 
-        // Accept all
-        if(acceptBtn) acceptBtn.addEventListener('click', function(){
-          var obj = { analytics: true, marketing: true };
-          saveStored(obj); applyConsent(obj); hideBanner();
-        });
+          function readStored(){
+            try{ var s = localStorage.getItem(CONSENT_KEY); return s ? JSON.parse(s) : null; }catch(e){ return null; }
+          }
 
-        // Reject all (only necessary cookies)
-        if(rejectBtn) rejectBtn.addEventListener('click', function(){
-          var obj = { analytics: false, marketing: false };
-          saveStored(obj); applyConsent(obj); hideBanner();
-        });
+          function saveStored(obj){ try{ localStorage.setItem(CONSENT_KEY, JSON.stringify(obj)); }catch(e){} }
 
-        // Open preferences
-        if(prefBtn) prefBtn.addEventListener('click', function(){
-          var s = readStored() || { analytics: false, marketing: false };
-          prefAnalytics.checked = !!s.analytics;
-          prefMarketing.checked = !!s.marketing;
-          showModal();
-        });
+          function applyConsent(obj){
+            if(window.gtag){
+              var analyticsState = obj.analytics ? 'granted' : 'denied';
+              var adState = obj.marketing ? 'granted' : 'denied';
+              gtag('consent','update',{
+                'analytics_storage': analyticsState,
+                'ad_storage': adState,
+                'ad_user_data': adState,
+                'ad_personalization': adState
+              });
+              gtag('event','consent_update',{analytics: obj.analytics, marketing: obj.marketing});
+              if(obj.analytics){
+                gtag('event','consent_accept',{method: 'banner', analytics: true, marketing: !!obj.marketing});
+                try{ gtag('set', {'user_properties': { consent_analytics: 'granted' }}); }catch(e){}
+              } else {
+                gtag('event','consent_reject',{method: 'banner', analytics: false, marketing: !!obj.marketing});
+                try{ gtag('set', {'user_properties': { consent_analytics: 'denied' }}); }catch(e){}
+              }
+            }
+          }
 
-        // Save preferences
-        if(prefSave) prefSave.addEventListener('click', function(){
-          var obj = { analytics: !!prefAnalytics.checked, marketing: !!prefMarketing.checked };
-          saveStored(obj); applyConsent(obj); hideModal(); hideBanner();
-        });
+          var stored = readStored();
+          if(!stored){ showBanner(); } else { applyConsent(stored); }
 
-        if(prefCancel) prefCancel.addEventListener('click', function(){ hideModal(); });
-      })();
+          if(acceptBtn) acceptBtn.addEventListener('click', function(){
+            var obj = { analytics: true, marketing: true };
+            saveStored(obj); applyConsent(obj); hideBanner();
+          });
+
+          if(rejectBtn) rejectBtn.addEventListener('click', function(){
+            var obj = { analytics: false, marketing: false };
+            saveStored(obj); applyConsent(obj); hideBanner();
+          });
+
+          if(prefBtn) prefBtn.addEventListener('click', function(){
+            var s = readStored() || { analytics: false, marketing: false };
+            if(prefAnalytics) prefAnalytics.checked = !!s.analytics;
+            if(prefMarketing) prefMarketing.checked = !!s.marketing;
+            showModal();
+          });
+
+          if(prefSave) prefSave.addEventListener('click', function(){
+            var obj = { analytics: !!(prefAnalytics && prefAnalytics.checked), marketing: !!(prefMarketing && prefMarketing.checked) };
+            saveStored(obj); applyConsent(obj); hideModal(); hideBanner();
+          });
+
+          if(prefCancel) prefCancel.addEventListener('click', function(){ hideModal(); });
+        })();
+      });
     </script>
   </body>
 </html>
