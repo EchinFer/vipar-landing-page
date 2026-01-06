@@ -26,13 +26,44 @@ export async function getStaticPaths() {
 const { servicio } = Astro.props;
 
 // SEO optimizado por servicio
-const title = `${servicio.titulo} - Instalación Profesional | VIPAR Paraguay`;
-const description = servicio.descripcion_corta 
+const baseTitle = `${servicio.titulo} - Instalación Profesional | VIPAR Paraguay`;
+const baseDescription = servicio.descripcion_corta
   ? `${servicio.descripcion_corta.substring(0, 150)}... Servicios profesionales en Paraguay. ✓ Calidad garantizada ✓ Experiencia comprobada`
   : `Servicios de ${servicio.titulo} en Paraguay. Instalación profesional de cristales templados, carpintería de aluminio y más. Calidad garantizada.`;
 
+const seoBySlug: Record<
+  string,
+  { title: string; description: string; keywordsExtra: string }
+> = {
+  "mampara-divisoria": {
+    title: "Mamparas divisorias y divisorias de ambientes | VIPAR Paraguay",
+    description:
+      "Mamparas divisorias y divisorias de ambientes para oficinas y hogares en Paraguay. Cristal templado o eucatex, instalación profesional y presupuesto claro.",
+    keywordsExtra:
+      "mamparas divisorias paraguay, divisorias de ambientes paraguay, mamparas para oficinas paraguay, divisoria eucatex",
+  },
+  "cielo-raso": {
+    title: "Cielo raso (PVC, yeso, Durlock) | VIPAR Paraguay",
+    description:
+      "Cielo raso en Paraguay: PVC, yeso junta tomada y Durlock. Instalación profesional, terminaciones prolijas y asesoría para oficinas, comercios y viviendas.",
+    keywordsExtra:
+      "cielo raso paraguay, cielorraso, cielo raso de yeso, cielo raso durlock, cielo raso pvc",
+  },
+  "box-de-bano": {
+    title: "Mamparas para baño (Box de baño) en cristal templado | VIPAR Paraguay",
+    description:
+      "Mamparas para baño / box de baño a medida en Paraguay. Opciones en cristal templado, asesoría, medición e instalación profesional. Presupuesto claro.",
+    keywordsExtra:
+      "mamparas para baño paraguay, box de baño, mampara para baño precio paraguay, mamparas de vidrio para baño",
+  },
+};
+
+const seoOverride = seoBySlug[servicio.slug];
+const title = seoOverride?.title ?? baseTitle;
+const description = seoOverride?.description ?? baseDescription;
+
 const subserviceKeywords = servicio.subservicios?.map((s) => s.nombre).join(", ") ?? "";
-const keywords = `${servicio.titulo}, ${subserviceKeywords}, cristales templados, carpintería aluminio, instalación Paraguay`;
+const keywords = `${servicio.titulo}, ${subserviceKeywords}, ${seoOverride?.keywordsExtra ?? ""}, cristales templados, carpintería aluminio, instalación Paraguay`;
 const canonical = `${SITE_URL}/servicios/${servicio.slug}`;
 
 const whatsappNumber = telephone.replace(/[^\d]/g, "");

@@ -179,6 +179,14 @@ const wpLeadsEndpoint = cmsApiBase ? `${cmsApiBase}/vipar/v1/leads` : "";
     error.textContent = message;
   }
 
+  function trackEvent(eventName, params) {
+    // @ts-ignore
+    if (typeof window !== "undefined" && window.gtag) {
+      // @ts-ignore
+      window.gtag("event", eventName, params || {});
+    }
+  }
+
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -245,6 +253,10 @@ const wpLeadsEndpoint = cmsApiBase ? `${cmsApiBase}/vipar/v1/leads` : "";
         return;
       }
 
+      trackEvent("generate_lead", {
+        method: "contact_form",
+        page_location: typeof window !== "undefined" ? window.location.href : "",
+      });
       showSuccess();
       formElement.reset();
       seedCaptcha();

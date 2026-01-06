@@ -38,21 +38,6 @@ const {
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      is:inline
-      src={`https://www.googletagmanager.com/gtag/js?id=G-TZ2CL571FZ`}
-    ></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", 'G-TZ2CL571FZ', { debug_mode: true });
-    </script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -87,25 +72,42 @@ const {
   </head>
   <body>
     <Header />
-    <slot />
-    <WhatsappFAB />
-    <Footer />
+      {
+        MEASUREMENT_ID && MEASUREMENT_ID !== "G-XXXXXXX" && (
+          <>
+            <!-- Google tag (gtag.js) -->
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}
+            ></script>
+            <script is:inline define:vars={{ MEASUREMENT_ID }}>
+              window.dataLayer = window.dataLayer || [];
+              function gtag() {
+                dataLayer.push(arguments);
+              }
+              gtag("js", new Date());
+              gtag("config", MEASUREMENT_ID);
+            </script>
+          </>
+        )
+      }
+
     <script>
-      import "bootstrap/js/dist/alert";
-      import "bootstrap/js/dist/button";
-      import "bootstrap/js/dist/carousel";
-      import "bootstrap/js/dist/collapse";
-      import "bootstrap/js/dist/dropdown";
-      import "bootstrap/js/dist/modal";
-      import "bootstrap/js/dist/offcanvas";
-      import "bootstrap/js/dist/popover";
-      import "bootstrap/js/dist/scrollspy";
-      import "bootstrap/js/dist/tab";
       import "bootstrap/js/dist/toast";
       import "bootstrap/js/dist/tooltip";
       import AOS from "aos";
-      AOS.init();
+
+      window.addEventListener("load", () => {
+        AOS.init();
+      });
     </script>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+    <WhatsappFAB />
     <ClientProvider />
     <script type="application/ld+json">
       {
