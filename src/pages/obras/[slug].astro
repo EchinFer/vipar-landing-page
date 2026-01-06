@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { getAllObras, getProjectPageData } from "@lib/query";
+import { getAllObras } from "@lib/query";
 import { SITE_URL } from "src/constants";
 
 export async function getStaticPaths() {
@@ -23,6 +23,24 @@ const description = project.descripcion
 
 const keywords = `${project.titulo}, ${project.category.map(c => c.name).join(', ')}, obras cristales templados, proyectos construcción, instalación profesional Paraguay`;
 const canonical = `${SITE_URL}/obras/${project.slug}`;
+
+const stripHtml = (value: string | undefined) =>
+  (value ?? "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+
+const plainDescription = stripHtml(project.descripcion);
+const shortSummary = plainDescription
+  ? plainDescription.length > 220
+    ? `${plainDescription.slice(0, 220)}…`
+    : plainDescription
+  : "";
+
+const categoryNames = (project.category ?? []).map((c) => c.name).filter(Boolean);
+
+const metaItems = [project.fecha, project.cliente].filter(
+  (v): v is string => typeof v === "string" && v.trim().length > 0
+);
+
+const hasImages = Boolean(project.imagen) || (project.imagenes?.length ?? 0) > 0;
 ---
 
 <Layout 
@@ -32,86 +50,133 @@ const canonical = `${SITE_URL}/obras/${project.slug}`;
   canonical={canonical}
   ogImage={project.imagen || `${SITE_URL}/img/vipar-og.webp`}
 >
-  <main id="main">
-    <!-- Breadcrumbs -->
+  <!-- Breadcrumbs -->
+  <div
+    class="breadcrumbs d-flex align-items-center"
+    style="background-image: url('/img/breadcrumbs-bg.jpg');"
+  >
     <div
-      class="breadcrumbs d-flex align-items-center"
-      style="background-image: url('/img/breadcrumbs-bg.jpg');"
+      class="container position-relative d-flex flex-column align-items-center"
+      data-aos="fade"
     >
-      <div
-        class="container position-relative d-flex flex-column align-items-center"
-        data-aos="fade"
-      >
-        <h2>Obras</h2>
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/obras">Obras</a></li>
-          <li>{project.titulo}</li>
-        </ol>
+      <h2>Obras</h2>
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/obras">Obras</a></li>
+        <li>{project.titulo}</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Project Details Section -->
+  <section id="project-details" class="project-details">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-8">
+          <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+            <div class="flex-grow-1">
+              <h1 class="mb-2 obra-title">{project.titulo}</h1>
+              {metaItems.length > 0 && (
+                <div class="d-flex flex-wrap gap-2 align-items-center text-muted small">
+                  {metaItems.map((item, idx) => (
+                    <span>{idx > 0 ? "• " : ""}{item}</span>
+                  ))}
+                </div>
+              )}
+              {categoryNames.length > 0 && (
+                <div class="d-flex flex-wrap gap-2 mt-2">
+                  {categoryNames.map((name) => (
+                    <span class="badge obra-badge">{name}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <a class="btn-visit text-center" href="/contacto/">Solicitar presupuesto</a>
+            </div>
+          </div>
+
+          {shortSummary && (
+            <p class="lead text-secondary mb-4">{shortSummary}</p>
+          )}
+
+          {hasImages ? (
+            <div class="position-relative h-100">
+              <div class="slides-1 portfolio-details-slider swiper">
+                <div class="swiper-wrapper">
+                  {project.imagen && (
+                    <div class="swiper-slide">
+                      <a href={project.imagen} class="glightbox" data-gallery="obra-gallery">
+                        <img src={project.imagen} alt={project.titulo} loading="eager" decoding="async" />
+                      </a>
+                    </div>
+                  )}
+                  {project.imagenes &&
+                    project.imagenes.map((img) => (
+                      <div class="swiper-slide">
+                        <a href={img} class="glightbox" data-gallery="obra-gallery">
+                          <img src={img} alt={project.titulo} loading="lazy" decoding="async" />
+                        </a>
+                      </div>
+                    ))}
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          ) : (
+            <div class="section-bg p-4 rounded-2">
+              <p class="mb-0">
+                Estamos actualizando las fotos de esta obra. Si querés ver trabajos similares, escribinos y te compartimos referencias.
+              </p>
+            </div>
+          )}
+        </div>
+
+        <div class="col-lg-4">
+          <aside class="obra-info shadow-sm">
+            <div class="obra-info__header">
+              <h3 class="mb-0">Información del Proyecto</h3>
+              <div class="underline"></div>
+            </div>
+
+            <ul class="obra-info__list">
+              {categoryNames.length > 0 && (
+                <li>
+                  <span>Categorías</span>
+                  <strong>{categoryNames.join(", ")}</strong>
+                </li>
+              )}
+              {project.cliente && (
+                <li>
+                  <span>Cliente</span>
+                  <strong>{project.cliente}</strong>
+                </li>
+              )}
+              {project.fecha && (
+                <li>
+                  <span>Fecha</span>
+                  <strong>{project.fecha}</strong>
+                </li>
+              )}
+              {shortSummary && (
+                <li>
+                  <span>Resumen</span>
+                  <strong>{shortSummary}</strong>
+                </li>
+              )}
+            </ul>
+
+            <div class="d-grid gap-2 mt-3">
+              <a class="btn-visit text-center" href="/contacto/">Cotizar este proyecto</a>
+              <a class="btn-outline-brand text-center" href="tel:+595981256510">Llamar ahora</a>
+            </div>
+          </aside>
+        </div>
       </div>
     </div>
-
-    <!-- Project Details Section -->
-    <section id="project-details" class="project-details">
-      <div
-        class="row justify-content-between gy-4 mb-3"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <div class="col-lg-12 text-center">
-          <h2>{project.titulo}</h2>
-        </div>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="position-relative h-100">
-          <!-- Image Slider -->
-          <div class="slides-1 portfolio-details-slider swiper">
-            <div class="swiper-wrapper align-items-center">
-              {
-                project.imagen && (
-                  <div class="swiper-slide">
-                    <img src={project.imagen} alt={project.titulo} />
-                  </div>
-                )
-              }
-              {
-                project.imagenes && project.imagenes.map((img) => (
-                  <div class="swiper-slide">
-                    <img src={img} alt={project.titulo} />
-                  </div>
-                ))
-              }
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-
-        <div class="row justify-content-between gy-4 mt-4">
-          <div class="col-lg-8">
-            <div class="portfolio-description">
-              <h2 class="portfolio-title">{project.titulo}</h2>
-              <p set:html={project.descripcion} />
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="portfolio-info">
-              <h3>Información del Proyecto</h3>
-              <ul>
-                <li>
-                  <strong>Categorías:</strong>
-                  {project.category.map((cat) => cat.name).join(", ")}
-                </li>
-                <li><strong>Cliente:</strong> {project.cliente}</li>
-                <li><strong>Fecha:</strong> {project.fecha}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  </section>
 
   <!-- Schema.org para la obra -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -142,7 +207,8 @@ const canonical = `${SITE_URL}/obras/${project.slug}`;
     /**
      * Init swiper slider with 1 slide at once in desktop view
      */
-    new Swiper(".slides-1", {
+    if (typeof Swiper !== "undefined" && document.querySelector(".slides-1")) {
+      new Swiper(".slides-1", {
       speed: 600,
       loop: true,
       autoplay: {
@@ -159,12 +225,18 @@ const canonical = `${SITE_URL}/obras/${project.slug}`;
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-    });
+      });
+    }
+
+    if (typeof GLightbox !== "undefined") {
+      GLightbox({ selector: '.glightbox' });
+    }
 
     /**
      * Init swiper slider with 2 slides at once in desktop view
      */
-    new Swiper(".slides-2", {
+    if (typeof Swiper !== "undefined" && document.querySelector(".slides-2")) {
+      new Swiper(".slides-2", {
       speed: 600,
       loop: true,
       autoplay: {
@@ -192,6 +264,92 @@ const canonical = `${SITE_URL}/obras/${project.slug}`;
           spaceBetween: 20,
         },
       },
-    });
+      });
+    }
   });
 </script>
+
+<style>
+  .obra-title {
+    color: var(--color-secondary);
+  }
+
+  .obra-badge {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  .obra-info {
+    background: #f8f9fb;
+    border-radius: 16px;
+    padding: 20px 22px;
+    position: sticky;
+    top: 110px;
+  }
+
+  @media (max-width: 991px) {
+    .obra-info {
+      position: static;
+    }
+  }
+
+  .obra-info__header {
+    margin-bottom: 16px;
+  }
+
+  .obra-info__header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-secondary);
+  }
+
+  .obra-info__header .underline {
+    width: 48px;
+    height: 3px;
+    background: var(--color-primary);
+  }
+
+  .obra-info__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .obra-info__list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .obra-info__list span {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+  }
+
+  .obra-info__list strong {
+    font-size: 15px;
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+
+  .btn-outline-brand {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    display: inline-block;
+    padding: 8px 32px;
+    border-radius: 50px;
+    transition: 0.3s;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn-outline-brand:hover {
+    background: var(--color-primary);
+    color: #fff;
+  }
+</style>

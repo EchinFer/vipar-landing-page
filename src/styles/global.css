@@ -1424,6 +1424,7 @@ section {
   width: 100%;
   height: 800px;
   object-fit: contain;
+  object-position: top center;
 }
 
 .project-details
@@ -1513,7 +1514,10 @@ section {
   font-size: 14px;
 }
 
-.project-details .portfolio-info .btn-visit {
+.btn-visit {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  display: inline-block;
   padding: 8px 40px;
   background: var(--color-primary);
   color: #fff;
@@ -1521,8 +1525,9 @@ section {
   transition: 0.3s;
 }
 
-.project-details .portfolio-info .btn-visit:hover {
-  background: #ffc019;
+.btn-visit:hover {
+  background: var(--color-primary-hover);
+  color: #fff;
 }
 
 .project-details .portfolio-description h2 {
