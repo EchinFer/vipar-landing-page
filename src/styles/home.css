@@ -46,6 +46,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   z-index: 0;
 }
 
@@ -138,5 +139,45 @@
   #contenedor-divisiones .division {
     width: 100%;
     height: 100%;
+  }
+
+  /* Reduce overall hero height on small screens so content stays visible */
+  #contenedor-divisiones {
+    height: 70vh;
+    min-height: 420px;
+  }
+
+  #contenedor-divisiones .division h2 {
+    font-size: 1.6rem;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+  }
+
+  #contenedor-divisiones .division p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Make CTA stack and fit nicely on narrow screens */
+  #contenedor-divisiones .division .btn-get-started {
+    display: block;
+    width: min(92%, 400px);
+    margin: 0.5rem auto 0 auto !important;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
+  /* Override Bootstrap spacing utilities that may add end-margin and break symmetry */
+  #contenedor-divisiones .division .btn-get-started.me-2,
+  #contenedor-divisiones .division .btn-get-started.ms-2 {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  /* Ensure the immediate wrapper stacks CTAs consistently on small screens */
+  #contenedor-divisiones .division .col-lg-11 > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
 }
