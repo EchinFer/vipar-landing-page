@@ -1,0 +1,12 @@
+# Redirect non-www to www and force HTTPS
+# Place this file at the site root (public web root).
+# Permanent 301 redirect from vipar.com.py (or http) to https://www.vipar.com.py
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # If host is exactly vipar.com.py (no www) OR request is not HTTPS, redirect
+  RewriteCond %{HTTP_HOST} ^vipar\.com\.py$ [NC,OR]
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://www.vipar.com.py%{REQUEST_URI} [L,R=301]
+</IfModule>
