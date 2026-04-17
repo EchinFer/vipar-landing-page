@@ -1,35 +1,324 @@
 ---
-import ClientsSection from "@components/ClientsSection.astro";
-import ContactSection from "@components/ContactSection.astro";
-import HeroSection from "@components/HeroSection.astro";
-import ProjectsSection from "@components/ProjectsSection.astro";
-import ServiceConstructionSection from "@components/ServiceConstructionSection.astro";
-import ServiceSection from "@components/ServiceSection.astro";
 import Layout from "@layouts/Layout.astro";
-import { getHomePageData } from "@lib/query";
+import { SITE_URL, telephone } from "src/constants";
 import "@styles/home.css";
-import type { HomePageData } from "../types";
-import { SITE_URL } from "src/constants";
 
-const homePageData: HomePageData = await getHomePageData();
-const { service_section, construction_service_section } = homePageData;
-
-const title = "Cristales Templados y Carpintería de Aluminio | VIPAR Paraguay";
-const description = "Empresa líder en cristales templados, carpintería de aluminio, box de baño, fachadas vidrio y mamparas divisorias. Dos generaciones de experiencia en Paraguay. ✓ Calidad garantizada ✓ Instalación profesional";
-const keywords = "cristales templados Paraguay, vidrios templados, carpintería de aluminio, box de baño cristal, fachadas vidrio, mamparas divisorias, ventanas aluminio, puertas cristal templado, construcción Paraguay, vidrios Asunción";
+const title = "VIPAR S.A. | Arquitectura de alto rendimiento";
+const description = "Soluciones de ingeniería aplicada para entornos residenciales, comerciales y corporativos con precisión milimétrica.";
+const keywords = "VIPAR, arquitectura, ingeniería, residencial, comercial, corporativo, Paraguay";
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desde la web.";
 ---
 
-<Layout 
-  title={title} 
-  description={description} 
+<Layout
+  title={title}
+  description={description}
   keywords={keywords}
   canonical={SITE_URL}
+  bodyClass="vipar-home-body"
+  hideHeader={true}
+  hideFooter={true}
+  hideWhatsappFAB={true}
+  hideConsentBanner={true}
 >
-  <HeroSection />
+  <div class="vipar-home">
+    <header class="vipar-topbar">
+      <nav class="vipar-topbar__nav vipar-shell" aria-label="Navegación principal de VIPAR">
+        <a href="/" class="vipar-topbar__brand">VIPAR S.A.</a>
+        <div class="vipar-topbar__links" aria-hidden="false">
+          <a href="/">Inicio</a>
+          <a href="/servicios/" class="is-active">Servicios</a>
+          <a href="/obras/">Proyectos</a>
+          <a href="/nosotros/">Nosotros</a>
+          <a href="/contacto/">Contacto</a>
+        </div>
+        <a
+          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="vipar-topbar__cta"
+        >
+          Solicitar presupuesto
+        </a>
+      </nav>
+    </header>
 
-  <ServiceSection seccionServicios={service_section} />
-  <ServiceConstructionSection seccionServicios={construction_service_section} />
-  <ProjectsSection projects={homePageData.projects_section} />
-  <ClientsSection clients={homePageData.clients_section} />
-  <ContactSection />
+    <main class="vipar-home__main">
+      <section class="vipar-hero">
+        <img
+          class="vipar-hero__bg"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_IYWL4DSO_hDUJ1n6AL5clQU7lWnPQ9lXLpd9eDKDmklcaVW90aLx-OioX-Xq5vRAPbsJh7JT3ViE0-xntBi0xE3kL3_yNWJq9Y9Z9_MdcpJPluUl4B-zjki9HFB5TlXoyVsRqpw6Ms85rpE6IxS0V4Bzsl3WQQ33vDH1Pmk-A6o0aFUtSzzWE1P0PX9fm4u5CLy3XrIOGemJktsR-NB7za5w4UdWygax9FJVuQmh659as1rqiVXcap_MHkblPedbBPBdt_ufLvKJ"
+          alt="Modern architectural building with sleek glass facade and steel structures under a clear blue sky"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="vipar-hero__overlay"></div>
+        <div class="vipar-shell vipar-hero__content">
+          <div class="vipar-hero__copy">
+            <span class="vipar-eyebrow">Soluciones de Ingeniería Aplicada</span>
+            <h1>
+              Arquitectura de <span>alto rendimiento.</span>
+            </h1>
+            <p>
+              Especialistas en la ejecución técnica de infraestructuras
+              residenciales, comerciales y corporativas con precisión milimétrica.
+            </p>
+            <div class="vipar-hero__actions">
+              <a href="/obras/" class="vipar-button vipar-button--light">Explorar Proyectos</a>
+              <a href="/servicios/" class="vipar-button vipar-button--ghost">Nuestros Servicios</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="vipar-intro vipar-section">
+        <div class="vipar-shell vipar-intro__grid">
+          <div class="vipar-intro__copy">
+            <h2>Expertos en transformar visiones estructurales en realidades tangibles.</h2>
+            <p>
+              En VIPAR S.A. no solo construimos; orquestamos soluciones de ingeniería
+              que responden a las demandas específicas de cada entorno. Nuestra
+              metodología integra el diseño funcional con la eficiencia técnica para
+              garantizar resultados que trascienden lo convencional.
+            </p>
+            <div class="vipar-intro__stats">
+              <div class="vipar-mono-stat">
+                <span class="vipar-mono-stat__value">15+</span>
+                <span class="vipar-mono-stat__label">Años de experiencia</span>
+              </div>
+              <div class="vipar-mono-stat">
+                <span class="vipar-mono-stat__value">450+</span>
+                <span class="vipar-mono-stat__label">Proyectos ejecutados</span>
+              </div>
+            </div>
+          </div>
+          <div class="vipar-intro__media">
+            <div class="vipar-media-frame">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3rhLaAsi3dmFdJfG5CmwbkGd-fIdkKbYnw6cnF_LGbZlnWVmJy4WE-HNRZDrPOCExs7Gmg0lmBPt_AdMoQVYuvQLYpePGzUicbOSQKB8xK2n7YXBWeHkxz3RboRGiZTm1iF17NKx-TcfhlpEG0EBLgc7q5NwuA5mOzlA7IGMixsARLmtfL9R-SaS8aRVZPogaTAdastyLuiWWr2I4Qi16Zme1swOCQtjQDrpR4P_CvG82hFqPdecCJmMLQv6EekkQkZNc5EkIBBX"
+                alt="Interior of a modern high-end minimalist office space with concrete finishes and designer lighting"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="vipar-sector vipar-section vipar-section--muted">
+        <div class="vipar-shell">
+          <div class="vipar-section-heading">
+            <h2>Soluciones por Entorno</h2>
+            <p>Especialización técnica adaptada a los requerimientos de cada sector.</p>
+          </div>
+
+          <div class="vipar-sector__grid">
+            <article class="vipar-sector-card">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JXRCAaP9gCv7APOQsIvz7SY4r6ErStjwkvnaWQKsdFL_7kOa-Zv87P6ekcLRHFyyk52myWq5g6jPdJe9PQlzng9sB9e286qN08AYc9LOA3bCS2z7bjnry0PjQ7XAI45QgzUfTrr99q9TBw8JJJkxreubOcrLOrSDUGBouMr91ZI8l29YZc1gTPHHge1QVtiLBsR1fNjRv-8fROSDb3hGIE1mC6GuRJTVGP6K8PuHanJt3P6mjm3gwg6ITVwmwLUAjRhoSi8I3QVn"
+                alt="Luxury modern residential house at dusk"
+                class="vipar-sector-card__image"
+              />
+              <div class="vipar-sector-card__shade"></div>
+              <div class="vipar-sector-card__body">
+                <h3>Residencial</h3>
+                <p>Ejecución de viviendas de alta gama donde el detalle y el confort son la prioridad estructural.</p>
+                <ul>
+                  <li>Domótica Integrada</li>
+                  <li>Eficiencia Energética</li>
+                  <li>Acabados de Lujo</li>
+                </ul>
+                <a href="/servicios/" class="vipar-sector-card__button">Ver Soluciones</a>
+              </div>
+            </article>
+
+            <article class="vipar-sector-card">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKP0isqGEyF72o13yvNbtYaA8BskwcBePGllcpFlYvtXL36aMshGpz2dWSFPzkgOzo7nqpj2DZ5X-Xu6Th_xfBa-jJNVagIl52a3Iv8JSOySB0cYb8KX4m0j8nFSQOYs68j0hxxpuTYnmARHVyPHs3cswdY4Pm5L4pvxW2HBglXcRddFJKw5HmtXrKvTyzO_1xRMowhIlataGCxtfgmRQydsnC0sZKrNJYbJFXf6jUetDDvMz8TdeH_dfXYup7En30Cdd_eoy7LjY5"
+                alt="Wide shot of a modern retail space"
+                class="vipar-sector-card__image"
+              />
+              <div class="vipar-sector-card__shade"></div>
+              <div class="vipar-sector-card__body">
+                <h3>Comercial</h3>
+                <p>Infraestructuras diseñadas para el flujo masivo, la durabilidad y la identidad de marca.</p>
+                <ul>
+                  <li>Locales de Retail</li>
+                  <li>Centros Comerciales</li>
+                  <li>Mantenimiento Preventivo</li>
+                </ul>
+                <a href="/servicios/" class="vipar-sector-card__button">Ver Soluciones</a>
+              </div>
+            </article>
+
+            <article class="vipar-sector-card">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3YtH0XLhc1vWFWkeJw-g5VrGF2gAOps9OTyuxRwaHsSQjMRrtOMIHKOfw9aLQw5Xz7xVC3qiqPd-ABlH6C1AhyTTgZVS5KgtGlujMjqfYOxiAu5dX0b7gnobDmUX2PsFaYrM8l5ykgyvALJpKpTMTEHvTz2IMNuUc-0aP8Lo5z4zUUCoZPBAYerja78rc5PRzdeL5tZQv-KFbsuT_MKH4YynNNMHVDz3M4G834PBdioIg_eK-jdRy2O5Qf5dmEZ-eQsKBtOfZn1G-"
+                alt="Skyscraper glass facade reflecting the sky"
+                class="vipar-sector-card__image"
+              />
+              <div class="vipar-sector-card__shade"></div>
+              <div class="vipar-sector-card__body">
+                <h3>Corporativo</h3>
+                <p>Espacios de trabajo inteligentes que optimizan la productividad y reflejan solidez empresarial.</p>
+                <ul>
+                  <li>Oficinas Inteligentes</li>
+                  <li>Auditorios y Sedes</li>
+                  <li>Certificaciones LEED</li>
+                </ul>
+                <a href="/servicios/" class="vipar-sector-card__button">Ver Soluciones</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="vipar-method vipar-section">
+        <div class="vipar-shell vipar-method__grid">
+          <div class="vipar-method__copy">
+            <h2>Nuestra Metodología de Precisión</h2>
+            <div class="vipar-steps">
+              <article class="vipar-step">
+                <div class="vipar-step__number">01</div>
+                <div>
+                  <h4>Diagnóstico Técnico</h4>
+                  <p>Análisis profundo de los requerimientos estructurales y viabilidad del entorno.</p>
+                </div>
+              </article>
+              <article class="vipar-step">
+                <div class="vipar-step__number">02</div>
+                <div>
+                  <h4>Ingeniería de Valor</h4>
+                  <p>Optimización de materiales y procesos para maximizar la calidad sin exceder presupuestos.</p>
+                </div>
+              </article>
+              <article class="vipar-step">
+                <div class="vipar-step__number">03</div>
+                <div>
+                  <h4>Ejecución Controlada</h4>
+                  <p>Supervisión en tiempo real y protocolos de seguridad de estándar internacional.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="vipar-method__media">
+            <div class="vipar-method__image-frame">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmMgGe3CMg5zfcb0-Hldz_kwJ_ltkNz61arACacw4Ev0O-qDJzjpRAJWEylsJ8cPA76b2Gj1wO0BehXgjPIuWTBpYfH9Lw-XiOe2bVzXkIKt96B4WmrWEEqfIwvhHLqmps54fCLQmq9lNYyqxWjk-MVegwvmL97ItnhF0EjLG7JzOiI4NO81CV4YKQx40duIlNErJvuTLmYQswzbSjGO2nVTOJooHxX5tj_rwT3qtN30bKYUI7jFBaRLGvd3kBGlSUPLm7PRKcwv6z"
+                alt="Blueprint on a construction site with professional tools and helmet"
+              />
+            </div>
+            <aside class="vipar-method__quote">
+              <p>"La precisión no es un objetivo, es nuestro punto de partida en cada m²."</p>
+              <div>
+                <span></span>
+                <strong>Garantía VIPAR</strong>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="vipar-proof vipar-section vipar-section--soft">
+        <div class="vipar-shell">
+          <div class="vipar-proof__panel">
+            <div class="vipar-proof__grid">
+              <div class="vipar-proof__intro">
+                <h3>Experiencia Aplicada</h3>
+                <p>Nuestras cifras respaldan el compromiso con la excelencia técnica.</p>
+              </div>
+              <div class="vipar-proof__stat">
+                <span>98%</span>
+                <small>Cumplimiento de plazos</small>
+              </div>
+              <div class="vipar-proof__stat">
+                <span>0</span>
+                <small>Accidentes laborales</small>
+              </div>
+              <div class="vipar-proof__stat">
+                <span>+20</span>
+                <small>Sectores atendidos</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="vipar-final-cta">
+        <div class="vipar-final-cta__bg">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjmpuZI0UHuhv8TpUkFrRCQvIsDfHBWWyhHshyTm3_rtYeeanmO6tgbVCwQ4TtgocdYRL-v57mMJzUwNmonj-l3r2fgdasz06wQlAZe7VVQDk6iDJCiBDuJshWCwYQAuBLQ2v7ZS9gdYtwl1io_sVCpMyP1ZJgoxYkbHeBYMlkOEKwIjEE76rTUuBvw4aPaQH04OzR4KOQhWqpO2HrPlGGj3YBX6XxCwf_zRtAA3TKQgsQ4avoXzOjUlKIWAmG6x0yJ2ny4hyMKsPX"
+            alt="Professional construction site overview with cranes and structural framework"
+          />
+        </div>
+        <div class="vipar-shell vipar-final-cta__content">
+          <h2>¿Listo para elevar el estándar de su próximo proyecto?</h2>
+          <p>
+            Contacte con nuestro equipo técnico para una consultoría preliminar y descubra cómo
+            VIPAR S.A. aporta valor desde el primer trazo.
+          </p>
+          <div class="vipar-final-cta__actions">
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="vipar-button vipar-button--light vipar-button--strong"
+            >
+              Solicitar Cotización
+            </a>
+            <a href="#" class="vipar-button vipar-button--outline vipar-button--strong">Descargar Portfolio</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="vipar-footer">
+      <div class="vipar-shell vipar-footer__grid">
+        <div class="vipar-footer__brand-block">
+          <div class="vipar-footer__brand">VIPAR S.A.</div>
+          <p>
+            Referente en soluciones de ingeniería y arquitectura técnica con un enfoque en la precisión estructural y la innovación aplicada.
+          </p>
+          <div class="vipar-footer__socials">
+            <a href="#" aria-label="Compartir"><span class="material-symbols-outlined">share</span></a>
+            <a href="mailto:contacto@vipar.com" aria-label="Enviar correo"><span class="material-symbols-outlined">mail</span></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Enlaces</h4>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/servicios/" class="is-active">Servicios</a></li>
+            <li><a href="/obras/">Proyectos</a></li>
+            <li><a href="/nosotros/">Nosotros</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Aviso Legal</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Oficina Central</h4>
+          <p>
+            Av. de la Arquitectura, 150<br />
+            Distrito Financiero, 28001<br />
+            Madrid, España
+          </p>
+          <p>
+            T: +34 912 345 678<br />
+            E: contacto@vipar.com
+          </p>
+        </div>
+      </div>
+
+      <div class="vipar-shell vipar-footer__bottom">
+        <p>© 2024 VIPAR S.A. Architectural Precision.</p>
+      </div>
+    </footer>
+  </div>
 </Layout>

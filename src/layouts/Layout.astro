@@ -2,6 +2,7 @@
 import Header from "@components/Header.astro";
 import "@styles/bootstrap.scss";
 import "@styles/global.css";
+import "@styles/tokens.css";
 
 import "@assets/vendor/aos/aos.css";
 import "@assets/vendor/glightbox/css/glightbox.min.css";
@@ -18,6 +19,11 @@ interface Props {
   keywords?: string;
   canonical?: string;
   ogImage?: string;
+  bodyClass?: string;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
+  hideWhatsappFAB?: boolean;
+  hideConsentBanner?: boolean;
 }
 
 const defaultDescription =
@@ -30,7 +36,12 @@ const {
   description = defaultDescription, 
   keywords = defaultKeywords,
   canonical = SITE_URL,
-  ogImage = `${SITE_URL}/img/vipar-og.webp`
+  ogImage = `${SITE_URL}/img/vipar-og.webp`,
+  bodyClass = "",
+  hideHeader = false,
+  hideFooter = false,
+  hideWhatsappFAB = false,
+  hideConsentBanner = false
 } = Astro.props;
 ---
 
@@ -68,9 +79,13 @@ const {
 
     <!-- Sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- Fonts for redesign (Manrope + Inter) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   </head>
-  <body>
-    <Header />
+  <body class={bodyClass}>
+    {!hideHeader && <Header />}
       {
         MEASUREMENT_ID && MEASUREMENT_ID !== "G-XXXXXXX" && (
           <>
@@ -111,9 +126,9 @@ const {
       <slot />
     </main>
 
-    <Footer />
+    {!hideFooter && <Footer />}
     <!-- Cookie / Consent banner (improved, fixed to footer) -->
-    <div id="consent-banner" class="consent-banner" aria-hidden="true" role="dialog" aria-live="polite">
+    {!hideConsentBanner && <div id="consent-banner" class="consent-banner" aria-hidden="true" role="dialog" aria-live="polite">
       <div class="consent-inner container d-flex align-items-center justify-content-between">
         <div class="d-flex gap-3 align-items-center">
           <div class="consent-logo" aria-hidden="true">VIPAR</div>
@@ -128,10 +143,10 @@ const {
           <button id="consent-accept" class="btn btn-primary w-100">Aceptar todas</button>
         </div>
       </div>
-    </div>
+    </div>}
 
     <!-- Preferences modal (simple) -->
-    <div id="consent-modal" class="consent-modal" aria-hidden="true" role="dialog">
+    {!hideConsentBanner && <div id="consent-modal" class="consent-modal" aria-hidden="true" role="dialog">
       <div class="consent-modal__backdrop" aria-hidden="true"></div>
       <div class="consent-modal__inner">
         <h4>Preferencias de cookies</h4>
@@ -153,8 +168,8 @@ const {
           <button id="pref-save" class="btn btn-primary">Guardar preferencias</button>
         </div>
       </div>
-    </div>
-    <WhatsappFAB />
+    </div>}
+    {!hideWhatsappFAB && <WhatsappFAB />}
     <ClientProvider />
     <script type="application/ld+json">
       {
