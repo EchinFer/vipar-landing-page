@@ -1,33 +1,119 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { SITE_URL, telephone } from "src/constants";
+import { SITE_URL, address, email, telephone } from "src/constants";
 import "@styles/home.css";
 
-const title = "VIPAR S.A. | Arquitectura de alto rendimiento";
-const description = "Soluciones de ingeniería aplicada para entornos residenciales, comerciales y corporativos con precisión milimétrica.";
-const keywords = "VIPAR, arquitectura, ingeniería, residencial, comercial, corporativo, Paraguay";
+const title = "Cristales templados, cielo raso y box de baño | VIPAR Paraguay";
+const description = "VIPAR Paraguay instala cristales templados, mamparas divisorias, box de baño, cielo raso y carpintería de aluminio para hogares, oficinas y comercios. Cotizá por WhatsApp o contacto comercial.";
+const keywords = "cristales templados Paraguay, box de baño, mamparas divisorias, cielo raso, carpintería de aluminio, vidrios templados, VIPAR Paraguay";
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
 const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desde la web.";
+const homePath = `${SITE_URL}/`;
+const contactPath = `${SITE_URL}/contacto/`;
+const obrasPath = `${SITE_URL}/obras/`;
+const serviceLinks = {
+  residencial: "/servicios/box-de-bano/?utm_source=home&utm_medium=card&utm_campaign=redesign_home",
+  comercial: "/servicios/cielo-raso/?utm_source=home&utm_medium=card&utm_campaign=redesign_home",
+  corporativo: "/servicios/mampara-divisoria/?utm_source=home&utm_medium=card&utm_campaign=redesign_home",
+};
+const faqItems = [
+  {
+    question: "¿Qué servicios de VIPAR se pueden cotizar desde la web?",
+    answer:
+      "Desde la web podés solicitar presupuesto para cristales templados, box de baño, mamparas divisorias, cielo raso y carpintería de aluminio.",
+  },
+  {
+    question: "¿VIPAR trabaja proyectos residenciales, comerciales y corporativos?",
+    answer:
+      "Sí. VIPAR ejecuta soluciones para viviendas, oficinas, comercios y proyectos corporativos con asesoría técnica e instalación profesional en Paraguay.",
+  },
+  {
+    question: "¿Cómo conviene pedir presupuesto: WhatsApp o formulario?",
+    answer:
+      "Si necesitás respuesta rápida, WhatsApp es la vía más directa. Si querés dejar datos más completos, también podés ir a la página de contacto y enviar tu consulta comercial.",
+  },
+  {
+    question: "¿Dónde está ubicada VIPAR y cómo se coordina la visita?",
+    answer:
+      `VIPAR está en ${address}. Podés escribir a ${email} o llamar al ${telephone} para coordinar asesoría y visita técnica.`,
+  },
+];
+const homeStructuredData = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: homePath,
+    inLanguage: 'es-PY',
+    primaryImageOfPage:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuD_IYWL4DSO_hDUJ1n6AL5clQU7lWnPQ9lXLpd9eDKDmklcaVW90aLx-OioX-Xq5vRAPbsJh7JT3ViE0-xntBi0xE3kL3_yNWJq9Y9Z9_MdcpJPluUl4B-zjki9HFB5TlXoyVsRqpw6Ms85rpE6IxS0V4Bzsl3WQQ33vDH1Pmk-A6o0aFUtSzzWE1P0PX9fm4u5CLy3XrIOGemJktsR-NB7za5w4UdWygax9FJVuQmh659as1rqiVXcap_MHkblPedbBPBdt_ufLvKJ',
+    about: [
+      'Cristales templados',
+      'Box de baño',
+      'Mamparas divisorias',
+      'Cielo raso',
+      'Carpintería de aluminio',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Servicios destacados en home VIPAR',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Box de baño',
+        url: `${SITE_URL}/servicios/box-de-bano/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Cielo raso',
+        url: `${SITE_URL}/servicios/cielo-raso/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Mamparas divisorias',
+        url: `${SITE_URL}/servicios/mampara-divisoria/`,
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+]);
 ---
 
 <Layout
   title={title}
   description={description}
   keywords={keywords}
-  canonical={SITE_URL}
+  canonical={homePath}
   bodyClass="vipar-home-body"
   hideHeader={true}
   hideFooter={true}
   hideWhatsappFAB={true}
-  hideConsentBanner={true}
+  hideConsentBanner={false}
 >
   <div class="vipar-home">
     <header class="vipar-topbar">
       <nav class="vipar-topbar__nav vipar-shell" aria-label="Navegación principal de VIPAR">
         <a href="/" class="vipar-topbar__brand">VIPAR S.A.</a>
         <div class="vipar-topbar__links" aria-hidden="false">
-          <a href="/">Inicio</a>
-          <a href="/servicios/" class="is-active">Servicios</a>
+          <a href="/" class="is-active">Inicio</a>
+          <a href="/servicios/">Servicios</a>
           <a href="/obras/">Proyectos</a>
           <a href="/nosotros/">Nosotros</a>
           <a href="/contacto/">Contacto</a>
@@ -37,6 +123,10 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
           target="_blank"
           rel="noopener noreferrer"
           class="vipar-topbar__cta"
+          data-track-event="whatsapp_click"
+          data-track-label="Solicitar presupuesto"
+          data-track-location="header"
+          aria-label="Solicitar presupuesto por WhatsApp"
         >
           Solicitar presupuesto
         </a>
@@ -64,8 +154,13 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
               residenciales, comerciales y corporativas con precisión milimétrica.
             </p>
             <div class="vipar-hero__actions">
-              <a href="/obras/" class="vipar-button vipar-button--light">Explorar Proyectos</a>
-              <a href="/servicios/" class="vipar-button vipar-button--ghost">Nuestros Servicios</a>
+              <a href="/obras/" class="vipar-button vipar-button--light" data-track-event="cta_click" data-track-label="Explorar Proyectos" data-track-location="hero" data-track-destination={obrasPath}>Explorar Proyectos</a>
+              <a href="/servicios/" class="vipar-button vipar-button--ghost" data-track-event="cta_click" data-track-label="Nuestros Servicios" data-track-location="hero" data-track-destination={`${SITE_URL}/servicios/`}>Nuestros Servicios</a>
+            </div>
+            <div class="vipar-hero__contact-meta">
+              <a href={`tel:${whatsappNumber}`} data-track-event="phone_click" data-track-label="Telefono hero" data-track-location="hero">{telephone}</a>
+              <span></span>
+              <a href="/contacto/" data-track-event="cta_click" data-track-label="Contacto comercial" data-track-location="hero" data-track-destination={contactPath}>Contacto comercial</a>
             </div>
           </div>
         </div>
@@ -97,13 +192,15 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3rhLaAsi3dmFdJfG5CmwbkGd-fIdkKbYnw6cnF_LGbZlnWVmJy4WE-HNRZDrPOCExs7Gmg0lmBPt_AdMoQVYuvQLYpePGzUicbOSQKB8xK2n7YXBWeHkxz3RboRGiZTm1iF17NKx-TcfhlpEG0EBLgc7q5NwuA5mOzlA7IGMixsARLmtfL9R-SaS8aRVZPogaTAdastyLuiWWr2I4Qi16Zme1swOCQtjQDrpR4P_CvG82hFqPdecCJmMLQv6EekkQkZNc5EkIBBX"
                 alt="Interior of a modern high-end minimalist office space with concrete finishes and designer lighting"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section class="vipar-sector vipar-section vipar-section--muted">
+      <section class="vipar-sector vipar-section vipar-section--muted" id="sectores-home">
         <div class="vipar-shell">
           <div class="vipar-section-heading">
             <h2>Soluciones por Entorno</h2>
@@ -116,6 +213,8 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JXRCAaP9gCv7APOQsIvz7SY4r6ErStjwkvnaWQKsdFL_7kOa-Zv87P6ekcLRHFyyk52myWq5g6jPdJe9PQlzng9sB9e286qN08AYc9LOA3bCS2z7bjnry0PjQ7XAI45QgzUfTrr99q9TBw8JJJkxreubOcrLOrSDUGBouMr91ZI8l29YZc1gTPHHge1QVtiLBsR1fNjRv-8fROSDb3hGIE1mC6GuRJTVGP6K8PuHanJt3P6mjm3gwg6ITVwmwLUAjRhoSi8I3QVn"
                 alt="Luxury modern residential house at dusk"
                 class="vipar-sector-card__image"
+                loading="lazy"
+                decoding="async"
               />
               <div class="vipar-sector-card__shade"></div>
               <div class="vipar-sector-card__body">
@@ -126,7 +225,7 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
                   <li>Eficiencia Energética</li>
                   <li>Acabados de Lujo</li>
                 </ul>
-                <a href="/servicios/" class="vipar-sector-card__button">Ver Soluciones</a>
+                <a href={serviceLinks.residencial} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Residencial" data-track-location="service_card" data-track-service="box-de-bano">Ver Soluciones</a>
               </div>
             </article>
 
@@ -135,6 +234,8 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKP0isqGEyF72o13yvNbtYaA8BskwcBePGllcpFlYvtXL36aMshGpz2dWSFPzkgOzo7nqpj2DZ5X-Xu6Th_xfBa-jJNVagIl52a3Iv8JSOySB0cYb8KX4m0j8nFSQOYs68j0hxxpuTYnmARHVyPHs3cswdY4Pm5L4pvxW2HBglXcRddFJKw5HmtXrKvTyzO_1xRMowhIlataGCxtfgmRQydsnC0sZKrNJYbJFXf6jUetDDvMz8TdeH_dfXYup7En30Cdd_eoy7LjY5"
                 alt="Wide shot of a modern retail space"
                 class="vipar-sector-card__image"
+                loading="lazy"
+                decoding="async"
               />
               <div class="vipar-sector-card__shade"></div>
               <div class="vipar-sector-card__body">
@@ -145,7 +246,7 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
                   <li>Centros Comerciales</li>
                   <li>Mantenimiento Preventivo</li>
                 </ul>
-                <a href="/servicios/" class="vipar-sector-card__button">Ver Soluciones</a>
+                <a href={serviceLinks.comercial} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Comercial" data-track-location="service_card" data-track-service="cielo-raso">Ver Soluciones</a>
               </div>
             </article>
 
@@ -154,6 +255,8 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3YtH0XLhc1vWFWkeJw-g5VrGF2gAOps9OTyuxRwaHsSQjMRrtOMIHKOfw9aLQw5Xz7xVC3qiqPd-ABlH6C1AhyTTgZVS5KgtGlujMjqfYOxiAu5dX0b7gnobDmUX2PsFaYrM8l5ykgyvALJpKpTMTEHvTz2IMNuUc-0aP8Lo5z4zUUCoZPBAYerja78rc5PRzdeL5tZQv-KFbsuT_MKH4YynNNMHVDz3M4G834PBdioIg_eK-jdRy2O5Qf5dmEZ-eQsKBtOfZn1G-"
                 alt="Skyscraper glass facade reflecting the sky"
                 class="vipar-sector-card__image"
+                loading="lazy"
+                decoding="async"
               />
               <div class="vipar-sector-card__shade"></div>
               <div class="vipar-sector-card__body">
@@ -164,7 +267,7 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
                   <li>Auditorios y Sedes</li>
                   <li>Certificaciones LEED</li>
                 </ul>
-                <a href="/servicios/" class="vipar-sector-card__button">Ver Soluciones</a>
+                <a href={serviceLinks.corporativo} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Corporativo" data-track-location="service_card" data-track-service="mampara-divisoria">Ver Soluciones</a>
               </div>
             </article>
           </div>
@@ -204,6 +307,8 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmMgGe3CMg5zfcb0-Hldz_kwJ_ltkNz61arACacw4Ev0O-qDJzjpRAJWEylsJ8cPA76b2Gj1wO0BehXgjPIuWTBpYfH9Lw-XiOe2bVzXkIKt96B4WmrWEEqfIwvhHLqmps54fCLQmq9lNYyqxWjk-MVegwvmL97ItnhF0EjLG7JzOiI4NO81CV4YKQx40duIlNErJvuTLmYQswzbSjGO2nVTOJooHxX5tj_rwT3qtN30bKYUI7jFBaRLGvd3kBGlSUPLm7PRKcwv6z"
                 alt="Blueprint on a construction site with professional tools and helmet"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <aside class="vipar-method__quote">
@@ -242,11 +347,29 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
         </div>
       </section>
 
+      <section class="vipar-faq vipar-section" id="faq-home" aria-label="Preguntas frecuentes">
+        <div class="vipar-shell">
+          <div class="vipar-section-heading vipar-section-heading--left">
+            <h2>Preguntas frecuentes</h2>
+          </div>
+          <div class="vipar-faq__list">
+            {faqItems.map((item, index) => (
+              <details class="vipar-faq__item" data-faq-index={index}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section class="vipar-final-cta">
         <div class="vipar-final-cta__bg">
           <img
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjmpuZI0UHuhv8TpUkFrRCQvIsDfHBWWyhHshyTm3_rtYeeanmO6tgbVCwQ4TtgocdYRL-v57mMJzUwNmonj-l3r2fgdasz06wQlAZe7VVQDk6iDJCiBDuJshWCwYQAuBLQ2v7ZS9gdYtwl1io_sVCpMyP1ZJgoxYkbHeBYMlkOEKwIjEE76rTUuBvw4aPaQH04OzR4KOQhWqpO2HrPlGGj3YBX6XxCwf_zRtAA3TKQgsQ4avoXzOjUlKIWAmG6x0yJ2ny4hyMKsPX"
             alt="Professional construction site overview with cranes and structural framework"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="vipar-shell vipar-final-cta__content">
@@ -261,10 +384,13 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
               target="_blank"
               rel="noopener noreferrer"
               class="vipar-button vipar-button--light vipar-button--strong"
+              data-track-event="whatsapp_click"
+              data-track-label="Solicitar Cotizacion"
+              data-track-location="final_cta"
             >
               Solicitar Cotización
             </a>
-            <a href="#" class="vipar-button vipar-button--outline vipar-button--strong">Descargar Portfolio</a>
+            <a href="/obras/?utm_source=home&utm_medium=cta&utm_campaign=redesign_home" class="vipar-button vipar-button--outline vipar-button--strong" data-track-event="cta_click" data-track-label="Descargar Portfolio" data-track-location="final_cta" data-track-destination={obrasPath}>Descargar Portfolio</a>
           </div>
         </div>
       </section>
@@ -278,8 +404,8 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
             Referente en soluciones de ingeniería y arquitectura técnica con un enfoque en la precisión estructural y la innovación aplicada.
           </p>
           <div class="vipar-footer__socials">
-            <a href="#" aria-label="Compartir"><span class="material-symbols-outlined">share</span></a>
-            <a href="mailto:contacto@vipar.com" aria-label="Enviar correo"><span class="material-symbols-outlined">mail</span></a>
+            <a href="https://www.facebook.com/vipar.vidrios" target="_blank" rel="noopener noreferrer" aria-label="Facebook VIPAR" data-track-event="social_click" data-track-label="Facebook" data-track-location="footer"><span class="material-symbols-outlined">share</span></a>
+            <a href={`mailto:${email}`} aria-label="Enviar correo" data-track-event="email_click" data-track-label="Email footer" data-track-location="footer"><span class="material-symbols-outlined">mail</span></a>
           </div>
         </div>
 
@@ -305,13 +431,11 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
         <div>
           <h4>Oficina Central</h4>
           <p>
-            Av. de la Arquitectura, 150<br />
-            Distrito Financiero, 28001<br />
-            Madrid, España
+            {address}
           </p>
           <p>
-            T: +34 912 345 678<br />
-            E: contacto@vipar.com
+            T: <a href={`tel:${whatsappNumber}`} data-track-event="phone_click" data-track-label="Telefono footer" data-track-location="footer">{telephone}</a><br />
+            E: <a href={`mailto:${email}`} data-track-event="email_click" data-track-label="Email footer" data-track-location="footer">{email}</a>
           </p>
         </div>
       </div>
@@ -320,5 +444,45 @@ const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desd
         <p>© 2024 VIPAR S.A. Architectural Precision.</p>
       </div>
     </footer>
+
+    <div class="vipar-mobile-bar" aria-label="Acciones rápidas">
+      <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" data-track-event="whatsapp_click" data-track-label="WhatsApp sticky mobile" data-track-location="sticky_mobile">WhatsApp</a>
+      <a href="/contacto/?utm_source=home&utm_medium=sticky&utm_campaign=redesign_home" data-track-event="cta_click" data-track-label="Contacto rapido" data-track-location="sticky_mobile" data-track-destination={contactPath}>Contacto rápido</a>
+    </div>
+
+    <script type="application/ld+json" set:html={homeStructuredData}></script>
+    <script is:inline>
+      function viparTrack(eventName, params) {
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', eventName, params || {});
+        }
+      }
+
+      document.querySelectorAll('[data-track-event]').forEach((element) => {
+        element.addEventListener('click', () => {
+          const eventName = element.getAttribute('data-track-event') || 'cta_click';
+          viparTrack(eventName, {
+            event_category: 'engagement',
+            event_label: element.getAttribute('data-track-label') || '',
+            cta_location: element.getAttribute('data-track-location') || '',
+            destination: element.getAttribute('data-track-destination') || element.getAttribute('href') || '',
+            service: element.getAttribute('data-track-service') || '',
+            page_location: window.location.href,
+          });
+        });
+      });
+
+      document.querySelectorAll('[data-faq-index]').forEach((item) => {
+        item.addEventListener('toggle', () => {
+          if (item.open) {
+            viparTrack('faq_open', {
+              event_category: 'engagement',
+              faq_index: item.getAttribute('data-faq-index') || '',
+              page_location: window.location.href,
+            });
+          }
+        });
+      });
+    </script>
   </div>
 </Layout>
