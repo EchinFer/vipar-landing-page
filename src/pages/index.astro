@@ -3,9 +3,9 @@ import Layout from "@layouts/Layout.astro";
 import { SITE_URL, address, email, telephone } from "src/constants";
 import "@styles/home.css";
 
-const title = "Cristales templados, cielo raso y box de baño | VIPAR Paraguay";
-const description = "VIPAR Paraguay instala cristales templados, mamparas divisorias, box de baño, cielo raso y carpintería de aluminio para hogares, oficinas y comercios. Cotizá por WhatsApp o contacto comercial.";
-const keywords = "cristales templados Paraguay, box de baño, mamparas divisorias, cielo raso, carpintería de aluminio, vidrios templados, VIPAR Paraguay";
+const title = "Mamparas divisorias, box de baño, cielo raso y aluminio | VIPAR Paraguay";
+const description = "VIPAR Paraguay ofrece mamparas divisorias, box de baño, cielo raso, cristales templados y carpintería de aluminio para hogares, oficinas y comercios. Solicitá tu presupuesto por WhatsApp o contacto.";
+const keywords = "mamparas divisorias Paraguay, box de baño, cielo raso, carpintería de aluminio, cristales templados, vidrios templados, VIPAR Paraguay";
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
 const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desde la web.";
 const homePath = `${SITE_URL}/`;
@@ -18,24 +18,24 @@ const serviceLinks = {
 };
 const faqItems = [
   {
-    question: "¿Qué servicios de VIPAR se pueden cotizar desde la web?",
+    question: "¿Qué servicios de VIPAR podés consultar desde la home?",
     answer:
-      "Desde la web podés solicitar presupuesto para cristales templados, box de baño, mamparas divisorias, cielo raso y carpintería de aluminio.",
+      "Desde la home podés avanzar hacia servicios como mamparas divisorias, box de baño, cielo raso, cristales templados y carpintería de aluminio.",
   },
   {
-    question: "¿VIPAR trabaja proyectos residenciales, comerciales y corporativos?",
+    question: "¿VIPAR trabaja hogares, oficinas y comercios?",
     answer:
-      "Sí. VIPAR ejecuta soluciones para viviendas, oficinas, comercios y proyectos corporativos con asesoría técnica e instalación profesional en Paraguay.",
+      "Sí. VIPAR desarrolla soluciones para hogares, oficinas y comercios, adaptando cada servicio al tipo de espacio y necesidad del cliente.",
   },
   {
-    question: "¿Cómo conviene pedir presupuesto: WhatsApp o formulario?",
+    question: "¿Qué conviene enviar para pedir presupuesto?",
     answer:
-      "Si necesitás respuesta rápida, WhatsApp es la vía más directa. Si querés dejar datos más completos, también podés ir a la página de contacto y enviar tu consulta comercial.",
+      "Lo ideal es indicar qué servicio necesitás, en qué tipo de espacio se va a instalar y cualquier dato útil sobre medidas o terminaciones. Podés hacerlo por WhatsApp o desde contacto.",
   },
   {
-    question: "¿Dónde está ubicada VIPAR y cómo se coordina la visita?",
+    question: "¿Cómo coordinás una consulta o visita?",
     answer:
-      `VIPAR está en ${address}. Podés escribir a ${email} o llamar al ${telephone} para coordinar asesoría y visita técnica.`,
+      `Podés escribir a ${email}, llamar al ${telephone} o avanzar desde la página de contacto. VIPAR está en ${address}.`,
   },
 ];
 const homeStructuredData = JSON.stringify([
@@ -145,20 +145,19 @@ const homeStructuredData = JSON.stringify([
         <div class="vipar-hero__overlay"></div>
         <div class="vipar-shell vipar-hero__content">
           <div class="vipar-hero__copy">
-            <span class="vipar-eyebrow">Soluciones de Ingeniería Aplicada</span>
+            <span class="vipar-eyebrow">Vidrio, aluminio y terminaciones</span>
             <h1>
-              Arquitectura de <span>alto rendimiento.</span>
+              Soluciones en vidrio, aluminio y terminaciones para hogares, oficinas y comercios
             </h1>
             <p>
-              Especialistas en la ejecución técnica de infraestructuras
-              residenciales, comerciales y corporativas con precisión milimétrica.
+              Diseñamos, fabricamos e instalamos mamparas divisorias, box de baño, cielo raso, cristales templados y carpintería de aluminio para espacios que necesitan funcionalidad, estética y buena ejecución.
             </p>
             <div class="vipar-hero__actions">
-              <a href="/obras/" class="vipar-button vipar-button--light" data-track-event="cta_click" data-track-label="Explorar Proyectos" data-track-location="hero" data-track-destination={obrasPath}>Explorar Proyectos</a>
-              <a href="/servicios/" class="vipar-button vipar-button--ghost" data-track-event="cta_click" data-track-label="Nuestros Servicios" data-track-location="hero" data-track-destination={`${SITE_URL}/servicios/`}>Nuestros Servicios</a>
+              <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" class="vipar-button vipar-button--light" data-track-event="whatsapp_click" data-track-label="Solicitar presupuesto" data-track-location="hero">Solicitar presupuesto</a>
+              <a href="/servicios/" class="vipar-button vipar-button--ghost" data-track-event="cta_click" data-track-label="Ver servicios" data-track-location="hero" data-track-destination={`${SITE_URL}/servicios/`}>Ver servicios</a>
             </div>
             <div class="vipar-hero__contact-meta">
-              <a href={`tel:${whatsappNumber}`} data-track-event="phone_click" data-track-label="Telefono hero" data-track-location="hero">{telephone}</a>
+              <span class="vipar-hero__contact-tag">Atendemos proyectos residenciales, comerciales y corporativos.</span>
               <span></span>
               <a href="/contacto/" data-track-event="cta_click" data-track-label="Contacto comercial" data-track-location="hero" data-track-destination={contactPath}>Contacto comercial</a>
             </div>
@@ -169,21 +168,18 @@ const homeStructuredData = JSON.stringify([
       <section class="vipar-intro vipar-section">
         <div class="vipar-shell vipar-intro__grid">
           <div class="vipar-intro__copy">
-            <h2>Expertos en transformar visiones estructurales en realidades tangibles.</h2>
+            <h2>Soluciones que mejoran, dividen y terminan espacios</h2>
             <p>
-              En VIPAR S.A. no solo construimos; orquestamos soluciones de ingeniería
-              que responden a las demandas específicas de cada entorno. Nuestra
-              metodología integra el diseño funcional con la eficiencia técnica para
-              garantizar resultados que trascienden lo convencional.
+              VIPAR desarrolla soluciones en vidrio, aluminio y terminaciones para hogares, oficinas y comercios. Desde mamparas divisorias y box de baño hasta cielo raso, cristales templados y carpintería de aluminio, el enfoque está en resolver espacios con criterio técnico, buena presentación y ejecución prolija.
             </p>
             <div class="vipar-intro__stats">
               <div class="vipar-mono-stat">
-                <span class="vipar-mono-stat__value">15+</span>
-                <span class="vipar-mono-stat__label">Años de experiencia</span>
+                <span class="vipar-mono-stat__value">Vidrio y aluminio</span>
+                <span class="vipar-mono-stat__label">Soluciones para espacios</span>
               </div>
               <div class="vipar-mono-stat">
-                <span class="vipar-mono-stat__value">450+</span>
-                <span class="vipar-mono-stat__label">Proyectos ejecutados</span>
+                <span class="vipar-mono-stat__value">Hogar, oficina y comercio</span>
+                <span class="vipar-mono-stat__label">Aplicación según necesidad</span>
               </div>
             </div>
           </div>
@@ -203,8 +199,8 @@ const homeStructuredData = JSON.stringify([
       <section class="vipar-sector vipar-section vipar-section--muted" id="sectores-home">
         <div class="vipar-shell">
           <div class="vipar-section-heading">
-            <h2>Soluciones por Entorno</h2>
-            <p>Especialización técnica adaptada a los requerimientos de cada sector.</p>
+            <h2>Nuestros servicios</h2>
+            <p>Servicios destacados para hogares, oficinas y comercios que necesitan funcionalidad, terminación y buena instalación.</p>
           </div>
 
           <div class="vipar-sector__grid">
@@ -218,14 +214,14 @@ const homeStructuredData = JSON.stringify([
               />
               <div class="vipar-sector-card__shade"></div>
               <div class="vipar-sector-card__body">
-                <h3>Residencial</h3>
-                <p>Ejecución de viviendas de alta gama donde el detalle y el confort son la prioridad estructural.</p>
+                <h3>Box de baño</h3>
+                <p>Soluciones para baños que combinan funcionalidad, buena terminación y opciones acordes al espacio disponible.</p>
                 <ul>
-                  <li>Domótica Integrada</li>
-                  <li>Eficiencia Energética</li>
-                  <li>Acabados de Lujo</li>
+                  <li>Opciones a medida</li>
+                  <li>Instalación prolija</li>
+                  <li>Terminaciones funcionales</li>
                 </ul>
-                <a href={serviceLinks.residencial} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Residencial" data-track-location="service_card" data-track-service="box-de-bano">Ver Soluciones</a>
+                <a href={serviceLinks.residencial} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Box de baño" data-track-location="service_card" data-track-service="box-de-bano">Ver servicio</a>
               </div>
             </article>
 
@@ -239,14 +235,14 @@ const homeStructuredData = JSON.stringify([
               />
               <div class="vipar-sector-card__shade"></div>
               <div class="vipar-sector-card__body">
-                <h3>Comercial</h3>
-                <p>Infraestructuras diseñadas para el flujo masivo, la durabilidad y la identidad de marca.</p>
+                <h3>Cielo raso</h3>
+                <p>Alternativas para mejorar la terminación de interiores en oficinas, comercios y espacios que necesitan orden visual y funcionalidad.</p>
                 <ul>
-                  <li>Locales de Retail</li>
-                  <li>Centros Comerciales</li>
-                  <li>Mantenimiento Preventivo</li>
+                  <li>PVC, yeso y Durlock</li>
+                  <li>Aplicación en interiores</li>
+                  <li>Terminación cuidada</li>
                 </ul>
-                <a href={serviceLinks.comercial} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Comercial" data-track-location="service_card" data-track-service="cielo-raso">Ver Soluciones</a>
+                <a href={serviceLinks.comercial} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Cielo raso" data-track-location="service_card" data-track-service="cielo-raso">Ver servicio</a>
               </div>
             </article>
 
@@ -260,14 +256,14 @@ const homeStructuredData = JSON.stringify([
               />
               <div class="vipar-sector-card__shade"></div>
               <div class="vipar-sector-card__body">
-                <h3>Corporativo</h3>
-                <p>Espacios de trabajo inteligentes que optimizan la productividad y reflejan solidez empresarial.</p>
+                <h3>Mamparas divisorias</h3>
+                <p>Opciones para dividir ambientes y ordenar espacios de trabajo u oficinas con soluciones en vidrio y otros sistemas.</p>
                 <ul>
-                  <li>Oficinas Inteligentes</li>
-                  <li>Auditorios y Sedes</li>
-                  <li>Certificaciones LEED</li>
+                  <li>División de ambientes</li>
+                  <li>Vidrio y sistemas complementarios</li>
+                  <li>Aplicación en oficinas y comercios</li>
                 </ul>
-                <a href={serviceLinks.corporativo} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Corporativo" data-track-location="service_card" data-track-service="mampara-divisoria">Ver Soluciones</a>
+                <a href={serviceLinks.corporativo} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Mamparas divisorias" data-track-location="service_card" data-track-service="mampara-divisoria">Ver servicio</a>
               </div>
             </article>
           </div>
@@ -277,27 +273,34 @@ const homeStructuredData = JSON.stringify([
       <section class="vipar-method vipar-section">
         <div class="vipar-shell vipar-method__grid">
           <div class="vipar-method__copy">
-            <h2>Nuestra Metodología de Precisión</h2>
+            <h2>Cómo trabajamos</h2>
             <div class="vipar-steps">
               <article class="vipar-step">
                 <div class="vipar-step__number">01</div>
                 <div>
-                  <h4>Diagnóstico Técnico</h4>
-                  <p>Análisis profundo de los requerimientos estructurales y viabilidad del entorno.</p>
+                  <h4>Entendemos tu necesidad</h4>
+                  <p>Analizamos el espacio, el tipo de solución y lo que necesitás resolver.</p>
                 </div>
               </article>
               <article class="vipar-step">
                 <div class="vipar-step__number">02</div>
                 <div>
-                  <h4>Ingeniería de Valor</h4>
-                  <p>Optimización de materiales y procesos para maximizar la calidad sin exceder presupuestos.</p>
+                  <h4>Te orientamos en la mejor opción</h4>
+                  <p>Evaluamos la alternativa más adecuada según uso, estética y funcionalidad.</p>
                 </div>
               </article>
               <article class="vipar-step">
                 <div class="vipar-step__number">03</div>
                 <div>
-                  <h4>Ejecución Controlada</h4>
-                  <p>Supervisión en tiempo real y protocolos de seguridad de estándar internacional.</p>
+                  <h4>Preparamos la solución</h4>
+                  <p>Organizamos el trabajo según el tipo de servicio y la necesidad del proyecto.</p>
+                </div>
+              </article>
+              <article class="vipar-step">
+                <div class="vipar-step__number">04</div>
+                <div>
+                  <h4>Instalamos y entregamos</h4>
+                  <p>Llevamos la solución al espacio con criterio de terminación y buena ejecución.</p>
                 </div>
               </article>
             </div>
@@ -312,10 +315,10 @@ const homeStructuredData = JSON.stringify([
               />
             </div>
             <aside class="vipar-method__quote">
-              <p>"La precisión no es un objetivo, es nuestro punto de partida en cada m²."</p>
+              <p>"Cada espacio necesita una solución bien elegida, bien resuelta y bien instalada."</p>
               <div>
                 <span></span>
-                <strong>Garantía VIPAR</strong>
+                <strong>Equipo VIPAR</strong>
               </div>
             </aside>
           </div>
@@ -327,20 +330,20 @@ const homeStructuredData = JSON.stringify([
           <div class="vipar-proof__panel">
             <div class="vipar-proof__grid">
               <div class="vipar-proof__intro">
-                <h3>Experiencia Aplicada</h3>
-                <p>Nuestras cifras respaldan el compromiso con la excelencia técnica.</p>
+                <h3>Respaldo comercial</h3>
+                <p>La propuesta de VIPAR se apoya en servicios aplicados a espacios reales y necesidades concretas.</p>
               </div>
               <div class="vipar-proof__stat">
-                <span>98%</span>
-                <small>Cumplimiento de plazos</small>
+                <span>Espacios</span>
+                <small>Soluciones para hogares, oficinas y comercios</small>
               </div>
               <div class="vipar-proof__stat">
-                <span>0</span>
-                <small>Accidentes laborales</small>
+                <span>Servicios</span>
+                <small>Mamparas, box de baño, cielo raso, aluminio y vidrio</small>
               </div>
               <div class="vipar-proof__stat">
-                <span>+20</span>
-                <small>Sectores atendidos</small>
+                <span>Proyectos</span>
+                <small>Trabajos realizados como respaldo visible</small>
               </div>
             </div>
           </div>
@@ -373,10 +376,9 @@ const homeStructuredData = JSON.stringify([
           />
         </div>
         <div class="vipar-shell vipar-final-cta__content">
-          <h2>¿Listo para elevar el estándar de su próximo proyecto?</h2>
+          <h2>¿Necesitás una solución para tu espacio?</h2>
           <p>
-            Contacte con nuestro equipo técnico para una consultoría preliminar y descubra cómo
-            VIPAR S.A. aporta valor desde el primer trazo.
+            Contanos qué necesitás y te ayudamos a encontrar la alternativa más adecuada según el tipo de proyecto.
           </p>
           <div class="vipar-final-cta__actions">
             <a
@@ -390,7 +392,7 @@ const homeStructuredData = JSON.stringify([
             >
               Solicitar Cotización
             </a>
-            <a href="/obras/?utm_source=home&utm_medium=cta&utm_campaign=redesign_home" class="vipar-button vipar-button--outline vipar-button--strong" data-track-event="cta_click" data-track-label="Descargar Portfolio" data-track-location="final_cta" data-track-destination={obrasPath}>Descargar Portfolio</a>
+            <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" class="vipar-button vipar-button--outline vipar-button--strong" data-track-event="whatsapp_click" data-track-label="Hablar por WhatsApp" data-track-location="final_cta">Hablar por WhatsApp</a>
           </div>
         </div>
       </section>
@@ -401,7 +403,7 @@ const homeStructuredData = JSON.stringify([
         <div class="vipar-footer__brand-block">
           <div class="vipar-footer__brand">VIPAR S.A.</div>
           <p>
-            Referente en soluciones de ingeniería y arquitectura técnica con un enfoque en la precisión estructural y la innovación aplicada.
+            VIPAR S.A. ofrece soluciones en vidrio, aluminio y terminaciones para hogares, oficinas y comercios, con servicios como mamparas divisorias, box de baño, cielo raso, cristales templados y carpintería de aluminio.
           </p>
           <div class="vipar-footer__socials">
             <a href="https://www.facebook.com/vipar.vidrios" target="_blank" rel="noopener noreferrer" aria-label="Facebook VIPAR" data-track-event="social_click" data-track-label="Facebook" data-track-location="footer"><span class="material-symbols-outlined">share</span></a>
@@ -447,7 +449,7 @@ const homeStructuredData = JSON.stringify([
 
     <div class="vipar-mobile-bar" aria-label="Acciones rápidas">
       <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" data-track-event="whatsapp_click" data-track-label="WhatsApp sticky mobile" data-track-location="sticky_mobile">WhatsApp</a>
-      <a href="/contacto/?utm_source=home&utm_medium=sticky&utm_campaign=redesign_home" data-track-event="cta_click" data-track-label="Contacto rapido" data-track-location="sticky_mobile" data-track-destination={contactPath}>Contacto rápido</a>
+      <a href="/contacto/?utm_source=home&utm_medium=sticky&utm_campaign=redesign_home" data-track-event="cta_click" data-track-label="Solicitar presupuesto mobile" data-track-location="sticky_mobile" data-track-destination={contactPath}>Solicitar presupuesto</a>
     </div>
 
     <script type="application/ld+json" set:html={homeStructuredData}></script>
