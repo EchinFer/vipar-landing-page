@@ -165,6 +165,7 @@ const strengths = [
 
 const projects = [
   {
+    layout: "feature",
     eyebrow: "Espacio Corporativo",
     title: "Showroom VIPAR",
     description:
@@ -174,6 +175,7 @@ const projects = [
     alt: "Showroom VIPAR",
   },
   {
+    layout: "wide",
     eyebrow: "Frente Comercial",
     title: "Sucursal Tigo MRA",
     description:
@@ -183,6 +185,7 @@ const projects = [
     alt: "Sucursal Tigo MRA",
   },
   {
+    layout: "compact",
     eyebrow: "Edificio Residencial",
     title: "Edificio Concordia",
     description:
@@ -192,6 +195,7 @@ const projects = [
     alt: "Edificio Concordia",
   },
   {
+    layout: "compact",
     eyebrow: "Arquitectura Institucional",
     title: "Cooperativa Medalla Milagrosa",
     description:
@@ -437,7 +441,14 @@ const homeStructuredData = JSON.stringify([
 
           <div class="vipar-project-grid">
             {projects.map((project) => (
-              <article class="vipar-project-card vipar-project-card--architectural" tabindex="0">
+              <article
+                class:list={[
+                  "vipar-project-card",
+                  "vipar-project-card--contextual",
+                  `vipar-project-card--${project.layout}`,
+                ]}
+                tabindex="0"
+              >
                 <div class="vipar-project-card__image">
                   <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
                 </div>
@@ -447,10 +458,6 @@ const homeStructuredData = JSON.stringify([
                     <h3>{project.title}</h3>
                   </div>
                   <p>{project.description}</p>
-                  <a class="vipar-project-card__cta" href="#contacto">
-                    Cotizar algo similar
-                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                  </a>
                 </div>
               </article>
             ))}
