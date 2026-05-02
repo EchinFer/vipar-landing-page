@@ -105,16 +105,17 @@ export const POST: APIRoute = async ({ request }) => {
     const source = (payload.source ?? "vipar-landing").toString().trim();
     const page = (payload.page ?? "").toString().trim();
 
-    if (!name || !email || !message) {
+    if (!name || !message || (!email && !phone)) {
       return jsonResponse(
         {
           ok: false,
-          error: "Campos requeridos: name, email, message",
+          error: "Campos requeridos: name, message y al menos uno entre email o phone",
           debug: {
             contentType,
             receivedKeys: Object.keys(payload ?? {}),
             hasName: Boolean(name),
             hasEmail: Boolean(email),
+            hasPhone: Boolean(phone),
             hasMessage: Boolean(message),
           },
         },

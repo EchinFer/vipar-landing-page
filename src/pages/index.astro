@@ -3,94 +3,250 @@ import Layout from "@layouts/Layout.astro";
 import { SITE_URL, address, email, telephone } from "src/constants";
 import "@styles/home.css";
 
-const title = "Mamparas divisorias, box de baño, cielo raso y aluminio | VIPAR Paraguay";
-const description = "VIPAR Paraguay ofrece mamparas divisorias, box de baño, cielo raso, cristales templados y carpintería de aluminio para hogares, oficinas y comercios. Solicitá tu presupuesto por WhatsApp o contacto.";
-const keywords = "mamparas divisorias Paraguay, box de baño, cielo raso, carpintería de aluminio, cristales templados, vidrios templados, VIPAR Paraguay";
-const whatsappNumber = telephone.replace(/[^\d]/g, "");
-const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desde la web.";
+const title = "VIPAR S.A. | Cristales y Aluminio";
+const description =
+  "Cristales templados, aluminio y terminaciones para obras en Paraguay. Soluciones integrales para proyectos corporativos y residenciales de alta exigencia.";
+const keywords =
+  "VIPAR S.A., cristales templados Paraguay, carpintería de aluminio, fachadas integrales, mamparas, cielos rasos, box de baño";
 const homePath = `${SITE_URL}/`;
-const contactPath = `${SITE_URL}/contacto/`;
-const obrasPath = `${SITE_URL}/obras/`;
-const serviceLinks = {
-  residencial: "/servicios/box-de-bano/?utm_source=home&utm_medium=card&utm_campaign=redesign_home",
-  comercial: "/servicios/cielo-raso/?utm_source=home&utm_medium=card&utm_campaign=redesign_home",
-  corporativo: "/servicios/mampara-divisoria/?utm_source=home&utm_medium=card&utm_campaign=redesign_home",
-};
-const faqItems = [
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const whatsappMessage =
+  "Hola, quiero solicitar un presupuesto para una obra. Me contacto desde la home.";
+const currentYear = new Date().getFullYear();
+
+const featuredServices = [
   {
-    question: "¿Qué servicios de VIPAR podés consultar desde la home?",
-    answer:
-      "Desde la home podés avanzar hacia servicios como mamparas divisorias, box de baño, cielo raso, cristales templados y carpintería de aluminio.",
+    title: "Cristales Templados",
+    description:
+      "Fabricación a medida e instalación de cristales de seguridad para cerramientos, fachadas, barandas y divisiones. Máxima resistencia y estética limpia.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDykBrcyKSSk9rD750fr6pT6P5cC-C2wq6D5MeASiq3KTSD-IDgrOC-Fs_UC1BLnIvCiViu2858O7WigZsKDT83J3N8imzaPNcPNzYx4XEfphTvK__kAKSIyd02ADTrczjQ8uvMsKMAEFwineAEJR81cgQ80Yjo0x_uUb1lpHSRh0cBojVQIzwLPH1xuhjs54C3MI5uvwzYxWErLMVGa2hGOtxjcCxI_kcE1wG6ck9wfUso7maXF-IgfRNkKF-yNw9BgoCdsnnyUKIE",
+    alt: "Cristales Templados",
   },
   {
-    question: "¿VIPAR trabaja hogares, oficinas y comercios?",
-    answer:
-      "Sí. VIPAR desarrolla soluciones para hogares, oficinas y comercios, adaptando cada servicio al tipo de espacio y necesidad del cliente.",
+    title: "Carpintería de Aluminio",
+    description:
+      "Perfiles de aluminio de alta prestación para aberturas, puertas y ventanas. Durabilidad garantizada, excelente hermeticidad y bajo mantenimiento.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuB4Mzzfr9lY4cHdBKurIQr7N_Waw7YzDVaht4lv8xv-L5eCW7S3E8_9RCQnc4vAGnOwU8Swb2wH8PSotN7DKUg2ZmFxiX9onb1KFbKjiosVtcGmodNHhL9ajZbSzg_mNuHtMc4u4W0D1YqxF6-rEwyxmZOPsX5XbNMoWBNkP2PSCAv47QHGZ5h5L3Niy113q9OnG9EJpAF-U4n4IhU9ECwCzJzIcsA990pouaN3ERXZUiWdmJIlftsVT56ftYZ2omDkO13ROcvEX5YF",
+    alt: "Carpintería de Aluminio",
   },
   {
-    question: "¿Qué conviene enviar para pedir presupuesto?",
-    answer:
-      "Lo ideal es indicar qué servicio necesitás, en qué tipo de espacio se va a instalar y cualquier dato útil sobre medidas o terminaciones. Podés hacerlo por WhatsApp o desde contacto.",
-  },
-  {
-    question: "¿Cómo coordinás una consulta o visita?",
-    answer:
-      `Podés escribir a ${email}, llamar al ${telephone} o avanzar desde la página de contacto. VIPAR está en ${address}.`,
+    title: "Fachadas Integrales",
+    description:
+      "Sistemas de fachadas vidriadas (Piel de Vidrio, Frente Integral) que aportan modernidad, eficiencia energética y gran impacto visual a su edificio.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCOo4KRxra_3b2D_dlUpvqb7ae630h6LFBSQjjipL9pMkG6rBjQZIrUYn3t6P1sbxkfx-Vzb2wan3eJy0bkg9_bXBR9YjIZ-ZTToes3Joq_2P_inny05iDFz7NchKFzFUpffVJDYZ9wPIS2kJYjsiimRX9iQPVUoTdma2A6w-wiuD1-sjjJVQpHvwFJXMuIKpHCIHN2quJe4qnsajzfuVWFVMjPq56vrAmR9glTwYt7iuVzZpx_rtJbNVzXgOXSRhH04oABYmeCHtOR",
+    alt: "Fachadas",
   },
 ];
+
+const complementaryServices = [
+  {
+    icon: "window",
+    title: "Ventanas",
+    description: "Sistemas corredizos, batientes y proyectantes.",
+  },
+  {
+    icon: "door_front",
+    title: "Puertas",
+    description: "Puertas de acceso, pivotantes y corredizas.",
+  },
+  {
+    icon: "grid_view",
+    title: "Mamparas",
+    description: "Divisiones para oficinas y espacios comerciales.",
+  },
+  {
+    icon: "roofing",
+    title: "Cielo Raso",
+    description: "Instalación de cielos rasos en PVC, Durlock y modulares.",
+  },
+  {
+    icon: "shower",
+    title: "Box de Baño",
+    description: "Mamparas de ducha a medida con herrajes inoxidables.",
+  },
+];
+
+const valuePoints = [
+  {
+    title: "Relevamiento milimétrico",
+    description: "Medición exacta en obra para evitar desajustes.",
+  },
+  {
+    title: "Fabricación controlada",
+    description: "Procesos estandarizados en nuestro taller propio.",
+  },
+  {
+    title: "Instalación especializada",
+    description: "Personal capacitado y protocolos de seguridad estrictos.",
+  },
+  {
+    title: "Coordinación en obra",
+    description: "Trabajo conjunto con directores de obra y otros rubros.",
+  },
+];
+
+const strengths = [
+  {
+    icon: "architecture",
+    title: "Especialización en terminaciones",
+    description:
+      "Nos enfocamos exclusivamente en cristales, aluminio y acabados finales, garantizando un nivel de detalle superior al de los contratistas generales.",
+  },
+  {
+    icon: "inventory_2",
+    title: "Variedad de servicios",
+    description:
+      "Un único proveedor para resolver múltiples necesidades de terminación: fachadas, aberturas, divisiones y cielos rasos, simplificando la gestión de obra.",
+  },
+  {
+    icon: "construction",
+    title: "Experiencia en proyectos",
+    description:
+      "Amplio portfolio de obras comerciales, corporativas y residenciales de alto estándar entregadas en tiempo y forma en Asunción y Gran Asunción.",
+  },
+  {
+    icon: "support_agent",
+    title: "Atención comercial",
+    description:
+      "Asesoramiento técnico pre-venta, elaboración rápida de presupuestos y seguimiento continuo durante toda la ejecución del proyecto.",
+  },
+];
+
+const projects = [
+  {
+    tag: "Showroom",
+    title: "Showroom VIPAR",
+    description:
+      "Instalación integral: Fachada, mamparas interiores y exhibidores.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuC-39FDUcFsXxt2-cHVwOpA0Wjc2NWCg1VhvF5pPd-XNzK7Z3WupVl1crnJDYLxdsZXjomu-xBzDAedUTI1-VnLwBA5n976BRatH6J_rnImgK0GSUUxwQlhRWU-r7n2EG8CdO3Ur1PJ503BaDHPfvDpBp6yXRlAmiJAJ5hASS501XQCUSh1kXWFDQuoShddMHinuvifgJwMjvIsyI6CWLYJc2_SaTbVCCXJQ1hp1iXpWgk4VGjFU7ZEcwe8qptGEUuYxORq58FKiOG1",
+    alt: "Showroom VIPAR",
+  },
+  {
+    tag: "Comercial",
+    title: "Sucursal Tigo MRA",
+    description:
+      "Provisión e instalación de frente de cristal templado y aberturas.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDbd9UQQxqlNAyrWEtvBi_GUT3uDykJb0buw1FcrNqPqe5l199QGOL66ETfkeoo0HZSvVSBedKqI5Jl9J8Bl_CWKHNJZZi6CrMKs5uD6bW6bbKiW7XipUvV6ivTvUaQcf80j1Wxi3QY_t_8jYuxAGPJbc8HOIeNGJqQFOgHYujVD4uipBHjkAyOOhtHewanAyTsnlYPtRE9l_kUFPF8W6irIFk80YUriPdG2-EyKQncAw2xmryuEwFsMNxZ3EKWXhFj9d6QDYDvmSo1",
+    alt: "Sucursal Tigo MRA",
+  },
+  {
+    tag: "Residencial / Corporativo",
+    title: "Edificio Concordia",
+    description:
+      "Carpintería de aluminio de alta prestación en todos los niveles.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAX2oB39hJd82DqZofsOyohWZFqrWx9MfifNvV1-DP_a8aWX840Oc2jv2plL1-SJuH1bELm3TgGX0sjI-z9LtI1n4eQ8MCeJPBAmTe5V81zCRqO6ODMQuMl8KUlH35Qlr2RhiZGLcmJXK9HM5eUgqBItlUgTzOpBHffj4TB7bBS46CThZnyvLeXq9PFCMXgtZ1eMJ6T3kuN8zMF74xLXCo0G4mUcj6U8kmCNPdN_oP-FnWFhz4QTYDFF1G1ObXBIZX_6l4X8k61ftYd",
+    alt: "Edificio Concordia",
+  },
+  {
+    tag: "Institucional",
+    title: "Cooperativa Medalla Milagrosa",
+    description:
+      "Piel de vidrio, mamparas divisorias y puertas de acceso automáticas.",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuChyxsn1hwavvRxhc0BjUhQwoo0z77EwkZtlUPJ-5xmXAUXseeIdjCJnSWGW5fvJFayH3_roCYPo1Ry6hS6syguDFDlzT-kX-OCiYibM08XBxoOTipPOqGBvtGGI6JKK7wRgVRCPSthlXAsqWdscJGfXEH7219_9LKP3BlNkhQhXvzHbW87ViiPUAbngN0AKBYvrmQaMaD8BJHZF9ouSr03CzOdTQpRAwJIXRnByOsv6NW9i6gdBe5lkJ2vq19m7Q1o_IeTDJ4cBA_Q",
+    alt: "Cooperativa Medalla Milagrosa",
+  },
+];
+
+const methodology = [
+  {
+    step: 1,
+    title: "Consulta",
+    description:
+      "Recepción de requerimientos, planos o visita preliminar a la obra para entender las necesidades específicas del proyecto.",
+  },
+  {
+    step: 2,
+    title: "Revisión técnica",
+    description:
+      "Análisis de factibilidad técnica, selección de materiales adecuados (espesores, perfiles) y medición exacta in situ.",
+  },
+  {
+    step: 3,
+    title: "Cotización",
+    description:
+      "Elaboración de presupuesto detallado, transparente y con plazos de entrega claramente definidos.",
+  },
+  {
+    step: 4,
+    title: "Fabricación",
+    description:
+      "Corte, mecanizado y ensamblaje en taller bajo estrictos controles de calidad dimensional y estética.",
+  },
+  {
+    step: 5,
+    title: "Instalación",
+    description:
+      "Montaje en obra por equipo especializado, utilizando selladores estructurales e insumos de primera línea.",
+  },
+  {
+    step: 6,
+    title: "Revisión final",
+    description:
+      "Inspección conjunta con el cliente/director de obra para verificar funcionamiento, limpieza y correcta terminación.",
+  },
+];
+
+const keyData = [
+  {
+    icon: "location_on",
+    title: "Ubicación principal",
+    description: address,
+  },
+  {
+    icon: "map",
+    title: "Área de cobertura",
+    description:
+      "Asunción, Gran Asunción e interior del país (sujeto a envergadura del proyecto).",
+  },
+  {
+    icon: "domain",
+    title: "Tipos de obra",
+    description:
+      "Residenciales de alta gama, edificios corporativos, locales comerciales e institucionales.",
+  },
+];
+
+const footerQuickLinks = [
+  { label: "Inicio", href: "#top" },
+  { label: "Sobre VIPAR", href: "#nosotros" },
+  { label: "Catálogo de Obras", href: "#obras" },
+  { label: "Sustentabilidad", href: "#contacto" },
+];
+
+const footerServiceLinks = [
+  "Cristales Templados",
+  "Carpintería de Aluminio",
+  "Fachadas Integrales",
+  "Mamparas y Divisiones",
+  "Cielos Rasos",
+];
+
 const homeStructuredData = JSON.stringify([
   {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    "@context": "https://schema.org",
+    "@type": "WebPage",
     name: title,
     description,
     url: homePath,
-    inLanguage: 'es-PY',
+    inLanguage: "es-PY",
     primaryImageOfPage:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuD_IYWL4DSO_hDUJ1n6AL5clQU7lWnPQ9lXLpd9eDKDmklcaVW90aLx-OioX-Xq5vRAPbsJh7JT3ViE0-xntBi0xE3kL3_yNWJq9Y9Z9_MdcpJPluUl4B-zjki9HFB5TlXoyVsRqpw6Ms85rpE6IxS0V4Bzsl3WQQ33vDH1Pmk-A6o0aFUtSzzWE1P0PX9fm4u5CLy3XrIOGemJktsR-NB7za5w4UdWygax9FJVuQmh659as1rqiVXcap_MHkblPedbBPBdt_ufLvKJ',
-    about: [
-      'Cristales templados',
-      'Box de baño',
-      'Mamparas divisorias',
-      'Cielo raso',
-      'Carpintería de aluminio',
-    ],
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAtYeMTXO0AnjfSOC94kAz8n0OBRKSvPWT6rUKxRgCUGJRzrgVJYowS8ApJtp1i0NhKdlWf9YFVtMOuTHos3DzPSc6qcH_0mk78qTL_WUGzF4FQRBxGGe-mO_FioLDOmzAvMGS_KN3ysQAG8LbgBEDVwUwchfUyg6H7WCTAk57yz-7xq1m5YHXfBP3IWzzKggbt7PnkPq_61lM3jWfH_PTQrzxSCMJZkTbC2UXsfBEfYcv0aEGQNAIfke7SiIk9DwNMrUf43knKJLtA",
   },
   {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'Servicios destacados en home VIPAR',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Box de baño',
-        url: `${SITE_URL}/servicios/box-de-bano/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Cielo raso',
-        url: `${SITE_URL}/servicios/cielo-raso/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Mamparas divisorias',
-        url: `${SITE_URL}/servicios/mampara-divisoria/`,
-      },
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Servicios destacados VIPAR",
+    itemListElement: featuredServices.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: service.title,
     })),
   },
 ]);
@@ -105,29 +261,21 @@ const homeStructuredData = JSON.stringify([
   hideHeader={true}
   hideFooter={true}
   hideWhatsappFAB={true}
-  hideConsentBanner={false}
 >
-  <div class="vipar-home">
+  <div class="vipar-home" id="top">
     <header class="vipar-topbar">
-      <nav class="vipar-topbar__nav vipar-shell" aria-label="Navegación principal de VIPAR">
-        <a href="/" class="vipar-topbar__brand">VIPAR S.A.</a>
-        <div class="vipar-topbar__links" aria-hidden="false">
-          <a href="/" class="is-active">Inicio</a>
-          <a href="/servicios/">Servicios</a>
-          <a href="/obras/">Proyectos</a>
-          <a href="/nosotros/">Nosotros</a>
-          <a href="/contacto/">Contacto</a>
+      <nav class="vipar-shell vipar-topbar__nav" aria-label="Navegación principal">
+        <a class="vipar-topbar__brand" href="#top">VIPAR S.A.</a>
+
+        <div class="vipar-topbar__links">
+          <a class="is-active" href="#top">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#obras">Obras</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#contacto">Contacto</a>
         </div>
-        <a
-          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="vipar-topbar__cta"
-          data-track-event="whatsapp_click"
-          data-track-label="Solicitar presupuesto"
-          data-track-location="header"
-          aria-label="Solicitar presupuesto por WhatsApp"
-        >
+
+        <a class="vipar-button vipar-button--primary vipar-topbar__cta" href="#contacto">
           Solicitar presupuesto
         </a>
       </nav>
@@ -135,264 +283,339 @@ const homeStructuredData = JSON.stringify([
 
     <main class="vipar-home__main">
       <section class="vipar-hero">
-        <img
-          class="vipar-hero__bg"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_IYWL4DSO_hDUJ1n6AL5clQU7lWnPQ9lXLpd9eDKDmklcaVW90aLx-OioX-Xq5vRAPbsJh7JT3ViE0-xntBi0xE3kL3_yNWJq9Y9Z9_MdcpJPluUl4B-zjki9HFB5TlXoyVsRqpw6Ms85rpE6IxS0V4Bzsl3WQQ33vDH1Pmk-A6o0aFUtSzzWE1P0PX9fm4u5CLy3XrIOGemJktsR-NB7za5w4UdWygax9FJVuQmh659as1rqiVXcap_MHkblPedbBPBdt_ufLvKJ"
-          alt="Modern architectural building with sleek glass facade and steel structures under a clear blue sky"
-          loading="eager"
-          fetchpriority="high"
-        />
-        <div class="vipar-hero__overlay"></div>
-        <div class="vipar-shell vipar-hero__content">
+        <div class="vipar-shell vipar-hero__grid">
           <div class="vipar-hero__copy">
-            <span class="vipar-eyebrow">Vidrio, aluminio y terminaciones</span>
-            <h1>
-              Soluciones en vidrio, aluminio y terminaciones para hogares, oficinas y comercios
-            </h1>
+            <div class="vipar-hero__meta">
+              <span>
+                <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+                Ubicados en Ñemby, Central
+              </span>
+              <span>
+                <span class="material-symbols-outlined" aria-hidden="true">business_center</span>
+                Atención para obras residenciales y comerciales
+              </span>
+            </div>
+
+            <h1>Cristales templados, aluminio y terminaciones para obras en Paraguay</h1>
             <p>
-              Diseñamos, fabricamos e instalamos mamparas divisorias, box de baño, cielo raso, cristales templados y carpintería de aluminio para espacios que necesitan funcionalidad, estética y buena ejecución.
+              Precisión y calidad arquitectónica. Brindamos soluciones integrales en vidrio y aluminio para proyectos corporativos y residenciales de alta exigencia.
             </p>
-            <div class="vipar-hero__actions">
-              <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" class="vipar-button vipar-button--light" data-track-event="whatsapp_click" data-track-label="Solicitar presupuesto" data-track-location="hero">Solicitar presupuesto</a>
-              <a href="/servicios/" class="vipar-button vipar-button--ghost" data-track-event="cta_click" data-track-label="Ver servicios" data-track-location="hero" data-track-destination={`${SITE_URL}/servicios/`}>Ver servicios</a>
+
+            <div class="vipar-actions">
+              <a class="vipar-button vipar-button--primary" href="#contacto">Solicitar presupuesto</a>
+              <a class="vipar-button vipar-button--secondary" href="#servicios">Ver servicios</a>
             </div>
-            <div class="vipar-hero__contact-meta">
-              <span class="vipar-hero__contact-tag">Atendemos proyectos residenciales, comerciales y corporativos.</span>
-              <span></span>
-              <a href="/contacto/" data-track-event="cta_click" data-track-label="Contacto comercial" data-track-location="hero" data-track-destination={contactPath}>Contacto comercial</a>
-            </div>
+          </div>
+
+          <div class="vipar-hero__media">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtYeMTXO0AnjfSOC94kAz8n0OBRKSvPWT6rUKxRgCUGJRzrgVJYowS8ApJtp1i0NhKdlWf9YFVtMOuTHos3DzPSc6qcH_0mk78qTL_WUGzF4FQRBxGGe-mO_FioLDOmzAvMGS_KN3ysQAG8LbgBEDVwUwchfUyg6H7WCTAk57yz-7xq1m5YHXfBP3IWzzKggbt7PnkPq_61lM3jWfH_PTQrzxSCMJZkTbC2UXsfBEfYcv0aEGQNAIfke7SiIk9DwNMrUf43knKJLtA"
+              alt="Modern facade"
+              loading="eager"
+              fetchpriority="high"
+            />
           </div>
         </div>
       </section>
 
-      <section class="vipar-intro vipar-section">
-        <div class="vipar-shell vipar-intro__grid">
-          <div class="vipar-intro__copy">
-            <h2>Soluciones que mejoran, dividen y terminan espacios</h2>
-            <p>
-              VIPAR desarrolla soluciones en vidrio, aluminio y terminaciones para hogares, oficinas y comercios. Desde mamparas divisorias y box de baño hasta cielo raso, cristales templados y carpintería de aluminio, el enfoque está en resolver espacios con criterio técnico, buena presentación y ejecución prolija.
-            </p>
-            <div class="vipar-intro__stats">
-              <div class="vipar-mono-stat">
-                <span class="vipar-mono-stat__value">Vidrio y aluminio</span>
-                <span class="vipar-mono-stat__label">Soluciones para espacios</span>
-              </div>
-              <div class="vipar-mono-stat">
-                <span class="vipar-mono-stat__value">Hogar, oficina y comercio</span>
-                <span class="vipar-mono-stat__label">Aplicación según necesidad</span>
-              </div>
-            </div>
-          </div>
-          <div class="vipar-intro__media">
-            <div class="vipar-media-frame">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3rhLaAsi3dmFdJfG5CmwbkGd-fIdkKbYnw6cnF_LGbZlnWVmJy4WE-HNRZDrPOCExs7Gmg0lmBPt_AdMoQVYuvQLYpePGzUicbOSQKB8xK2n7YXBWeHkxz3RboRGiZTm1iF17NKx-TcfhlpEG0EBLgc7q5NwuA5mOzlA7IGMixsARLmtfL9R-SaS8aRVZPogaTAdastyLuiWWr2I4Qi16Zme1swOCQtjQDrpR4P_CvG82hFqPdecCJmMLQv6EekkQkZNc5EkIBBX"
-                alt="Interior of a modern high-end minimalist office space with concrete finishes and designer lighting"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
+      <section class="vipar-specialties" aria-label="Especialidades">
+        <div class="vipar-shell vipar-specialties__inner">
+          <span class="vipar-label">Especialidades:</span>
+          <a href="#servicios">Cristales templados</a>
+          <span class="vipar-separator">•</span>
+          <a href="#servicios">Aluminio</a>
+          <span class="vipar-separator">•</span>
+          <a href="#servicios">Fachadas</a>
+          <span class="vipar-separator">•</span>
+          <a href="#servicios">Mamparas</a>
+          <span class="vipar-separator">•</span>
+          <a href="#servicios">Cielos rasos</a>
+          <span class="vipar-separator">•</span>
+          <a href="#servicios">Box de baño</a>
         </div>
       </section>
 
-      <section class="vipar-sector vipar-section vipar-section--muted" id="sectores-home">
-        <div class="vipar-shell">
-          <div class="vipar-section-heading">
-            <h2>Nuestros servicios</h2>
-            <p>Servicios destacados para hogares, oficinas y comercios que necesitan funcionalidad, terminación y buena instalación.</p>
+      <section class="vipar-section vipar-section--surface" id="servicios">
+        <div class="vipar-shell vipar-stack-lg">
+          <div class="vipar-section-heading vipar-section-heading--center">
+            <span class="vipar-label">Nuestros Servicios</span>
+            <h2>Soluciones integrales para su obra</h2>
+            <p>Proveemos e instalamos materiales de alta calidad con terminaciones precisas.</p>
           </div>
 
-          <div class="vipar-sector__grid">
-            <article class="vipar-sector-card">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JXRCAaP9gCv7APOQsIvz7SY4r6ErStjwkvnaWQKsdFL_7kOa-Zv87P6ekcLRHFyyk52myWq5g6jPdJe9PQlzng9sB9e286qN08AYc9LOA3bCS2z7bjnry0PjQ7XAI45QgzUfTrr99q9TBw8JJJkxreubOcrLOrSDUGBouMr91ZI8l29YZc1gTPHHge1QVtiLBsR1fNjRv-8fROSDb3hGIE1mC6GuRJTVGP6K8PuHanJt3P6mjm3gwg6ITVwmwLUAjRhoSi8I3QVn"
-                alt="Luxury modern residential house at dusk"
-                class="vipar-sector-card__image"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="vipar-sector-card__shade"></div>
-              <div class="vipar-sector-card__body">
-                <h3>Box de baño</h3>
-                <p>Soluciones para baños que combinan funcionalidad, buena terminación y opciones acordes al espacio disponible.</p>
-                <ul>
-                  <li>Opciones a medida</li>
-                  <li>Instalación prolija</li>
-                  <li>Terminaciones funcionales</li>
-                </ul>
-                <a href={serviceLinks.residencial} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Box de baño" data-track-location="service_card" data-track-service="box-de-bano">Ver servicio</a>
-              </div>
-            </article>
-
-            <article class="vipar-sector-card">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKP0isqGEyF72o13yvNbtYaA8BskwcBePGllcpFlYvtXL36aMshGpz2dWSFPzkgOzo7nqpj2DZ5X-Xu6Th_xfBa-jJNVagIl52a3Iv8JSOySB0cYb8KX4m0j8nFSQOYs68j0hxxpuTYnmARHVyPHs3cswdY4Pm5L4pvxW2HBglXcRddFJKw5HmtXrKvTyzO_1xRMowhIlataGCxtfgmRQydsnC0sZKrNJYbJFXf6jUetDDvMz8TdeH_dfXYup7En30Cdd_eoy7LjY5"
-                alt="Wide shot of a modern retail space"
-                class="vipar-sector-card__image"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="vipar-sector-card__shade"></div>
-              <div class="vipar-sector-card__body">
-                <h3>Cielo raso</h3>
-                <p>Alternativas para mejorar la terminación de interiores en oficinas, comercios y espacios que necesitan orden visual y funcionalidad.</p>
-                <ul>
-                  <li>PVC, yeso y Durlock</li>
-                  <li>Aplicación en interiores</li>
-                  <li>Terminación cuidada</li>
-                </ul>
-                <a href={serviceLinks.comercial} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Cielo raso" data-track-location="service_card" data-track-service="cielo-raso">Ver servicio</a>
-              </div>
-            </article>
-
-            <article class="vipar-sector-card">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3YtH0XLhc1vWFWkeJw-g5VrGF2gAOps9OTyuxRwaHsSQjMRrtOMIHKOfw9aLQw5Xz7xVC3qiqPd-ABlH6C1AhyTTgZVS5KgtGlujMjqfYOxiAu5dX0b7gnobDmUX2PsFaYrM8l5ykgyvALJpKpTMTEHvTz2IMNuUc-0aP8Lo5z4zUUCoZPBAYerja78rc5PRzdeL5tZQv-KFbsuT_MKH4YynNNMHVDz3M4G834PBdioIg_eK-jdRy2O5Qf5dmEZ-eQsKBtOfZn1G-"
-                alt="Skyscraper glass facade reflecting the sky"
-                class="vipar-sector-card__image"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="vipar-sector-card__shade"></div>
-              <div class="vipar-sector-card__body">
-                <h3>Mamparas divisorias</h3>
-                <p>Opciones para dividir ambientes y ordenar espacios de trabajo u oficinas con soluciones en vidrio y otros sistemas.</p>
-                <ul>
-                  <li>División de ambientes</li>
-                  <li>Vidrio y sistemas complementarios</li>
-                  <li>Aplicación en oficinas y comercios</li>
-                </ul>
-                <a href={serviceLinks.corporativo} class="vipar-sector-card__button" data-track-event="service_navigation" data-track-label="Mamparas divisorias" data-track-location="service_card" data-track-service="mampara-divisoria">Ver servicio</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="vipar-method vipar-section">
-        <div class="vipar-shell vipar-method__grid">
-          <div class="vipar-method__copy">
-            <h2>Cómo trabajamos</h2>
-            <div class="vipar-steps">
-              <article class="vipar-step">
-                <div class="vipar-step__number">01</div>
-                <div>
-                  <h4>Entendemos tu necesidad</h4>
-                  <p>Analizamos el espacio, el tipo de solución y lo que necesitás resolver.</p>
+          <div class="vipar-featured-grid">
+            {featuredServices.map((service) => (
+              <article class="vipar-service-card">
+                <div class="vipar-service-card__image">
+                  <img src={service.image} alt={service.alt} loading="lazy" decoding="async" />
+                </div>
+                <div class="vipar-service-card__body">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <a href="#contacto">
+                    Solicitar cotización
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                  </a>
                 </div>
               </article>
-              <article class="vipar-step">
-                <div class="vipar-step__number">02</div>
-                <div>
-                  <h4>Te orientamos en la mejor opción</h4>
-                  <p>Evaluamos la alternativa más adecuada según uso, estética y funcionalidad.</p>
-                </div>
-              </article>
-              <article class="vipar-step">
-                <div class="vipar-step__number">03</div>
-                <div>
-                  <h4>Preparamos la solución</h4>
-                  <p>Organizamos el trabajo según el tipo de servicio y la necesidad del proyecto.</p>
-                </div>
-              </article>
-              <article class="vipar-step">
-                <div class="vipar-step__number">04</div>
-                <div>
-                  <h4>Instalamos y entregamos</h4>
-                  <p>Llevamos la solución al espacio con criterio de terminación y buena ejecución.</p>
-                </div>
-              </article>
-            </div>
+            ))}
           </div>
-          <div class="vipar-method__media">
-            <div class="vipar-method__image-frame">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmMgGe3CMg5zfcb0-Hldz_kwJ_ltkNz61arACacw4Ev0O-qDJzjpRAJWEylsJ8cPA76b2Gj1wO0BehXgjPIuWTBpYfH9Lw-XiOe2bVzXkIKt96B4WmrWEEqfIwvhHLqmps54fCLQmq9lNYyqxWjk-MVegwvmL97ItnhF0EjLG7JzOiI4NO81CV4YKQx40duIlNErJvuTLmYQswzbSjGO2nVTOJooHxX5tj_rwT3qtN30bKYUI7jFBaRLGvd3kBGlSUPLm7PRKcwv6z"
-                alt="Blueprint on a construction site with professional tools and helmet"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <aside class="vipar-method__quote">
-              <p>"Cada espacio necesita una solución bien elegida, bien resuelta y bien instalada."</p>
-              <div>
-                <span></span>
-                <strong>Equipo VIPAR</strong>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
 
-      <section class="vipar-proof vipar-section vipar-section--soft">
-        <div class="vipar-shell">
-          <div class="vipar-proof__panel">
-            <div class="vipar-proof__grid">
-              <div class="vipar-proof__intro">
-                <h3>Respaldo comercial</h3>
-                <p>La propuesta de VIPAR se apoya en servicios aplicados a espacios reales y necesidades concretas.</p>
-              </div>
-              <div class="vipar-proof__stat">
-                <span>Espacios</span>
-                <small>Soluciones para hogares, oficinas y comercios</small>
-              </div>
-              <div class="vipar-proof__stat">
-                <span>Servicios</span>
-                <small>Mamparas, box de baño, cielo raso, aluminio y vidrio</small>
-              </div>
-              <div class="vipar-proof__stat">
-                <span>Proyectos</span>
-                <small>Trabajos realizados como respaldo visible</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="vipar-faq vipar-section" id="faq-home" aria-label="Preguntas frecuentes">
-        <div class="vipar-shell">
-          <div class="vipar-section-heading vipar-section-heading--left">
-            <h2>Preguntas frecuentes</h2>
-          </div>
-          <div class="vipar-faq__list">
-            {faqItems.map((item, index) => (
-              <details class="vipar-faq__item" data-faq-index={index}>
-                <summary>{item.question}</summary>
-                <p>{item.answer}</p>
-              </details>
+          <div class="vipar-mini-grid">
+            {complementaryServices.map((service) => (
+              <article class="vipar-mini-card">
+                <span class="material-symbols-outlined" aria-hidden="true">{service.icon}</span>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section class="vipar-final-cta">
-        <div class="vipar-final-cta__bg">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjmpuZI0UHuhv8TpUkFrRCQvIsDfHBWWyhHshyTm3_rtYeeanmO6tgbVCwQ4TtgocdYRL-v57mMJzUwNmonj-l3r2fgdasz06wQlAZe7VVQDk6iDJCiBDuJshWCwYQAuBLQ2v7ZS9gdYtwl1io_sVCpMyP1ZJgoxYkbHeBYMlkOEKwIjEE76rTUuBvw4aPaQH04OzR4KOQhWqpO2HrPlGGj3YBX6XxCwf_zRtAA3TKQgsQ4avoXzOjUlKIWAmG6x0yJ2ny4hyMKsPX"
-            alt="Professional construction site overview with cranes and structural framework"
-            loading="lazy"
-            decoding="async"
-          />
+      <section class="vipar-section vipar-section--dark">
+        <div class="vipar-section__backdrop"></div>
+        <div class="vipar-shell vipar-value-grid">
+          <div class="vipar-value-copy vipar-stack-md">
+            <span class="vipar-label vipar-label--inverse">Valor Añadido</span>
+            <h2>Más allá de los materiales, entregamos ejecución experta</h2>
+            <p>
+              El éxito de una terminación no depende solo de la calidad del cristal o el aluminio, sino de la precisión en cada etapa del proceso constructivo.
+            </p>
+
+            <ul class="vipar-check-list">
+              {valuePoints.map((point) => (
+                <li>
+                  <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                  <div>
+                    <strong>{point.title}</strong>
+                    <span>{point.description}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="vipar-value-media">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWqZMzNSIYDpRlnxvDxA45Ql8Mv7JZUizJEvxbRRKfj4e10UELGs_Kt6K0uMy4yUXnaPA9yfc8yc8UEEDG69qkAOFW7PvnyYABmRHwtq1dI1KdZnuVjRdszK5TwcB7LSuDYul5AmsG2cX4WcRxqCQdxcHfago0E2oyIcIuvry4RmXKEFkzhv64nF8ty5oq_00NHIxoefcLZooY4NXQQkuwNHjtblyL86pDd6QrwFdMB90tNY1RhkSzKHJrueSSXiIdbWvVCs19n57P"
+              alt="Technical blueprints"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
-        <div class="vipar-shell vipar-final-cta__content">
-          <h2>¿Necesitás una solución para tu espacio?</h2>
-          <p>
-            Contanos qué necesitás y te ayudamos a encontrar la alternativa más adecuada según el tipo de proyecto.
-          </p>
-          <div class="vipar-final-cta__actions">
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="vipar-button vipar-button--light vipar-button--strong"
-              data-track-event="whatsapp_click"
-              data-track-label="Solicitar Cotizacion"
-              data-track-location="final_cta"
-            >
-              Solicitar Cotización
+      </section>
+
+      <section class="vipar-section vipar-section--plain">
+        <div class="vipar-shell vipar-stack-lg">
+          <div class="vipar-section-heading vipar-section-heading--center">
+            <span class="vipar-label">Por qué elegirnos</span>
+            <h2>La ventaja técnica de VIPAR S.A.</h2>
+          </div>
+
+          <div class="vipar-strength-grid">
+            {strengths.map((item) => (
+              <article class="vipar-strength-card">
+                <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="vipar-section vipar-section--muted" id="obras">
+        <div class="vipar-shell vipar-stack-lg">
+          <div class="vipar-projects-head">
+            <div class="vipar-section-heading vipar-projects-head__copy">
+              <span class="vipar-label">Nuestras Obras</span>
+              <h2>Proyectos destacados</h2>
+              <p>
+                Una selección de obras recientes donde hemos aplicado nuestra experiencia en vidrio y aluminio.
+              </p>
+            </div>
+
+            <a class="vipar-button vipar-button--secondary vipar-projects-head__action" href="/obras/">
+              Ver catálogo completo
             </a>
-            <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" class="vipar-button vipar-button--outline vipar-button--strong" data-track-event="whatsapp_click" data-track-label="Hablar por WhatsApp" data-track-location="final_cta">Hablar por WhatsApp</a>
+          </div>
+
+          <div class="vipar-project-grid">
+            {projects.map((project) => (
+              <article class="vipar-project-card">
+                <div class="vipar-project-card__image">
+                  <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
+                  <span class="vipar-project-card__tag">{project.tag}</span>
+                </div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="vipar-section vipar-section--surface">
+        <div class="vipar-shell vipar-stack-lg">
+          <div class="vipar-section-heading vipar-section-heading--center">
+            <span class="vipar-label">Metodología</span>
+            <h2>Proceso de trabajo</h2>
+            <p>Un enfoque estructurado para asegurar la calidad en cada entrega.</p>
+          </div>
+
+          <div class="vipar-timeline">
+            <div class="vipar-timeline__line" aria-hidden="true"></div>
+            {methodology.map((item, index) => (
+              <article class:list={["vipar-step-card", index > 2 && "vipar-step-card--offset"]}>
+                <div class:list={["vipar-step-card__index", item.step === 1 && "is-primary", item.step === 6 && "is-secondary"]}>
+                  {item.step}
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="vipar-section vipar-section--plain vipar-section--bordered" id="nosotros">
+        <div class="vipar-shell vipar-about-grid">
+          <div class="vipar-stack-md">
+            <span class="vipar-label">Sobre Nosotros</span>
+            <h2>Solidez institucional y compromiso con la calidad constructiva</h2>
+            <div class="vipar-stack-sm vipar-prose">
+              <p>
+                VIPAR S.A. nació con el objetivo de elevar el estándar de las terminaciones en vidrio y aluminio en el mercado paraguayo. Entendemos que las aberturas y fachadas no son solo elementos decorativos, sino componentes críticos para el confort térmico, acústico y la seguridad de cualquier edificación.
+              </p>
+              <p>
+                Contamos con infraestructura propia que nos permite procesar materiales con precisión y responder a los plazos exigentes de las obras modernas. Nuestro equipo técnico trabaja codo a codo con arquitectos y constructoras para materializar diseños complejos con viabilidad técnica y eficiencia económica.
+              </p>
+            </div>
+          </div>
+
+          <aside class="vipar-key-card">
+            <h3>Datos Clave</h3>
+            <div class="vipar-key-card__list">
+              {keyData.map((item) => (
+                <div class="vipar-key-card__item">
+                  <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <span>{item.description}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="vipar-section vipar-section--surface" id="contacto">
+        <div class="vipar-shell vipar-contact-grid">
+          <div class="vipar-stack-md">
+            <span class="vipar-label">Contacto</span>
+            <h2>Solicite su presupuesto sin compromiso</h2>
+            <p>
+              Envíenos los detalles de su obra o adjunte sus planos. Nuestro equipo comercial le responderá a la brevedad con una propuesta técnico-económica.
+            </p>
+
+            <div class="vipar-contact-list">
+              <div class="vipar-contact-item">
+                <div class="vipar-contact-item__icon">
+                  <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                </div>
+                <div>
+                  <strong>Teléfono / WhatsApp</strong>
+                  <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer">{telephone}</a>
+                </div>
+              </div>
+
+              <div class="vipar-contact-item">
+                <div class="vipar-contact-item__icon">
+                  <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                </div>
+                <div>
+                  <strong>Correo Electrónico</strong>
+                  <a href={`mailto:${email}`}>{email}</a>
+                </div>
+              </div>
+
+              <div class="vipar-contact-item">
+                <div class="vipar-contact-item__icon">
+                  <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                </div>
+                <div>
+                  <strong>Horario de atención</strong>
+                  <span>Lunes a Viernes: 07:30 a 17:00 hs.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vipar-form-card">
+            <form class="vipar-form" id="vipar-home-form" novalidate>
+              <div class="vipar-form__grid vipar-form__grid--2">
+                <label class="vipar-field">
+                  <span>Nombre y Apellido / Empresa *</span>
+                  <input id="name" name="name" type="text" required autocomplete="name" />
+                </label>
+
+                <label class="vipar-field">
+                  <span>WhatsApp de contacto *</span>
+                  <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+                </label>
+              </div>
+
+              <label class="vipar-field">
+                <span>Correo Electrónico</span>
+                <input id="email" name="email" type="email" autocomplete="email" />
+              </label>
+
+              <div class="vipar-form__grid vipar-form__grid--2">
+                <label class="vipar-field">
+                  <span>Tipo de Servicio *</span>
+                  <select id="service" name="service" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="Cristales Templados">Cristales Templados</option>
+                    <option value="Carpintería de Aluminio">Carpintería de Aluminio</option>
+                    <option value="Fachadas">Fachadas</option>
+                    <option value="Mamparas / Divisiones">Mamparas / Divisiones</option>
+                    <option value="Cielos Rasos">Cielos Rasos</option>
+                    <option value="Múltiples servicios / Obra integral">Múltiples servicios / Obra integral</option>
+                  </select>
+                </label>
+
+                <label class="vipar-field">
+                  <span>Ubicación de la obra</span>
+                  <input id="city" name="city" type="text" placeholder="Ej: Asunción, Luque, San Lorenzo..." />
+                </label>
+              </div>
+
+              <label class="vipar-field">
+                <span>Mensaje o detalle de la solicitud *</span>
+                <textarea id="message" name="message" required></textarea>
+              </label>
+
+              <label class="vipar-field vipar-field--file">
+                <span>
+                  <span class="material-symbols-outlined" aria-hidden="true">upload_file</span>
+                  Adjuntar planos o referencias (PDF, JPG, PNG)
+                </span>
+                <input id="file" name="file" type="file" accept=".pdf,.jpg,.jpeg,.png" />
+              </label>
+
+              <input type="hidden" name="source" value="vipar-home-stitch" />
+
+              <div class="vipar-form__status" id="vipar-home-form-status" hidden>
+                <p class="vipar-form__status-message" id="vipar-home-form-message"></p>
+              </div>
+
+              <button class="vipar-button vipar-button--primary vipar-button--block" type="submit">
+                Enviar solicitud de cotización
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -400,91 +623,169 @@ const homeStructuredData = JSON.stringify([
 
     <footer class="vipar-footer">
       <div class="vipar-shell vipar-footer__grid">
-        <div class="vipar-footer__brand-block">
-          <div class="vipar-footer__brand">VIPAR S.A.</div>
+        <div class="vipar-footer__brand">
+          <span class="vipar-footer__logo">VIPAR S.A.</span>
           <p>
-            VIPAR S.A. ofrece soluciones en vidrio, aluminio y terminaciones para hogares, oficinas y comercios, con servicios como mamparas divisorias, box de baño, cielo raso, cristales templados y carpintería de aluminio.
+            Precisión en Vidrio y Aluminio. Soluciones integrales para proyectos corporativos y residenciales de alta exigencia en todo Paraguay.
           </p>
+
           <div class="vipar-footer__socials">
-            <a href="https://www.facebook.com/vipar.vidrios" target="_blank" rel="noopener noreferrer" aria-label="Facebook VIPAR" data-track-event="social_click" data-track-label="Facebook" data-track-location="footer"><span class="material-symbols-outlined">share</span></a>
-            <a href={`mailto:${email}`} aria-label="Enviar correo" data-track-event="email_click" data-track-label="Email footer" data-track-location="footer"><span class="material-symbols-outlined">mail</span></a>
+            <a href="#contacto" aria-label="Compartir">
+              <span class="material-symbols-outlined" aria-hidden="true">share</span>
+            </a>
+            <a href="/obras/" aria-label="Ver obras">
+              <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
+            </a>
           </div>
         </div>
 
-        <div>
-          <h4>Enlaces</h4>
-          <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/servicios/" class="is-active">Servicios</a></li>
-            <li><a href="/obras/">Proyectos</a></li>
-            <li><a href="/nosotros/">Nosotros</a></li>
-          </ul>
+        <div class="vipar-footer__column">
+          <h3>Enlaces Rápidos</h3>
+          {footerQuickLinks.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
         </div>
 
-        <div>
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Aviso Legal</a></li>
-            <li><a href="#">Privacidad</a></li>
-            <li><a href="#">Cookies</a></li>
-          </ul>
+        <div class="vipar-footer__column">
+          <h3>Servicios</h3>
+          {footerServiceLinks.map((link) => (
+            <a href="#servicios">{link}</a>
+          ))}
         </div>
 
-        <div>
-          <h4>Oficina Central</h4>
-          <p>
-            {address}
+        <div class="vipar-footer__column">
+          <h3>Contacto</h3>
+          <p class="vipar-footer__contact">
+            <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+            <span>{address}</span>
           </p>
-          <p>
-            T: <a href={`tel:${whatsappNumber}`} data-track-event="phone_click" data-track-label="Telefono footer" data-track-location="footer">{telephone}</a><br />
-            E: <a href={`mailto:${email}`} data-track-event="email_click" data-track-label="Email footer" data-track-location="footer">{email}</a>
+          <p class="vipar-footer__contact">
+            <span class="material-symbols-outlined" aria-hidden="true">call</span>
+            <span>{telephone}</span>
           </p>
+          <p class="vipar-footer__contact">
+            <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+            <span>{email}</span>
+          </p>
+
+          <a class="vipar-button vipar-button--accent vipar-footer__cta" href="#contacto">
+            Solicitar Presupuesto
+          </a>
         </div>
       </div>
 
       <div class="vipar-shell vipar-footer__bottom">
-        <p>© 2024 VIPAR S.A. Architectural Precision.</p>
+        <p>© {currentYear} VIPAR S.A. Todos los derechos reservados.</p>
+        <div>
+          <a href="#top">Términos y Condiciones</a>
+          <a href="#top">Política de Privacidad</a>
+        </div>
       </div>
     </footer>
+  </div>
 
-    <div class="vipar-mobile-bar" aria-label="Acciones rápidas">
-      <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" data-track-event="whatsapp_click" data-track-label="WhatsApp sticky mobile" data-track-location="sticky_mobile">WhatsApp</a>
-      <a href="/contacto/?utm_source=home&utm_medium=sticky&utm_campaign=redesign_home" data-track-event="cta_click" data-track-label="Solicitar presupuesto mobile" data-track-location="sticky_mobile" data-track-destination={contactPath}>Solicitar presupuesto</a>
-    </div>
+  <script type="application/ld+json" set:html={homeStructuredData}></script>
 
-    <script type="application/ld+json" set:html={homeStructuredData}></script>
-    <script is:inline>
-      function viparTrack(eventName, params) {
-        if (typeof window !== 'undefined' && window.gtag) {
-          window.gtag('event', eventName, params || {});
-        }
+  <script is:inline>
+    const form = document.getElementById("vipar-home-form");
+    const status = document.getElementById("vipar-home-form-status");
+    const message = document.getElementById("vipar-home-form-message");
+
+    function setStatus(kind, text) {
+      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement)) return;
+      status.hidden = false;
+      status.dataset.state = kind;
+      message.textContent = text;
+    }
+
+    function clearStatus() {
+      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement)) return;
+      status.hidden = true;
+      delete status.dataset.state;
+      message.textContent = "";
+    }
+
+    form?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formElement = event.currentTarget;
+      if (!(formElement instanceof HTMLFormElement)) return;
+
+      clearStatus();
+
+      const formData = new FormData(formElement);
+      const name = String(formData.get("name") || "").trim();
+      const phone = String(formData.get("phone") || "").trim();
+      const emailValue = String(formData.get("email") || "").trim();
+      const service = String(formData.get("service") || "").trim();
+      const city = String(formData.get("city") || "").trim();
+      const details = String(formData.get("message") || "").trim();
+
+      if (!name || !phone || !service || !details) {
+        setStatus("error", "Completá nombre, WhatsApp, servicio y detalle de la solicitud.");
+        return;
       }
 
-      document.querySelectorAll('[data-track-event]').forEach((element) => {
-        element.addEventListener('click', () => {
-          const eventName = element.getAttribute('data-track-event') || 'cta_click';
-          viparTrack(eventName, {
-            event_category: 'engagement',
-            event_label: element.getAttribute('data-track-label') || '',
-            cta_location: element.getAttribute('data-track-location') || '',
-            destination: element.getAttribute('data-track-destination') || element.getAttribute('href') || '',
-            service: element.getAttribute('data-track-service') || '',
+      const composedMessage = [
+        `Tipo de servicio: ${service}`,
+        city ? `Ubicación de la obra: ${city}` : "",
+        "",
+        details,
+      ]
+        .filter(Boolean)
+        .join("\n");
+
+      const payload = new FormData();
+      payload.set("name", name);
+      payload.set("phone", phone);
+      payload.set("email", emailValue);
+      payload.set("city", city);
+      payload.set("message", composedMessage);
+      payload.set("source", String(formData.get("source") || "vipar-home-stitch"));
+      payload.set("page", typeof window !== "undefined" ? window.location.href : "");
+
+      const attachment = formData.get("file");
+      if (attachment instanceof File && attachment.size > 0) {
+        payload.set("file", attachment);
+      }
+
+      const submitButton = formElement.querySelector('button[type="submit"]');
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = true;
+      }
+
+      try {
+        const response = await fetch("/api/leads", {
+          method: "POST",
+          body: payload,
+        });
+
+        const data = await response.json().catch(() => null);
+
+        if (!response.ok) {
+          setStatus(
+            "error",
+            data?.error || "No se pudo enviar la solicitud. Probá nuevamente o escribinos por WhatsApp."
+          );
+          return;
+        }
+
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead", {
+            method: "contact_form",
             page_location: window.location.href,
           });
-        });
-      });
+        }
 
-      document.querySelectorAll('[data-faq-index]').forEach((item) => {
-        item.addEventListener('toggle', () => {
-          if (item.open) {
-            viparTrack('faq_open', {
-              event_category: 'engagement',
-              faq_index: item.getAttribute('data-faq-index') || '',
-              page_location: window.location.href,
-            });
-          }
-        });
-      });
-    </script>
-  </div>
+        formElement.reset();
+        setStatus("success", "Recibimos tu solicitud. Te responderemos a la brevedad.");
+      } catch {
+        setStatus("error", "Error de red. Probá nuevamente o escribinos por WhatsApp.");
+      } finally {
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = false;
+        }
+      }
+    });
+  </script>
 </Layout>
