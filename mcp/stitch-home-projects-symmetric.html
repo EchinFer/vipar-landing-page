@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VIPAR S.A. | Cristales y Aluminio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#86cffb",
+                        "inverse-surface": "#1c333d",
+                        "primary-fixed-dim": "#b0c9e2",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#005b7d",
+                        "on-primary-fixed-variant": "#30495e",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#bbc8d1",
+                        "tertiary-container": "#1d2930",
+                        "surface-variant": "#cee6f3",
+                        "on-primary-fixed": "#011e30",
+                        "error": "#ba1a1a",
+                        "surface-container": "#d9f2ff",
+                        "primary": "#001524",
+                        "on-primary-container": "#7992a9",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#cee6f3",
+                        "on-tertiary-container": "#839099",
+                        "surface-container-high": "#d3ecf9",
+                        "secondary-container": "#89d2fe",
+                        "primary-fixed": "#cce6ff",
+                        "on-tertiary-fixed": "#111d24",
+                        "surface-dim": "#c5deeb",
+                        "on-surface": "#051e28",
+                        "surface-bright": "#f3faff",
+                        "surface": "#f3faff",
+                        "on-background": "#051e28",
+                        "on-secondary-fixed": "#001e2d",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "background": "#f3faff",
+                        "outline-variant": "#c3c7cd",
+                        "outline": "#73777d",
+                        "inverse-primary": "#b0c9e2",
+                        "surface-container-low": "#e6f6ff",
+                        "on-secondary-fixed-variant": "#004c6a",
+                        "tertiary": "#08141b",
+                        "secondary-fixed": "#c5e7ff",
+                        "primary-container": "#0f2a3d",
+                        "tertiary-fixed": "#d7e4ee",
+                        "on-tertiary-fixed-variant": "#3c4950",
+                        "surface-tint": "#486176",
+                        "inverse-on-surface": "#dff4ff",
+                        "secondary": "#00658b",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#43474c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-lg": "48px",
+                        "base": "8px",
+                        "section-padding": "80px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "container-max": "1280px",
+                        "3xl": "96px",
+                        "4xl": "128px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h2": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h1": ["42px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h2": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased font-body-md text-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- 1. TopNavBar -->
+<nav class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-inter antialiased tracking-tight docked full-width top-0 border-b border-slate-200 dark:border-slate-800 flat no shadows sticky z-50">
+<div class="flex justify-between items-center w-full h-20 px-8 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white scale-95 active:opacity-80 transition-transform cursor-pointer">
+                VIPAR S.A.
+            </div>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 dark:border-blue-400 pb-1 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 scale-95 active:opacity-80 transition-transform h-full flex items-center pt-1" href="#">Inicio</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 scale-95 active:opacity-80 transition-transform h-full flex items-center" href="#servicios">Servicios</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 scale-95 active:opacity-80 transition-transform h-full flex items-center" href="#obras">Obras</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 scale-95 active:opacity-80 transition-transform h-full flex items-center" href="#nosotros">Nosotros</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 scale-95 active:opacity-80 transition-transform h-full flex items-center" href="#contacto">Contacto</a>
+</div>
+<button class="hidden md:flex bg-primary-container text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:opacity-90 transition-opacity">
+                Solicitar presupuesto
+            </button>
+</div>
+</nav>
+<!-- 2. Large Hero -->
+<header class="py-3xl min-h-[720px] flex items-center border-b border-outline-variant bg-surface relative">
+<div class="max-w-container-max mx-auto px-gutter w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center z-10">
+<div class="md:col-span-6 flex flex-col gap-stack-md">
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        Ubicados en Ñemby, Central
+                    </span>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">business_center</span>
+                        Atención para obras residenciales y comerciales
+                    </span>
+</div>
+<h1 class="font-display text-display text-on-surface">Cristales templados, aluminio y terminaciones para obras en Paraguay</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                    Precisión y calidad arquitectónica. Brindamos soluciones integrales en vidrio y aluminio para proyectos corporativos y residenciales de alta exigencia.
+                </p>
+<div class="flex gap-4 pt-4 flex-wrap">
+<a class="bg-primary-container text-on-primary font-label-caps text-label-caps px-6 py-4 rounded hover:opacity-90 transition-opacity inline-block text-center" href="#contacto">
+                        Solicitar presupuesto
+                    </a>
+<a class="border border-outline text-on-surface font-label-caps text-label-caps px-6 py-4 rounded hover:bg-surface-dim transition-colors inline-block text-center" href="#servicios">
+                        Ver servicios
+                    </a>
+</div>
+</div>
+<div class="md:col-span-6 h-full min-h-[500px]">
+<img alt="Modern facade" class="w-full h-full object-cover rounded-xl shadow-sm" data-alt="A striking architectural photograph showing a modern glass and aluminum facade reflecting a clear blue sky. The composition is highly geometric, emphasizing structural order and precision engineering. The lighting is bright and natural, creating a crisp, high-end technical aesthetic suitable for a corporate laboratory or premium construction firm. Deep blacks in the window frames contrast with the pure whites of the structural supports." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtYeMTXO0AnjfSOC94kAz8n0OBRKSvPWT6rUKxRgCUGJRzrgVJYowS8ApJtp1i0NhKdlWf9YFVtMOuTHos3DzPSc6qcH_0mk78qTL_WUGzF4FQRBxGGe-mO_FioLDOmzAvMGS_KN3ysQAG8LbgBEDVwUwchfUyg6H7WCTAk57yz-7xq1m5YHXfBP3IWzzKggbt7PnkPq_61lM3jWfH_PTQrzxSCMJZkTbC2UXsfBEfYcv0aEGQNAIfke7SiIk9DwNMrUf43knKJLtA"/>
+</div>
+</div>
+</header>
+<!-- Quick Access Bar -->
+<section class="bg-surface-container-low py-6 border-b border-outline-variant hidden md:block">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-center flex-wrap gap-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Especialidades:</span>
+<a class="text-on-surface hover:text-secondary transition-colors font-body-md" href="#servicios">Cristales templados</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface hover:text-secondary transition-colors font-body-md" href="#servicios">Aluminio</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface hover:text-secondary transition-colors font-body-md" href="#servicios">Fachadas</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface hover:text-secondary transition-colors font-body-md" href="#servicios">Mamparas</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface hover:text-secondary transition-colors font-body-md" href="#servicios">Cielos rasos</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface hover:text-secondary transition-colors font-body-md" href="#servicios">Box de baño</a>
+</div>
+</div>
+</section>
+<!-- Expanded Services Section -->
+<section class="py-4xl bg-surface" id="servicios">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col gap-stack-lg">
+<div class="text-center max-w-2xl mx-auto flex flex-col gap-stack-sm">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Nuestros Servicios</span>
+<h2 class="font-h1 text-h1 text-on-surface">Soluciones integrales para su obra</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Proveemos e instalamos materiales de alta calidad con terminaciones precisas.</p>
+</div>
+<!-- 3 Large Featured Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+<div class="h-48 bg-surface-container-high overflow-hidden">
+<img alt="Cristales Templados" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDykBrcyKSSk9rD750fr6pT6P5cC-C2wq6D5MeASiq3KTSD-IDgrOC-Fs_UC1BLnIvCiViu2858O7WigZsKDT83J3N8imzaPNcPNzYx4XEfphTvK__kAKSIyd02ADTrczjQ8uvMsKMAEFwineAEJR81cgQ80Yjo0x_uUb1lpHSRh0cBojVQIzwLPH1xuhjs54C3MI5uvwzYxWErLMVGa2hGOtxjcCxI_kcE1wG6ck9wfUso7maXF-IgfRNkKF-yNw9BgoCdsnnyUKIE"/>
+</div>
+<div class="p-6 flex flex-col gap-4 flex-grow">
+<h3 class="font-h2 text-h2 text-on-surface text-xl">Cristales Templados</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Fabricación a medida e instalación de cristales de seguridad para cerramientos, fachadas, barandas y divisiones. Máxima resistencia y estética limpia.</p>
+<a class="font-label-caps text-label-caps text-primary-container flex items-center gap-2 hover:underline mt-4" href="#contacto">
+                        Solicitar cotización <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+<div class="h-48 bg-surface-container-high overflow-hidden">
+<img alt="Carpintería de Aluminio" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Mzzfr9lY4cHdBKurIQr7N_Waw7YzDVaht4lv8xv-L5eCW7S3E8_9RCQnc4vAGnOwU8Swb2wH8PSotN7DKUg2ZmFxiX9onb1KFbKjiosVtcGmodNHhL9ajZbSzg_mNuHtMc4u4W0D1YqxF6-rEwyxmZOPsX5XbNMoWBNkP2PSCAv47QHGZ5h5L3Niy113q9OnG9EJpAF-U4n4IhU9ECwCzJzIcsA990pouaN3ERXZUiWdmJIlftsVT56ftYZ2omDkO13ROcvEX5YF"/>
+</div>
+<div class="p-6 flex flex-col gap-4 flex-grow">
+<h3 class="font-h2 text-h2 text-on-surface text-xl">Carpintería de Aluminio</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Perfiles de aluminio de alta prestación para aberturas, puertas y ventanas. Durabilidad garantizada, excelente hermeticidad y bajo mantenimiento.</p>
+<a class="font-label-caps text-label-caps text-primary-container flex items-center gap-2 hover:underline mt-4" href="#contacto">
+                        Solicitar cotización <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+<div class="h-48 bg-surface-container-high overflow-hidden">
+<img alt="Fachadas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOo4KRxra_3b2D_dlUpvqb7ae630h6LFBSQjjipL9pMkG6rBjQZIrUYn3t6P1sbxkfx-Vzb2wan3eJy0bkg9_bXBR9YjIZ-ZTToes3Joq_2P_inny05iDFz7NchKFzFUpffVJDYZ9wPIS2kJYjsiimRX9iQPVUoTdma2A6w-wiuD1-sjjJVQpHvwFJXMuIKpHCIHN2quJe4qnsajzfuVWFVMjPq56vrAmR9glTwYt7iuVzZpx_rtJbNVzXgOXSRhH04oABYmeCHtOR"/>
+</div>
+<div class="p-6 flex flex-col gap-4 flex-grow">
+<h3 class="font-h2 text-h2 text-on-surface text-xl">Fachadas Integrales</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Sistemas de fachadas vidriadas (Piel de Vidrio, Frente Integral) que aportan modernidad, eficiencia energética y gran impacto visual a su edificio.</p>
+<a class="font-label-caps text-label-caps text-primary-container flex items-center gap-2 hover:underline mt-4" href="#contacto">
+                        Solicitar cotización <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- 5 Smaller Complementary Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 pt-8 border-t border-outline-variant">
+<div class="bg-surface-container-low p-6 rounded-lg flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl">window</span>
+<h4 class="font-bold text-on-surface">Ventanas</h4>
+<p class="text-sm text-on-surface-variant">Sistemas corredizos, batientes y proyectantes.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl">door_front</span>
+<h4 class="font-bold text-on-surface">Puertas</h4>
+<p class="text-sm text-on-surface-variant">Puertas de acceso, pivotantes y corredizas.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl">grid_view</span>
+<h4 class="font-bold text-on-surface">Mamparas</h4>
+<p class="text-sm text-on-surface-variant">Divisiones para oficinas y espacios comerciales.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl">roofing</span>
+<h4 class="font-bold text-on-surface">Cielo Raso</h4>
+<p class="text-sm text-on-surface-variant">Instalación de cielos rasos en PVC, Durlock y modulares.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl">shower</span>
+<h4 class="font-bold text-on-surface">Box de Baño</h4>
+<p class="text-sm text-on-surface-variant">Mamparas de ducha a medida con herrajes inoxidables.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specialization Block -->
+<section class="py-4xl bg-primary-container text-on-primary-container relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 bg-[url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&amp;w=2069&amp;auto=format&amp;fit=crop')] bg-cover bg-center"></div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10 grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+<div class="flex flex-col gap-stack-md">
+<span class="font-label-caps text-label-caps text-inverse-primary tracking-widest uppercase">Valor Añadido</span>
+<h2 class="font-h1 text-h1 text-white">Más allá de los materiales, entregamos ejecución experta</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container">
+                    El éxito de una terminación no depende solo de la calidad del cristal o el aluminio, sino de la precisión en cada etapa del proceso constructivo.
+                </p>
+<ul class="flex flex-col gap-4 mt-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-inverse-primary">check_circle</span>
+<div class="flex flex-col">
+<strong class="text-white">Relevamiento milimétrico</strong>
+<span class="text-sm">Medición exacta en obra para evitar desajustes.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-inverse-primary">check_circle</span>
+<div class="flex flex-col">
+<strong class="text-white">Fabricación controlada</strong>
+<span class="text-sm">Procesos estandarizados en nuestro taller propio.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-inverse-primary">check_circle</span>
+<div class="flex flex-col">
+<strong class="text-white">Instalación especializada</strong>
+<span class="text-sm">Personal capacitado y protocolos de seguridad estrictos.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-inverse-primary">check_circle</span>
+<div class="flex flex-col">
+<strong class="text-white">Coordinación en obra</strong>
+<span class="text-sm">Trabajo conjunto con directores de obra y otros rubros.</span>
+</div>
+</li>
+</ul>
+</div>
+<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+<img alt="Technical blueprints" class="w-full h-auto rounded-lg shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWqZMzNSIYDpRlnxvDxA45Ql8Mv7JZUizJEvxbRRKfj4e10UELGs_Kt6K0uMy4yUXnaPA9yfc8yc8UEEDG69qkAOFW7PvnyYABmRHwtq1dI1KdZnuVjRdszK5TwcB7LSuDYul5AmsG2cX4WcRxqCQdxcHfago0E2oyIcIuvry4RmXKEFkzhv64nF8ty5oq_00NHIxoefcLZooY4NXQQkuwNHjtblyL86pDd6QrwFdMB90tNY1RhkSzKHJrueSSXiIdbWvVCs19n57P"/>
+</div>
+</div>
+</section>
+<!-- Why VIPAR Section -->
+<section class="py-4xl bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col gap-stack-lg">
+<div class="text-center max-w-2xl mx-auto flex flex-col gap-stack-sm">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Por qué elegirnos</span>
+<h2 class="font-h1 text-h1 text-on-surface">La ventaja técnica de VIPAR S.A.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="flex flex-col gap-4 p-6 bg-surface rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-4xl">architecture</span>
+<h3 class="font-bold text-on-surface text-lg">Especialización en terminaciones</h3>
+<p class="font-body-md text-on-surface-variant">Nos enfocamos exclusivamente en cristales, aluminio y acabados finales, garantizando un nivel de detalle superior al de los contratistas generales.</p>
+</div>
+<div class="flex flex-col gap-4 p-6 bg-surface rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-4xl">inventory_2</span>
+<h3 class="font-bold text-on-surface text-lg">Variedad de servicios</h3>
+<p class="font-body-md text-on-surface-variant">Un único proveedor para resolver múltiples necesidades de terminación: fachadas, aberturas, divisiones y cielos rasos, simplificando la gestión de obra.</p>
+</div>
+<div class="flex flex-col gap-4 p-6 bg-surface rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-4xl">construction</span>
+<h3 class="font-bold text-on-surface text-lg">Experiencia en proyectos</h3>
+<p class="font-body-md text-on-surface-variant">Amplio portfolio de obras comerciales, corporativas y residenciales de alto estándar entregadas en tiempo y forma en Asunción y Gran Asunción.</p>
+</div>
+<div class="flex flex-col gap-4 p-6 bg-surface rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-4xl">support_agent</span>
+<h3 class="font-bold text-on-surface text-lg">Atención comercial</h3>
+<p class="font-body-md text-on-surface-variant">Asesoramiento técnico pre-venta, elaboración rápida de presupuestos y seguimiento continuo durante toda la ejecución del proyecto.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Robust Projects Gallery -->
+<section class="py-4xl bg-surface-container-low" id="obras">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col gap-stack-lg"><div class="flex flex-col gap-stack-sm max-w-3xl mb-12">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Nuestras Obras</span>
+<h2 class="font-h1 text-h1 text-on-surface">Proyectos destacados que transforman espacios</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Una mirada técnica a soluciones constructivas donde la precisión y el diseño se encuentran.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Project 1: Showroom VIPAR -->
+<div class="group flex flex-col bg-surface-container-lowest border border-outline-variant rounded-none overflow-hidden hover:border-secondary transition-colors duration-300">
+<div class="aspect-[16/10] overflow-hidden">
+<img alt="Showroom VIPAR" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-39FDUcFsXxt2-cHVwOpA0Wjc2NWCg1VhvF5pPd-XNzK7Z3WupVl1crnJDYLxdsZXjomu-xBzDAedUTI1-VnLwBA5n976BRatH6J_rnImgK0GSUUxwQlhRWU-r7n2EG8CdO3Ur1PJ503BaDHPfvDpBp6yXRlAmiJAJ5hASS501XQCUSh1kXWFDQuoShddMHinuvifgJwMjvIsyI6CWLYJc2_SaTbVCCXJQ1hp1iXpWgk4VGjFU7ZEcwe8qptGEUuYxORq58FKiOG1"/>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-secondary uppercase tracking-[0.2em]">Espacio Corporativo</span>
+<h3 class="font-h2 text-h2 text-on-surface mt-2 text-xl">Showroom VIPAR</h3>
+</div>
+<p class="text-on-surface-variant text-sm border-t border-outline-variant pt-4">Servicios: Cristal Templado, Carpintería de Aluminio, Mobiliario en Vidrio.</p>
+<a class="text-primary hover:text-secondary transition-colors flex items-center gap-2 font-label-caps text-[11px] uppercase tracking-widest mt-2" href="#contacto">
+              Cotizar algo similar <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project 2: Sucursal Tigo MRA -->
+<div class="group flex flex-col bg-surface-container-lowest border border-outline-variant rounded-none overflow-hidden hover:border-secondary transition-colors duration-300">
+<div class="aspect-[16/10] overflow-hidden">
+<img alt="Sucursal Tigo MRA" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbd9UQQxqlNAyrWEtvBi_GUT3uDykJb0buw1FcrNqPqe5l199QGOL66ETfkeoo0HZSvVSBedKqI5Jl9J8Bl_CWKHNJZZi6CrMKs5uD6bW6bbKiW7XipUvV6ivTvUaQcf80j1Wxi3QY_t_8jYuxAGPJbc8HOIeNGJqQFOgHYujVD4uipBHjkAyOOhtHewanAyTsnlYPtRE9l_kUFPF8W6irIFk80YUriPdG2-EyKQncAw2xmryuEwFsMNxZ3EKWXhFj9d6QDYDvmSo1"/>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-secondary uppercase tracking-[0.2em]">Frente Comercial</span>
+<h3 class="font-h2 text-h2 text-on-surface mt-2 text-xl">Sucursal Tigo MRA</h3>
+</div>
+<p class="text-on-surface-variant text-sm border-t border-outline-variant pt-4">Servicios: Grandes Luces en Cristal, Perfilería Reforzada, Accesos de Seguridad.</p>
+<a class="text-primary hover:text-secondary transition-colors flex items-center gap-2 font-label-caps text-[11px] uppercase tracking-widest mt-2" href="#contacto">
+            Cotizar algo similar <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project 3: Edificio Concordia -->
+<div class="group flex flex-col bg-surface-container-lowest border border-outline-variant rounded-none overflow-hidden hover:border-secondary transition-colors duration-300">
+<div class="aspect-[16/10] overflow-hidden">
+<img alt="Edificio Concordia" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX2oB39hJd82DqZofsOyohWZFqrWx9MfifNvV1-DP_a8aWX840Oc2jv2plL1-SJuH1bELm3TgGX0sjI-z9LtI1n4eQ8MCeJPBAmTe5V81zCRqO6ODMQuMl8KUlH35Qlr2RhiZGLcmJXK9HM5eUgqBItlUgTzOpBHffj4TB7bBS46CThZnyvLeXq9PFCMXgtZ1eMJ6T3kuN8zMF74xLXCo0G4mUcj6U8kmCNPdN_oP-FnWFhz4QTYDFF1G1ObXBIZX_6l4X8k61ftYd"/>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-secondary uppercase tracking-[0.2em]">Residencial de Alta Gama</span>
+<h3 class="font-h2 text-h2 text-on-surface mt-2 text-xl">Edificio Concordia</h3>
+</div>
+<p class="text-on-surface-variant text-sm border-t border-outline-variant pt-4">Servicios: Carpintería de Aluminio de Alta Prestación, Cristales de Control Solar.</p>
+<a class="text-primary hover:text-secondary transition-colors flex items-center gap-2 font-label-caps text-[11px] uppercase tracking-widest mt-2" href="#contacto">
+            Cotizar algo similar <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project 4: Cooperativa Medalla Milagrosa -->
+<div class="group flex flex-col bg-surface-container-lowest border border-outline-variant rounded-none overflow-hidden hover:border-secondary transition-colors duration-300">
+<div class="aspect-[16/10] overflow-hidden">
+<img alt="Cooperativa Medalla Milagrosa" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChyxsn1hwavvRxhc0BjUhQwoo0z77EwkZtlUPJ-5xmXAUXseeIdjCJnSWGW5fvJFayH3_roCYPo1Ry6hS6syguDFDlzT-kX-OCiYibM08XBxoOTipPOqGBvtGGI6JKK7wRgVRCPSthlXAsqWdscJGfXEH7219_9LKP3BlNkhQhXvzHbW87ViiPUAbngN0AKBYvrmQaMaD8BJHZF9ouSr03CzOdTQpRAwJIXRnByOsv6NW9i6gdBe5lkJ2vq19m7Q1o_IeTDJ4cBA_Q"/>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-secondary uppercase tracking-[0.2em]">Arquitectura Institucional</span>
+<h3 class="font-h2 text-h2 text-on-surface mt-2 text-xl">Cooperativa Medalla Milagrosa</h3>
+</div>
+<p class="text-on-surface-variant text-sm border-t border-outline-variant pt-4">Servicios: Piel de Vidrio, Fachada Integral, Accesos Automáticos de Alta Frecuencia.</p>
+<a class="text-primary hover:text-secondary transition-colors flex items-center gap-2 font-label-caps text-[11px] uppercase tracking-widest mt-2" href="#contacto">
+              Cotizar algo similar <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-16">
+<button class="border border-outline text-on-surface font-label-caps text-label-caps px-12 py-4 rounded-none hover:bg-on-surface hover:text-surface transition-all flex items-center gap-2 uppercase tracking-widest">
+        Explorar catálogo completo <span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+</div></div>
+</section>
+<!-- Extended 6-Step Timeline -->
+<section class="py-4xl bg-surface">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col gap-stack-lg">
+<div class="text-center max-w-2xl mx-auto flex flex-col gap-stack-sm">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Metodología</span>
+<h2 class="font-h1 text-h1 text-on-surface">Proceso de trabajo</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Un enfoque estructurado para asegurar la calidad en cada entrega.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative mt-8">
+<!-- Desktop connecting line -->
+<div class="hidden lg:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-outline-variant -z-10"></div>
+<div class="flex flex-col items-center text-center gap-4 relative">
+<div class="w-16 h-16 rounded-full bg-primary-container text-white flex items-center justify-center font-bold text-xl border-4 border-surface z-10">1</div>
+<h3 class="font-bold text-lg text-on-surface">Consulta</h3>
+<p class="text-sm text-on-surface-variant">Recepción de requerimientos, planos o visita preliminar a la obra para entender las necesidades específicas del proyecto.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4 relative">
+<div class="w-16 h-16 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-xl border-4 border-surface z-10">2</div>
+<h3 class="font-bold text-lg text-on-surface">Revisión técnica</h3>
+<p class="text-sm text-on-surface-variant">Análisis de factibilidad técnica, selección de materiales adecuados (espesores, perfiles) y medición exacta in situ.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4 relative">
+<div class="w-16 h-16 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-xl border-4 border-surface z-10">3</div>
+<h3 class="font-bold text-lg text-on-surface">Cotización</h3>
+<p class="text-sm text-on-surface-variant">Elaboración de presupuesto detallado, transparente y con plazos de entrega claramente definidos.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4 relative mt-8 lg:mt-16">
+<div class="w-16 h-16 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-xl border-4 border-surface z-10">4</div>
+<h3 class="font-bold text-lg text-on-surface">Fabricación</h3>
+<p class="text-sm text-on-surface-variant">Corte, mecanizado y ensamblaje en taller bajo estrictos controles de calidad dimensional y estética.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4 relative mt-8 lg:mt-16">
+<div class="w-16 h-16 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-xl border-4 border-surface z-10">5</div>
+<h3 class="font-bold text-lg text-on-surface">Instalación</h3>
+<p class="text-sm text-on-surface-variant">Montaje en obra por equipo especializado, utilizando selladores estructurales e insumos de primera línea.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4 relative mt-8 lg:mt-16">
+<div class="w-16 h-16 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xl border-4 border-surface z-10">6</div>
+<h3 class="font-bold text-lg text-on-surface">Revisión final</h3>
+<p class="text-sm text-on-surface-variant">Inspección conjunta con el cliente/director de obra para verificar funcionamiento, limpieza y correcta terminación.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Institutional 'Sobre VIPAR' Section -->
+<section class="py-4xl bg-surface-container-lowest border-t border-outline-variant" id="nosotros">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 flex flex-col gap-stack-md">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Sobre Nosotros</span>
+<h2 class="font-h1 text-h1 text-on-surface">Solidez institucional y compromiso con la calidad constructiva</h2>
+<div class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-4">
+<p>VIPAR S.A. nació con el objetivo de elevar el estándar de las terminaciones en vidrio y aluminio en el mercado paraguayo. Entendemos que las aberturas y fachadas no son solo elementos decorativos, sino componentes críticos para el confort térmico, acústico y la seguridad de cualquier edificación.</p>
+<p>Contamos con infraestructura propia que nos permite procesar materiales con precisión y responder a los plazos exigentes de las obras modernas. Nuestro equipo técnico trabaja codo a codo con arquitectos y constructoras para materializar diseños complejos con viabilidad técnica y eficiencia económica.</p>
+</div>
+</div>
+<div class="lg:col-span-5">
+<div class="bg-surface-container p-8 rounded-2xl flex flex-col gap-6">
+<h3 class="font-bold text-xl text-on-surface border-b border-outline-variant pb-4">Datos Clave</h3>
+<div class="flex flex-col gap-4">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<div>
+<strong class="block text-on-surface">Ubicación principal</strong>
+<span class="text-sm text-on-surface-variant">Ñemby, Departamento Central, Paraguay.</span>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary">map</span>
+<div>
+<strong class="block text-on-surface">Área de cobertura</strong>
+<span class="text-sm text-on-surface-variant">Asunción, Gran Asunción e interior del país (sujeto a envergadura del proyecto).</span>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary">domain</span>
+<div>
+<strong class="block text-on-surface">Tipos de obra</strong>
+<span class="text-sm text-on-surface-variant">Residenciales de alta gama, edificios corporativos, locales comerciales e institucionales.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Contact/Quote Form -->
+<section class="py-4xl bg-surface" id="contacto">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-stack-lg">
+<div class="flex flex-col gap-stack-md">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Contacto</span>
+<h2 class="font-h1 text-h1 text-on-surface">Solicite su presupuesto sin compromiso</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Envíenos los detalles de su obra o adjunte sus planos. Nuestro equipo comercial le responderá a la brevedad con una propuesta técnico-económica.</p>
+<div class="flex flex-col gap-6 mt-8">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<strong class="block text-on-surface">Teléfono / WhatsApp</strong>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">+595 9XX XXX XXX</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<strong class="block text-on-surface">Correo Electrónico</strong>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">presupuestos@vipar.com.py</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<strong class="block text-on-surface">Horario de atención</strong>
+<span class="text-on-surface-variant">Lunes a Viernes: 07:30 a 17:00 hs.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant">
+<form action="#" class="flex flex-col gap-6" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-on-surface" for="name">Nombre y Apellido / Empresa *</label>
+<input class="px-4 py-3 border border-outline-variant rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent bg-surface-bright" id="name" name="name" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-on-surface" for="whatsapp">WhatsApp de contacto *</label>
+<input class="px-4 py-3 border border-outline-variant rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent bg-surface-bright" id="whatsapp" name="whatsapp" required="" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-on-surface" for="email">Correo Electrónico</label>
+<input class="px-4 py-3 border border-outline-variant rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent bg-surface-bright" id="email" name="email" type="email"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-on-surface" for="service">Tipo de Servicio *</label>
+<select class="px-4 py-3 border border-outline-variant rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent bg-surface-bright" id="service" name="service" required="">
+<option value="">Seleccione una opción</option>
+<option value="cristales">Cristales Templados</option>
+<option value="aluminio">Carpintería de Aluminio</option>
+<option value="fachadas">Fachadas</option>
+<option value="mamparas">Mamparas / Divisiones</option>
+<option value="cielos">Cielos Rasos</option>
+<option value="varios">Múltiples servicios / Obra integral</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-on-surface" for="location">Ubicación de la obra</label>
+<input class="px-4 py-3 border border-outline-variant rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent bg-surface-bright" id="location" name="location" placeholder="Ej: Asunción, Luque, San Lorenzo..." type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-on-surface" for="message">Mensaje o detalle de la solicitud *</label>
+<textarea class="px-4 py-3 border border-outline-variant rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent bg-surface-bright min-h-[120px]" id="message" name="message" required=""></textarea>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-on-surface flex items-center gap-2" for="file">
+<span class="material-symbols-outlined text-[20px]">upload_file</span> Adjuntar planos o referencias (PDF, JPG, PNG)
+                            </label>
+<input class="text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-surface-container file:text-on-surface hover:file:bg-surface-container-high" id="file" name="file" type="file"/>
+</div>
+<button class="bg-primary-container text-on-primary font-bold text-label-caps px-6 py-4 rounded hover:opacity-90 transition-opacity w-full mt-2" type="submit">
+                        Enviar solicitud de cotización
+                    </button>
+</form>
+</div>
+</div>
+</section>
+<!-- 11. Comprehensive Footer -->
+<footer class="bg-slate-900 dark:bg-black text-white font-inter text-sm tracking-wide full-width pt-20 pb-10 border-t border-slate-800 flat no shadows">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
+<div class="flex flex-col gap-6 md:col-span-1">
+<span class="text-2xl font-black tracking-widest text-white uppercase opacity-100 hover:opacity-80 transition-opacity">VIPAR S.A.</span>
+<p class="text-slate-400">Precisión en Vidrio y Aluminio. Soluciones integrales para proyectos corporativos y residenciales de alta exigencia en todo Paraguay.</p>
+<div class="flex gap-4 mt-2">
+<!-- Placeholder for social icons -->
+<a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">share</span></a>
+<a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold uppercase tracking-wider mb-2">Enlaces Rápidos</h4>
+<a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-blue-500 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#">Inicio</a>
+<a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-blue-500 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#nosotros">Sobre VIPAR</a>
+<a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-blue-500 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#obras">Catálogo de Obras</a>
+<a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-blue-500 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#">Sustentabilidad</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold uppercase tracking-wider mb-2">Servicios</h4>
+<a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-blue-500 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#servicios">Cristales Templados</a>
+<a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-blue-500 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#servicios">Carpintería de Aluminio</a>
+<a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-blue-500 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#servicios">Fachadas Integrales</a>
+<a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-blue-500 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#servicios">Mamparas y Divisiones</a>
+<a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-blue-500 underline-offset-4 opacity-100 hover:opacity-80 transition-opacity" href="#servicios">Cielos Rasos</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold uppercase tracking-wider mb-2">Contacto</h4>
+<p class="text-slate-400 flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] mt-0.5">location_on</span>
+<span>Ñemby, Departamento Central, Paraguay</span>
+</p>
+<p class="text-slate-400 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>+595 9XX XXX XXX</span>
+</p>
+<p class="text-slate-400 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+<span>info@vipar.com.py</span>
+</p>
+<a class="mt-4 inline-block bg-blue-600 text-white font-bold px-6 py-2 rounded hover:bg-blue-700 transition-colors text-center" href="#contacto">Solicitar Presupuesto</a>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-xs">© 2024 VIPAR S.A. Todos los derechos reservados.</p>
+<div class="flex gap-4 text-xs text-slate-500">
+<a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a>
+<a class="hover:text-white transition-colors" href="#">Política de Privacidad</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -117,37 +117,37 @@ const strengths = [
 
 const projects = [
   {
-    tag: "Showroom",
+    eyebrow: "Espacio Corporativo",
     title: "Showroom VIPAR",
     description:
-      "Instalación integral: Fachada, mamparas interiores y exhibidores.",
+      "Servicios: Cristal Templado, Carpintería de Aluminio, Mobiliario en Vidrio.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuC-39FDUcFsXxt2-cHVwOpA0Wjc2NWCg1VhvF5pPd-XNzK7Z3WupVl1crnJDYLxdsZXjomu-xBzDAedUTI1-VnLwBA5n976BRatH6J_rnImgK0GSUUxwQlhRWU-r7n2EG8CdO3Ur1PJ503BaDHPfvDpBp6yXRlAmiJAJ5hASS501XQCUSh1kXWFDQuoShddMHinuvifgJwMjvIsyI6CWLYJc2_SaTbVCCXJQ1hp1iXpWgk4VGjFU7ZEcwe8qptGEUuYxORq58FKiOG1",
     alt: "Showroom VIPAR",
   },
   {
-    tag: "Comercial",
+    eyebrow: "Frente Comercial",
     title: "Sucursal Tigo MRA",
     description:
-      "Provisión e instalación de frente de cristal templado y aberturas.",
+      "Servicios: Grandes Luces en Cristal, Perfilería Reforzada, Accesos de Seguridad.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDbd9UQQxqlNAyrWEtvBi_GUT3uDykJb0buw1FcrNqPqe5l199QGOL66ETfkeoo0HZSvVSBedKqI5Jl9J8Bl_CWKHNJZZi6CrMKs5uD6bW6bbKiW7XipUvV6ivTvUaQcf80j1Wxi3QY_t_8jYuxAGPJbc8HOIeNGJqQFOgHYujVD4uipBHjkAyOOhtHewanAyTsnlYPtRE9l_kUFPF8W6irIFk80YUriPdG2-EyKQncAw2xmryuEwFsMNxZ3EKWXhFj9d6QDYDvmSo1",
     alt: "Sucursal Tigo MRA",
   },
   {
-    tag: "Residencial / Corporativo",
+    eyebrow: "Residencial de Alta Gama",
     title: "Edificio Concordia",
     description:
-      "Carpintería de aluminio de alta prestación en todos los niveles.",
+      "Servicios: Carpintería de Aluminio de Alta Prestación, Cristales de Control Solar.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAX2oB39hJd82DqZofsOyohWZFqrWx9MfifNvV1-DP_a8aWX840Oc2jv2plL1-SJuH1bELm3TgGX0sjI-z9LtI1n4eQ8MCeJPBAmTe5V81zCRqO6ODMQuMl8KUlH35Qlr2RhiZGLcmJXK9HM5eUgqBItlUgTzOpBHffj4TB7bBS46CThZnyvLeXq9PFCMXgtZ1eMJ6T3kuN8zMF74xLXCo0G4mUcj6U8kmCNPdN_oP-FnWFhz4QTYDFF1G1ObXBIZX_6l4X8k61ftYd",
     alt: "Edificio Concordia",
   },
   {
-    tag: "Institucional",
+    eyebrow: "Arquitectura Institucional",
     title: "Cooperativa Medalla Milagrosa",
     description:
-      "Piel de vidrio, mamparas divisorias y puertas de acceso automáticas.",
+      "Servicios: Piel de Vidrio, Fachada Integral, Accesos Automáticos de Alta Frecuencia.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuChyxsn1hwavvRxhc0BjUhQwoo0z77EwkZtlUPJ-5xmXAUXseeIdjCJnSWGW5fvJFayH3_roCYPo1Ry6hS6syguDFDlzT-kX-OCiYibM08XBxoOTipPOqGBvtGGI6JKK7wRgVRCPSthlXAsqWdscJGfXEH7219_9LKP3BlNkhQhXvzHbW87ViiPUAbngN0AKBYvrmQaMaD8BJHZF9ouSr03CzOdTQpRAwJIXRnByOsv6NW9i6gdBe5lkJ2vq19m7Q1o_IeTDJ4cBA_Q",
     alt: "Cooperativa Medalla Milagrosa",
@@ -426,33 +426,42 @@ const homeStructuredData = JSON.stringify([
         </div>
       </section>
 
-      <section class="vipar-section vipar-section--muted" id="obras">
+      <section class="vipar-section vipar-section--projects-architectural" id="obras">
         <div class="vipar-shell vipar-stack-lg">
-          <div class="vipar-projects-head">
-            <div class="vipar-section-heading vipar-projects-head__copy">
-              <span class="vipar-label">Nuestras Obras</span>
-              <h2>Proyectos destacados</h2>
-              <p>
-                Una selección de obras recientes donde hemos aplicado nuestra experiencia en vidrio y aluminio.
-              </p>
-            </div>
-
-            <a class="vipar-button vipar-button--secondary vipar-projects-head__action" href="/obras/">
-              Ver catálogo completo
-            </a>
+          <div class="vipar-projects-heading vipar-stack-sm">
+            <span class="vipar-label">Nuestras Obras</span>
+            <h2>Proyectos destacados que transforman espacios</h2>
+            <p>
+              Una mirada técnica a soluciones constructivas donde la precisión y el diseño se encuentran.
+            </p>
           </div>
 
           <div class="vipar-project-grid">
             {projects.map((project) => (
-              <article class="vipar-project-card">
+              <article class="vipar-project-card vipar-project-card--architectural" tabindex="0">
                 <div class="vipar-project-card__image">
                   <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
-                  <span class="vipar-project-card__tag">{project.tag}</span>
                 </div>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                <div class="vipar-project-card__body">
+                  <div class="vipar-project-card__heading">
+                    <span class="vipar-project-card__eyebrow">{project.eyebrow}</span>
+                    <h3>{project.title}</h3>
+                  </div>
+                  <p>{project.description}</p>
+                  <a class="vipar-project-card__cta" href="#contacto">
+                    Cotizar algo similar
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                  </a>
+                </div>
               </article>
             ))}
+          </div>
+
+          <div class="vipar-projects-footer-action">
+            <a class="vipar-button vipar-button--architectural" href="/obras/">
+              Explorar catálogo completo
+              <span class="material-symbols-outlined" aria-hidden="true">grid_view</span>
+            </a>
           </div>
         </div>
       </section>
