@@ -425,59 +425,6 @@ const homeStructuredData = JSON.stringify([
         </div>
       </section>
 
-      <section class="vipar-section vipar-section--dark">
-        <div class="vipar-section__backdrop"></div>
-        <div class="vipar-shell vipar-value-grid">
-          <div class="vipar-value-copy vipar-stack-md">
-            <span class="vipar-label vipar-label--inverse">Valor Añadido</span>
-            <h2>Cómo trabajamos cada proyecto</h2>
-            <p>
-              En obras y reformas, el resultado depende de medir bien, elegir el sistema adecuado y coordinar la instalación según el espacio disponible.
-            </p>
-
-            <ul class="vipar-check-list">
-              {valuePoints.map((point) => (
-                <li>
-                  <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
-                  <div>
-                    <strong>{point.title}</strong>
-                    <span>{point.description}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div class="vipar-value-media">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWqZMzNSIYDpRlnxvDxA45Ql8Mv7JZUizJEvxbRRKfj4e10UELGs_Kt6K0uMy4yUXnaPA9yfc8yc8UEEDG69qkAOFW7PvnyYABmRHwtq1dI1KdZnuVjRdszK5TwcB7LSuDYul5AmsG2cX4WcRxqCQdxcHfago0E2oyIcIuvry4RmXKEFkzhv64nF8ty5oq_00NHIxoefcLZooY4NXQQkuwNHjtblyL86pDd6QrwFdMB90tNY1RhkSzKHJrueSSXiIdbWvVCs19n57P"
-              alt="Technical blueprints"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="vipar-section vipar-section--plain">
-        <div class="vipar-shell vipar-stack-lg">
-          <div class="vipar-section-heading vipar-section-heading--center">
-            <span class="vipar-label">Por qué elegirnos</span>
-            <h2>Qué aporta VIPAR a cada proyecto</h2>
-          </div>
-
-          <div class="vipar-strength-grid">
-            {strengths.map((item) => (
-              <article class="vipar-strength-card">
-                <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section class="vipar-section vipar-section--projects-architectural" id="obras">
         <div class="vipar-shell vipar-stack-lg">
           <div class="vipar-projects-heading vipar-stack-sm">
@@ -514,29 +461,6 @@ const homeStructuredData = JSON.stringify([
               Explorar catálogo completo
               <span class="material-symbols-outlined" aria-hidden="true">grid_view</span>
             </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="vipar-section vipar-section--surface">
-        <div class="vipar-shell vipar-stack-lg">
-          <div class="vipar-section-heading vipar-section-heading--center">
-            <span class="vipar-label">Metodología</span>
-            <h2>Proceso de trabajo</h2>
-            <p>Un enfoque estructurado para asegurar la calidad en cada entrega.</p>
-          </div>
-
-          <div class="vipar-timeline">
-            <div class="vipar-timeline__line" aria-hidden="true"></div>
-            {methodology.map((item, index) => (
-              <article class:list={["vipar-step-card", index > 2 && "vipar-step-card--offset"]}>
-                <div class:list={["vipar-step-card__index", item.step === 1 && "is-primary", item.step === 6 && "is-secondary"]}>
-                  {item.step}
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>

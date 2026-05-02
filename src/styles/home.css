@@ -476,10 +476,6 @@
   transition: transform 0.7s ease;
 }
 
-.vipar-service-card:hover .vipar-service-card__image img {
-  transform: scale(1.06);
-}
-
 .vipar-service-card__image::after {
   content: "";
   position: absolute;
@@ -575,14 +571,18 @@
 }
 
 .vipar-mini-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   padding-top: 32px;
   border-top: 1px solid var(--vipar-outline);
 }
 
 .vipar-mini-card {
+  flex: 0 1 calc((100% - 48px) / 3);
+  max-width: calc((100% - 48px) / 3);
+  min-width: 240px;
   border-radius: var(--vipar-radius-md);
   padding: 24px;
   background: var(--vipar-surface-low);
@@ -1247,8 +1247,9 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .vipar-mini-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .vipar-mini-card {
+    flex-basis: calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
   }
 
   .vipar-topbar__links {
@@ -1284,11 +1285,15 @@
   .vipar-project-grid,
   .vipar-timeline,
   .vipar-featured-grid,
-  .vipar-mini-grid,
   .vipar-strength-grid,
   .vipar-form__grid--2,
   .vipar-footer__grid {
     grid-template-columns: 1fr;
+  }
+
+  .vipar-mini-card {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 
   .vipar-topbar__nav {
