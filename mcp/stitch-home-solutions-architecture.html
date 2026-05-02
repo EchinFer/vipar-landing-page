@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#2b1700",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#aec7f7",
+                    "surface-container-low": "#f3f3f3",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary-fixed-variant": "#2e476f",
+                    "outline-variant": "#c4c6cf",
+                    "on-background": "#1a1c1c",
+                    "surface-tint": "#465f88",
+                    "on-tertiary-container": "#c6965e",
+                    "on-secondary-fixed-variant": "#45474a",
+                    "primary-container": "#1b365d",
+                    "on-primary-container": "#87a0cd",
+                    "primary-fixed": "#d6e3ff",
+                    "secondary-fixed": "#e2e2e6",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-surface-variant": "#44474e",
+                    "surface-container": "#eeeeee",
+                    "tertiary-fixed": "#ffddb9",
+                    "surface-dim": "#dadada",
+                    "secondary": "#5d5e62",
+                    "tertiary": "#321c00",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "secondary-container": "#e2e2e6",
+                    "outline": "#74777f",
+                    "error-container": "#ffdad6",
+                    "primary": "#002046",
+                    "primary-fixed-dim": "#aec7f7",
+                    "background": "#f9f9f9",
+                    "inverse-surface": "#2f3131",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#f1bd81",
+                    "secondary-fixed-dim": "#c5c6ca",
+                    "on-surface": "#1a1c1c",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary-fixed": "#191c1e",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#636468",
+                    "tertiary-container": "#4f2f00",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary-fixed": "#001b3d",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#623f0f",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f9f9f9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-petroleum-glass {
+            background-color: rgba(27, 54, 93, 0.85);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/85 dark:bg-slate-950/85 backdrop-blur-md border-b border-slate-200/20 dark:border-slate-800/20">
+<nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto">
+<div class="text-2xl font-extrabold text-[#002046] dark:text-white tracking-tighter font-headline">VIPAR S.A.</div>
+<div class="hidden md:flex gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-white transition-colors font-body font-medium" href="#">Inicio</a>
+<a class="text-[#1B365D] dark:text-white border-b-2 border-[#1B365D] pb-1 font-bold font-body" href="#">Servicios</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-white transition-colors font-body font-medium" href="#">Proyectos</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-white transition-colors font-body font-medium" href="#">Nosotros</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-white transition-colors font-body font-medium" href="#">Contacto</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold font-headline hover:bg-primary-container transition-all active:scale-95 duration-200">
+                Solicitar presupuesto
+            </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[870px] flex items-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Modern architectural building with sleek glass facade and steel structures under a clear blue sky, sharp angles and professional clean look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_IYWL4DSO_hDUJ1n6AL5clQU7lWnPQ9lXLpd9eDKDmklcaVW90aLx-OioX-Xq5vRAPbsJh7JT3ViE0-xntBi0xE3kL3_yNWJq9Y9Z9_MdcpJPluUl4B-zjki9HFB5TlXoyVsRqpw6Ms85rpE6IxS0V4Bzsl3WQQ33vDH1Pmk-A6o0aFUtSzzWE1P0PX9fm4u5CLy3XrIOGemJktsR-NB7za5w4UdWygax9FJVuQmh659as1rqiVXcap_MHkblPedbBPBdt_ufLvKJ"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent"></div>
+<div class="relative max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<span class="text-primary-fixed font-headline font-bold tracking-widest text-sm uppercase mb-4 block">Soluciones de Ingeniería Aplicada</span>
+<h1 class="text-white text-6xl md:text-7xl font-extrabold font-headline leading-tight tracking-tighter mb-6">
+                        Arquitectura de <span class="text-primary-fixed-dim">alto rendimiento.</span>
+</h1>
+<p class="text-white/80 text-lg md:text-xl font-body mb-8 leading-relaxed">
+                        Especialistas en la ejecución técnica de infraestructuras residenciales, comerciales y corporativas con precisión milimétrica.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-8 py-4 rounded-xl font-bold font-headline hover:bg-surface-container transition-all">Explorar Proyectos</button>
+<button class="border border-white/30 text-white px-8 py-4 rounded-xl font-bold font-headline hover:bg-white/10 transition-all backdrop-blur-sm">Nuestros Servicios</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Content-rich repositioning block -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+<div class="md:col-span-7">
+<h2 class="text-4xl font-extrabold font-headline text-primary mb-6 leading-tight">Expertos en transformar visiones estructurales en realidades tangibles.</h2>
+<p class="text-secondary text-lg leading-relaxed font-body mb-8">
+                        En VIPAR S.A. no solo construimos; orquestamos soluciones de ingeniería que responden a las demandas específicas de cada entorno. Nuestra metodología integra el diseño funcional con la eficiencia técnica para garantizar resultados que trascienden lo convencional.
+                    </p>
+<div class="grid grid-cols-2 gap-8">
+<div class="border-l-4 border-primary pl-4">
+<span class="text-3xl font-extrabold font-headline text-primary block">15+</span>
+<span class="text-label-md text-secondary uppercase font-bold text-xs tracking-tighter">Años de experiencia</span>
+</div>
+<div class="border-l-4 border-primary pl-4">
+<span class="text-3xl font-extrabold font-headline text-primary block">450+</span>
+<span class="text-label-md text-secondary uppercase font-bold text-xs tracking-tighter">Proyectos ejecutados</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-5">
+<div class="bg-surface-container-low p-2 rounded-xl">
+<img class="rounded-lg shadow-sm" data-alt="Interior of a modern high-end minimalist office space with concrete finishes and designer lighting, showcasing precision construction" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3rhLaAsi3dmFdJfG5CmwbkGd-fIdkKbYnw6cnF_LGbZlnWVmJy4WE-HNRZDrPOCExs7Gmg0lmBPt_AdMoQVYuvQLYpePGzUicbOSQKB8xK2n7YXBWeHkxz3RboRGiZTm1iF17NKx-TcfhlpEG0EBLgc7q5NwuA5mOzlA7IGMixsARLmtfL9R-SaS8aRVZPogaTAdastyLuiWWr2I4Qi16Zme1swOCQtjQDrpR4P_CvG82hFqPdecCJmMLQv6EekkQkZNc5EkIBBX"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Environment-based Service Families -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16 text-center">
+<h2 class="text-4xl font-extrabold font-headline text-primary">Soluciones por Entorno</h2>
+<p class="text-secondary mt-4 max-w-2xl mx-auto">Especialización técnica adaptada a los requerimientos de cada sector.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Residential -->
+<div class="group relative overflow-hidden rounded-xl h-[600px] bg-primary transition-transform duration-500 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="Luxury modern residential house at dusk with warm interior lighting and professional landscaping" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JXRCAaP9gCv7APOQsIvz7SY4r6ErStjwkvnaWQKsdFL_7kOa-Zv87P6ekcLRHFyyk52myWq5g6jPdJe9PQlzng9sB9e286qN08AYc9LOA3bCS2z7bjnry0PjQ7XAI45QgzUfTrr99q9TBw8JJJkxreubOcrLOrSDUGBouMr91ZI8l29YZc1gTPHHge1QVtiLBsR1fNjRv-8fROSDb3hGIE1mC6GuRJTVGP6K8PuHanJt3P6mjm3gwg6ITVwmwLUAjRhoSi8I3QVn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent"></div>
+<div class="absolute bottom-0 p-8 w-full">
+<h3 class="text-white text-3xl font-extrabold font-headline mb-4">Residencial</h3>
+<p class="text-white/80 font-body mb-6">Ejecución de viviendas de alta gama donde el detalle y el confort son la prioridad estructural.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center text-white/90 font-medium"><span class="material-symbols-outlined mr-2 text-primary-fixed text-sm">check_circle</span> Domótica Integrada</li>
+<li class="flex items-center text-white/90 font-medium"><span class="material-symbols-outlined mr-2 text-primary-fixed text-sm">check_circle</span> Eficiencia Energética</li>
+<li class="flex items-center text-white/90 font-medium"><span class="material-symbols-outlined mr-2 text-primary-fixed text-sm">check_circle</span> Acabados de Lujo</li>
+</ul>
+<button class="w-full bg-white text-primary py-3 rounded-xl font-bold font-headline hover:bg-primary-fixed transition-colors">Ver Soluciones</button>
+</div>
+</div>
+<!-- Commercial -->
+<div class="group relative overflow-hidden rounded-xl h-[600px] bg-primary transition-transform duration-500 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="Wide shot of a modern retail space with clean lines, high ceilings, and industrial design elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKP0isqGEyF72o13yvNbtYaA8BskwcBePGllcpFlYvtXL36aMshGpz2dWSFPzkgOzo7nqpj2DZ5X-Xu6Th_xfBa-jJNVagIl52a3Iv8JSOySB0cYb8KX4m0j8nFSQOYs68j0hxxpuTYnmARHVyPHs3cswdY4Pm5L4pvxW2HBglXcRddFJKw5HmtXrKvTyzO_1xRMowhIlataGCxtfgmRQydsnC0sZKrNJYbJFXf6jUetDDvMz8TdeH_dfXYup7En30Cdd_eoy7LjY5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent"></div>
+<div class="absolute bottom-0 p-8 w-full">
+<h3 class="text-white text-3xl font-extrabold font-headline mb-4">Comercial</h3>
+<p class="text-white/80 font-body mb-6">Infraestructuras diseñadas para el flujo masivo, la durabilidad y la identidad de marca.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center text-white/90 font-medium"><span class="material-symbols-outlined mr-2 text-primary-fixed text-sm">check_circle</span> Locales de Retail</li>
+<li class="flex items-center text-white/90 font-medium"><span class="material-symbols-outlined mr-2 text-primary-fixed text-sm">check_circle</span> Centros Comerciales</li>
+<li class="flex items-center text-white/90 font-medium"><span class="material-symbols-outlined mr-2 text-primary-fixed text-sm">check_circle</span> Mantenimiento Preventivo</li>
+</ul>
+<button class="w-full bg-white text-primary py-3 rounded-xl font-bold font-headline hover:bg-primary-fixed transition-colors">Ver Soluciones</button>
+</div>
+</div>
+<!-- Corporate -->
+<div class="group relative overflow-hidden rounded-xl h-[600px] bg-primary transition-transform duration-500 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="Skyscraper glass facade reflecting the sky, representing corporate structural excellence" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3YtH0XLhc1vWFWkeJw-g5VrGF2gAOps9OTyuxRwaHsSQjMRrtOMIHKOfw9aLQw5Xz7xVC3qiqPd-ABlH6C1AhyTTgZVS5KgtGlujMjqfYOxiAu5dX0b7gnobDmUX2PsFaYrM8l5ykgyvALJpKpTMTEHvTz2IMNuUc-0aP8Lo5z4zUUCoZPBAYerja78rc5PRzdeL5tZQv-KFbsuT_MKH4YynNNMHVDz3M4G834PBdioIg_eK-jdRy2O5Qf5dmEZ-eQsKBtOfZn1G-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent"></div>
+<div class="absolute bottom-0 p-8 w-full">
+<h3 class="text-white text-3xl font-extrabold font-headline mb-4">Corporativo</h3>
+<p class="text-white/80 font-body mb-6">Espacios de trabajo inteligentes que optimizan la productividad y reflejan solidez empresarial.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center text-white/90 font-medium"><span class="material-symbols-outlined mr-2 text-primary-fixed text-sm">check_circle</span> Oficinas Inteligentes</li>
+<li class="flex items-center text-white/90 font-medium"><span class="material-symbols-outlined mr-2 text-primary-fixed text-sm">check_circle</span> Auditorios y Sedes</li>
+<li class="flex items-center text-white/90 font-medium"><span class="material-symbols-outlined mr-2 text-primary-fixed text-sm">check_circle</span> Certificaciones LEED</li>
+</ul>
+<button class="w-full bg-white text-primary py-3 rounded-xl font-bold font-headline hover:bg-primary-fixed transition-colors">Ver Soluciones</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Process -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<div class="md:w-1/2">
+<h2 class="text-4xl font-extrabold font-headline text-primary mb-8">Nuestra Metodología de Precisión</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-container text-white flex items-center justify-center rounded-lg font-headline font-extrabold">01</div>
+<div>
+<h4 class="text-xl font-bold font-headline text-primary mb-2">Diagnóstico Técnico</h4>
+<p class="text-secondary font-body">Análisis profundo de los requerimientos estructurales y viabilidad del entorno.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-container text-white flex items-center justify-center rounded-lg font-headline font-extrabold">02</div>
+<div>
+<h4 class="text-xl font-bold font-headline text-primary mb-2">Ingeniería de Valor</h4>
+<p class="text-secondary font-body">Optimización de materiales y procesos para maximizar la calidad sin exceder presupuestos.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-container text-white flex items-center justify-center rounded-lg font-headline font-extrabold">03</div>
+<div>
+<h4 class="text-xl font-bold font-headline text-primary mb-2">Ejecución Controlada</h4>
+<p class="text-secondary font-body">Supervisión en tiempo real y protocolos de seguridad de estándar internacional.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 relative">
+<div class="aspect-square bg-surface-container rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Blueprint on a construction site with professional tools and helmet, bright sunlight, architectural planning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmMgGe3CMg5zfcb0-Hldz_kwJ_ltkNz61arACacw4Ev0O-qDJzjpRAJWEylsJ8cPA76b2Gj1wO0BehXgjPIuWTBpYfH9Lw-XiOe2bVzXkIKt96B4WmrWEEqfIwvhHLqmps54fCLQmq9lNYyqxWjk-MVegwvmL97ItnhF0EjLG7JzOiI4NO81CV4YKQx40duIlNErJvuTLmYQswzbSjGO2nVTOJooHxX5tj_rwT3qtN30bKYUI7jFBaRLGvd3kBGlSUPLm7PRKcwv6z"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-primary p-8 rounded-xl text-white shadow-xl max-w-xs">
+<p class="text-sm font-label italic">"La precisión no es un objetivo, es nuestro punto de partida en cada m²."</p>
+<div class="mt-4 flex items-center gap-3">
+<div class="w-8 h-px bg-white/30"></div>
+<span class="text-xs uppercase font-bold tracking-widest">Garantía VIPAR</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Block: Experiencia Aplicada -->
+<section class="py-24 bg-surface-container-high">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-surface-container-lowest rounded-xl p-12 shadow-sm border border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="md:col-span-1">
+<h3 class="text-2xl font-extrabold font-headline text-primary mb-4">Experiencia Aplicada</h3>
+<p class="text-secondary text-sm">Nuestras cifras respaldan el compromiso con la excelencia técnica.</p>
+</div>
+<div class="flex flex-col items-center justify-center p-6 bg-surface rounded-lg">
+<span class="text-4xl font-extrabold font-headline text-primary">98%</span>
+<span class="text-label-md text-secondary font-medium mt-2">Cumplimiento de plazos</span>
+</div>
+<div class="flex flex-col items-center justify-center p-6 bg-surface rounded-lg">
+<span class="text-4xl font-extrabold font-headline text-primary">0</span>
+<span class="text-label-md text-secondary font-medium mt-2">Accidentes laborales</span>
+</div>
+<div class="flex flex-col items-center justify-center p-6 bg-surface rounded-lg">
+<span class="text-4xl font-extrabold font-headline text-primary">+20</span>
+<span class="text-label-md text-secondary font-medium mt-2">Sectores atendidos</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Conversion Block -->
+<section class="py-32 relative overflow-hidden bg-primary">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover grayscale" data-alt="Professional construction site overview with cranes and structural framework during golden hour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjmpuZI0UHuhv8TpUkFrRCQvIsDfHBWWyhHshyTm3_rtYeeanmO6tgbVCwQ4TtgocdYRL-v57mMJzUwNmonj-l3r2fgdasz06wQlAZe7VVQDk6iDJCiBDuJshWCwYQAuBLQ2v7ZS9gdYtwl1io_sVCpMyP1ZJgoxYkbHeBYMlkOEKwIjEE76rTUuBvw4aPaQH04OzR4KOQhWqpO2HrPlGGj3YBX6XxCwf_zRtAA3TKQgsQ4avoXzOjUlKIWAmG6x0yJ2ny4hyMKsPX"/>
+</div>
+<div class="relative max-w-4xl mx-auto px-8 text-center">
+<h2 class="text-5xl font-extrabold font-headline text-white mb-8 leading-tight">¿Listo para elevar el estándar de su próximo proyecto?</h2>
+<p class="text-primary-fixed-dim text-xl font-body mb-12">
+                    Contacte con nuestro equipo técnico para una consultoría preliminar y descubra cómo VIPAR S.A. aporta valor desde el primer trazo.
+                </p>
+<div class="flex flex-col md:flex-row justify-center gap-4">
+<button class="bg-white text-primary px-10 py-5 rounded-xl font-extrabold font-headline text-lg hover:bg-primary-fixed transition-all active:scale-95 shadow-xl">Solicitar Cotización</button>
+<button class="border-2 border-white/40 text-white px-10 py-5 rounded-xl font-extrabold font-headline text-lg hover:bg-white/10 transition-all backdrop-blur-md">Descargar Portfolio</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-8 mt-auto bg-slate-100 dark:bg-slate-900">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-bold text-[#002046] dark:text-white mb-6 font-headline">VIPAR S.A.</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 font-body">
+                    Referente en soluciones de ingeniería y arquitectura técnica con un enfoque en la precisión estructural y la innovación aplicada.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-[#002046] dark:text-white font-bold font-headline mb-6">Enlaces</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-blue-300 underline transition-all font-body text-sm" href="#">Inicio</a></li>
+<li><a class="text-[#1B365D] dark:text-white font-semibold transition-all font-body text-sm" href="#">Servicios</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-blue-300 underline transition-all font-body text-sm" href="#">Proyectos</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-blue-300 underline transition-all font-body text-sm" href="#">Nosotros</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[#002046] dark:text-white font-bold font-headline mb-6">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-blue-300 underline transition-all font-body text-sm" href="#">Aviso Legal</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-blue-300 underline transition-all font-body text-sm" href="#">Privacidad</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-blue-300 underline transition-all font-body text-sm" href="#">Cookies</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[#002046] dark:text-white font-bold font-headline mb-6">Oficina Central</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-body mb-4">
+                    Av. de la Arquitectura, 150<br/>
+                    Distrito Financiero, 28001<br/>
+                    Madrid, España
+                </p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-body">
+                    T: +34 912 345 678<br/>
+                    E: contacto@vipar.com
+                </p>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-body uppercase tracking-widest">© 2024 VIPAR S.A. Architectural Precision.</p>
+</div>
+</footer>
+</body></html>
