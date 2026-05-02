@@ -311,17 +311,21 @@ const homeStructuredData = JSON.stringify([
 
     <main class="vipar-home__main">
       <section class="vipar-hero">
+        <div class="vipar-hero__backdrop">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWL1SdapClxacZbU-BDsOxCm6FeDmKTi4AzWqCwGR5aVqNtlszxC7VxVKys4XN994M17_TqoXF0hMQsX890kJgA7wRPTKU-qdJccKZL2_1eTrPYok8nppN9PfZh6KlD2RmO_4Ff9gVgB2O1llszJiqBKhExzcP9OHfkcwKlgqwV7EAbdYYkWQ7hbLeIUPq-lemrX7JD-4ph5U9lWZ9K0n6Mng4uGgMc1nt9U29bY-LXY8dRfCt9S1TQYRO_oOyCG1vSY2h7IboOrAK"
+            alt="Lobby corporativo con superficies vidriadas y terminaciones arquitectónicas"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="vipar-hero__backdrop-overlay"></div>
+        </div>
+
         <div class="vipar-shell vipar-hero__grid">
           <div class="vipar-hero__copy">
             <div class="vipar-hero__meta">
-              <span>
-                <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
-                Ubicados en Ñemby, Central
-              </span>
-              <span>
-                <span class="material-symbols-outlined" aria-hidden="true">business_center</span>
-                Atención para obras residenciales y comerciales
-              </span>
+              <span class="vipar-hero__eyebrow">Ubicados en Ñemby, Central</span>
+              <span class="vipar-hero__support">Atención para obras residenciales y comerciales</span>
             </div>
 
             <h1>Cristales templados, aluminio y terminaciones para obras en Paraguay</h1>
@@ -330,24 +334,9 @@ const homeStructuredData = JSON.stringify([
             </p>
 
             <div class="vipar-actions">
-              <a class="vipar-button vipar-button--primary" href="#contacto">Solicitar presupuesto</a>
-              <a class="vipar-button vipar-button--secondary" href="#servicios">Ver servicios</a>
+              <a class="vipar-button vipar-button--primary vipar-button--hero" href="#contacto">Solicitar presupuesto</a>
+              <a class="vipar-button vipar-button--secondary vipar-button--hero-link" href="#servicios">Ver servicios</a>
             </div>
-
-            <div class="vipar-hero__trust">
-              {trustPills.map((item) => (
-                <span>{item}</span>
-              ))}
-            </div>
-          </div>
-
-          <div class="vipar-hero__media">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtYeMTXO0AnjfSOC94kAz8n0OBRKSvPWT6rUKxRgCUGJRzrgVJYowS8ApJtp1i0NhKdlWf9YFVtMOuTHos3DzPSc6qcH_0mk78qTL_WUGzF4FQRBxGGe-mO_FioLDOmzAvMGS_KN3ysQAG8LbgBEDVwUwchfUyg6H7WCTAk57yz-7xq1m5YHXfBP3IWzzKggbt7PnkPq_61lM3jWfH_PTQrzxSCMJZkTbC2UXsfBEfYcv0aEGQNAIfke7SiIk9DwNMrUf43knKJLtA"
-              alt="Modern facade"
-              loading="eager"
-              fetchpriority="high"
-            />
           </div>
         </div>
       </section>
