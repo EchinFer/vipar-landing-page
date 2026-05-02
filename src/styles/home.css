@@ -15,6 +15,7 @@
   --vipar-inverse: #dff4ff;
   --vipar-inverse-soft: #b0c9e2;
   --vipar-shell: 1280px;
+  --vipar-topbar-height: 80px;
   --vipar-radius-sm: 8px;
   --vipar-radius-md: 12px;
   --vipar-radius-lg: 16px;
@@ -55,7 +56,7 @@
 }
 
 .vipar-home__main {
-  padding-top: 80px;
+  padding-top: 0;
 }
 
 .vipar-stack-sm,
@@ -221,10 +222,13 @@
 
 .vipar-hero {
   position: relative;
-  min-height: 840px;
+  height: 100vh;
+  min-height: 100vh;
+  padding-top: var(--vipar-topbar-height);
   display: flex;
   align-items: center;
   overflow: hidden;
+  box-sizing: border-box;
   border-bottom: 1px solid var(--vipar-outline);
   background: var(--vipar-background);
 }
@@ -253,9 +257,11 @@
   grid-template-columns: minmax(0, 1fr);
   gap: 24px;
   align-items: center;
-  min-height: 840px;
-  padding-top: 72px;
-  padding-bottom: 72px;
+  height: calc(100vh - var(--vipar-topbar-height));
+  min-height: calc(100vh - var(--vipar-topbar-height));
+  padding-top: 40px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
 }
 
 .vipar-hero__copy {
@@ -1198,8 +1204,8 @@
 }
 
 @media (max-width: 960px) {
-  .vipar-home__main {
-    padding-top: 72px;
+  .vipar-home {
+    --vipar-topbar-height: 72px;
   }
 
   .vipar-shell {
@@ -1249,13 +1255,15 @@
   }
 
   .vipar-hero__grid {
-    min-height: 680px;
-    padding-top: 56px;
-    padding-bottom: 56px;
+    height: calc(100vh - var(--vipar-topbar-height));
+    min-height: calc(100vh - var(--vipar-topbar-height));
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 
   .vipar-hero {
-    min-height: 680px;
+    height: 100vh;
+    min-height: 100vh;
   }
 
   .vipar-hero__backdrop-overlay {
@@ -1280,7 +1288,15 @@
 @media (max-width: 640px) {
   .vipar-hero,
   .vipar-hero__grid {
-    min-height: 560px;
+    height: calc(100svh);
+    min-height: calc(100svh);
+  }
+
+  .vipar-hero__grid {
+    height: calc(100svh - var(--vipar-topbar-height));
+    min-height: calc(100svh - var(--vipar-topbar-height));
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
 
   .vipar-hero h1 {
