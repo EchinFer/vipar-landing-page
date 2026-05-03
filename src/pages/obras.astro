@@ -52,18 +52,6 @@ const featuredTagline = featuredObra
       </p>
     </section>
 
-    <section class="vipar-obras-filter-bar">
-      {obraFilters.map((filter, index) => (
-        <button
-          class:list={["vipar-obras-filter", index === 0 && "is-active"]}
-          type="button"
-          data-filter={filter.slug}
-        >
-          {filter.label}
-        </button>
-      ))}
-    </section>
-
     {featuredObra && (
       <section class="vipar-obras-featured">
         <div class="vipar-obras-featured__media">
@@ -84,6 +72,18 @@ const featuredTagline = featuredObra
         </div>
       </section>
     )}
+
+    <section class="vipar-obras-filter-bar">
+      {obraFilters.map((filter, index) => (
+        <button
+          class:list={["vipar-obras-filter", index === 0 && "is-active"]}
+          type="button"
+          data-filter={filter.slug}
+        >
+          {filter.label}
+        </button>
+      ))}
+    </section>
 
     <section class="vipar-obras-grid">
       {remainingObras.map((obra) => (
@@ -266,7 +266,7 @@ const featuredTagline = featuredObra
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 12px;
-    margin-bottom: 32px;
+    margin: 0 0 32px;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -300,7 +300,7 @@ const featuredTagline = featuredObra
     overflow: hidden;
     background: #ffffff;
     padding: 0;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
     transition: border-color 200ms ease, box-shadow 200ms ease;
   }
 
