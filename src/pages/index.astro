@@ -12,7 +12,6 @@ const homePath = `${SITE_URL}/`;
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
 const whatsappMessage =
   "Hola, quiero solicitar un presupuesto para una obra. Me contacto desde la home.";
-const currentYear = new Date().getFullYear();
 
 const serviceLinks = {
   cristalesTemplados: "/servicios/",
@@ -255,22 +254,6 @@ const keyData = [
   },
 ];
 
-const footerQuickLinks = [
-  { label: "Inicio", href: "#top" },
-  { label: "Servicios", href: "/servicios/" },
-  { label: "Sobre VIPAR", href: "#nosotros" },
-  { label: "Catálogo de Obras", href: "#obras" },
-  { label: "Contacto", href: "#contacto" },
-];
-
-const footerServiceLinks = [
-  { label: "Cristales Templados", href: serviceLinks.cristalesTemplados },
-  { label: "Carpintería de Aluminio", href: serviceLinks.carpinteriaAluminio },
-  { label: "Fachadas", href: serviceLinks.fachada },
-  { label: "Mamparas y Divisiones", href: serviceLinks.mamparaDivisoria },
-  { label: "Cielos Rasos", href: serviceLinks.cieloRaso },
-];
-
 const homeStructuredData = JSON.stringify([
   {
     "@context": "https://schema.org",
@@ -301,29 +284,9 @@ const homeStructuredData = JSON.stringify([
   keywords={keywords}
   canonical={homePath}
   bodyClass="vipar-home-body"
-  hideHeader={true}
-  hideFooter={true}
   hideWhatsappFAB={true}
 >
   <div class="vipar-home" id="top">
-    <header class="vipar-topbar">
-      <nav class="vipar-shell vipar-topbar__nav" aria-label="Navegación principal">
-        <a class="vipar-topbar__brand" href="#top">VIPAR S.A.</a>
-
-        <div class="vipar-topbar__links">
-          <a class="is-active" href="#top">Inicio</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#obras">Obras</a>
-          <a href="#nosotros">Nosotros</a>
-          <a href="#contacto">Contacto</a>
-        </div>
-
-        <a class="vipar-button vipar-button--primary vipar-topbar__cta" href="#contacto">
-          Solicitar presupuesto
-        </a>
-      </nav>
-    </header>
-
     <main class="vipar-home__main">
       <section class="vipar-hero">
         <div class="vipar-hero__backdrop">
@@ -614,67 +577,6 @@ const homeStructuredData = JSON.stringify([
       </section>
     </main>
 
-    <footer class="vipar-footer">
-      <div class="vipar-shell vipar-footer__grid">
-        <div class="vipar-footer__brand">
-          <span class="vipar-footer__logo">VIPAR S.A.</span>
-          <p>
-            Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para viviendas, comercios, oficinas y obras.
-          </p>
-
-          <div class="vipar-footer__socials">
-            <a href="#contacto" aria-label="Compartir">
-              <span class="material-symbols-outlined" aria-hidden="true">share</span>
-            </a>
-            <a href="/obras/" aria-label="Ver obras">
-              <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="vipar-footer__column">
-          <h3>Enlaces Rápidos</h3>
-          {footerQuickLinks.map((link) => (
-            <a href={link.href}>{link.label}</a>
-          ))}
-        </div>
-
-        <div class="vipar-footer__column">
-          <h3>Servicios</h3>
-          {footerServiceLinks.map((link) => (
-            <a href={link.href}>{link.label}</a>
-          ))}
-        </div>
-
-        <div class="vipar-footer__column">
-          <h3>Contacto</h3>
-          <p class="vipar-footer__contact">
-            <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
-            <span>{address}</span>
-          </p>
-          <p class="vipar-footer__contact">
-            <span class="material-symbols-outlined" aria-hidden="true">call</span>
-            <span>{telephone}</span>
-          </p>
-          <p class="vipar-footer__contact">
-            <span class="material-symbols-outlined" aria-hidden="true">mail</span>
-            <span>{email}</span>
-          </p>
-
-          <a class="vipar-button vipar-button--accent vipar-footer__cta" href="#contacto">
-            Solicitar Presupuesto
-          </a>
-        </div>
-      </div>
-
-      <div class="vipar-shell vipar-footer__bottom">
-        <p>© {currentYear} VIPAR S.A. Todos los derechos reservados.</p>
-        <div>
-          <a href="#top">Términos y Condiciones</a>
-          <a href="#top">Política de Privacidad</a>
-        </div>
-      </div>
-    </footer>
   </div>
 
   <script type="application/ld+json" set:html={homeStructuredData}></script>

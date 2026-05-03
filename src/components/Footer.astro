@@ -1,95 +1,259 @@
 ---
-import { LOGO_TEXT, MENU_ITEMS, SOCIAL_LINKS, address } from "src/constants";
-import EmailLink from "./EmailLink.astro";
-import FacebookIcon from "./icons/FacebookIcon.astro";
-import InstagramIcon from "./icons/InstagramIcon.astro";
-import LastProject from "./LastProject.astro";
-import TelephoneLink from "./TelephoneLink.astro";
+import {
+  LOGO_TEXT,
+  MENU_ITEMS,
+  SOCIAL_LINKS,
+  address,
+  email,
+  telephone,
+} from "src/constants";
+
+const currentYear = new Date().getFullYear();
+const serviceLinks = [
+  { label: "Cristales Templados", href: "/servicios/" },
+  { label: "Carpintería de Aluminio", href: "/servicios/carpinteria-de-aluminio/" },
+  { label: "Fachadas", href: "/servicios/fachada/" },
+  { label: "Mamparas y Divisiones", href: "/servicios/mampara-divisoria/" },
+  { label: "Cielos Rasos", href: "/servicios/cielo-raso/" },
+];
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
 ---
 
-<footer id="footer" class="footer">
-  <div class="footer-content position-relative">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="footer-info">
-            <h3>{LOGO_TEXT}</h3>
-            <div>
-              <strong>Dirección:</strong>
-              <a
-                href="https://maps.app.goo.gl/QGPCNXD9RqXEyDDN8"
-                target="_blank"
-                class="text-decoration-none"
-              >
-                {address}
-              </a>
-              <br />
-              <strong>Teléfono:</strong>
-              <TelephoneLink /><br />
-              <strong>Correo electrónico:</strong>
-              <EmailLink /><br />
-            </div>
-            <div class="social-links d-flex mt-3">
-              {SOCIAL_LINKS.facebook && (
-                <a
-                  href={SOCIAL_LINKS.facebook}
-                  target="_blank"
-                  rel="noopener"
-                  class="d-flex align-items-center justify-content-center"
-                  aria-label="Facebook VIPAR"
-                >
-                  <FacebookIcon />
-                </a>
-              )}
-              {SOCIAL_LINKS.instagram && (
-                <a
-                  href={SOCIAL_LINKS.instagram}
-                  target="_blank"
-                  rel="noopener"
-                  class="d-flex align-items-center justify-content-center"
-                  aria-label="Instagram VIPAR"
-                >
-                  <InstagramIcon />
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
+<footer class="vipar-site-footer">
+  <div class="vipar-site-shell vipar-site-footer__grid">
+    <div class="vipar-site-footer__brand">
+      <span class="vipar-site-footer__logo">{LOGO_TEXT}</span>
+      <p>
+        Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para viviendas, comercios, oficinas y obras.
+      </p>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Menú</h4>
-          <ul>
-            {
-              MENU_ITEMS.map((menuItem) => (
-                <li>
-                  <a href={menuItem.url}>{menuItem.title}</a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-4 footer-links">
-          <h4>Nuestros Servicios</h4>
-          <ul>
-            <li><a href="/servicios/">Ver todos los servicios</a></li>
-            <li><a href="/contacto/">Solicitar presupuesto</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-4 footer-links">
-          <h4>Última obra</h4>
-          <LastProject />
-        </div>
+      <div class="vipar-site-footer__socials">
+        {SOCIAL_LINKS.instagram && (
+          <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram VIPAR">
+            <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
+          </a>
+        )}
+        {SOCIAL_LINKS.facebook && (
+          <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook VIPAR">
+            <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+          </a>
+        )}
       </div>
+    </div>
+
+    <div class="vipar-site-footer__column">
+      <h3>Enlaces Rápidos</h3>
+      {MENU_ITEMS.map((menuItem) => (
+        <a href={menuItem.url}>{menuItem.title}</a>
+      ))}
+    </div>
+
+    <div class="vipar-site-footer__column">
+      <h3>Servicios</h3>
+      {serviceLinks.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </div>
+
+    <div class="vipar-site-footer__column">
+      <h3>Contacto</h3>
+      <p class="vipar-site-footer__contact">
+        <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+        <span>{address}</span>
+      </p>
+      <p class="vipar-site-footer__contact">
+        <span class="material-symbols-outlined" aria-hidden="true">call</span>
+        <a href={`tel:${telephone}`}>{telephone}</a>
+      </p>
+      <p class="vipar-site-footer__contact">
+        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+        <a href={`mailto:${email}`}>{email}</a>
+      </p>
+
+      <a class="vipar-site-button vipar-site-button--accent vipar-site-footer__cta" href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
+        Solicitar Presupuesto
+      </a>
     </div>
   </div>
 
-  <div class="footer-legal text-center position-relative">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Moochsoft</span></strong>. All Rights
-        Reserved
-      </div>
+  <div class="vipar-site-shell vipar-site-footer__bottom">
+    <p>© {currentYear} {LOGO_TEXT}. Todos los derechos reservados.</p>
+    <div>
+      <a href="/contacto/">Contacto</a>
+      <a href="/obras/">Obras</a>
     </div>
   </div>
 </footer>
+
+<style>
+  .vipar-site-shell {
+    width: min(calc(100% - 48px), 1360px);
+    margin: 0 auto;
+  }
+
+  .vipar-site-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 24px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .vipar-site-button:hover {
+    transform: translateY(-1px);
+  }
+
+  .vipar-site-button--accent {
+    background: #2563eb;
+    color: #ffffff;
+  }
+
+  .vipar-site-footer {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 80px 0 40px;
+    border-top: 1px solid #1f2937;
+  }
+
+  .vipar-site-footer__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+
+  .vipar-site-footer__logo {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .vipar-site-footer__brand p {
+    margin-top: 24px;
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  .vipar-site-footer__socials {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .vipar-site-footer__socials a {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: #1e293b;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .vipar-site-footer__socials a:hover {
+    background: #2563eb;
+  }
+
+  .vipar-site-footer__column {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+  }
+
+  .vipar-site-footer__column h3 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .vipar-site-footer__column a,
+  .vipar-site-footer__contact {
+    color: #94a3b8;
+    text-decoration: none;
+  }
+
+  .vipar-site-footer__column a:hover,
+  .vipar-site-footer__bottom a:hover {
+    color: #ffffff;
+  }
+
+  .vipar-site-footer__contact {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .vipar-site-footer__cta {
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  .vipar-site-footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid #1f2937;
+  }
+
+  .vipar-site-footer__bottom p,
+  .vipar-site-footer__bottom a {
+    color: #64748b;
+    font-size: 0.82rem;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  .vipar-site-footer__bottom div {
+    display: flex;
+    gap: 16px;
+  }
+
+  @media (max-width: 960px) {
+    .vipar-site-shell {
+      width: min(calc(100% - 32px), 1360px);
+    }
+
+    .vipar-site-footer__grid,
+    .vipar-site-footer__bottom {
+      grid-template-columns: 1fr;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .vipar-site-footer {
+      padding-top: 88px;
+      padding-bottom: 88px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .vipar-site-footer {
+      padding-top: 72px;
+      padding-bottom: 72px;
+    }
+
+    .vipar-site-footer__bottom div {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>

@@ -1,11 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { getAllObras } from "@lib/query";
+import { staticObras } from "@lib/static-obras";
 import { SITE_URL } from "src/constants";
 
 export async function getStaticPaths() {
-  const projects = await getAllObras();
-  return projects.map((project) => {
+  return staticObras.map((project) => {
     return {
       params: { slug: project.slug },
       props: { project },

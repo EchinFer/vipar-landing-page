@@ -1,26 +1,22 @@
 ---
-import ProjectsSection from "@components/ProjectsSection.astro";
 import Layout from "@layouts/Layout.astro";
-import { getProjectPageData } from "@lib/query";
-import type { PostCategory } from "@types";
-import { SITE_URL } from "src/constants";
-
-const obras = await getProjectPageData();
-const categorias: PostCategory[] = obras.flatMap(
-  (obra) => obra.category ?? []
-);
-
-const uniqueCategorias: PostCategory[] = categorias.reduce((acc, cat) => {
-  if (!acc.some((existingCat) => existingCat.term_id === cat.term_id)) {
-    acc.push(cat);
-  }
-  return acc;
-}, [] as PostCategory[]);
+import {
+  obraFilters,
+  obrasHeroImage,
+  staticObras,
+} from "@lib/static-obras";
+import { SITE_URL, telephone } from "src/constants";
 
 const title = "Obras y Proyectos Realizados - Cristales Templados | VIPAR";
 const description = "Portafolio de obras realizadas con cristales templados, carpintería de aluminio, fachadas vidrio y mamparas. Proyectos de construcción en Paraguay con calidad garantizada.";
 const keywords = "obras cristales templados, proyectos construcción Paraguay, fachadas vidrio, instalaciones cristal, obras carpintería aluminio, portfolio construcción, proyectos realizados";
 const canonical = `${SITE_URL}/obras`;
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const featuredObra = staticObras[0];
+const remainingObras = staticObras.slice(1);
+const featuredTagline = featuredObra
+  ? `${featuredObra.sectorLabel} / ${featuredObra.cliente}`
+  : "";
 ---
 
 <Layout 
@@ -28,25 +24,538 @@ const canonical = `${SITE_URL}/obras`;
   description={description}
   keywords={keywords}
   canonical={canonical}
+  bodyClass="vipar-obras-body"
 >
-  <main id="main">
-    <!-- Breadcrumbs -->
-    <div
-      class="breadcrumbs d-flex align-items-center"
-      style="background-image: url('/img/breadcrumbs-bg.jpg');"
-    >
-      <div
-        class="container position-relative d-flex flex-column align-items-center"
-        data-aos="fade"
-      >
-        <h2>Obras</h2>
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li>Obras</li>
-        </ol>
+  <main class="vipar-obras-main">
+    <section class="vipar-obras-hero">
+      <div class="vipar-obras-hero__media">
+        <img src={obrasHeroImage} alt="Obras VIPAR" loading="eager" fetchpriority="high" />
       </div>
-    </div>
+      <div class="vipar-obras-hero__overlay"></div>
+      <div class="vipar-obras-hero__content">
+        <h1>Obras y proyectos realizados por VIPAR</h1>
+        <p>
+          Explora nuestro portafolio de soluciones en cristal templado y aluminio
+          de alta precisión en Paraguay. Ingeniería y diseño para arquitectura
+          exigente.
+        </p>
+      </div>
+    </section>
 
-    <ProjectsSection projects={obras} />
+    <section class="vipar-obras-intro">
+      <p>
+        Nuestro portafolio refleja aplicaciones reales de nuestras soluciones
+        estructurales. Desde imponentes fachadas comerciales hasta precisas
+        mamparas divisorias y cerramientos técnicos, cada proyecto demuestra
+        nuestro compromiso con la integridad arquitectónica y la calidad de los
+        materiales.
+      </p>
+    </section>
+
+    <section class="vipar-obras-filter-bar">
+      {obraFilters.map((filter, index) => (
+        <button
+          class:list={["vipar-obras-filter", index === 0 && "is-active"]}
+          type="button"
+          data-filter={filter.slug}
+        >
+          {filter.label}
+        </button>
+      ))}
+    </section>
+
+    {featuredObra && (
+      <section class="vipar-obras-featured">
+        <div class="vipar-obras-featured__media">
+          <img src={featuredObra.imagen} alt={featuredObra.titulo} loading="lazy" decoding="async" />
+        </div>
+        <div class="vipar-obras-featured__content">
+          <span class="vipar-obras-featured__eyebrow">{featuredTagline}</span>
+          <h3>{featuredObra.titulo}</h3>
+          <div class="vipar-obras-featured__tags">
+            {featuredObra.displayTags.map((tag) => (
+              <span>{tag}</span>
+            ))}
+          </div>
+          <p>{featuredObra.descripcion}</p>
+          <a class="vipar-obras-featured__cta" href={`/contacto/?proyecto=${featuredObra.slug}`}>
+            Cotizar algo similar
+          </a>
+        </div>
+      </section>
+    )}
+
+    <section class="vipar-obras-grid">
+      {remainingObras.map((obra) => (
+        <article class="vipar-obras-card" data-tags={obra.filterTags.join(",")}>
+          <div class="vipar-obras-card__image">
+            <img src={obra.imagen} alt={obra.titulo} loading="lazy" decoding="async" />
+          </div>
+          <div class="vipar-obras-card__body">
+            <span class="vipar-obras-card__eyebrow">{obra.sectorLabel}</span>
+            <h4>{obra.titulo}</h4>
+            <div class="vipar-obras-card__location">
+              <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+              {obra.ubicacion}
+            </div>
+            <p>{obra.resumen}</p>
+            <a class="vipar-obras-card__cta" href={`/contacto/?proyecto=${obra.slug}`}>
+              Cotizar algo similar
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="vipar-obras-confidence">
+      <h2>Obras reales para evaluar mejor el trabajo</h2>
+      <p>
+        La precisión arquitectónica no se promete, se demuestra. Nuestra capacidad
+        técnica y operativa se refleja en cada milímetro de nuestras instalaciones
+        finalizadas, asegurando durabilidad, estética y cumplimiento de los más
+        altos estándares.
+      </p>
+    </section>
+
+    <section class="vipar-obras-final">
+      <h2>¿Querés cotizar un trabajo similar?</h2>
+      <p>
+        Enviá fotos, planos o referencias de tu proyecto para recibir un presupuesto
+        detallado y asesoramiento técnico especializado.
+      </p>
+      <a class="vipar-obras-button vipar-obras-button--primary vipar-obras-final__cta" href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
+        Solicitar presupuesto por WhatsApp
+      </a>
+    </section>
   </main>
 </Layout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filters = Array.from(document.querySelectorAll(".vipar-obras-filter"));
+    const cards = Array.from(document.querySelectorAll(".vipar-obras-card"));
+
+    const applyFilter = (filter) => {
+      cards.forEach((card) => {
+        const tagList = card.getAttribute("data-tags") || "";
+        const tags = tagList.split(",").map((tag) => tag.trim()).filter(Boolean);
+        const isVisible = filter === "all" || tags.includes(filter);
+
+        card.toggleAttribute("hidden", !isVisible);
+      });
+    };
+
+    filters.forEach((button) => {
+      button.addEventListener("click", () => {
+        filters.forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+        applyFilter(button.getAttribute("data-filter") || "all");
+      });
+    });
+
+    applyFilter("all");
+  });
+</script>
+
+<style>
+  .vipar-obras-main {
+    width: min(calc(100% - 48px), 1360px);
+    margin: 0 auto;
+    padding: 0 0 128px;
+  }
+
+  .vipar-obras-hero {
+    position: relative;
+    width: 100vw;
+    height: min(614px, 100svh);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 calc(50% - 50vw) 64px;
+  }
+
+  .vipar-obras-hero__media,
+  .vipar-obras-hero__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .vipar-obras-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.9;
+    mix-blend-mode: multiply;
+    filter: grayscale(30%);
+  }
+
+  .vipar-obras-hero__overlay {
+    background: linear-gradient(180deg, rgba(249, 249, 249, 0.05) 0%, rgba(249, 249, 249, 0.55) 60%, #f9f9f9 100%);
+  }
+
+  .vipar-obras-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 896px;
+    padding: 0 24px;
+    margin-top: 0;
+  }
+
+  .vipar-obras-hero h1 {
+    margin: 0;
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    color: #0f2a3d;
+    letter-spacing: -0.04em;
+  }
+
+  .vipar-obras-hero p {
+    margin: 16px auto 0;
+    max-width: 640px;
+    color: #516877;
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .vipar-obras-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 28px;
+    border-radius: 10px;
+    border: 1px solid #2f80a8;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+  }
+
+  .vipar-obras-button:hover {
+    transform: translateY(-1px);
+  }
+
+  .vipar-obras-button--primary {
+    background: #2f80a8;
+    color: #fff;
+  }
+
+  .vipar-obras-button--secondary {
+    background: transparent;
+    color: #2f80a8;
+  }
+
+  .vipar-obras-intro {
+    border-left: 4px solid #2f80a8;
+    padding: 8px 0 8px 20px;
+    margin-bottom: 40px;
+  }
+
+  .vipar-obras-intro p {
+    margin: 0;
+    color: #516877;
+    max-width: 860px;
+    line-height: 1.7;
+  }
+
+  .vipar-obras-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .vipar-obras-filter {
+    appearance: none;
+    border: 1px solid #d9dee2;
+    border-radius: 999px;
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #516877;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+  }
+
+  .vipar-obras-filter.is-active,
+  .vipar-obras-filter:hover {
+    background: #2f80a8;
+    border-color: #2f80a8;
+    color: #fff;
+  }
+
+  .vipar-obras-featured {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid #d9dee2;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #ffffff;
+    padding: 0;
+    margin-bottom: 48px;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .vipar-obras-featured:hover {
+    border-color: #2f80a8;
+    box-shadow: 0 22px 40px rgba(7, 27, 40, 0.12);
+  }
+
+  .vipar-obras-featured__media {
+    background: #d9dee2;
+    min-height: 360px;
+    padding: 0;
+  }
+
+  .vipar-obras-featured__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .vipar-obras-featured__content {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .vipar-obras-featured__eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2f80a8;
+  }
+
+  .vipar-obras-featured h3 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    color: #0f2a3d;
+  }
+
+  .vipar-obras-featured__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .vipar-obras-featured__tags span {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #d9dee2;
+    background: #f5f9fc;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #516877;
+  }
+
+  .vipar-obras-featured p {
+    margin: 0;
+    color: #516877;
+    line-height: 1.7;
+  }
+
+  .vipar-obras-featured__cta {
+    width: fit-content;
+    border: 1px solid #2f80a8;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #2f80a8;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  .vipar-obras-featured__cta:hover {
+    background: #eef6fb;
+  }
+
+  .vipar-obras-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 64px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .vipar-obras-card {
+    border: 1px solid #d9dee2;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .vipar-obras-card:hover {
+    border-color: #2f80a8;
+    box-shadow: 0 18px 32px rgba(7, 27, 40, 0.08);
+  }
+
+  .vipar-obras-card[hidden] {
+    display: none;
+  }
+
+  .vipar-obras-card__image {
+    height: 400px;
+    background: #d9dee2;
+  }
+
+  .vipar-obras-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .vipar-obras-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    flex: 1;
+  }
+
+  .vipar-obras-card__eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2f80a8;
+  }
+
+  .vipar-obras-card h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #0f2a3d;
+  }
+
+  .vipar-obras-card__location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #6b7f8f;
+    font-size: 0.9rem;
+  }
+
+  .vipar-obras-card p {
+    margin: 0;
+    color: #516877;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .vipar-obras-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #2f80a8;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: auto;
+  }
+
+  .vipar-obras-card__cta:hover {
+    text-decoration: underline;
+  }
+
+  .vipar-obras-confidence {
+    background: #0f2a3d;
+    color: #ffffff;
+    padding: 48px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .vipar-obras-confidence h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  }
+
+  .vipar-obras-confidence p {
+    margin: 0;
+    color: #cbd5e1;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .vipar-obras-final {
+    text-align: center;
+    padding-top: 64px;
+    border-top: 1px solid #d9dee2;
+  }
+
+  .vipar-obras-final h2 {
+    margin: 0 0 12px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #0f2a3d;
+  }
+
+  .vipar-obras-final p {
+    margin: 0 auto 24px;
+    max-width: 720px;
+    color: #516877;
+    line-height: 1.7;
+  }
+
+  .vipar-obras-final__cta {
+    padding: 0 32px;
+    min-height: 54px;
+    font-size: 1rem;
+    box-shadow: 0 2px 10px rgba(47, 128, 168, 0.2);
+  }
+
+  @media (max-width: 1080px) {
+    .vipar-obras-featured {
+      grid-template-columns: 1fr;
+    }
+
+    .vipar-obras-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .vipar-obras-hero {
+      height: min(520px, 92svh);
+      min-height: 420px;
+    }
+
+    .vipar-obras-main {
+      width: min(calc(100% - 32px), 1360px);
+      padding: 48px 0 96px;
+    }
+
+    .vipar-obras-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .vipar-obras-hero__actions {
+      flex-direction: column;
+    }
+
+    .vipar-obras-button {
+      width: 100%;
+    }
+
+    .vipar-obras-confidence {
+      padding: 32px;
+    }
+  }
+</style>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Servicios - VIPAR S.A.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#eeeeee",
+                      "on-tertiary-fixed-variant": "#623f0f",
+                      "on-tertiary-container": "#c6965e",
+                      "secondary-container": "#e2e2e6",
+                      "on-primary-container": "#87a0cd",
+                      "on-surface": "#1a1c1c",
+                      "secondary-fixed": "#e2e2e6",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f1f1f1",
+                      "surface-tint": "#465f88",
+                      "surface-bright": "#f9f9f9",
+                      "on-secondary-container": "#636468",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed": "#ffddb9",
+                      "secondary-fixed-dim": "#c5c6ca",
+                      "on-secondary-fixed-variant": "#45474a",
+                      "on-primary-fixed-variant": "#2e476f",
+                      "on-primary-fixed": "#001b3d",
+                      "tertiary-fixed-dim": "#f1bd81",
+                      "surface": "#f9f9f9",
+                      "primary-container": "#1b365d",
+                      "primary-fixed": "#d6e3ff",
+                      "outline": "#74777f",
+                      "on-secondary-fixed": "#191c1e",
+                      "surface-container-low": "#f3f3f3",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#aec7f7",
+                      "on-tertiary-fixed": "#2b1700",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#44474e",
+                      "secondary": "#5d5e62",
+                      "inverse-surface": "#2f3131",
+                      "inverse-primary": "#aec7f7",
+                      "outline-variant": "#c4c6cf",
+                      "surface-container-highest": "#e2e2e2",
+                      "tertiary": "#321c00",
+                      "primary": "#002046",
+                      "surface-variant": "#e2e2e2",
+                      "background": "#f9f9f9",
+                      "surface-container-high": "#e8e8e8",
+                      "tertiary-container": "#4f2f00",
+                      "on-background": "#1a1c1c",
+                      "on-primary": "#ffffff",
+                      "surface-dim": "#dadada"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "display": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="bg-[#f9f9f9] dark:bg-[#1a1c1c] text-[#002046] dark:text-[#1B365D] font-['Manrope'] font-bold tracking-tight text-slate-900 dark:text-slate-50 docked full-width top-0 sticky z-50 bg-[#f3f3f3] dark:bg-[#212121] transition-all duration-300 flat no shadows">
+<div class="flex justify-between items-center w-full px-12 py-5 max-w-[1440px] mx-auto">
+<div class="text-2xl font-extrabold tracking-tighter text-[#002046] dark:text-white uppercase">
+                VIPAR S.A.
+            </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-[#1B365D] dark:hover:text-blue-300 transition-colors duration-200 active:opacity-80 transition-opacity" href="#">Inicio</a>
+<a class="text-[#1B365D] dark:text-blue-400 border-b-2 border-[#1B365D] pb-1 hover:text-[#1B365D] dark:hover:text-blue-300 transition-colors duration-200 active:opacity-80 transition-opacity" href="#">Servicios</a>
+<a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-[#1B365D] dark:hover:text-blue-300 transition-colors duration-200 active:opacity-80 transition-opacity" href="#">Proyectos</a>
+<a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-[#1B365D] dark:hover:text-blue-300 transition-colors duration-200 active:opacity-80 transition-opacity" href="#">Consultoría</a>
+<a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-[#1B365D] dark:hover:text-blue-300 transition-colors duration-200 active:opacity-80 transition-opacity" href="#">Soporte</a>
+</nav>
+<div class="flex items-center space-x-6">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">search</span>
+<button class="bg-primary text-on-primary font-body font-medium px-6 py-2.5 rounded-xl hover:bg-primary-container transition-colors duration-300">
+                    Solicitar Cotización
+                </button>
+<img alt="Avatar de usuario corporativo" class="w-10 h-10 rounded-xl object-cover outline outline-1 outline-outline-variant/20 cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHFXF8fHXnCtB6fNqVytPeXM4Swl1L89QSqAopRM-6joME65M-awffeCmceU-DmBfhmsz4DGZaiQ6YplAA9dvznADX4HABLzFVf_huB4OP0wNwZgwSy9_g5NkaeWWzUywc8TdpRBPadK0lA5NIdAUk8ZQXgAnsm3F2aSMqaz2qAyy0Ex1qGqGUrLivNCWAH2kEv4u2dKPo6xqxOXLxd_kAOCkFx0XTvutWLm5KbpAEmWKDcdyd4QUVAjJOqYZxuqJZYgUHMykff29p"/>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="w-full max-w-[1440px] mx-auto px-6 md:px-12 py-20 lg:py-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 z-10">
+<h1 class="font-display font-extrabold text-5xl lg:text-7xl leading-[1.1] tracking-tighter text-on-surface mb-8">
+                    Soluciones Arquitectónicas que Transforman Espacios.
+                </h1>
+<p class="font-body text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+                    Diseño, fabricación e instalación de estructuras premium en vidrio, aluminio y terminaciones avanzadas para proyectos en Paraguay. Ingeniería de precisión para entornos que demandan excelencia.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary font-body font-medium px-8 py-4 rounded-xl hover:bg-primary-container transition-colors duration-300 shadow-[0_8px_32px_rgba(26,28,28,0.04)]">
+                        Explorar Catálogo
+                    </button>
+<button class="bg-surface-container-highest text-primary font-body font-medium px-8 py-4 rounded-xl hover:bg-surface-container-high transition-colors duration-300">
+                        Consultoría Técnica
+                    </button>
+</div>
+</div>
+<div class="lg:col-span-6 h-[500px] lg:h-[700px] relative rounded-xl overflow-hidden shadow-[0_24px_64px_rgba(26,28,28,0.08)] bg-surface-container-low">
+<img alt="" class="absolute inset-0 w-full h-full object-cover" data-alt="A striking architectural photograph capturing a modern corporate facade at golden hour, highlighting a massive, pristine glass curtain wall segmented by sleek, dark graphite aluminum mullions. The light mode aesthetic is emphasized by sharp geometric reflections of a clear, pale sky on the glass panels. The composition is asymmetrical and precise, conveying an atmosphere of corporate authority, structural integrity, and premium engineering. The color palette revolves around cool steel grays, deep petroleum blues, and crisp white highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLC931dzH1AA9QK0jvOTqs7MwamibyZM3lb9_JrmtMs0_LMKYOSboN4_RY_XsxV0f5mdYJ1Nc5VPC6sdkmlHas55OPPMQJEw-G38NaFywqf76K2ARaOJyg4gilb6Abt-ed4i3D9r9y-wlzCqdO2d7XklU1MWe7PubfL9JDzdMJRmUN6-enGxzaLg8tJ2aMS8OROseP_RLon76e8LLkjw-sSAoxFndmPeZWhXYPx8d6oQhrdAwyKld3j7Y0zadQwIwt58I0oBO9dYi6"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-surface/40 to-transparent"></div>
+</div>
+</section>
+<!-- Category Filter -->
+<section class="w-full bg-surface py-6 sticky top-[80px] z-40 border-b border-surface-container-low/50 backdrop-blur-md bg-surface/80">
+<div class="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-start overflow-x-auto gap-4 scrollbar-hide">
+<span class="font-body text-sm font-semibold text-outline tracking-wider uppercase mr-4">Filtro:</span>
+<button class="px-5 py-2 rounded-xl bg-surface-container-highest text-primary font-medium text-sm transition-colors whitespace-nowrap">Todas las Soluciones</button>
+<button class="px-5 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-low font-medium text-sm transition-colors whitespace-nowrap">Sistemas de Mamparas</button>
+<button class="px-5 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-low font-medium text-sm transition-colors whitespace-nowrap">Box de Baño</button>
+<button class="px-5 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-low font-medium text-sm transition-colors whitespace-nowrap">Estructuras de Aluminio</button>
+<button class="px-5 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-low font-medium text-sm transition-colors whitespace-nowrap">Fachadas &amp; Terminaciones</button>
+</div>
+</section>
+<!-- Parent Services Grid -->
+<section class="w-full bg-surface-container-low py-24">
+<div class="max-w-[1440px] mx-auto px-6 md:px-12">
+<div class="mb-16">
+<h2 class="font-display font-bold text-4xl text-on-surface tracking-tight mb-4">Catálogo de Sistemas</h2>
+<p class="font-body text-on-surface-variant text-lg max-w-2xl">Especificaciones técnicas y soluciones modulares adaptables a los requerimientos de cada desarrollo arquitectónico.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Mamparas (Asymmetric Large) -->
+<article class="lg:col-span-7 bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col md:flex-row group transition-transform duration-500 hover:-translate-y-1">
+<div class="md:w-2/5 h-64 md:h-auto relative bg-surface-container">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A pristine, light-drenched modern corporate office interior showcasing a seamless floor-to-ceiling glass partition system. The frameless glass wall reflects minimal, high-end light mode aesthetics, separating a collaborative workspace from a private executive room. The surrounding architecture features subtle industrial graphite accents and bright white surfaces. The mood is silent, organized, and structurally rigorous, emphasizing the transparency and premium finish of the glass installation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4C4kmeFWJH4UXIIjGXYvFSwHmjya8nfQHF0h-HKuW4IDFFVkY9qwwKvOwNa5icIz9NOQIJnj3iktbCVYF7dgiStr-Ql4tLeHr07z7OTLd_twALvkfvbxu6fc2jkYffFkfJWxnWodceuZBGehwJhtHYh1LNEcJP28RJcsXrNEN1aK3qFc7fwLtbcHvE6bn7BA6_vUrbJo8GMEfsFWuqvojFACPEEDDdAoV80bs7f6M877jZTPEzf7Kh2RX8Pp361k-5wHqWMH0oeiF"/>
+</div>
+<div class="p-8 md:p-12 md:w-3/5 flex flex-col justify-center">
+<h3 class="font-display font-extrabold text-2xl text-on-surface mb-3">Sistemas de Mamparas</h3>
+<p class="font-body text-on-surface-variant mb-6 leading-relaxed">Divisiones de espacios fluidas que maximizan la luz natural sin comprometer la acústica ni la privacidad estructural.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Cristal Templado Laminado
+                                </li>
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Sistemas Mixtos Durlock
+                                </li>
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Divisiones Acústicas Eucatex
+                                </li>
+</ul>
+<a class="mt-auto inline-flex items-center font-body font-semibold text-primary hover:text-primary-container transition-colors group/link w-fit" href="#">
+                                Explorar Soluciones
+                                <span class="material-symbols-outlined ml-2 transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Box de Baño (Asymmetric Small) -->
+<article class="lg:col-span-5 bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group transition-transform duration-500 hover:-translate-y-1">
+<div class="h-56 relative bg-surface-container">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A minimalist, high-contrast luxury bathroom interior centered on a premium structural glass shower enclosure. The scene employs a 'light mode' aesthetic with bright ivory porcelain tiles contrasting sharply against matte petroleum-black aluminum framing of the glass box. The lighting is soft and ambient, casting minimal shadows and highlighting the clean, precision-milled edges of the glass and metal components. The atmosphere is serene, architectural, and highly sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU4Qdg_Xb3RG8ZWAWvYLvYGwk0asIbFP3BLhuXW2WLFKn39POGS3aBd4pvkOooaWG3-a5yGAEfC4AwP1eozDNfJOmtAwAkn6OuN6uMm2p_DaqGvIDRcRlZvkEH6cFJrha7qgiBW7BfhDvZQYygd6yvT3MlSKzYxGFK2eMKqWSZTi-mO3HuvGsVFRpRXfRzhF-oIv4iaSJve341TQBzbyMA1-wXjjuGGfuOKL0guDAX0P03nOz68izEzroECmWPDpkw8whe7JPjh6SS"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-display font-extrabold text-2xl text-on-surface mb-3">Box de Baño</h3>
+<p class="font-body text-on-surface-variant mb-6 leading-relaxed">Cerramientos de cristal de alta seguridad con herrajes de precisión para áreas húmedas residenciales y corporativas.</p>
+<ul class="space-y-3 mb-8 mt-auto">
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Diseños Corredizos y Pivotantes
+                                </li>
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Herrajes en Acero Inoxidable
+                                </li>
+</ul>
+<a class="inline-flex items-center font-body font-semibold text-primary hover:text-primary-container transition-colors group/link w-fit" href="#">
+                                Explorar Soluciones
+                                <span class="material-symbols-outlined ml-2 transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Aluminio (Asymmetric Small) -->
+<article class="lg:col-span-5 bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col group transition-transform duration-500 hover:-translate-y-1">
+<div class="p-8 flex flex-col flex-grow order-2">
+<h3 class="font-display font-extrabold text-2xl text-on-surface mb-3">Estructuras de Aluminio</h3>
+<p class="font-body text-on-surface-variant mb-6 leading-relaxed">Perfiles extruidos de alta resistencia para aberturas, puertas y techos, garantizando durabilidad y aislamiento térmico.</p>
+<ul class="space-y-3 mb-8 mt-auto">
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Líneas Premium y Standard
+                                </li>
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Aberturas de Alta Prestación
+                                </li>
+</ul>
+<a class="inline-flex items-center font-body font-semibold text-primary hover:text-primary-container transition-colors group/link w-fit" href="#">
+                                Explorar Soluciones
+                                <span class="material-symbols-outlined ml-2 transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="h-56 relative bg-surface-container order-1">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up, macro architectural shot focusing on the precision joinery of a graphite-colored aluminum window frame against a white surface. The lighting is sharp and directional, highlighting the brushed metallic texture and the flawless, linear geometry of the extruded profiles. The visual style follows the 'Digital Blueprint' mandate, emphasizing structural integrity, heavy contrast, and industrial precision without decorative elements. The mood is technical and uncompromising." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAffQAYrWKbgd1R6V0ttTU9xrWHTOlSrtdx4-xu1joWX8Qqvbd6dGQOox6A4LRUBsgN71g6KNZbGkhFVDyE1P43pfE94wSofL6ZoB6oNfIaJCq6l04P3v2922ciSyOCLGcfO50vsk6MbnuW7rddgqwgIyOyWVL1Bm581xwPLEQqiscCgr0dXCQr9n6dE5MS0VT_v5xYS5LVpiKOCkpas-yEIa2nJZavYAfNGg_wuBjJ0jp5Y6uDI93BxsmFBsVw7vDT7kj4PE2fIe4g"/>
+</div>
+</article>
+<!-- Fachadas (Asymmetric Large) -->
+<article class="lg:col-span-7 bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col md:flex-row group transition-transform duration-500 hover:-translate-y-1">
+<div class="p-8 md:p-12 md:w-3/5 flex flex-col justify-center order-2 md:order-1">
+<h3 class="font-display font-extrabold text-2xl text-on-surface mb-3">Fachadas &amp; Terminaciones</h3>
+<p class="font-body text-on-surface-variant mb-6 leading-relaxed">Pieles de vidrio y revestimientos técnicos que definen la identidad visual y la eficiencia energética de grandes obras.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Piel de Vidrio (Curtain Wall)
+                                </li>
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Revestimientos Alucobond
+                                </li>
+<li class="flex items-center font-body text-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg mr-3">check_small</span> Cielorrasos Técnicos
+                                </li>
+</ul>
+<a class="mt-auto inline-flex items-center font-body font-semibold text-primary hover:text-primary-container transition-colors group/link w-fit" href="#">
+                                Explorar Soluciones
+                                <span class="material-symbols-outlined ml-2 transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="md:w-2/5 h-64 md:h-auto relative bg-surface-container order-1 md:order-2">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A dramatic, low-angle perspective shot of a soaring modern skyscraper facade. The building is clad in a continuous glass curtain wall and striking white Alucobond paneling. The design employs a rigorous 12-column grid-like structure visually. Set against a pale, bright daytime sky, the image perfectly captures a light-mode architectural aesthetic. The palette is strictly white, cool glass-blue, and deep steel gray, conveying executive clarity and monolithic scale." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT-ukjGWdOeAtlFa2MZhyn6w8aiNMl3avmGOyq21XPNu-0od-2xWYjMf3ca62p_vf9zesONhxMR5607Ot8IgiKD4wWg4MmzWtm-pUGWgZo62buQkVPWPSkpT3UwEsQSnmtFjZwnHUFK_hvV_S25O4nn-_CNpjVy7MUraBcHkAh4Q9b5th78RYXVVgO6H3v06SpfDmyBewl5RHmiVqigAGIJshKsiGird357jyMlXNoOa-lzMTqJvBI8zHbeUQ8YEPmpSibMswuye3I"/>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Technical Consulting Banner (Glass & Soul) -->
+<section class="w-full relative py-24 overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0 bg-surface-container">
+<img alt="" class="w-full h-full object-cover opacity-40 grayscale" data-alt="An abstract, overhead view of massive architectural blueprints spread across a vast, clean white table. Drafting tools, metallic compasses, and strict geometric lines are visible. The image is bathed in bright, even studio lighting to maintain the light mode aesthetic. A subtle, sophisticated layer of frosted glass effect partially obscures the details, adding a layer of premium 'Petroleum Glassmorphism'. The overarching mood is one of rigorous planning, intellectual depth, and structural engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAepIjg57Jkb5KAiAuvTLt1Os-ZZ7Grd0JpYoqGLf722LTuIdWx4tzLJBbWHE0jQyZHDjXkhL-J6RRQjb79kYCHafCT2xEWD6TOvL4fB3caMwpDldIbvvToEsSnltTpkW-02_Jm0Bheu88MzF2fWV7ef1RvcmFMq7rp1K3JkJgyp3Ar95u0Gvp5VK6zdUNaJdmwToXOJGh-7AhtTMKOIA4NQbZScZGtJUxFq8-ZI47R0hNVR5KoBXjYryOdzKjx6uq1pLr9IltcuJlZ"/>
+</div>
+<!-- Glassmorphism Overlay -->
+<div class="absolute inset-0 z-10 bg-primary-container/85 backdrop-blur-[20px] bg-gradient-to-br from-primary/90 to-primary-container/90"></div>
+<div class="relative z-20 max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="md:w-2/3">
+<div class="inline-flex items-center space-x-2 text-primary-fixed mb-4">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-body text-sm font-bold tracking-widest uppercase">Oficina Técnica</span>
+</div>
+<h2 class="font-display font-extrabold text-3xl md:text-5xl text-on-primary mb-6 tracking-tight">
+                        La precisión comienza antes de la instalación.
+                    </h2>
+<p class="font-body text-lg text-primary-fixed-dim max-w-2xl">
+                        Nuestro equipo de ingeniería en Paraguay no solo provee materiales; analizamos su blueprint para recomendar la aleación, el espesor de cristal y el sistema de anclaje exacto que su proyecto exige.
+                    </p>
+</div>
+<div class="md:w-1/3 flex justify-end w-full">
+<button class="w-full md:w-auto bg-on-primary text-primary font-body font-bold px-8 py-5 rounded-xl hover:bg-surface-container-highest transition-colors duration-300 shadow-[0_8px_32px_rgba(26,28,28,0.12)]">
+                        Agendar Consultoría
+                    </button>
+</div>
+</div>
+</section>
+<!-- Solutions by Environment -->
+<section class="w-full bg-surface py-24 border-t border-surface-container-low/50">
+<div class="max-w-[1440px] mx-auto px-6 md:px-12">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-display font-extrabold text-4xl text-on-surface tracking-tight mb-4">Alcance de Implementación</h2>
+<p class="font-body text-on-surface-variant text-lg">Soluciones escalables adaptadas a las exigencias estructurales de cada sector.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Corporativo -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_32px_rgba(26,28,28,0.04)] border border-outline-variant/20 hover:border-outline-variant/50 transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-2xl">domain</span>
+</div>
+<h4 class="font-display font-bold text-xl text-on-surface mb-3">Sector Corporativo</h4>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">Mamparas divisorias, fachadas vidriadas y soluciones de control acústico para oficinas de alto rendimiento.</p>
+</div>
+<!-- Comercial -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_32px_rgba(26,28,28,0.04)] border border-outline-variant/20 hover:border-outline-variant/50 transition-colors relative top-0 md:top-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-2xl">storefront</span>
+</div>
+<h4 class="font-display font-bold text-xl text-on-surface mb-3">Retail &amp; Comercial</h4>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">Vidrieras de máxima transparencia, accesos automatizados y cerramientos de seguridad para locales comerciales.</p>
+</div>
+<!-- Residencial -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_32px_rgba(26,28,28,0.04)] border border-outline-variant/20 hover:border-outline-variant/50 transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-2xl">home</span>
+</div>
+<h4 class="font-display font-bold text-xl text-on-surface mb-3">Residencial Premium</h4>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">Aberturas termoacústicas, barandas de cristal y box de baño diseñados para residencias de alta gama.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="w-full bg-surface-container-low py-32">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
+<h2 class="font-display font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-6">
+                    ¿Tienes un proyecto en mente?
+                </h2>
+<p class="font-body text-xl text-on-surface-variant mb-12">
+                    Solicita tu presupuesto personalizado o contacta con nuestros especialistas para evaluar la viabilidad técnica de tu obra.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary text-on-primary font-body font-bold px-10 py-4 rounded-xl hover:bg-primary-container transition-colors duration-300">
+                        Ir al Formulario
+                    </button>
+<button class="bg-surface-container-lowest text-primary border border-outline-variant/20 font-body font-bold px-10 py-4 rounded-xl hover:bg-surface-container-highest transition-colors duration-300 flex items-center justify-center shadow-[0_8px_32px_rgba(26,28,28,0.04)]">
+<span class="material-symbols-outlined mr-2 text-lg">chat</span>
+                        Contactar por WhatsApp
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f3f3f3] dark:bg-[#121212] text-[#002046] dark:text-[#1B365D] font-['Inter'] text-sm tracking-wide w-full border-t border-[#c4c6cf]/20 tonal shift from surface to surface-container-low flat">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full max-w-[1440px] mx-auto">
+<div class="mb-6 md:mb-0">
+<span class="font-['Manrope'] font-bold text-lg text-slate-800 dark:text-slate-200">
+                    VIPAR S.A.
+                </span>
+<p class="mt-2 text-slate-500 dark:text-slate-500">© 2024 VIPAR S.A. Ingeniería &amp; Arquitectura Digital. Todos los derechos reservados.</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="text-slate-500 dark:text-slate-500 hover:underline decoration-[#1B365D] underline-offset-4 cursor-pointer transition-all" href="#">Términos de Servicio</a>
+<a class="text-slate-500 dark:text-slate-500 hover:underline decoration-[#1B365D] underline-offset-4 cursor-pointer transition-all" href="#">Privacidad</a>
+<a class="text-slate-500 dark:text-slate-500 hover:underline decoration-[#1B365D] underline-offset-4 cursor-pointer transition-all" href="#">Compliance</a>
+<a class="text-slate-500 dark:text-slate-500 hover:underline decoration-[#1B365D] underline-offset-4 cursor-pointer transition-all" href="#">Sostenibilidad</a>
+<a class="text-slate-500 dark:text-slate-500 hover:underline decoration-[#1B365D] underline-offset-4 cursor-pointer transition-all" href="#">Contacto</a>
+</nav>
+</div>
+</footer>
+</body></html>
