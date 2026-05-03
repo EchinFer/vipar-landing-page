@@ -715,9 +715,12 @@
 
 .vipar-project-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  width: min(100%, 1280px);
+  height: 700px;
+  min-height: 700px;
 }
 
 .vipar-project-card {
@@ -752,7 +755,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: filter 0.35s ease, opacity 0.35s ease;
 }
 
 .vipar-project-card:hover,
@@ -760,12 +763,7 @@
   transform: translateY(-2px);
 }
 
-.vipar-project-card:hover .vipar-project-card__image img,
-.vipar-project-card:focus-visible .vipar-project-card__image img {
-  transform: scale(1.05);
-}
-
-.vipar-project-card--contextual {
+.vipar-project-card--execution {
   background: var(--vipar-surface);
   border-radius: var(--vipar-radius-xl);
   overflow: hidden;
@@ -773,26 +771,32 @@
   transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
 
-.vipar-project-card--contextual::after {
+.vipar-project-card--execution::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(10, 25, 36, 0.1) 16%, rgba(10, 25, 36, 0.5) 58%, rgba(10, 25, 36, 0.86) 100%);
   z-index: 0;
+  transition: background 0.35s ease, opacity 0.35s ease;
 }
 
-.vipar-project-card--contextual:hover,
-.vipar-project-card--contextual:focus-visible {
+.vipar-project-card--execution:hover,
+.vipar-project-card--execution:focus-visible {
   box-shadow: 0 18px 48px rgba(10, 25, 36, 0.14);
 }
 
-.vipar-project-card--contextual .vipar-project-card__image img {
-  filter: saturate(0.92) contrast(1.02);
+.vipar-project-card--execution:hover::after,
+.vipar-project-card--execution:focus-visible::after {
+  background: linear-gradient(180deg, rgba(10, 25, 36, 0.04) 12%, rgba(10, 25, 36, 0.42) 54%, rgba(10, 25, 36, 0.78) 100%);
 }
 
-.vipar-project-card--contextual:hover .vipar-project-card__image img,
-.vipar-project-card--contextual:focus-visible .vipar-project-card__image img {
-  filter: saturate(1) contrast(1.04);
+.vipar-project-card--execution .vipar-project-card__image img {
+  filter: contrast(1.02) saturate(0.94) brightness(0.92);
+}
+
+.vipar-project-card--execution:hover .vipar-project-card__image img,
+.vipar-project-card--execution:focus-visible .vipar-project-card__image img {
+  filter: contrast(1.08) saturate(1.02) brightness(1);
 }
 
 .vipar-project-card__tag {
@@ -821,14 +825,8 @@
   min-height: 100%;
 }
 
-.vipar-project-card--contextual .vipar-project-card__body {
+.vipar-project-card--execution .vipar-project-card__body {
   padding: 24px;
-}
-
-.vipar-project-card__heading {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
 
 .vipar-project-card__eyebrow {
@@ -841,7 +839,15 @@
 
 .vipar-project-card h3 {
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.vipar-project-card h4 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.25rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
@@ -849,37 +855,30 @@
 .vipar-project-card p {
   max-width: 34rem;
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
-.vipar-project-card--feature {
+.vipar-project-card--hero {
   grid-column: span 2;
   grid-row: span 2;
 }
 
-.vipar-project-card--wide {
-  grid-column: span 2;
+.vipar-project-card--hero .vipar-project-card__body {
+  padding: 40px;
 }
 
-.vipar-project-card--feature .vipar-project-card__body {
-  padding: 32px;
+.vipar-project-card--hero h3 {
+  max-width: 18ch;
+  font-size: 2rem;
 }
 
-.vipar-project-card--feature h3 {
-  font-size: 1.9rem;
+.vipar-project-card--hero p {
+  max-width: 34ch;
+  font-size: 1rem;
 }
 
-.vipar-project-card--feature p,
-.vipar-project-card--wide p {
-  display: block;
-}
-
-.vipar-project-card--compact h3 {
-  font-size: 1.2rem;
-}
-
-.vipar-project-card--compact p {
-  display: none;
+.vipar-project-card--side p {
+  max-width: 26ch;
 }
 
 .vipar-project-card__cta {
@@ -1277,20 +1276,20 @@
   }
 
   .vipar-project-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    height: 640px;
+    min-height: 640px;
+    min-height: auto;
   }
 
-  .vipar-project-card--feature,
-  .vipar-project-card--wide,
-  .vipar-project-card--compact {
-    grid-column: span 1;
-    grid-row: span 1;
-    min-height: 320px;
+  .vipar-project-card--hero {
+    grid-column: span 2;
+    grid-row: span 2;
   }
 
-  .vipar-project-card--compact p {
-    display: block;
+  .vipar-project-card--side {
+    min-height: 0;
   }
 
   .vipar-mini-card {
@@ -1339,12 +1338,24 @@
   .vipar-project-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    width: 100%;
+    height: auto;
+    min-height: auto;
   }
 
-  .vipar-project-card--feature,
-  .vipar-project-card--wide,
-  .vipar-project-card--compact {
+  .vipar-project-card--hero,
+  .vipar-project-card--side {
+    grid-column: span 1;
+    grid-row: span 1;
     min-height: 280px;
+  }
+
+  .vipar-project-card--hero .vipar-project-card__body {
+    padding: 24px;
+  }
+
+  .vipar-project-card h3 {
+    font-size: 1.7rem;
   }
 
   .vipar-mini-card {

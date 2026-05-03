@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1a1c1c",
+                        "surface-tint": "#465f88",
+                        "secondary": "#5d5e62",
+                        "on-background": "#1a1c1c",
+                        "on-primary-fixed-variant": "#2e476f",
+                        "tertiary-fixed": "#ffddb9",
+                        "secondary-fixed": "#e2e2e6",
+                        "on-secondary-container": "#636468",
+                        "tertiary-container": "#4f2f00",
+                        "on-surface-variant": "#44474e",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-low": "#f3f3f3",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#aec7f7",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-dim": "#dadada",
+                        "on-primary-container": "#87a0cd",
+                        "secondary-container": "#e2e2e6",
+                        "outline-variant": "#c4c6cf",
+                        "on-tertiary-container": "#c6965e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#191c1e",
+                        "surface-container": "#eeeeee",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e8e8e8",
+                        "primary": "#002046",
+                        "on-tertiary-fixed-variant": "#623f0f",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed": "#2b1700",
+                        "surface-bright": "#f9f9f9",
+                        "secondary-fixed-dim": "#c5c6ca",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed": "#001b3d",
+                        "outline": "#74777f",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#321c00",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#aec7f7",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "tertiary-fixed-dim": "#f1bd81",
+                        "surface": "#f9f9f9",
+                        "primary-container": "#1b365d",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#d6e3ff",
+                        "on-secondary-fixed-variant": "#45474a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-petroleum-glass {
+            background: rgba(27, 54, 93, 0.85);
+            backdrop-filter: blur(20px);
+        }
+        .hero-gradient {
+            background: linear-gradient(45deg, #002046 0%, #1B365D 100%);
+        }
+        .ambient-bloom {
+            box-shadow: 0 8px 32px rgba(26, 28, 28, 0.04);
+        }
+        .ghost-border {
+            border: 1px solid rgba(196, 198, 207, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 border-b-0 bg-[#f3f3f3] transition-colors duration-300">
+<div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
+<div class="text-2xl font-extrabold text-[#002046] tracking-tighter uppercase font-headline">
+                VIPAR
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 font-medium font-headline uppercase tracking-tight hover:text-[#1B365D] transition-all" href="#">Inicio</a>
+<a class="text-[#1B365D] border-b-2 border-[#1B365D] pb-1 font-headline font-bold uppercase tracking-tight transition-all" href="#">Servicios</a>
+<a class="text-slate-600 font-medium font-headline uppercase tracking-tight hover:text-[#1B365D] transition-all" href="#">Proyectos</a>
+<a class="text-slate-600 font-medium font-headline uppercase tracking-tight hover:text-[#1B365D] transition-all" href="#">Nosotros</a>
+<a class="text-slate-600 font-medium font-headline uppercase tracking-tight hover:text-[#1B365D] transition-all" href="#">Contacto</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-headline font-bold uppercase tracking-tight hover:opacity-80 duration-200">
+                Solicitar presupuesto
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative bg-primary overflow-hidden py-24 md:py-32">
+<div class="absolute inset-0 opacity-20">
+<img alt="Interior Architecture" class="w-full h-full object-cover" data-alt="ultra-modern minimalist interior with architectural lighting and clean geometric wall divisions in soft grey and white tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEi8147tgdmpvcL-Dz7suGamM-Znu0aZvXtXlNdXELOqVJrV8VNqQ77rRnwPUICSNxzKBB52odOPj8jQIkBx_86OFa4HM4IJ7WTd82U4mzIBykKwhQOUKtFDgy8ZomH94YFw4YvOsNiZc93krj-IVhBj7Af0tfxkOTGRUtlemExd-B4y-mmp5mwgM2yoJRMeeMEVdboLyZNxP1OTvl8-faE8PCW6w9JcE1VFsbJPdcfMDbjAE4ajY3SlI-5zdBdT6YKxGzQYrablPJ"/>
+</div>
+<div class="relative max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<span class="inline-block py-1 px-3 bg-primary-container text-on-primary-container text-xs font-bold uppercase tracking-widest rounded-sm">Servicios Especializados</span>
+<h1 class="text-5xl md:text-7xl font-extrabold text-white font-headline leading-[1.1] tracking-tighter">
+                        Tabiquería de Durlock: Redefina su Espacio.
+                    </h1>
+<p class="text-xl text-slate-300 max-w-lg leading-relaxed">
+                        Transformamos entornos residenciales y corporativos con sistemas de construcción en seco de alta precisión, optimizando la acústica, el clima y la estética.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-8 py-4 rounded-xl font-headline font-extrabold uppercase tracking-tight hover:scale-[1.02] transition-transform">
+                            Iniciar Proyecto
+                        </button>
+<button class="bg-transparent border border-white/20 text-white px-8 py-4 rounded-xl font-headline font-extrabold uppercase tracking-tight hover:bg-white/10 transition-colors">
+                            Ver Galería
+                        </button>
+</div>
+</div>
+<div class="hidden md:block">
+<div class="bg-white/5 backdrop-blur-md rounded-xl p-8 border border-white/10 ambient-bloom">
+<img alt="Technical Detail" class="rounded-lg shadow-2xl" data-alt="architectural section showing the technical precision of a durlock wall installation with internal metal framing and insulation layers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6beXcxBPp4gBZGy4CAXfrhW8EDOH_WyZ-LY5Nws7DB4WxXCVoPJTJ5Z0_aGvgxCD4r_hbGF-9GlR6XROaza6C39_DW5Zk_6CpRLGPlk5a8Jcdh4JEu9VHcD2nnCDG5k08LHgUAQHXN0NOaQoUCB98iZ2GGKhaQfGgVPKzDOMfEGM6sng3rkDLjT54eTYeBAk91JofM3kogzqk917axVaDGoLTwC01Pys4NaIe6opGGDk3IvdZIsYEilaNiflF8LVmtkTOpbDrlCpa"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Overview -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-5">
+<h2 class="text-4xl font-extrabold text-primary font-headline tracking-tighter mb-6">Eficiencia Estructural y Estética.</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                            Nuestra solución de tabiquería no es solo una división; es una respuesta técnica a la necesidad de versatilidad en la arquitectura moderna. Mediante el uso de placas de yeso de alta densidad y perfiles galvanizados, logramos terminaciones impecables con tiempos de ejecución mínimos.
+                        </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<h4 class="font-bold text-primary">Precisión Milimétrica</h4>
+<p class="text-sm text-on-surface-variant">Aseguramos niveles perfectos para colocación de revestimientos posteriores.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="speed">speed</span>
+<div>
+<h4 class="font-bold text-primary">Ejecución Ágil</h4>
+<p class="text-sm text-on-surface-variant">Obra limpia y rápida, reduciendo el impacto en el uso del espacio.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 grid grid-cols-2 gap-4">
+<div class="space-y-4 pt-12">
+<div class="h-64 bg-surface-container-high rounded-xl overflow-hidden ghost-border">
+<img alt="Construction detail" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="professional construction site showing a clean and organized durlock installation process with metallic structures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlB9OqXJscVBIZLCWtrbTmrIyyII00tb6XUCGD61iPdlmF99_-r4pJEzDtM2R5dQS3C8D-l3t65RtQrYydtHjfMR1gYEF5DSmNzooaM1S4otUfJo0MMj5ASEYt3CIgBCZtpFuu9esY-EMm2SyVBERuVqgEJ2zkQhpIqZP0LMtxKV6lGtrMKZtT1JKDF1IYSxw_v1lRbuwBOcwfZ1jyWejUYVxHYjR0L062AE9Qcb5mtQCuOzKUrcEaJHEV0smpiKRH-hHqSqZJuG6m"/>
+</div>
+<div class="h-48 bg-primary rounded-xl flex items-end p-6">
+<span class="text-white text-3xl font-bold font-headline leading-tight">Métrica de Calidad VIPAR</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="h-48 bg-surface-container rounded-xl p-8 flex flex-col justify-center">
+<span class="text-5xl font-extrabold text-primary font-headline">15+</span>
+<span class="text-sm font-medium text-secondary uppercase tracking-widest">Años de Experiencia</span>
+</div>
+<div class="h-64 bg-surface-container-high rounded-xl overflow-hidden ghost-border">
+<img alt="Office space" class="w-full h-full object-cover" data-alt="modern corporate office with perfectly finished white partitions and integrated lighting systems" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW_GbdXEbs5yBeR8GSRuijdp3g66VVN-xN6VZm0bu0XcqxMyHmdTNyqAfryfdgtn-kiDPbiYLEIzT-aXV8eGf_xdgltXlk8B-dg-4cE5sjT81oIzOp5bh0F7pq0baWeQv4oLohIOX26ntd2Pgcu2x6Luy-Sgvbl6evHeeW3meKeKB42fzQ6iQG2OtpCWQay11CcnLP5PnmoxkF0tqS-7cLZXEDmeSqkgcMB6dYSCHT2UYRJps5Hkw8GMhW7A4gjNB_SL3Lg4oTxtST"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefit Pillars -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-extrabold text-primary font-headline tracking-tighter uppercase mb-4">Pilares de Ingeniería</h2>
+<div class="w-12 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Column 1 -->
+<div class="bg-surface-container-lowest p-10 rounded-xl ghost-border ambient-bloom">
+<div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="hearing">hearing</span>
+</div>
+<h3 class="text-xl font-bold text-primary font-headline mb-4">Aislamiento Acústico</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Implementamos rellenos de lana de roca de alta densidad para garantizar la privacidad sonora en oficinas y dormitorios.
+                        </p>
+</div>
+<!-- Column 2 -->
+<div class="bg-surface-container-lowest p-10 rounded-xl ghost-border ambient-bloom">
+<div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="thermostat">thermostat</span>
+</div>
+<h3 class="text-xl font-bold text-primary font-headline mb-4">Eficiencia Térmica</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Nuestros sistemas reducen la transferencia de calor, optimizando el consumo energético de climatización durante todo el año.
+                        </p>
+</div>
+<!-- Column 3 -->
+<div class="bg-surface-container-lowest p-10 rounded-xl ghost-border ambient-bloom">
+<div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<h3 class="text-xl font-bold text-primary font-headline mb-4">Resistencia al Fuego</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Utilizamos placas ignífugas certificadas que cumplen con las normativas de seguridad más exigentes para locales comerciales.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Ideal for... -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex-1 bg-surface-container-high rounded-xl p-12 flex flex-col justify-between min-h-[500px] relative overflow-hidden group">
+<img alt="Residential" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:scale-105 transition-transform duration-700" data-alt="luxurious residential living room with customized wall niches and sophisticated indirect lighting features" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCAzxiCik5xt8ZnHsd2kN9OmtiLPRzurkGuHYKazIdE3iLeRT9IP84s7TTcEsUJYhyr7uwF94L21B74bzl5w1HJnZEELgAvaplMZZ-fpXYtSp3WkvHY1tXbLU_6inBI75_vo4KMytT95TEJ2cmBGPhwbuwBxitRnoulttIqSwyY4MQpsHPAXyas72b4RwgNAz3QTV_glThuSx7bjy0L5LA6aVvCEsdtymznGkJFKOtvBuUAaz-ANaX-AMi21-dHN281rt6HjQWEYNn"/>
+<div class="relative z-10">
+<span class="text-xs font-bold uppercase tracking-widest text-primary mb-4 block">Entorno Residencial</span>
+<h3 class="text-4xl font-extrabold text-primary font-headline leading-tight mb-6">Hogares con Identidad.</h3>
+<ul class="space-y-3 text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Divisiones de ambientes</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Revestimientos decorativos</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Muebles empotrados</li>
+</ul>
+</div>
+<button class="relative z-10 text-primary font-bold border-b-2 border-primary self-start mt-8 hover:pb-1 transition-all">Ver Soluciones Residenciales</button>
+</div>
+<div class="flex-1 bg-primary text-white rounded-xl p-12 flex flex-col justify-between min-h-[500px] relative overflow-hidden group">
+<img alt="Corporate" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:scale-105 transition-transform duration-700" data-alt="modern glass and durlock office cubicles in a high-rise building with sleek professional finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl-QmV49tIylQaM3B2t0Svm-ghGZShxYJ-REk-mibGZtV8sfZ9CFcui4kCooGV-14M1vCliV1OF1pMbwFIsI45Jo9HwR8ZS_l0iDVQTMGlBaOaksgL5FPy7OBTnhqzJN0OJvtEJLUZttzJsBib1hckSIc-cAtMofrQuJiu6uOaedFDiUffoNUDy9s-qw3wiuwcxwQ6zkD30ZAdfFJgrCABp1pSgxmM6TSv4_y9E_KpqzLBeS6aSP46WZmqZeQc_ICqRqZ5l8eErKXx"/>
+<div class="relative z-10">
+<span class="text-xs font-bold uppercase tracking-widest text-primary-fixed-dim mb-4 block">Entorno Corporativo</span>
+<h3 class="text-4xl font-extrabold text-white font-headline leading-tight mb-6">Productividad Estructural.</h3>
+<ul class="space-y-3 text-slate-300">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span> Salas de reuniones acústicas</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span> Oficinas modulares</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-white rounded-full"></span> Cielorrasos técnicos</li>
+</ul>
+</div>
+<button class="relative z-10 text-white font-bold border-b-2 border-white self-start mt-8 hover:pb-1 transition-all">Ver Soluciones Corporativas</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specs Lite -->
+<section class="py-24 bg-surface-container-highest">
+<div class="max-w-7xl mx-auto px-8">
+<div class="max-w-3xl">
+<h2 class="text-3xl font-extrabold text-primary font-headline tracking-tighter mb-12">Especificaciones Técnicas</h2>
+<div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+<div class="border-l-4 border-primary pl-6">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary block mb-2">Espesores Estándar</span>
+<span class="text-3xl font-extrabold text-primary font-headline">70mm / 100mm</span>
+<p class="text-sm text-on-surface-variant mt-2">Adaptables según requerimientos de carga y aislamiento.</p>
+</div>
+<div class="border-l-4 border-primary pl-6">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary block mb-2">Capacidad de Carga</span>
+<span class="text-3xl font-extrabold text-primary font-headline">Hasta 30kg/m²</span>
+<p class="text-sm text-on-surface-variant mt-2">Mediante anclajes especiales para soportes de TV o mobiliario.</p>
+</div>
+<div class="border-l-4 border-primary pl-6">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary block mb-2">Acabado Final</span>
+<span class="text-3xl font-extrabold text-primary font-headline">Nivel Q4</span>
+<p class="text-sm text-on-surface-variant mt-2">Masillado total de superficie para pinturas satinadas de alta gama.</p>
+</div>
+<div class="border-l-4 border-primary pl-6">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary block mb-2">Certificaciones</span>
+<span class="text-3xl font-extrabold text-primary font-headline">Normas IRAM</span>
+<p class="text-sm text-on-surface-variant mt-2">Garantía de calidad en materiales y procesos de montaje.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Studies (Bento Grid) -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-12">
+<h2 class="text-4xl font-extrabold text-primary font-headline tracking-tighter">Proyectos de Ejecución</h2>
+</div>
+<div class="grid md:grid-cols-3 grid-rows-2 gap-4 h-[700px]">
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl">
+<img alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="large scale office renovation featuring extensive durlock partitions and integrated ceiling systems in a bright daylight environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrrBM4FjnVRXU02WssG0OUm_95sjRQ7FgZDB3C4ySh75MsqW8cX6I1KNkLEXz6U7ral-H02aG6WiSgwbljfQb-TAgTvXH0toMUPaVq03VCKKEYv1-7GpKDYH8jrSt6IxJ9dJTZWPWmrMMLk7VlTWZdxqi04Qin6LfrXA_hczkXzHuO4AgQS996uXjQ33iiX1D_0C1Y8nA_5jWWSZK4P2klHflxwdJ2PC2KGIEUDwabewig82iNI7WgOuTQNRJ3rfRN3j8t0hikfNCi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-12 flex flex-col justify-end">
+<span class="text-xs font-bold uppercase tracking-widest text-white/70 mb-2">Sede Corporativa Puerto Madero</span>
+<h3 class="text-3xl font-bold text-white font-headline">Optimización de 1200m²</h3>
+<p class="text-white/80 max-w-md mt-4">Redistribución completa de planta libre con tabiquería acústica de alta performance en tiempo récord.</p>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl">
+<img alt="Project 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="residential project showing creative drywall use for indirect lighting and custom TV wall unit in a minimalist apartment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVt0ZINNuHxbmFVOANil3ioxvSutp42JbVAAlcVOlj_8CPQRi6Dy4X-5MO7-IeJ_NRKJnoL1vinmY7TuSDPNXkGvn8AurCU6JEJiN0c5xgIcCFv0olsZ87GADPQFcoGjEwWEm3hplW-rkgLAnlyrtyLzX12hxX6Eee7FYzhb9g_9QVUap3xhiyVfi1JDNdbVcifqOyCgFvDD1LZWBe3acxFiNXFiH-5Sa3srpb46iLfs2OcL3fU1Ow3cnxWe5-TxiSI3cLOrxwygL2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
+<h4 class="text-xl font-bold text-white font-headline">Residencia Belgrano</h4>
+<p class="text-sm text-white/80">Diseño de interiores y divisiones.</p>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl">
+<img alt="Project 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="close up of perfectly finished wall corner showing architectural precision and smooth painting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKIbAyJ1nNzovwsK8dQdgATHMkl16kDUcG-Idb29rrFP21-bAZbh92GU6kH9Za_xRKJJ-Df0JGG5Enw4dTNkmMGmDV3MtiKrfQPmoaSqyPruiFSfJRn_BMX9QlFGX5dEvg0nS-AkCfwvNb1W2-10yHUBZO5EO5RNOEqAlzPydGtmiDx5ukkqmoWW-YcAtc9UU_ENDWGzK-7vTYYQbTbQOLCABSGI4ER7FArepmnm5E1jq0a7eF54R2fJBuropxajaAVNM3kBiApW-r"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-6 flex flex-col justify-end">
+<h4 class="text-xl font-bold text-white font-headline">Showroom Comercial</h4>
+<p class="text-sm text-white/80">Terminaciones de alta calidad.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-4xl mx-auto px-8">
+<h2 class="text-3xl font-extrabold text-primary font-headline tracking-tighter mb-12 text-center">Consultas Frecuentes</h2>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 rounded-xl ghost-border">
+<h4 class="font-bold text-primary font-headline mb-2">¿Cuánto tiempo demora la instalación?</h4>
+<p class="text-on-surface-variant text-sm">Depende de la magnitud, pero un tabique estándar de 10m² se puede completar en 24-48 horas, listo para pintar.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl ghost-border">
+<h4 class="font-bold text-primary font-headline mb-2">¿Se pueden colgar muebles pesados o TV?</h4>
+<p class="text-on-surface-variant text-sm">Sí, mediante el uso de refuerzos internos de madera o perfiles dobles en la etapa de estructura, o tarugos especiales para cargas livianas.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl ghost-border">
+<h4 class="font-bold text-primary font-headline mb-2">¿Cómo se comporta ante la humedad?</h4>
+<p class="text-on-surface-variant text-sm">Para baños o cocinas utilizamos placas de color verde (RH), resistentes a la humedad, evitando la formación de hongos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Strong Final CTA -->
+<section class="py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-primary-container rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-6xl font-extrabold text-white font-headline tracking-tighter mb-8">
+                            ¿Listo para transformar su espacio?
+                        </h2>
+<p class="text-on-primary-container text-xl max-w-2xl mx-auto mb-12">
+                            Obtenga un presupuesto detallado y asesoramiento técnico profesional para su próximo proyecto de construcción en seco.
+                        </p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<a class="bg-white text-primary px-10 py-5 rounded-xl font-headline font-extrabold uppercase tracking-tight flex items-center justify-center gap-3 hover:scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                                Enviar Mensaje
+                            </a>
+<a class="bg-[#25D366] text-white px-10 py-5 rounded-xl font-headline font-extrabold uppercase tracking-tight flex items-center justify-center gap-3 hover:scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="chat" data-weight="fill">chat</span>
+                                Consultar por WhatsApp
+                            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-[#1B365D] text-white">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16">
+<div class="space-y-6">
+<div class="text-xl font-extrabold text-white tracking-tighter font-headline uppercase">VIPAR</div>
+<p class="text-slate-300 font-['Inter'] font-normal text-sm">
+                    Líderes en arquitectura de soluciones y construcción en seco de alta precisión.
+                </p>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white uppercase tracking-widest text-xs">Menú</h5>
+<ul class="space-y-4 text-sm font-['Inter'] text-slate-300">
+<li><a class="hover:text-white transition-colors" href="#">Inicio</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Servicios</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Proyectos</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Nosotros</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white uppercase tracking-widest text-xs">Contacto</h5>
+<ul class="space-y-4 text-sm font-['Inter'] text-slate-300">
+<li><a class="hover:text-white transition-colors" href="#">WhatsApp</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Email</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Oficinas</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white uppercase tracking-widest text-xs">Newsletter</h5>
+<div class="flex gap-2">
+<input class="bg-white/10 border-0 rounded-lg text-sm w-full focus:ring-1 focus:ring-white/30" placeholder="Email" type="email"/>
+<button class="bg-white text-[#1B365D] p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-8 border-t border-white/10 flex flex-col md:row justify-between items-center gap-4">
+<p class="text-slate-500 font-['Inter'] text-xs">© 2024 VIPAR S.A. Precision in Architecture.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-500 hover:text-white cursor-pointer" data-icon="share">share</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-white cursor-pointer" data-icon="language">language</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -165,7 +165,7 @@ const strengths = [
 
 const projects = [
   {
-    layout: "feature",
+    layout: "hero",
     eyebrow: "Espacio Corporativo",
     title: "Showroom VIPAR",
     description:
@@ -175,7 +175,7 @@ const projects = [
     alt: "Showroom VIPAR",
   },
   {
-    layout: "wide",
+    layout: "side",
     eyebrow: "Frente Comercial",
     title: "Sucursal Tigo MRA",
     description:
@@ -185,7 +185,7 @@ const projects = [
     alt: "Sucursal Tigo MRA",
   },
   {
-    layout: "compact",
+    layout: "side",
     eyebrow: "Edificio Residencial",
     title: "Edificio Concordia",
     description:
@@ -193,17 +193,7 @@ const projects = [
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAX2oB39hJd82DqZofsOyohWZFqrWx9MfifNvV1-DP_a8aWX840Oc2jv2plL1-SJuH1bELm3TgGX0sjI-z9LtI1n4eQ8MCeJPBAmTe5V81zCRqO6ODMQuMl8KUlH35Qlr2RhiZGLcmJXK9HM5eUgqBItlUgTzOpBHffj4TB7bBS46CThZnyvLeXq9PFCMXgtZ1eMJ6T3kuN8zMF74xLXCo0G4mUcj6U8kmCNPdN_oP-FnWFhz4QTYDFF1G1ObXBIZX_6l4X8k61ftYd",
     alt: "Edificio Concordia",
-  },
-  {
-    layout: "compact",
-    eyebrow: "Arquitectura Institucional",
-    title: "Cooperativa Medalla Milagrosa",
-    description:
-      "Servicios: Piel de Vidrio, Fachada Integral, Accesos Automáticos de Alta Frecuencia.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuChyxsn1hwavvRxhc0BjUhQwoo0z77EwkZtlUPJ-5xmXAUXseeIdjCJnSWGW5fvJFayH3_roCYPo1Ry6hS6syguDFDlzT-kX-OCiYibM08XBxoOTipPOqGBvtGGI6JKK7wRgVRCPSthlXAsqWdscJGfXEH7219_9LKP3BlNkhQhXvzHbW87ViiPUAbngN0AKBYvrmQaMaD8BJHZF9ouSr03CzOdTQpRAwJIXRnByOsv6NW9i6gdBe5lkJ2vq19m7Q1o_IeTDJ4cBA_Q",
-    alt: "Cooperativa Medalla Milagrosa",
-  },
+  }
 ];
 
 const methodology = [
@@ -444,7 +434,7 @@ const homeStructuredData = JSON.stringify([
               <article
                 class:list={[
                   "vipar-project-card",
-                  "vipar-project-card--contextual",
+                  "vipar-project-card--execution",
                   `vipar-project-card--${project.layout}`,
                 ]}
                 tabindex="0"
@@ -453,11 +443,18 @@ const homeStructuredData = JSON.stringify([
                   <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
                 </div>
                 <div class="vipar-project-card__body">
-                  <div class="vipar-project-card__heading">
-                    <span class="vipar-project-card__eyebrow">{project.eyebrow}</span>
-                    <h3>{project.title}</h3>
-                  </div>
-                  <p>{project.description}</p>
+                  {project.layout === "hero" ? (
+                    <>
+                      <span class="vipar-project-card__eyebrow">{project.eyebrow}</span>
+                      <h3>{project.title}</h3>
+                      <p>{project.description}</p>
+                    </>
+                  ) : (
+                    <>
+                      <h4>{project.title}</h4>
+                      <p>{project.description}</p>
+                    </>
+                  )}
                 </div>
               </article>
             ))}
