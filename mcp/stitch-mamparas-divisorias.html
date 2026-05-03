@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dadada",
+                    "surface-tint": "#465f88",
+                    "on-primary-fixed": "#001b3d",
+                    "surface-container-low": "#f3f3f3",
+                    "tertiary-fixed-dim": "#f1bd81",
+                    "secondary-container": "#e2e2e6",
+                    "primary-fixed-dim": "#aec7f7",
+                    "on-secondary-fixed-variant": "#45474a",
+                    "surface": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#623f0f",
+                    "on-tertiary-container": "#c6965e",
+                    "secondary": "#5d5e62",
+                    "tertiary-fixed": "#ffddb9",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#002046",
+                    "background": "#f9f9f9",
+                    "on-secondary-fixed": "#191c1e",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#2e476f",
+                    "on-primary-container": "#87a0cd",
+                    "surface-bright": "#f9f9f9",
+                    "secondary-fixed-dim": "#c5c6ca",
+                    "outline-variant": "#c4c6cf",
+                    "on-surface-variant": "#44474e",
+                    "error-container": "#ffdad6",
+                    "outline": "#74777f",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e2e2e2",
+                    "tertiary": "#321c00",
+                    "surface-variant": "#e2e2e2",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#1b365d",
+                    "on-tertiary-fixed": "#2b1700",
+                    "on-secondary-container": "#636468",
+                    "secondary-fixed": "#e2e2e6",
+                    "primary-fixed": "#d6e3ff",
+                    "tertiary-container": "#4f2f00",
+                    "surface-container": "#eeeeee",
+                    "on-background": "#1a1c1c",
+                    "surface-container-high": "#e8e8e8",
+                    "inverse-primary": "#aec7f7",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-surface": "#1a1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bg-machined {
+            background: linear-gradient(45deg, #002046 0%, #1B365D 100%);
+        }
+        .editorial-shadow {
+            box-shadow: 0 32px 64px -12px rgba(26, 28, 28, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md border-b border-slate-200/20 shadow-sm transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-12 h-20 max-w-[1920px] mx-auto">
+<span class="text-2xl font-extrabold text-[#002046] dark:text-white tracking-tighter font-headline">VIPAR S.A.</span>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-slate-500 font-medium hover:text-[#1B365D] transition-all duration-300 ease-in-out font-headline tracking-tight" href="#">Soluciones</a>
+<a class="text-[#002046] border-b-2 border-[#1B365D] pb-1 font-bold font-headline tracking-tight" href="#">Proyectos</a>
+<a class="text-slate-500 font-medium hover:text-[#1B365D] transition-all duration-300 ease-in-out font-headline tracking-tight" href="#">Materiales</a>
+<a class="text-slate-500 font-medium hover:text-[#1B365D] transition-all duration-300 ease-in-out font-headline tracking-tight" href="#">Empresa</a>
+<a class="text-slate-500 font-medium hover:text-[#1B365D] transition-all duration-300 ease-in-out font-headline tracking-tight" href="#">Contacto</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold font-headline tracking-tight hover:opacity-80 transition-all active:scale-95 duration-150">
+                Cotizar Proyecto
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section: Editorial Focus -->
+<section class="relative h-[921px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Wide angle shot of a minimalist corporate lobby featuring floor-to-ceiling glass partitions and premium marble surfaces during daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWL1SdapClxacZbU-BDsOxCm6FeDmKTi4AzWqCwGR5aVqNtlszxC7VxVKys4XN994M17_TqoXF0hMQsX890kJgA7wRPTKU-qdJccKZL2_1eTrPYok8nppN9PfZh6KlD2RmO_4Ff9gVgB2O1llszJiqBKhExzcP9OHfkcwKlgqwV7EAbdYYkWQ7hbLeIUPq-lemrX7JD-4ph5U9lWZ9K0n6Mng4uGgMc1nt9U29bY-LXY8dRfCt9S1TQYRO_oOyCG1vSY2h7IboOrAK"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+</div>
+<div class="container mx-auto px-12 relative z-10 grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-7">
+<span class="label-md font-medium tracking-[0.2em] uppercase text-primary mb-6 block">Arquitectura Corporativa</span>
+<h1 class="text-display-lg text-[4.5rem] leading-[1.1] font-headline font-extrabold text-primary mb-8 tracking-tighter">
+                        Mamparas Divisorias: <br/> El Arte de Separar sin Aislar.
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed font-light">
+                        Diseñamos atmósferas que respiran. Nuestras soluciones de tabiquería técnica combinan la precisión del cristal templado con la calidez de acabados premium para crear entornos de alto rendimiento.
+                    </p>
+<div class="flex items-center space-x-6">
+<button class="bg-machined text-on-primary px-8 py-4 rounded-xl font-bold font-headline shadow-lg hover:translate-y-[-2px] transition-all">
+                            Explorar Colección
+                        </button>
+<button class="text-primary font-bold border-b-2 border-primary/20 hover:border-primary transition-all pb-1 font-headline">
+                            Ver Casos de Éxito
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Component: Data Monoliths -->
+<section class="py-24 bg-surface">
+<div class="container mx-auto px-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="bg-surface-container-lowest p-10 border-l-4 border-primary editorial-shadow">
+<span class="text-5xl font-headline font-extrabold text-primary block mb-2">99.8%</span>
+<p class="label-md text-on-surface-variant uppercase tracking-widest font-semibold">Precisión de Corte</p>
+<p class="mt-4 text-secondary leading-relaxed">Garantizamos ajustes milimétricos en cada panel instalado.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 border-l-4 border-primary editorial-shadow">
+<span class="text-5xl font-headline font-extrabold text-primary block mb-2">45dB</span>
+<p class="label-md text-on-surface-variant uppercase tracking-widest font-semibold">Aislamiento Acústico</p>
+<p class="mt-4 text-secondary leading-relaxed">Privacidad sonora total sin sacrificar la transparencia visual.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 border-l-4 border-primary editorial-shadow">
+<span class="text-5xl font-headline font-extrabold text-primary block mb-2">ISO 9001</span>
+<p class="label-md text-on-surface-variant uppercase tracking-widest font-semibold">Certificación Global</p>
+<p class="mt-4 text-secondary leading-relaxed">Cumplimos con los estándares internacionales de seguridad y diseño.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services: High-End Visual Weight -->
+<section class="py-32 bg-surface-container-low">
+<div class="container mx-auto px-12">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<div class="max-w-2xl">
+<h2 class="text-5xl font-headline font-extrabold text-primary mb-6 tracking-tight">Sistemas de Partición de Vanguardia</h2>
+<p class="text-lg text-on-surface-variant">Soluciones integrales que transforman metros cuadrados en espacios funcionales de alta gama.</p>
+</div>
+<div class="bg-primary/5 px-8 py-4 rounded-xl border border-primary/10">
+<span class="text-primary font-bold font-headline">Descargar Catálogo Técnico 2024</span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Glass Partition -->
+<div class="col-span-12 lg:col-span-8 group relative overflow-hidden rounded-xl h-[500px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High-end office interior with seamless glass partitions and minimalist black hardware frames" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8lXa2MDZCNqr9ZeM9GWc26btEblatw0sv7MfspjBl2xy4pLGRYIWTQRD7crjfBsLOrRkkccn1CSgrmfqq8iRUthQjliI04aHterkSZ0A6AMsECjO0KfZHHazHMUGAkZXNdJmhqYJV_Y-ldm8jnqoAu6cVofWDkNfuBuGvt_lA4VbeV5CuEM5i_zLHF7kGbCzGL-Q51PKe59wK4w-ISiJoudWon73hRgNrT5LYLL3fpgmNLfQz6GlIZBQiX1noIury4uYBhZe8_GVn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-10 left-10 text-white">
+<h3 class="text-3xl font-headline font-bold mb-2">Cristal Templado</h3>
+<p class="text-white/80 max-w-md">Máxima transparencia y seguridad con sistemas de herrajes ocultos.</p>
+</div>
+</div>
+<!-- Durlock Partition -->
+<div class="col-span-12 lg:col-span-4 group relative overflow-hidden rounded-xl h-[500px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of a sculpted drywall partition with integrated LED lighting and geometric niches" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEnGKSYyIEYqBOEqxIHihl_BfTfeG01HwRbfdSlOlrZG6tkyZCykrnom449ElEBgCDaLTkpPsv2t2ZXTaiFeTKupEW7785UeLbU2lVJfaoh1gJEsAzqHceXY7AWohCpKl_SYM5e--GbGOYsZwZLTw_o9xEKH9n_Q_hek53oJQol81o7ER1YgDbnaG8WCrOqhI5uRltyPHa2kSXml7UINOxaE_eI2ZbnuCuotw2lWY-TrObrfTvu-vB_bl_AZzf3e6Pr64WYgxUbhkj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-10 left-10 text-white">
+<h3 class="text-3xl font-headline font-bold mb-2">Tabiquería Durlock</h3>
+<p class="text-white/80">Estructuras sólidas con acabados de terminación perfecta.</p>
+</div>
+</div>
+<!-- Eucatex / Acoustic -->
+<div class="col-span-12 lg:col-span-6 group relative overflow-hidden rounded-xl h-[400px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Professional meeting room with dark wood acoustic wall panels and soft overhead lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjeUt8adHtF_fopwl34gbDZLmJuWKG3aeIlvBxPoySjhmgxOZhgPoCrBzEmYPjkdHWlHVgDMd4fC0wU_7EXe3XDaFVj5nii_PtHaDdFsfdZ_o0xiXPd3qR06MaYMo8YAig2af1ppeVz8NNMZhdfCKm8hN3wZhoi-XKFh-Ql3dgU4oiFm43cxfcgM44l3E7ASUsAGagk9a4QuALNcnWz3N6wAH-SGfyYqshgD7gyMwoL897CS5Z3PVbN3WFdAnZKHGYmlms6g31gq7-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-10 left-10 text-white">
+<h3 class="text-2xl font-headline font-bold mb-2">Sistemas Eucatex</h3>
+<p class="text-white/80">Versatilidad y rapidez de montaje para entornos dinámicos.</p>
+</div>
+</div>
+<!-- Selection Guide -->
+<div class="col-span-12 lg:col-span-6 bg-primary-container p-12 rounded-xl flex flex-col justify-center text-white">
+<span class="material-symbols-outlined text-5xl mb-6" style="font-variation-settings: 'FILL' 0;">description</span>
+<h3 class="text-3xl font-headline font-bold mb-4">Guía de Selección Técnica</h3>
+<p class="text-on-primary-container mb-8 leading-relaxed">Acceda a nuestra herramienta interactiva para determinar la solución ideal basada en sus requerimientos de luz, acústica y presupuesto.</p>
+<button class="bg-white text-primary px-8 py-4 rounded-xl font-bold font-headline w-fit hover:bg-slate-100 transition-colors">
+                            Iniciar Consultoría
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Gallery: Architecture of High Performance -->
+<section class="py-32 bg-background overflow-hidden">
+<div class="container mx-auto px-12">
+<div class="mb-24">
+<h2 class="text-5xl font-headline font-extrabold text-primary mb-4 tracking-tight">Proyectos Recientes</h2>
+<div class="w-24 h-1 bg-primary"></div>
+</div>
+<div class="space-y-32">
+<!-- Project 1: Asymmetric Layout -->
+<div class="grid grid-cols-12 gap-12 items-center">
+<div class="col-span-12 lg:col-span-8">
+<img class="w-full aspect-[16/9] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" data-alt="Interior of a modern bank headquarters featuring curved glass partitions and premium lighting fixtures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXb6MmdMnLpKzL5HkKi9fJ7zHRJ7sM5j7MPqphiKugPhdGuj2TFzcspHMt2h0LUYSC3RcLyHCW1E8GWRXsTqS_ikoLYcZUwv2Ud5vasVG1gINeA5HaHZJvJeyiCgSVPW_9WaotCvwR87ak_F3MmoWLohwKBXm17Nevze6_dPRCokL_VGIuGH-djHoNBOwEJhm4Xutul_aOkkYHu3rGzRkF4W36WUXhH91nD7idDQIUF2qiIX1UIi0hcRffQrYRLxOLTrlDBU2dshCQ"/>
+</div>
+<div class="col-span-12 lg:col-span-4 lg:-ml-24 z-10">
+<div class="bg-white p-12 editorial-shadow border-t-8 border-primary">
+<span class="text-sm font-label tracking-widest text-secondary block mb-4 uppercase">Sector Financiero</span>
+<h4 class="text-3xl font-headline font-extrabold text-primary mb-6">Sede Corporativa Banco Global</h4>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                                    Instalación de 450m² de mamparas de cristal con control de privacidad electrocrómico y perfilería de aluminio anonizado negro.
+                                </p>
+<a class="text-primary font-bold flex items-center gap-2 group" href="#">
+                                    Ver Galería Completa
+                                    <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 2: Reverse Asymmetric Layout -->
+<div class="grid grid-cols-12 gap-12 items-center">
+<div class="col-span-12 lg:col-span-4 lg:-mr-24 z-10 order-2 lg:order-1">
+<div class="bg-white p-12 editorial-shadow border-t-8 border-primary">
+<span class="text-sm font-label tracking-widest text-secondary block mb-4 uppercase">Tech &amp; Innovation</span>
+<h4 class="text-3xl font-headline font-extrabold text-primary mb-6">Hub de Innovación Nexo</h4>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                                    División de espacios colaborativos utilizando una combinación de tabiquería Durlock acústica y paneles de cristal doble vidriado.
+                                </p>
+<a class="text-primary font-bold flex items-center gap-2 group" href="#">
+                                    Ver Galería Completa
+                                    <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-8 order-1 lg:order-2">
+<img class="w-full aspect-[16/9] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" data-alt="Open plan tech office with colorful glass partitions and ergonomic workstations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfki0fPGWRQsldFgg7_hk6_dqeAtKWm-MunkofUINLQK0dgYYSm52JgwMPntmxm18WMn1G8V5gXeCb4Be7D3QnLLQCacUmVAm3cs-peAumtrq6appEVNC9LJ8GUmehd19ETRzA5PioqI2VPB4zZ6GepIIkw1Iqq9eFg2LxzfHtVQp_5fYMsr2m2DKM9xoshjL5yIhnHuatE3T0Btik_LSuP5EMkU_5bJamazY4bwFK374YgiltrtDiegJmkB1qtds5IhuZ6mihecj7"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-machined py-32 text-center text-white">
+<div class="container mx-auto px-12 max-w-4xl">
+<h2 class="text-5xl font-headline font-extrabold mb-8">¿Listo para redefinir su espacio de trabajo?</h2>
+<p class="text-xl text-on-primary-container mb-12 font-light">Nuestros especialistas técnicos están listos para asesorarlo en la viabilidad y diseño de su próximo proyecto arquitectónico.</p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<button class="bg-white text-primary px-12 py-5 rounded-xl font-bold font-headline text-lg hover:bg-slate-100 transition-colors">
+                        Solicitar Presupuesto
+                    </button>
+<button class="border-2 border-white/30 text-white px-12 py-5 rounded-xl font-bold font-headline text-lg hover:bg-white/10 transition-colors">
+                        Consultar via WhatsApp
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f3f3f3] dark:bg-slate-950 w-full py-16 px-12 border-t border-slate-200 dark:border-slate-800">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1440px] mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="text-xl font-black text-[#002046] dark:text-white font-headline">VIPAR S.A.</span>
+<p class="mt-6 text-sm text-slate-500 font-light leading-relaxed">
+                    Líderes en soluciones de arquitectura corporativa y sistemas de partición técnica. Innovación en cada metro cuadrado.
+                </p>
+</div>
+<div>
+<h5 class="font-headline font-bold text-primary mb-6 text-xs uppercase tracking-widest">Navegación</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="#">Soluciones</a></li>
+<li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="#">Proyectos</a></li>
+<li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="#">Materiales</a></li>
+<li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="#">Empresa</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold text-primary mb-6 text-xs uppercase tracking-widest">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="#">Privacidad</a></li>
+<li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="#">Términos de Servicio</a></li>
+<li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="#">Sustentabilidad</a></li>
+<li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="#">Certificaciones ISO</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold text-primary mb-6 text-xs uppercase tracking-widest">Oficinas</h5>
+<p class="text-xs text-slate-500 font-light tracking-widest leading-loose">
+                    Av. Corporativa 1234, CABA<br/>
+                    Buenos Aires, Argentina<br/>
+                    T: +54 11 4444 8888<br/>
+                    E: info@vipar.com.ar
+                </p>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-16 pt-8 border-t border-slate-200/50">
+<p class="text-[#002046] dark:text-white font-['Inter'] text-xs font-light uppercase tracking-widest">
+                © 2024 VIPAR S.A. Soluciones Arquitectónicas. Todos los derechos reservados.
+            </p>
+</div>
+</footer>
+</body></html>
