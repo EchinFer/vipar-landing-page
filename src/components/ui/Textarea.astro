@@ -1,0 +1,5 @@
+---
+interface Props extends astroHTML.JSX.TextareaHTMLAttributes {}
+const props = Astro.props;
+---
+<textarea {...props} class:list={["ds-textarea", props.class]}><slot /></textarea>

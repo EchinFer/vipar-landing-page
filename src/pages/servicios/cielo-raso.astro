@@ -1,0 +1,364 @@
+---
+// Cielo Raso - static page based on Stitch design (Solutions Architecture)
+const title = "Cielo Raso | VIPAR S.A.";
+const description = "Sistemas de cielo raso en Paraguay: PVC Armstrong, junta tomada Durlock y bafles acústicos. Instalación profesional para residencias, comercios y corporativos.";
+const canonical = "https://vipar.com.py/servicios/cielo-raso";
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonical} />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script is:inline src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script is:inline id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container": "#87a0cd",
+            "on-secondary-container": "#636468",
+            "error": "#ba1a1a",
+            "background": "#f9f9f9",
+            "outline-variant": "#c4c6cf",
+            "on-surface": "#1a1c1c",
+            "secondary-fixed-dim": "#c5c6ca",
+            "primary-container": "#1b365d",
+            "on-surface-variant": "#44474e",
+            "primary-fixed": "#d6e3ff",
+            "surface-container-highest": "#e2e2e2",
+            "on-tertiary-container": "#c6965e",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#2f3131",
+            "surface-tint": "#465f88",
+            "on-background": "#1a1c1c",
+            "secondary-container": "#e2e2e6",
+            "tertiary-container": "#4f2f00",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f3f3f3",
+            "on-primary": "#ffffff",
+            "surface": "#f9f9f9",
+            "secondary": "#5d5e62",
+            "on-secondary-fixed-variant": "#45474a",
+            "tertiary-fixed": "#ffddb9",
+            "surface-container-high": "#e8e8e8",
+            "surface-container": "#eeeeee",
+            "inverse-on-surface": "#f1f1f1",
+            "tertiary": "#321c00",
+            "surface-bright": "#f9f9f9",
+            "outline": "#74777f",
+            "on-secondary-fixed": "#191c1e",
+            "surface-variant": "#e2e2e2",
+            "on-primary-fixed-variant": "#2e476f",
+            "primary-fixed-dim": "#aec7f7",
+            "on-primary-fixed": "#001b3d",
+            "surface-dim": "#dadada",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#2b1700",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#e2e2e6",
+            "inverse-primary": "#aec7f7",
+            "tertiary-fixed-dim": "#f1bd81",
+            "primary": "#002046",
+            "on-tertiary-fixed-variant": "#623f0f"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      }
+    }
+  </script>
+  <style is:inline>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .data-monolith {
+      border-left: 4px solid #002046;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body">
+
+<!-- TopNavBar -->
+<nav class="w-full top-0 border-b-0 bg-[#f9f9f9] dark:bg-slate-950 z-50 sticky">
+  <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+    <a href="/" class="text-2xl font-extrabold tracking-tighter text-[#002046] dark:text-white font-headline">
+      VIPAR S.A.
+    </a>
+    <div class="hidden md:flex items-center space-x-8 font-headline font-bold uppercase tracking-tight text-sm">
+      <a class="text-[#1B365D] dark:text-blue-300 border-b-2 border-[#1B365D] pb-1" href="/servicios/">Servicios</a>
+      <a class="text-slate-500 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-white transition-colors duration-300" href="/obras/">Proyectos</a>
+      <a class="text-slate-500 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-white transition-colors duration-300" href="/nosotros/">Empresa</a>
+      <a class="text-slate-500 dark:text-slate-400 hover:text-[#1B365D] dark:hover:text-white transition-colors duration-300" href="/contacto/">Contacto</a>
+    </div>
+    <a href="/contacto/" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-headline font-bold text-sm uppercase tracking-wide hover:opacity-90 transition-all">
+      Solicitar presupuesto
+    </a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="relative h-[870px] flex items-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img alt="Interior minimalista con cielo raso técnico de alta gama" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTThe-DxuXVPa_P17jGDfd043E1s_vY_i_qkWdwLXZVxVu_3o5z7rUMcyfiFYPy1HQMC9UORhzngw326OMUEKpd5DSqZg-mnD_Lf5zUsf_nKMrRrUPndkmaWoiDle8sYkGmPcAuCt1MRatKqatl-T10NIPPdEOJUOpjx3-UfdnbHmCzN5oBko3b82sbFRgIrMbFY_CF6D39InpQBBw1ylDjJ1-PYEH11u3pjFy_jKekDaswBjxaRUnvsJwpRg_W5Knf1Bw5IvIun5K" />
+    <div class="absolute inset-0 bg-primary/20"></div>
+  </div>
+  <div class="relative z-10 max-w-screen-2xl mx-auto px-8 w-full">
+    <div class="max-w-3xl">
+      <h1 class="text-6xl md:text-8xl font-headline font-extrabold text-white leading-none tracking-tighter mb-6">
+        CIELO <br /> RASO
+      </h1>
+      <p class="text-xl md:text-2xl text-white/90 font-body max-w-xl mb-10 leading-relaxed">
+        Sistemas de techos técnicos que fusionan precisión acústica, eficiencia térmica y vanguardia estética.
+      </p>
+      <div class="flex gap-4">
+        <a href="/contacto/" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline font-bold uppercase tracking-widest text-sm transition-all hover:scale-[1.02]">
+          Solicitar Presupuesto
+        </a>
+        <a href="/contacto/" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-headline font-bold uppercase tracking-widest text-sm transition-all hover:bg-white/20">
+          Ficha Técnica
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Adaptación por Entorno -->
+<section class="py-24 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+      <div>
+        <span class="text-primary-container font-headline font-extrabold tracking-widest uppercase text-sm">Soluciones Integrales</span>
+        <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-primary mt-2">Adaptación por Entorno</h2>
+      </div>
+      <p class="text-on-surface-variant max-w-md font-body leading-relaxed">
+        Diseñamos cada estructura según las demandas específicas de uso, garantizando durabilidad y cumplimiento normativo.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-[700px]">
+      <div class="md:col-span-8 relative overflow-hidden rounded-xl group">
+        <img alt="Sala de estar con cielo raso continuo e iluminación arquitectónica" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDus0MUds3B1q_uSq8q7mQzDhk29OBssfBjXZqiZhSIxRklfZrheXv1NoIT-eyXUXQVedbz0f1hEhhIpIQQn8iMxLaMtslhGMDXtSs-90Hsoj3KPyBn04wG_9vyy_96-eCqdBw6_vx_8zytqM-uURHNhzcmvkHTVFDZnEvmMMKpqOaLoR7F3hFLvYBKz4u3thFbXv7dsMbJG3KDU8HhyrGXlKUxvgJfdLHUQuxr_g3vJgzH_qSYtD1lT0d_IwHQdK3zvCDxCfKv8yGQ" />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-10">
+          <h3 class="text-3xl font-headline font-extrabold text-white">Residencial</h3>
+          <p class="text-white/80 mt-2 max-w-sm">Confort acústico y calidez visual para espacios íntimos y modernos.</p>
+        </div>
+      </div>
+      <div class="md:col-span-4 relative overflow-hidden rounded-xl group">
+        <img alt="Local comercial con cielo raso modular y sistema de iluminación industrial" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBOb1PWZbu4lMjUJGA5v2Lepb5LeYYd33bc_Tjl1w9-XWwwYSD1T7AZuQhNoapbmvbPJ9RxxWaHC4Cy6iPfpUb0jfbl0oVGOi-3Q3cNwmG_4OA5BMMLvgtVsCw36TJtCfNCBTzl9VNBczkFvUFWXbq9QEx1gZ_wmz0hdflAt2UGORhdiTtyzbWj4hsB_SQk5LA8xC73NTwxg4D1rRUerhM8E1WFErW7PcC9BzVfUjdaKnIo5TTar5XJPXILkjGGsd_-LYAHgSG4BVl" />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-8">
+          <h3 class="text-2xl font-headline font-extrabold text-white">Comercial</h3>
+          <p class="text-white/80 mt-2">Versatilidad y mantenimiento ágil para áreas de alto tránsito.</p>
+        </div>
+      </div>
+      <div class="md:col-span-4 relative overflow-hidden rounded-xl group">
+        <img alt="Sala de reuniones corporativa con bafles acústicos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsbiypoa941La3MDHPCUvlLgFgDL22MMmAgJru4tqwgvqM8pbGwT226yd6rV0OqfjVsVIGPFh6Za-05qV-IeBzJ7IJojQJ8xAlnM01MvWLwyj3DZgZbnr3iF4KJWvPKv5SL21OmcmDvrDFLw1R_Iw40UAt367KXCSgOutIDQiQvMS3i0WkSp8_TELcgprE4SYSK0l-5AY_o_RT7GyzsWYZrntjDhfAgPMezSi5RgRUw1xduSAmnJDAD4zbrzXvlMDd_V5qPddp6sP4" />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-8">
+          <h3 class="text-2xl font-headline font-extrabold text-white">Corporativo</h3>
+          <p class="text-white/80 mt-2">Productividad optimizada mediante control de reverberación superior.</p>
+        </div>
+      </div>
+      <div class="md:col-span-8 bg-surface-container-low rounded-xl p-10 flex flex-col justify-center">
+        <div class="grid grid-cols-2 gap-12">
+          <div class="data-monolith p-6 bg-surface-container-lowest">
+            <span class="text-4xl font-headline font-extrabold text-primary block">35%</span>
+            <span class="text-sm font-label uppercase tracking-tighter text-on-surface-variant font-bold">Ahorro Energético</span>
+          </div>
+          <div class="data-monolith p-6 bg-surface-container-lowest">
+            <span class="text-4xl font-headline font-extrabold text-primary block">22dB</span>
+            <span class="text-sm font-label uppercase tracking-tighter text-on-surface-variant font-bold">Reducción Acústica</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sistemas de Terminación -->
+<section class="py-24 bg-surface-container-low">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <h2 class="text-center text-4xl md:text-5xl font-headline font-extrabold text-primary mb-20">Sistemas de Terminación</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+      <div class="bg-surface-container-lowest p-12 transition-colors hover:bg-primary group border-r border-outline-variant/20">
+        <span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-6">grid_view</span>
+        <h3 class="text-xl font-headline font-extrabold text-primary group-hover:text-white mb-4">Modulares PVC / Armstrong</h3>
+        <p class="text-on-surface-variant group-hover:text-white/80 font-body mb-8">Estructuras desmontables ideales para acceso a instalaciones técnicas y mantenimiento rápido.</p>
+        <ul class="space-y-3 text-sm font-label text-on-surface group-hover:text-white/90">
+          <li class="flex items-center"><span class="material-symbols-outlined text-sm mr-2">check_circle</span> 100% Incombustible</li>
+          <li class="flex items-center"><span class="material-symbols-outlined text-sm mr-2">check_circle</span> Resistente a la humedad</li>
+        </ul>
+      </div>
+      <div class="bg-surface-container-lowest p-12 transition-colors hover:bg-primary group border-r border-outline-variant/20">
+        <span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-6">layers</span>
+        <h3 class="text-xl font-headline font-extrabold text-primary group-hover:text-white mb-4">Junta Tomada Durlock</h3>
+        <p class="text-on-surface-variant group-hover:text-white/80 font-body mb-8">Superficies continuas de acabado monolítico. El estándar para diseño arquitectónico de alta gama.</p>
+        <ul class="space-y-3 text-sm font-label text-on-surface group-hover:text-white/90">
+          <li class="flex items-center"><span class="material-symbols-outlined text-sm mr-2">check_circle</span> Acabado liso premium</li>
+          <li class="flex items-center"><span class="material-symbols-outlined text-sm mr-2">check_circle</span> Flexibilidad formal</li>
+        </ul>
+      </div>
+      <div class="bg-surface-container-lowest p-12 transition-colors hover:bg-primary group">
+        <span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-6">graphic_eq</span>
+        <h3 class="text-xl font-headline font-extrabold text-primary group-hover:text-white mb-4">Bafles &amp; Nubes Acústicas</h3>
+        <p class="text-on-surface-variant group-hover:text-white/80 font-body mb-8">Soluciones suspendidas para corrección fónica en espacios abiertos y diseño industrial.</p>
+        <ul class="space-y-3 text-sm font-label text-on-surface group-hover:text-white/90">
+          <li class="flex items-center"><span class="material-symbols-outlined text-sm mr-2">check_circle</span> Alta absorción (NRC 0.90)</li>
+          <li class="flex items-center"><span class="material-symbols-outlined text-sm mr-2">check_circle</span> Estética escultórica</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ingeniería de Detalle -->
+<section class="py-24 bg-surface">
+  <div class="max-w-screen-2xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div class="order-2 lg:order-1">
+        <img alt="Detalle técnico de materiales de cielo raso de alta calidad" class="rounded-xl object-cover h-[600px] w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARSNj5BWtTallB4nWBrw4ct7nGMG243G079B9dM7Vw-WSZKQGmkgCwPNycJMI7QFEhfGbx8_X4gUc0Y5AbEWePYK85rX-txsh5FMttBch9bDWKtvdv1ferzTfH0cp4ee_z-Vrp8tkTp_QOjNl7DDLwxItzaHx0xg4CLhgGazCGWQl4PbNo_FnO4ZuFM-jQA8hRa9cwSStVVJbAKm1MkvUg0ynesDakMq7jCxPAETO_bMsqu_7IZVUpm5KvbcJq_Bi1vL_CaSgqJH5t" />
+      </div>
+      <div class="order-1 lg:order-2">
+        <h2 class="text-4xl font-headline font-extrabold text-primary mb-12">Ingeniería de Detalle</h2>
+        <div class="space-y-12">
+          <div class="flex gap-6">
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg">
+              <span class="material-symbols-outlined text-primary">build</span>
+            </div>
+            <div>
+              <h4 class="text-lg font-headline font-extrabold text-primary mb-2">Mantenimiento Simplificado</h4>
+              <p class="text-on-surface-variant font-body">Sistemas diseñados para el registro fácil de plenos técnicos, instalaciones eléctricas y climatización sin comprometer la estructura.</p>
+            </div>
+          </div>
+          <div class="flex gap-6">
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg">
+              <span class="material-symbols-outlined text-primary">volume_off</span>
+            </div>
+            <div>
+              <h4 class="text-lg font-headline font-extrabold text-primary mb-2">Acondicionamiento Acústico</h4>
+              <p class="text-on-surface-variant font-body">Utilizamos materiales de porosidad controlada que eliminan el eco y mejoran la inteligibilidad de la palabra en cualquier ambiente.</p>
+            </div>
+          </div>
+          <div class="flex gap-6">
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg">
+              <span class="material-symbols-outlined text-primary">auto_awesome</span>
+            </div>
+            <div>
+              <h4 class="text-lg font-headline font-extrabold text-primary mb-2">Estética Atemporal</h4>
+              <p class="text-on-surface-variant font-body">Integración invisible de luminarias y difusores. El cielo raso deja de ser un techo para convertirse en una pieza de diseño.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 bg-surface-container-high">
+  <div class="max-w-4xl mx-auto px-8">
+    <h2 class="text-3xl font-headline font-extrabold text-primary mb-16 text-center">Consultas Frecuentes</h2>
+    <div class="space-y-4">
+      <details class="group bg-surface-container-lowest rounded-xl">
+        <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+          <span class="font-headline font-bold text-primary">¿Cuál es el sistema ideal para una oficina de planta abierta?</span>
+          <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+        </summary>
+        <div class="px-6 pb-6 text-on-surface-variant font-body border-t border-outline-variant/10 pt-4">
+          Recomendamos sistemas de bafles acústicos o techos modulares de fibra mineral con alto coeficiente de absorción (NRC) para controlar la reverberación del sonido en espacios de trabajo compartidos.
+        </div>
+      </details>
+      <details class="group bg-surface-container-lowest rounded-xl">
+        <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+          <span class="font-headline font-bold text-primary">¿Qué altura mínima se requiere para instalar un cielo raso?</span>
+          <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+        </summary>
+        <div class="px-6 pb-6 text-on-surface-variant font-body border-t border-outline-variant/10 pt-4">
+          Depende del sistema y las instalaciones que se deseen ocultar. Generalmente, se requiere un pleno mínimo de 10 a 15 cm para estructuras de junta tomada y hasta 20 cm para sistemas modulares con conductos de aire.
+        </div>
+      </details>
+      <details class="group bg-surface-container-lowest rounded-xl">
+        <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+          <span class="font-headline font-bold text-primary">¿Son los materiales resistentes al fuego?</span>
+          <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+        </summary>
+        <div class="px-6 pb-6 text-on-surface-variant font-body border-t border-outline-variant/10 pt-4">
+          Sí, trabajamos con placas de yeso tipo RF (Resistentes al Fuego) y fibras minerales incombustibles que cumplen con las normativas de seguridad vigentes para edificios públicos y corporativos.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="relative z-20 -mb-24 px-8">
+  <div class="max-w-screen-2xl mx-auto bg-primary rounded-xl p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-10">
+    <div class="max-w-2xl">
+      <h2 class="text-4xl md:text-6xl font-headline font-extrabold text-white leading-tight mb-6">¿Listo para elevar la calidad de su proyecto?</h2>
+      <p class="text-on-primary-container text-lg font-body">Nuestro equipo técnico está preparado para asesorarlo en la especificación de materiales y ejecución de obra.</p>
+    </div>
+    <div class="flex flex-col gap-4 w-full md:w-auto">
+      <a href="/contacto/" class="bg-white text-primary px-10 py-5 rounded-xl font-headline font-extrabold uppercase tracking-widest text-sm hover:bg-primary-fixed transition-colors text-center">
+        Presupuesto Inmediato
+      </a>
+      <a href="/contacto/" class="text-white text-center font-headline font-bold uppercase tracking-widest text-xs border-b border-white/20 pb-1 self-center md:self-end">
+        Hable con un experto
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low pt-48 pb-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-12 py-16 max-w-screen-2xl mx-auto">
+    <div>
+      <a href="/" class="text-lg font-bold text-[#002046] dark:text-white font-headline mb-4 uppercase tracking-tighter block">VIPAR S.A.</a>
+      <p class="text-slate-600 dark:text-slate-400 font-['Inter'] text-sm max-w-xs leading-relaxed">
+        Excelencia en arquitectura técnica y soluciones constructivas de vanguardia.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="flex flex-col space-y-3">
+        <span class="text-primary font-headline font-extrabold text-xs uppercase tracking-widest mb-2">Servicios</span>
+        <a class="text-slate-600 dark:text-slate-400 font-['Inter'] text-sm hover:underline decoration-2 underline-offset-4" href="/servicios/mamparas-divisorias">Mamparas</a>
+        <a class="text-slate-600 dark:text-slate-400 font-['Inter'] text-sm hover:underline decoration-2 underline-offset-4" href="/servicios/cielo-raso">Cielo Raso</a>
+        <a class="text-slate-600 dark:text-slate-400 font-['Inter'] text-sm hover:underline decoration-2 underline-offset-4" href="/servicios/carpinteria-de-aluminio">Carpintería</a>
+        <a class="text-slate-600 dark:text-slate-400 font-['Inter'] text-sm hover:underline decoration-2 underline-offset-4" href="/servicios/ventanas">Ventanas</a>
+      </div>
+      <div class="flex flex-col space-y-3">
+        <span class="text-primary font-headline font-extrabold text-xs uppercase tracking-widest mb-2">Empresa</span>
+        <a class="text-slate-600 dark:text-slate-400 font-['Inter'] text-sm hover:underline decoration-2 underline-offset-4" href="/contacto/">Contacto Comercial</a>
+        <a class="text-slate-600 dark:text-slate-400 font-['Inter'] text-sm hover:underline decoration-2 underline-offset-4" href="/nosotros/">Nosotros</a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-screen-2xl mx-auto px-12 mt-4 pt-8 border-t border-outline-variant/20">
+    <p class="text-[#002046]/60 font-['Inter'] text-xs font-light uppercase tracking-widest">
+      © 2025 VIPAR S.A. Arquitectura Técnica. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -195,7 +195,7 @@ const featuredTagline = featuredObra
   }
 
   .vipar-obras-hero__overlay {
-    background: linear-gradient(180deg, rgba(249, 249, 249, 0.05) 0%, rgba(249, 249, 249, 0.55) 60%, #f9f9f9 100%);
+    background: linear-gradient(180deg, rgba(249, 249, 249, 0.05) 0%, rgba(249, 249, 249, 0.55) 60%, var(--ds-color-background) 100%);
   }
 
   .vipar-obras-hero__content {
@@ -209,14 +209,14 @@ const featuredTagline = featuredObra
   .vipar-obras-hero h1 {
     margin: 0;
     font-size: clamp(2.8rem, 6vw, 4.8rem);
-    color: #0f2a3d;
+    color: var(--ds-color-primary);
     letter-spacing: -0.04em;
   }
 
   .vipar-obras-hero p {
     margin: 16px auto 0;
     max-width: 640px;
-    color: #516877;
+    color: var(--ds-color-on-surface-muted);
     font-size: 1.15rem;
     line-height: 1.7;
   }
@@ -228,7 +228,7 @@ const featuredTagline = featuredObra
     min-height: 48px;
     padding: 0 28px;
     border-radius: 10px;
-    border: 1px solid #2f80a8;
+    border: 1px solid var(--ds-color-accent);
     font-weight: 700;
     text-decoration: none;
     transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, color 180ms ease;
@@ -239,24 +239,24 @@ const featuredTagline = featuredObra
   }
 
   .vipar-obras-button--primary {
-    background: #2f80a8;
+    background: var(--ds-color-accent);
     color: #fff;
   }
 
   .vipar-obras-button--secondary {
     background: transparent;
-    color: #2f80a8;
+    color: var(--ds-color-accent);
   }
 
   .vipar-obras-intro {
-    border-left: 4px solid #2f80a8;
+    border-left: 4px solid var(--ds-color-accent);
     padding: 8px 0 8px 20px;
     margin-bottom: 40px;
   }
 
   .vipar-obras-intro p {
     margin: 0;
-    color: #516877;
+    color: var(--ds-color-on-surface-muted);
     max-width: 860px;
     line-height: 1.7;
   }
@@ -273,11 +273,11 @@ const featuredTagline = featuredObra
 
   .vipar-obras-filter {
     appearance: none;
-    border: 1px solid #d9dee2;
+    border: 1px solid var(--ds-color-border);
     border-radius: 999px;
     padding: 10px 20px;
-    background: #ffffff;
-    color: #516877;
+    background: var(--ds-color-surface);
+    color: var(--ds-color-on-surface-muted);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -287,30 +287,30 @@ const featuredTagline = featuredObra
 
   .vipar-obras-filter.is-active,
   .vipar-obras-filter:hover {
-    background: #2f80a8;
-    border-color: #2f80a8;
+    background: var(--ds-color-accent);
+    border-color: var(--ds-color-accent);
     color: #fff;
   }
 
   .vipar-obras-featured {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    border: 1px solid #d9dee2;
+    border: 1px solid var(--ds-color-border);
     border-radius: 22px;
     overflow: hidden;
-    background: #ffffff;
+    background: var(--ds-color-surface);
     padding: 0;
     margin-bottom: 32px;
     transition: border-color 200ms ease, box-shadow 200ms ease;
   }
 
   .vipar-obras-featured:hover {
-    border-color: #2f80a8;
+    border-color: var(--ds-color-accent);
     box-shadow: 0 22px 40px rgba(7, 27, 40, 0.12);
   }
 
   .vipar-obras-featured__media {
-    background: #d9dee2;
+    background: var(--ds-color-border);
     min-height: 360px;
     padding: 0;
   }
@@ -335,13 +335,13 @@ const featuredTagline = featuredObra
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #2f80a8;
+    color: var(--ds-color-accent);
   }
 
   .vipar-obras-featured h3 {
     margin: 0;
     font-size: clamp(2rem, 3vw, 2.6rem);
-    color: #0f2a3d;
+    color: var(--ds-color-primary);
   }
 
   .vipar-obras-featured__tags {
@@ -353,25 +353,25 @@ const featuredTagline = featuredObra
   .vipar-obras-featured__tags span {
     padding: 6px 12px;
     border-radius: 999px;
-    border: 1px solid #d9dee2;
+    border: 1px solid var(--ds-color-border);
     background: #f5f9fc;
     font-size: 0.75rem;
     font-weight: 600;
-    color: #516877;
+    color: var(--ds-color-on-surface-muted);
   }
 
   .vipar-obras-featured p {
     margin: 0;
-    color: #516877;
+    color: var(--ds-color-on-surface-muted);
     line-height: 1.7;
   }
 
   .vipar-obras-featured__cta {
     width: fit-content;
-    border: 1px solid #2f80a8;
+    border: 1px solid var(--ds-color-accent);
     border-radius: 10px;
     padding: 10px 20px;
-    color: #2f80a8;
+    color: var(--ds-color-accent);
     font-weight: 700;
     text-decoration: none;
     transition: background-color 180ms ease, color 180ms ease;
@@ -391,17 +391,17 @@ const featuredTagline = featuredObra
   }
 
   .vipar-obras-card {
-    border: 1px solid #d9dee2;
+    border: 1px solid var(--ds-color-border);
     border-radius: 20px;
     overflow: hidden;
-    background: #ffffff;
+    background: var(--ds-color-surface);
     display: flex;
     flex-direction: column;
     transition: border-color 200ms ease, box-shadow 200ms ease;
   }
 
   .vipar-obras-card:hover {
-    border-color: #2f80a8;
+    border-color: var(--ds-color-accent);
     box-shadow: 0 18px 32px rgba(7, 27, 40, 0.08);
   }
 
@@ -411,7 +411,7 @@ const featuredTagline = featuredObra
 
   .vipar-obras-card__image {
     height: 400px;
-    background: #d9dee2;
+    background: var(--ds-color-border);
   }
 
   .vipar-obras-card__image img {
@@ -434,13 +434,13 @@ const featuredTagline = featuredObra
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #2f80a8;
+    color: var(--ds-color-accent);
   }
 
   .vipar-obras-card h4 {
     margin: 0;
     font-size: 1.3rem;
-    color: #0f2a3d;
+    color: var(--ds-color-primary);
   }
 
   .vipar-obras-card__location {
@@ -453,7 +453,7 @@ const featuredTagline = featuredObra
 
   .vipar-obras-card p {
     margin: 0;
-    color: #516877;
+    color: var(--ds-color-on-surface-muted);
     line-height: 1.6;
     flex: 1;
   }
@@ -462,7 +462,7 @@ const featuredTagline = featuredObra
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: #2f80a8;
+    color: var(--ds-color-accent);
     font-weight: 700;
     text-decoration: none;
     margin-top: auto;
@@ -473,8 +473,8 @@ const featuredTagline = featuredObra
   }
 
   .vipar-obras-confidence {
-    background: #0f2a3d;
-    color: #ffffff;
+    background: var(--ds-color-primary);
+    color: var(--ds-color-surface);
     padding: 48px;
     border-radius: 20px;
     text-align: center;
@@ -498,19 +498,19 @@ const featuredTagline = featuredObra
   .vipar-obras-final {
     text-align: center;
     padding-top: 64px;
-    border-top: 1px solid #d9dee2;
+    border-top: 1px solid var(--ds-color-border);
   }
 
   .vipar-obras-final h2 {
     margin: 0 0 12px;
     font-size: clamp(2rem, 4vw, 3rem);
-    color: #0f2a3d;
+    color: var(--ds-color-primary);
   }
 
   .vipar-obras-final p {
     margin: 0 auto 24px;
     max-width: 720px;
-    color: #516877;
+    color: var(--ds-color-on-surface-muted);
     line-height: 1.7;
   }
 
@@ -559,3 +559,4 @@ const featuredTagline = featuredObra
     }
   }
 </style>
+

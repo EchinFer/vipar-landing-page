@@ -87,7 +87,7 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
 
 <style>
   .vipar-site-shell {
-    width: min(calc(100% - 48px), 1360px);
+    width: min(calc(100% - (var(--ds-container-padding-desktop) * 2)), var(--ds-container-max));
     margin: 0 auto;
   }
 
@@ -113,15 +113,15 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
   }
 
   .vipar-site-button--accent {
-    background: #2563eb;
-    color: #ffffff;
+    background: var(--ds-color-accent);
+    color: var(--ds-color-surface);
   }
 
   .vipar-site-footer {
-    background: #0f172a;
-    color: #ffffff;
+    background: var(--ds-color-primary);
+    color: var(--ds-color-surface);
     padding: 80px 0 40px;
-    border-top: 1px solid #1f2937;
+    border-top: 1px solid color-mix(in srgb, var(--ds-color-border-strong) 40%, transparent);
   }
 
   .vipar-site-footer__grid {
@@ -140,7 +140,7 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
 
   .vipar-site-footer__brand p {
     margin-top: 24px;
-    color: #94a3b8;
+    color: var(--ds-color-border-strong);
     line-height: 1.7;
   }
 
@@ -156,14 +156,14 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
     width: 40px;
     height: 40px;
     border-radius: 999px;
-    background: #1e293b;
-    color: #ffffff;
+    background: color-mix(in srgb, var(--ds-color-surface) 12%, transparent);
+    color: var(--ds-color-surface);
     text-decoration: none;
     transition: background-color 0.2s ease;
   }
 
   .vipar-site-footer__socials a:hover {
-    background: #2563eb;
+    background: var(--ds-color-accent);
   }
 
   .vipar-site-footer__column {
@@ -182,13 +182,13 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
 
   .vipar-site-footer__column a,
   .vipar-site-footer__contact {
-    color: #94a3b8;
+    color: var(--ds-color-border-strong);
     text-decoration: none;
   }
 
   .vipar-site-footer__column a:hover,
   .vipar-site-footer__bottom a:hover {
-    color: #ffffff;
+    color: var(--ds-color-surface);
   }
 
   .vipar-site-footer__contact {
@@ -211,12 +211,12 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
     gap: 24px;
     margin-top: 64px;
     padding-top: 32px;
-    border-top: 1px solid #1f2937;
+    border-top: 1px solid color-mix(in srgb, var(--ds-color-border-strong) 40%, transparent);
   }
 
   .vipar-site-footer__bottom p,
   .vipar-site-footer__bottom a {
-    color: #64748b;
+    color: var(--ds-color-border-strong);
     font-size: 0.82rem;
     margin: 0;
     text-decoration: none;
@@ -229,7 +229,7 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
 
   @media (max-width: 960px) {
     .vipar-site-shell {
-      width: min(calc(100% - 32px), 1360px);
+      width: min(calc(100% - (var(--ds-container-padding-mobile) * 2)), var(--ds-container-max));
     }
 
     .vipar-site-footer__grid,
@@ -257,3 +257,4 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
     }
   }
 </style>
+

@@ -1,0 +1,5 @@
+---
+interface Props extends astroHTML.JSX.SelectHTMLAttributes {}
+const props = Astro.props;
+---
+<select {...props} class:list={["ds-select", props.class]}><slot /></select>

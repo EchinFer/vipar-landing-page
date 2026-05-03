@@ -75,13 +75,13 @@ const currentPathname = new URL(Astro.request.url).pathname;
     position: sticky;
     top: 0;
     z-index: 997;
-    background: rgba(255, 255, 255, 0.96);
+    background: color-mix(in srgb, var(--ds-color-surface) 96%, transparent);
     backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(195, 199, 205, 0.72);
+    border-bottom: 1px solid color-mix(in srgb, var(--ds-color-border) 72%, transparent);
   }
 
   .vipar-site-shell {
-    width: min(calc(100% - 48px), 1360px);
+    width: min(calc(100% - (var(--ds-container-padding-desktop) * 2)), var(--ds-container-max));
     margin: 0 auto;
   }
 
@@ -94,7 +94,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
   }
 
   .vipar-site-header__brand {
-    color: #111827;
+    color: var(--ds-color-primary);
     font-size: 1.3rem;
     font-weight: 800;
     letter-spacing: -0.06em;
@@ -110,7 +110,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
   }
 
   .vipar-site-header__links a {
-    color: #667085;
+    color: var(--ds-color-on-surface-muted);
     font-size: 0.96rem;
     font-weight: 500;
     line-height: 1;
@@ -122,8 +122,8 @@ const currentPathname = new URL(Astro.request.url).pathname;
 
   .vipar-site-header__links a:hover,
   .vipar-site-header__links a.is-active {
-    color: #1d4ed8;
-    border-color: #1d4ed8;
+    color: var(--ds-color-accent);
+    border-color: var(--ds-color-accent);
   }
 
   .vipar-site-button {
@@ -148,8 +148,8 @@ const currentPathname = new URL(Astro.request.url).pathname;
   }
 
   .vipar-site-button--primary {
-    background: #0f2a3d;
-    color: #ffffff;
+    background: var(--ds-color-primary);
+    color: var(--ds-color-surface);
   }
 
   .vipar-site-header__cta {
@@ -164,9 +164,9 @@ const currentPathname = new URL(Astro.request.url).pathname;
     width: 44px;
     height: 44px;
     padding: 0;
-    border: 1px solid rgba(195, 199, 205, 0.9);
+    border: 1px solid var(--ds-color-border);
     border-radius: 10px;
-    background: #ffffff;
+    background: var(--ds-color-surface);
   }
 
   .vipar-site-header__toggle span {
@@ -174,7 +174,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
     width: 18px;
     height: 2px;
     margin: 0 auto;
-    background: #0f172a;
+    background: var(--ds-color-primary);
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
@@ -186,7 +186,7 @@ const currentPathname = new URL(Astro.request.url).pathname;
 
   @media (max-width: 960px) {
     .vipar-site-shell {
-      width: min(calc(100% - 32px), 1360px);
+      width: min(calc(100% - (var(--ds-container-padding-mobile) * 2)), var(--ds-container-max));
     }
 
     .vipar-site-header__nav {
@@ -241,3 +241,4 @@ const currentPathname = new URL(Astro.request.url).pathname;
     }
   }
 </style>
+

@@ -1,0 +1,6 @@
+---
+interface Props { size?: "sm"|"md"|"lg"; class?: string }
+const { size = "md", class: className = "" } = Astro.props;
+const sizeClass = size === "lg" ? "ds-text-body-lg" : size === "sm" ? "ds-text-body-sm" : "ds-text-body-md";
+---
+<p class:list={[sizeClass, className]}><slot /></p>

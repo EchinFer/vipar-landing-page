@@ -1,0 +1,5 @@
+---
+interface Props extends astroHTML.JSX.InputHTMLAttributes {}
+const props = Astro.props;
+---
+<input {...props} class:list={["ds-input", props.class]} />

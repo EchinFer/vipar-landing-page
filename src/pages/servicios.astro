@@ -1,7 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { SITE_URL } from "src/constants";
-import "@styles/home.css";
 
 const servicios = [
   {
@@ -140,10 +139,10 @@ const canonical = `${SITE_URL}/servicios`;
 </Layout>
 
 <style>
-  .services-page { --vipar-shell: 1360px; padding: 0 0 96px; background: #f9f9f9; }
+  .services-page { --vipar-shell: 1360px; padding: 0 0 96px; background: var(--ds-color-background); }
   .services-page .vipar-shell { width: min(calc(100% - 48px), var(--vipar-shell)); margin: 0 auto; }
   .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 80px 0; }
-  .hero-copy h1 { font-size: clamp(2.3rem, 5vw, 4.4rem); line-height: 1.08; margin: 0 0 18px; color: #1a1c1c; }
+  .hero-copy h1 { font-size: clamp(2.3rem, 5vw, 4.4rem); line-height: 1.08; margin: 0 0 18px; color: var(--ds-color-on-surface); }
   .hero-copy p { margin: 0; font-size: 1.1rem; color: #44474e; max-width: 620px; }
   .hero-media { border-radius: 8px; overflow: hidden; min-height: 520px; }
   .hero-media img { width: 100%; height: 100%; object-fit: cover; }
@@ -153,11 +152,11 @@ const canonical = `${SITE_URL}/servicios`;
   .filters span { font-size: 0.85rem; font-weight: 700; color: #74777f; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 6px; }
   .filters button {
     appearance: none;
-    border: 1px solid #d9dee2;
+    border: 1px solid var(--ds-color-border);
     border-radius: 999px;
     padding: 10px 20px;
-    background: #ffffff;
-    color: #516877;
+    background: var(--ds-color-surface);
+    color: var(--ds-color-on-surface-muted);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -166,14 +165,14 @@ const canonical = `${SITE_URL}/servicios`;
   }
   .filters button.active,
   .filters button:hover {
-    background: #2f80a8;
-    border-color: #2f80a8;
+    background: var(--ds-color-accent);
+    border-color: var(--ds-color-accent);
     color: #fff;
   }
 
   .catalog { padding-top: 72px; }
   .catalog-head { margin-bottom: 72px; }
-  .catalog h2 { margin: 0 0 12px; font-size: 2rem; color: #1a1c1c; }
+  .catalog h2 { margin: 0 0 12px; font-size: 2rem; color: var(--ds-color-on-surface); }
   .catalog-head p { margin: 0; color: #44474e; max-width: 760px; font-size: 1.02rem; line-height: 1.7; }
   .grid-full { width: 100%; padding: 0 24px; }
   .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 1440px; margin: 0 auto; align-items: stretch; }
@@ -181,7 +180,7 @@ const canonical = `${SITE_URL}/servicios`;
   .card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(10, 25, 42, 0.09); }
   .card img { width: 100%; height: 400px; object-fit: cover; object-position: center; }
   .card div { padding: 24px 24px 22px; display: flex; flex-direction: column; flex: 1; }
-  .card h3 { margin: 0 0 12px; color: #1a1c1c; font-size: 1.28rem; line-height: 1.25; }
+  .card h3 { margin: 0 0 12px; color: var(--ds-color-on-surface); font-size: 1.28rem; line-height: 1.25; }
   .card p { margin: 0 0 18px; color: #4a4e55; line-height: 1.68; font-size: 0.96rem; flex: 1; }
   .details-btn {
     display: inline-flex;
@@ -216,3 +215,4 @@ const canonical = `${SITE_URL}/servicios`;
     .card img { height: 240px; }
   }
 </style>
+
