@@ -1,0 +1,39 @@
+---
+import ActionLink from "../ui/ActionLink.astro";
+import Card from "../ui/Card.astro";
+import Heading from "../ui/Heading.astro";
+import Text from "../ui/Text.astro";
+import type { StaticObra } from "@lib/static-obras";
+
+interface Props {
+  obra: StaticObra;
+}
+
+const { obra } = Astro.props;
+---
+
+<Card as="article" variant="gallery" class="vipar-obras-card" data-tags={obra.filterTags.join(",")}>
+  <div class="vipar-obras-card__image">
+    <img src={obra.imagen} alt={obra.titulo} loading="lazy" decoding="async" />
+  </div>
+  <div class="vipar-obras-card__body">
+    <Text as="span" variant="label-sm" tone="accent" class="vipar-obras-card__eyebrow">
+      {obra.sectorLabel}
+    </Text>
+    <Heading level={4} variant="sm">{obra.titulo}</Heading>
+    <div class="vipar-obras-card__location">
+      <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+      {obra.ubicacion}
+    </div>
+    <Text size="sm">{obra.resumen}</Text>
+    <ActionLink
+      href={`/obras/${obra.slug}`}
+      tone="primary"
+      size="sm"
+      class="vipar-obras-card__cta"
+    >
+      Ver obra
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+    </ActionLink>
+  </div>
+</Card>

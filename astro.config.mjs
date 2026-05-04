@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
+import tailwindcss from "@tailwindcss/vite";
 import compress from "vite-plugin-compression";
 import sitemap from "@astrojs/sitemap";
 
@@ -66,6 +67,6 @@ export default defineConfig({
     }),
   ],
   vite: {
-    plugins: [compress()],
+    plugins: [tailwindcss(), compress()],
   },
 });

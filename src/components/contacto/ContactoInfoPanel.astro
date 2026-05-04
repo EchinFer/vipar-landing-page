@@ -1,0 +1,43 @@
+---
+import Card from "@components/ui/Card.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+
+interface Props {
+  address: string;
+  email: string;
+  telephone: string;
+}
+
+const { address, email, telephone } = Astro.props;
+---
+
+<Card as="article" class="contact-panel">
+  <div class="contact-panel__head">
+    <Heading level={2} variant="md" class="contact-panel__title">Información Corporativa</Heading>
+  </div>
+
+  <ul class="contact-info-list">
+    <li>
+      <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+      <div>
+        <Text as="strong" variant="label-md" tone="default">Dirección Física</Text>
+        <Text as="span">{address}, Paraguay.</Text>
+      </div>
+    </li>
+    <li>
+      <span class="material-symbols-outlined" aria-hidden="true">phone_iphone</span>
+      <div>
+        <Text as="strong" variant="label-md" tone="default">Teléfono / WhatsApp</Text>
+        <Text as="span">{telephone}</Text>
+      </div>
+    </li>
+    <li>
+      <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+      <div>
+        <Text as="strong" variant="label-md" tone="default">Email Técnico</Text>
+        <a href={`mailto:${email}`}>{email}</a>
+      </div>
+    </li>
+  </ul>
+</Card>

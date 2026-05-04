@@ -1,5 +1,11 @@
 ---
-interface Props { class?: string }
-const { class: className = "" } = Astro.props;
+interface Props {
+  as?: string;
+  variant?: "default" | "media" | "soft" | "immersive" | "feature" | "gallery" | "catalog";
+  class?: string;
+}
+
+const { as = "article", variant = "default", class: className = "", ...rest } = Astro.props;
+const Tag = as as any;
 ---
-<article class:list={["ds-card", className]}><slot /></article>
+<Tag {...rest} class:list={["ds-card", variant !== "default" && `ds-card--variant-${variant}`, className]}><slot /></Tag>

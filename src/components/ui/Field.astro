@@ -1,5 +1,10 @@
 ---
-interface Props { class?: string }
-const { class: className = "" } = Astro.props;
+interface Props {
+  as?: string;
+  class?: string;
+}
+
+const { as = "div", class: className = "" } = Astro.props;
+const Tag = as as any;
 ---
-<div class:list={["ds-field", className]}><slot /></div>
+<Tag class:list={["ds-field", className]}><slot /></Tag>

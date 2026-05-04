@@ -1,0 +1,39 @@
+.ds-heading-display {
+  font-family: var(--ds-font-headline);
+  font-size: var(--ds-text-display-size);
+  font-weight: var(--ds-text-display-weight);
+  line-height: var(--ds-text-display-leading);
+  letter-spacing: var(--ds-text-display-tracking);
+}
+
+.ds-heading-lg {
+  font-family: var(--ds-font-headline);
+  font-size: var(--ds-text-h1-size);
+  font-weight: var(--ds-text-h1-weight);
+  line-height: var(--ds-text-h1-leading);
+  letter-spacing: var(--ds-text-h1-tracking);
+}
+
+.ds-heading-md {
+  font-family: var(--ds-font-headline);
+  font-size: var(--ds-text-h2-size);
+  font-weight: var(--ds-text-h2-weight);
+  line-height: var(--ds-text-h2-leading);
+  letter-spacing: var(--ds-text-h2-tracking);
+}
+
+.ds-heading-sm {
+  font-family: var(--ds-font-headline);
+  font-size: var(--ds-text-h3-size);
+  font-weight: var(--ds-text-h3-weight);
+  line-height: var(--ds-text-h3-leading);
+  letter-spacing: var(--ds-text-h3-tracking);
+}
+
+.ds-heading-default {
+  color: var(--ds-color-primary);
+}
+
+.ds-heading-inverse {
+  color: var(--ds-color-surface);
+}

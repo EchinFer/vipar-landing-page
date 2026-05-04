@@ -1,0 +1,30 @@
+---
+import Button from "../ui/Button.astro";
+import Heading from "../ui/Heading.astro";
+import Text from "../ui/Text.astro";
+
+interface Props {
+  whatsappNumber: string;
+}
+
+const { whatsappNumber } = Astro.props;
+---
+
+<section class="vipar-obras-final">
+  <Heading level={2}>&iquest;Quer&eacute;s cotizar un trabajo similar?</Heading>
+  <Text>
+    Envi&aacute; fotos, planos o referencias de tu proyecto para recibir un presupuesto detallado y
+    asesoramiento t&eacute;cnico especializado.
+  </Text>
+  <Button
+    href={`https://wa.me/${whatsappNumber}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    variant="contained"
+    tone="primary"
+    size="lg"
+    class="vipar-obras-final__cta"
+  >
+    Solicitar presupuesto por WhatsApp
+  </Button>
+</section>

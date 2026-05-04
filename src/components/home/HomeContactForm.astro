@@ -1,0 +1,83 @@
+---
+import Button from "../ui/Button.astro";
+import Card from "../ui/Card.astro";
+import Field from "../ui/Field.astro";
+import Input from "../ui/Input.astro";
+import Select from "../ui/Select.astro";
+import Textarea from "../ui/Textarea.astro";
+---
+
+<Card class="vipar-form-card">
+  <form class="vipar-form" id="vipar-home-form" novalidate>
+    <div class="vipar-form__grid vipar-form__grid--2">
+      <Field as="label" class="vipar-field">
+        <span>Nombre y Apellido / Empresa *</span>
+        <Input id="name" name="name" type="text" required autocomplete="name" />
+      </Field>
+
+      <Field as="label" class="vipar-field">
+        <span>WhatsApp de contacto *</span>
+        <Input id="phone" name="phone" type="tel" required autocomplete="tel" />
+      </Field>
+    </div>
+
+    <Field as="label" class="vipar-field">
+      <span>Correo Electr&oacute;nico</span>
+      <Input id="email" name="email" type="email" autocomplete="email" />
+    </Field>
+
+    <div class="vipar-form__grid vipar-form__grid--2">
+      <Field as="label" class="vipar-field">
+        <span>Tipo de Servicio *</span>
+        <Select id="service" name="service" required>
+          <option value="">Seleccione una opci&oacute;n</option>
+          <option value="Cristales Templados">Cristales Templados</option>
+          <option value="Carpinter&iacute;a de Aluminio">Carpinter&iacute;a de Aluminio</option>
+          <option value="Fachadas">Fachadas</option>
+          <option value="Mamparas / Divisiones">Mamparas / Divisiones</option>
+          <option value="Cielos Rasos">Cielos Rasos</option>
+          <option value="Box de Ba&ntilde;o">Box de Ba&ntilde;o</option>
+          <option value="Ventanas">Ventanas</option>
+          <option value="Puertas">Puertas</option>
+          <option value="Cortinas">Cortinas</option>
+          <option value="M&uacute;ltiples servicios / Obra integral">
+            M&uacute;ltiples servicios / Obra integral
+          </option>
+        </Select>
+      </Field>
+
+      <Field as="label" class="vipar-field">
+        <span>Ubicaci&oacute;n de la obra</span>
+        <Input
+          id="city"
+          name="city"
+          type="text"
+          placeholder="Ej: Asunci&oacute;n, Luque, San Lorenzo..."
+        />
+      </Field>
+    </div>
+
+    <Field as="label" class="vipar-field">
+      <span>Mensaje o detalle de la solicitud *</span>
+      <Textarea id="message" name="message" required />
+    </Field>
+
+    <Field as="label" class="vipar-field vipar-field--file">
+      <span>
+        <span class="material-symbols-outlined" aria-hidden="true">upload_file</span>
+        Adjuntar planos o referencias (PDF, JPG, PNG)
+      </span>
+      <Input id="file" name="file" type="file" accept=".pdf,.jpg,.jpeg,.png" />
+    </Field>
+
+    <input type="hidden" name="source" value="vipar-home-stitch" />
+
+    <div class="vipar-form__status" id="vipar-home-form-status" hidden>
+      <p class="vipar-form__status-message" id="vipar-home-form-message"></p>
+    </div>
+
+    <Button variant="contained" tone="primary" size="lg" fullWidth type="submit">
+      Enviar solicitud de cotizaci&oacute;n
+    </Button>
+  </form>
+</Card>

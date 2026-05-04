@@ -1,0 +1,100 @@
+---
+interface ServiceInfo {
+  icon: string;
+  label: string;
+  description: string;
+  href: string;
+}
+
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+
+// Static map: tag name → icon (bootstrap-icons) + description + service link
+const SERVICE_MAP: Record<string, Omit<ServiceInfo, "label">> = {
+  "Fachadas": {
+    icon: "bi-building",
+    description: "Sistemas de fachada en cristal y aluminio para máxima transparencia y eficiencia.",
+    href: "/servicios/",
+  },
+  "Cristal templado": {
+    icon: "bi-transparency",
+    description: "Vidrio templado de alta resistencia para fachadas, tabiques y cerramientos.",
+    href: "/servicios/",
+  },
+  "Cristal": {
+    icon: "bi-transparency",
+    description: "Soluciones en cristal templado y laminado para construcción residencial y comercial.",
+    href: "/servicios/",
+  },
+  "Aluminio": {
+    icon: "bi-columns-gap",
+    description: "Perfiles de aluminio extruido con acabados de alta durabilidad y estética precisa.",
+    href: "/servicios/",
+  },
+  "Mamparas": {
+    icon: "bi-layout-sidebar-inset",
+    description: "Divisiones interiores en cristal con opciones acústicas y de privacidad.",
+    href: "/servicios/",
+  },
+  "Mamparas de Cristal": {
+    icon: "bi-layout-sidebar-inset",
+    description: "Tabiquería interior de vidrio templado, configurable y de montaje limpio.",
+    href: "/servicios/",
+  },
+  "Cielos rasos": {
+    icon: "bi-grid-3x3-gap",
+    description: "Sistemas de cielorraso en aluminio y materiales compuestos para interiores modernos.",
+    href: "/servicios/",
+  },
+  "Ventanas": {
+    icon: "bi-border-all",
+    description: "Ventanas de aluminio y PVC con vidrios de control solar y aislamiento acústico.",
+    href: "/servicios/",
+  },
+  "Puertas": {
+    icon: "bi-door-open",
+    description: "Puertas en aluminio y cristal para accesos residenciales, comerciales e institucionales.",
+    href: "/servicios/",
+  },
+  "Terminaciones": {
+    icon: "bi-stars",
+    description: "Detalles y terminaciones en aluminio y vidrio para una obra impecable.",
+    href: "/servicios/",
+  },
+};
+
+const DEFAULT_SERVICE: Omit<ServiceInfo, "label"> = {
+  icon: "bi-tools",
+  description: "Servicio especializado en carpintería de aluminio y cristal templado.",
+  href: "/servicios/",
+};
+
+const services: ServiceInfo[] = tags.map((tag) => ({
+  label: tag,
+  ...(SERVICE_MAP[tag] ?? DEFAULT_SERVICE),
+}));
+---
+
+{services.length > 0 && (
+  <section class="od-servicios">
+    <div class="od-servicios__inner">
+      <h3 class="od-servicios__title">Servicios Aplicados</h3>
+
+      <div class="od-servicios__grid">
+        {services.map((service) => (
+          <div class="od-servicio-card">
+            <i class={`${service.icon} od-servicio-card__icon`}></i>
+            <h4 class="od-servicio-card__title">{service.label}</h4>
+            <p class="od-servicio-card__desc">{service.description}</p>
+            <a href={service.href} class="od-servicio-card__link">
+              Ver servicios <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

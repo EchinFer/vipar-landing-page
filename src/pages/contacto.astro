@@ -1,17 +1,67 @@
 ---
+import ContactoFormPanel from "@components/contacto/ContactoFormPanel.astro";
+import ContactoHero from "@components/contacto/ContactoHero.astro";
+import ContactoInfoPanel from "@components/contacto/ContactoInfoPanel.astro";
+import ContactoMap from "@components/contacto/ContactoMap.astro";
+import ContactoMediaPanel from "@components/contacto/ContactoMediaPanel.astro";
+import ContactoSocialPanel from "@components/contacto/ContactoSocialPanel.astro";
+import Container from "@components/ui/Container.astro";
 import Layout from "@layouts/Layout.astro";
-import "../styles/contacto-stitch.css";
-import { SITE_URL, address, email, telephone, SOCIAL_LINKS } from "src/constants";
+import "../styles/contacto.css";
+import {
+  SITE_URL,
+  SOCIAL_LINKS,
+  address,
+  email,
+  telephone,
+} from "src/constants";
 
 const title = "Contacto | VIPAR S.A.";
 const description =
   "Contacto técnico y comercial de VIPAR S.A. en Ñemby, Paraguay. Consultas, cotizaciones y coordinación de proyectos en cristales, aluminio y terminaciones.";
 const canonical = `${SITE_URL}/contacto/`;
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
-const whatsappMessage = "Hola, quiero solicitar un presupuesto. Me comunico desde la página de contacto.";
+const whatsappMessage =
+  "Hola, quiero solicitar un presupuesto. Me comunico desde la página de contacto.";
 const googleMapsUrl =
   "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("San Francisco 770 c/ Sexta, Barrio Salinas, Ñemby, Paraguay");
+  encodeURIComponent(
+    "San Francisco 770 c/ Sexta, Barrio Salinas, Ñemby, Paraguay",
+  );
+
+const socialItems = [
+  {
+    label: "Instagram",
+    href: SOCIAL_LINKS.instagram || "#",
+    icon: "photo_camera",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    label: "LinkedIn",
+    href: SOCIAL_LINKS.linkedin || "#",
+    icon: "work",
+  },
+  {
+    label: "YouTube",
+    href: "#",
+    icon: "play_circle",
+  },
+  {
+    label: "WhatsApp",
+    href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+    icon: "chat",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    label: "Facebook",
+    href: SOCIAL_LINKS.facebook || "#",
+    icon: "thumb_up",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+];
 ---
 
 <Layout
@@ -22,174 +72,25 @@ const googleMapsUrl =
   hideWhatsappFAB={true}
   hideConsentBanner={true}
 >
-  <div class="contact-stitch-page">
+  <div class="contact-page">
     <main class="contact-main">
-      <section class="contact-hero contact-container">
-        <h1>Contacto</h1>
-        <p>
-          Estamos aquí para responder a sus consultas técnicas y proyectos de ingeniería.
-          Contáctenos para iniciar su próxima obra con precisión y calidad.
-        </p>
-      </section>
+      <ContactoHero />
 
-      <section class="contact-grid contact-container">
+      <Container class="contact-container contact-grid">
         <div class="contact-stack">
-          <article class="contact-panel">
-            <div class="contact-panel__head">
-              <h2>Información Corporativa</h2>
-            </div>
-
-            <ul class="contact-info-list">
-              <li>
-                <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
-                <div>
-                  <strong>Dirección Física</strong>
-                  <span>{address}, Paraguay.</span>
-                </div>
-              </li>
-              <li>
-                <span class="material-symbols-outlined" aria-hidden="true">phone_iphone</span>
-                <div>
-                  <strong>Teléfono / WhatsApp</strong>
-                  <span>{telephone}</span>
-                </div>
-              </li>
-              <li>
-                <span class="material-symbols-outlined" aria-hidden="true">mail</span>
-                <div>
-                  <strong>Email Técnico</strong>
-                  <a href={`mailto:${email}`}>{email}</a>
-                </div>
-              </li>
-            </ul>
-          </article>
-
-          <article class="contact-media-panel">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc6OLeRcDRon2vFa-5bm61MWcz6WMDEV35aOzBH7RWWLzW2zf1ZVJZ0rRASoqSrxIxmAVmGh4q9wOVgVsgV0ZupCtX93vDam8zwSOarN9O5Nw2OipYJelu12w2Yb-VykYI9l7XCzj15Ugps_IHz9OAYMw5a_JAeUFaYnBONBrx0Poe5FEuuqvcXfNJdh29KUMdaGC0qJb6UhZIw554R0hAOszx1LKVfs2qxDJY-e6t655Xn-de2J-HxEhh1uz33hKoVkkHfxRunxIB"
-              alt="Exterior corporativo con cristal y estructura metálica"
-              loading="lazy"
-              decoding="async"
-            />
-          </article>
-
-          <article class="contact-panel">
-            <h3>Redes Sociales</h3>
-
-            <div class="contact-social-grid">
-              <a aria-label="Instagram" href={SOCIAL_LINKS.instagram || "#"} target="_blank" rel="noopener noreferrer">
-                <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
-              </a>
-              <a aria-label="LinkedIn" href={SOCIAL_LINKS.linkedin || "#"}>
-                <span class="material-symbols-outlined" aria-hidden="true">work</span>
-              </a>
-              <a aria-label="YouTube" href="#" >
-                <span class="material-symbols-outlined" aria-hidden="true">play_circle</span>
-              </a>
-              <a aria-label="WhatsApp" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer">
-                <span class="material-symbols-outlined" aria-hidden="true">chat</span>
-              </a>
-              <a aria-label="Facebook" href={SOCIAL_LINKS.facebook || "#"} target="_blank" rel="noopener noreferrer">
-                <span class="material-symbols-outlined" aria-hidden="true">thumb_up</span>
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <article class="contact-form-panel" id="consulta-tecnica">
-          <div>
-            <h2>Consulta Técnica</h2>
-            <p>
-              Su consulta no molesta. Estamos aquí para responder a sus consultas técnicas y
-              ayudarlo a encontrar la mejor solución para su proyecto u obra.
-            </p>
-
-            <form class="contact-form" id="vipar-contact-form" novalidate>
-              <label class="contact-field">
-                <span>Nombre Completo / Empresa</span>
-                <input id="name" name="name" type="text" placeholder="Ej. Juan Pérez - Constructora o Particular" required />
-              </label>
-
-              <label class="contact-field">
-                <span>Correo Electrónico</span>
-                <input id="email" name="email" type="email" placeholder="ejemplo@empresa.com.py" />
-              </label>
-
-              <label class="contact-field">
-                <span>Teléfono / WhatsApp</span>
-                <input id="phone" name="phone" type="tel" placeholder="+595 981 256 510" required />
-              </label>
-
-              <label class="contact-field">
-                <span>Asunto</span>
-                <select id="city" name="city">
-                  <option value="">Seleccione el motivo de su consulta</option>
-                  <option value="Solicitud de Cotización">Solicitud de Cotización</option>
-                  <option value="Consulta Técnica">Consulta Técnica</option>
-                  <option value="Mantenimiento">Mantenimiento</option>
-                  <option value="Otros">Otros</option>
-                </select>
-              </label>
-
-              <label class="contact-field">
-                <span>Mensaje / Detalles del Proyecto</span>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  placeholder="Describa brevemente su proyecto, medidas aproximadas o el tipo de solución técnica que necesita..."
-                  required
-                ></textarea>
-              </label>
-
-              <label class="contact-upload">
-                <span>Adjuntar Planos / Especificaciones (Opcional)</span>
-                <input id="file" name="file" type="file" accept=".pdf,.jpg,.jpeg,.png" />
-              </label>
-
-              <input type="hidden" name="source" value="vipar-contacto-stitch" />
-
-              <div class="contact-form__status" id="vipar-contact-form-status" hidden>
-                <p id="vipar-contact-form-message"></p>
-              </div>
-
-              <button class="contact-submit" type="submit">
-                <span>Enviar Mensaje</span>
-                <span class="material-symbols-outlined" aria-hidden="true">send</span>
-              </button>
-            </form>
-          </div>
-        </article>
-      </section>
-
-      <section class="contact-map contact-container">
-        <div class="contact-map__head">
-          <div>
-            <h2>Ubicación Estratégica</h2>
-            <p>Nuestra planta y oficinas técnicas en Ñemby, Paraguay</p>
-          </div>
-
-          <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
-            Abrir en Google Maps
-            <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
-          </a>
-        </div>
-
-        <div class="contact-map__visual">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AM-A5atq6S7q0nE6A_H9Jm6i3u_0lHn_fL7J_l9G4n_3_J5o=s2048"
-            alt="Mapa con ubicación de VIPAR S.A. en Ñemby, Paraguay"
-            loading="lazy"
-            decoding="async"
+          <ContactoInfoPanel
+            address={address}
+            email={email}
+            telephone={telephone}
           />
-
-          <div class="contact-map__pin" aria-hidden="true">
-            <div class="contact-map__pulse"></div>
-            <div class="contact-map__dot"></div>
-            <div class="contact-map__label">VIPAR S.A.</div>
-          </div>
+          <ContactoMediaPanel />
+          <ContactoSocialPanel items={socialItems} />
         </div>
-      </section>
+
+        <ContactoFormPanel />
+      </Container>
+
+      <ContactoMap googleMapsUrl={googleMapsUrl} />
     </main>
   </div>
 
@@ -199,14 +100,16 @@ const googleMapsUrl =
     const message = document.getElementById("vipar-contact-form-message");
 
     function setStatus(kind, text) {
-      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement)) return;
+      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement))
+        return;
       status.hidden = false;
       status.dataset.state = kind;
       message.textContent = text;
     }
 
     function clearStatus() {
-      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement)) return;
+      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement))
+        return;
       status.hidden = true;
       delete status.dataset.state;
       message.textContent = "";
@@ -238,8 +141,11 @@ const googleMapsUrl =
       payload.set("email", emailValue);
       payload.set("city", subject);
       payload.set("message", details);
-      payload.set("source", String(formData.get("source") || "vipar-contacto-stitch"));
-      payload.set("page", typeof window !== "undefined" ? window.location.href : "");
+      payload.set("source", String(formData.get("source") || "vipar-contacto"));
+      payload.set(
+        "page",
+        typeof window !== "undefined" ? window.location.href : "",
+      );
 
       const attachment = formData.get("file");
       if (attachment instanceof File && attachment.size > 0) {
@@ -262,12 +168,16 @@ const googleMapsUrl =
         if (!response.ok) {
           setStatus(
             "error",
-            data?.error || "No se pudo enviar la consulta. Probá nuevamente o escribinos por WhatsApp."
+            data?.error ||
+              "No se pudo enviar la consulta. Probá nuevamente o escribinos por WhatsApp.",
           );
           return;
         }
 
-        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        if (
+          typeof window !== "undefined" &&
+          typeof window.gtag === "function"
+        ) {
           window.gtag("event", "generate_lead", {
             method: "contact_form",
             page_location: window.location.href,
@@ -275,9 +185,15 @@ const googleMapsUrl =
         }
 
         formElement.reset();
-        setStatus("success", "Recibimos tu consulta. Te responderemos a la brevedad.");
+        setStatus(
+          "success",
+          "Recibimos tu consulta. Te responderemos a la brevedad.",
+        );
       } catch {
-        setStatus("error", "Error de red. Probá nuevamente o escribinos por WhatsApp.");
+        setStatus(
+          "error",
+          "Error de red. Probá nuevamente o escribinos por WhatsApp.",
+        );
       } finally {
         if (submitButton instanceof HTMLButtonElement) {
           submitButton.disabled = false;

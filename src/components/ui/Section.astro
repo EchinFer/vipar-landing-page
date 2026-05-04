@@ -1,5 +1,9 @@
 ---
-interface Props { as?: string; class?: string }
+interface Props {
+  as?: string;
+  class?: string;
+}
+
 const { as = "section", class: className = "" } = Astro.props;
 const Tag = as as any;
 ---

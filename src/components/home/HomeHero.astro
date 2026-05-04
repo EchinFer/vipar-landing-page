@@ -1,0 +1,51 @@
+---
+import Button from "@components/ui/Button.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Stack from "@components/ui/Stack.astro";
+import Text from "@components/ui/Text.astro";
+
+interface Props {
+  whatsappNumber: string;
+  whatsappMessage: string;
+}
+
+const { whatsappNumber, whatsappMessage } = Astro.props;
+void whatsappNumber;
+void whatsappMessage;
+---
+
+<section class="vipar-hero">
+  <div class="vipar-hero__backdrop">
+    <img
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWL1SdapClxacZbU-BDsOxCm6FeDmKTi4AzWqCwGR5aVqNtlszxC7VxVKys4XN994M17_TqoXF0hMQsX890kJgA7wRPTKU-qdJccKZL2_1eTrPYok8nppN9PfZh6KlD2RmO_4Ff9gVgB2O1llszJiqBKhExzcP9OHfkcwKlgqwV7EAbdYYkWQ7hbLeIUPq-lemrX7JD-4ph5U9lWZ9K0n6Mng4uGgMc1nt9U29bY-LXY8dRfCt9S1TQYRO_oOyCG1vSY2h7IboOrAK"
+      alt="Lobby corporativo con superficies vidriadas y terminaciones arquitect&oacute;nicas"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="vipar-hero__backdrop-overlay"></div>
+  </div>
+
+  <Container class="vipar-shell vipar-hero__grid">
+    <Stack class="vipar-hero__copy" gap="md">
+      <Stack class="vipar-hero__meta" gap="sm">
+        <Text as="span" variant="label-sm" tone="accent" class="vipar-hero__eyebrow">Ubicados en &Ntilde;emby, Central</Text>
+        <Text as="span" variant="body-md" tone="muted" class="vipar-hero__support">Atenci&oacute;n para obras residenciales y comerciales</Text>
+      </Stack>
+
+      <Heading level={1} variant="display">Cristales templados, aluminio y terminaciones para obras en Paraguay</Heading>
+      <Text variant="body-lg" tone="muted">
+        Soluciones en cristal templado, aluminio, fachadas, mamparas, cielos rasos y box de ba&ntilde;o para viviendas, comercios, oficinas y obras. Cotizamos seg&uacute;n medidas, tipo de proyecto y condiciones de instalaci&oacute;n.
+      </Text>
+
+      <div class="vipar-actions">
+        <Button href="#contacto" variant="contained" tone="primary" size="lg">
+          Solicitar presupuesto
+        </Button>
+        <Button href="#servicios" variant="link" tone="primary" size="md">
+          Ver servicios
+        </Button>
+      </div>
+    </Stack>
+  </Container>
+</section>

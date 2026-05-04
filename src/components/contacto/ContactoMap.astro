@@ -1,0 +1,51 @@
+---
+import Button from "@components/ui/Button.astro";
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+
+interface Props {
+  googleMapsUrl: string;
+}
+
+const { googleMapsUrl } = Astro.props;
+---
+
+<Container class="contact-container">
+  <Card as="section" class="contact-map">
+    <div class="contact-map__head">
+      <div>
+        <Heading level={2} variant="md" class="contact-map__title">Ubicación Estratégica</Heading>
+        <Text class="contact-map__copy">Nuestra planta y oficinas técnicas en Ñemby, Paraguay</Text>
+      </div>
+
+      <Button
+        href={googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="link"
+        tone="primary"
+        class="contact-map__action"
+      >
+        Abrir en Google Maps
+        <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+      </Button>
+    </div>
+
+    <div class="contact-map__visual">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AM-A5atq6S7q0nE6A_H9Jm6i3u_0lHn_fL7J_l9G4n_3_J5o=s2048"
+        alt="Mapa con ubicación de VIPAR S.A. en Ñemby, Paraguay"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <div class="contact-map__pin" aria-hidden="true">
+        <div class="contact-map__pulse"></div>
+        <div class="contact-map__dot"></div>
+        <div class="contact-map__label">VIPAR S.A.</div>
+      </div>
+    </div>
+  </Card>
+</Container>

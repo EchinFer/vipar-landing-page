@@ -1,0 +1,43 @@
+---
+import Button from "@components/ui/Button.astro";
+import Card from "@components/ui/Card.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+
+interface FeaturedService {
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  points: string[];
+  href: string;
+}
+
+interface Props {
+  service: FeaturedService;
+}
+
+const { service } = Astro.props;
+---
+
+<Card variant="media">
+  <div class="vipar-service-card__image">
+    <img src={service.image} alt={service.alt} loading="lazy" decoding="async" />
+  </div>
+  <div class="vipar-service-card__body">
+    <Heading level={3}>{service.title}</Heading>
+    <Text variant="body-md" tone="inverse">{service.description}</Text>
+    <ul class="vipar-service-card__list">
+      {service.points.map((point) => (
+        <li>
+          <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+          <span>{point}</span>
+        </li>
+      ))}
+    </ul>
+    <Button href={service.href} variant="contained" tone="inverse" size="md" fullWidth>
+      Ver soluciones
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+    </Button>
+  </div>
+</Card>

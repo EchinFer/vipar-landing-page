@@ -1,0 +1,38 @@
+---
+interface Props {
+  titulo: string;
+  imagen: string;
+  imagenes?: string[];
+}
+
+const { titulo, imagen, imagenes = [] } = Astro.props;
+
+const allImages = [
+  ...(imagen ? [imagen] : []),
+  ...imagenes,
+];
+---
+
+{allImages.length > 0 && (
+  <section class="od-gallery">
+    <h3 class="od-gallery__title">Galería del Proyecto</h3>
+
+    <div class="od-gallery__grid">
+      {allImages.map((img, i) => (
+        <a
+          href={img}
+          class="od-gallery__item glightbox"
+          data-gallery="obra-detail-gallery"
+          data-title={titulo}
+        >
+          <img
+            src={img}
+            alt={`${titulo} — imagen ${i + 1}`}
+            loading={i === 0 ? "eager" : "lazy"}
+            decoding="async"
+          />
+        </a>
+      ))}
+    </div>
+  </section>
+)}

@@ -1,0 +1,17 @@
+.ds-field,
+.vipar-field {
+  display: grid;
+  gap: var(--ds-space-2);
+}
+
+.ds-field > span,
+.vipar-field > span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  color: var(--ds-color-on-surface);
+  font-size: var(--ds-text-label-sm-size);
+  font-weight: var(--ds-text-label-sm-weight);
+  letter-spacing: var(--ds-text-label-sm-tracking);
+  text-transform: uppercase;
+}

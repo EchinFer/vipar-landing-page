@@ -1,0 +1,16 @@
+.ds-container,
+.vipar-site-shell,
+.vipar-shell,
+.container {
+  width: min(calc(100% - (var(--ds-container-padding-mobile) * 2)), var(--ds-container-max));
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .ds-container,
+  .vipar-site-shell,
+  .vipar-shell,
+  .container {
+    width: min(calc(100% - (var(--ds-container-padding-desktop) * 2)), var(--ds-container-max));
+  }
+}

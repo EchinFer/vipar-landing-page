@@ -1,0 +1,55 @@
+---
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Stack from "@components/ui/Stack.astro";
+import Text from "@components/ui/Text.astro";
+import HomeServiceEnvironmentCard from "./HomeServiceEnvironmentCard.astro";
+import HomeServiceMiniCard from "./HomeServiceMiniCard.astro";
+
+interface FeaturedService {
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  points: string[];
+  href: string;
+}
+
+interface ComplementaryService {
+  icon: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+interface Props {
+  featuredServices: FeaturedService[];
+  complementaryServices: ComplementaryService[];
+}
+
+const { featuredServices, complementaryServices } = Astro.props;
+---
+
+<section class="vipar-section vipar-section--surface" id="servicios">
+  <Container class="vipar-shell vipar-stack-lg">
+    <Stack class="vipar-section-heading vipar-section-heading--center" gap="sm">
+      <Text as="span" variant="label-sm" tone="accent" class="vipar-label">Nuestros Servicios</Text>
+      <Heading level={2}>Soluciones por entorno</Heading>
+      <Text variant="body-lg" tone="muted">
+        Especializaci&oacute;n t&eacute;cnica adaptada a los requerimientos de viviendas, espacios comerciales y proyectos corporativos.
+      </Text>
+    </Stack>
+
+    <div class="vipar-featured-grid">
+      {featuredServices.map((service) => (
+        <HomeServiceEnvironmentCard service={service} />
+      ))}
+    </div>
+
+    <div class="vipar-mini-grid">
+      {complementaryServices.map((service) => (
+        <HomeServiceMiniCard service={service} />
+      ))}
+    </div>
+  </Container>
+</section>

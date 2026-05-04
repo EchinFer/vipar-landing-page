@@ -1,0 +1,51 @@
+---
+import Card from "../ui/Card.astro";
+import Heading from "../ui/Heading.astro";
+import Text from "../ui/Text.astro";
+
+interface Project {
+  layout: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<Card
+  as="article"
+  variant="immersive"
+  class:list={[
+    "vipar-project-card",
+    `vipar-project-card--${project.layout}`,
+  ]}
+  tabindex="0"
+>
+  <div class="vipar-project-card__image">
+    <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
+  </div>
+
+  <div class="vipar-project-card__body">
+    {project.layout === "hero" ? (
+      <>
+        <Text as="span" variant="label-sm" tone="inverse" class="vipar-project-card__eyebrow">
+          {project.eyebrow}
+        </Text>
+        <Heading level={3}>{project.title}</Heading>
+        <Text tone="inverse">{project.description}</Text>
+      </>
+    ) : (
+      <>
+        <Heading level={4} variant="sm">{project.title}</Heading>
+        <Text tone="inverse" size="sm">{project.description}</Text>
+      </>
+    )}
+  </div>
+</Card>

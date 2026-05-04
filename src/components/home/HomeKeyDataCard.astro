@@ -1,0 +1,33 @@
+---
+import Card from "../ui/Card.astro";
+import Heading from "../ui/Heading.astro";
+import Text from "../ui/Text.astro";
+
+interface KeyDataItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  keyData: KeyDataItem[];
+}
+
+const { keyData } = Astro.props;
+---
+
+<Card as="aside" class="vipar-key-card">
+  <Heading level={3} variant="sm">Datos Clave</Heading>
+
+  <div class="vipar-key-card__list">
+    {keyData.map((item) => (
+      <div class="vipar-key-card__item">
+        <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
+        <div>
+          <Text as="strong" variant="label-sm" tone="default">{item.title}</Text>
+          <Text as="span" size="sm">{item.description}</Text>
+        </div>
+      </div>
+    ))}
+  </div>
+</Card>

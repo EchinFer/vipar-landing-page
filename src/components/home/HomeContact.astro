@@ -1,0 +1,26 @@
+---
+import Container from "../ui/Container.astro";
+import HomeContactForm from "./HomeContactForm.astro";
+import HomeContactInfo from "./HomeContactInfo.astro";
+
+interface Props {
+  whatsappNumber: string;
+  whatsappMessage: string;
+  telephone: string;
+  email: string;
+}
+
+const { whatsappNumber, whatsappMessage, telephone, email } = Astro.props;
+---
+
+<section class="vipar-section vipar-section--surface" id="contacto">
+  <Container class="vipar-shell vipar-contact-grid">
+    <HomeContactInfo
+      whatsappNumber={whatsappNumber}
+      whatsappMessage={whatsappMessage}
+      telephone={telephone}
+      email={email}
+    />
+    <HomeContactForm />
+  </Container>
+</section>

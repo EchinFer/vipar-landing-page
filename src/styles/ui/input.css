@@ -1,0 +1,51 @@
+.ds-input,
+.ds-select,
+.ds-textarea,
+.vipar-field input,
+.vipar-field select,
+.vipar-field textarea {
+  width: 100%;
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-surface);
+  color: var(--ds-color-on-surface);
+  font: inherit;
+  min-height: 52px;
+  padding: 14px 16px;
+  outline: none;
+}
+
+.ds-textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.ds-input[type="file"] {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  min-height: auto;
+}
+
+.ds-input[type="file"]::file-selector-button {
+  margin-right: 16px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--vipar-surface-mid);
+  color: var(--vipar-text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ds-input:focus,
+.ds-select:focus,
+.ds-textarea:focus,
+.vipar-field input:focus,
+.vipar-field select:focus,
+.vipar-field textarea:focus {
+  border-color: var(--ds-color-accent);
+  box-shadow: 0 0 0 3px rgba(47, 128, 168, 0.16);
+}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sucursal Tigo - Precision Arch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "tertiary": "#08141b",
+                            "surface-container-highest": "#cee6f3",
+                            "on-secondary-fixed-variant": "#004c6a",
+                            "tertiary-fixed-dim": "#bbc8d1",
+                            "outline": "#73777d",
+                            "primary": "#001524",
+                            "on-tertiary-container": "#839099",
+                            "error": "#ba1a1a",
+                            "primary-fixed-dim": "#b0c9e2",
+                            "on-primary-container": "#7992a9",
+                            "on-background": "#051e28",
+                            "outline-variant": "#c3c7cd",
+                            "primary-container": "#0f2a3d",
+                            "secondary-fixed-dim": "#86cffb",
+                            "surface-container-lowest": "#ffffff",
+                            "surface-container-low": "#e6f6ff",
+                            "on-tertiary": "#ffffff",
+                            "on-error": "#ffffff",
+                            "on-secondary-fixed": "#001e2d",
+                            "surface-bright": "#f3faff",
+                            "surface-container-high": "#d3ecf9",
+                            "surface-tint": "#486176",
+                            "secondary-fixed": "#c5e7ff",
+                            "tertiary-container": "#1d2930",
+                            "surface-dim": "#c5deeb",
+                            "on-primary-fixed-variant": "#30495e",
+                            "tertiary-fixed": "#d7e4ee",
+                            "on-tertiary-fixed": "#111d24",
+                            "inverse-primary": "#b0c9e2",
+                            "inverse-on-surface": "#dff4ff",
+                            "on-secondary": "#ffffff",
+                            "on-error-container": "#93000a",
+                            "secondary": "#00658b",
+                            "inverse-surface": "#1c333d",
+                            "secondary-container": "#89d2fe",
+                            "on-surface-variant": "#43474c",
+                            "on-primary-fixed": "#011e30",
+                            "primary-fixed": "#cce6ff",
+                            "on-surface": "#051e28",
+                            "surface-container": "#d9f2ff",
+                            "on-primary": "#ffffff",
+                            "surface-variant": "#cee6f3",
+                            "on-secondary-container": "#005b7d",
+                            "surface": "#f3faff",
+                            "error-container": "#ffdad6",
+                            "on-tertiary-fixed-variant": "#3c4950",
+                            "background": "#f3faff"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "stack-sm": "12px",
+                            "stack-md": "24px",
+                            "stack-lg": "48px",
+                            "container-max": "1280px",
+                            "base": "8px",
+                            "gutter": "24px",
+                            "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                            "label-caps": [
+                                    "Inter"
+                            ],
+                            "display": [
+                                    "Inter"
+                            ],
+                            "body-md": [
+                                    "Inter"
+                            ],
+                            "body-lg": [
+                                    "Inter"
+                            ],
+                            "h2": [
+                                    "Inter"
+                            ],
+                            "h1": [
+                                    "Inter"
+                            ]
+                    },
+                    "fontSize": {
+                            "label-caps": [
+                                    "12px",
+                                    {
+                                            "lineHeight": "1.0",
+                                            "letterSpacing": "0.05em",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "display": [
+                                    "56px",
+                                    {
+                                            "lineHeight": "1.1",
+                                            "letterSpacing": "-0.02em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "body-md": [
+                                    "16px",
+                                    {
+                                            "lineHeight": "1.5",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "body-lg": [
+                                    "18px",
+                                    {
+                                            "lineHeight": "1.6",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "h2": [
+                                    "28px",
+                                    {
+                                            "lineHeight": "1.3",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "h1": [
+                                    "42px",
+                                    {
+                                            "lineHeight": "1.2",
+                                            "letterSpacing": "-0.01em",
+                                            "fontWeight": "700"
+                                    }
+                            ]
+                    }
+            },
+                },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md font-['Inter'] antialiased tracking-tight docked full-width top-0 z-50 border-b border-slate-200 dark:border-slate-800 flat no shadows sticky">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1280px] mx-auto w-full">
+<div class="text-xl font-black tracking-tighter text-slate-900 dark:text-white">PRECISION ARCH</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-sky-700 dark:text-sky-400 border-b-2 border-sky-700 dark:border-sky-400 pb-1 font-bold hover:text-sky-600 dark:hover:text-sky-300 transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Proyectos</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-sky-600 dark:hover:text-sky-300 transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Servicios</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-sky-600 dark:hover:text-sky-300 transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Especificaciones Técnicas</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-sky-600 dark:hover:text-sky-300 transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Nosotros</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-sky-600 dark:hover:text-sky-300 transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Contacto</a>
+</div>
+<div class="hidden md:block">
+<button class="bg-[#2F80A8] text-white px-6 py-2 rounded font-body-md font-bold hover:bg-sky-800 transition-colors cursor-pointer active:opacity-70">Solicitar Cotización</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="w-full">
+<!-- Breadcrumb -->
+<div class="max-w-container-max mx-auto px-gutter py-stack-md">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-sm">
+<a class="hover:text-secondary transition-colors" href="#">Proyectos</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-background font-medium">Sucursal Tigo</span>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-padding">
+<div class="relative w-full h-[600px] rounded-xl overflow-hidden mb-stack-lg">
+<img class="w-full h-full object-cover" data-alt="A striking exterior shot of a modern corporate branch building for Tigo. The architecture features extensive precision glass glazing and sleek aluminum framing. The lighting is bright and clean, emphasizing a technical, laboratory-like architectural integrity. The color palette is dominated by stark whites, cool grays, and the deep blue of the sky reflecting in the glass, aligning with a corporate modern minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzWYIuDHYr_IgalezmtfijWP8hCx7sp6ciQ8_EivWzMys7WLI_-3Dbip6UeGrjLklMdqDWg4CQKy9zR_JVNvQRMNs2O6I6hKC8YldZfEScQSxLK1rvW73YwXLvPqDpLycjzhjJNwjPW5Uj3e3jacN_Q-WN4trLcM5WvA_hSgC6959583n45erlz4MFhXkrQvk8XudkciGdqA296IOofu6hCN69A-VrwzIVVXbHGP5yYXGQAfOIrrCI7X3_NRnLzQNgq7B4gT7mZXrn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-stack-lg flex flex-col md:flex-row justify-between items-end">
+<div class="text-on-primary">
+<h1 class="font-display text-display mb-stack-sm">Sucursal Tigo</h1>
+<div class="flex items-center gap-2 font-body-lg opacity-90">
+<span class="material-symbols-outlined">location_on</span>
+<span>Asunción, Paraguay</span>
+</div>
+</div>
+<button class="mt-stack-md md:mt-0 bg-[#2F80A8] text-white px-8 py-3 rounded font-body-md font-bold hover:bg-sky-800 transition-colors shadow-sm">
+                        Cotizar algo similar
+                    </button>
+</div>
+</div>
+<!-- Ficha Tecnica Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-padding">
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-stack-md">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-2">TIPO DE OBRA</div>
+<div class="font-h2 text-h2 text-on-background">Corporativo</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-stack-md">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-2">UBICACIÓN</div>
+<div class="font-h2 text-h2 text-on-background">Asunción, PY</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-stack-md">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-2">SERVICIOS APLICADOS</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-sm rounded-full font-body-md">Glazing</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-sm rounded-full font-body-md">Aluminio</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-sm rounded-full font-body-md">Mamparas de Cristal</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Section -->
+<section class="bg-surface-bright py-section-padding border-y border-outline-variant">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div>
+<h2 class="font-h1 text-h1 text-on-background mb-stack-md border-l-4 border-[#2F80A8] pl-4">El Desafío</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-md">La sucursal de Tigo requería un sistema de fachada de alto rendimiento capaz de soportar cargas térmicas intensas manteniendo una transparencia visual absoluta. El mandato arquitectónico fue estricto: minimizar el entramado estructural visible para crear un efecto de vidrio suspendido sin costuras que se alineara con su identidad de marca vanguardista.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Además, el aislamiento acústico era primordial para las particiones de vidrio interiores a fin de garantizar la privacidad del cliente dentro del entorno corporativo de planta abierta, lo que requirió ingeniería acústica de precisión y unidades de acristalamiento especializadas.</p>
+</div>
+<div>
+<h2 class="font-h1 text-h1 text-on-background mb-stack-md border-l-4 border-[#2F80A8] pl-4">La Respuesta</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-md">Precision Arch proyectó un sistema de muro cortina con acristalamiento estructural a medida utilizando vidrio templado de baja emisividad (Low-E). Nuestro equipo técnico desarrolló una subestructura de aluminio extruido con rotura de puente térmico, diseñada específicamente para permanecer completamente oculta desde el exterior.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Para el interior, instalamos nuestro sistema patentado de mamparas de doble vidriado con láminas acústicas de alto índice STC. Cada unión y aplicación de silicona estructural se ejecutó con precisión milimétrica, logrando una integración impecable entre el rendimiento técnico y la pureza arquitectónica.</p>
+</div>
+</div>
+</section>
+<!-- Image Gallery Grid -->
+<section class="py-section-padding max-w-container-max mx-auto px-gutter">
+<h3 class="font-h2 text-h2 text-on-background mb-stack-lg text-center">Documentación Técnica y Ejecución</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-base">
+<div class="aspect-square bg-surface-container rounded overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Close-up detail shot of the custom structurally glazed curtain wall system. The image highlights the precision engineered aluminum framing and the seamless integration of the tempered Low-E glass panels. The lighting is sharp and technical, emphasizing the crisp lines and metallic textures against a sterile white corporate background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI4bOP4EA7bo1T6fG0F49wC2xN8PhqhKZlr89hOzfFtHrBYBX-_geN37uzJ3ZnhGYFKfEyTWPdTHDvD6GY8Ce1VizPr2d2cx9i7cnHZd-MhbN22JBYdKVNMx_YDx_UpiQ4tfBWAsPsVUwOSehRj0r_ZsOkFnktjfQ2L_rEqULeMJbLI_jTJdid4_mmd2tN7JNWGdaBdN4mJWWzTx0G72jAMh4FJdJriQX88wsT_8m9Hrl8rJexv_dwDkB4X1LutqqAPkdhVp-Pckl3"/>
+</div>
+<div class="aspect-square bg-surface-container rounded overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Interior view of the Tigo branch showing the proprietary double-glazed glass partitions. The scene demonstrates an open-plan corporate layout divided by pristine, highly transparent structural glass. The aesthetic is modern minimalism, featuring stark white surfaces, muted gray structural elements, and a bright, clinical lighting setup that underscores architectural order." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT5lRH3F4y37HUG0B2g42aUd7ULkjxqvyqGLENJFB79gWaIHDOpBOt6yRMLZ2fHjmA0yZIJq9NYg4XVIMYuzTLpMRmqwplu2XC5MvtiEmB4bdl6iaiAUbhmMFyx2kqLezN2dQlUcJL0MYWqhzCzfWqZ6CnphxGcmwA3BLShcDbFHKWE0kZVUSl6MtvsqJxdUAzSXHMtnImcwHyQeAbCLpE6meMypjRInhn1twvmASPxWd4H0FqZoAe2zVq5p350iab8jBNgZdVrm5S"/>
+</div>
+<div class="aspect-square bg-surface-container rounded overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="A technical blueprint overlay blending into a high-resolution photograph of the building's facade. This image visualizes the precision engineering process, showing intricate grid lines and structural silicone application points. The visual style is highly technical and laboratory-like, utilizing a palette of cool blues, stark whites, and precise architectural drafting lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnWBnrDeB8WJ7Y4PnecCqiMVDba1zDkKZNkGiZ00Ko9dngPUwuymaoPQkrMRnUEipFuSygYyKkwjBl3upoFRrCdO43vNUlqA7WnPYtPejmMee_fgUf_HPEqpPrBHA3kQclJ3-jx9ScFEKt3w0-33WcKqToIw4vR4GGkRn_R2VmMBY1mO11ke6E-zm7GgU2EnG4nyhd_H8Ti9aWbom0QzAHPyZcexX1YYFiakgdJcg-W2YWf3-PxxWLgtddgfuBgZl1FKJ2hExkfZUo"/>
+</div>
+</div>
+</section>
+<!-- Related Services -->
+<section class="bg-surface-container py-section-padding">
+<div class="max-w-container-max mx-auto px-gutter">
+<h3 class="font-h2 text-h2 text-on-background mb-stack-lg">Servicios Aplicados</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Service Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md hover:border-[#2F80A8] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-[#2F80A8] mb-4 group-hover:scale-110 transition-transform">architecture</span>
+<h4 class="font-h2 text-h2 text-on-background mb-2">Fachada Glazing</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Muros cortina de alto rendimiento diseñados para una máxima transparencia y eficiencia térmica.</p>
+<a class="text-[#2F80A8] font-body-md font-semibold flex items-center gap-1 group-hover:gap-2 transition-all" href="#">Ver Especificaciones Técnicas <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<!-- Service Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md hover:border-[#2F80A8] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-[#2F80A8] mb-4 group-hover:scale-110 transition-transform">view_compact</span>
+<h4 class="font-h2 text-h2 text-on-background mb-2">Aluminio de Precisión</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Subestructuras de aluminio extruido con rotura de puente térmico, garantizando integridad estructural y estética minimalista.</p>
+<a class="text-[#2F80A8] font-body-md font-semibold flex items-center gap-1 group-hover:gap-2 transition-all" href="#">Ver Especificaciones Técnicas <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<!-- Service Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md hover:border-[#2F80A8] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-[#2F80A8] mb-4 group-hover:scale-110 transition-transform">Glazing</span>
+<h4 class="font-h2 text-h2 text-on-background mb-2">Mamparas Acústicas</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Sistemas de tabiquería interior de doble vidriado con intercalarios acústicos con clasificación STC para privacidad corporativa.</p>
+<a class="text-[#2F80A8] font-body-md font-semibold flex items-center gap-1 group-hover:gap-2 transition-all" href="#">Ver Especificaciones Técnicas <span class="material-symbols-outlined text-sm">Glazing</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="bg-primary-container py-[120px] text-center px-gutter">
+<h2 class="font-display text-display text-white mb-stack-md max-w-3xl mx-auto">¿Querés cotizar un proyecto similar?</h2>
+<p class="font-body-lg text-body-lg text-inverse-on-surface mb-stack-lg max-w-2xl mx-auto opacity-90">Contacte con nuestro equipo de ingeniería para discutir los requerimientos técnicos, soluciones de acristalamiento estructural y carpintería de aluminio de precisión para su próximo proyecto arquitectónico.</p>
+<button class="bg-[#2F80A8] text-white px-10 py-4 rounded font-body-lg font-bold hover:bg-sky-700 transition-colors shadow-sm inline-flex items-center gap-2">
+                Solicitar Cotización Técnica <span class="material-symbols-outlined">send</span>
+</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 dark:bg-black font-['Inter'] text-sm leading-relaxed full-width mt-20 border-t border-slate-800 flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16 px-8 max-w-[1280px] mx-auto w-full">
+<div>
+<div class="text-lg font-bold text-white mb-4">PRECISION ARCH</div>
+<p class="text-slate-400">© 2024 Precision Glass &amp; Aluminum. Engineered for Excellence.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-slate-400 hover:text-white transition-colors cursor-pointer" href="#">Política de Privacidad</a>
+<a class="text-slate-400 hover:text-white transition-colors cursor-pointer" href="#">Términos de Servicio</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-slate-400 hover:text-white transition-colors cursor-pointer" href="#">Docs Técnicos</a>
+<a class="text-slate-400 hover:text-white transition-colors cursor-pointer" href="#">Sostenibilidad</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-slate-400 hover:text-white transition-colors cursor-pointer" href="#">Carreras</a>
+<a class="text-slate-400 hover:text-white transition-colors cursor-pointer" href="#">Oficinas Globales</a>
+</div>
+</div>
+</footer>
+</body></html>

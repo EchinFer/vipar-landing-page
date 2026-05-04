@@ -1,0 +1,22 @@
+---
+import FilterChip from "../ui/FilterChip.astro";
+
+interface FilterItem {
+  slug: string;
+  label: string;
+}
+
+interface Props {
+  filters: FilterItem[];
+}
+
+const { filters } = Astro.props;
+---
+
+<section class="vipar-obras-filter-bar">
+  {filters.map((filter, index) => (
+    <FilterChip class="vipar-obras-filter" active={index === 0} data-filter={filter.slug}>
+      {filter.label}
+    </FilterChip>
+  ))}
+</section>

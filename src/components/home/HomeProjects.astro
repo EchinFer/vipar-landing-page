@@ -1,0 +1,51 @@
+---
+import Button from "../ui/Button.astro";
+import Container from "../ui/Container.astro";
+import Heading from "../ui/Heading.astro";
+import Stack from "../ui/Stack.astro";
+import Text from "../ui/Text.astro";
+import HomeProjectCard from "./HomeProjectCard.astro";
+
+interface Project {
+  layout: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section class="vipar-section vipar-section--projects-architectural" id="obras">
+  <Container class="vipar-shell">
+    <Stack size="lg">
+      <Stack size="sm" class="vipar-projects-heading">
+        <Text as="span" variant="label-md" tone="accent" class="vipar-label">Nuestras Obras</Text>
+        <Heading level={2}>Proyectos destacados que transforman espacios</Heading>
+        <Text>
+          Una mirada t&eacute;cnica a soluciones constructivas donde la precisi&oacute;n y el
+          dise&ntilde;o se encuentran.
+        </Text>
+      </Stack>
+
+      <div class="vipar-project-grid">
+        {projects.map((project) => (
+          <HomeProjectCard project={project} />
+        ))}
+      </div>
+
+      <div class="vipar-projects-footer-action">
+        <Button href="/obras/" variant="outlined" tone="primary" size="lg">
+          Explorar cat&aacute;logo completo
+          <span class="material-symbols-outlined" aria-hidden="true">grid_view</span>
+        </Button>
+      </div>
+    </Stack>
+  </Container>
+</section>

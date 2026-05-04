@@ -48,7 +48,7 @@ export const staticObras: StaticObra[] = [
     imagenes: [],
     cliente: "VIPAR S.A.",
     fecha: "2025",
-    ubicacion: "Nemby, Central",
+    ubicacion: "Ñemby, Central",
     sector: "corporativo",
     sectorLabel: "Corporativo",
     systemLabel: "Fachadas de vidrio y aluminio",
@@ -88,7 +88,7 @@ export const staticObras: StaticObra[] = [
     imagenes: [],
     cliente: "Desarrollo Concordia",
     fecha: "2024",
-    ubicacion: "Asuncion",
+    ubicacion: "Asunción",
     sector: "residencial",
     sectorLabel: "Residencial",
     systemLabel: "Soluciones residenciales en vidrio",
@@ -120,9 +120,9 @@ export const staticObras: StaticObra[] = [
     slug: "residencia-san-lorenzo",
     titulo: "Residencia San Lorenzo",
     descripcion:
-      "Aberturas de aluminio de alta prestacion y grandes paños de vidrio para residencia de lujo, con enfasis en hermeticidad, durabilidad y lectura arquitectonica limpia.",
+      "Aberturas de aluminio de alta prestación y grandes paños de vidrio para residencia de lujo, con énfasis en hermeticidad, durabilidad y lectura arquitectónica limpia.",
     resumen:
-      "Aberturas de aluminio de alta prestacion y grandes paños de vidrio para residencia de lujo.",
+      "Aberturas de aluminio de alta prestación y grandes paños de vidrio para residencia de lujo.",
     imagen:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBEJiTJqpXth_MfquO_J3E-v_DDe0TyRJVLYYzzpH16eej51C8CFf80j_7iewEE7wYqXWcK7k16I9_f1JkfutQcc-s6C2LqxW64b5y9AKSTYoKtjdq8XFNxyvhdnqOgdfftQ8pVWflL4n9KbPUBhmwKhBLIf2ChNbt7mzufk7h46LxtScejB6AU8wTmvocHbchdvLVbqbCXRennx3hNVqFojmj3YAuXgFUCjF4tAzCATY4Mk9ADk9LJ8vlq5KOhXRBkjg7t_xFPG2O-",
     imagenes: [],
@@ -140,18 +140,18 @@ export const staticObras: StaticObra[] = [
     slug: "oficinas-corporativas-itau",
     titulo: "Oficinas Corporativas Itau",
     descripcion:
-      "Tabiques de vidrio con control acustico y perfileria de aluminio de diseño exclusivo para oficinas corporativas que requieren privacidad sin perder apertura visual.",
+      "Tabiques de vidrio con control acústico y perfilería de aluminio de diseño exclusivo para oficinas corporativas que requieren privacidad sin perder apertura visual.",
     resumen:
-      "Tabiques de vidrio con control acustico y perfileria de aluminio de diseño exclusivo.",
+      "Tabiques de vidrio con control acústico y perfilería de aluminio de diseño exclusivo.",
     imagen:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBfr3lDxjuQgQuq-kF5745xz48eaIdcKbOBogIRFUaDADvg_gCQaTkAaaucoTCHTKpZYBxETH-mS-geejW8tAYiFd5V444kiJB8qUqaEowcgez5AUo-hCE7qsjAR7zDLP07Oxh-soYheX2QMD3oo1pHdD7VARtI6XU3wCUIFdmDQ-gKxYjEkO6ivouG7z1Z96J4KSpcubIdqs66NQdt9t-wwM5uPSEV0P7IVumwVvwzziOVsD9862jjbPN6vo7Mlm7e1mBcm1Up4mw8",
     imagenes: [],
     cliente: "Itau",
     fecha: "2022",
-    ubicacion: "Asuncion",
+    ubicacion: "Asunción",
     sector: "corporativo",
     sectorLabel: "Corporativo",
-    systemLabel: "Particiones acusticas en vidrio",
+    systemLabel: "Particiones acústicas en vidrio",
     displayTags: ["Mamparas", "Aluminio"],
     filterTags: ["mamparas", "aluminio", "cristal-templado"],
     category: [{ name: "Corporativo", slug: "corporativo" }],

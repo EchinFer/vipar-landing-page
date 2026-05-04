@@ -1,5 +1,12 @@
 ---
+import HomeAbout from "@components/home/HomeAbout.astro";
+import HomeContact from "@components/home/HomeContact.astro";
+import HomeHero from "@components/home/HomeHero.astro";
+import HomeProjects from "@components/home/HomeProjects.astro";
+import HomeServices from "@components/home/HomeServices.astro";
+import HomeSpecialties from "@components/home/HomeSpecialties.astro";
 import Layout from "@layouts/Layout.astro";
+import "@styles/tailwind.css";
 import { SITE_URL, address, email, telephone } from "src/constants";
 import "@styles/home.css";
 
@@ -109,59 +116,6 @@ const complementaryServices = [
   },
 ];
 
-const trustPills = [
-  "Ñemby, Paraguay",
-  "Obras publicadas",
-  "Atención por WhatsApp",
-  "Presupuesto según medidas",
-];
-
-const valuePoints = [
-  {
-    title: "Relevamiento en obra",
-    description: "Tomamos medidas, fotos o planos de referencia según el tipo de proyecto.",
-  },
-  {
-    title: "Fabricación según necesidad",
-    description: "Definimos materiales y soluciones de acuerdo con el servicio solicitado.",
-  },
-  {
-    title: "Instalación coordinada",
-    description: "Coordinamos montaje e instalación según el lugar, acceso y terminación requerida.",
-  },
-  {
-    title: "Seguimiento comercial",
-    description: "Respondemos consultas con datos de contacto, ubicación y tipo de servicio a cotizar.",
-  },
-];
-
-const strengths = [
-  {
-    icon: "architecture",
-    title: "Especialización en terminaciones",
-    description:
-      "Nos enfocamos en cristales, aluminio y terminaciones, rubros donde la medición, fabricación e instalación influyen directamente en el resultado final de la obra.",
-  },
-  {
-    icon: "inventory_2",
-    title: "Variedad de servicios",
-    description:
-      "Reunimos servicios para fachadas, aberturas, mamparas, cielos rasos, box de baño, ventanas y puertas en una misma empresa.",
-  },
-  {
-    icon: "construction",
-    title: "Experiencia en proyectos",
-    description:
-      "Contamos con obras publicadas en proyectos comerciales, institucionales y residenciales, lo que permite evaluar aplicaciones reales de nuestros servicios.",
-  },
-  {
-    icon: "support_agent",
-    title: "Atención comercial",
-    description:
-      "Atendemos consultas por WhatsApp, correo y formulario, con presupuesto según medidas, ubicación y tipo de instalación.",
-  },
-];
-
 const projects = [
   {
     layout: "hero",
@@ -192,45 +146,6 @@ const projects = [
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAX2oB39hJd82DqZofsOyohWZFqrWx9MfifNvV1-DP_a8aWX840Oc2jv2plL1-SJuH1bELm3TgGX0sjI-z9LtI1n4eQ8MCeJPBAmTe5V81zCRqO6ODMQuMl8KUlH35Qlr2RhiZGLcmJXK9HM5eUgqBItlUgTzOpBHffj4TB7bBS46CThZnyvLeXq9PFCMXgtZ1eMJ6T3kuN8zMF74xLXCo0G4mUcj6U8kmCNPdN_oP-FnWFhz4QTYDFF1G1ObXBIZX_6l4X8k61ftYd",
     alt: "Edificio Concordia",
-  }
-];
-
-const methodology = [
-  {
-    step: 1,
-    title: "Consulta",
-    description:
-      "Recepción de requerimientos, planos o visita preliminar a la obra para entender las necesidades específicas del proyecto.",
-  },
-  {
-    step: 2,
-    title: "Revisión técnica",
-    description:
-      "Análisis de factibilidad técnica, selección de materiales adecuados (espesores, perfiles) y medición exacta in situ.",
-  },
-  {
-    step: 3,
-    title: "Cotización",
-    description:
-      "Elaboración de presupuesto detallado, transparente y con plazos de entrega claramente definidos.",
-  },
-  {
-    step: 4,
-    title: "Fabricación",
-    description:
-      "Corte, mecanizado y ensamblaje en taller bajo estrictos controles de calidad dimensional y estética.",
-  },
-  {
-    step: 5,
-    title: "Instalación",
-    description:
-      "Montaje en obra coordinado según el tipo de instalación, acceso al lugar y terminación requerida.",
-  },
-  {
-    step: 6,
-    title: "Revisión final",
-    description:
-      "Inspección conjunta con el cliente/director de obra para verificar funcionamiento, limpieza y correcta terminación.",
   },
 ];
 
@@ -284,299 +199,24 @@ const homeStructuredData = JSON.stringify([
   keywords={keywords}
   canonical={homePath}
   bodyClass="vipar-home-body"
-  hideWhatsappFAB={true}
 >
   <div class="vipar-home" id="top">
     <main class="vipar-home__main">
-      <section class="vipar-hero">
-        <div class="vipar-hero__backdrop">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWL1SdapClxacZbU-BDsOxCm6FeDmKTi4AzWqCwGR5aVqNtlszxC7VxVKys4XN994M17_TqoXF0hMQsX890kJgA7wRPTKU-qdJccKZL2_1eTrPYok8nppN9PfZh6KlD2RmO_4Ff9gVgB2O1llszJiqBKhExzcP9OHfkcwKlgqwV7EAbdYYkWQ7hbLeIUPq-lemrX7JD-4ph5U9lWZ9K0n6Mng4uGgMc1nt9U29bY-LXY8dRfCt9S1TQYRO_oOyCG1vSY2h7IboOrAK"
-            alt="Lobby corporativo con superficies vidriadas y terminaciones arquitectónicas"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <div class="vipar-hero__backdrop-overlay"></div>
-        </div>
-
-        <div class="vipar-shell vipar-hero__grid">
-          <div class="vipar-hero__copy">
-            <div class="vipar-hero__meta">
-              <span class="vipar-hero__eyebrow">Ubicados en Ñemby, Central</span>
-              <span class="vipar-hero__support">Atención para obras residenciales y comerciales</span>
-            </div>
-
-            <h1>Cristales templados, aluminio y terminaciones para obras en Paraguay</h1>
-            <p>
-              Soluciones en cristal templado, aluminio, fachadas, mamparas, cielos rasos y box de baño para viviendas, comercios, oficinas y obras. Cotizamos según medidas, tipo de proyecto y condiciones de instalación.
-            </p>
-
-            <div class="vipar-actions">
-              <a class="vipar-button vipar-button--primary vipar-button--hero" href="#contacto">Solicitar presupuesto</a>
-              <a class="vipar-button vipar-button--secondary vipar-button--hero-link" href="#servicios">Ver servicios</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="vipar-specialties" aria-label="Especialidades">
-        <div class="vipar-shell vipar-specialties__inner">
-          <span class="vipar-label">Especialidades:</span>
-          <a href={serviceLinks.cristalesTemplados}>Cristales templados</a>
-          <span class="vipar-separator">•</span>
-          <a href={serviceLinks.carpinteriaAluminio}>Aluminio</a>
-          <span class="vipar-separator">•</span>
-          <a href={serviceLinks.fachada}>Fachadas</a>
-          <span class="vipar-separator">•</span>
-          <a href={serviceLinks.mamparaDivisoria}>Mamparas</a>
-          <span class="vipar-separator">•</span>
-          <a href={serviceLinks.cieloRaso}>Cielos rasos</a>
-          <span class="vipar-separator">•</span>
-          <a href={serviceLinks.boxDeBano}>Box de baño</a>
-        </div>
-      </section>
-
-      <section class="vipar-section vipar-section--surface" id="servicios">
-        <div class="vipar-shell vipar-stack-lg">
-          <div class="vipar-section-heading vipar-section-heading--center">
-            <span class="vipar-label">Nuestros Servicios</span>
-            <h2>Soluciones por entorno</h2>
-            <p>Especialización técnica adaptada a los requerimientos de viviendas, espacios comerciales y proyectos corporativos.</p>
-          </div>
-
-          <div class="vipar-featured-grid">
-            {featuredServices.map((service) => (
-              <article class="vipar-service-card">
-                <div class="vipar-service-card__image">
-                  <img src={service.image} alt={service.alt} loading="lazy" decoding="async" />
-                </div>
-                <div class="vipar-service-card__body">
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <ul class="vipar-service-card__list">
-                    {service.points.map((point) => (
-                      <li>
-                        <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a href={service.href}>
-                    Ver soluciones
-                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div class="vipar-mini-grid">
-            {complementaryServices.map((service) => (
-              <a class="vipar-mini-card" href={service.href}>
-                <span class="material-symbols-outlined" aria-hidden="true">{service.icon}</span>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="vipar-section vipar-section--projects-architectural" id="obras">
-        <div class="vipar-shell vipar-stack-lg">
-          <div class="vipar-projects-heading vipar-stack-sm">
-            <span class="vipar-label">Nuestras Obras</span>
-            <h2>Proyectos destacados que transforman espacios</h2>
-            <p>
-              Una mirada técnica a soluciones constructivas donde la precisión y el diseño se encuentran.
-            </p>
-          </div>
-
-          <div class="vipar-project-grid">
-            {projects.map((project) => (
-              <article
-                class:list={[
-                  "vipar-project-card",
-                  "vipar-project-card--execution",
-                  `vipar-project-card--${project.layout}`,
-                ]}
-                tabindex="0"
-              >
-                <div class="vipar-project-card__image">
-                  <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
-                </div>
-                <div class="vipar-project-card__body">
-                  {project.layout === "hero" ? (
-                    <>
-                      <span class="vipar-project-card__eyebrow">{project.eyebrow}</span>
-                      <h3>{project.title}</h3>
-                      <p>{project.description}</p>
-                    </>
-                  ) : (
-                    <>
-                      <h4>{project.title}</h4>
-                      <p>{project.description}</p>
-                    </>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div class="vipar-projects-footer-action">
-            <a class="vipar-button vipar-button--architectural" href="/obras/">
-              Explorar catálogo completo
-              <span class="material-symbols-outlined" aria-hidden="true">grid_view</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="vipar-section vipar-section--plain vipar-section--bordered" id="nosotros">
-        <div class="vipar-shell vipar-about-grid">
-          <div class="vipar-stack-md">
-            <span class="vipar-label">Sobre Nosotros</span>
-            <h2>Empresa paraguaya enfocada en cristales, aluminio y terminaciones</h2>
-            <div class="vipar-stack-sm vipar-prose">
-              <p>
-                VIPAR S.A. es una empresa paraguaya dedicada a soluciones en cristales templados, carpintería de aluminio y terminaciones para obras. Desde Ñemby, atiende proyectos residenciales, comerciales, corporativos e inmobiliarios que requieren aberturas, cerramientos, divisiones, fachadas, cielos rasos y box de baño.
-              </p>
-              <p>
-                La atención comercial parte de datos concretos: medidas, ubicación, tipo de servicio y referencias del espacio. Eso permite orientar mejor cada consulta y preparar un presupuesto más útil para viviendas, comercios, oficinas y obras.
-              </p>
-            </div>
-          </div>
-
-          <aside class="vipar-key-card">
-            <h3>Datos Clave</h3>
-            <div class="vipar-key-card__list">
-              {keyData.map((item) => (
-                <div class="vipar-key-card__item">
-                  <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
-                  <div>
-                    <strong>{item.title}</strong>
-                    <span>{item.description}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="vipar-section vipar-section--surface" id="contacto">
-        <div class="vipar-shell vipar-contact-grid">
-          <div class="vipar-stack-md">
-            <span class="vipar-label">Contacto</span>
-            <h2>Solicite su presupuesto sin compromiso</h2>
-            <p>
-              Envíenos los detalles de su obra o adjunte sus planos. Nuestro equipo comercial le responderá a la brevedad con una propuesta técnico-económica.
-            </p>
-
-            <div class="vipar-contact-list">
-              <div class="vipar-contact-item">
-                <div class="vipar-contact-item__icon">
-                  <span class="material-symbols-outlined" aria-hidden="true">call</span>
-                </div>
-                <div>
-                  <strong>Teléfono / WhatsApp</strong>
-                  <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer">{telephone}</a>
-                </div>
-              </div>
-
-              <div class="vipar-contact-item">
-                <div class="vipar-contact-item__icon">
-                  <span class="material-symbols-outlined" aria-hidden="true">mail</span>
-                </div>
-                <div>
-                  <strong>Correo Electrónico</strong>
-                  <a href={`mailto:${email}`}>{email}</a>
-                </div>
-              </div>
-
-              <div class="vipar-contact-item">
-                <div class="vipar-contact-item__icon">
-                  <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
-                </div>
-                <div>
-                  <strong>Horario de atención</strong>
-                  <span>Lunes a Viernes: 07:30 a 17:00 hs.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="vipar-form-card">
-            <form class="vipar-form" id="vipar-home-form" novalidate>
-              <div class="vipar-form__grid vipar-form__grid--2">
-                <label class="vipar-field">
-                  <span>Nombre y Apellido / Empresa *</span>
-                  <input id="name" name="name" type="text" required autocomplete="name" />
-                </label>
-
-                <label class="vipar-field">
-                  <span>WhatsApp de contacto *</span>
-                  <input id="phone" name="phone" type="tel" required autocomplete="tel" />
-                </label>
-              </div>
-
-              <label class="vipar-field">
-                <span>Correo Electrónico</span>
-                <input id="email" name="email" type="email" autocomplete="email" />
-              </label>
-
-              <div class="vipar-form__grid vipar-form__grid--2">
-                <label class="vipar-field">
-                  <span>Tipo de Servicio *</span>
-                  <select id="service" name="service" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="Cristales Templados">Cristales Templados</option>
-                    <option value="Carpintería de Aluminio">Carpintería de Aluminio</option>
-                    <option value="Fachadas">Fachadas</option>
-                    <option value="Mamparas / Divisiones">Mamparas / Divisiones</option>
-                    <option value="Cielos Rasos">Cielos Rasos</option>
-                    <option value="Box de Baño">Box de Baño</option>
-                    <option value="Ventanas">Ventanas</option>
-                    <option value="Puertas">Puertas</option>
-                    <option value="Cortinas">Cortinas</option>
-                    <option value="Múltiples servicios / Obra integral">Múltiples servicios / Obra integral</option>
-                  </select>
-                </label>
-
-                <label class="vipar-field">
-                  <span>Ubicación de la obra</span>
-                  <input id="city" name="city" type="text" placeholder="Ej: Asunción, Luque, San Lorenzo..." />
-                </label>
-              </div>
-
-              <label class="vipar-field">
-                <span>Mensaje o detalle de la solicitud *</span>
-                <textarea id="message" name="message" required></textarea>
-              </label>
-
-              <label class="vipar-field vipar-field--file">
-                <span>
-                  <span class="material-symbols-outlined" aria-hidden="true">upload_file</span>
-                  Adjuntar planos o referencias (PDF, JPG, PNG)
-                </span>
-                <input id="file" name="file" type="file" accept=".pdf,.jpg,.jpeg,.png" />
-              </label>
-
-              <input type="hidden" name="source" value="vipar-home-stitch" />
-
-              <div class="vipar-form__status" id="vipar-home-form-status" hidden>
-                <p class="vipar-form__status-message" id="vipar-home-form-message"></p>
-              </div>
-
-              <button class="vipar-button vipar-button--primary vipar-button--block" type="submit">
-                Enviar solicitud de cotización
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+      <HomeHero whatsappNumber={whatsappNumber} whatsappMessage={whatsappMessage} />
+      <HomeSpecialties serviceLinks={serviceLinks} />
+      <HomeServices
+        featuredServices={featuredServices}
+        complementaryServices={complementaryServices}
+      />
+      <HomeProjects projects={projects} />
+      <HomeAbout keyData={keyData} />
+      <HomeContact
+        whatsappNumber={whatsappNumber}
+        whatsappMessage={whatsappMessage}
+        telephone={telephone}
+        email={email}
+      />
     </main>
-
   </div>
 
   <script type="application/ld+json" set:html={homeStructuredData}></script>

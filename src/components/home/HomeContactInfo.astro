@@ -1,0 +1,58 @@
+---
+import Heading from "../ui/Heading.astro";
+import Stack from "../ui/Stack.astro";
+import Text from "../ui/Text.astro";
+
+interface Props {
+  whatsappNumber: string;
+  whatsappMessage: string;
+  telephone: string;
+  email: string;
+}
+
+const { whatsappNumber, whatsappMessage, telephone, email } = Astro.props;
+---
+
+<Stack size="md">
+  <Text as="span" variant="label-md" tone="accent" class="vipar-label">Contacto</Text>
+  <Heading level={2}>Solicite su presupuesto sin compromiso</Heading>
+  <Text>
+    Env&iacute;enos los detalles de su obra o adjunte sus planos. Nuestro equipo comercial le
+    responder&aacute; a la brevedad con una propuesta t&eacute;cnico-econ&oacute;mica.
+  </Text>
+
+  <div class="vipar-contact-list">
+    <div class="vipar-contact-item">
+      <div class="vipar-contact-item__icon">
+        <span class="material-symbols-outlined" aria-hidden="true">call</span>
+      </div>
+      <div>
+        <Text as="strong" variant="label-sm" tone="default">Tel&eacute;fono / WhatsApp</Text>
+        <a
+          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+          target="_blank"
+          rel="noopener noreferrer">{telephone}</a>
+      </div>
+    </div>
+
+    <div class="vipar-contact-item">
+      <div class="vipar-contact-item__icon">
+        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+      </div>
+      <div>
+        <Text as="strong" variant="label-sm" tone="default">Correo Electr&oacute;nico</Text>
+        <a href={`mailto:${email}`}>{email}</a>
+      </div>
+    </div>
+
+    <div class="vipar-contact-item">
+      <div class="vipar-contact-item__icon">
+        <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+      </div>
+      <div>
+        <Text as="strong" variant="label-sm" tone="default">Horario de atenci&oacute;n</Text>
+        <Text as="span" size="sm">Lunes a Viernes: 07:30 a 17:00 hs.</Text>
+      </div>
+    </div>
+  </div>
+</Stack>

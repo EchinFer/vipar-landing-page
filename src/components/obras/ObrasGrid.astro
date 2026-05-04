@@ -1,0 +1,16 @@
+---
+import type { StaticObra } from "@lib/static-obras";
+import ObrasCard from "./ObrasCard.astro";
+
+interface Props {
+  obras: StaticObra[];
+}
+
+const { obras } = Astro.props;
+---
+
+<section class="vipar-obras-grid">
+  {obras.map((obra) => (
+    <ObrasCard obra={obra} />
+  ))}
+</section>

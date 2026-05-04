@@ -1,0 +1,23 @@
+.ds-filter-chip {
+  appearance: none;
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-full);
+  padding: 10px 20px;
+  background: var(--ds-color-surface);
+  color: var(--ds-color-on-surface-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.ds-filter-chip.is-active,
+.ds-filter-chip:hover {
+  background: var(--ds-color-accent);
+  border-color: var(--ds-color-accent);
+  color: #ffffff;
+}

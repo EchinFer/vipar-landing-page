@@ -1,0 +1,9 @@
+.ds-text-body-lg { font-size: var(--ds-text-body-lg-size); font-weight: var(--ds-text-body-lg-weight); line-height: var(--ds-text-body-lg-leading); color: var(--ds-color-on-surface-muted); }
+.ds-text-body-md { font-size: var(--ds-text-body-md-size); font-weight: var(--ds-text-body-md-weight); line-height: var(--ds-text-body-md-leading); color: var(--ds-color-on-surface-muted); }
+.ds-text-body-sm { font-size: var(--ds-text-body-sm-size); font-weight: var(--ds-text-body-sm-weight); line-height: var(--ds-text-body-sm-leading); color: var(--ds-color-on-surface-muted); }
+.ds-text-label-md { font-size: var(--ds-text-label-md-size); font-weight: var(--ds-text-label-md-weight); line-height: var(--ds-text-label-md-leading); letter-spacing: var(--ds-text-label-md-tracking); color: var(--ds-color-on-surface); text-transform: uppercase; }
+.ds-text-label-sm { font-size: var(--ds-text-label-sm-size); font-weight: var(--ds-text-label-sm-weight); line-height: var(--ds-text-label-sm-leading); letter-spacing: var(--ds-text-label-sm-tracking); color: var(--ds-color-on-surface); text-transform: uppercase; }
+.ds-text-default { color: var(--ds-color-on-surface); }
+.ds-text-muted { color: var(--ds-color-on-surface-muted); }
+.ds-text-accent { color: var(--ds-color-accent); }
+.ds-text-inverse { color: var(--ds-color-surface); }

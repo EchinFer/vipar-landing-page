@@ -1,0 +1,37 @@
+---
+import Card from "@components/ui/Card.astro";
+import Text from "@components/ui/Text.astro";
+
+interface SocialItem {
+  href: string;
+  label: string;
+  icon: string;
+  target?: string;
+  rel?: string;
+}
+
+interface Props {
+  items: SocialItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<Card as="article" class="contact-panel">
+  <Text as="h3" variant="label-sm" class="contact-panel__eyebrow">Redes Sociales</Text>
+
+  <div class="contact-social-grid">
+    {
+      items.map((item) => (
+        <a
+          aria-label={item.label}
+          href={item.href || "#"}
+          target={item.target}
+          rel={item.rel}
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
+        </a>
+      ))
+    }
+  </div>
+</Card>

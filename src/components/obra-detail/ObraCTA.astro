@@ -1,0 +1,20 @@
+---
+interface Props {
+  titulo?: string;
+}
+
+const { titulo } = Astro.props;
+---
+
+<section class="od-cta">
+  <div class="od-cta__inner">
+    <h2>¿Querés cotizar un proyecto similar?</h2>
+    <p>
+      Contactate con nuestro equipo para discutir los requerimientos técnicos,
+      soluciones de cristal templado y carpintería de aluminio para tu próximo proyecto.
+    </p>
+    <a href="/contacto/" class="od-cta__btn">
+      Solicitar cotización <i class="bi bi-send"></i>
+    </a>
+  </div>
+</section>

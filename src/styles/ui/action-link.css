@@ -1,0 +1,42 @@
+.ds-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--action-link-fg, var(--ds-color-accent));
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.ds-action-link:hover {
+  text-decoration: underline;
+  color: var(--action-link-fg-hover, var(--action-link-fg, var(--ds-color-accent)));
+}
+
+.ds-action-link--sm {
+  font-size: 0.95rem;
+}
+
+.ds-action-link--md {
+  font-size: 1rem;
+}
+
+.ds-action-link--primary {
+  --action-link-fg: var(--ds-color-accent);
+  --action-link-fg-hover: var(--ds-color-accent);
+}
+
+.ds-action-link--secondary {
+  --action-link-fg: var(--ds-color-secondary);
+  --action-link-fg-hover: var(--ds-color-primary);
+}
+
+.ds-action-link--neutral {
+  --action-link-fg: var(--ds-color-on-surface);
+  --action-link-fg-hover: var(--ds-color-primary);
+}
+
+.ds-action-link--inverse {
+  --action-link-fg: var(--ds-color-surface);
+  --action-link-fg-hover: var(--ds-color-surface);
+}

@@ -1,218 +1,47 @@
 ---
+import ServiciosCatalog from "@components/servicios/ServiciosCatalog.astro";
+import ServiciosFilterBar from "@components/servicios/ServiciosFilterBar.astro";
+import ServiciosHero from "@components/servicios/ServiciosHero.astro";
 import Layout from "@layouts/Layout.astro";
+import { serviciosHeroImage, staticServicioFilters, staticServicios } from "@lib/static-servicios";
+import "../styles/servicios.css";
 import { SITE_URL } from "src/constants";
 
-const servicios = [
-  {
-    key: "carpinteria-aluminio",
-    title: "Carpintería de Aluminio",
-    href: "/servicios/carpinteria-de-aluminio/",
-    image: "/img/home/service-construction.webp",
-    description:
-      "Fabricación e instalación de carpintería de aluminio para viviendas, oficinas y comercios, con perfiles de alta durabilidad y excelente terminación.",
-  },
-  {
-    key: "ventana",
-    title: "Ventana",
-    href: "/servicios/ventana/",
-    image: "/img/home/hero-home.jpg",
-    description:
-      "Ventanas de aluminio y vidrio con diseño funcional, mejor aislamiento térmico y soluciones a medida para proyectos residenciales y corporativos.",
-  },
-  {
-    key: "puerta",
-    title: "Puerta",
-    href: "/servicios/puerta/",
-    image: "/img/home/hero-home.webp",
-    description:
-      "Puertas de aluminio y vidrio templado con instalación profesional, pensadas para seguridad, estética moderna y uso intensivo diario.",
-  },
-  {
-    key: "mampara-divisoria",
-    title: "Mampara divisoria",
-    href: "/servicios/mampara-divisoria/",
-    image: "/img/about.jpg",
-    description:
-      "Mamparas divisorias para oficinas y espacios comerciales, optimizando iluminación natural, privacidad y distribución eficiente de ambientes.",
-  },
-  {
-    key: "fachada",
-    title: "Fachada",
-    href: "/servicios/fachada/",
-    image: "/img/breadcrumbs-bg.jpg",
-    description:
-      "Sistemas de fachadas en vidrio y aluminio para mejorar imagen arquitectónica, rendimiento técnico y protección en proyectos de gran escala.",
-  },
-  {
-    key: "cortina",
-    title: "Cortina",
-    href: "/servicios/cortina/",
-    image: "/img/home/footer-bg.jpg",
-    description:
-      "Cortinas de vidrio y soluciones de cerramiento para balcones y frentes, combinando apertura práctica, estética limpia y resistencia estructural.",
-  },
-  {
-    key: "cielo-raso",
-    title: "Cielo raso",
-    href: "/servicios/cielo-raso/",
-    image: "/img/home/service-construction.webp",
-    description:
-      "Cielo raso desmontable y técnico para espacios corporativos y comerciales, facilitando mantenimiento de instalaciones y acabado uniforme.",
-  },
-  {
-    key: "box-de-bano",
-    title: "Box de baño",
-    href: "/servicios/box-de-bano/",
-    image: "/img/about.jpg",
-    description:
-      "Box de baño en vidrio templado con herrajes de calidad, diseñado a medida para lograr funcionalidad, seguridad y estilo contemporáneo.",
-  },
-];
-
-const filtrosServicios = [{ key: "all", label: "Todas las Soluciones" }, ...servicios.map((s) => ({ key: s.key, label: s.title }))];
-
 const title = "Servicios - VIPAR S.A.";
-const description = "Diseño, fabricación e instalación de sistemas premium en vidrio, aluminio y terminaciones avanzadas para proyectos en Paraguay.";
+const description =
+  "Diseño, fabricación e instalación de sistemas premium en vidrio, aluminio y terminaciones avanzadas para proyectos en Paraguay.";
 const canonical = `${SITE_URL}/servicios`;
 ---
 
 <Layout title={title} description={description} canonical={canonical}>
-  <main class="services-page">
-    <section class="hero vipar-shell">
-      <div class="hero-copy">
-        <h1>Soluciones Arquitectónicas que Transforman Espacios.</h1>
-        <p>Diseño, fabricación e instalación de estructuras premium en vidrio, aluminio y terminaciones avanzadas para proyectos en Paraguay.</p>
-      </div>
-      <div class="hero-media">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLC931dzH1AA9QK0jvOTqs7MwamibyZM3lb9_JrmtMs0_LMKYOSboN4_RY_XsxV0f5mdYJ1Nc5VPC6sdkmlHas55OPPMQJEw-G38NaFywqf76K2ARaOJyg4gilb6Abt-ed4i3D9r9y-wlzCqdO2d7XklU1MWe7PubfL9JDzdMJRmUN6-enGxzaLg8tJ2aMS8OROseP_RLon76e8LLkjw-sSAoxFndmPeZWhXYPx8d6oQhrdAwyKld3j7Y0zadQwIwt58I0oBO9dYi6" alt="Fachada arquitectónica" />
-      </div>
-    </section>
-
-    <section class="filters">
-      <div class="vipar-shell filters-inner">
-        <span>Filtro:</span>
-        {filtrosServicios.map((f, i) => <button class={i === 0 ? "active" : ""} data-filter={f.key}>{f.label}</button>)}
-      </div>
-    </section>
-
-    <section class="catalog">
-      <div class="catalog-head vipar-shell">
-        <h2>Catálogo de Sistemas</h2>
-        <p>Especificaciones técnicas y soluciones modulares adaptables a cada desarrollo.</p>
-      </div>
-
-      <div class="grid-full">
-        <div class="grid">
-          {
-            servicios.map((servicio) => (
-              <article class="card" data-category={servicio.key}>
-                <img src={servicio.image} alt={servicio.title} />
-                <div>
-                  <h3>{servicio.title}</h3>
-                  <p>{servicio.description}</p>
-                  <a class="details-btn" href={servicio.href}>Ver servicio</a>
-                </div>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
+  <main class="vipar-servicios-page">
+    <ServiciosHero image={serviciosHeroImage} />
+    <ServiciosFilterBar filters={staticServicioFilters} />
+    <ServiciosCatalog servicios={staticServicios} />
   </main>
 
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
-      const buttons = Array.from(document.querySelectorAll(".filters button[data-filter]"));
-      const cards = Array.from(document.querySelectorAll(".catalog .card[data-category]"));
+      const buttons = Array.from(document.querySelectorAll(".vipar-servicios-filter[data-filter]"));
+      const cards = Array.from(
+        document.querySelectorAll(".vipar-servicios-grid .vipar-servicios-card[data-category]")
+      );
+
       if (!buttons.length || !cards.length) return;
+
       const apply = (filter) => {
-        buttons.forEach((btn) => btn.classList.toggle("active", btn.dataset.filter === filter));
+        buttons.forEach((btn) => btn.classList.toggle("is-active", btn.dataset.filter === filter));
         cards.forEach((card) => {
           const show = filter === "all" || card.dataset.category === filter;
-          card.style.display = show ? "" : "none";
+          card.toggleAttribute("hidden", !show);
         });
       };
-      buttons.forEach((btn) => btn.addEventListener("click", () => apply(btn.dataset.filter || "all")));
+
+      buttons.forEach((btn) =>
+        btn.addEventListener("click", () => apply(btn.dataset.filter || "all"))
+      );
+
       apply("all");
     });
   </script>
 </Layout>
-
-<style>
-  .services-page { --vipar-shell: 1360px; padding: 0 0 96px; background: var(--ds-color-background); }
-  .services-page .vipar-shell { width: min(calc(100% - 48px), var(--vipar-shell)); margin: 0 auto; }
-  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 80px 0; }
-  .hero-copy h1 { font-size: clamp(2.3rem, 5vw, 4.4rem); line-height: 1.08; margin: 0 0 18px; color: var(--ds-color-on-surface); }
-  .hero-copy p { margin: 0; font-size: 1.1rem; color: #44474e; max-width: 620px; }
-  .hero-media { border-radius: 8px; overflow: hidden; min-height: 520px; }
-  .hero-media img { width: 100%; height: 100%; object-fit: cover; }
-
-  .filters { position: sticky; top: 80px; z-index: 20; background: rgba(249, 249, 249, .95); backdrop-filter: blur(8px); border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 16px 0; }
-  .filters-inner { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .filters span { font-size: 0.85rem; font-weight: 700; color: #74777f; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 6px; }
-  .filters button {
-    appearance: none;
-    border: 1px solid var(--ds-color-border);
-    border-radius: 999px;
-    padding: 10px 20px;
-    background: var(--ds-color-surface);
-    color: var(--ds-color-on-surface-muted);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
-  }
-  .filters button.active,
-  .filters button:hover {
-    background: var(--ds-color-accent);
-    border-color: var(--ds-color-accent);
-    color: #fff;
-  }
-
-  .catalog { padding-top: 72px; }
-  .catalog-head { margin-bottom: 72px; }
-  .catalog h2 { margin: 0 0 12px; font-size: 2rem; color: var(--ds-color-on-surface); }
-  .catalog-head p { margin: 0; color: #44474e; max-width: 760px; font-size: 1.02rem; line-height: 1.7; }
-  .grid-full { width: 100%; padding: 0 24px; }
-  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 1440px; margin: 0 auto; align-items: stretch; }
-  .card { background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #e8e8e8; display: flex; flex-direction: column; min-height: 100%; box-shadow: 0 10px 24px rgba(10, 25, 42, 0.04); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(10, 25, 42, 0.09); }
-  .card img { width: 100%; height: 400px; object-fit: cover; object-position: center; }
-  .card div { padding: 24px 24px 22px; display: flex; flex-direction: column; flex: 1; }
-  .card h3 { margin: 0 0 12px; color: var(--ds-color-on-surface); font-size: 1.28rem; line-height: 1.25; }
-  .card p { margin: 0 0 18px; color: #4a4e55; line-height: 1.68; font-size: 0.96rem; flex: 1; }
-  .details-btn {
-    display: inline-flex;
-    width: fit-content;
-    align-self: flex-start;
-    min-height: 34px;
-    align-items: center;
-    padding: 0 12px;
-    border-radius: 999px;
-    background: #e8eef8;
-    color: #002046;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.82rem;
-    border: 1px solid #cfd9ea;
-    transition: all 0.2s ease;
-  }
-  .details-btn:hover { background: #002046; color: #fff; border-color: #002046; }
-
-  @media (max-width: 1024px) {
-    .services-page .vipar-shell { width: min(calc(100% - 32px), var(--vipar-shell)); }
-    .hero { grid-template-columns: 1fr; }
-    .grid-full { padding: 0 16px; }
-    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .card img { height: 260px; }
-  }
-
-  @media (max-width: 700px) {
-    .grid { grid-template-columns: 1fr; }
-    .catalog { padding-top: 56px; }
-    .catalog-head { margin-bottom: 44px; }
-    .card img { height: 240px; }
-  }
-</style>
-

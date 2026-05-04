@@ -1,4 +1,6 @@
 ---
+import Button from "./ui/Button.astro";
+import Container from "./ui/Container.astro";
 import {
   LOGO_TEXT,
   MENU_ITEMS,
@@ -11,7 +13,7 @@ import {
 const currentYear = new Date().getFullYear();
 const serviceLinks = [
   { label: "Cristales Templados", href: "/servicios/" },
-  { label: "Carpintería de Aluminio", href: "/servicios/carpinteria-de-aluminio/" },
+  { label: "Carpinteria de Aluminio", href: "/servicios/carpinteria-de-aluminio/" },
   { label: "Fachadas", href: "/servicios/fachada/" },
   { label: "Mamparas y Divisiones", href: "/servicios/mampara-divisoria/" },
   { label: "Cielos Rasos", href: "/servicios/cielo-raso/" },
@@ -20,21 +22,32 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
 ---
 
 <footer class="vipar-site-footer">
-  <div class="vipar-site-shell vipar-site-footer__grid">
+  <Container class="vipar-site-footer__grid">
     <div class="vipar-site-footer__brand">
       <span class="vipar-site-footer__logo">{LOGO_TEXT}</span>
       <p>
-        Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para viviendas, comercios, oficinas y obras.
+        Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para
+        viviendas, comercios, oficinas y obras.
       </p>
 
       <div class="vipar-site-footer__socials">
         {SOCIAL_LINKS.instagram && (
-          <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram VIPAR">
+          <a
+            href={SOCIAL_LINKS.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram VIPAR"
+          >
             <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
           </a>
         )}
         {SOCIAL_LINKS.facebook && (
-          <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook VIPAR">
+          <a
+            href={SOCIAL_LINKS.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook VIPAR"
+          >
             <span class="material-symbols-outlined" aria-hidden="true">groups</span>
           </a>
         )}
@@ -42,7 +55,7 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
     </div>
 
     <div class="vipar-site-footer__column">
-      <h3>Enlaces Rápidos</h3>
+      <h3>Enlaces Rapidos</h3>
       {MENU_ITEMS.map((menuItem) => (
         <a href={menuItem.url}>{menuItem.title}</a>
       ))}
@@ -70,191 +83,25 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
         <a href={`mailto:${email}`}>{email}</a>
       </p>
 
-      <a class="vipar-site-button vipar-site-button--accent vipar-site-footer__cta" href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
+      <Button
+        href={`https://wa.me/${whatsappNumber}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="contained"
+        tone="primary"
+        size="md"
+        class="vipar-site-footer__cta"
+      >
         Solicitar Presupuesto
-      </a>
+      </Button>
     </div>
-  </div>
+  </Container>
 
-  <div class="vipar-site-shell vipar-site-footer__bottom">
-    <p>© {currentYear} {LOGO_TEXT}. Todos los derechos reservados.</p>
+  <Container class="vipar-site-footer__bottom">
+    <p>&copy; {currentYear} {LOGO_TEXT}. Todos los derechos reservados.</p>
     <div>
       <a href="/contacto/">Contacto</a>
       <a href="/obras/">Obras</a>
     </div>
-  </div>
+  </Container>
 </footer>
-
-<style>
-  .vipar-site-shell {
-    width: min(calc(100% - (var(--ds-container-padding-desktop) * 2)), var(--ds-container-max));
-    margin: 0 auto;
-  }
-
-  .vipar-site-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 52px;
-    padding: 0 24px;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-  }
-
-  .vipar-site-button:hover {
-    transform: translateY(-1px);
-  }
-
-  .vipar-site-button--accent {
-    background: var(--ds-color-accent);
-    color: var(--ds-color-surface);
-  }
-
-  .vipar-site-footer {
-    background: var(--ds-color-primary);
-    color: var(--ds-color-surface);
-    padding: 80px 0 40px;
-    border-top: 1px solid color-mix(in srgb, var(--ds-color-border-strong) 40%, transparent);
-  }
-
-  .vipar-site-footer__grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr 1fr;
-    gap: 48px;
-  }
-
-  .vipar-site-footer__logo {
-    display: inline-block;
-    font-size: 1.8rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .vipar-site-footer__brand p {
-    margin-top: 24px;
-    color: var(--ds-color-border-strong);
-    line-height: 1.7;
-  }
-
-  .vipar-site-footer__socials {
-    display: flex;
-    gap: 16px;
-    margin-top: 24px;
-  }
-
-  .vipar-site-footer__socials a {
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--ds-color-surface) 12%, transparent);
-    color: var(--ds-color-surface);
-    text-decoration: none;
-    transition: background-color 0.2s ease;
-  }
-
-  .vipar-site-footer__socials a:hover {
-    background: var(--ds-color-accent);
-  }
-
-  .vipar-site-footer__column {
-    display: grid;
-    align-content: start;
-    gap: 12px;
-  }
-
-  .vipar-site-footer__column h3 {
-    margin: 0 0 8px;
-    font-size: 0.95rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .vipar-site-footer__column a,
-  .vipar-site-footer__contact {
-    color: var(--ds-color-border-strong);
-    text-decoration: none;
-  }
-
-  .vipar-site-footer__column a:hover,
-  .vipar-site-footer__bottom a:hover {
-    color: var(--ds-color-surface);
-  }
-
-  .vipar-site-footer__contact {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin: 0;
-    line-height: 1.7;
-  }
-
-  .vipar-site-footer__cta {
-    margin-top: 12px;
-    width: 100%;
-  }
-
-  .vipar-site-footer__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid color-mix(in srgb, var(--ds-color-border-strong) 40%, transparent);
-  }
-
-  .vipar-site-footer__bottom p,
-  .vipar-site-footer__bottom a {
-    color: var(--ds-color-border-strong);
-    font-size: 0.82rem;
-    margin: 0;
-    text-decoration: none;
-  }
-
-  .vipar-site-footer__bottom div {
-    display: flex;
-    gap: 16px;
-  }
-
-  @media (max-width: 960px) {
-    .vipar-site-shell {
-      width: min(calc(100% - (var(--ds-container-padding-mobile) * 2)), var(--ds-container-max));
-    }
-
-    .vipar-site-footer__grid,
-    .vipar-site-footer__bottom {
-      grid-template-columns: 1fr;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .vipar-site-footer {
-      padding-top: 88px;
-      padding-bottom: 88px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .vipar-site-footer {
-      padding-top: 72px;
-      padding-bottom: 72px;
-    }
-
-    .vipar-site-footer__bottom div {
-      flex-direction: column;
-      gap: 8px;
-    }
-  }
-</style>
-

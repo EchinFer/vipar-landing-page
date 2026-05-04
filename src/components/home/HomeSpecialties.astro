@@ -1,0 +1,36 @@
+---
+import Container from "@components/ui/Container.astro";
+import Text from "@components/ui/Text.astro";
+
+interface ServiceLinks {
+  cristalesTemplados: string;
+  carpinteriaAluminio: string;
+  fachada: string;
+  mamparaDivisoria: string;
+  cieloRaso: string;
+  boxDeBano: string;
+}
+
+interface Props {
+  serviceLinks: ServiceLinks;
+}
+
+const { serviceLinks } = Astro.props;
+---
+
+<section class="vipar-specialties" aria-label="Especialidades">
+  <Container class="vipar-shell vipar-specialties__inner">
+    <Text as="span" variant="label-sm" tone="accent" class="vipar-label">Especialidades:</Text>
+    <a href={serviceLinks.cristalesTemplados}>Cristales templados</a>
+    <Text as="span" variant="body-sm" tone="muted" class="vipar-separator">&bull;</Text>
+    <a href={serviceLinks.carpinteriaAluminio}>Aluminio</a>
+    <Text as="span" variant="body-sm" tone="muted" class="vipar-separator">&bull;</Text>
+    <a href={serviceLinks.fachada}>Fachadas</a>
+    <Text as="span" variant="body-sm" tone="muted" class="vipar-separator">&bull;</Text>
+    <a href={serviceLinks.mamparaDivisoria}>Mamparas</a>
+    <Text as="span" variant="body-sm" tone="muted" class="vipar-separator">&bull;</Text>
+    <a href={serviceLinks.cieloRaso}>Cielos rasos</a>
+    <Text as="span" variant="body-sm" tone="muted" class="vipar-separator">&bull;</Text>
+    <a href={serviceLinks.boxDeBano}>Box de ba&ntilde;o</a>
+  </Container>
+</section>

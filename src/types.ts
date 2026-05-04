@@ -117,3 +117,16 @@ export interface Servicio {
 export interface ServicioDetallado extends Servicio {
   obras_relacionadas?: Project[];
 }
+
+export interface ServicioListItem {
+  key: string;
+  title: string;
+  href: string;
+  image: string;
+  description: string;
+}
+
+export interface ServicioFilterItem {
+  key: string;
+  label: string;
+}

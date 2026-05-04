@@ -1,0 +1,502 @@
+.ds-card,
+.card,
+.vipar-obras-card,
+.vipar-form-card,
+.vipar-key-card {
+  background: var(--ds-color-surface);
+  border: var(--ds-border-width) var(--ds-border-style) var(--ds-color-border);
+  border-radius: var(--ds-radius-lg);
+  box-shadow: var(--ds-shadow-card);
+}
+
+.ds-card:hover,
+.card:hover,
+.vipar-obras-card:hover { box-shadow: var(--ds-shadow-card-hover); }
+
+.ds-card.vipar-key-card {
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--vipar-surface-mid);
+}
+
+.ds-card.vipar-key-card h3 {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--vipar-outline);
+  font-size: 1.25rem;
+}
+
+.ds-card.vipar-key-card .vipar-key-card__list {
+  display: grid;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.ds-card.vipar-key-card .vipar-key-card__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ds-card.vipar-key-card .vipar-key-card__item .material-symbols-outlined {
+  color: var(--vipar-secondary);
+}
+
+.ds-card.vipar-key-card .vipar-key-card__item div {
+  display: grid;
+  gap: 4px;
+}
+
+.ds-card.vipar-form-card {
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(5, 30, 40, 0.05);
+}
+
+@media (max-width: 640px) {
+  .ds-card.vipar-key-card,
+  .ds-card.vipar-form-card {
+    padding: 24px;
+  }
+}
+
+.ds-card--variant-media {
+  border-radius: var(--vipar-radius-lg);
+  overflow: hidden;
+  position: relative;
+  min-height: 580px;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ds-card--variant-media:hover {
+  box-shadow: var(--vipar-shadow-card);
+}
+
+.ds-card--variant-media .vipar-service-card__image {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  background: var(--vipar-primary-container);
+}
+
+.ds-card--variant-media .vipar-service-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.64;
+  transition: transform 0.7s ease;
+}
+
+.ds-card--variant-media .vipar-service-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 42, 61, 0.08) 0%,
+    rgba(15, 42, 61, 0.48) 40%,
+    rgba(15, 42, 61, 0.92) 100%
+  );
+}
+
+.ds-card--variant-media .vipar-service-card__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-end;
+  min-height: 580px;
+  padding: 32px;
+}
+
+.ds-card--variant-media .vipar-service-card__body h3 {
+  margin: 0;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.ds-card--variant-media .vipar-service-card__body p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.ds-card--variant-media .vipar-service-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ds-card--variant-media .vipar-service-card__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.97rem;
+  font-weight: 500;
+}
+
+.ds-card--variant-media .vipar-service-card__list .material-symbols-outlined {
+  font-size: 1rem;
+  color: #aec7f7;
+}
+
+.ds-card--variant-media .ds-btn {
+  margin-top: auto;
+  justify-content: center;
+}
+
+.ds-card--variant-soft {
+  flex: 0 1 calc((100% - 48px) / 3);
+  max-width: calc((100% - 48px) / 3);
+  min-width: 240px;
+  border-radius: var(--vipar-radius-md);
+  padding: 24px;
+  background: var(--vipar-surface-low);
+}
+
+.ds-card--variant-soft .material-symbols-outlined {
+  color: var(--vipar-secondary);
+  font-size: 2rem;
+}
+
+.ds-card--variant-soft h3 {
+  margin: 12px 0 0;
+  color: var(--vipar-text);
+  font-size: 1.05rem;
+}
+
+.ds-card--variant-soft p {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+}
+
+.ds-card--variant-feature {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--ds-color-border);
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--ds-color-surface);
+  padding: 0;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.ds-card--variant-feature:hover {
+  border-color: var(--ds-color-accent);
+  box-shadow: 0 22px 40px rgba(7, 27, 40, 0.12);
+}
+
+.ds-card--variant-feature .vipar-obras-featured__media {
+  background: var(--ds-color-border);
+  min-height: 360px;
+  padding: 0;
+}
+
+.ds-card--variant-feature .vipar-obras-featured__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ds-card--variant-feature .vipar-obras-featured__content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.ds-card--variant-feature .vipar-obras-featured__eyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ds-card--variant-feature h3 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  color: var(--ds-color-primary);
+}
+
+.ds-card--variant-feature .vipar-obras-featured__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ds-card--variant-feature .vipar-obras-featured__tags span {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--ds-color-border);
+  background: #f5f9fc;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ds-color-on-surface-muted);
+}
+
+.ds-card--variant-feature p {
+  margin: 0;
+}
+
+@media (max-width: 1080px) {
+  .ds-card--variant-feature {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ds-card--variant-gallery {
+  border: 1px solid var(--ds-color-border);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--ds-color-surface);
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.ds-card--variant-gallery:hover {
+  border-color: var(--ds-color-accent);
+  box-shadow: 0 18px 32px rgba(7, 27, 40, 0.08);
+}
+
+.ds-card--variant-gallery .vipar-obras-card__image {
+  height: 400px;
+  background: var(--ds-color-border);
+}
+
+.ds-card--variant-gallery .vipar-obras-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ds-card--variant-gallery .vipar-obras-card__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+}
+
+.ds-card--variant-gallery .vipar-obras-card__eyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ds-card--variant-gallery h4 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--ds-color-primary);
+}
+
+.ds-card--variant-gallery .vipar-obras-card__location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7f8f;
+  font-size: 0.9rem;
+}
+
+.ds-card--variant-gallery p {
+  margin: 0;
+  flex: 1;
+}
+
+.ds-card--variant-catalog {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  box-shadow: 0 10px 24px rgba(10, 25, 42, 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ds-card--variant-catalog:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(10, 25, 42, 0.09);
+}
+
+.ds-card--variant-catalog img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ds-card--variant-catalog .vipar-servicios-card__body {
+  padding: 24px 24px 22px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.ds-card--variant-catalog h3 {
+  margin: 0 0 12px;
+  font-size: 1.28rem;
+  line-height: 1.25;
+}
+
+.ds-card--variant-catalog p {
+  margin: 0 0 18px;
+  color: #4a4e55;
+  line-height: 1.68;
+  font-size: 0.96rem;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .ds-card--variant-catalog img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ds-card--variant-catalog img {
+    height: 240px;
+  }
+}
+
+.ds-card--variant-immersive {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+  border-radius: var(--vipar-radius-xl);
+  background: var(--vipar-surface);
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease;
+}
+
+.ds-card--variant-immersive::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 25, 36, 0.1) 16%,
+    rgba(10, 25, 36, 0.5) 58%,
+    rgba(10, 25, 36, 0.86) 100%
+  );
+  z-index: 0;
+  transition:
+    background 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.ds-card--variant-immersive:hover,
+.ds-card--variant-immersive:focus-visible {
+  box-shadow: 0 18px 48px rgba(10, 25, 36, 0.14);
+}
+
+.ds-card--variant-immersive:hover::after,
+.ds-card--variant-immersive:focus-visible::after {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 25, 36, 0.04) 12%,
+    rgba(10, 25, 36, 0.42) 54%,
+    rgba(10, 25, 36, 0.78) 100%
+  );
+}
+
+.ds-card--variant-immersive .vipar-project-card__image {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  height: auto;
+  margin-bottom: 0;
+  border-radius: var(--vipar-radius-xl);
+  box-shadow: none;
+}
+
+.ds-card--variant-immersive .vipar-project-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.02) saturate(0.94) brightness(0.92);
+  transition:
+    filter 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.ds-card--variant-immersive:hover .vipar-project-card__image img,
+.ds-card--variant-immersive:focus-visible .vipar-project-card__image img {
+  filter: contrast(1.08) saturate(1.02) brightness(1);
+}
+
+.ds-card--variant-immersive .vipar-project-card__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  min-height: 100%;
+  padding: 24px;
+}
+
+.ds-card--variant-immersive .vipar-project-card__eyebrow {
+  color: rgba(255, 255, 255, 0.74);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ds-card--variant-immersive h3 {
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ds-card--variant-immersive h4 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ds-card--variant-immersive p {
+  max-width: 34rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.92rem;
+}
+
+.ds-card--variant-immersive.vipar-project-card--hero .vipar-project-card__body {
+  padding: 40px;
+}
+
+.ds-card--variant-immersive.vipar-project-card--hero h3 {
+  max-width: 18ch;
+  font-size: 2rem;
+}
+
+.ds-card--variant-immersive.vipar-project-card--hero p {
+  max-width: 34ch;
+  font-size: 1rem;
+}
+
+.ds-card--variant-immersive.vipar-project-card--side p {
+  max-width: 26ch;
+}

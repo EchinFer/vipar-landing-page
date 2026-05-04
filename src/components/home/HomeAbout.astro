@@ -1,0 +1,45 @@
+---
+import Container from "../ui/Container.astro";
+import Heading from "../ui/Heading.astro";
+import Stack from "../ui/Stack.astro";
+import Text from "../ui/Text.astro";
+import HomeKeyDataCard from "./HomeKeyDataCard.astro";
+
+interface KeyDataItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  keyData: KeyDataItem[];
+}
+
+const { keyData } = Astro.props;
+---
+
+<section class="vipar-section vipar-section--plain vipar-section--bordered" id="nosotros">
+  <Container class="vipar-shell vipar-about-grid">
+    <Stack size="md">
+      <Text as="span" variant="label-md" tone="accent" class="vipar-label">Sobre Nosotros</Text>
+      <Heading level={2}>Empresa paraguaya enfocada en cristales, aluminio y terminaciones</Heading>
+
+      <Stack size="sm" class="vipar-prose">
+        <Text>
+          VIPAR S.A. es una empresa paraguaya dedicada a soluciones en cristales templados,
+          carpinter&iacute;a de aluminio y terminaciones para obras. Desde &Ntilde;emby, atiende
+          proyectos residenciales, comerciales, corporativos e inmobiliarios que requieren
+          aberturas, cerramientos, divisiones, fachadas, cielos rasos y box de ba&ntilde;o.
+        </Text>
+        <Text>
+          La atenci&oacute;n comercial parte de datos concretos: medidas, ubicaci&oacute;n, tipo
+          de servicio y referencias del espacio. Eso permite orientar mejor cada consulta y
+          preparar un presupuesto m&aacute;s &uacute;til para viviendas, comercios, oficinas y
+          obras.
+        </Text>
+      </Stack>
+    </Stack>
+
+    <HomeKeyDataCard keyData={keyData} />
+  </Container>
+</section>

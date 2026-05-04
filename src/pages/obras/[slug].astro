@@ -2,353 +2,89 @@
 import Layout from "@layouts/Layout.astro";
 import { staticObras } from "@lib/static-obras";
 import { SITE_URL } from "src/constants";
+import ObraHero from "@components/obra-detail/ObraHero.astro";
+import ObraFichaTecnica from "@components/obra-detail/ObraFichaTecnica.astro";
+import ObraEditorial from "@components/obra-detail/ObraEditorial.astro";
+import ObraGallery from "@components/obra-detail/ObraGallery.astro";
+import ObraServiciosAplicados from "@components/obra-detail/ObraServiciosAplicados.astro";
+import ObraCTA from "@components/obra-detail/ObraCTA.astro";
+import "@styles/obra-detail.css";
 
 export async function getStaticPaths() {
-  return staticObras.map((project) => {
-    return {
-      params: { slug: project.slug },
-      props: { project },
-    };
-  });
+  return staticObras.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
 }
 
 const { project } = Astro.props;
 
-// SEO optimizado por obra
 const title = `${project.titulo} - Obra Realizada | VIPAR Paraguay`;
-const description = project.descripcion 
-  ? `${project.descripcion.replace(/<[^>]*>/g, '').substring(0, 150)}... Proyecto de ${project.category.map(c => c.name).join(', ')} realizado por VIPAR.`
-  : `Obra de ${project.category.map(c => c.name).join(', ')}: ${project.titulo}. Instalación profesional en Paraguay.`;
-
-const keywords = `${project.titulo}, ${project.category.map(c => c.name).join(', ')}, obras cristales templados, proyectos construcción, instalación profesional Paraguay`;
+const description = project.descripcion
+  ? `${project.descripcion.replace(/<[^>]*>/g, "").substring(0, 150)}... Proyecto de ${project.category.map((c) => c.name).join(", ")} realizado por VIPAR.`
+  : `Obra de ${project.category.map((c) => c.name).join(", ")}: ${project.titulo}. Instalación profesional en Paraguay.`;
+const keywords = `${project.titulo}, ${project.category.map((c) => c.name).join(", ")}, obras cristales templados, proyectos construcción, instalación profesional Paraguay`;
 const canonical = `${SITE_URL}/obras/${project.slug}`;
-
-const stripHtml = (value: string | undefined) =>
-  (value ?? "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
-
-const plainDescription = stripHtml(project.descripcion);
-const shortSummary = plainDescription
-  ? plainDescription.length > 220
-    ? `${plainDescription.slice(0, 220)}…`
-    : plainDescription
-  : "";
-
-const categoryNames = (project.category ?? []).map((c) => c.name).filter(Boolean);
-
-const metaItems = [project.fecha, project.cliente].filter(
-  (v): v is string => typeof v === "string" && v.trim().length > 0
-);
-
-const hasImages = Boolean(project.imagen) || (project.imagenes?.length ?? 0) > 0;
 ---
 
-<Layout 
+<Layout
   title={title}
   description={description}
   keywords={keywords}
   canonical={canonical}
   ogImage={project.imagen || `${SITE_URL}/img/vipar-og.webp`}
+  hideWhatsappFAB={true}
 >
-  <!-- Breadcrumbs -->
-  <div
-    class="breadcrumbs d-flex align-items-center"
-    style="background-image: url('/img/breadcrumbs-bg.jpg');"
-  >
-    <div
-      class="container position-relative d-flex flex-column align-items-center"
-      data-aos="fade"
-    >
-      <h2>Obras</h2>
-      <ol>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/obras">Obras</a></li>
-        <li>{project.titulo}</li>
-      </ol>
-    </div>
-  </div>
+  <!-- Hero: imagen principal + breadcrumb + título -->
+  <ObraHero
+    titulo={project.titulo}
+    ubicacion={project.ubicacion}
+    imagen={project.imagen}
+    slug={project.slug}
+  />
 
-  <!-- Project Details Section -->
-  <section id="project-details" class="project-details">
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-      <div class="row g-4 align-items-start">
-        <div class="col-lg-8">
-          <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
-            <div class="flex-grow-1">
-              <h1 class="mb-2 obra-title">{project.titulo}</h1>
-              {metaItems.length > 0 && (
-                <div class="d-flex flex-wrap gap-2 align-items-center text-muted small">
-                  {metaItems.map((item, idx) => (
-                    <span>{idx > 0 ? "• " : ""}{item}</span>
-                  ))}
-                </div>
-              )}
-              {categoryNames.length > 0 && (
-                <div class="d-flex flex-wrap gap-2 mt-2">
-                  {categoryNames.map((name) => (
-                    <span class="badge obra-badge">{name}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div class="d-flex flex-column gap-2">
-              <a class="btn-visit text-center" href="/contacto/">Solicitar presupuesto</a>
-            </div>
-          </div>
+  <!-- Ficha técnica: tipo, ubicación, servicios -->
+  <ObraFichaTecnica
+    sectorLabel={project.sectorLabel}
+    ubicacion={project.ubicacion}
+    displayTags={project.displayTags}
+  />
 
-          {shortSummary && (
-            <p class="lead text-secondary mb-4">{shortSummary}</p>
-          )}
+  <!-- Editorial: descripción del proyecto -->
+  <ObraEditorial descripcion={project.descripcion} />
 
-          {hasImages ? (
-            <div class="position-relative h-100">
-              <div class="slides-1 portfolio-details-slider swiper">
-                <div class="swiper-wrapper">
-                  {project.imagen && (
-                    <div class="swiper-slide">
-                      <a href={project.imagen} class="glightbox" data-gallery="obra-gallery">
-                        <img src={project.imagen} alt={project.titulo} loading="eager" decoding="async" />
-                      </a>
-                    </div>
-                  )}
-                  {project.imagenes &&
-                    project.imagenes.map((img) => (
-                      <div class="swiper-slide">
-                        <a href={img} class="glightbox" data-gallery="obra-gallery">
-                          <img src={img} alt={project.titulo} loading="lazy" decoding="async" />
-                        </a>
-                      </div>
-                    ))}
-                </div>
-                <div class="swiper-pagination"></div>
-              </div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div>
-          ) : (
-            <div class="section-bg p-4 rounded-2">
-              <p class="mb-0">
-                Estamos actualizando las fotos de esta obra. Si querés ver trabajos similares, escribinos y te compartimos referencias.
-              </p>
-            </div>
-          )}
-        </div>
+  <!-- Galería de imágenes -->
+  <ObraGallery
+    titulo={project.titulo}
+    imagen={project.imagen}
+    imagenes={project.imagenes}
+  />
 
-        <div class="col-lg-4">
-          <aside class="obra-info shadow-sm">
-            <div class="obra-info__header">
-              <h3 class="mb-0">Información del Proyecto</h3>
-              <div class="underline"></div>
-            </div>
+  <!-- Servicios aplicados -->
+  <ObraServiciosAplicados tags={project.displayTags} />
 
-            <ul class="obra-info__list">
-              {categoryNames.length > 0 && (
-                <li>
-                  <span>Categorías</span>
-                  <strong>{categoryNames.join(", ")}</strong>
-                </li>
-              )}
-              {project.cliente && (
-                <li>
-                  <span>Cliente</span>
-                  <strong>{project.cliente}</strong>
-                </li>
-              )}
-              {project.fecha && (
-                <li>
-                  <span>Fecha</span>
-                  <strong>{project.fecha}</strong>
-                </li>
-              )}
-              {shortSummary && (
-                <li>
-                  <span>Resumen</span>
-                  <strong>{shortSummary}</strong>
-                </li>
-              )}
-            </ul>
+  <!-- CTA final -->
+  <ObraCTA titulo={project.titulo} />
 
-            <div class="d-grid gap-2 mt-3">
-              <a class="btn-visit text-center" href="/contacto/">Cotizar este proyecto</a>
-              <a class="btn-outline-brand text-center" href="tel:+595981256510">Llamar ahora</a>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Schema.org para la obra -->
+  <!-- Schema.org -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "name": project.titulo,
-    "description": project.descripcion?.replace(/<[^>]*>/g, '') || `Obra: ${project.titulo}`,
-    "image": project.imagen || (project.imagenes && project.imagenes[0]),
-    "creator": {
-      "@type": "Organization",
-      "name": "Vipar",
-      "url": SITE_URL
-    },
+    "description": project.descripcion?.replace(/<[^>]*>/g, "") || `Obra: ${project.titulo}`,
+    "image": project.imagen || project.imagenes?.[0],
+    "creator": { "@type": "Organization", "name": "Vipar", "url": SITE_URL },
     "datePublished": project.fecha,
-    "keywords": project.category.map(c => c.name).join(', '),
-    "genre": project.category.map(c => c.name).join(', '),
-    "about": {
-      "@type": "Thing",
-      "name": project.category[0]?.name || "Construcción"
-    }
+    "keywords": project.category.map((c) => c.name).join(", "),
+    "about": { "@type": "Thing", "name": project.category[0]?.name || "Construcción" },
   })} />
 </Layout>
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    "use strict";
-
-    /**
-     * Init swiper slider with 1 slide at once in desktop view
-     */
-    if (typeof Swiper !== "undefined" && document.querySelector(".slides-1")) {
-      new Swiper(".slides-1", {
-      speed: 600,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      slidesPerView: "auto",
-      pagination: {
-        el: ".swiper-pagination",
-        type: "bullets",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      });
-    }
-
     if (typeof GLightbox !== "undefined") {
-      GLightbox({ selector: '.glightbox' });
-    }
-
-    /**
-     * Init swiper slider with 2 slides at once in desktop view
-     */
-    if (typeof Swiper !== "undefined" && document.querySelector(".slides-2")) {
-      new Swiper(".slides-2", {
-      speed: 600,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      slidesPerView: "auto",
-      pagination: {
-        el: ".swiper-pagination",
-        type: "bullets",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-        },
-
-        1200: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-      },
-      });
+      GLightbox({ selector: ".glightbox" });
     }
   });
 </script>
 
-<style>
-  .obra-title {
-    color: var(--color-secondary);
-  }
-
-  .obra-badge {
-    background: var(--color-primary);
-    color: #fff;
-  }
-
-  .obra-info {
-    background: #f8f9fb;
-    border-radius: 16px;
-    padding: 20px 22px;
-    position: sticky;
-    top: 110px;
-  }
-
-  @media (max-width: 991px) {
-    .obra-info {
-      position: static;
-    }
-  }
-
-  .obra-info__header {
-    margin-bottom: 16px;
-  }
-
-  .obra-info__header h3 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-secondary);
-  }
-
-  .obra-info__header .underline {
-    width: 48px;
-    height: 3px;
-    background: var(--color-primary);
-  }
-
-  .obra-info__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .obra-info__list li {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .obra-info__list span {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #6c757d;
-  }
-
-  .obra-info__list strong {
-    font-size: 15px;
-    color: var(--color-dark);
-    font-weight: 600;
-  }
-
-  .btn-outline-brand {
-    font-family: var(--font-primary);
-    font-weight: 500;
-    display: inline-block;
-    padding: 8px 32px;
-    border-radius: 50px;
-    transition: 0.3s;
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
-  }
-
-  .btn-outline-brand:hover {
-    background: var(--color-primary);
-    color: #fff;
-  }
-</style>

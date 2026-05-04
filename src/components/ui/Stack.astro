@@ -1,6 +1,12 @@
 ---
-interface Props { class?: string; gap?: "sm"|"md"|"lg" }
-const { class: className = "", gap = "md" } = Astro.props;
+interface Props {
+  as?: string;
+  class?: string;
+  gap?: "sm" | "md" | "lg";
+}
+
+const { as = "div", class: className = "", gap = "md" } = Astro.props;
+const Tag = as as any;
 const gapClass = gap === "sm" ? "ds-stack-sm" : gap === "lg" ? "ds-stack-lg" : "ds-stack-md";
 ---
-<div class:list={[gapClass, className]}><slot /></div>
+<Tag class:list={[gapClass, className]}><slot /></Tag>

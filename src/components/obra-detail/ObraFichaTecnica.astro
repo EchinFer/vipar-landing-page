@@ -1,0 +1,37 @@
+---
+interface Props {
+  sectorLabel: string;
+  ubicacion: string;
+  displayTags: string[];
+}
+
+const { sectorLabel, ubicacion, displayTags } = Astro.props;
+---
+
+<div class="od-ficha-wrap">
+  <div class="od-ficha-grid">
+
+    <!-- Tipo de obra -->
+    <div class="od-ficha-card">
+      <div class="od-ficha-card__label">TIPO DE OBRA</div>
+      <div class="od-ficha-card__value">{sectorLabel}</div>
+    </div>
+
+    <!-- Ubicación -->
+    <div class="od-ficha-card">
+      <div class="od-ficha-card__label">UBICACIÓN</div>
+      <div class="od-ficha-card__value">{ubicacion}</div>
+    </div>
+
+    <!-- Servicios aplicados -->
+    <div class="od-ficha-card">
+      <div class="od-ficha-card__label">SERVICIOS APLICADOS</div>
+      <div class="od-ficha-card__tags">
+        {displayTags.map((tag) => (
+          <span class="od-ficha-tag">{tag}</span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</div>

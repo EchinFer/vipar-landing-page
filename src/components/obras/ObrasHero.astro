@@ -1,0 +1,25 @@
+---
+import Container from "../ui/Container.astro";
+import Heading from "../ui/Heading.astro";
+import Text from "../ui/Text.astro";
+
+interface Props {
+  image: string;
+}
+
+const { image } = Astro.props;
+---
+
+<section class="vipar-obras-hero">
+  <div class="vipar-obras-hero__media">
+    <img src={image} alt="Obras VIPAR" loading="eager" fetchpriority="high" />
+  </div>
+  <div class="vipar-obras-hero__overlay"></div>
+  <Container class="vipar-obras-hero__content">
+    <Heading level={1} variant="display">Obras y proyectos realizados por VIPAR</Heading>
+    <Text size="lg">
+      Explora nuestro portafolio de soluciones en cristal templado y aluminio de alta
+      precisi&oacute;n en Paraguay. Ingenier&iacute;a y dise&ntilde;o para arquitectura exigente.
+    </Text>
+  </Container>
+</section>

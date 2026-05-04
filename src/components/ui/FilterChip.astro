@@ -1,0 +1,21 @@
+---
+interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
+  active?: boolean;
+  class?: string;
+}
+
+const {
+  active = false,
+  type = "button",
+  class: className = "",
+  ...props
+} = Astro.props;
+---
+
+<button
+  type={type}
+  {...props}
+  class:list={["ds-filter-chip", active && "is-active", className]}
+>
+  <slot />
+</button>

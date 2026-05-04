@@ -1,0 +1,27 @@
+---
+import Container from "../ui/Container.astro";
+import FilterChip from "../ui/FilterChip.astro";
+import type { ServicioFilterItem } from "@types";
+
+interface Props {
+  filters: ServicioFilterItem[];
+}
+
+const { filters } = Astro.props;
+---
+
+<section class="vipar-servicios-filters">
+  <Container class="vipar-servicios-filters__inner">
+    {
+      filters.map((filter, index) => (
+        <FilterChip
+          class="vipar-servicios-filter"
+          active={index === 0}
+          data-filter={filter.key}
+        >
+          {filter.label}
+        </FilterChip>
+      ))
+    }
+  </Container>
+</section>

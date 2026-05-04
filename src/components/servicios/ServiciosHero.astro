@@ -1,0 +1,24 @@
+---
+import Container from "../ui/Container.astro";
+import Heading from "../ui/Heading.astro";
+import Text from "../ui/Text.astro";
+
+interface Props {
+  image: string;
+}
+
+const { image } = Astro.props;
+---
+
+<section class="vipar-servicios-hero vipar-shell">
+  <div class="vipar-servicios-hero__copy">
+    <Heading level={1} variant="display">Soluciones Arquitectónicas que Transforman Espacios.</Heading>
+    <Text size="lg">
+      Diseño, fabricación e instalación de estructuras premium en vidrio, aluminio y
+      terminaciones avanzadas para proyectos en Paraguay.
+    </Text>
+  </div>
+  <div class="vipar-servicios-hero__media">
+    <img src={image} alt="Fachada arquitectónica" />
+  </div>
+</section>

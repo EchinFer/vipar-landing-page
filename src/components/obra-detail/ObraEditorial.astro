@@ -1,0 +1,40 @@
+---
+interface Props {
+  desafio?: string;
+  respuesta?: string;
+  descripcion?: string;
+}
+
+const { desafio, respuesta, descripcion } = Astro.props;
+const hasEditorial = desafio || respuesta;
+---
+
+{(hasEditorial || descripcion) && (
+  <section class="od-editorial">
+    <div class="od-editorial__inner">
+      {hasEditorial ? (
+        <div class="od-editorial__grid">
+          {desafio && (
+            <div class="od-editorial__col">
+              <h2>El Desafío</h2>
+              <div set:html={desafio} />
+            </div>
+          )}
+          {respuesta && (
+            <div class="od-editorial__col">
+              <h2>La Respuesta</h2>
+              <div set:html={respuesta} />
+            </div>
+          )}
+        </div>
+      ) : (
+        <div class="od-editorial__single">
+          <div class="od-editorial__col">
+            <h2>Sobre este proyecto</h2>
+            <div set:html={descripcion} />
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+)}

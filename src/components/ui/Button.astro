@@ -1,10 +1,52 @@
 ---
-interface Props { href?: string; variant?: "primary"|"secondary"|"ghost"; type?: "button"|"submit"|"reset"; class?: string }
-const { href, variant = "primary", type = "button", class: className = "" } = Astro.props;
-const variantClass = variant === "primary" ? "ds-btn-primary" : variant === "secondary" ? "ds-btn-secondary" : "ds-btn-ghost";
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes, astroHTML.JSX.ButtonHTMLAttributes {
+  href?: string;
+  variant?: "contained" | "outlined" | "ghost" | "link" | "primary" | "secondary";
+  tone?: "primary" | "secondary" | "neutral" | "inverse";
+  size?: "sm" | "md" | "lg";
+  fullWidth?: boolean;
+  type?: "button" | "submit" | "reset";
+  class?: string;
+}
+
+const {
+  href,
+  variant = "contained",
+  tone,
+  size = "md",
+  fullWidth = false,
+  type = "button",
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+const resolvedVariant =
+  variant === "primary" ? "contained" : variant === "secondary" ? "outlined" : variant;
+const resolvedTone =
+  tone ?? (variant === "secondary" ? "primary" : variant === "ghost" ? "primary" : "primary");
 ---
 {href ? (
-  <a href={href} class:list={["ds-btn", variantClass, className]}><slot /></a>
+  <a
+    href={href}
+    {...rest}
+    class:list={[
+      "ds-btn",
+      `ds-btn--${resolvedVariant}`,
+      `ds-btn--${resolvedTone}`,
+      `ds-btn--${size}`,
+      fullWidth && "ds-btn--full",
+      className,
+    ]}><slot /></a>
 ) : (
-  <button type={type} class:list={["ds-btn", variantClass, className]}><slot /></button>
+  <button
+    type={type}
+    {...rest}
+    class:list={[
+      "ds-btn",
+      `ds-btn--${resolvedVariant}`,
+      `ds-btn--${resolvedTone}`,
+      `ds-btn--${size}`,
+      fullWidth && "ds-btn--full",
+      className,
+    ]}><slot /></button>
 )}

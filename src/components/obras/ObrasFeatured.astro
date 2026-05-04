@@ -1,0 +1,41 @@
+---
+import Button from "../ui/Button.astro";
+import Card from "../ui/Card.astro";
+import Heading from "../ui/Heading.astro";
+import Text from "../ui/Text.astro";
+import type { StaticObra } from "@lib/static-obras";
+
+interface Props {
+  obra: StaticObra;
+  tagline: string;
+}
+
+const { obra, tagline } = Astro.props;
+---
+
+<Card variant="feature" class="vipar-obras-featured">
+  <div class="vipar-obras-featured__media">
+    <img src={obra.imagen} alt={obra.titulo} loading="lazy" decoding="async" />
+  </div>
+  <div class="vipar-obras-featured__content">
+    <Text as="span" variant="label-sm" tone="accent" class="vipar-obras-featured__eyebrow">
+      {tagline}
+    </Text>
+    <Heading level={3}>{obra.titulo}</Heading>
+    <div class="vipar-obras-featured__tags">
+      {obra.displayTags.map((tag) => (
+        <span>{tag}</span>
+      ))}
+    </div>
+    <Text>{obra.descripcion}</Text>
+    <Button
+      href={`/obras/${obra.slug}`}
+      variant="outlined"
+      tone="primary"
+      size="md"
+      class="vipar-obras-featured__cta"
+    >
+      Ver obra
+    </Button>
+  </div>
+</Card>

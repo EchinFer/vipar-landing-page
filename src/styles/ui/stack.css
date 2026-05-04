@@ -1,0 +1,10 @@
+.ds-stack-sm,
+.ds-stack-md,
+.ds-stack-lg {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-stack-sm { gap: var(--ds-space-2); }
+.ds-stack-md { gap: var(--ds-space-3); }
+.ds-stack-lg { gap: var(--ds-space-4); }

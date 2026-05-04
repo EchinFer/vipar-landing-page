@@ -1,6 +1,29 @@
 ---
-interface Props { level?: 1|2|3|4|5|6; class?: string }
-const { level = 2, class: className = "" } = Astro.props;
-const Tag = (`h${level}`) as any;
+interface Props {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  variant?: "display" | "lg" | "md" | "sm";
+  tone?: "default" | "inverse";
+  class?: string;
+}
+
+const {
+  level = 2,
+  as,
+  variant = level === 1 ? "lg" : level === 2 ? "md" : "sm",
+  tone = "default",
+  class: className = "",
+} = Astro.props;
+
+const Tag = (as ?? `h${level}`) as any;
+const variantClass =
+  variant === "display"
+    ? "ds-heading-display"
+    : variant === "lg"
+      ? "ds-heading-lg"
+      : variant === "md"
+        ? "ds-heading-md"
+        : "ds-heading-sm";
+const toneClass = tone === "inverse" ? "ds-heading-inverse" : "ds-heading-default";
 ---
-<Tag class={className}><slot /></Tag>
+<Tag class:list={[variantClass, toneClass, className]}><slot /></Tag>
