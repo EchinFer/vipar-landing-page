@@ -1,0 +1,41 @@
+---
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import type { BoxCompareRow } from "@lib/static-servicio-box-de-bano";
+
+interface Props {
+  rows: BoxCompareRow[];
+}
+
+const { rows } = Astro.props;
+---
+
+<section id="especificaciones" class="box-service-section box-service-compare">
+  <Container>
+    <Heading level={2} variant="lg" class="box-service-compare__title">
+      Cuadro comparativo de materiales
+    </Heading>
+    <div class="box-service-compare__table-wrap">
+      <table class="box-service-compare__table">
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th>Acrílico</th>
+            <th>Cristal templado</th>
+            <th>Sistemas plegables</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <td>{row.feature}</td>
+              <td>{row.acrylic}</td>
+              <td>{row.temperedGlass}</td>
+              <td>{row.folding}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Container>
+</section>

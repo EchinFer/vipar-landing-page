@@ -1,0 +1,36 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { BoxBenefitItem } from "@lib/static-servicio-box-de-bano";
+
+interface Props {
+  items: BoxBenefitItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="box-service-section box-service-benefits">
+  <Container class="box-service-benefits__grid">
+    <div class="box-service-benefits__intro">
+      <Heading level={2} variant="lg">El problema de las duchas mal terminadas</Heading>
+      <Text variant="body-lg">
+        Las cortinas de baño y soluciones improvisadas no solo restan estética a su baño, sino
+        que generan problemas de higiene, filtraciones y deterioro prematuro de los materiales
+        contiguos.
+      </Text>
+    </div>
+
+    <div class="box-service-benefits__cards">
+      {items.map((item) => (
+        <Card as="article" variant="info">
+          <i class={`${item.icon} ds-card__icon`} aria-hidden="true"></i>
+          <Heading level={3} variant="sm" class="ds-card__title">{item.title}</Heading>
+          <Text class="ds-card__description">{item.description}</Text>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

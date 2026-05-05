@@ -1,0 +1,47 @@
+---
+import Button from "@components/ui/Button.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+
+interface Props {
+  image: string;
+  tags: string[];
+}
+
+const { image, tags } = Astro.props;
+---
+
+<section class="box-service-hero">
+  <Container class="box-service-hero__inner">
+    <div class="box-service-hero__copy">
+      <Text as="div" variant="label-sm" tone="accent" class="box-service-hero__eyebrow">
+        Box de baño en Paraguay
+      </Text>
+      <Heading level={1} variant="display">
+        Box de baño a medida para duchas más cómodas, limpias y mejor terminadas
+      </Heading>
+      <Text variant="body-lg">
+        Soluciones precisas en acrílico, cristal templado y sistemas safonados para optimizar el
+        espacio y mantener la higiene de tu baño.
+      </Text>
+      <div class="box-service-hero__actions">
+        <Button href="/contacto/" variant="contained" tone="primary" size="lg">
+          Cotizar box de baño
+        </Button>
+        <Button href="#opciones" variant="outlined" tone="primary" size="lg">
+          Ver opciones
+        </Button>
+      </div>
+      <div class="box-service-hero__tags" aria-label="Materiales y soluciones disponibles">
+        {tags.map((tag) => (
+          <span>{tag}</span>
+        ))}
+      </div>
+    </div>
+
+    <div class="box-service-hero__media">
+      <img src={image} alt="Box de baño en cristal templado instalado" />
+    </div>
+  </Container>
+</section>

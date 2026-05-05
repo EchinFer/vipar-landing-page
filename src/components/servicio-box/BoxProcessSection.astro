@@ -1,0 +1,30 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { BoxProcessStep } from "@lib/static-servicio-box-de-bano";
+
+interface Props {
+  steps: BoxProcessStep[];
+}
+
+const { steps } = Astro.props;
+---
+
+<section class="box-service-section box-service-process">
+  <Container>
+    <Heading level={2} variant="lg" class="box-service-process__title">
+      Nuestro proceso de trabajo
+    </Heading>
+    <div class="box-service-process__grid">
+      {steps.map((step) => (
+        <Card as="article" class="box-service-step">
+          <div class:list={["box-service-step__number", step.active && "is-active"]}>{step.number}</div>
+          <Heading level={3} variant="sm">{step.title}</Heading>
+          <Text>{step.description}</Text>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

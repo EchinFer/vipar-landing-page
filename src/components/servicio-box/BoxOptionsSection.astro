@@ -1,0 +1,53 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { BoxOptionItem } from "@lib/static-servicio-box-de-bano";
+
+interface Props {
+  items: BoxOptionItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="opciones" class="box-service-section box-service-options">
+  <Container>
+    <div class="box-service-section__head">
+      <Heading level={2} variant="lg">Opciones de cerramiento a medida</Heading>
+      <Text variant="body-lg">
+        Fabricamos e instalamos según los requerimientos técnicos y estéticos de su proyecto.
+      </Text>
+    </div>
+
+    <div class="box-service-options__grid">
+      {items.map((item) => (
+        <Card
+          as="article"
+          class:list={["box-service-option", item.featured && "box-service-option--featured"]}
+        >
+          {item.featured && <div class="box-service-option__flag">Más elegido</div>}
+          <div class="box-service-option__visual">
+            <i class={item.icon} aria-hidden="true"></i>
+          </div>
+          <div class="box-service-option__body">
+            <div class="box-service-option__title">
+              <Heading level={3} variant="sm">{item.title}</Heading>
+              <span class="box-service-option__chip">{item.chip}</span>
+            </div>
+            <Text>{item.description}</Text>
+            <div class="box-service-option__ideal">
+              <Text as="h4" variant="label-sm" tone="muted">Ideal para</Text>
+              <ul>
+                {item.idealFor.map((entry) => (
+                  <li>{entry}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>
