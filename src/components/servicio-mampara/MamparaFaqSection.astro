@@ -1,0 +1,30 @@
+---
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import type { MamparaFaqItem } from "@lib/static-servicio-mampara-divisoria";
+
+interface Props {
+  items: MamparaFaqItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="mampara-service-section mampara-service-faq">
+  <Container class="mampara-service-faq__inner">
+    <Heading level={2} variant="lg" class="mampara-service-faq__title">
+      Preguntas frecuentes
+    </Heading>
+    <div class="mampara-service-faq__list">
+      {items.map((item, index) => (
+        <details class="mampara-service-faq__item" open={index === 0}>
+          <summary>
+            <span>{item.question}</span>
+            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </summary>
+          <div>{item.answer}</div>
+        </details>
+      ))}
+    </div>
+  </Container>
+</section>

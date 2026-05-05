@@ -1,0 +1,30 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { MamparaSectorItem } from "@lib/static-servicio-mampara-divisoria";
+
+interface Props {
+  items: MamparaSectorItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="mampara-service-section mampara-service-sectors">
+  <Container>
+    <div class="mampara-service-section__head">
+      <Heading level={2} variant="lg">Soluciones por sector</Heading>
+      <Text variant="body-lg">Adaptamos la técnica constructiva al uso diario de cada rubro.</Text>
+    </div>
+    <div class="mampara-service-sectors__grid">
+      {items.map((item) => (
+        <Card as="article" class="mampara-service-sector">
+          <Heading level={3} variant="sm">{item.title}</Heading>
+          <Text variant="body-sm">{item.description}</Text>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

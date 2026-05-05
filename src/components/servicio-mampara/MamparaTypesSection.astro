@@ -1,0 +1,36 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { MamparaTypeCardItem } from "@lib/static-servicio-mampara-divisoria";
+
+interface Props {
+  items: MamparaTypeCardItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="tipos" class="mampara-service-section mampara-service-types">
+  <Container>
+    <div class="mampara-service-section__head">
+      <Heading level={2} variant="lg">Tipos de mamparas divisorias</Heading>
+      <Text variant="body-lg">
+        Cada sistema responde distinto en privacidad, acústica, mantenimiento y flexibilidad.
+      </Text>
+    </div>
+    <div class="mampara-service-types__grid">
+      {items.map((item) => (
+        <Card as="article" class="mampara-service-type">
+          <Heading level={3} variant="md">{item.title}</Heading>
+          <Text>{item.description}</Text>
+          <ul>
+            {item.bullets.map((bullet) => <li>{bullet}</li>)}
+          </ul>
+          <Text variant="body-sm" class="mampara-service-type__note">{item.note}</Text>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

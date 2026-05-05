@@ -1,0 +1,21 @@
+---
+import Container from "@components/ui/Container.astro";
+import type { MamparaTrustStat } from "@lib/static-servicio-mampara-divisoria";
+
+interface Props {
+  stats: MamparaTrustStat[];
+}
+
+const { stats } = Astro.props;
+---
+
+<section class="mampara-service-section mampara-service-trust">
+  <Container class="mampara-service-trust__inner">
+    {stats.map((item) => (
+      <div class="mampara-service-trust__stat">
+        <strong>{item.value}</strong>
+        <span>{item.label}</span>
+      </div>
+    ))}
+  </Container>
+</section>

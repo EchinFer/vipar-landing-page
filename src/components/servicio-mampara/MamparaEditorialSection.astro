@@ -1,0 +1,41 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<section class="mampara-service-section mampara-service-editorial">
+  <Container class="mampara-service-editorial__grid">
+    <div>
+      <Heading level={2} variant="md">Expertos en cerramientos y divisiones en Paraguay</Heading>
+      <Text>
+        En VIPAR S.A. entendemos que cada metro cuadrado de una oficina o comercio tiene valor.
+        Las mamparas no solo dividen un ambiente: organizan flujos, regulan privacidad y mejoran
+        la calidad espacial del trabajo diario.
+      </Text>
+      <Text>
+        Operamos en Asunción, Gran Asunción y ciudades del interior con soluciones en cristal
+        templado, eucatex y tabiquería seca, siempre con relevamiento previo y criterio técnico de
+        instalación.
+      </Text>
+      <Text>
+        El objetivo no es solo cerrar un espacio, sino resolverlo con el sistema correcto según
+        luz, acústica, mantenimiento y proyección futura del cliente.
+      </Text>
+    </div>
+
+    <Card as="aside" class="mampara-service-editorial__aside">
+      <Heading level={3} variant="sm">Términos relacionados</Heading>
+      <div class="mampara-service-editorial__tags">
+        {tags.map((tag) => <span>{tag}</span>)}
+      </div>
+    </Card>
+  </Container>
+</section>

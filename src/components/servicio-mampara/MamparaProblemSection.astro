@@ -1,0 +1,47 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { MamparaCaseItem } from "@lib/static-servicio-mampara-divisoria";
+
+interface Props {
+  cases: MamparaCaseItem[];
+}
+
+const { cases } = Astro.props;
+---
+
+<section class="mampara-service-section mampara-service-problem">
+  <Container class="mampara-service-problem__grid">
+    <div class="mampara-service-problem__copy">
+      <Text as="div" variant="label-sm" tone="accent">El desafío espacial</Text>
+      <Heading level={2} variant="lg">¿Necesitás separar ambientes sin perder funcionalidad?</Heading>
+      <Text>
+        El crecimiento de una empresa o la reorganización de un espacio de trabajo siempre trae
+        consigo un desafío arquitectónico: cómo dividir áreas sin perder luz, amplitud o
+        funcionalidad.
+      </Text>
+      <Text>
+        Construir paredes tradicionales implica obras sucias, ruidosas y definitivas. Además,
+        bloquean la luz natural y encarecen costos de climatización e iluminación.
+      </Text>
+      <Text>
+        Las mamparas divisorias ofrecen una solución limpia, rápida y modular para crear salas de
+        reuniones, oficinas privadas, consultorios o sectores operativos con criterio técnico.
+      </Text>
+    </div>
+
+    <Card as="aside" class="mampara-service-problem__aside">
+      <Heading level={3} variant="sm">Casos frecuentes</Heading>
+      <div class="mampara-service-problem__cases">
+        {cases.map((item) => (
+          <article>
+            <strong>{item.title}</strong>
+            <Text variant="body-sm">{item.description}</Text>
+          </article>
+        ))}
+      </div>
+    </Card>
+  </Container>
+</section>

@@ -1,0 +1,33 @@
+---
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { MamparaProcessStep } from "@lib/static-servicio-mampara-divisoria";
+
+interface Props {
+  steps: MamparaProcessStep[];
+}
+
+const { steps } = Astro.props;
+---
+
+<section class="mampara-service-section mampara-service-process">
+  <Container>
+    <div class="mampara-service-section__head">
+      <Text as="div" variant="label-sm" tone="accent">Metodología de trabajo</Text>
+      <Heading level={2} variant="lg">Proceso de cotización e instalación</Heading>
+      <Text variant="body-lg">
+        Un flujo técnico claro desde el primer contacto hasta la entrega de la obra.
+      </Text>
+    </div>
+    <div class="mampara-service-process__grid">
+      {steps.map((step, index) => (
+        <article class="mampara-service-process__step">
+          <div class="mampara-service-process__badge">{index + 1}</div>
+          <Heading level={3} variant="sm">{step.title}</Heading>
+          <Text variant="body-sm">{step.description}</Text>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>

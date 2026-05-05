@@ -1,0 +1,45 @@
+---
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { MamparaComparisonRow } from "@lib/static-servicio-mampara-divisoria";
+
+interface Props {
+  rows: MamparaComparisonRow[];
+}
+
+const { rows } = Astro.props;
+---
+
+<section class="mampara-service-section mampara-service-comparison">
+  <Container>
+    <div class="mampara-service-section__head">
+      <Heading level={2} variant="lg">Comparativa técnica</Heading>
+      <Text variant="body-lg">
+        Resumen rápido para entender cómo se comporta cada sistema en operación real.
+      </Text>
+    </div>
+    <div class="mampara-service-comparison__table-wrap">
+      <table class="mampara-service-comparison__table">
+        <thead>
+          <tr>
+            <th>Criterio</th>
+            <th>Cristal</th>
+            <th>Eucatex</th>
+            <th>Durlock</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <td>{row.label}</td>
+              <td>{row.cristal}</td>
+              <td>{row.eucatex}</td>
+              <td>{row.durlock}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Container>
+</section>

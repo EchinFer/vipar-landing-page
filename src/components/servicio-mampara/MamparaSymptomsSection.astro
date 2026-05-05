@@ -1,0 +1,29 @@
+---
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { MamparaSymptomItem } from "@lib/static-servicio-mampara-divisoria";
+
+interface Props {
+  items: MamparaSymptomItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="mampara-service-section mampara-service-symptoms">
+  <Container class="mampara-service-symptoms__grid">
+    <div>
+      <Heading level={2} variant="lg">Señales de que necesitás renovar tus divisiones</Heading>
+      <div class="mampara-service-symptoms__list">
+        {items.map((item) => (
+          <article>
+            <strong>{item.title}</strong>
+            <Text variant="body-sm">{item.description}</Text>
+          </article>
+        ))}
+      </div>
+    </div>
+    <div class="mampara-service-symptoms__media"></div>
+  </Container>
+</section>
