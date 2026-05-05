@@ -139,33 +139,6 @@
 }
 
 .vipar-obras-final {
-  text-align: center;
-  padding-top: 64px;
-  border-top: 1px solid var(--ds-color-border);
-}
-
-.vipar-obras-final h2 {
-  margin: 0 0 12px;
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--ds-color-primary);
-}
-
-.vipar-obras-final p {
-  margin: 0 auto 24px;
-  max-width: 720px;
-}
-
-.vipar-obras-final__cta {
-  --btn-padding-inline: 32px;
-  --btn-min-height: 54px;
-  --btn-font-size: 1rem;
-  --btn-bg: var(--ds-color-accent);
-  --btn-border: var(--ds-color-accent);
-  --btn-fg: #ffffff;
-  --btn-bg-hover: var(--color-primary-hover);
-  --btn-border-hover: var(--color-primary-hover);
-  --btn-fg-hover: #ffffff;
-  box-shadow: 0 2px 10px rgba(47, 128, 168, 0.2);
 }
 
 @media (max-width: 1080px) {
@@ -193,7 +166,4 @@
     padding: 32px;
   }
 
-  .vipar-obras-final__cta {
-    width: 100%;
-  }
 }

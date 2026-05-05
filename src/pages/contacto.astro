@@ -8,13 +8,7 @@ import ContactoSocialPanel from "@components/contacto/ContactoSocialPanel.astro"
 import Container from "@components/ui/Container.astro";
 import Layout from "@layouts/Layout.astro";
 import "../styles/contacto.css";
-import {
-  SITE_URL,
-  SOCIAL_LINKS,
-  address,
-  email,
-  telephone,
-} from "src/constants";
+import { SITE_URL, SOCIAL_LINKS, address, email, telephone } from "src/constants";
 
 const title = "Contacto | VIPAR S.A.";
 const description =
@@ -23,41 +17,35 @@ const canonical = `${SITE_URL}/contacto/`;
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
 const whatsappMessage =
   "Hola, quiero solicitar un presupuesto. Me comunico desde la página de contacto.";
-const googleMapsUrl =
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent(
-    "San Francisco 770 c/ Sexta, Barrio Salinas, Ñemby, Paraguay",
-  );
+const googleMapsUrl = "https://maps.app.goo.gl/frEBGayuutx7q1hj6";
 
-const socialItems = [
-  {
-    label: "Instagram",
-    href: SOCIAL_LINKS.instagram || "#",
-    icon: "photo_camera",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    label: "LinkedIn",
-    href: SOCIAL_LINKS.linkedin || "#",
-    icon: "work",
-  },
-  {
-    label: "YouTube",
-    href: "#",
-    icon: "play_circle",
-  },
+type ContactSocialItem = {
+  label: string;
+  href: string;
+  network: "whatsapp" | "instagram" | "tiktok";
+  target?: string;
+  rel?: string;
+};
+
+const socialItems: ContactSocialItem[] = [
   {
     label: "WhatsApp",
     href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-    icon: "chat",
+    network: "whatsapp",
     target: "_blank",
     rel: "noopener noreferrer",
   },
   {
-    label: "Facebook",
-    href: SOCIAL_LINKS.facebook || "#",
-    icon: "thumb_up",
+    label: "Instagram",
+    href: SOCIAL_LINKS.instagram,
+    network: "instagram",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    label: "TikTok",
+    href: SOCIAL_LINKS.tiktok,
+    network: "tiktok",
     target: "_blank",
     rel: "noopener noreferrer",
   },
@@ -78,11 +66,7 @@ const socialItems = [
 
       <Container class="contact-container contact-grid">
         <div class="contact-stack">
-          <ContactoInfoPanel
-            address={address}
-            email={email}
-            telephone={telephone}
-          />
+          <ContactoInfoPanel address={address} email={email} telephone={telephone} />
           <ContactoMediaPanel />
           <ContactoSocialPanel items={socialItems} />
         </div>
@@ -100,16 +84,14 @@ const socialItems = [
     const message = document.getElementById("vipar-contact-form-message");
 
     function setStatus(kind, text) {
-      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement))
-        return;
+      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement)) return;
       status.hidden = false;
       status.dataset.state = kind;
       message.textContent = text;
     }
 
     function clearStatus() {
-      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement))
-        return;
+      if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement)) return;
       status.hidden = true;
       delete status.dataset.state;
       message.textContent = "";
@@ -142,10 +124,7 @@ const socialItems = [
       payload.set("city", subject);
       payload.set("message", details);
       payload.set("source", String(formData.get("source") || "vipar-contacto"));
-      payload.set(
-        "page",
-        typeof window !== "undefined" ? window.location.href : "",
-      );
+      payload.set("page", typeof window !== "undefined" ? window.location.href : "");
 
       const attachment = formData.get("file");
       if (attachment instanceof File && attachment.size > 0) {
@@ -168,16 +147,12 @@ const socialItems = [
         if (!response.ok) {
           setStatus(
             "error",
-            data?.error ||
-              "No se pudo enviar la consulta. Probá nuevamente o escribinos por WhatsApp.",
+            data?.error || "No se pudo enviar la consulta. Probá nuevamente o escribinos por WhatsApp."
           );
           return;
         }
 
-        if (
-          typeof window !== "undefined" &&
-          typeof window.gtag === "function"
-        ) {
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
           window.gtag("event", "generate_lead", {
             method: "contact_form",
             page_location: window.location.href,
@@ -185,15 +160,9 @@ const socialItems = [
         }
 
         formElement.reset();
-        setStatus(
-          "success",
-          "Recibimos tu consulta. Te responderemos a la brevedad.",
-        );
+        setStatus("success", "Recibimos tu consulta. Te responderemos a la brevedad.");
       } catch {
-        setStatus(
-          "error",
-          "Error de red. Probá nuevamente o escribinos por WhatsApp.",
-        );
+        setStatus("error", "Error de red. Probá nuevamente o escribinos por WhatsApp.");
       } finally {
         if (submitButton instanceof HTMLButtonElement) {
           submitButton.disabled = false;

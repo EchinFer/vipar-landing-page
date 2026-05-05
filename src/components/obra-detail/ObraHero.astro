@@ -1,42 +1,38 @@
 ---
+import Button from "@components/ui/Button.astro";
+import Heading from "@components/ui/Heading.astro";
+
 interface Props {
   titulo: string;
   ubicacion: string;
   imagen: string;
-  slug?: string;
 }
 
-const { titulo, ubicacion, imagen, slug } = Astro.props;
+const { titulo, ubicacion, imagen } = Astro.props;
 ---
 
-<!-- Breadcrumb -->
 <nav class="od-breadcrumb" aria-label="Breadcrumb">
-  <a href="/obras">Proyectos</a>
+  <a href="/obras/">Proyectos</a>
   <i class="bi bi-chevron-right od-breadcrumb__sep"></i>
   <span class="od-breadcrumb__current">{titulo}</span>
 </nav>
 
-<!-- Hero image -->
 <div class="od-hero-wrap">
   <div class="od-hero">
-    <img
-      class="od-hero__img"
-      src={imagen}
-      alt={titulo}
-      loading="eager"
-      decoding="async"
-    />
+    <img class="od-hero__img" src={imagen} alt={titulo} loading="eager" decoding="async" />
     <div class="od-hero__overlay"></div>
 
     <div class="od-hero__meta">
       <div>
-        <h1 class="od-hero__title">{titulo}</h1>
+        <Heading level={1} variant="display" tone="inverse" class="od-hero__title">{titulo}</Heading>
         <div class="od-hero__location">
           <i class="bi bi-geo-alt-fill"></i>
           <span>{ubicacion}</span>
         </div>
       </div>
-      <a href="/contacto/" class="od-hero__cta">Cotizar algo similar</a>
+      <Button href="/contacto/" variant="contained" tone="secondary" size="md" class="od-hero__cta">
+        Cotizar algo similar
+      </Button>
     </div>
   </div>
 </div>

@@ -361,6 +361,38 @@
   flex: 1;
 }
 
+.ds-card--variant-info {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 0;
+  padding: 24px;
+  border-radius: var(--ds-radius-md);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.ds-card--variant-info:hover {
+  border-color: var(--ds-color-accent);
+}
+
+.ds-card--variant-info .ds-card__icon {
+  margin-bottom: 16px;
+  color: var(--ds-color-accent);
+  font-size: 36px;
+  line-height: 1;
+}
+
+.ds-card--variant-info .ds-card__title {
+  margin-bottom: 8px;
+}
+
+.ds-card--variant-info .ds-card__description {
+  margin-bottom: 16px;
+  flex: 1 1 auto;
+}
+
 @media (max-width: 1024px) {
   .ds-card--variant-catalog img {
     height: 260px;

@@ -1,12 +1,11 @@
 /* ============================================================
-   Obra Detail – design-system CSS (uses --ds-color-* tokens)
+   Obra Detail - design-system CSS (uses --ds-color-* tokens)
    ============================================================ */
 
-/* ---------- Breadcrumb ---------- */
 .od-breadcrumb {
-  max-width: 1280px;
+  width: min(calc(100% - 48px), var(--vipar-shell));
   margin: 0 auto;
-  padding: 20px 24px 0;
+  padding: 20px 0 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -37,11 +36,10 @@
   white-space: nowrap;
 }
 
-/* ---------- Hero ---------- */
 .od-hero-wrap {
-  max-width: 1280px;
+  width: calc(100% - 16px);
   margin: 0 auto;
-  padding: 16px 24px 0;
+  padding: 16px 0 0;
 }
 
 .od-hero {
@@ -92,9 +90,7 @@
 }
 
 .od-hero__title {
-  color: #fff;
   font-size: clamp(1.8rem, 4.5vw, 2.625rem);
-  font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.035em;
   margin: 0 0 10px;
@@ -110,28 +106,13 @@
 
 .od-hero__cta {
   flex-shrink: 0;
-  display: inline-block;
-  background: var(--ds-color-accent);
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: var(--ds-radius-sm);
-  font-size: var(--ds-text-body-md-size);
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.18s;
   white-space: nowrap;
 }
 
-.od-hero__cta:hover {
-  background: var(--ds-color-primary);
-  color: #fff;
-}
-
-/* ---------- Ficha Técnica ---------- */
 .od-ficha-wrap {
-  max-width: 1280px;
+  width: min(calc(100% - 48px), var(--vipar-shell));
   margin: 0 auto;
-  padding: 0 24px 64px;
+  padding: 0 0 64px;
 }
 
 .od-ficha-grid {
@@ -147,18 +128,11 @@
 }
 
 .od-ficha-card {
-  background: var(--ds-color-surface);
-  border: 1px solid var(--ds-color-border);
-  border-radius: var(--ds-radius-sm);
   padding: 24px;
+  border-radius: var(--ds-radius-sm);
 }
 
 .od-ficha-card__label {
-  font-size: var(--ds-text-label-sm-size);
-  font-weight: var(--ds-text-label-sm-weight);
-  letter-spacing: var(--ds-text-label-sm-tracking);
-  color: var(--ds-color-on-surface-muted);
-  text-transform: uppercase;
   margin-bottom: 8px;
 }
 
@@ -185,7 +159,6 @@
   font-size: var(--ds-text-body-sm-size);
 }
 
-/* ---------- Editorial ---------- */
 .od-editorial {
   background: var(--ds-color-surface-muted);
   padding: 80px 0;
@@ -194,9 +167,9 @@
 }
 
 .od-editorial__inner {
-  max-width: 1280px;
+  width: min(calc(100% - 48px), var(--vipar-shell));
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0;
 }
 
 .od-editorial__grid {
@@ -213,8 +186,6 @@
 
 .od-editorial__col h2 {
   font-size: clamp(1.55rem, 3.2vw, 2.1rem);
-  font-weight: 700;
-  color: var(--ds-color-on-surface);
   line-height: 1.12;
   letter-spacing: -0.02em;
   margin: 0 0 24px;
@@ -238,19 +209,13 @@
   margin: 0 auto;
 }
 
-/* ---------- Gallery ---------- */
 .od-gallery {
-  padding: 64px 0;
-  max-width: 1280px;
+  width: min(calc(100% - 48px), var(--vipar-shell));
   margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 64px 0;
 }
 
 .od-gallery__title {
-  font-size: var(--ds-text-h2-size);
-  font-weight: var(--ds-text-h2-weight);
-  color: var(--ds-color-on-surface);
   text-align: center;
   margin-bottom: 32px;
 }
@@ -293,22 +258,18 @@
   transform: scale(1.05);
 }
 
-/* ---------- Servicios Aplicados ---------- */
 .od-servicios {
   background: var(--ds-color-surface-strong);
   padding: 64px 0;
 }
 
 .od-servicios__inner {
-  max-width: 1280px;
+  width: min(calc(100% - 48px), var(--vipar-shell));
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0;
 }
 
 .od-servicios__title {
-  font-size: var(--ds-text-h2-size);
-  font-weight: var(--ds-text-h2-weight);
-  color: var(--ds-color-on-surface);
   margin-bottom: 32px;
 }
 
@@ -330,105 +291,17 @@
   }
 }
 
-.od-servicio-card {
-  background: var(--ds-color-surface);
-  border: 1px solid var(--ds-color-border);
-  border-radius: var(--ds-radius-sm);
-  padding: 24px;
-  transition: border-color 0.18s;
-  display: flex;
-  flex-direction: column;
-}
-
-.od-servicio-card:hover {
-  border-color: var(--ds-color-accent);
-}
-
-.od-servicio-card__icon {
-  font-size: 36px;
-  color: var(--ds-color-accent);
-  margin-bottom: 16px;
-  display: block;
-  transition: transform 0.2s;
-}
-
-.od-servicio-card:hover .od-servicio-card__icon {
-  transform: scale(1.1);
-}
-
-.od-servicio-card__title {
-  font-size: var(--ds-text-h3-size);
-  font-weight: var(--ds-text-h3-weight);
-  color: var(--ds-color-on-surface);
-  margin-bottom: 8px;
-}
-
-.od-servicio-card__desc {
-  font-size: var(--ds-text-body-md-size);
-  color: var(--ds-color-on-surface-muted);
-  line-height: var(--ds-text-body-md-leading);
-  margin-bottom: 16px;
-  flex: 1;
-}
-
-.od-servicio-card__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--ds-color-accent);
-  font-size: var(--ds-text-body-md-size);
-  font-weight: 600;
-  text-decoration: none;
-  transition: gap 0.18s;
-}
-
-.od-servicio-card:hover .od-servicio-card__link {
-  gap: 8px;
-}
-
-/* ---------- CTA Final ---------- */
 .od-cta {
-  background: var(--ds-color-primary);
-  padding: 96px 24px;
-  text-align: center;
+  padding: 64px 0 64px;
 }
 
 .od-cta__inner {
-  max-width: 768px;
+  width: min(calc(100% - (var(--ds-container-padding-mobile) * 2)), var(--ds-container-max));
   margin: 0 auto;
 }
 
-.od-cta h2 {
-  font-size: clamp(1.8rem, 4.5vw, 2.625rem);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: 24px;
-}
-
-.od-cta p {
-  font-size: var(--ds-text-body-lg-size);
-  line-height: var(--ds-text-body-lg-leading);
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 40px;
-}
-
-.od-cta__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--ds-color-accent);
-  color: #fff;
-  padding: 16px 40px;
-  border-radius: var(--ds-radius-sm);
-  font-size: var(--ds-text-body-lg-size);
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.18s;
-}
-
-.od-cta__btn:hover {
-  background: #2470a0;
-  color: #fff;
+@media (min-width: 768px) {
+  .od-cta__inner {
+    width: min(calc(100% - (var(--ds-container-padding-desktop) * 2)), var(--ds-container-max));
+  }
 }

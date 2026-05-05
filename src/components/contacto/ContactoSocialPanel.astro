@@ -1,11 +1,14 @@
 ---
 import Card from "@components/ui/Card.astro";
 import Text from "@components/ui/Text.astro";
+import InstagramIcon from "@components/icons/InstagramIcon.astro";
+import TiktokIcon from "@components/icons/TiktokIcon.astro";
+import WhatsappIcon from "@components/icons/WhatsappIcon.astro";
 
 interface SocialItem {
   href: string;
   label: string;
-  icon: string;
+  network: "instagram" | "tiktok" | "whatsapp";
   target?: string;
   rel?: string;
 }
@@ -25,11 +28,14 @@ const { items } = Astro.props;
       items.map((item) => (
         <a
           aria-label={item.label}
-          href={item.href || "#"}
+          href={item.href}
           target={item.target}
           rel={item.rel}
+          class:list={["contact-social-grid__link", `contact-social-grid__link--${item.network}`]}
         >
-          <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
+          {item.network === "instagram" && <InstagramIcon />}
+          {item.network === "tiktok" && <TiktokIcon />}
+          {item.network === "whatsapp" && <WhatsappIcon />}
         </a>
       ))
     }

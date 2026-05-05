@@ -1,0 +1,31 @@
+---
+import Button from "@components/ui/Button.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+
+interface Props {
+  whatsappNumber: string;
+  class?: string;
+}
+
+const { whatsappNumber, class: className = "" } = Astro.props;
+---
+
+<section class:list={["ds-quote-cta", className]}>
+  <Heading level={2}>¿Querés cotizar un trabajo similar?</Heading>
+  <Text>
+    Enviá fotos, planos o referencias de tu proyecto para recibir un presupuesto detallado y
+    asesoramiento técnico especializado.
+  </Text>
+  <Button
+    href={`https://wa.me/${whatsappNumber}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    variant="contained"
+    tone="primary"
+    size="lg"
+    class="ds-quote-cta__button"
+  >
+    Solicitar presupuesto por WhatsApp
+  </Button>
+</section>

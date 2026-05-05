@@ -34,18 +34,14 @@ const { googleMapsUrl } = Astro.props;
     </div>
 
     <div class="contact-map__visual">
-      <img
-        src="https://lh3.googleusercontent.com/aida-public/AM-A5atq6S7q0nE6A_H9Jm6i3u_0lHn_fL7J_l9G4n_3_J5o=s2048"
-        alt="Mapa con ubicación de VIPAR S.A. en Ñemby, Paraguay"
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d450.52744847537275!2d-57.5541118547404!3d-25.397459231338143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945dab8784646b99%3A0xa108aa4012e395af!2sVIPAR%20S.A!5e0!3m2!1ses-419!2spy!4v1777936587196!5m2!1ses-419!2spy"
+        title="Mapa con ubicación de VIPAR S.A. en Ñemby, Paraguay"
+        style="border:0;"
+        allowfullscreen
         loading="lazy"
-        decoding="async"
-      />
-
-      <div class="contact-map__pin" aria-hidden="true">
-        <div class="contact-map__pulse"></div>
-        <div class="contact-map__dot"></div>
-        <div class="contact-map__label">VIPAR S.A.</div>
-      </div>
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
   </Card>
 </Container>

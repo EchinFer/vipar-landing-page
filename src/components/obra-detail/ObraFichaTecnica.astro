@@ -1,4 +1,7 @@
 ---
+import Card from "@components/ui/Card.astro";
+import Text from "@components/ui/Text.astro";
+
 interface Props {
   sectorLabel: string;
   ubicacion: string;
@@ -10,28 +13,23 @@ const { sectorLabel, ubicacion, displayTags } = Astro.props;
 
 <div class="od-ficha-wrap">
   <div class="od-ficha-grid">
-
-    <!-- Tipo de obra -->
-    <div class="od-ficha-card">
-      <div class="od-ficha-card__label">TIPO DE OBRA</div>
+    <Card as="div" class="od-ficha-card">
+      <Text as="div" variant="label-sm" tone="muted" class="od-ficha-card__label">Tipo de obra</Text>
       <div class="od-ficha-card__value">{sectorLabel}</div>
-    </div>
+    </Card>
 
-    <!-- Ubicación -->
-    <div class="od-ficha-card">
-      <div class="od-ficha-card__label">UBICACIÓN</div>
+    <Card as="div" class="od-ficha-card">
+      <Text as="div" variant="label-sm" tone="muted" class="od-ficha-card__label">Ubicación</Text>
       <div class="od-ficha-card__value">{ubicacion}</div>
-    </div>
+    </Card>
 
-    <!-- Servicios aplicados -->
-    <div class="od-ficha-card">
-      <div class="od-ficha-card__label">SERVICIOS APLICADOS</div>
+    <Card as="div" class="od-ficha-card">
+      <Text as="div" variant="label-sm" tone="muted" class="od-ficha-card__label">Servicios aplicados</Text>
       <div class="od-ficha-card__tags">
         {displayTags.map((tag) => (
           <span class="od-ficha-tag">{tag}</span>
         ))}
       </div>
-    </div>
-
+    </Card>
   </div>
 </div>

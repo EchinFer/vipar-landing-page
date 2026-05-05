@@ -1,14 +1,14 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import { staticObras } from "@lib/static-obras";
-import { SITE_URL } from "src/constants";
-import ObraHero from "@components/obra-detail/ObraHero.astro";
-import ObraFichaTecnica from "@components/obra-detail/ObraFichaTecnica.astro";
-import ObraEditorial from "@components/obra-detail/ObraEditorial.astro";
-import ObraGallery from "@components/obra-detail/ObraGallery.astro";
-import ObraServiciosAplicados from "@components/obra-detail/ObraServiciosAplicados.astro";
 import ObraCTA from "@components/obra-detail/ObraCTA.astro";
+import ObraEditorial from "@components/obra-detail/ObraEditorial.astro";
+import ObraFichaTecnica from "@components/obra-detail/ObraFichaTecnica.astro";
+import ObraGallery from "@components/obra-detail/ObraGallery.astro";
+import ObraHero from "@components/obra-detail/ObraHero.astro";
+import ObraServiciosAplicados from "@components/obra-detail/ObraServiciosAplicados.astro";
+import { staticObras } from "@lib/static-obras";
+import Layout from "@layouts/Layout.astro";
 import "@styles/obra-detail.css";
+import { SITE_URL, telephone } from "src/constants";
 
 export async function getStaticPaths() {
   return staticObras.map((project) => ({
@@ -25,6 +25,7 @@ const description = project.descripcion
   : `Obra de ${project.category.map((c) => c.name).join(", ")}: ${project.titulo}. Instalación profesional en Paraguay.`;
 const keywords = `${project.titulo}, ${project.category.map((c) => c.name).join(", ")}, obras cristales templados, proyectos construcción, instalación profesional Paraguay`;
 const canonical = `${SITE_URL}/obras/${project.slug}`;
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
 ---
 
 <Layout
@@ -35,49 +36,36 @@ const canonical = `${SITE_URL}/obras/${project.slug}`;
   ogImage={project.imagen || `${SITE_URL}/img/vipar-og.webp`}
   hideWhatsappFAB={true}
 >
-  <!-- Hero: imagen principal + breadcrumb + título -->
-  <ObraHero
-    titulo={project.titulo}
-    ubicacion={project.ubicacion}
-    imagen={project.imagen}
-    slug={project.slug}
-  />
+  <ObraHero titulo={project.titulo} ubicacion={project.ubicacion} imagen={project.imagen} />
 
-  <!-- Ficha técnica: tipo, ubicación, servicios -->
   <ObraFichaTecnica
     sectorLabel={project.sectorLabel}
     ubicacion={project.ubicacion}
     displayTags={project.displayTags}
   />
 
-  <!-- Editorial: descripción del proyecto -->
   <ObraEditorial descripcion={project.descripcion} />
 
-  <!-- Galería de imágenes -->
-  <ObraGallery
-    titulo={project.titulo}
-    imagen={project.imagen}
-    imagenes={project.imagenes}
-  />
+  <ObraGallery titulo={project.titulo} imagen={project.imagen} imagenes={project.imagenes} />
 
-  <!-- Servicios aplicados -->
   <ObraServiciosAplicados tags={project.displayTags} />
 
-  <!-- CTA final -->
-  <ObraCTA titulo={project.titulo} />
+  <ObraCTA whatsappNumber={whatsappNumber} />
 
-  <!-- Schema.org -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": project.titulo,
-    "description": project.descripcion?.replace(/<[^>]*>/g, "") || `Obra: ${project.titulo}`,
-    "image": project.imagen || project.imagenes?.[0],
-    "creator": { "@type": "Organization", "name": "Vipar", "url": SITE_URL },
-    "datePublished": project.fecha,
-    "keywords": project.category.map((c) => c.name).join(", "),
-    "about": { "@type": "Thing", "name": project.category[0]?.name || "Construcción" },
-  })} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: project.titulo,
+      description: project.descripcion?.replace(/<[^>]*>/g, "") || `Obra: ${project.titulo}`,
+      image: project.imagen || project.imagenes?.[0],
+      creator: { "@type": "Organization", name: "Vipar", url: SITE_URL },
+      datePublished: project.fecha,
+      keywords: project.category.map((c) => c.name).join(", "),
+      about: { "@type": "Thing", name: project.category[0]?.name || "Construcción" },
+    })}
+  />
 </Layout>
 
 <script is:inline>
@@ -87,4 +75,3 @@ const canonical = `${SITE_URL}/obras/${project.slug}`;
     }
   });
 </script>
-

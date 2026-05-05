@@ -1,4 +1,9 @@
 ---
+import ActionLink from "@components/ui/ActionLink.astro";
+import Card from "@components/ui/Card.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+
 interface ServiceInfo {
   icon: string;
   label: string;
@@ -12,9 +17,8 @@ interface Props {
 
 const { tags } = Astro.props;
 
-// Static map: tag name → icon (bootstrap-icons) + description + service link
 const SERVICE_MAP: Record<string, Omit<ServiceInfo, "label">> = {
-  "Fachadas": {
+  Fachadas: {
     icon: "bi-building",
     description: "Sistemas de fachada en cristal y aluminio para máxima transparencia y eficiencia.",
     href: "/servicios/",
@@ -24,17 +28,17 @@ const SERVICE_MAP: Record<string, Omit<ServiceInfo, "label">> = {
     description: "Vidrio templado de alta resistencia para fachadas, tabiques y cerramientos.",
     href: "/servicios/",
   },
-  "Cristal": {
+  Cristal: {
     icon: "bi-transparency",
     description: "Soluciones en cristal templado y laminado para construcción residencial y comercial.",
     href: "/servicios/",
   },
-  "Aluminio": {
+  Aluminio: {
     icon: "bi-columns-gap",
     description: "Perfiles de aluminio extruido con acabados de alta durabilidad y estética precisa.",
     href: "/servicios/",
   },
-  "Mamparas": {
+  Mamparas: {
     icon: "bi-layout-sidebar-inset",
     description: "Divisiones interiores en cristal con opciones acústicas y de privacidad.",
     href: "/servicios/",
@@ -49,17 +53,17 @@ const SERVICE_MAP: Record<string, Omit<ServiceInfo, "label">> = {
     description: "Sistemas de cielorraso en aluminio y materiales compuestos para interiores modernos.",
     href: "/servicios/",
   },
-  "Ventanas": {
+  Ventanas: {
     icon: "bi-border-all",
     description: "Ventanas de aluminio y PVC con vidrios de control solar y aislamiento acústico.",
     href: "/servicios/",
   },
-  "Puertas": {
+  Puertas: {
     icon: "bi-door-open",
     description: "Puertas en aluminio y cristal para accesos residenciales, comerciales e institucionales.",
     href: "/servicios/",
   },
-  "Terminaciones": {
+  Terminaciones: {
     icon: "bi-stars",
     description: "Detalles y terminaciones en aluminio y vidrio para una obra impecable.",
     href: "/servicios/",
@@ -81,18 +85,18 @@ const services: ServiceInfo[] = tags.map((tag) => ({
 {services.length > 0 && (
   <section class="od-servicios">
     <div class="od-servicios__inner">
-      <h3 class="od-servicios__title">Servicios Aplicados</h3>
+      <Heading level={3} variant="md" class="od-servicios__title">Servicios Aplicados</Heading>
 
       <div class="od-servicios__grid">
         {services.map((service) => (
-          <div class="od-servicio-card">
-            <i class={`${service.icon} od-servicio-card__icon`}></i>
-            <h4 class="od-servicio-card__title">{service.label}</h4>
-            <p class="od-servicio-card__desc">{service.description}</p>
-            <a href={service.href} class="od-servicio-card__link">
-              Ver servicios <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
+          <Card as="article" variant="info">
+            <i class={`${service.icon} ds-card__icon`} aria-hidden="true"></i>
+            <Heading level={4} variant="sm" class="ds-card__title">{service.label}</Heading>
+            <Text class="ds-card__description">{service.description}</Text>
+            <ActionLink href={service.href}>
+              Ver servicios <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </ActionLink>
+          </Card>
         ))}
       </div>
     </div>

@@ -1,4 +1,6 @@
 ---
+import Heading from "@components/ui/Heading.astro";
+
 interface Props {
   desafio?: string;
   respuesta?: string;
@@ -16,13 +18,13 @@ const hasEditorial = desafio || respuesta;
         <div class="od-editorial__grid">
           {desafio && (
             <div class="od-editorial__col">
-              <h2>El Desafío</h2>
+              <Heading level={2} variant="md">El Desafío</Heading>
               <div set:html={desafio} />
             </div>
           )}
           {respuesta && (
             <div class="od-editorial__col">
-              <h2>La Respuesta</h2>
+              <Heading level={2} variant="md">La Respuesta</Heading>
               <div set:html={respuesta} />
             </div>
           )}
@@ -30,7 +32,7 @@ const hasEditorial = desafio || respuesta;
       ) : (
         <div class="od-editorial__single">
           <div class="od-editorial__col">
-            <h2>Sobre este proyecto</h2>
+            <Heading level={2} variant="md">Sobre este proyecto</Heading>
             <div set:html={descripcion} />
           </div>
         </div>
