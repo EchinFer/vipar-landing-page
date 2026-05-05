@@ -1,0 +1,46 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { AluminumChallengeItem } from "@lib/static-servicio-carpinteria-de-aluminio";
+
+interface Props {
+  items: AluminumChallengeItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="aluminum-service-section aluminum-service-challenges">
+  <Container class="aluminum-service-challenges__grid">
+    <div class="aluminum-service-challenges__copy">
+      <Heading level={2} variant="lg">Desafíos arquitectónicos resueltos con precisión</Heading>
+      <Text variant="body-lg">
+        La elección de aberturas no es un tema menor. Las puertas tradicionales suelen sufrir
+        problemas de deformación, filtraciones o pérdida térmica con el paso del tiempo. Nuestro
+        enfoque en aluminio estructural elimina estas fricciones.
+      </Text>
+      <Text variant="body-lg">
+        Al utilizar aleaciones de primera calidad y sistemas de herrajes diseñados para alto
+        tránsito, garantizamos un cerramiento hermético, de suave operación y sin necesidad de
+        mantenimiento complejo, resistiendo el exigente clima paraguayo.
+      </Text>
+    </div>
+
+    <Card as="aside" class="aluminum-service-challenges__aside">
+      <Heading level={3} variant="sm">Casos frecuentes</Heading>
+      <div class="aluminum-service-challenges__list">
+        {items.map((item) => (
+          <article class="aluminum-service-challenge">
+            <i class={`${item.icon} aluminum-service-challenge__icon`} aria-hidden="true"></i>
+            <div>
+              <Text as="strong" variant="body-md">{item.title}</Text>
+              <Text>{item.description}</Text>
+            </div>
+          </article>
+        ))}
+      </div>
+    </Card>
+  </Container>
+</section>

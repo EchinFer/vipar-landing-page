@@ -1,0 +1,38 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { CeilingSystemItem } from "@lib/static-servicio-cielo-raso";
+
+interface Props {
+  items: CeilingSystemItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="sistemas" class="ceiling-service-section ceiling-service-systems">
+  <Container>
+    <Heading level={2} variant="lg" class="ceiling-service-systems__title">
+      Sistemas de terminación
+    </Heading>
+    <div class="ceiling-service-systems__grid">
+      {items.map((item) => (
+        <Card as="article" class="ceiling-service-system">
+          <i class={`${item.icon} ceiling-service-system__icon`} aria-hidden="true"></i>
+          <Heading level={3} variant="sm">{item.title}</Heading>
+          <Text>{item.description}</Text>
+          <ul>
+            {item.bullets.map((bullet) => (
+              <li>
+                <i class="bi bi-check-circle" aria-hidden="true"></i>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

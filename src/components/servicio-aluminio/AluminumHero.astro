@@ -1,0 +1,64 @@
+---
+import Button from "@components/ui/Button.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+
+interface HeroSpec {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  image: string;
+  specs: HeroSpec[];
+}
+
+const { image, specs } = Astro.props;
+---
+
+<section class="aluminum-service-hero">
+  <Container class="aluminum-service-hero__inner">
+    <div class="aluminum-service-hero__copy">
+      <Text as="div" variant="label-sm" tone="accent" class="aluminum-service-hero__eyebrow">
+        Carpintería de aluminio en Paraguay
+      </Text>
+      <Heading level={1} variant="display">
+        Puertas de aluminio a medida para viviendas, comercios y obras.
+      </Heading>
+      <Text variant="body-lg">
+        Sistemas de cerramiento de alta precisión. Diseñamos, fabricamos e instalamos soluciones
+        en aluminio que combinan estética contemporánea, aislamiento técnico y durabilidad
+        estructural superior.
+      </Text>
+      <div class="aluminum-service-hero__actions">
+        <Button href="/contacto/" variant="contained" tone="primary" size="lg">
+          Cotizar puerta de aluminio
+        </Button>
+        <Button href="#tipos" variant="outlined" tone="primary" size="lg">
+          Ver tipos de puertas
+        </Button>
+      </div>
+      <div class="aluminum-service-hero__tags" aria-label="Soluciones disponibles">
+        <span>Batiente</span>
+        <span>Corrediza</span>
+        <span>A medida</span>
+      </div>
+    </div>
+
+    <div class="aluminum-service-hero__media">
+      <img src={image} alt="Instalación de puerta de aluminio" />
+      <div class="aluminum-service-hero__specs">
+        {specs.map((spec, index) => (
+          <>
+            {index > 0 && <div class="aluminum-service-hero__divider" aria-hidden="true"></div>}
+            <div class="aluminum-service-hero__spec">
+              <Text as="div" variant="label-sm" tone="muted">{spec.label}</Text>
+              <Text as="div" variant="body-md">{spec.value}</Text>
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>

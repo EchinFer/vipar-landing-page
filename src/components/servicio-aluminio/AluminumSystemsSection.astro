@@ -1,0 +1,68 @@
+---
+import Button from "@components/ui/Button.astro";
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { AluminumSystemCard } from "@lib/static-servicio-carpinteria-de-aluminio";
+
+interface Props {
+  items: AluminumSystemCard[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="tipos" class="aluminum-service-section aluminum-service-systems">
+  <Container>
+    <div class="aluminum-service-section__head">
+      <Heading level={2} variant="lg">Sistemas de apertura</Heading>
+      <Text variant="body-lg">
+        Configuraciones técnicas adaptadas a la planimetría y requerimientos de circulación de su
+        proyecto.
+      </Text>
+    </div>
+
+    <div class="aluminum-service-systems__grid">
+      {items.map((item) => (
+        <Card as="article" class="aluminum-service-system">
+          <div class="aluminum-service-system__media">
+            <img src={item.image} alt={item.title} />
+          </div>
+          <div class="aluminum-service-system__body">
+            <Heading level={3} variant="md">{item.title}</Heading>
+            <Text>{item.description}</Text>
+
+            <div class="aluminum-service-system__block">
+              <Text as="h4" variant="label-sm" tone="muted">Ideal para</Text>
+              <ul>
+                {item.idealFor.map((entry) => (
+                  <li>{entry}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="aluminum-service-system__block">
+              <Text as="h4" variant="label-sm" tone="muted">Problemas resueltos</Text>
+              <ul>
+                {item.solvedProblems.map((entry) => (
+                  <li>{entry}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="aluminum-service-system__tags">
+              {item.tags.map((tag) => (
+                <span>{tag}</span>
+              ))}
+            </div>
+
+            <Button href="/contacto/" variant="outlined" tone="primary" size="lg" fullWidth>
+              {item.ctaLabel}
+            </Button>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

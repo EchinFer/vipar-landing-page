@@ -1,0 +1,39 @@
+---
+import Button from "@components/ui/Button.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+
+interface Props {
+  image: string;
+}
+
+const { image } = Astro.props;
+---
+
+<section class="ceiling-service-hero">
+  <div class="ceiling-service-hero__media">
+    <img src={image} alt="Interior con cielo raso técnico de alta gama" />
+    <div class="ceiling-service-hero__overlay"></div>
+  </div>
+
+  <Container class="ceiling-service-hero__content">
+    <div class="ceiling-service-hero__copy">
+      <Heading level={1} variant="display" tone="inverse">
+        Cielo raso
+      </Heading>
+      <Text variant="body-lg" tone="inverse">
+        Sistemas de techos técnicos que fusionan precisión acústica, eficiencia térmica y
+        vanguardia estética.
+      </Text>
+      <div class="ceiling-service-hero__actions">
+        <Button href="/contacto/" variant="contained" tone="primary" size="lg">
+          Solicitar presupuesto
+        </Button>
+        <Button href="#sistemas" variant="outlined" tone="inverse" size="lg">
+          Ficha técnica
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

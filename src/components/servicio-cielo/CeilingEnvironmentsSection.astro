@@ -1,0 +1,57 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { CeilingEnvironmentItem, CeilingMetricItem } from "@lib/static-servicio-cielo-raso";
+
+interface Props {
+  environments: CeilingEnvironmentItem[];
+  metrics: CeilingMetricItem[];
+}
+
+const { environments, metrics } = Astro.props;
+---
+
+<section class="ceiling-service-section ceiling-service-environments">
+  <Container>
+    <div class="ceiling-service-section__head ceiling-service-section__head--split">
+      <div>
+        <Text as="div" variant="label-sm" tone="accent">Soluciones integrales</Text>
+        <Heading level={2} variant="lg">Adaptación por entorno</Heading>
+      </div>
+      <Text variant="body-lg">
+        Diseñamos cada estructura según las demandas específicas de uso, garantizando durabilidad y
+        cumplimiento normativo.
+      </Text>
+    </div>
+
+    <div class="ceiling-service-environments__grid">
+      {environments.map((item) => (
+        <article
+          class:list={[
+            "ceiling-service-environment",
+            item.featured && "ceiling-service-environment--featured",
+          ]}
+        >
+          <img src={item.image} alt={item.title} />
+          <div class="ceiling-service-environment__overlay">
+            <Heading level={3} variant="md" tone="inverse">{item.title}</Heading>
+            <Text tone="inverse">{item.description}</Text>
+          </div>
+        </article>
+      ))}
+
+      <Card as="div" class="ceiling-service-metrics">
+        <div class="ceiling-service-metrics__grid">
+          {metrics.map((item) => (
+            <div class="ceiling-service-metric">
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </div>
+  </Container>
+</section>

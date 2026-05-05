@@ -1,0 +1,38 @@
+---
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import type { CeilingDetailItem } from "@lib/static-servicio-cielo-raso";
+
+interface Props {
+  image: string;
+  items: CeilingDetailItem[];
+}
+
+const { image, items } = Astro.props;
+---
+
+<section class="ceiling-service-section ceiling-service-details">
+  <Container class="ceiling-service-details__grid">
+    <div class="ceiling-service-details__media">
+      <img src={image} alt="Detalle técnico de materiales de cielo raso" />
+    </div>
+    <div class="ceiling-service-details__content">
+      <Heading level={2} variant="lg">Ingeniería de detalle</Heading>
+      <div class="ceiling-service-details__list">
+        {items.map((item) => (
+          <article class="ceiling-service-detail">
+            <Card as="div" class="ceiling-service-detail__icon-wrap">
+              <i class={`${item.icon} ceiling-service-detail__icon`} aria-hidden="true"></i>
+            </Card>
+            <div>
+              <Heading level={3} variant="sm">{item.title}</Heading>
+              <Text>{item.description}</Text>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </Container>
+</section>
