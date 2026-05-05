@@ -1,0 +1,56 @@
+---
+import ObrasCard from "@components/obras/ObrasCard.astro";
+import type { StaticObra } from "@lib/static-obras";
+import Button from "./Button.astro";
+import Container from "./Container.astro";
+import Heading from "./Heading.astro";
+import Text from "./Text.astro";
+
+interface Props {
+  obras: StaticObra[];
+  title?: string;
+  description?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+  class?: string;
+}
+
+const {
+  obras,
+  title = "Obras relacionadas",
+  description = "Algunas referencias reales para evaluar cómo resolvemos este tipo de servicio en obra.",
+  ctaHref = "/obras/",
+  ctaLabel = "Explorar catálogo completo",
+  class: className = "",
+} = Astro.props;
+---
+
+{
+  obras.length > 0 && (
+    <section class:list={["ds-related-works", className]}>
+      <Container>
+        <div class="ds-related-works__head">
+          <div class="ds-related-works__copy">
+            <Text as="div" variant="label-sm" tone="accent">
+              Obras vinculadas
+            </Text>
+            <Heading level={2} variant="lg">{title}</Heading>
+            <Text>{description}</Text>
+          </div>
+
+          <Button href={ctaHref} variant="outlined" tone="primary">
+            {ctaLabel}
+          </Button>
+        </div>
+
+        <ul class="ds-related-works__track" aria-label={title}>
+          {obras.map((obra) => (
+            <li class="ds-related-works__item">
+              <ObrasCard obra={obra} />
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </section>
+  )
+}

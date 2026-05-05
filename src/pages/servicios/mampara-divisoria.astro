@@ -11,8 +11,10 @@ import MamparaSymptomsSection from "@components/servicio-mampara/MamparaSymptoms
 import MamparaTrustSection from "@components/servicio-mampara/MamparaTrustSection.astro";
 import MamparaTypesSection from "@components/servicio-mampara/MamparaTypesSection.astro";
 import Container from "@components/ui/Container.astro";
+import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
 import Layout from "@layouts/Layout.astro";
+import { getRelatedStaticObras } from "@lib/static-obras";
 import {
   mamparaComparisonRows,
   mamparaEditorialTags,
@@ -37,6 +39,7 @@ const canonical = `${SITE_URL}/servicios/mampara-divisoria`;
 const keywords =
   "mamparas divisorias paraguay, mamparas para oficinas, mamparas de cristal templado, tabiques de durlock, divisores de ambientes";
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const relatedObras = getRelatedStaticObras("mampara-divisoria");
 ---
 
 <Layout
@@ -59,6 +62,7 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
     <MamparaTrustSection stats={mamparaTrustStats} />
     <MamparaEditorialSection tags={mamparaEditorialTags} />
     <MamparaFaqSection items={mamparaFaqs} />
+    <RelatedWorksGallery obras={relatedObras} />
 
     <section class="mampara-service-section mampara-service-final">
       <Container>

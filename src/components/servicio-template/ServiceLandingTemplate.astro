@@ -1,0 +1,197 @@
+---
+import Container from "@components/ui/Container.astro";
+import Card from "@components/ui/Card.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import Button from "@components/ui/Button.astro";
+import FaqAccordion from "@components/ui/FaqAccordion.astro";
+import QuoteCTA from "@components/ui/QuoteCTA.astro";
+import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
+import type { ServiceTemplateContent } from "@lib/service-template";
+import { getRelatedStaticObras } from "@lib/static-obras";
+import "../../styles/servicio-template.css";
+
+interface Props {
+  content: ServiceTemplateContent;
+  whatsappNumber: string;
+  whatsappLink: string;
+}
+
+const { content, whatsappNumber, whatsappLink } = Astro.props;
+const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
+---
+
+<main class="service-template-page">
+  <section class="service-template-hero">
+    <Container class="service-template-hero__inner">
+      <div class="service-template-hero__copy">
+        <Text as="div" variant="label-sm" tone="accent" class="service-template-hero__eyebrow">
+          {content.hero.eyebrow}
+        </Text>
+        <Heading level={1} variant="display">{content.hero.title}</Heading>
+        <Text variant="body-lg">{content.hero.description}</Text>
+
+        <div class="service-template-hero__actions">
+          <Button href="/contacto/" variant="contained" tone="primary" size="lg">
+            {content.hero.primaryCtaLabel}
+          </Button>
+          <Button href={whatsappLink} target="_blank" rel="noopener noreferrer" variant="outlined" tone="primary" size="lg">
+            <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+            {content.hero.secondaryCtaLabel ?? "WhatsApp"}
+          </Button>
+        </div>
+
+        <div class="service-template-hero__tags">
+          {content.hero.tags.map((tag) => (
+            <span>{tag}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="service-template-hero__media">
+        <img src={content.hero.image} alt={content.hero.title} loading="eager" decoding="async" />
+      </div>
+    </Container>
+  </section>
+
+  <section class="service-template-section service-template-problem">
+    <Container class="service-template-problem__grid">
+      <div class="service-template-problem__copy">
+        <Heading level={2} variant="lg">{content.problem.title}</Heading>
+        <Text>{content.problem.description}</Text>
+      </div>
+
+      <Card as="aside" class="service-template-problem__aside">
+        <Heading level={3} variant="sm">Casos frecuentes</Heading>
+        <div class="service-template-problem__list">
+          {content.problem.cases.map((item) => (
+            <article class="service-template-problem__item">
+              <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+              <div>
+                <strong>{item.title}</strong>
+                <Text variant="body-sm">{item.description}</Text>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Card>
+    </Container>
+  </section>
+
+  <section class="service-template-section service-template-solutions">
+    <Container>
+      <div class="service-template-section__head">
+        <Heading level={2} variant="lg">{content.solutions.title}</Heading>
+        <Text>{content.solutions.description}</Text>
+      </div>
+
+      <div class="service-template-solutions__grid">
+        {content.solutions.items.map((item) => (
+          <Card class="service-template-solution">
+            <div class="service-template-solution__media">
+              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+            </div>
+            <div class="service-template-solution__body">
+              <Heading level={3} variant="sm">{item.title}</Heading>
+              <Text variant="body-sm">{item.description}</Text>
+
+              <div class="service-template-solution__block">
+                <Text as="div" variant="label-sm" tone="accent">Ideal para</Text>
+                <ul>
+                  {item.idealFor.map((target) => (
+                    <li>{target}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="service-template-section service-template-selection">
+    <Container>
+      <div class="service-template-section__head">
+        <Heading level={2} variant="lg">{content.selection.title}</Heading>
+        <Text>{content.selection.description}</Text>
+      </div>
+
+      <div class="service-template-selection__grid">
+        {content.selection.items.map((item) => (
+          <Card class="service-template-selection__card">
+            <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
+            <Heading level={3} variant="sm">{item.title}</Heading>
+            <Text variant="body-sm">{item.description}</Text>
+          </Card>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="service-template-section service-template-applications">
+    <Container>
+      <div class="service-template-section__head">
+        <Heading level={2} variant="lg">{content.applications.title}</Heading>
+        <Text>{content.applications.description}</Text>
+      </div>
+
+      <div class="service-template-applications__grid">
+        {content.applications.items.map((item) => (
+          <article class="service-template-application">
+            <div class="service-template-application__media">
+              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+            </div>
+            <Heading level={3} variant="sm">{item.title}</Heading>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="service-template-section service-template-process">
+    <Container>
+      <div class="service-template-section__head">
+        <Heading level={2} variant="lg">{content.process.title}</Heading>
+        <Text>{content.process.description}</Text>
+      </div>
+
+      <div class="service-template-process__grid">
+        {content.process.steps.map((step, index) => (
+          <article class="service-template-process__step">
+            <div class="service-template-process__badge">{index + 1}</div>
+            <Heading level={3} variant="sm">{step.label}</Heading>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="service-template-section service-template-trust">
+    <Container>
+      <div class="service-template-trust__inner">
+        <div class="service-template-trust__copy">
+          <Heading level={2} variant="lg">{content.trust.title}</Heading>
+          <Text variant="body-lg">{content.trust.description}</Text>
+          <div class="service-template-trust__location">
+            <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+            <span>{content.trust.locationLabel}</span>
+          </div>
+        </div>
+
+        <div class="service-template-trust__media">
+          <img src={content.trust.image} alt={content.trust.title} loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <FaqAccordion items={content.faqs} class="service-template-faq" />
+  <RelatedWorksGallery obras={relatedObras} />
+
+  <section class="service-template-section service-template-final">
+    <Container>
+      <QuoteCTA whatsappNumber={whatsappNumber} />
+    </Container>
+  </section>
+</main>

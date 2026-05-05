@@ -2,9 +2,11 @@
 import AluminumChallengesSection from "@components/servicio-aluminio/AluminumChallengesSection.astro";
 import AluminumHero from "@components/servicio-aluminio/AluminumHero.astro";
 import AluminumSystemsSection from "@components/servicio-aluminio/AluminumSystemsSection.astro";
+import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
 import Container from "@components/ui/Container.astro";
 import Layout from "@layouts/Layout.astro";
+import { getRelatedStaticObras } from "@lib/static-obras";
 import {
   aluminumChallengeItems,
   aluminumHeroImage,
@@ -21,6 +23,7 @@ const canonical = `${SITE_URL}/servicios/carpinteria-de-aluminio`;
 const keywords =
   "carpintería de aluminio paraguay, puertas de aluminio, puertas corredizas de aluminio, puertas batientes, aberturas de aluminio";
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const relatedObras = getRelatedStaticObras("carpinteria-de-aluminio");
 ---
 
 <Layout
@@ -35,6 +38,7 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
     <AluminumHero image={aluminumHeroImage} specs={aluminumHeroSpecs} />
     <AluminumChallengesSection items={aluminumChallengeItems} />
     <AluminumSystemsSection items={aluminumSystems} />
+    <RelatedWorksGallery obras={relatedObras} />
 
     <section class="aluminum-service-section aluminum-service-final">
       <Container>

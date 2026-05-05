@@ -26,6 +26,7 @@
   display: block;
   height: 36px;
   width: auto;
+  filter: invert(1);
 }
 
 .vipar-site-header__logo-icon {

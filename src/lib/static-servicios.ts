@@ -38,8 +38,8 @@ export const staticServicios: ServicioListItem[] = [
   },
   {
     key: "fachada",
-    title: "Fachada",
-    href: "/servicios/fachada/",
+    title: "Fachadas",
+    href: "/servicios/fachadas/",
     image: "/img/breadcrumbs-bg.jpg",
     description:
       "Sistemas de fachadas en vidrio y aluminio para mejorar imagen arquitectónica, rendimiento técnico y protección en proyectos de gran escala.",

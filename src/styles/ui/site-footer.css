@@ -2,7 +2,8 @@
   background: var(--ds-color-primary);
   color: var(--ds-color-surface);
   padding: 80px 0 40px;
-  border-top: 1px solid color-mix(in srgb, var(--ds-color-border-strong) 40%, transparent);
+  border-top: 1px solid
+    color-mix(in srgb, var(--ds-color-border-strong) 40%, transparent);
 }
 
 .vipar-site-footer__grid {
@@ -13,10 +14,14 @@
 
 .vipar-site-footer__logo {
   display: inline-block;
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.vipar-site-footer__logo img {
+  display: block;
+  height: 36px;
+  width: auto;
+  filter: brightness(0) invert(1);
 }
 
 .vipar-site-footer__brand p {
@@ -81,16 +86,6 @@
 }
 
 .vipar-site-footer__cta {
-  --btn-min-height: 52px;
-  --btn-padding-inline: 24px;
-  --btn-font-size: 12px;
-  --btn-letter-spacing: 0.12em;
-  --btn-bg: var(--ds-color-accent);
-  --btn-border: var(--ds-color-accent);
-  --btn-fg: var(--ds-color-surface);
-  --btn-bg-hover: var(--ds-color-surface);
-  --btn-border-hover: var(--ds-color-surface);
-  --btn-fg-hover: var(--ds-color-primary);
   width: 100%;
   margin-top: 12px;
 }
@@ -102,7 +97,8 @@
   gap: 24px;
   margin-top: 64px;
   padding-top: 32px;
-  border-top: 1px solid color-mix(in srgb, var(--ds-color-border-strong) 40%, transparent);
+  border-top: 1px solid
+    color-mix(in srgb, var(--ds-color-border-strong) 40%, transparent);
 }
 
 .vipar-site-footer__bottom p,

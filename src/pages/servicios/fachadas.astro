@@ -1,0 +1,25 @@
+---
+import ServiceLandingTemplate from "@components/servicio-template/ServiceLandingTemplate.astro";
+import Layout from "@layouts/Layout.astro";
+import { facadesServiceContent } from "@lib/static-servicio-fachadas";
+import { SITE_URL, telephone } from "src/constants";
+
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(facadesServiceContent.whatsappMessage)}`;
+const canonical = `${SITE_URL}${facadesServiceContent.canonicalPath}`;
+---
+
+<Layout
+  title={facadesServiceContent.title}
+  description={facadesServiceContent.description}
+  canonical={canonical}
+  keywords={facadesServiceContent.keywords}
+  hideWhatsappFAB={true}
+  bodyClass="service-template-body"
+>
+  <ServiceLandingTemplate
+    content={facadesServiceContent}
+    whatsappNumber={whatsappNumber}
+    whatsappLink={whatsappLink}
+  />
+</Layout>

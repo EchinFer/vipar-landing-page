@@ -36,9 +36,11 @@ const { cases } = Astro.props;
       <Heading level={3} variant="sm">Casos frecuentes</Heading>
       <div class="mampara-service-problem__cases">
         {cases.map((item) => (
-          <article>
-            <strong>{item.title}</strong>
-            <Text variant="body-sm">{item.description}</Text>
+          <article class="mampara-service-problem__case">
+            <div class="mampara-service-problem__case-body">
+              <strong>{item.title}</strong>
+              <Text variant="body-sm">{item.description}</Text>
+            </div>
           </article>
         ))}
       </div>

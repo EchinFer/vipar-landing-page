@@ -5,8 +5,10 @@ import CeilingFaqSection from "@components/servicio-cielo/CeilingFaqSection.astr
 import CeilingHero from "@components/servicio-cielo/CeilingHero.astro";
 import CeilingSystemsSection from "@components/servicio-cielo/CeilingSystemsSection.astro";
 import Container from "@components/ui/Container.astro";
+import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
 import Layout from "@layouts/Layout.astro";
+import { getRelatedStaticObras } from "@lib/static-obras";
 import {
   ceilingDetailImage,
   ceilingDetails,
@@ -26,6 +28,7 @@ const canonical = `${SITE_URL}/servicios/cielo-raso`;
 const keywords =
   "cielo raso paraguay, cielorraso pvc, armstrong, durlock, bafles acústicos, techos técnicos";
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const relatedObras = getRelatedStaticObras("cielo-raso");
 ---
 
 <Layout
@@ -42,6 +45,7 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
     <CeilingSystemsSection items={ceilingSystems} />
     <CeilingDetailsSection image={ceilingDetailImage} items={ceilingDetails} />
     <CeilingFaqSection items={ceilingFaqs} />
+    <RelatedWorksGallery obras={relatedObras} />
 
     <section class="ceiling-service-section ceiling-service-final">
       <Container>

@@ -21,6 +21,15 @@ export interface StaticObra {
   category: StaticObraCategory[];
 }
 
+export type RelatedServiceKey =
+  | "box-de-bano"
+  | "carpinteria-de-aluminio"
+  | "cielo-raso"
+  | "mampara-divisoria"
+  | "ventana"
+  | "cortina"
+  | "fachadas";
+
 export const obraFilters = [
   { slug: "all", label: "Todos" },
   { slug: "cristal-templado", label: "Cristal templado" },
@@ -160,3 +169,72 @@ export const staticObras: StaticObra[] = [
 
 export const getStaticObraBySlug = (slug: string) =>
   staticObras.find((obra) => obra.slug === slug);
+
+const relatedObraPresets: Record<
+  RelatedServiceKey,
+  {
+    preferredSlugs: string[];
+    fallbackTags: string[];
+  }
+> = {
+  "box-de-bano": {
+    preferredSlugs: ["showroom-vipar", "residencia-san-lorenzo", "edificio-concordia"],
+    fallbackTags: ["cristal-templado", "aluminio", "ventanas"],
+  },
+  "carpinteria-de-aluminio": {
+    preferredSlugs: ["showroom-vipar", "edificio-concordia", "residencia-san-lorenzo"],
+    fallbackTags: ["aluminio", "ventanas", "puertas"],
+  },
+  "cielo-raso": {
+    preferredSlugs: ["showroom-vipar", "cooperativa-medalla", "oficinas-corporativas-itau"],
+    fallbackTags: ["mamparas", "aluminio", "cristal-templado"],
+  },
+  "mampara-divisoria": {
+    preferredSlugs: ["cooperativa-medalla", "oficinas-corporativas-itau", "showroom-vipar"],
+    fallbackTags: ["mamparas", "cristal-templado", "aluminio"],
+  },
+  ventana: {
+    preferredSlugs: ["residencia-san-lorenzo", "edificio-concordia", "showroom-vipar"],
+    fallbackTags: ["ventanas", "aluminio", "cristal-templado"],
+  },
+  cortina: {
+    preferredSlugs: ["showroom-vipar", "sucursal-tigo-mra", "residencia-san-lorenzo"],
+    fallbackTags: ["cristal-templado", "fachadas", "aluminio"],
+  },
+  fachadas: {
+    preferredSlugs: ["showroom-vipar", "sucursal-tigo-mra", "edificio-concordia"],
+    fallbackTags: ["fachadas", "cristal-templado", "aluminio"],
+  },
+};
+
+export const getRelatedStaticObras = (
+  serviceKey: RelatedServiceKey,
+  limit = 3,
+): StaticObra[] => {
+  const preset = relatedObraPresets[serviceKey];
+  const picked = new Map<string, StaticObra>();
+
+  for (const slug of preset.preferredSlugs) {
+    const obra = getStaticObraBySlug(slug);
+
+    if (obra) {
+      picked.set(obra.slug, obra);
+    }
+  }
+
+  for (const obra of staticObras) {
+    if (picked.size >= limit) {
+      break;
+    }
+
+    if (picked.has(obra.slug)) {
+      continue;
+    }
+
+    if (obra.filterTags.some((tag) => preset.fallbackTags.includes(tag))) {
+      picked.set(obra.slug, obra);
+    }
+  }
+
+  return Array.from(picked.values()).slice(0, limit);
+};

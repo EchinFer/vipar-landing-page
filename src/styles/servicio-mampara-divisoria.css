@@ -114,6 +114,32 @@
   gap: 24px;
 }
 
+.mampara-service-problem__aside {
+  align-content: start;
+  min-height: 100%;
+  padding: 28px 24px;
+}
+
+.mampara-service-problem__case {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--ds-color-border);
+}
+
+.mampara-service-problem__case-body {
+  display: grid;
+  gap: 6px;
+}
+
+.mampara-service-problem__case:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.mampara-service-problem__case strong,
+.mampara-service-problem__case p {
+  margin: 0;
+}
+
 .mampara-service-editorial__copy {
   display: grid;
   gap: 20px;

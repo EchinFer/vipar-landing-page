@@ -14,7 +14,7 @@ const currentYear = new Date().getFullYear();
 const serviceLinks = [
   { label: "Cristales Templados", href: "/servicios/" },
   { label: "Carpinteria de Aluminio", href: "/servicios/carpinteria-de-aluminio/" },
-  { label: "Fachadas", href: "/servicios/fachada/" },
+  { label: "Fachadas", href: "/servicios/fachadas/" },
   { label: "Mamparas y Divisiones", href: "/servicios/mampara-divisoria/" },
   { label: "Cielos Rasos", href: "/servicios/cielo-raso/" },
 ];
@@ -24,7 +24,9 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
 <footer class="vipar-site-footer">
   <Container class="vipar-site-footer__grid">
     <div class="vipar-site-footer__brand">
-      <span class="vipar-site-footer__logo">{LOGO_TEXT}</span>
+      <a href="/" aria-label="VIPAR S.A. — Inicio" class="vipar-site-footer__logo">
+        <img src="/img/logo.png" alt="VIPAR S.A." />
+      </a>
       <p>
         Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para
         viviendas, comercios, oficinas y obras.
@@ -88,7 +90,7 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
         target="_blank"
         rel="noopener noreferrer"
         variant="contained"
-        tone="primary"
+        tone="secondary"
         size="md"
         class="vipar-site-footer__cta"
       >

@@ -6,9 +6,11 @@ import BoxHero from "@components/servicio-box/BoxHero.astro";
 import BoxOptionsSection from "@components/servicio-box/BoxOptionsSection.astro";
 import BoxProcessSection from "@components/servicio-box/BoxProcessSection.astro";
 import BoxTrustSection from "@components/servicio-box/BoxTrustSection.astro";
+import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
 import Container from "@components/ui/Container.astro";
 import Layout from "@layouts/Layout.astro";
+import { getRelatedStaticObras } from "@lib/static-obras";
 import {
   boxBenefits,
   boxCompareRows,
@@ -27,6 +29,7 @@ const canonical = `${SITE_URL}/servicios/box-de-bano`;
 const keywords =
   "box de baño paraguay, mamparas para baño, box de ducha a medida, cristal templado baño, acrílico para baño, box plegable";
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const relatedObras = getRelatedStaticObras("box-de-bano");
 ---
 
 <Layout
@@ -45,6 +48,7 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
     <BoxProcessSection steps={boxProcessSteps} />
     <BoxTrustSection />
     <BoxEditorialSection />
+    <RelatedWorksGallery obras={relatedObras} />
 
     <section class="box-service-section box-service-final">
       <Container>

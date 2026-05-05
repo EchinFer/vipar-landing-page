@@ -1,0 +1,40 @@
+---
+import Container from "./Container.astro";
+import Heading from "./Heading.astro";
+import Text from "./Text.astro";
+
+export interface FaqAccordionItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqAccordionItem[];
+  title?: string;
+  class?: string;
+}
+
+const { items, title = "Preguntas frecuentes", class: className = "" } = Astro.props;
+---
+
+<section class:list={["ds-faq-accordion", className]}>
+  <Container class="ds-faq-accordion__inner">
+    <div class="ds-faq-accordion__head">
+      <Heading level={2} variant="lg">{title}</Heading>
+    </div>
+
+    <div class="ds-faq-accordion__list">
+      {items.map((item, index) => (
+        <details class="ds-faq-accordion__item" open={index === 0}>
+          <summary>
+            <span>{item.question}</span>
+            <i aria-hidden="true" class="material-symbols-outlined">expand_more</i>
+          </summary>
+          <div>
+            <Text>{item.answer}</Text>
+          </div>
+        </details>
+      ))}
+    </div>
+  </Container>
+</section>
