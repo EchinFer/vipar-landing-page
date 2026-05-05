@@ -23,11 +23,13 @@ const { items } = Astro.props;
     <div class="mampara-service-types__grid">
       {items.map((item) => (
         <Card as="article" class="mampara-service-type">
-          <Heading level={3} variant="md">{item.title}</Heading>
-          <Text>{item.description}</Text>
-          <ul>
-            {item.bullets.map((bullet) => <li>{bullet}</li>)}
-          </ul>
+          <div class="mampara-service-type__body">
+            <Heading level={3} variant="md">{item.title}</Heading>
+            <Text>{item.description}</Text>
+            <ul>
+              {item.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </div>
           <Text variant="body-sm" class="mampara-service-type__note">{item.note}</Text>
         </Card>
       ))}

@@ -112,7 +112,10 @@ const canonical = "https://vipar.com.py/servicios/mamparas-divisorias";
 <!-- Top Navigation -->
 <nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md border-b border-slate-200/20 shadow-sm transition-all duration-300 ease-in-out">
   <div class="flex justify-between items-center px-12 h-20 max-w-[1920px] mx-auto">
-    <a href="/" class="text-2xl font-extrabold text-[#002046] dark:text-white tracking-tighter font-headline">VIPAR S.A.</a>
+    <a href="/" aria-label="VIPAR S.A. — Inicio">
+      <img src="/img/logo.png" alt="VIPAR S.A." class="hidden md:block h-9 w-auto" />
+      <img src="/img/logo-simple.png" alt="VIPAR S.A." class="block md:hidden h-9 w-9" />
+    </a>
     <div class="hidden md:flex items-center space-x-10">
       <a class="text-[#002046] border-b-2 border-[#1B365D] pb-1 font-bold font-headline tracking-tight" href="/servicios/">Servicios</a>
       <a class="text-slate-500 font-medium hover:text-[#1B365D] transition-all duration-300 ease-in-out font-headline tracking-tight" href="/obras/">Proyectos</a>
@@ -295,7 +298,9 @@ const canonical = "https://vipar.com.py/servicios/mamparas-divisorias";
 <footer class="bg-[#f3f3f3] dark:bg-slate-950 w-full py-16 px-12 border-t border-slate-200 dark:border-slate-800">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1440px] mx-auto">
     <div class="col-span-1 md:col-span-1">
-      <a href="/" class="text-xl font-black text-[#002046] dark:text-white font-headline">VIPAR S.A.</a>
+      <a href="/" aria-label="VIPAR S.A. — Inicio">
+        <img src="/img/logo.png" alt="VIPAR S.A." class="h-8 w-auto" />
+      </a>
       <p class="mt-6 text-sm text-slate-500 font-light leading-relaxed">
         Líderes en soluciones de arquitectura corporativa y sistemas de partición técnica en Paraguay.
       </p>

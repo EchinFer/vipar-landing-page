@@ -160,7 +160,10 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
 <!-- TopNavBar -->
 <nav class="bg-surface-container-lowest/95 backdrop-blur-md font-label-caps text-label-caps uppercase top-0 sticky z-50 border-b border-vipar-border w-full">
   <div class="max-w-[1280px] w-full mx-auto flex justify-between items-center h-20 px-8">
-    <a href="/" class="text-xl font-bold tracking-tighter text-on-surface">VIPAR S.A.</a>
+    <a href="/" aria-label="VIPAR S.A. — Inicio">
+      <img src="/img/logo.png" alt="VIPAR S.A." class="hidden md:block h-9 w-auto" />
+      <img src="/img/logo-simple.png" alt="VIPAR S.A." class="block md:hidden h-9 w-9" />
+    </a>
     <div class="hidden md:flex gap-8">
       <a class="text-on-surface-variant hover:text-vipar-accent transition-colors" href="/">Inicio</a>
       <a class="text-vipar-accent border-b-2 border-vipar-accent pb-1" href="/servicios/">Servicios</a>

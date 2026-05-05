@@ -114,6 +114,11 @@
   gap: 24px;
 }
 
+.mampara-service-editorial__copy {
+  display: grid;
+  gap: 20px;
+}
+
 .mampara-service-problem__copy h2,
 .mampara-service-problem__copy p,
 .mampara-service-problem__aside h3,
@@ -143,6 +148,38 @@
   margin: 0;
 }
 
+.mampara-service-factors__grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.mampara-service-factor {
+  min-height: 196px;
+  height: 100%;
+  padding: 28px 24px;
+  align-content: start;
+}
+
+.mampara-service-factor__body {
+  display: grid;
+  gap: 12px;
+}
+
+.mampara-service-sectors__grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.mampara-service-sector {
+  min-height: 168px;
+  height: 100%;
+  padding: 28px 24px;
+  align-content: start;
+}
+
+.mampara-service-sector__body {
+  display: grid;
+  gap: 10px;
+}
+
 .mampara-service-types__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -151,12 +188,21 @@
 
 .mampara-service-type {
   display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100%;
+  padding: 28px 24px;
   gap: 20px;
 }
 
 .mampara-service-type h3,
 .mampara-service-type p {
   margin: 0;
+}
+
+.mampara-service-type__body {
+  display: grid;
+  align-content: start;
+  gap: 18px;
 }
 
 .mampara-service-type ul {
@@ -167,6 +213,7 @@
 }
 
 .mampara-service-type__note {
+  margin-top: auto;
   padding-top: 20px;
   border-top: 1px solid var(--ds-color-border);
 }
@@ -294,9 +341,21 @@
 }
 
 .mampara-service-editorial__tags {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 10px;
+}
+
+.mampara-service-editorial__aside {
+  align-content: start;
+  min-height: 100%;
+  padding: 28px 24px;
+}
+
+.mampara-service-editorial__tags span {
+  justify-content: center;
+  text-align: center;
+  min-width: 0;
 }
 
 .mampara-service-faq__inner {

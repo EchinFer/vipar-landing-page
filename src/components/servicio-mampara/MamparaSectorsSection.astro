@@ -21,8 +21,10 @@ const { items } = Astro.props;
     <div class="mampara-service-sectors__grid">
       {items.map((item) => (
         <Card as="article" class="mampara-service-sector">
-          <Heading level={3} variant="sm">{item.title}</Heading>
-          <Text variant="body-sm">{item.description}</Text>
+          <div class="mampara-service-sector__body">
+            <Heading level={3} variant="sm">{item.title}</Heading>
+            <Text variant="body-sm">{item.description}</Text>
+          </div>
         </Card>
       ))}
     </div>
