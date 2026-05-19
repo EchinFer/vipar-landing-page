@@ -24,12 +24,12 @@ const SERVICE_MAP: Record<string, Omit<ServiceInfo, "label">> = {
     href: "/servicios/",
   },
   "Cristal templado": {
-    icon: "bi-transparency",
+    icon: "bi-gem",
     description: "Vidrio templado de alta resistencia para fachadas, tabiques y cerramientos.",
     href: "/servicios/",
   },
   Cristal: {
-    icon: "bi-transparency",
+    icon: "bi-gem",
     description: "Soluciones en cristal templado y laminado para construcción residencial y comercial.",
     href: "/servicios/",
   },
@@ -90,7 +90,7 @@ const services: ServiceInfo[] = tags.map((tag) => ({
       <div class="od-servicios__grid">
         {services.map((service) => (
           <Card as="article" variant="info">
-            <i class={`${service.icon} ds-card__icon`} aria-hidden="true"></i>
+            <i class={`bi ${service.icon} ds-card__icon`} aria-hidden="true"></i>
             <Heading level={4} variant="sm" class="ds-card__title">{service.label}</Heading>
             <Text class="ds-card__description">{service.description}</Text>
             <ActionLink href={service.href}>

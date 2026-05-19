@@ -222,20 +222,21 @@
 
 .od-gallery__grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-}
-
-@media (min-width: 640px) {
-  .od-gallery__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (min-width: 1024px) {
   .od-gallery__grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.od-gallery__item:only-child {
+  grid-column: 1 / -1;
+  max-width: min(100%, 560px);
+  justify-self: center;
+  width: 100%;
 }
 
 .od-gallery__item {
@@ -275,14 +276,8 @@
 
 .od-servicios__grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-}
-
-@media (min-width: 640px) {
-  .od-servicios__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (min-width: 1024px) {
@@ -303,5 +298,75 @@
 @media (min-width: 768px) {
   .od-cta__inner {
     width: min(calc(100% - (var(--ds-container-padding-desktop) * 2)), var(--ds-container-max));
+  }
+}
+
+@media (max-width: 640px) {
+  /* Ficha: 2-col, last card full-width */
+  .od-ficha-wrap {
+    width: min(calc(100% - 32px), var(--vipar-shell));
+    padding-bottom: 32px;
+  }
+
+  .od-ficha-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .od-ficha-grid > :last-child {
+    grid-column: 1 / -1;
+  }
+
+  .od-ficha-card {
+    padding: 16px;
+  }
+
+  .od-ficha-card__value {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  /* Editorial: tighter padding */
+  .od-editorial {
+    padding: 48px 0;
+  }
+
+  .od-editorial__inner {
+    width: min(calc(100% - 32px), var(--vipar-shell));
+  }
+
+  /* Gallery: tighter padding */
+  .od-gallery {
+    width: min(calc(100% - 32px), var(--vipar-shell));
+    padding: 48px 0;
+  }
+
+  .od-gallery__title {
+    margin-bottom: 20px;
+  }
+
+  /* Servicios: tighter, compact cards */
+  .od-servicios {
+    padding: 48px 0;
+  }
+
+  .od-servicios__inner {
+    width: min(calc(100% - 32px), var(--vipar-shell));
+  }
+
+  .od-servicios__title {
+    margin-bottom: 20px;
+  }
+
+  .od-servicios__grid {
+    gap: 14px;
+  }
+
+  .od-servicios__grid .ds-card--variant-info {
+    padding: 16px;
+  }
+
+  .od-servicios__grid .ds-card__description {
+    display: none;
   }
 }
