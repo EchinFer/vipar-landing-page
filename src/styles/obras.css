@@ -141,8 +141,12 @@
 
 @media (max-width: 720px) {
   .vipar-obras-hero {
-    height: min(520px, 92svh);
-    min-height: 420px;
+    height: min(360px, 80svh);
+    min-height: 280px;
+  }
+
+  .vipar-obras-hero h1 {
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
   }
 
   .vipar-obras-main {
@@ -158,4 +162,31 @@
     padding: 32px;
   }
 
+  /* Gallery cards: compact image + hide description */
+  .ds-card--variant-gallery .vipar-obras-card__image {
+    height: 220px;
+  }
+
+  .ds-card--variant-gallery .vipar-obras-card__body {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .ds-card--variant-gallery p {
+    display: none;
+  }
+
+  /* Featured card: shorter media when stacked */
+  .ds-card--variant-feature .vipar-obras-featured__media {
+    min-height: 220px;
+  }
+
+  .ds-card--variant-feature .vipar-obras-featured__content h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .ds-card--variant-feature .vipar-obras-featured__content p {
+    display: none;
+  }
 }
