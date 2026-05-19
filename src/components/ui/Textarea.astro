@@ -5,4 +5,4 @@ interface Props extends astroHTML.JSX.TextareaHTMLAttributes {
 
 const { class: className = "", ...props } = Astro.props;
 ---
-<textarea {...props} class:list={["ds-textarea", className]}><slot /></textarea>
+<textarea {...props} class:list={["ds-textarea", className]}></textarea>
