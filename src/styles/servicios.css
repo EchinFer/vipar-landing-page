@@ -1,12 +1,7 @@
 .vipar-servicios-page {
-  --vipar-shell: 1360px;
-  padding: 0 0 96px;
-  background: var(--ds-color-background);
-}
-
-.vipar-servicios-page .vipar-shell {
-  width: min(calc(100% - 48px), var(--vipar-shell));
+  width: min(calc(100% - 48px), 1360px);
   margin: 0 auto;
+  padding: 0 0 96px;
 }
 
 .vipar-servicios-hero {
@@ -41,32 +36,7 @@
   object-fit: cover;
 }
 
-.vipar-servicios-filters {
-  position: sticky;
-  top: 80px;
-  z-index: 20;
-  background: rgba(249, 249, 249, 0.95);
-  backdrop-filter: blur(8px);
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  padding: 16px 0;
-}
-
-.vipar-servicios-filters__inner {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.vipar-servicios-filters span {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #74777f;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-right: 6px;
-}
+/* .vipar-servicios-filter-bar layout is handled by shared .vipar-filter-bar in filter-bar.css */
 
 .vipar-servicios-catalog {
   padding-top: 72px;
@@ -86,17 +56,10 @@
   max-width: 760px;
 }
 
-.vipar-servicios-grid-full {
-  width: 100%;
-  padding: 0 24px;
-}
-
 .vipar-servicios-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
-  max-width: 1440px;
-  margin: 0 auto;
   align-items: stretch;
 }
 
@@ -105,16 +68,12 @@
 }
 
 @media (max-width: 1024px) {
-  .vipar-servicios-page .vipar-shell {
-    width: min(calc(100% - 32px), var(--vipar-shell));
+  .vipar-servicios-page {
+    width: min(calc(100% - 32px), 1360px);
   }
 
   .vipar-servicios-hero {
     grid-template-columns: 1fr;
-  }
-
-  .vipar-servicios-grid-full {
-    padding: 0 16px;
   }
 
   .vipar-servicios-grid {

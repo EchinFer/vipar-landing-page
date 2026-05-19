@@ -22,24 +22,22 @@ const canonical = `${SITE_URL}/servicios`;
 
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
-      const buttons = Array.from(document.querySelectorAll(".vipar-servicios-filter[data-filter]"));
+      const filterBar = document.querySelector(".vipar-servicios-filter-bar");
       const cards = Array.from(
         document.querySelectorAll(".vipar-servicios-grid .vipar-servicios-card[data-category]")
       );
 
-      if (!buttons.length || !cards.length) return;
+      if (!filterBar || !cards.length) return;
 
       const apply = (filter) => {
-        buttons.forEach((btn) => btn.classList.toggle("is-active", btn.dataset.filter === filter));
         cards.forEach((card) => {
-          const show = filter === "all" || card.dataset.category === filter;
-          card.toggleAttribute("hidden", !show);
+          card.toggleAttribute("hidden", filter !== "all" && card.dataset.category !== filter);
         });
       };
 
-      buttons.forEach((btn) =>
-        btn.addEventListener("click", () => apply(btn.dataset.filter || "all"))
-      );
+      filterBar.addEventListener("filterchange", (e) => {
+        apply(e.detail.value);
+      });
 
       apply("all");
     });

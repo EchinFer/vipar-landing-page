@@ -75,15 +75,7 @@
   max-width: 860px;
 }
 
-.vipar-obras-filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 12px;
-  margin: 0 0 32px;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
+/* .vipar-obras-filter-bar layout is handled by shared .vipar-filter-bar in filter-bar.css */
 
 .vipar-obras-featured {
   margin-bottom: 32px;

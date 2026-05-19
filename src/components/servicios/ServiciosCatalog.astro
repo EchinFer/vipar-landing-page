@@ -1,5 +1,4 @@
 ---
-import Container from "../ui/Container.astro";
 import Heading from "../ui/Heading.astro";
 import Text from "../ui/Text.astro";
 import type { ServicioListItem } from "@types";
@@ -13,18 +12,16 @@ const { servicios } = Astro.props;
 ---
 
 <section class="vipar-servicios-catalog">
-  <Container class="vipar-servicios-catalog__head vipar-shell">
+  <div class="vipar-servicios-catalog__head">
     <Heading level={2}>Catálogo de Sistemas</Heading>
     <Text>
       Especificaciones técnicas y soluciones modulares adaptables a cada desarrollo.
     </Text>
-  </Container>
+  </div>
 
-  <div class="vipar-servicios-grid-full">
-    <div class="vipar-servicios-grid">
-      {servicios.map((servicio) => (
-        <ServiciosCard servicio={servicio} />
-      ))}
-    </div>
+  <div class="vipar-servicios-grid">
+    {servicios.map((servicio) => (
+      <ServiciosCard servicio={servicio} />
+    ))}
   </div>
 </section>

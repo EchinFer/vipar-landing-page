@@ -1,0 +1,59 @@
+---
+import FilterChip from "./FilterChip.astro";
+import type { FilterBarItem } from "@types";
+
+interface Props {
+  filters: FilterBarItem[];
+  chipClass?: string;
+  class?: string;
+}
+
+const { filters, chipClass = "", class: className = "" } = Astro.props;
+---
+
+<section class:list={["vipar-filter-bar", className]}>
+  <select class="vipar-filter-bar__select" aria-label="Filtrar">
+    {filters.map((f) => <option value={f.key}>{f.label}</option>)}
+  </select>
+  <div class="vipar-filter-bar__chips">
+    {
+      filters.map((f, i) => (
+        <FilterChip
+          class:list={["vipar-filter-bar__chip", chipClass]}
+          active={i === 0}
+          data-filter={f.key}
+        >
+          {f.label}
+        </FilterChip>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".vipar-filter-bar").forEach((bar) => {
+    const select = bar.querySelector<HTMLSelectElement>(".vipar-filter-bar__select");
+    const chips = Array.from(bar.querySelectorAll<HTMLElement>(".vipar-filter-bar__chip"));
+
+    const dispatch = (value: string) => {
+      bar.dispatchEvent(new CustomEvent("filterchange", { bubbles: true, detail: { value } }));
+    };
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const value = chip.dataset.filter ?? "all";
+        chips.forEach((c) => c.classList.toggle("is-active", c === chip));
+        if (select) select.value = value;
+        dispatch(value);
+      });
+    });
+
+    if (select) {
+      select.addEventListener("change", () => {
+        const value = select.value;
+        chips.forEach((c) => c.classList.toggle("is-active", c.dataset.filter === value));
+        dispatch(value);
+      });
+    }
+  });
+</script>

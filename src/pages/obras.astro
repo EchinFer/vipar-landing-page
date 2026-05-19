@@ -43,25 +43,19 @@ const featuredTagline = featuredObra ? `${featuredObra.sectorLabel} / ${featured
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const filters = Array.from(document.querySelectorAll(".vipar-obras-filter"));
+    const filterBar = document.querySelector(".vipar-obras-filter-bar");
     const cards = Array.from(document.querySelectorAll(".vipar-obras-card"));
 
     const applyFilter = (filter) => {
       cards.forEach((card) => {
         const tagList = card.getAttribute("data-tags") || "";
         const tags = tagList.split(",").map((tag) => tag.trim()).filter(Boolean);
-        const isVisible = filter === "all" || tags.includes(filter);
-
-        card.toggleAttribute("hidden", !isVisible);
+        card.toggleAttribute("hidden", filter !== "all" && !tags.includes(filter));
       });
     };
 
-    filters.forEach((button) => {
-      button.addEventListener("click", () => {
-        filters.forEach((item) => item.classList.remove("is-active"));
-        button.classList.add("is-active");
-        applyFilter(button.getAttribute("data-filter") || "all");
-      });
+    filterBar?.addEventListener("filterchange", (e) => {
+      applyFilter(e.detail.value);
     });
 
     applyFilter("all");

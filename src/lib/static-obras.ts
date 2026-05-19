@@ -31,14 +31,14 @@ export type RelatedServiceKey =
   | "fachadas";
 
 export const obraFilters = [
-  { slug: "all", label: "Todos" },
-  { slug: "cristal-templado", label: "Cristal templado" },
-  { slug: "aluminio", label: "Aluminio" },
-  { slug: "fachadas", label: "Fachadas" },
-  { slug: "mamparas", label: "Mamparas" },
-  { slug: "cielos-rasos", label: "Cielos rasos" },
-  { slug: "puertas", label: "Puertas" },
-  { slug: "ventanas", label: "Ventanas" },
+  { key: "all", label: "Todos" },
+  { key: "cristal-templado", label: "Cristal templado" },
+  { key: "aluminio", label: "Aluminio" },
+  { key: "fachadas", label: "Fachadas" },
+  { key: "mamparas", label: "Mamparas" },
+  { key: "cielos-rasos", label: "Cielos rasos" },
+  { key: "puertas", label: "Puertas" },
+  { key: "ventanas", label: "Ventanas" },
 ];
 
 export const obrasHeroImage =

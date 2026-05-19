@@ -126,7 +126,9 @@ export interface ServicioListItem {
   description: string;
 }
 
-export interface ServicioFilterItem {
+export interface FilterBarItem {
   key: string;
   label: string;
 }
+
+export interface ServicioFilterItem extends FilterBarItem {}
