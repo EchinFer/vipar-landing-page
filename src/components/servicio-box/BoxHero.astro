@@ -7,9 +7,10 @@ import Text from "@components/ui/Text.astro";
 interface Props {
   image: string;
   tags: string[];
+  whatsappHref: string;
 }
 
-const { image, tags } = Astro.props;
+const { image, tags, whatsappHref } = Astro.props;
 ---
 
 <section class="box-service-hero">
@@ -26,8 +27,19 @@ const { image, tags } = Astro.props;
         espacio y mantener la higiene de tu baño.
       </Text>
       <div class="box-service-hero__actions">
-        <Button href="/contacto/" variant="contained" tone="primary" size="lg">
-          Cotizar box de baño
+        <Button
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="contained"
+          tone="primary"
+          size="lg"
+          data-track-event="whatsapp_service_click"
+          data-cta-location="box_bano_hero"
+          data-service-name="Box de baño"
+          data-whatsapp-message-type="service_hero"
+        >
+          Cotizar por WhatsApp
         </Button>
         <Button href="#opciones" variant="outlined" tone="primary" size="lg">
           Ver opciones

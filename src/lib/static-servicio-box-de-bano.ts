@@ -58,9 +58,9 @@ export const boxBenefits: BoxBenefitItem[] = [
   },
   {
     icon: "bi-bounding-box",
-    title: "Valorización del inmueble",
+    title: "Mejora visual del ambiente",
     description:
-      "Una terminación arquitectónica de calidad eleva el estándar del ambiente y aporta valor comercial a la propiedad.",
+      "Una terminación prolija eleva la estética del baño y aporta un detalle moderno al espacio.",
   },
 ];
 
@@ -70,7 +70,7 @@ export const boxOptions: BoxOptionItem[] = [
     title: "Acrílico",
     chip: "Económico",
     description:
-      "Estructura de aluminio con paneles de acrílico texturizado. Ligero, seguro y de rápida instalación.",
+      "Estructura de aluminio con paneles de acrílico texturizado. Ligero, seguro y de fácil montaje.",
     idealFor: [
       "Baños de uso intensivo",
       "Proyectos de presupuesto ajustado",

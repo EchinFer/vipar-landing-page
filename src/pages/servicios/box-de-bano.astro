@@ -24,17 +24,17 @@ import "../../styles/servicio-box-de-bano.css";
 import { SITE_URL, whatsappNumber } from "src/constants";
 
 const serviceName = "Box de ba\u00F1o";
-const title = "Box de Ba\u00F1o | VIPAR S.A.";
+const title = "Box de baño en Paraguay | Acrílico y Cristal Templado | VIPAR";
 const description =
-  "Box de ba\u00F1o a medida en Paraguay. Soluciones en acr\u00EDlico, cristal templado y sistemas safonados con instalaci\u00F3n profesional.";
-const canonical = `${SITE_URL}/servicios/box-de-bano`;
+  "Box de baño a medida en Paraguay. Soluciones en acrílico, cristal templado y sistemas safonados con instalación profesional.";
+const canonical = `${SITE_URL}/servicios/box-de-bano/`;
 const keywords =
-  "box de ba\u00F1o paraguay, mamparas para ba\u00F1o, box de ducha a medida, cristal templado ba\u00F1o, acr\u00EDlico para ba\u00F1o, box plegable";
+  "box de baño paraguay, mamparas para baño, box de ducha a medida, cristal templado baño, acrílico para baño, box plegable";
 const whatsappLink = buildWhatsappUrl(
   buildWhatsappMessage({
     serviceName,
     pageLabel: serviceName,
-    prompt: "Puedo enviar medidas y fotos del ba\u00F1o.",
+    prompt: "Puedo enviar medidas y fotos del baño.",
   })
 );
 const relatedObras = getRelatedStaticObras("box-de-bano");
@@ -45,13 +45,12 @@ const relatedObras = getRelatedStaticObras("box-de-bano");
   description={description}
   keywords={keywords}
   canonical={canonical}
-  hideWhatsappFAB={true}
   bodyClass="box-service-body"
   pageType="service"
   serviceName={serviceName}
 >
   <main class="box-service-page">
-    <BoxHero image={boxHeroImage} tags={boxHeroTags} />
+    <BoxHero image={boxHeroImage} tags={boxHeroTags} whatsappHref={whatsappLink} />
     <BoxBenefitsSection items={boxBenefits} />
     <BoxOptionsSection items={boxOptions} />
     <BoxCompareSection rows={boxCompareRows} />
