@@ -70,18 +70,7 @@
   display: block;
 }
 
-.service-template-hero__tags span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 0 14px;
-  border: 1px solid var(--ds-color-border);
-  border-radius: var(--ds-radius-full);
-  background: var(--ds-color-surface);
-  color: var(--ds-color-on-surface-muted);
-  font-size: var(--ds-text-body-sm-size);
-  font-weight: 600;
-}
+/* tags use shared .ds-tag class */
 
 .service-template-problem,
 .service-template-process,
@@ -381,5 +370,47 @@
   .service-template-problem__aside,
   .service-template-trust__inner {
     padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .service-template-section {
+    padding: 48px 0;
+  }
+
+  .service-template-hero {
+    padding: 24px 0 40px;
+  }
+
+  .service-template-hero__media {
+    min-height: 280px;
+  }
+
+  .service-template-section__head {
+    margin-bottom: 32px;
+  }
+
+  .service-template-solution__media {
+    height: 180px;
+  }
+
+  /* 2-col compact grids on small screens */
+  .service-template-selection__grid,
+  .service-template-applications__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .service-template-selection__card {
+    padding: 20px 12px;
+  }
+
+  .service-template-process__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .service-template-trust__media {
+    width: min(160px, 100%);
   }
 }

@@ -34,7 +34,7 @@ const { tags } = Astro.props;
     <Card as="aside" class="mampara-service-editorial__aside">
       <Heading level={3} variant="sm">Términos relacionados</Heading>
       <div class="mampara-service-editorial__tags">
-        {tags.map((tag) => <span>{tag}</span>)}
+        {tags.map((tag) => <span class="ds-tag">{tag}</span>)}
       </div>
     </Card>
   </Container>

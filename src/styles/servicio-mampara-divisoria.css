@@ -70,19 +70,7 @@
   display: block;
 }
 
-.mampara-service-hero__tags span,
-.mampara-service-editorial__tags span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 0 14px;
-  border: 1px solid var(--ds-color-border);
-  border-radius: var(--ds-radius-full);
-  background: var(--ds-color-surface);
-  color: var(--ds-color-on-surface-muted);
-  font-size: var(--ds-text-body-sm-size);
-  font-weight: 600;
-}
+/* tags use shared .ds-tag class */
 
 .mampara-service-problem,
 .mampara-service-types,
@@ -378,62 +366,13 @@
   padding: 28px 24px;
 }
 
-.mampara-service-editorial__tags span {
+.mampara-service-editorial__tags .ds-tag {
   justify-content: center;
   text-align: center;
   min-width: 0;
 }
 
-.mampara-service-faq__inner {
-  max-width: 960px;
-}
-
-.mampara-service-faq__title {
-  margin-bottom: 48px;
-  text-align: center;
-}
-
-.mampara-service-faq__list {
-  display: grid;
-  gap: 16px;
-}
-
-.mampara-service-faq__item {
-  overflow: hidden;
-  border-radius: var(--ds-radius-lg);
-  background: var(--ds-color-surface);
-  border: 1px solid var(--ds-color-border);
-}
-
-.mampara-service-faq__item summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 24px;
-  cursor: pointer;
-  list-style: none;
-  color: var(--ds-color-primary);
-  font-weight: 700;
-}
-
-.mampara-service-faq__item summary::-webkit-details-marker {
-  display: none;
-}
-
-.mampara-service-faq__item[open] summary i {
-  transform: rotate(180deg);
-}
-
-.mampara-service-faq__item summary i {
-  transition: transform 180ms ease;
-}
-
-.mampara-service-faq__item div {
-  padding: 20px 24px 24px;
-  border-top: 1px solid var(--ds-color-border);
-  color: var(--ds-color-on-surface-muted);
-}
+/* FAQ section replaced by shared FaqAccordion component */
 
 .mampara-service-final {
   position: relative;
@@ -522,5 +461,46 @@
 
   .mampara-service-final .ds-quote-cta {
     padding: 40px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mampara-service-section {
+    padding: 48px 0;
+  }
+
+  .mampara-service-hero {
+    padding: 24px 0 40px;
+  }
+
+  .mampara-service-hero__media {
+    min-height: 280px;
+  }
+
+  .mampara-service-section__head {
+    margin-bottom: 32px;
+  }
+
+  .mampara-service-factors__grid,
+  .mampara-service-sectors__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .mampara-service-factor,
+  .mampara-service-sector {
+    min-height: auto;
+    padding: 20px 16px;
+  }
+
+  .mampara-service-process__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .mampara-service-trust__inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 24px 16px;
+    gap: 16px;
   }
 }

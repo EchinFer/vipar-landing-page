@@ -2,7 +2,6 @@
 import MamparaComparisonSection from "@components/servicio-mampara/MamparaComparisonSection.astro";
 import MamparaEditorialSection from "@components/servicio-mampara/MamparaEditorialSection.astro";
 import MamparaFactorsSection from "@components/servicio-mampara/MamparaFactorsSection.astro";
-import MamparaFaqSection from "@components/servicio-mampara/MamparaFaqSection.astro";
 import MamparaHero from "@components/servicio-mampara/MamparaHero.astro";
 import MamparaProblemSection from "@components/servicio-mampara/MamparaProblemSection.astro";
 import MamparaProcessSection from "@components/servicio-mampara/MamparaProcessSection.astro";
@@ -10,6 +9,7 @@ import MamparaSectorsSection from "@components/servicio-mampara/MamparaSectorsSe
 import MamparaSymptomsSection from "@components/servicio-mampara/MamparaSymptomsSection.astro";
 import MamparaTrustSection from "@components/servicio-mampara/MamparaTrustSection.astro";
 import MamparaTypesSection from "@components/servicio-mampara/MamparaTypesSection.astro";
+import FaqAccordion from "@components/ui/FaqAccordion.astro";
 import Container from "@components/ui/Container.astro";
 import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
@@ -61,7 +61,7 @@ const relatedObras = getRelatedStaticObras("mampara-divisoria");
     <MamparaProcessSection steps={mamparaProcessSteps} />
     <MamparaTrustSection stats={mamparaTrustStats} />
     <MamparaEditorialSection tags={mamparaEditorialTags} />
-    <MamparaFaqSection items={mamparaFaqs} />
+    <FaqAccordion items={mamparaFaqs} />
     <RelatedWorksGallery obras={relatedObras} />
 
     <section class="mampara-service-section mampara-service-final">
