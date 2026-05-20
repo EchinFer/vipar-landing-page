@@ -21,3 +21,17 @@
   border-color: var(--ds-color-accent);
   color: #ffffff;
 }
+
+/* Static display tag (non-interactive label) */
+.ds-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-surface-strong);
+  color: var(--ds-color-on-surface);
+  font-size: var(--ds-text-body-sm-size);
+  font-weight: 600;
+}

@@ -75,3 +75,32 @@
     width: 100%;
   }
 }
+
+@media (max-width: 640px) {
+  .ds-related-works {
+    padding: 48px 0;
+  }
+
+  /* Full-bleed carousel: bleeds out of .ds-container while head stays inside */
+  .ds-related-works__track {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-inline: var(--ds-container-padding-mobile);
+    padding-bottom: 4px;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--ds-container-padding-mobile);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .ds-related-works__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Card width: viewport − left-pad(16) − gap(12) − peek(44) = vw − 72px */
+  .ds-related-works__item {
+    flex: 0 0 calc(100vw - 72px);
+    scroll-snap-align: start;
+  }
+}

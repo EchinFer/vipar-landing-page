@@ -60,19 +60,6 @@
   gap: 12px;
 }
 
-.aluminum-service-hero__tags span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 0 14px;
-  border: 1px solid var(--ds-color-border);
-  border-radius: var(--ds-radius-full);
-  background: var(--ds-color-surface-strong);
-  color: var(--ds-color-on-surface);
-  font-size: var(--ds-text-body-sm-size);
-  font-weight: 600;
-}
-
 .aluminum-service-hero__media {
   position: relative;
   min-height: 640px;
@@ -238,18 +225,6 @@
   gap: 8px;
 }
 
-.aluminum-service-system__tags span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 30px;
-  padding: 0 12px;
-  border-radius: var(--ds-radius-full);
-  background: var(--ds-color-surface-strong);
-  color: var(--ds-color-on-surface);
-  font-size: var(--ds-text-body-sm-size);
-  font-weight: 600;
-}
-
 .aluminum-service-final {
   padding-top: 0;
 }
@@ -293,5 +268,45 @@
   .aluminum-service-system__body,
   .aluminum-service-challenges__aside {
     padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .aluminum-service-section {
+    padding: 48px 0;
+  }
+
+  .aluminum-service-hero {
+    padding: 32px 0 40px;
+  }
+
+  .aluminum-service-hero__copy {
+    gap: 16px;
+  }
+
+  .aluminum-service-hero__media {
+    min-height: 280px;
+  }
+
+  /* Hide the specs overlay on mobile — image is too short to show both */
+  .aluminum-service-hero__specs {
+    display: none;
+  }
+
+  .aluminum-service-section__head {
+    margin-bottom: 36px;
+  }
+
+  .aluminum-service-challenges__grid {
+    gap: 28px;
+  }
+
+  .aluminum-service-system__media {
+    height: 220px;
+  }
+
+  .aluminum-service-system__body {
+    padding: 20px;
+    gap: 14px;
   }
 }
