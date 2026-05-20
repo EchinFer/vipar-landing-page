@@ -13,8 +13,8 @@ import "../styles/servicios.css";
 
 const title = "Servicios de Cristales, Aluminio y Terminaciones - VIPAR S.A.";
 const description =
-  "Servicios de cristales templados, carpintería de aluminio, fachadas, mamparas, cielo raso y box de baño para proyectos en Paraguay. Fabricación e instalación a medida.";
-const canonical = `${SITE_URL}/servicios`;
+  "Servicios de cristales templados, carpintería de aluminio, fachadas, mamparas, cielo raso y box de baño para proyectos en Paraguay. Consultá según medidas y tipo de obra.";
+const canonical = `${SITE_URL}/servicios/`;
 const keywords =
   "cristales templados Paraguay, carpintería de aluminio, fachadas vidrio aluminio, mamparas divisorias, cielo raso, box de baño vidrio templado, VIPAR servicios";
 
@@ -75,29 +75,29 @@ const quotingSteps = [
 
 const hubFaqs = [
   {
-    question: "¿Trabajan en todo el país o solo en Asunción?",
+    question: "¿Atienden en todo el país o solo en Asunción?",
     answer:
-      "Tenemos proyectos en Asunción, Gran Asunción, Ciudad del Este y el interior del país. Consultá según tu ubicación.",
+      "Atendemos consultas en Asunción, Gran Asunción y otras zonas del país según el tipo y alcance del proyecto. Consultanos con tu ubicación para confirmar cobertura.",
   },
   {
     question: "¿Cómo se hace la cotización?",
     answer:
-      "Enviás fotos, medidas y tipo de obra por WhatsApp. Con eso preparamos un presupuesto detallado sin costo.",
+      "Enviás fotos, medidas y tipo de obra por WhatsApp. Con eso podemos orientarte y preparar una cotización según tu proyecto.",
   },
   {
     question: "¿Fabrican o solo instalan?",
     answer:
-      "VIPAR fabrica e instala. Contamos con taller propio para vidrio templado, aluminio y sistemas de terminaciones.",
+      "VIPAR puede orientar la solución según medidas, tipo de obra y condiciones de instalación. La disponibilidad de fabricación, instalación y visita técnica se confirma al cotizar.",
   },
   {
     question: "¿Qué pasa si no tengo medidas exactas?",
     answer:
-      "Podemos coordinar una visita técnica para medir y asesorarte en obra antes de presupuestar.",
+      "Podés enviarnos fotos del espacio y una descripción del proyecto. Desde ahí te orientamos sobre los pasos a seguir para avanzar con la cotización.",
   },
   {
     question: "¿Cuánto tarda una instalación?",
     answer:
-      "Depende del proyecto. Un box de baño puede instalarse en un día. Una fachada o mampara corporativa puede llevar varios días. Te informamos el plazo antes de comenzar.",
+      "Los tiempos dependen del tipo de servicio, medidas, materiales, preparación del espacio y coordinación de instalación. Te informamos el plazo estimado al cotizar.",
   },
 ];
 
@@ -154,7 +154,15 @@ const featuredObras = staticObras.slice(0, 3);
           ))}
         </ol>
         <div class="servicios-hub-quoting__cta">
-          <a href={whatsappLink} class="ds-btn ds-btn-primary" target="_blank" rel="noopener noreferrer">
+          <a
+            href={whatsappLink}
+            class="ds-btn ds-btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track-event="whatsapp_service_hub_click"
+            data-cta-location="services_hub_quoting"
+            data-whatsapp-message-type="services_hub"
+          >
             <i class="material-symbols-outlined">chat</i>
             Enviar fotos o medidas por WhatsApp
           </a>
