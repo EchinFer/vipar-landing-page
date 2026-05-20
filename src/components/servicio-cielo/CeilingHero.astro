@@ -6,9 +6,10 @@ import Text from "@components/ui/Text.astro";
 
 interface Props {
   image: string;
+  whatsappHref: string;
 }
 
-const { image } = Astro.props;
+const { image, whatsappHref } = Astro.props;
 ---
 
 <section class="ceiling-service-hero">
@@ -23,15 +24,14 @@ const { image } = Astro.props;
         Cielo raso
       </Heading>
       <Text variant="body-lg" tone="inverse">
-        Sistemas de techos técnicos que fusionan precisión acústica, eficiencia térmica y
-        vanguardia estética.
+        Cielo raso para viviendas, comercios, oficinas y obras en Paraguay. Consultá opciones en PVC, Durlock, desmontable y otros sistemas según medidas, uso del espacio y condiciones de instalación.
       </Text>
       <div class="ceiling-service-hero__actions">
-        <Button href="/contacto/" variant="contained" tone="primary" size="lg">
-          Solicitar presupuesto
+        <Button href={whatsappHref} variant="contained" tone="primary" size="lg">
+          Cotizar por WhatsApp
         </Button>
         <Button href="#sistemas" variant="outlined" tone="inverse" size="lg">
-          Ficha técnica
+          Ver tipos de cielo raso
         </Button>
       </div>
     </div>

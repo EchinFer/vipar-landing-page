@@ -36,49 +36,58 @@ export const ceilingEnvironments: CeilingEnvironmentItem[] = [
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDus0MUds3B1q_uSq8q7mQzDhk29OBssfBjXZqiZhSIxRklfZrheXv1NoIT-eyXUXQVedbz0f1hEhhIpIQQn8iMxLaMtslhGMDXtSs-90Hsoj3KPyBn04wG_9vyy_96-eCqdBw6_vx_8zytqM-uURHNhzcmvkHTVFDZnEvmMMKpqOaLoR7F3hFLvYBKz4u3thFbXv7dsMbJG3KDU8HhyrGXlKUxvgJfdLHUQuxr_g3vJgzH_qSYtD1lT0d_IwHQdK3zvCDxCfKv8yGQ",
     title: "Residencial",
-    description: "Confort acústico y calidez visual para espacios íntimos y modernos.",
+    description: "Mejora visual y orden de instalaciones para tu hogar.",
     featured: true,
   },
   {
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCBOb1PWZbu4lMjUJGA5v2Lepb5LeYYd33bc_Tjl1w9-XWwwYSD1T7AZuQhNoapbmvbPJ9RxxWaHC4Cy6iPfpUb0jfbl0oVGOi-3Q3cNwmG_4OA5BMMLvgtVsCw36TJtCfNCBTzl9VNBczkFvUFWXbq9QEx1gZ_wmz0hdflAt2UGORhdiTtyzbWj4hsB_SQk5LA8xC73NTwxg4D1rRUerhM8E1WFErW7PcC9BzVfUjdaKnIo5TTar5XJPXILkjGGsd_-LYAHgSG4BVl",
     title: "Comercial",
-    description: "Versatilidad y mantenimiento ágil para áreas de alto tránsito.",
+    description: "Versatilidad y opciones de mantenimiento ágil para tu local.",
   },
   {
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAsbiypoa941La3MDHPCUvlLgFgDL22MMmAgJru4tqwgvqM8pbGwT226yd6rV0OqfjVsVIGPFh6Za-05qV-IeBzJ7IJojQJ8xAlnM01MvWLwyj3DZgZbnr3iF4KJWvPKv5SL21OmcmDvrDFLw1R_Iw40UAt367KXCSgOutIDQiQvMS3i0WkSp8_TELcgprE4SYSK0l-5AY_o_RT7GyzsWYZrntjDhfAgPMezSi5RgRUw1xduSAmnJDAD4zbrzXvlMDd_V5qPddp6sP4",
     title: "Corporativo",
-    description: "Soluciones para espacios de trabajo con requerimientos de gestión acústica.",
+    description: "Soluciones para oficinas con terminación continua o modular.",
   },
 ];
 
 export const ceilingMetrics: CeilingMetricItem[] = [
-  { value: "3", label: "Sistemas disponibles" },
-  { value: "3", label: "Ambientes tipo" },
+  { value: "✓", label: "Permite ordenar instalaciones" },
+  { value: "✓", label: "Mejora la terminación visual del ambiente" },
+  { value: "✓", label: "Facilita mantenimiento según el sistema" },
+  { value: "✓", label: "Adapta el espacio a su uso" },
 ];
 
 export const ceilingSystems: CeilingSystemItem[] = [
   {
     icon: "bi-grid-3x3-gap",
-    title: "Modulares PVC / Armstrong",
+    title: "Cielo raso desmontable",
     description:
-      "Estructuras desmontables ideales para acceso a instalaciones técnicas y mantenimiento rápido.",
-    bullets: ["Resistente a la humedad", "Acceso fácil a instalaciones"],
+      "Estructuras ideales para acceso a instalaciones y mantenimiento rápido.",
+    bullets: ["Fácil registro de instalaciones", "Mantenimiento ágil"],
   },
   {
     icon: "bi-layers",
-    title: "Junta tomada Durlock",
+    title: "Cielo raso de Durlock / junta tomada",
     description:
-      "Superficies continuas de acabado monolítico para diseño arquitectónico.",
-    bullets: ["Acabado liso premium", "Flexibilidad formal"],
+      "Superficies continuas de acabado liso para un mejor diseño interior.",
+    bullets: ["Terminación continua", "Adaptable a distintos diseños"],
   },
   {
-    icon: "bi-soundwave",
-    title: "Bafles y nubes acústicas",
+    icon: "bi-aspect-ratio",
+    title: "Cielo raso de PVC",
     description:
-      "Soluciones suspendidas para corrección fónica en espacios abiertos y diseño industrial.",
-    bullets: ["Alta absorción acústica", "Estética escultórica"],
+      "Solución práctica y lavable, ideal para diversos ambientes.",
+    bullets: ["Fácil limpieza", "Instalación rápida"],
+  },
+  {
+    icon: "bi-view-list",
+    title: "Cielo raso Eucatex / modular",
+    description:
+      "Placas modulares que se adaptan a diferentes tipos de proyectos.",
+    bullets: ["Terminación prolija", "Opciones variadas"],
   },
 ];
 
@@ -88,38 +97,48 @@ export const ceilingDetailImage =
 export const ceilingDetails: CeilingDetailItem[] = [
   {
     icon: "bi-tools",
-    title: "Mantenimiento simplificado",
+    title: "Mantenimiento",
     description:
-      "Sistemas diseñados para el registro fácil de plenos técnicos, instalaciones eléctricas y climatización sin comprometer la estructura.",
+      "Sistemas que pueden facilitar el registro de instalaciones eléctricas y aire acondicionado según las opciones elegidas.",
   },
   {
-    icon: "bi-volume-mute",
-    title: "Acondicionamiento acústico",
+    icon: "bi-check-circle",
+    title: "Terminación y acabado",
     description:
-      "Utilizamos materiales de porosidad controlada que contribuyen a reducir el eco y mejorar la inteligibilidad en el ambiente.",
+      "Permite ocultar estructuras del techo original y obtener una superficie renovada en el ambiente.",
   },
   {
-    icon: "bi-stars",
-    title: "Estética atemporal",
+    icon: "bi-house",
+    title: "Versatilidad de uso",
     description:
-      "Integración invisible de luminarias y difusores. El cielo raso deja de ser un techo para convertirse en una pieza de diseño.",
+      "Opciones adecuadas tanto para viviendas particulares como para proyectos comerciales o corporativos.",
   },
 ];
 
 export const ceilingFaqs: CeilingFaqItem[] = [
   {
-    question: "¿Cuál es el sistema ideal para una oficina de planta abierta?",
+    question: "¿Qué tipos de cielo raso ofrece VIPAR?",
     answer:
-      "Recomendamos sistemas de bafles acústicos o techos modulares de fibra mineral con alto coeficiente de absorción (NRC) para controlar la reverberación del sonido en espacios de trabajo compartidos.",
+      "VIPAR puede orientar opciones como PVC, Durlock, desmontable, Eucatex u otros sistemas según el tipo de ambiente y condiciones de la obra.",
   },
   {
-    question: "¿Qué altura mínima se requiere para instalar un cielo raso?",
+    question: "¿Qué datos necesito para cotizar?",
     answer:
-      "Depende del sistema y las instalaciones que se deseen ocultar. Generalmente, se requiere un pleno mínimo de 10 a 15 cm para estructuras de junta tomada y hasta 20 cm para sistemas modulares con conductos de aire.",
+      "Fotos del espacio, medidas aproximadas, ubicación de la obra, tipo de ambiente y referencias del resultado esperado.",
   },
   {
-    question: "¿Son los materiales resistentes al fuego?",
+    question: "¿Qué cielo raso conviene para una oficina?",
     answer:
-      "Sí, trabajamos con materiales con buenas propiedades de resistencia al fuego, como placas de yeso y fibras minerales. Las especificaciones aplicables dependen del tipo de proyecto y la normativa local vigente.",
+      "Depende de si se necesita acceso a instalaciones, mantenimiento frecuente, terminación continua o una solución modular.",
+  },
+  {
+    question: "¿Puedo cotizar sin plano?",
+    answer:
+      "Sí. Podés enviar fotos, medidas aproximadas y una descripción del espacio para recibir orientación inicial.",
+  },
+  {
+    question: "¿Cuánto tarda la instalación?",
+    answer:
+      "Depende del sistema, medidas, preparación del espacio y coordinación de obra. El plazo se confirma al cotizar.",
   },
 ];

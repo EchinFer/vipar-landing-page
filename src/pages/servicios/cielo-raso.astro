@@ -23,12 +23,12 @@ import "../../styles/servicio-cielo-raso.css";
 import { SITE_URL, whatsappNumber } from "src/constants";
 
 const serviceName = "Cielo raso";
-const title = "Cielo Raso | VIPAR S.A.";
+const title = "Cielo raso en Paraguay | PVC, Durlock y sistemas desmontables | VIPAR";
 const description =
-  "Sistemas de cielo raso en Paraguay: PVC Armstrong, junta tomada Durlock y bafles acusticos. Instalacion profesional para residencias, comercios y corporativos.";
-const canonical = `${SITE_URL}/servicios/cielo-raso`;
+  "Cielo raso para viviendas, oficinas, comercios y obras. Consultá opciones en PVC, Durlock, desmontable y Eucatex en Paraguay.";
+const canonical = `${SITE_URL}/servicios/cielo-raso/`;
 const keywords =
-  "cielo raso paraguay, cielorraso pvc, armstrong, durlock, bafles acusticos, techos tecnicos";
+  "cielo raso paraguay, cielorraso pvc, desmontable, eucatex, durlock, techos, instalación";
 const whatsappLink = buildWhatsappUrl(
   buildWhatsappMessage({
     serviceName,
@@ -44,13 +44,12 @@ const relatedObras = getRelatedStaticObras("cielo-raso");
   description={description}
   canonical={canonical}
   keywords={keywords}
-  hideWhatsappFAB={true}
   bodyClass="ceiling-service-body"
   pageType="service"
   serviceName={serviceName}
 >
   <main class="ceiling-service-page">
-    <CeilingHero image={ceilingHeroImage} />
+    <CeilingHero image={ceilingHeroImage} whatsappHref={whatsappLink} />
     <CeilingEnvironmentsSection environments={ceilingEnvironments} metrics={ceilingMetrics} />
     <CeilingSystemsSection items={ceilingSystems} />
     <CeilingDetailsSection image={ceilingDetailImage} items={ceilingDetails} />
