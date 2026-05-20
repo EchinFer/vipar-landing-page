@@ -27,7 +27,18 @@ const { image, whatsappHref } = Astro.props;
         Cielo raso para viviendas, comercios, oficinas y obras en Paraguay. Consultá opciones en PVC, Durlock, desmontable y otros sistemas según medidas, uso del espacio y condiciones de instalación.
       </Text>
       <div class="ceiling-service-hero__actions">
-        <Button href={whatsappHref} variant="contained" tone="primary" size="lg">
+        <Button
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="contained"
+          tone="primary"
+          size="lg"
+          data-track-event="whatsapp_service_click"
+          data-cta-location="cielo_raso_hero"
+          data-service-name="Cielo raso"
+          data-whatsapp-message-type="service_hero"
+        >
           Cotizar por WhatsApp
         </Button>
         <Button href="#sistemas" variant="outlined" tone="inverse" size="lg">

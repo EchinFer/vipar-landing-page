@@ -80,7 +80,7 @@ export const ceilingSystems: CeilingSystemItem[] = [
     title: "Cielo raso de PVC",
     description:
       "Solución práctica y lavable, ideal para diversos ambientes.",
-    bullets: ["Fácil limpieza", "Instalación rápida"],
+    bullets: ["Fácil limpieza", "Montaje según condiciones del espacio"],
   },
   {
     icon: "bi-view-list",
