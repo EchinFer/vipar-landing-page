@@ -107,15 +107,15 @@ export const boxOptions: BoxOptionItem[] = [
 export const boxCompareRows: BoxCompareRow[] = [
   {
     feature: "Estética y acabado",
-    acrylic: "Funcional y clásica",
-    temperedGlass: "Premium / Minimalista",
-    folding: "Versátil",
+    acrylic: "Funcional",
+    temperedGlass: "Moderna",
+    folding: "Práctica",
   },
   {
     feature: "Durabilidad",
-    acrylic: "Media",
-    temperedGlass: "Muy alta",
-    folding: "Alta",
+    acrylic: "Estándar",
+    temperedGlass: "Alta",
+    folding: "Buena",
   },
   {
     feature: "Requerimiento de espacio",
@@ -126,7 +126,7 @@ export const boxCompareRows: BoxCompareRow[] = [
   {
     feature: "Facilidad de limpieza",
     acrylic: "Buena",
-    temperedGlass: "Excelente",
+    temperedGlass: "Muy buena",
     folding: "Buena",
   },
   {
@@ -148,7 +148,7 @@ export const boxProcessSteps: BoxProcessStep[] = [
     number: "02",
     title: "Revisión técnica",
     description:
-      "Medición en obra para verificar vanos y desniveles antes de la fabricación.",
+      "Toma de medidas para adaptar la estructura al espacio disponible.",
   },
   {
     number: "03",
@@ -158,15 +158,15 @@ export const boxProcessSteps: BoxProcessStep[] = [
   },
   {
     number: "04",
-    title: "Fabricación",
+    title: "Preparación",
     description:
-      "Corte y preparación de perfiles según especificaciones del proyecto.",
+      "Corte y armado de materiales según medidas.",
   },
   {
     number: "05",
     title: "Instalación",
     description:
-      "Montaje según proyecto con verificación de estanqueidad y limpieza final.",
+      "Montaje de la estructura y paneles en el ambiente.",
     active: true,
   },
 ];
