@@ -1,0 +1,224 @@
+- generic [active] [ref=e1] [box=0,0,375,11658]:
+  - banner "Menu principal" [ref=e2] [box=0,0,375,73]:
+    - navigation [ref=e3] [box=16,0,343,72]:
+      - link "VIPAR S.A. — Inicio" [ref=e4] [cursor=pointer] [box=16,18,36,36]:
+        - /url: /
+        - img "VIPAR S.A." [ref=e5] [box=16,18,36,36]
+      - button "Abrir menu" [ref=e6] [cursor=pointer] [box=315,14,44,44]
+  - main [ref=e10] [box=0,73,375,10277]:
+    - main [ref=e11] [box=0,73,375,10277]:
+      - generic [ref=e13] [box=16,113,343,1167]:
+        - generic [ref=e14] [box=16,113,343,699]:
+          - generic [ref=e15] [box=16,113,343,12]: Box de baño en Paraguay
+          - heading "Box de baño a medida para duchas más cómodas, limpias y mejor terminadas" [level=1] [ref=e16] [box=16,149,343,192]
+          - paragraph [ref=e17] [box=16,365,343,119]: Soluciones precisas en acrílico, cristal templado y sistemas safonados para optimizar el espacio y mantener la higiene de tu baño.
+          - generic [ref=e18] [box=16,507,343,128]:
+            - link "Cotizar box de baño" [ref=e19] [cursor=pointer] [box=16,507,343,56]:
+              - /url: /contacto/
+            - link "Ver opciones" [ref=e20] [cursor=pointer] [box=16,579,343,56]:
+              - /url: "#opciones"
+          - generic "Materiales y soluciones disponibles" [ref=e21] [box=16,659,343,153]:
+            - generic [ref=e22] [box=16,684,77,36]: Acrílico
+            - generic [ref=e23] [box=103,684,134,36]: Cristal templado
+            - generic [ref=e24] [box=16,730,170,36]: Safonadas / plegables
+            - generic [ref=e25] [box=16,776,198,36]: Instalación según medidas
+        - img "Box de baño en cristal templado instalado" [ref=e27] [box=16,860,343,343]
+      - generic [ref=e29] [box=16,1425,343,1301]:
+        - generic [ref=e30] [box=16,1425,343,271]:
+          - heading "El problema de las duchas mal terminadas" [level=2] [ref=e31] [box=16,1425,343,106]
+          - paragraph [ref=e32] [box=16,1548,343,148]: Las cortinas de baño y soluciones improvisadas no solo restan estética a su baño, sino que generan problemas de higiene, filtraciones y deterioro prematuro de los materiales contiguos.
+        - generic [ref=e33] [box=16,1744,343,983]:
+          - article [ref=e34] [box=16,1744,343,228]:
+            - generic [ref=e35] [box=41,1769,293,38]: 
+            - heading "Adiós a las filtraciones" [level=3] [ref=e36] [box=41,1823,293,24]
+            - paragraph [ref=e37] [box=41,1855,293,76]: Un box a medida asegura la estanqueidad, manteniendo el resto del baño seco, seguro y libre de resbalones.
+          - article [ref=e38] [box=16,1996,343,228]:
+            - generic [ref=e39] [box=41,2021,293,38]: 
+            - heading "Higiene superior" [level=3] [ref=e40] [box=41,2074,293,24]
+            - paragraph [ref=e41] [box=41,2107,293,76]: Superficies no porosas como el cristal templado y acrílico evitan la acumulación de moho y facilitan una limpieza rápida.
+          - article [ref=e42] [box=16,2248,343,228]:
+            - generic [ref=e43] [box=41,2273,293,38]: 
+            - heading "Amplitud visual" [level=3] [ref=e44] [box=41,2326,293,24]
+            - paragraph [ref=e45] [box=41,2358,293,76]: Las estructuras transparentes y de perfiles finos maximizan la percepción del espacio, ideal para baños compactos.
+          - article [ref=e46] [box=16,2499,343,228]:
+            - generic [ref=e47] [box=41,2524,293,38]: 
+            - heading "Valorización del inmueble" [level=3] [ref=e48] [box=41,2578,293,24]
+            - paragraph [ref=e49] [box=41,2610,293,76]: Una terminación arquitectónica de calidad eleva el estándar del ambiente y aporta valor comercial a la propiedad.
+      - generic [ref=e51] [box=16,2856,343,1887]:
+        - generic [ref=e52] [box=16,2856,343,176]:
+          - heading "Opciones de cerramiento a medida" [level=2] [ref=e53] [box=16,2856,343,71]
+          - paragraph [ref=e54] [box=16,2943,343,89]: Fabricamos e instalamos según los requerimientos técnicos y estéticos de su proyecto.
+        - generic [ref=e55] [box=16,3088,343,1656]:
+          - article [ref=e56] [box=16,3088,343,535]:
+            - generic [ref=e58] [box=156,3137,64,96]: 
+            - generic [ref=e59] [box=17,3281,341,341]
+          - article [ref=e70] [box=16,3647,343,537]:
+            - generic [ref=e71] [box=249,3649,108,29]: Más elegido
+            - generic [ref=e73] [box=156,3697,64,96]: 
+            - generic [ref=e74] [box=18,3841,339,341]
+          - article [ref=e85] [box=16,4208,343,535]:
+            - generic [ref=e87] [box=156,4257,64,96]: 
+            - generic [ref=e88] [box=17,4401,341,341]
+      - generic [ref=e100] [box=16,4871,343,515]:
+        - heading "Cuadro comparativo de materiales" [level=2] [ref=e101] [box=16,4871,343,71]
+        - table [ref=e103] [box=16,4982,760,389]:
+          - rowgroup [ref=e104] [box=16,4982,760,81]:
+            - row "Característica Acrílico Cristal templado Sistemas plegables" [ref=e105] [box=16,4982,760,81]
+          - rowgroup [ref=e110] [box=16,5063,760,309]:
+            - row "Estética y acabado Funcional y clásica Premium / Minimalista Versátil" [ref=e111] [box=16,5063,760,57]
+            - row "Durabilidad Media Muy alta Alta" [ref=e116] [box=16,5120,760,57]
+            - row "Requerimiento de espacio Estándar (corredizo) Estándar (corredizo/batiente) Mínimo (se pliega)" [ref=e121] [box=16,5177,760,81]
+            - row "Facilidad de limpieza Buena Excelente Buena" [ref=e126] [box=16,5258,760,57]
+            - row "Nivel de inversión $ (Económico) $$$ (Superior) $$ (Medio)" [ref=e131] [box=16,5315,760,57]
+      - generic [ref=e137] [box=16,5515,343,1377]:
+        - heading "Nuestro proceso de trabajo" [level=2] [ref=e138] [box=16,5515,343,71]
+        - generic [ref=e139] [box=16,5626,343,1266]:
+          - article [ref=e140] [box=16,5626,343,229]:
+            - generic [ref=e141] [box=148,5651,80,80]: "01"
+            - heading "Fotos y medidas" [level=3] [ref=e142] [box=41,5747,293,24]
+            - paragraph [ref=e143] [box=41,5779,293,51]: Envío de referencias preliminares por WhatsApp para evaluación inicial.
+          - article [ref=e144] [box=16,5879,343,229]:
+            - generic [ref=e145] [box=148,5904,80,80]: "02"
+            - heading "Revisión técnica" [level=3] [ref=e146] [box=41,6000,293,24]
+            - paragraph [ref=e147] [box=41,6032,293,51]: Visita a obra para rectificación milimétrica de vanos y desniveles.
+          - article [ref=e148] [box=16,6132,343,229]:
+            - generic [ref=e149] [box=148,6157,80,80]: "03"
+            - heading "Presupuesto" [level=3] [ref=e150] [box=41,6253,293,24]
+            - paragraph [ref=e151] [box=41,6285,293,51]: Propuesta formal con especificaciones de cristales, aluminios y herrajes.
+          - article [ref=e152] [box=16,6385,343,229]:
+            - generic [ref=e153] [box=148,6410,80,80]: "04"
+            - heading "Fabricación" [level=3] [ref=e154] [box=41,6506,293,24]
+            - paragraph [ref=e155] [box=41,6538,293,51]: Corte, templado y preparación de perfiles en nuestro taller especializado.
+          - article [ref=e156] [box=16,6638,343,254]:
+            - generic [ref=e157] [box=148,6663,80,80]: "05"
+            - heading "Instalación" [level=3] [ref=e158] [box=41,6759,293,24]
+            - paragraph [ref=e159] [box=41,6791,293,76]: Montaje preciso por técnicos capacitados, garantizando estanqueidad y limpieza.
+      - generic [ref=e161] [box=16,7037,343,505]:
+        - generic [ref=e162] [box=16,7037,343,12]: Respaldo técnico
+        - heading "Experiencia y respaldo técnico en Ñemby y Gran Asunción" [level=2] [ref=e163] [box=16,7073,343,106]
+        - paragraph [ref=e164] [box=16,7203,343,152]: Con años de experiencia en el rubro del cristal templado y carpintería de aluminio, VIPAR S.A. garantiza estructuras seguras, herrajes de alta durabilidad y un servicio posventa confiable. No tercerizamos la instalación; nuestro equipo técnico se encarga de cada detalle.
+        - generic [ref=e165] [box=16,7379,343,163]:
+          - generic [ref=e166] [box=16,7387,343,68]:
+            - strong [ref=e167] [box=16,7387,343,46]: "+1000"
+            - generic [ref=e168] [box=16,7436,343,18]: Obras finalizadas
+          - generic [ref=e169] [box=16,7474,343,68]:
+            - strong [ref=e170] [box=16,7474,343,46]: 100%
+            - generic [ref=e171] [box=16,7524,343,18]: Garantía de instalación
+      - generic [ref=e173] [box=16,7686,343,1094]:
+        - 'heading "Mamparas y box de ducha: estética y funcionalidad para baños modernos en Paraguay" [level=2] [ref=e174] [box=16,7686,343,177]'
+        - paragraph [ref=e175] [box=16,7887,343,238]:
+          - text: Al planificar la renovación o construcción de un cuarto de baño, la elección del cerramiento para la zona de la ducha es fundamental. Atrás quedaron las cortinas de baño que restan higiene y espacio; la tendencia arquitectónica actual exige soluciones limpias y definitivas como las
+          - strong [ref=e176] [box=16,8097,214,24]: mamparas o box de baño
+          - text: .
+        - paragraph [ref=e177] [box=16,8140,343,327]:
+          - text: Un
+          - strong [ref=e178] [box=43,8142,197,24]: box de ducha a medida
+          - text: no es solo una barrera contra el agua. Fabricados en
+          - strong [ref=e179] [box=16,8202,137,24]: cristal templado
+          - text: de alta resistencia, estos cerramientos proporcionan seguridad estructural ante impactos, al mismo tiempo que permiten el paso de la luz, creando la ilusión óptica de un ambiente más amplio y luminoso. Los perfiles de aluminio anodizado aseguran que la estructura soporte la humedad constante sin oxidarse.
+        - paragraph [ref=e180] [box=16,8483,343,297]:
+          - text: En VIPAR S.A., entendemos que cada obra tiene requerimientos específicos de
+          - strong [ref=e181] [box=16,8544,76,24]: medidas
+          - text: y diseño. Por ello, ofrecemos sistemas corredizos para optimizar espacios reducidos, puertas batientes para accesos amplios, y soluciones en acrílico o safonadas para presupuestos específicos, siempre manteniendo el más alto estándar en terminaciones y sellado de silicona antihongos.
+      - generic [ref=e183] [box=16,8892,343,880]:
+        - generic [ref=e184] [box=16,8892,343,194]:
+          - generic [ref=e185] [box=16,8892,343,122]:
+            - generic [ref=e186] [box=16,8892,343,12]: Obras vinculadas
+            - heading "Obras relacionadas" [level=2] [ref=e187] [box=16,8916,343,35]
+            - paragraph [ref=e188] [box=16,8963,343,51]: Algunas referencias reales para evaluar cómo resolvemos este tipo de servicio en obra.
+          - link "Explorar catálogo completo" [ref=e189] [cursor=pointer] [box=16,9038,343,48]:
+            - /url: /obras/
+        - list "Obras relacionadas" [ref=e190] [box=-7,9118,390,654]:
+          - listitem [ref=e191] [box=9,9122,318,646]:
+            - article [ref=e192] [box=9,9122,318,646]
+          - listitem [ref=e203] [box=339,9122,318,646]:
+            - article [ref=e204] [box=339,9122,318,646]
+          - listitem [ref=e215] [box=669,9122,318,646]:
+            - article [ref=e216] [box=669,9122,318,646]
+      - generic [ref=e229] [box=16,9885,343,305]:
+        - heading "¿Querés cotizar un trabajo similar?" [level=2] [ref=e230] [box=16,9950,343,74]
+        - paragraph [ref=e231] [box=16,10036,343,76]: Enviá fotos, planos o referencias de tu proyecto para recibir un presupuesto detallado y asesoramiento técnico especializado.
+        - link "Solicitar presupuesto por WhatsApp" [ref=e232] [cursor=pointer] [box=16,10136,343,54]:
+          - /url: https://wa.me/595981256510
+  - contentinfo [ref=e233] [box=0,10350,375,1308]:
+    - generic [ref=e234] [box=16,10423,343,975]:
+      - generic [ref=e235] [box=16,10423,343,212]:
+        - link "VIPAR S.A. — Inicio" [ref=e236] [cursor=pointer] [box=16,10423,145,36]:
+          - /url: /
+          - img "VIPAR S.A." [ref=e237] [box=16,10423,145,36]
+        - paragraph [ref=e238] [box=16,10489,343,82]: Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para viviendas, comercios, oficinas y obras.
+        - generic [ref=e239] [box=16,10595,343,40]:
+          - link "Instagram VIPAR" [ref=e240] [cursor=pointer] [box=16,10595,40,40]:
+            - /url: https://www.instagram.com/vipar_py/
+            - generic [ref=e241] [box=24,10603,24,24]: photo_camera
+          - link "Facebook VIPAR" [ref=e242] [cursor=pointer] [box=72,10595,40,40]:
+            - /url: https://www.facebook.com/vipar.vidrios
+            - generic [ref=e243] [box=80,10603,24,24]: groups
+      - generic [ref=e244] [box=16,10683,343,170]:
+        - heading "Enlaces Rapidos" [level=3] [ref=e245] [box=16,10683,343,18]
+        - link "Inicio" [ref=e246] [cursor=pointer] [box=16,10721,343,24]:
+          - /url: /
+        - link "Obras" [ref=e247] [cursor=pointer] [box=16,10757,343,24]:
+          - /url: /obras/
+        - link "Servicios" [ref=e248] [cursor=pointer] [box=16,10793,343,24]:
+          - /url: /servicios/
+        - link "Contacto" [ref=e249] [cursor=pointer] [box=16,10829,343,24]:
+          - /url: /contacto/
+      - generic [ref=e250] [box=16,10901,343,206]:
+        - heading "Servicios" [level=3] [ref=e251] [box=16,10901,343,18]
+        - link "Cristales Templados" [ref=e252] [cursor=pointer] [box=16,10939,343,24]:
+          - /url: /servicios/
+        - link "Carpinteria de Aluminio" [ref=e253] [cursor=pointer] [box=16,10975,343,24]:
+          - /url: /servicios/carpinteria-de-aluminio/
+        - link "Fachadas" [ref=e254] [cursor=pointer] [box=16,11011,343,24]:
+          - /url: /servicios/fachadas/
+        - link "Mamparas y Divisiones" [ref=e255] [cursor=pointer] [box=16,11047,343,24]:
+          - /url: /servicios/mampara-divisoria/
+        - link "Cielos Rasos" [ref=e256] [cursor=pointer] [box=16,11083,343,24]:
+          - /url: /servicios/cielo-raso/
+      - generic [ref=e257] [box=16,11155,343,243]:
+        - heading "Contacto" [level=3] [ref=e258] [box=16,11155,343,18]
+        - paragraph [ref=e259] [box=16,11193,343,54]:
+          - generic [ref=e260] [box=16,11193,24,24]: location_on
+          - generic [ref=e261] [box=48,11193,311,54]: San Francisco 770 c/ Sexta Bo. Salinas, Ñemby
+        - paragraph [ref=e262] [box=16,11260,343,27]:
+          - generic [ref=e263] [box=16,11260,24,24]: call
+          - link "+595981256510" [ref=e264] [cursor=pointer] [box=48,11260,114,27]:
+            - /url: tel:+595981256510
+        - paragraph [ref=e265] [box=16,11299,343,27]:
+          - generic [ref=e266] [box=16,11299,24,24]: mail
+          - link "info@vipar.com.py" [ref=e267] [cursor=pointer] [box=48,11299,132,27]:
+            - /url: mailto:info@vipar.com.py
+        - link "Solicitar Presupuesto" [ref=e268] [cursor=pointer] [box=16,11350,343,48]:
+          - /url: https://wa.me/595981256510
+    - generic [ref=e269] [box=16,11462,343,124]:
+      - paragraph [ref=e270] [box=16,11495,289,20]: © 2026 VIPAR S.A. Todos los derechos reservados.
+      - generic [ref=e271] [box=16,11539,53,47]:
+        - link "Contacto" [ref=e272] [cursor=pointer] [box=16,11539,53,20]:
+          - /url: /contacto/
+        - link "Obras" [ref=e273] [cursor=pointer] [box=16,11567,53,20]:
+          - /url: /obras/
+  - dialog [ref=e274] [box=0,519,375,310]:
+    - generic [ref=e275] [box=0,519,375,310]:
+      - generic [ref=e278] [box=14,533,347,115]:
+        - strong [ref=e279] [box=14,533,347,24]: Usamos cookies
+        - generic [ref=e280] [box=14,557,347,91]: Usamos cookies propias y de terceros para mejorar la experiencia, analizar tráfico y ofrecer servicios. Podés aceptar todas o configurar tus preferencias.
+      - generic [ref=e281] [box=14,659,347,156]:
+        - button [ref=e282] [cursor=pointer] [box=14,659,347,47]: Preferencias
+        - button [ref=e283] [cursor=pointer] [box=14,713,347,47]: Rechazar
+        - button [ref=e284] [cursor=pointer] [box=14,768,347,47]: Aceptar todas
+  - generic [ref=e287] [box=101,812,173,40]:
+    - button "Menu" [ref=e288] [box=101,812,42,40]:
+      - img [ref=e290] [box=114,822,20,20]
+      - generic [box=97,731,54,27]: Menu
+    - button "Inspect" [ref=e294] [box=143,812,44,40]:
+      - img [ref=e296] [box=155,822,20,20]
+      - generic [box=134,731,62,27]: Inspect
+    - button "Audit" [ref=e298] [box=187,812,44,40]:
+      - generic [ref=e299] [box=199,822,20,20]:
+        - img [ref=e300] [box=199,822,20,20]
+        - img [ref=e303] [box=215,818,10,10]
+      - generic [box=183,731,51,27]: Audit
+    - button "Settings" [ref=e306] [box=232,812,42,40]:
+      - img [ref=e308] [box=241,822,20,20]
+      - generic [box=217,731,68,27]: Settings

@@ -1,0 +1,258 @@
+- generic [active] [ref=e1]:
+  - banner "Menu principal" [ref=e2]:
+    - navigation [ref=e3]:
+      - link "VIPAR S.A. — Inicio" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "VIPAR S.A." [ref=e5]
+      - button "Abrir menu" [ref=e6] [cursor=pointer]
+  - main [ref=e10]:
+    - main [ref=e11]:
+      - generic [ref=e12]:
+        - img "Interior con cielo raso técnico de alta gama" [ref=e14]
+        - generic [ref=e17]:
+          - heading "Cielo raso" [level=1] [ref=e18]
+          - paragraph [ref=e19]: Sistemas de techos técnicos que fusionan precisión acústica, eficiencia térmica y vanguardia estética.
+          - generic [ref=e20]:
+            - link "Solicitar presupuesto" [ref=e21] [cursor=pointer]:
+              - /url: /contacto/
+            - link "Ficha técnica" [ref=e22] [cursor=pointer]:
+              - /url: "#sistemas"
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]: Soluciones integrales
+            - heading "Adaptación por entorno" [level=2] [ref=e28]
+          - paragraph [ref=e29]: Diseñamos cada estructura según las demandas específicas de uso, garantizando durabilidad y cumplimiento normativo.
+        - generic [ref=e30]:
+          - article [ref=e31]:
+            - img "Residencial" [ref=e32]
+            - generic [ref=e33]:
+              - heading "Residencial" [level=3] [ref=e34]
+              - paragraph [ref=e35]: Confort acústico y calidez visual para espacios íntimos y modernos.
+          - article [ref=e36]:
+            - img "Comercial" [ref=e37]
+            - generic [ref=e38]:
+              - heading "Comercial" [level=3] [ref=e39]
+              - paragraph [ref=e40]: Versatilidad y mantenimiento ágil para áreas de alto tránsito.
+          - article [ref=e41]:
+            - img "Corporativo" [ref=e42]
+            - generic [ref=e43]:
+              - heading "Corporativo" [level=3] [ref=e44]
+              - paragraph [ref=e45]: Productividad optimizada mediante control de reverberación superior.
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - strong [ref=e49]: 35%
+              - generic [ref=e50]: Ahorro energético
+            - generic [ref=e51]:
+              - strong [ref=e52]: 22dB
+              - generic [ref=e53]: Reducción acústica
+      - generic [ref=e55]:
+        - heading "Sistemas de terminación" [level=2] [ref=e56]
+        - generic [ref=e57]:
+          - article [ref=e58]:
+            - generic [ref=e59]: 
+            - heading "Modulares PVC / Armstrong" [level=3] [ref=e60]
+            - paragraph [ref=e61]: Estructuras desmontables ideales para acceso a instalaciones técnicas y mantenimiento rápido.
+            - list [ref=e62]:
+              - listitem [ref=e63]:
+                - generic [ref=e64]: 
+                - generic [ref=e65]: 100% incombustible
+              - listitem [ref=e66]:
+                - generic [ref=e67]: 
+                - generic [ref=e68]: Resistente a la humedad
+          - article [ref=e69]:
+            - generic [ref=e70]: 
+            - heading "Junta tomada Durlock" [level=3] [ref=e71]
+            - paragraph [ref=e72]: Superficies continuas de acabado monolítico. El estándar para diseño arquitectónico de alta gama.
+            - list [ref=e73]:
+              - listitem [ref=e74]:
+                - generic [ref=e75]: 
+                - generic [ref=e76]: Acabado liso premium
+              - listitem [ref=e77]:
+                - generic [ref=e78]: 
+                - generic [ref=e79]: Flexibilidad formal
+          - article [ref=e80]:
+            - generic [ref=e81]: 
+            - heading "Bafles y nubes acústicas" [level=3] [ref=e82]
+            - paragraph [ref=e83]: Soluciones suspendidas para corrección fónica en espacios abiertos y diseño industrial.
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - generic [ref=e86]: 
+                - generic [ref=e87]: Alta absorción (NRC 0.90)
+              - listitem [ref=e88]:
+                - generic [ref=e89]: 
+                - generic [ref=e90]: Estética escultórica
+      - generic [ref=e92]:
+        - img "Detalle técnico de materiales de cielo raso" [ref=e94]
+        - generic [ref=e95]:
+          - heading "Ingeniería de detalle" [level=2] [ref=e96]
+          - generic [ref=e97]:
+            - article [ref=e98]:
+              - generic [ref=e100]: 
+              - generic [ref=e101]:
+                - heading "Mantenimiento simplificado" [level=3] [ref=e102]
+                - paragraph [ref=e103]: Sistemas diseñados para el registro fácil de plenos técnicos, instalaciones eléctricas y climatización sin comprometer la estructura.
+            - article [ref=e104]:
+              - generic [ref=e106]: 
+              - generic [ref=e107]:
+                - heading "Acondicionamiento acústico" [level=3] [ref=e108]
+                - paragraph [ref=e109]: Utilizamos materiales de porosidad controlada que eliminan el eco y mejoran la inteligibilidad de la palabra en cualquier ambiente.
+            - article [ref=e110]:
+              - generic [ref=e112]: 
+              - generic [ref=e113]:
+                - heading "Estética atemporal" [level=3] [ref=e114]
+                - paragraph [ref=e115]: Integración invisible de luminarias y difusores. El cielo raso deja de ser un techo para convertirse en una pieza de diseño.
+      - generic [ref=e117]:
+        - heading "Consultas frecuentes" [level=2] [ref=e118]
+        - generic [ref=e119]:
+          - group [ref=e120]:
+            - generic "¿Cuál es el sistema ideal para una oficina de planta abierta?" [ref=e121] [cursor=pointer]:
+              - generic [ref=e122]: ¿Cuál es el sistema ideal para una oficina de planta abierta?
+              - generic [ref=e123]: 
+            - generic [ref=e124]: Recomendamos sistemas de bafles acústicos o techos modulares de fibra mineral con alto coeficiente de absorción (NRC) para controlar la reverberación del sonido en espacios de trabajo compartidos.
+          - group [ref=e125]:
+            - generic "¿Qué altura mínima se requiere para instalar un cielo raso?" [ref=e126] [cursor=pointer]:
+              - generic [ref=e127]: ¿Qué altura mínima se requiere para instalar un cielo raso?
+              - generic [ref=e128]: 
+          - group [ref=e129]:
+            - generic "¿Son los materiales resistentes al fuego?" [ref=e130] [cursor=pointer]:
+              - generic [ref=e131]: ¿Son los materiales resistentes al fuego?
+              - generic [ref=e132]: 
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - generic [ref=e137]: Obras vinculadas
+            - heading "Obras relacionadas" [level=2] [ref=e138]
+            - paragraph [ref=e139]: Algunas referencias reales para evaluar cómo resolvemos este tipo de servicio en obra.
+          - link "Explorar catálogo completo" [ref=e140] [cursor=pointer]:
+            - /url: /obras/
+        - list "Obras relacionadas" [ref=e141]:
+          - listitem [ref=e142]:
+            - article [ref=e143]:
+              - img "Showroom VIPAR" [ref=e145]
+              - generic [ref=e146]:
+                - generic [ref=e147]: Corporativo
+                - heading "Showroom VIPAR" [level=4] [ref=e148]
+                - generic [ref=e149]:
+                  - generic [ref=e150]: location_on
+                  - text: Ñemby, Central
+                - paragraph [ref=e151]: Soluciones integrales en vidrio y aluminio para nuestro propio espacio de exhibición técnico.
+                - link "Ver obra" [ref=e152] [cursor=pointer]:
+                  - /url: /obras/showroom-vipar
+                  - text: Ver obra
+                  - generic [ref=e153]: arrow_forward
+          - listitem [ref=e154]:
+            - article [ref=e155]:
+              - img "Cooperativa Medalla Milagrosa" [ref=e157]
+              - generic [ref=e158]:
+                - generic [ref=e159]: Institucional
+                - heading "Cooperativa Medalla Milagrosa" [level=4] [ref=e160]
+                - generic [ref=e161]:
+                  - generic [ref=e162]: location_on
+                  - text: Fernando de la Mora
+                - paragraph [ref=e163]: Terminaciones arquitectónicas interiores. Divisiones en cristal y perfilería a medida.
+                - link "Ver obra" [ref=e164] [cursor=pointer]:
+                  - /url: /obras/cooperativa-medalla
+                  - text: Ver obra
+                  - generic [ref=e165]: arrow_forward
+          - listitem [ref=e166]:
+            - article [ref=e167]:
+              - img "Oficinas Corporativas Itau" [ref=e169]
+              - generic [ref=e170]:
+                - generic [ref=e171]: Corporativo
+                - heading "Oficinas Corporativas Itau" [level=4] [ref=e172]
+                - generic [ref=e173]:
+                  - generic [ref=e174]: location_on
+                  - text: Asunción
+                - paragraph [ref=e175]: Tabiques de vidrio con control acústico y perfilería de aluminio de diseño exclusivo.
+                - link "Ver obra" [ref=e176] [cursor=pointer]:
+                  - /url: /obras/oficinas-corporativas-itau
+                  - text: Ver obra
+                  - generic [ref=e177]: arrow_forward
+      - generic [ref=e180]:
+        - heading "¿Querés cotizar un trabajo similar?" [level=2] [ref=e181]
+        - paragraph [ref=e182]: Enviá fotos, planos o referencias de tu proyecto para recibir un presupuesto detallado y asesoramiento técnico especializado.
+        - link "Solicitar presupuesto por WhatsApp" [ref=e183] [cursor=pointer]:
+          - /url: https://wa.me/595981256510
+  - contentinfo [ref=e184]:
+    - generic [ref=e185]:
+      - generic [ref=e186]:
+        - link "VIPAR S.A. — Inicio" [ref=e187] [cursor=pointer]:
+          - /url: /
+          - img "VIPAR S.A." [ref=e188]
+        - paragraph [ref=e189]: Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para viviendas, comercios, oficinas y obras.
+        - generic [ref=e190]:
+          - link "Instagram VIPAR" [ref=e191] [cursor=pointer]:
+            - /url: https://www.instagram.com/vipar_py/
+            - generic [ref=e192]: photo_camera
+          - link "Facebook VIPAR" [ref=e193] [cursor=pointer]:
+            - /url: https://www.facebook.com/vipar.vidrios
+            - generic [ref=e194]: groups
+      - generic [ref=e195]:
+        - heading "Enlaces Rapidos" [level=3] [ref=e196]
+        - link "Inicio" [ref=e197] [cursor=pointer]:
+          - /url: /
+        - link "Obras" [ref=e198] [cursor=pointer]:
+          - /url: /obras/
+        - link "Servicios" [ref=e199] [cursor=pointer]:
+          - /url: /servicios/
+        - link "Contacto" [ref=e200] [cursor=pointer]:
+          - /url: /contacto/
+      - generic [ref=e201]:
+        - heading "Servicios" [level=3] [ref=e202]
+        - link "Cristales Templados" [ref=e203] [cursor=pointer]:
+          - /url: /servicios/
+        - link "Carpinteria de Aluminio" [ref=e204] [cursor=pointer]:
+          - /url: /servicios/carpinteria-de-aluminio/
+        - link "Fachadas" [ref=e205] [cursor=pointer]:
+          - /url: /servicios/fachadas/
+        - link "Mamparas y Divisiones" [ref=e206] [cursor=pointer]:
+          - /url: /servicios/mampara-divisoria/
+        - link "Cielos Rasos" [ref=e207] [cursor=pointer]:
+          - /url: /servicios/cielo-raso/
+      - generic [ref=e208]:
+        - heading "Contacto" [level=3] [ref=e209]
+        - paragraph [ref=e210]:
+          - generic [ref=e211]: location_on
+          - generic [ref=e212]: San Francisco 770 c/ Sexta Bo. Salinas, Ñemby
+        - paragraph [ref=e213]:
+          - generic [ref=e214]: call
+          - link "+595981256510" [ref=e215] [cursor=pointer]:
+            - /url: tel:+595981256510
+        - paragraph [ref=e216]:
+          - generic [ref=e217]: mail
+          - link "info@vipar.com.py" [ref=e218] [cursor=pointer]:
+            - /url: mailto:info@vipar.com.py
+        - link "Solicitar Presupuesto" [ref=e219] [cursor=pointer]:
+          - /url: https://wa.me/595981256510
+    - generic [ref=e220]:
+      - paragraph [ref=e221]: © 2026 VIPAR S.A. Todos los derechos reservados.
+      - generic [ref=e222]:
+        - link "Contacto" [ref=e223] [cursor=pointer]:
+          - /url: /contacto/
+        - link "Obras" [ref=e224] [cursor=pointer]:
+          - /url: /obras/
+  - dialog [ref=e225]:
+    - generic [ref=e226]:
+      - generic [ref=e228]:
+        - strong [ref=e229]: Usamos cookies
+        - generic [ref=e230]: Usamos cookies propias y de terceros para mejorar la experiencia, analizar tráfico y ofrecer servicios. Podés aceptar todas o configurar tus preferencias.
+      - generic [ref=e231]:
+        - button [ref=e232] [cursor=pointer]: Preferencias
+        - button [ref=e233] [cursor=pointer]: Rechazar
+        - button [ref=e234] [cursor=pointer]: Aceptar todas
+  - generic [ref=e237]:
+    - button "Menu" [ref=e238]:
+      - img [ref=e240]
+      - generic: Menu
+    - button "Inspect" [ref=e244]:
+      - img [ref=e246]
+      - generic: Inspect
+    - button "Audit" [ref=e248]:
+      - generic [ref=e249]:
+        - img [ref=e250]
+        - img [ref=e253]
+      - generic: Audit
+    - button "Settings" [ref=e256]:
+      - img [ref=e258]
+      - generic: Settings

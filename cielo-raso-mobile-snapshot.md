@@ -1,0 +1,135 @@
+- generic [active] [ref=e1] [box=0,0,390,8810]:
+  - banner "Menu principal" [ref=e2] [box=0,0,390,73]:
+    - navigation [ref=e3] [box=16,0,358,72]:
+      - link "VIPAR S.A. — Inicio" [ref=e4] [cursor=pointer] [box=16,18,36,36]:
+        - /url: /
+        - img "VIPAR S.A." [ref=e5] [box=16,18,36,36]
+      - button "Abrir menu" [ref=e6] [cursor=pointer] [box=330,14,44,44]
+  - main [ref=e10] [box=0,73,390,7456]:
+    - main [ref=e11] [box=0,73,390,7456]:
+      - generic [ref=e12] [box=0,73,390,720]:
+        - img "Interior con cielo raso técnico de alta gama" [ref=e14] [box=0,73,390,720]
+        - generic [ref=e17] [box=16,263,358,341]:
+          - heading "Cielo raso" [level=1] [ref=e18] [box=16,263,358,60]
+          - paragraph [ref=e19] [box=16,346,358,89]: Sistemas de techos técnicos que fusionan precisión acústica, eficiencia térmica y vanguardia estética.
+          - generic [ref=e20] [box=16,475,358,128]
+      - generic [ref=e24] [box=16,857,358,1836]:
+        - generic [ref=e25] [box=16,857,358,184]:
+          - generic [ref=e26] [box=16,857,358,63]
+          - paragraph [ref=e29] [box=16,952,358,89]: Diseñamos cada estructura según las demandas específicas de uso, garantizando durabilidad y cumplimiento normativo.
+        - generic [ref=e30] [box=16,1097,358,1595]:
+          - article [ref=e31] [box=16,1097,358,460]
+          - article [ref=e36] [box=16,1581,358,358]
+          - article [ref=e41] [box=16,1963,358,358]
+          - generic [ref=e47] [box=57,2386,276,265]
+      - generic [ref=e55] [box=16,2821,358,1137]:
+        - heading "Sistemas de terminación" [level=2] [ref=e56] [box=16,2821,358,71]
+        - generic [ref=e57] [box=16,2948,358,1011]:
+          - article [ref=e58] [box=16,2948,358,336]
+          - article [ref=e69] [box=16,3285,358,336]
+          - article [ref=e80] [box=16,3622,358,336]
+      - generic [ref=e92] [box=16,4086,358,1204]:
+        - img "Detalle técnico de materiales de cielo raso" [ref=e94] [box=16,4086,358,600]
+        - generic [ref=e95] [box=16,4750,358,540]:
+          - heading "Ingeniería de detalle" [level=2] [ref=e96] [box=16,4750,358,35]
+          - generic [ref=e97] [box=16,4826,358,464]
+      - generic [ref=e117] [box=16,5418,358,568]:
+        - heading "Consultas frecuentes" [level=2] [ref=e118] [box=16,5418,358,35]
+        - generic [ref=e119] [box=16,5501,358,485]:
+          - group [ref=e120] [box=16,5501,358,261]
+          - group [ref=e125] [box=16,5778,358,96]
+          - group [ref=e129] [box=16,5890,358,96]
+      - generic [ref=e134] [box=16,6098,358,885]:
+        - generic [ref=e135] [box=16,6098,358,194]:
+          - generic [ref=e136] [box=16,6098,358,122]
+          - link "Explorar catálogo completo" [ref=e140] [cursor=pointer] [box=16,6244,358,48]:
+            - /url: /obras/
+        - list "Obras relacionadas" [ref=e141] [box=0,6324,390,659]:
+          - listitem [ref=e142] [box=16,6328,318,651]
+          - listitem [ref=e154] [box=346,6328,318,651]
+          - listitem [ref=e166] [box=676,6328,318,651]
+      - generic [ref=e180] [box=16,7096,358,345]:
+        - heading "¿Querés cotizar un trabajo similar?" [level=2] [ref=e181] [box=40,7136,310,74]
+        - paragraph [ref=e182] [box=40,7222,310,101]: Enviá fotos, planos o referencias de tu proyecto para recibir un presupuesto detallado y asesoramiento técnico especializado.
+        - link "Solicitar presupuesto por WhatsApp" [ref=e183] [cursor=pointer] [box=40,7347,310,54]:
+          - /url: https://wa.me/595981256510
+  - contentinfo [ref=e184] [box=0,7529,390,1281]:
+    - generic [ref=e185] [box=16,7602,358,948]:
+      - generic [ref=e186] [box=16,7602,358,212]:
+        - link "VIPAR S.A. — Inicio" [ref=e187] [cursor=pointer] [box=16,7602,145,36]:
+          - /url: /
+          - img "VIPAR S.A." [ref=e188] [box=16,7602,145,36]
+        - paragraph [ref=e189] [box=16,7668,358,82]: Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para viviendas, comercios, oficinas y obras.
+        - generic [ref=e190] [box=16,7774,358,40]:
+          - link "Instagram VIPAR" [ref=e191] [cursor=pointer] [box=16,7774,40,40]:
+            - /url: https://www.instagram.com/vipar_py/
+          - link "Facebook VIPAR" [ref=e193] [cursor=pointer] [box=72,7774,40,40]:
+            - /url: https://www.facebook.com/vipar.vidrios
+      - generic [ref=e195] [box=16,7862,358,170]:
+        - heading "Enlaces Rapidos" [level=3] [ref=e196] [box=16,7862,358,18]
+        - link "Inicio" [ref=e197] [cursor=pointer] [box=16,7900,358,24]:
+          - /url: /
+        - link "Obras" [ref=e198] [cursor=pointer] [box=16,7936,358,24]:
+          - /url: /obras/
+        - link "Servicios" [ref=e199] [cursor=pointer] [box=16,7972,358,24]:
+          - /url: /servicios/
+        - link "Contacto" [ref=e200] [cursor=pointer] [box=16,8008,358,24]:
+          - /url: /contacto/
+      - generic [ref=e201] [box=16,8080,358,206]:
+        - heading "Servicios" [level=3] [ref=e202] [box=16,8080,358,18]
+        - link "Cristales Templados" [ref=e203] [cursor=pointer] [box=16,8118,358,24]:
+          - /url: /servicios/
+        - link "Carpinteria de Aluminio" [ref=e204] [cursor=pointer] [box=16,8154,358,24]:
+          - /url: /servicios/carpinteria-de-aluminio/
+        - link "Fachadas" [ref=e205] [cursor=pointer] [box=16,8190,358,24]:
+          - /url: /servicios/fachadas/
+        - link "Mamparas y Divisiones" [ref=e206] [cursor=pointer] [box=16,8226,358,24]:
+          - /url: /servicios/mampara-divisoria/
+        - link "Cielos Rasos" [ref=e207] [cursor=pointer] [box=16,8262,358,24]:
+          - /url: /servicios/cielo-raso/
+      - generic [ref=e208] [box=16,8334,358,216]:
+        - heading "Contacto" [level=3] [ref=e209] [box=16,8334,358,18]
+        - paragraph [ref=e210] [box=16,8373,358,27]:
+          - generic [ref=e211] [box=16,8373,24,24]: location_on
+          - generic [ref=e212] [box=48,8373,324,27]: San Francisco 770 c/ Sexta Bo. Salinas, Ñemby
+        - paragraph [ref=e213] [box=16,8412,358,27]:
+          - generic [ref=e214] [box=16,8412,24,24]: call
+          - link "+595981256510" [ref=e215] [cursor=pointer] [box=48,8412,114,27]:
+            - /url: tel:+595981256510
+        - paragraph [ref=e216] [box=16,8451,358,27]:
+          - generic [ref=e217] [box=16,8451,24,24]: mail
+          - link "info@vipar.com.py" [ref=e218] [cursor=pointer] [box=48,8451,132,27]:
+            - /url: mailto:info@vipar.com.py
+        - link "Solicitar Presupuesto" [ref=e219] [cursor=pointer] [box=16,8502,358,48]:
+          - /url: https://wa.me/595981256510
+    - generic [ref=e220] [box=16,8614,358,124]:
+      - paragraph [ref=e221] [box=16,8647,289,20]: © 2026 VIPAR S.A. Todos los derechos reservados.
+      - generic [ref=e222] [box=16,8691,53,47]:
+        - link "Contacto" [ref=e223] [cursor=pointer] [box=16,8691,53,20]:
+          - /url: /contacto/
+        - link "Obras" [ref=e224] [cursor=pointer] [box=16,8719,53,20]:
+          - /url: /obras/
+  - dialog [ref=e225] [box=0,534,390,310]:
+    - generic [ref=e226] [box=0,534,390,310]:
+      - generic [ref=e229] [box=14,548,362,115]:
+        - strong [ref=e230] [box=14,548,362,24]: Usamos cookies
+        - generic [ref=e231] [box=14,572,362,91]: Usamos cookies propias y de terceros para mejorar la experiencia, analizar tráfico y ofrecer servicios. Podés aceptar todas o configurar tus preferencias.
+      - generic [ref=e232] [box=14,674,362,156]:
+        - button [ref=e233] [cursor=pointer] [box=14,674,362,47]: Preferencias
+        - button [ref=e234] [cursor=pointer] [box=14,728,362,47]: Rechazar
+        - button [ref=e235] [cursor=pointer] [box=14,783,362,47]: Aceptar todas
+  - generic [ref=e238] [box=109,827,173,40]:
+    - button "Menu" [ref=e239] [box=109,827,42,40]:
+      - img [ref=e241] [box=122,837,20,20]
+      - generic [box=105,746,54,27]: Menu
+    - button "Inspect" [ref=e245] [box=151,827,44,40]:
+      - img [ref=e247] [box=163,837,20,20]
+      - generic [box=141,746,62,27]: Inspect
+    - button "Audit" [ref=e249] [box=195,827,44,40]:
+      - generic [ref=e250] [box=207,837,20,20]:
+        - img [ref=e251] [box=207,837,20,20]
+        - img [ref=e254] [box=223,833,10,10]
+      - generic [box=191,746,51,27]: Audit
+    - button "Settings" [ref=e257] [box=240,827,42,40]:
+      - img [ref=e259] [box=249,837,20,20]
+      - generic [box=225,746,68,27]: Settings

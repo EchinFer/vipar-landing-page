@@ -177,7 +177,7 @@
 .ceiling-service-systems__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
+  gap: 16px;
   background: rgba(196, 198, 207, 0.2);
 }
 
@@ -339,7 +339,6 @@
   position: relative;
   z-index: 1;
   margin-bottom: -96px;
-  padding-top: 0;
 }
 
 .ceiling-service-final .ds-quote-cta {
@@ -383,6 +382,14 @@
   .ceiling-service-details__grid {
     grid-template-columns: 1fr;
   }
+
+  .ceiling-service-details__content {
+    order: 1;
+  }
+
+  .ceiling-service-details__media {
+    order: 2;
+  }
 }
 
 @media (max-width: 760px) {
@@ -421,6 +428,10 @@
 
   .ceiling-service-detail {
     gap: 16px;
+  }
+
+  .ceiling-service-details__media img {
+    height: 420px;
   }
 
   .ceiling-service-final {

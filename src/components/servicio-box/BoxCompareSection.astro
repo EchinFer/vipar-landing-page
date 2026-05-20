@@ -28,10 +28,10 @@ const { rows } = Astro.props;
         <tbody>
           {rows.map((row) => (
             <tr>
-              <td>{row.feature}</td>
-              <td>{row.acrylic}</td>
-              <td>{row.temperedGlass}</td>
-              <td>{row.folding}</td>
+              <td data-label="Característica">{row.feature}</td>
+              <td data-label="Acrílico">{row.acrylic}</td>
+              <td data-label="Cristal templado">{row.temperedGlass}</td>
+              <td data-label="Sistemas plegables">{row.folding}</td>
             </tr>
           ))}
         </tbody>

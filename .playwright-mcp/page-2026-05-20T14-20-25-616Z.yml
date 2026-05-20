@@ -1,0 +1,316 @@
+- generic [active] [ref=e1]:
+  - banner "Menu principal" [ref=e2]:
+    - navigation [ref=e3]:
+      - link "VIPAR S.A. — Inicio" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "VIPAR S.A." [ref=e5]
+      - button "Abrir menu" [ref=e6] [cursor=pointer]
+  - main [ref=e10]:
+    - main [ref=e11]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]: Box de baño en Paraguay
+          - heading "Box de baño a medida para duchas más cómodas, limpias y mejor terminadas" [level=1] [ref=e16]
+          - paragraph [ref=e17]: Soluciones precisas en acrílico, cristal templado y sistemas safonados para optimizar el espacio y mantener la higiene de tu baño.
+          - generic [ref=e18]:
+            - link "Cotizar box de baño" [ref=e19] [cursor=pointer]:
+              - /url: /contacto/
+            - link "Ver opciones" [ref=e20] [cursor=pointer]:
+              - /url: "#opciones"
+          - generic "Materiales y soluciones disponibles" [ref=e21]:
+            - generic [ref=e22]: Acrílico
+            - generic [ref=e23]: Cristal templado
+            - generic [ref=e24]: Safonadas / plegables
+            - generic [ref=e25]: Instalación según medidas
+        - img "Box de baño en cristal templado instalado" [ref=e27]
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - heading "El problema de las duchas mal terminadas" [level=2] [ref=e31]
+          - paragraph [ref=e32]: Las cortinas de baño y soluciones improvisadas no solo restan estética a su baño, sino que generan problemas de higiene, filtraciones y deterioro prematuro de los materiales contiguos.
+        - generic [ref=e33]:
+          - article [ref=e34]:
+            - generic [ref=e35]: 
+            - heading "Adiós a las filtraciones" [level=3] [ref=e36]
+            - paragraph [ref=e37]: Un box a medida asegura la estanqueidad, manteniendo el resto del baño seco, seguro y libre de resbalones.
+          - article [ref=e38]:
+            - generic [ref=e39]: 
+            - heading "Higiene superior" [level=3] [ref=e40]
+            - paragraph [ref=e41]: Superficies no porosas como el cristal templado y acrílico evitan la acumulación de moho y facilitan una limpieza rápida.
+          - article [ref=e42]:
+            - generic [ref=e43]: 
+            - heading "Amplitud visual" [level=3] [ref=e44]
+            - paragraph [ref=e45]: Las estructuras transparentes y de perfiles finos maximizan la percepción del espacio, ideal para baños compactos.
+          - article [ref=e46]:
+            - generic [ref=e47]: 
+            - heading "Valorización del inmueble" [level=3] [ref=e48]
+            - paragraph [ref=e49]: Una terminación arquitectónica de calidad eleva el estándar del ambiente y aporta valor comercial a la propiedad.
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - heading "Opciones de cerramiento a medida" [level=2] [ref=e53]
+          - paragraph [ref=e54]: Fabricamos e instalamos según los requerimientos técnicos y estéticos de su proyecto.
+        - generic [ref=e55]:
+          - article [ref=e56]:
+            - generic [ref=e58]: 
+            - generic [ref=e59]:
+              - generic [ref=e60]:
+                - heading "Acrílico" [level=3] [ref=e61]
+                - generic [ref=e62]: Económico
+              - paragraph [ref=e63]: Estructura de aluminio con paneles de acrílico texturizado. Ligero, seguro y de rápida instalación.
+              - generic [ref=e64]:
+                - heading "Ideal para" [level=4] [ref=e65]
+                - list [ref=e66]:
+                  - listitem [ref=e67]: Baños de uso intensivo
+                  - listitem [ref=e68]: Proyectos de presupuesto ajustado
+                  - listitem [ref=e69]: Estructuras livianas
+          - article [ref=e70]:
+            - generic [ref=e71]: Más elegido
+            - generic [ref=e73]: 
+            - generic [ref=e74]:
+              - generic [ref=e75]:
+                - heading "Cristal templado" [level=3] [ref=e76]
+                - generic [ref=e77]: Premium
+              - paragraph [ref=e78]: Cristal de seguridad de 8 mm o 10 mm con herrajes de acero inoxidable o aluminio de alta prestación.
+              - generic [ref=e79]:
+                - heading "Ideal para" [level=4] [ref=e80]
+                - list [ref=e81]:
+                  - listitem [ref=e82]: Baños principales y suites
+                  - listitem [ref=e83]: Estética minimalista
+                  - listitem [ref=e84]: Máxima durabilidad
+          - article [ref=e85]:
+            - generic [ref=e87]: 
+            - generic [ref=e88]:
+              - generic [ref=e89]:
+                - heading "Safonadas / plegables" [level=3] [ref=e90]
+                - generic [ref=e91]: Funcional
+              - paragraph [ref=e92]: Sistemas de hojas plegables que permiten apertura total, maximizando el área de acceso.
+              - generic [ref=e93]:
+                - heading "Ideal para" [level=4] [ref=e94]
+                - list [ref=e95]:
+                  - listitem [ref=e96]: Baños muy pequeños
+                  - listitem [ref=e97]: Accesibilidad para personas mayores
+                  - listitem [ref=e98]: Aperturas atípicas
+      - generic [ref=e100]:
+        - heading "Cuadro comparativo de materiales" [level=2] [ref=e101]
+        - table [ref=e103]:
+          - rowgroup [ref=e104]:
+            - row "Característica Acrílico Cristal templado Sistemas plegables" [ref=e105]:
+              - columnheader "Característica" [ref=e106]
+              - columnheader "Acrílico" [ref=e107]
+              - columnheader "Cristal templado" [ref=e108]
+              - columnheader "Sistemas plegables" [ref=e109]
+          - rowgroup [ref=e110]:
+            - row "Estética y acabado Funcional y clásica Premium / Minimalista Versátil" [ref=e111]:
+              - cell "Estética y acabado" [ref=e112]
+              - cell "Funcional y clásica" [ref=e113]
+              - cell "Premium / Minimalista" [ref=e114]
+              - cell "Versátil" [ref=e115]
+            - row "Durabilidad Media Muy alta Alta" [ref=e116]:
+              - cell "Durabilidad" [ref=e117]
+              - cell "Media" [ref=e118]
+              - cell "Muy alta" [ref=e119]
+              - cell "Alta" [ref=e120]
+            - row "Requerimiento de espacio Estándar (corredizo) Estándar (corredizo/batiente) Mínimo (se pliega)" [ref=e121]:
+              - cell "Requerimiento de espacio" [ref=e122]
+              - cell "Estándar (corredizo)" [ref=e123]
+              - cell "Estándar (corredizo/batiente)" [ref=e124]
+              - cell "Mínimo (se pliega)" [ref=e125]
+            - row "Facilidad de limpieza Buena Excelente Buena" [ref=e126]:
+              - cell "Facilidad de limpieza" [ref=e127]
+              - cell "Buena" [ref=e128]
+              - cell "Excelente" [ref=e129]
+              - cell "Buena" [ref=e130]
+            - row "Nivel de inversión $ (Económico) $$$ (Superior) $$ (Medio)" [ref=e131]:
+              - cell "Nivel de inversión" [ref=e132]
+              - cell "$ (Económico)" [ref=e133]
+              - cell "$$$ (Superior)" [ref=e134]
+              - cell "$$ (Medio)" [ref=e135]
+      - generic [ref=e137]:
+        - heading "Nuestro proceso de trabajo" [level=2] [ref=e138]
+        - generic [ref=e139]:
+          - article [ref=e140]:
+            - generic [ref=e141]: "01"
+            - heading "Fotos y medidas" [level=3] [ref=e142]
+            - paragraph [ref=e143]: Envío de referencias preliminares por WhatsApp para evaluación inicial.
+          - article [ref=e144]:
+            - generic [ref=e145]: "02"
+            - heading "Revisión técnica" [level=3] [ref=e146]
+            - paragraph [ref=e147]: Visita a obra para rectificación milimétrica de vanos y desniveles.
+          - article [ref=e148]:
+            - generic [ref=e149]: "03"
+            - heading "Presupuesto" [level=3] [ref=e150]
+            - paragraph [ref=e151]: Propuesta formal con especificaciones de cristales, aluminios y herrajes.
+          - article [ref=e152]:
+            - generic [ref=e153]: "04"
+            - heading "Fabricación" [level=3] [ref=e154]
+            - paragraph [ref=e155]: Corte, templado y preparación de perfiles en nuestro taller especializado.
+          - article [ref=e156]:
+            - generic [ref=e157]: "05"
+            - heading "Instalación" [level=3] [ref=e158]
+            - paragraph [ref=e159]: Montaje preciso por técnicos capacitados, garantizando estanqueidad y limpieza.
+      - generic [ref=e161]:
+        - generic [ref=e162]: Respaldo técnico
+        - heading "Experiencia y respaldo técnico en Ñemby y Gran Asunción" [level=2] [ref=e163]
+        - paragraph [ref=e164]: Con años de experiencia en el rubro del cristal templado y carpintería de aluminio, VIPAR S.A. garantiza estructuras seguras, herrajes de alta durabilidad y un servicio posventa confiable. No tercerizamos la instalación; nuestro equipo técnico se encarga de cada detalle.
+        - generic [ref=e165]:
+          - generic [ref=e166]:
+            - strong [ref=e167]: "+1000"
+            - generic [ref=e168]: Obras finalizadas
+          - generic [ref=e169]:
+            - strong [ref=e170]: 100%
+            - generic [ref=e171]: Garantía de instalación
+      - generic [ref=e173]:
+        - 'heading "Mamparas y box de ducha: estética y funcionalidad para baños modernos en Paraguay" [level=2] [ref=e174]'
+        - paragraph [ref=e175]:
+          - text: Al planificar la renovación o construcción de un cuarto de baño, la elección del cerramiento para la zona de la ducha es fundamental. Atrás quedaron las cortinas de baño que restan higiene y espacio; la tendencia arquitectónica actual exige soluciones limpias y definitivas como las
+          - strong [ref=e176]: mamparas o box de baño
+          - text: .
+        - paragraph [ref=e177]:
+          - text: Un
+          - strong [ref=e178]: box de ducha a medida
+          - text: no es solo una barrera contra el agua. Fabricados en
+          - strong [ref=e179]: cristal templado
+          - text: de alta resistencia, estos cerramientos proporcionan seguridad estructural ante impactos, al mismo tiempo que permiten el paso de la luz, creando la ilusión óptica de un ambiente más amplio y luminoso. Los perfiles de aluminio anodizado aseguran que la estructura soporte la humedad constante sin oxidarse.
+        - paragraph [ref=e180]:
+          - text: En VIPAR S.A., entendemos que cada obra tiene requerimientos específicos de
+          - strong [ref=e181]: medidas
+          - text: y diseño. Por ello, ofrecemos sistemas corredizos para optimizar espacios reducidos, puertas batientes para accesos amplios, y soluciones en acrílico o safonadas para presupuestos específicos, siempre manteniendo el más alto estándar en terminaciones y sellado de silicona antihongos.
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - generic [ref=e185]:
+            - generic [ref=e186]: Obras vinculadas
+            - heading "Obras relacionadas" [level=2] [ref=e187]
+            - paragraph [ref=e188]: Algunas referencias reales para evaluar cómo resolvemos este tipo de servicio en obra.
+          - link "Explorar catálogo completo" [ref=e189] [cursor=pointer]:
+            - /url: /obras/
+        - list "Obras relacionadas" [ref=e190]:
+          - listitem [ref=e191]:
+            - article [ref=e192]:
+              - img "Showroom VIPAR" [ref=e194]
+              - generic [ref=e195]:
+                - generic [ref=e196]: Corporativo
+                - heading "Showroom VIPAR" [level=4] [ref=e197]
+                - generic [ref=e198]:
+                  - generic [ref=e199]: location_on
+                  - text: Ñemby, Central
+                - paragraph [ref=e200]: Soluciones integrales en vidrio y aluminio para nuestro propio espacio de exhibición técnico.
+                - link "Ver obra" [ref=e201] [cursor=pointer]:
+                  - /url: /obras/showroom-vipar
+                  - text: Ver obra
+                  - generic [ref=e202]: arrow_forward
+          - listitem [ref=e203]:
+            - article [ref=e204]:
+              - img "Residencia San Lorenzo" [ref=e206]
+              - generic [ref=e207]:
+                - generic [ref=e208]: Residencial
+                - heading "Residencia San Lorenzo" [level=4] [ref=e209]
+                - generic [ref=e210]:
+                  - generic [ref=e211]: location_on
+                  - text: San Lorenzo
+                - paragraph [ref=e212]: Aberturas de aluminio de alta prestación y grandes paños de vidrio para residencia de lujo.
+                - link "Ver obra" [ref=e213] [cursor=pointer]:
+                  - /url: /obras/residencia-san-lorenzo
+                  - text: Ver obra
+                  - generic [ref=e214]: arrow_forward
+          - listitem [ref=e215]:
+            - article [ref=e216]:
+              - img "Edificio Concordia" [ref=e218]
+              - generic [ref=e219]:
+                - generic [ref=e220]: Residencial
+                - heading "Edificio Concordia" [level=4] [ref=e221]
+                - generic [ref=e222]:
+                  - generic [ref=e223]: location_on
+                  - text: Asunción
+                - paragraph [ref=e224]: Soluciones integrales para obra. Provisión e instalación de aberturas de aluminio de alta prestación.
+                - link "Ver obra" [ref=e225] [cursor=pointer]:
+                  - /url: /obras/edificio-concordia
+                  - text: Ver obra
+                  - generic [ref=e226]: arrow_forward
+      - generic [ref=e229]:
+        - heading "¿Querés cotizar un trabajo similar?" [level=2] [ref=e230]
+        - paragraph [ref=e231]: Enviá fotos, planos o referencias de tu proyecto para recibir un presupuesto detallado y asesoramiento técnico especializado.
+        - link "Solicitar presupuesto por WhatsApp" [ref=e232] [cursor=pointer]:
+          - /url: https://wa.me/595981256510
+  - contentinfo [ref=e233]:
+    - generic [ref=e234]:
+      - generic [ref=e235]:
+        - link "VIPAR S.A. — Inicio" [ref=e236] [cursor=pointer]:
+          - /url: /
+          - img "VIPAR S.A." [ref=e237]
+        - paragraph [ref=e238]: Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para viviendas, comercios, oficinas y obras.
+        - generic [ref=e239]:
+          - link "Instagram VIPAR" [ref=e240] [cursor=pointer]:
+            - /url: https://www.instagram.com/vipar_py/
+            - generic [ref=e241]: photo_camera
+          - link "Facebook VIPAR" [ref=e242] [cursor=pointer]:
+            - /url: https://www.facebook.com/vipar.vidrios
+            - generic [ref=e243]: groups
+      - generic [ref=e244]:
+        - heading "Enlaces Rapidos" [level=3] [ref=e245]
+        - link "Inicio" [ref=e246] [cursor=pointer]:
+          - /url: /
+        - link "Obras" [ref=e247] [cursor=pointer]:
+          - /url: /obras/
+        - link "Servicios" [ref=e248] [cursor=pointer]:
+          - /url: /servicios/
+        - link "Contacto" [ref=e249] [cursor=pointer]:
+          - /url: /contacto/
+      - generic [ref=e250]:
+        - heading "Servicios" [level=3] [ref=e251]
+        - link "Cristales Templados" [ref=e252] [cursor=pointer]:
+          - /url: /servicios/
+        - link "Carpinteria de Aluminio" [ref=e253] [cursor=pointer]:
+          - /url: /servicios/carpinteria-de-aluminio/
+        - link "Fachadas" [ref=e254] [cursor=pointer]:
+          - /url: /servicios/fachadas/
+        - link "Mamparas y Divisiones" [ref=e255] [cursor=pointer]:
+          - /url: /servicios/mampara-divisoria/
+        - link "Cielos Rasos" [ref=e256] [cursor=pointer]:
+          - /url: /servicios/cielo-raso/
+      - generic [ref=e257]:
+        - heading "Contacto" [level=3] [ref=e258]
+        - paragraph [ref=e259]:
+          - generic [ref=e260]: location_on
+          - generic [ref=e261]: San Francisco 770 c/ Sexta Bo. Salinas, Ñemby
+        - paragraph [ref=e262]:
+          - generic [ref=e263]: call
+          - link "+595981256510" [ref=e264] [cursor=pointer]:
+            - /url: tel:+595981256510
+        - paragraph [ref=e265]:
+          - generic [ref=e266]: mail
+          - link "info@vipar.com.py" [ref=e267] [cursor=pointer]:
+            - /url: mailto:info@vipar.com.py
+        - link "Solicitar Presupuesto" [ref=e268] [cursor=pointer]:
+          - /url: https://wa.me/595981256510
+    - generic [ref=e269]:
+      - paragraph [ref=e270]: © 2026 VIPAR S.A. Todos los derechos reservados.
+      - generic [ref=e271]:
+        - link "Contacto" [ref=e272] [cursor=pointer]:
+          - /url: /contacto/
+        - link "Obras" [ref=e273] [cursor=pointer]:
+          - /url: /obras/
+  - dialog [ref=e274]:
+    - generic [ref=e275]:
+      - generic [ref=e276]:
+        - generic [ref=e277]: VIPAR
+        - generic [ref=e278]:
+          - strong [ref=e279]: Usamos cookies
+          - generic [ref=e280]: Usamos cookies propias y de terceros para mejorar la experiencia, analizar tráfico y ofrecer servicios. Podés aceptar todas o configurar tus preferencias.
+      - generic [ref=e281]:
+        - button [ref=e282] [cursor=pointer]: Preferencias
+        - button [ref=e283] [cursor=pointer]: Rechazar
+        - button [ref=e284] [cursor=pointer]: Aceptar todas
+  - generic [ref=e287]:
+    - button "Menu" [ref=e288]:
+      - img [ref=e290]
+      - generic: Menu
+    - button "Inspect" [ref=e294]:
+      - img [ref=e296]
+      - generic: Inspect
+    - button "Audit" [ref=e298]:
+      - generic [ref=e299]:
+        - img [ref=e300]
+        - img [ref=e303]
+      - generic: Audit
+    - button "Settings" [ref=e306]:
+      - img [ref=e308]
+      - generic: Settings
