@@ -41,6 +41,7 @@ export interface ServiceTemplateContent {
     | "carpinteria-de-aluminio"
     | "cielo-raso"
     | "mampara-divisoria"
+    | "puerta"
     | "ventana"
     | "cortina"
     | "fachadas";

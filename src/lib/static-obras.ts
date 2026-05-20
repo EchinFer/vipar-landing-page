@@ -26,6 +26,7 @@ export type RelatedServiceKey =
   | "carpinteria-de-aluminio"
   | "cielo-raso"
   | "mampara-divisoria"
+  | "puerta"
   | "ventana"
   | "cortina"
   | "fachadas";
@@ -204,6 +205,10 @@ const relatedObraPresets: Record<
   fachadas: {
     preferredSlugs: ["showroom-vipar", "sucursal-tigo-mra", "edificio-concordia"],
     fallbackTags: ["fachadas", "cristal-templado", "aluminio"],
+  },
+  puerta: {
+    preferredSlugs: ["showroom-vipar", "edificio-concordia", "residencia-san-lorenzo"],
+    fallbackTags: ["aluminio", "cristal-templado", "puertas"],
   },
 };
 

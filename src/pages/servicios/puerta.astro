@@ -1,0 +1,25 @@
+---
+import ServiceLandingTemplate from "@components/servicio-template/ServiceLandingTemplate.astro";
+import Layout from "@layouts/Layout.astro";
+import { doorServiceContent } from "@lib/static-servicio-puerta";
+import { SITE_URL, telephone } from "src/constants";
+
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(doorServiceContent.whatsappMessage)}`;
+const canonical = `${SITE_URL}${doorServiceContent.canonicalPath}`;
+---
+
+<Layout
+  title={doorServiceContent.title}
+  description={doorServiceContent.description}
+  canonical={canonical}
+  keywords={doorServiceContent.keywords}
+  hideWhatsappFAB={true}
+  bodyClass="service-template-body"
+>
+  <ServiceLandingTemplate
+    content={doorServiceContent}
+    whatsappNumber={whatsappNumber}
+    whatsappLink={whatsappLink}
+  />
+</Layout>
