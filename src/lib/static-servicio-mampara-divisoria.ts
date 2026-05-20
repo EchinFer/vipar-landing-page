@@ -108,7 +108,7 @@ export const mamparaTypeCards: MamparaTypeCardItem[] = [
   {
     title: "Mamparas de cristal templado",
     description:
-      "Ideales para oficinas premium, salas de reunión y espacios donde la transparencia y la luz natural son prioridad.",
+      "Ideales para oficinas, salas de reunión y espacios donde la transparencia y la luz natural son prioridad.",
     bullets: [
       "Imagen corporativa limpia y contemporánea",
       "Paso de luz sin bloquear visuales",
@@ -117,9 +117,9 @@ export const mamparaTypeCards: MamparaTypeCardItem[] = [
     note: "Recomendadas cuando la estética y la luz pesan más que el aislamiento total.",
   },
   {
-    title: "Mamparas de eucatex o melamina",
+    title: "Mamparas Eucatex",
     description:
-      "Solución modular, rápida y económica para subdivisiones operativas, administrativas o temporales.",
+      "Solución modular, rápida y económica para subdivisiones operativas o administrativas.",
     bullets: [
       "Montaje y desmontaje ágil",
       "Buena relación costo-beneficio",
@@ -244,19 +244,24 @@ export const mamparaEditorialTags = [
 
 export const mamparaFaqs: MamparaFaqItem[] = [
   {
-    question: "¿Cuánto tiempo demora la instalación de una mampara?",
-    answer:
-      "Depende del material y de los metros cuadrados. Eucatex suele resolverse en pocos días; cristal templado requiere medición previa y fabricación a medida antes del montaje.",
+    question: "¿Qué tipo de mampara conviene para una oficina?",
+    answer: "La elección ideal depende de medidas, uso, condiciones del espacio y sistema elegido.",
   },
   {
-    question: "¿Se pueden desmontar y reutilizar si cambia la oficina?",
-    answer:
-      "Las mamparas de eucatex son las más modulares. Las de cristal pueden reubicarse si las medidas acompañan. Los tabiques de durlock no son reutilizables.",
+    question: "¿Qué datos necesito para cotizar?",
+    answer: "Conviene contar con medidas aproximadas, uso del ambiente y condiciones del espacio para orientar el sistema adecuado.",
   },
   {
-    question: "¿Las mamparas de cristal aíslan bien el ruido?",
-    answer:
-      "Ofrecen un aislamiento básico o medio. Para necesidades de privacidad alta conviene evaluar doble vidriado o combinar con tabiques ciegos de mejor desempeño acústico.",
+    question: "¿Puedo cotizar sin plano?",
+    answer: "Sí, es posible brindar una cotización inicial o rango de precios; aunque el presupuesto final depende de medidas, uso y condiciones del espacio.",
+  },
+  {
+    question: "¿Qué diferencia hay entre cristal templado, Durlock y Eucatex?",
+    answer: "Las diferencias radican en el aislamiento, estética y tiempos de obra. La mejor opción depende de medidas, uso, condiciones del espacio y sistema elegido.",
+  },
+  {
+    question: "¿Cuánto tarda la instalación?",
+    answer: "El plazo de obra varía de acuerdo al volumen y la complejidad. Depende de medidas, uso, condiciones del espacio y sistema elegido.",
   },
 ];
 

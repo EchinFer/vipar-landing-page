@@ -34,10 +34,10 @@ import "../../styles/servicio-mampara-divisoria.css";
 import { SITE_URL, whatsappNumber } from "src/constants";
 
 const serviceName = "Mamparas divisorias";
-const title = "Mamparas Divisorias | VIPAR S.A.";
+const title = "Mamparas divisorias en Paraguay | Cristal templado, Durlock y Eucatex | VIPAR";
 const description =
-  "Mamparas divisorias en Paraguay: cristal templado, eucatex y durlock para oficinas, comercios y obras. Instalacion profesional a medida.";
-const canonical = `${SITE_URL}/servicios/mamparas-divisorias`;
+  "Mamparas divisorias para oficinas, comercios y espacios interiores. Consultá opciones en cristal templado, Durlock o Eucatex según medidas, uso del ambiente y condiciones de instalación.";
+const canonical = `${SITE_URL}/servicios/mamparas-divisorias/`;
 const keywords =
   "mamparas divisorias paraguay, mamparas para oficinas, mamparas de cristal templado, tabiques de durlock, divisores de ambientes";
 const whatsappLink = buildWhatsappUrl(
@@ -55,13 +55,12 @@ const relatedObras = getRelatedStaticObras("mampara-divisoria");
   description={description}
   canonical={canonical}
   keywords={keywords}
-  hideWhatsappFAB={true}
   bodyClass="mampara-service-body"
   pageType="service"
   serviceName={serviceName}
 >
   <main class="mampara-service-page">
-    <MamparaHero image={mamparaHeroImage} tags={mamparaHeroTags} />
+    <MamparaHero image={mamparaHeroImage} tags={mamparaHeroTags} whatsappHref={whatsappLink} />
     <MamparaProblemSection cases={mamparaProblemCases} />
     <MamparaFactorsSection items={mamparaFactors} />
     <MamparaTypesSection items={mamparaTypeCards} />
