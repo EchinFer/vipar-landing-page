@@ -110,3 +110,182 @@
     margin-bottom: 32px;
   }
 }
+
+/* ── Hub: Servicios por necesidad ── */
+.servicios-hub-needs {
+  padding: 80px 0;
+}
+
+.servicios-hub-needs__head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.servicios-hub-needs__label {
+  display: inline-block;
+  font-size: var(--ds-text-label-sm-size, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ds-color-accent, #0066cc);
+  margin-bottom: 12px;
+}
+
+.servicios-hub-needs__title {
+  margin: 0 0 12px;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.servicios-hub-needs__subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--ds-color-on-surface-muted, #555);
+}
+
+.servicios-hub-needs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.servicios-hub-need-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 24px;
+  border: 1px solid var(--ds-color-border, #e0e0e0);
+  border-radius: var(--ds-radius-lg, 12px);
+  background: var(--ds-color-surface, #fff);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 160ms, box-shadow 160ms;
+}
+
+.servicios-hub-need-card:hover {
+  border-color: var(--ds-color-primary, #002046);
+  box-shadow: 0 8px 24px rgba(0, 32, 70, 0.1);
+}
+
+.servicios-hub-need-card__icon {
+  font-size: 28px;
+  color: var(--ds-color-accent, #0066cc);
+}
+
+.servicios-hub-need-card__need {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ds-color-primary, #002046);
+}
+
+.servicios-hub-need-card__desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ds-color-on-surface-muted, #555);
+}
+
+/* ── Hub: Cómo cotizar ── */
+.servicios-hub-quoting {
+  padding: 80px 0;
+  background: var(--ds-color-surface-strong, #f5f5f5);
+}
+
+.servicios-hub-quoting__inner {
+  max-width: min(calc(100% - 48px), 860px);
+  margin: 0 auto;
+}
+
+.servicios-hub-quoting__head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.servicios-hub-quoting__title {
+  margin: 8px 0 12px;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.servicios-hub-quoting__subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--ds-color-on-surface-muted, #555);
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.servicios-hub-quoting__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.servicios-hub-quoting__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.servicios-hub-quoting__step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ds-color-primary, #002046);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.servicios-hub-quoting__step-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ds-color-primary, #002046);
+  margin-bottom: 4px;
+}
+
+.servicios-hub-quoting__step-detail {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ds-color-on-surface-muted, #555);
+  line-height: 1.5;
+}
+
+.servicios-hub-quoting__cta {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+/* ── Hub: responsive ── */
+@media (max-width: 900px) {
+  .servicios-hub-needs__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .servicios-hub-needs {
+    padding: 56px 0;
+  }
+
+  .servicios-hub-needs__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .servicios-hub-quoting {
+    padding: 56px 0;
+  }
+}

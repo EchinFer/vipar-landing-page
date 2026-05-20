@@ -6,67 +6,75 @@ export const serviciosHeroImage =
 export const staticServicios: ServicioListItem[] = [
   {
     key: "carpinteria-aluminio",
-    title: "CarpinterÃ­a de Aluminio",
+    title: "Carpintería de Aluminio",
     href: "/servicios/carpinteria-de-aluminio/",
-    image: "/img/home/service-construction.webp",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBEJiTJqpXth_MfquO_J3E-v_DDe0TyRJVLYYzzpH16eej51C8CFf80j_7iewEE7wYqXWcK7k16I9_f1JkfutQcc-s6C2LqxW64b5y9AKSTYoKtjdq8XFNxyvhdnqOgdfftQ8pVWflL4n9KbPUBhmwKhBLIf2ChNbt7mzufk7h46LxtScejB6AU8wTmvocHbchdvLVbqbCXRennx3hNVqFojmj3YAuXgFUCjF4tAzCATY4Mk9ADk9LJ8vlq5KOhXRBkjg7t_xFPG2O-",
     description:
-      "FabricaciÃ³n e instalaciÃ³n de carpinterÃ­a de aluminio para viviendas, oficinas y comercios, con perfiles de alta durabilidad y excelente terminaciÃ³n.",
+      "Fabricación e instalación de carpintería de aluminio para viviendas, oficinas y comercios, con perfiles de alta durabilidad y excelente terminación.",
   },
   {
     key: "ventanas",
     title: "Ventanas",
     href: "/servicios/ventanas/",
-    image: "/img/home/hero-home.jpg",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDhz11UaTdbnMGlFVF4Mxow1klU1bItYJba_DYsr3hdwgPOqUZsbj14Tq1xAEzNg1HlsBw5YIpCwCpEUBtO52EXF9kR6oq6zWII49xjoWelaejEjXSbW-ybP2DWO7u84rhIrcoEoTt0NIjHRYKfspFANbWXm8zqTp7IFMQBjtyjES63RGXSwdx2jMruEWXNae1LvKRbgQ7rl8-2h0ny0vBVI1ApUUIV4aL7PJnyt6J9CK3dRoPSrpYd9phUOZveAQtpUQ91G4-bO6P1",
     description:
-      "Ventanas de aluminio y vidrio con diseÃ±o funcional, mejor aislamiento tÃ©rmico y soluciones a medida para proyectos residenciales y corporativos.",
+      "Ventanas de aluminio y vidrio con diseño funcional y soluciones a medida para proyectos residenciales y corporativos.",
   },
   {
     key: "puertas",
     title: "Puertas",
     href: "/servicios/puertas/",
-    image: "/img/home/hero-home.webp",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuD-2XOymuc61Lhid1fIDjX1Gcz3dK6EhJH7wtDYoMTkKMC6Pq8tmCmqYoyd44ta6tFX5045eCPaZE1WilmHAft7h600VpJzXBQ02QWJu8UXp9gs1RVcyrNiRBo4lqzYh4GpFIz3pX5MfstV41YNt-b6ytbHzcNlZxD3M-F9RHwanL_b78Wugm4t1V_2qSEuP5iQ1RQcDbItSbEhv53-G4VWGwEWdJc8mgq3RWNfi304A6SoXlVLJJ3qCBCDlHHyvP3pu0CbhNpNKf-j",
     description:
-      "Puertas de aluminio y vidrio templado con instalaciÃ³n profesional, pensadas para seguridad, estÃ©tica moderna y uso intensivo diario.",
+      "Puertas de aluminio y vidrio templado con instalación profesional, pensadas para seguridad, estética moderna y uso intensivo diario.",
   },
   {
     key: "mamparas-divisorias",
     title: "Mamparas divisorias",
     href: "/servicios/mamparas-divisorias/",
-    image: "/img/about.jpg",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCGdSLkuoH-YgubTKW_OxI3bHk9GCALaSS6EUl5yGx0ZGiRcWib5xdFyGmSvjrUFplohms3m_WA1Nr_zfee4tJHYaictyp3qUeJGM7aErPKkf-KdG_q4O_f_UM7-BVuEgf1sTUe9lTE-jihS29Kg9DBB5v3ErlnvQwHHqhJsyhE7vvei4iBCe1ptq-0zTlVXUioTaGM3eOZk-F2lxK0gHwmHvkYuEZ9JzlDTJqXLI11dXMq56Ofib1WS",
     description:
-      "Mamparas divisorias para oficinas y espacios comerciales, optimizando iluminaciÃ³n natural, privacidad y distribuciÃ³n eficiente de ambientes.",
+      "Mamparas divisorias para oficinas y espacios comerciales, optimizando iluminación natural, privacidad y distribución de ambientes.",
   },
   {
     key: "fachada",
     title: "Fachadas",
     href: "/servicios/fachadas/",
-    image: "/img/breadcrumbs-bg.jpg",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDY8DHyzD0WpoxvZK76Fa9SlGDoVLOa6qsluCAGQbIZexUiW975Ex8qINya8aRnOTqvKr7gVDTHKDkYcxMpLBjXZr4AqmrM6dbM2Dhr2Qx1Gx9dCXTqJiqFByNfqndRHPOMqdmLpXfuP6V4lGSCfrcfxNGuW65C0lnnwqtrN75Kp0U2wkxUUrNnKONcdwFdxygnS2Gae0gdLW3-hEVNj1Gaen8ewXNichQJ-6FidWIlOOZo62gEe1_EVpYDiNdatETWrkCoM6DNUlia",
     description:
-      "Sistemas de fachadas en vidrio y aluminio para mejorar imagen arquitectÃ³nica, rendimiento tÃ©cnico y protecciÃ³n en proyectos de gran escala.",
+      "Sistemas de fachadas en vidrio y aluminio para mejorar imagen arquitectónica, rendimiento técnico y protección en proyectos de gran escala.",
   },
   {
     key: "cortinas",
     title: "Cortinas",
     href: "/servicios/cortinas/",
-    image: "/img/home/footer-bg.jpg",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBBUpTN--qBQP1qc3SCers9X65XCQCJTeBOMvsJUWk2o_Xo7750FRY9iZXpvCuugTwIqTJZv9ZJWUQlwQYgSnJSEtccSY4_aVC7lkpgJEObrDfU1pq5UrgPkwlpEfzOEvyMCb_yo7oogdNuWuPt_nabsCuc74aRFvde5M5KnsYFXk09mRPQtcinVjueO1aoGIsgbv4ihat2_-hyrxPxinU2jQV6GmA5DlhbE4TVJaRKdkjchADXNsX0qNGqzLzaiDc7RUbeJn9kTchx",
     description:
-      "Cortinas de vidrio y soluciones de cerramiento para balcones y frentes, combinando apertura prÃ¡ctica, estÃ©tica limpia y resistencia estructural.",
+      "Cortinas de vidrio y soluciones de cerramiento para balcones y frentes, combinando apertura práctica, estética limpia y resistencia estructural.",
   },
   {
     key: "cielo-raso",
     title: "Cielo raso",
     href: "/servicios/cielo-raso/",
-    image: "/img/home/service-construction.webp",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDzOkMJrP0BidDmeBUr5ZXvSdYG_OOsM600QUAHHF0Zaz1v5PLe_vT8XA1oAvJ6sMnMOMZg4v6FfMQ1TyTXMadeHc7NNokmFcPIfrduEPXnADO2kFOOo5EeavJTbh-1BYKO9vqSQjg5X7Oc6QFoCYMFXhc8oxgUHJoxjNCU83Q1epBLDof1Lv0OhdpygGTQB8rN0hrYo6x9k_KiySi14cSCLEYfwywp944pjWkVHV7GaOQcmitV3PgO3aWDCporCxeSO30jbCClP4LE",
     description:
-      "Cielo raso desmontable y tÃ©cnico para espacios corporativos y comerciales, facilitando mantenimiento de instalaciones y acabado uniforme.",
+      "Cielo raso desmontable y técnico para espacios corporativos y comerciales, facilitando mantenimiento de instalaciones y acabado uniforme.",
   },
   {
     key: "box-de-bano",
-    title: "Box de baÃ±o",
+    title: "Box de baño",
     href: "/servicios/box-de-bano/",
-    image: "/img/about.jpg",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBfr3lDxjuQgQuq-kF5745xz48eaIdcKbOBogIRFUaDADvg_gCQaTkAaaucoTCHTKpZYBxETH-mS-geejW8tAYiFd5V444kiJB8qUqaEowcgez5AUo-hCE7qsjAR7zDLP07Oxh-soYheX2QMD3oo1pHdD7VARtI6XU3wCUIFdmDQ-gKxYjEkO6ivouG7z1Z96J4KSpcubIdqs66NQdt9t-wwM5uPSEV0P7IVumwVvwzziOVsD9862jjbPN6vo7Mlm7e1mBcm1Up4mw8",
     description:
-      "Box de baÃ±o en vidrio templado con herrajes de calidad, diseÃ±ado a medida para lograr funcionalidad, seguridad y estilo contemporÃ¡neo.",
+      "Box de baño en vidrio templado con herrajes de calidad, diseñado a medida para lograr funcionalidad, seguridad y estilo contemporáneo.",
   },
 ];
 

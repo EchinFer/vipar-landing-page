@@ -25,9 +25,10 @@ interface ComplementaryService {
 interface Props {
   featuredServices: FeaturedService[];
   complementaryServices: ComplementaryService[];
+  viewAllHref?: string;
 }
 
-const { featuredServices, complementaryServices } = Astro.props;
+const { featuredServices, complementaryServices, viewAllHref } = Astro.props;
 ---
 
 <section class="vipar-section vipar-section--surface" id="servicios">
@@ -51,5 +52,12 @@ const { featuredServices, complementaryServices } = Astro.props;
         <HomeServiceMiniCard service={service} />
       ))}
     </div>
+    {viewAllHref && (
+      <div class="vipar-services-view-all">
+        <a href={viewAllHref} class="ds-btn ds-btn--outlined ds-btn--primary">
+          Ver todos los servicios
+        </a>
+      </div>
+    )}
   </Container>
 </section>

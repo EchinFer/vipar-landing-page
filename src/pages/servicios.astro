@@ -2,22 +2,177 @@
 import ServiciosCatalog from "@components/servicios/ServiciosCatalog.astro";
 import ServiciosFilterBar from "@components/servicios/ServiciosFilterBar.astro";
 import ServiciosHero from "@components/servicios/ServiciosHero.astro";
+import FaqAccordion from "@components/ui/FaqAccordion.astro";
+import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
 import Layout from "@layouts/Layout.astro";
 import { serviciosHeroImage, staticServicioFilters, staticServicios } from "@lib/static-servicios";
-import "../styles/servicios.css";
+import { staticObras } from "@lib/static-obras";
+import { whatsappNumber } from "src/constants";
 import { SITE_URL } from "src/constants";
+import "../styles/servicios.css";
 
-const title = "Servicios - VIPAR S.A.";
+const title = "Servicios de Cristales, Aluminio y Terminaciones - VIPAR S.A.";
 const description =
-  "Diseño, fabricación e instalación de sistemas premium en vidrio, aluminio y terminaciones avanzadas para proyectos en Paraguay.";
+  "Servicios de cristales templados, carpintería de aluminio, fachadas, mamparas, cielo raso y box de baño para proyectos en Paraguay. Fabricación e instalación a medida.";
 const canonical = `${SITE_URL}/servicios`;
+const keywords =
+  "cristales templados Paraguay, carpintería de aluminio, fachadas vidrio aluminio, mamparas divisorias, cielo raso, box de baño vidrio templado, VIPAR servicios";
+
+const whatsappMessage = "Hola, quiero consultar sobre servicios de VIPAR. Me contacto desde la página de servicios.";
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+const needsServices = [
+  {
+    need: "Necesito cerrar un baño",
+    description: "Box de baño y mamparas de ducha en vidrio templado a medida.",
+    href: "/servicios/box-de-bano/",
+    icon: "shower",
+  },
+  {
+    need: "Necesito mejorar una fachada",
+    description: "Fachadas integrales en vidrio y aluminio, muro cortina y sistema glazing.",
+    href: "/servicios/fachadas/",
+    icon: "apartment",
+  },
+  {
+    need: "Necesito dividir una oficina",
+    description: "Mamparas divisorias con cristal o vidrio templado para espacios corporativos.",
+    href: "/servicios/mamparas-divisorias/",
+    icon: "grid_view",
+  },
+  {
+    need: "Necesito ventanas o puertas a medida",
+    description: "Carpintería de aluminio para cualquier medida, apertura y tipo de obra.",
+    href: "/servicios/ventanas/",
+    icon: "window",
+  },
+  {
+    need: "Necesito cielo raso técnico",
+    description: "Cielo raso en PVC, Durlock o modulares desmontables para espacios comerciales.",
+    href: "/servicios/cielo-raso/",
+    icon: "roofing",
+  },
+];
+
+const quotingSteps = [
+  {
+    label: "Fotos del espacio",
+    detail: "Vistas del ambiente donde se va a instalar: acceso, paredes, medidas en contexto.",
+  },
+  {
+    label: "Medidas",
+    detail: "Ancho, alto y profundidad de vanos, aberturas o el ambiente completo.",
+  },
+  {
+    label: "Ubicación y tipo de obra",
+    detail: "Ciudad y si es una obra residencial, comercial o corporativa.",
+  },
+  {
+    label: "Plano o render (opcional)",
+    detail: "Si hay proyecto de arquitecto o diseñador, compartilo para mayor precisión.",
+  },
+];
+
+const hubFaqs = [
+  {
+    question: "¿Trabajan en todo el país o solo en Asunción?",
+    answer:
+      "Tenemos proyectos en Asunción, Gran Asunción, Ciudad del Este y el interior del país. Consultá según tu ubicación.",
+  },
+  {
+    question: "¿Cómo se hace la cotización?",
+    answer:
+      "Enviás fotos, medidas y tipo de obra por WhatsApp. Con eso preparamos un presupuesto detallado sin costo.",
+  },
+  {
+    question: "¿Fabrican o solo instalan?",
+    answer:
+      "VIPAR fabrica e instala. Contamos con taller propio para vidrio templado, aluminio y sistemas de terminaciones.",
+  },
+  {
+    question: "¿Qué pasa si no tengo medidas exactas?",
+    answer:
+      "Podemos coordinar una visita técnica para medir y asesorarte en obra antes de presupuestar.",
+  },
+  {
+    question: "¿Cuánto tarda una instalación?",
+    answer:
+      "Depende del proyecto. Un box de baño puede instalarse en un día. Una fachada o mampara corporativa puede llevar varios días. Te informamos el plazo antes de comenzar.",
+  },
+];
+
+const featuredObras = staticObras.slice(0, 3);
 ---
 
-<Layout title={title} description={description} canonical={canonical}>
+<Layout title={title} description={description} canonical={canonical} keywords={keywords}>
   <main class="vipar-servicios-page">
     <ServiciosHero image={serviciosHeroImage} />
+
+    <!-- Bloque 2: Servicios por necesidad -->
+    <section class="servicios-hub-needs">
+      <div class="servicios-hub-needs__head">
+        <span class="servicios-hub-needs__label">¿Qué necesitás?</span>
+        <h2 class="servicios-hub-needs__title">Soluciones según tu proyecto</h2>
+        <p class="servicios-hub-needs__subtitle">
+          Contanos qué querés resolver y te asesoramos con la solución técnica correcta.
+        </p>
+      </div>
+      <div class="servicios-hub-needs__grid">
+        {needsServices.map((item) => (
+          <a href={item.href} class="servicios-hub-need-card">
+            <i class="material-symbols-outlined servicios-hub-need-card__icon">{item.icon}</i>
+            <strong class="servicios-hub-need-card__need">{item.need}</strong>
+            <p class="servicios-hub-need-card__desc">{item.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Bloque 3: Catálogo completo -->
     <ServiciosFilterBar filters={staticServicioFilters} />
     <ServiciosCatalog servicios={staticServicios} />
+
+    <!-- Bloque 4: Cómo cotizar -->
+    <section class="servicios-hub-quoting">
+      <div class="servicios-hub-quoting__inner">
+        <div class="servicios-hub-quoting__head">
+          <span class="servicios-hub-needs__label">Proceso</span>
+          <h2 class="servicios-hub-quoting__title">Cómo pedir una cotización</h2>
+          <p class="servicios-hub-quoting__subtitle">
+            El proceso es simple: enviás los datos básicos por WhatsApp y te respondemos con un presupuesto.
+          </p>
+        </div>
+        <ol class="servicios-hub-quoting__steps">
+          {quotingSteps.map((step, i) => (
+            <li class="servicios-hub-quoting__step">
+              <span class="servicios-hub-quoting__step-num">{i + 1}</span>
+              <div>
+                <strong class="servicios-hub-quoting__step-label">{step.label}</strong>
+                <p class="servicios-hub-quoting__step-detail">{step.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div class="servicios-hub-quoting__cta">
+          <a href={whatsappLink} class="ds-btn ds-btn-primary" target="_blank" rel="noopener noreferrer">
+            <i class="material-symbols-outlined">chat</i>
+            Enviar fotos o medidas por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloque 5: Obras relacionadas -->
+    <RelatedWorksGallery
+      obras={featuredObras}
+      title="Proyectos realizados"
+      description="Referencias reales de cómo resolvemos distintos servicios en obra."
+      ctaHref="/obras/"
+      ctaLabel="Ver catálogo completo de obras"
+    />
+
+    <!-- Bloque 6: FAQ -->
+    <FaqAccordion items={hubFaqs} title="Preguntas frecuentes sobre nuestros servicios" />
   </main>
 
   <script is:inline>

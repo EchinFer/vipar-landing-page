@@ -89,18 +89,6 @@ const complementaryServices = [
     href: serviceLinks.fachada,
   },
   {
-    icon: "window",
-    title: "Ventanas",
-    description: "Sistemas corredizos, batientes y proyectantes.",
-    href: serviceLinks.ventana,
-  },
-  {
-    icon: "door_front",
-    title: "Puertas",
-    description: "Puertas de acceso, pivotantes y corredizas.",
-    href: serviceLinks.puerta,
-  },
-  {
     icon: "grid_view",
     title: "Mamparas",
     description: "Divisiones para oficinas y espacios comerciales.",
@@ -212,6 +200,7 @@ const homeStructuredData = JSON.stringify([
       <HomeServices
         featuredServices={featuredServices}
         complementaryServices={complementaryServices}
+        viewAllHref="/servicios/"
       />
       <HomeProjects projects={projects} />
       <HomeAbout keyData={keyData} />
