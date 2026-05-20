@@ -10,11 +10,6 @@ export const MENU_ITEMS = [
     title: "Inicio",
     url: "/",
   },
-  //   {
-  //     id: 2,
-  //     title: "Nosotros",
-  //     url: "/nosotros/",
-  //   },
   {
     id: 2,
     title: "Obras",
@@ -33,8 +28,17 @@ export const MENU_ITEMS = [
 ];
 
 export const telephone = "+595981256510";
+export const whatsappNumber = telephone.replace(/[^\d]/g, "");
 export const email = "info@vipar.com.py";
-export const address = "San Francisco 770 c/ Sexta Bo. Salinas, Ñemby";
+
+export const companyAddress = {
+  streetAddress: "San Francisco 770 c/ Sexta Bo. Salinas",
+  addressLocality: "\u00D1emby",
+  addressRegion: "Central",
+  addressCountry: "PY",
+} as const;
+
+export const address = `${companyAddress.streetAddress}, ${companyAddress.addressLocality}`;
 
 export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/vipar_py/",

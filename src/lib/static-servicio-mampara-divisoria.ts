@@ -229,7 +229,7 @@ export const mamparaProcessSteps: MamparaProcessStep[] = [
 export const mamparaTrustStats: MamparaTrustStat[] = [
   { value: "15+", label: "Años de experiencia" },
   { value: "500+", label: "Proyectos ejecutados" },
-  { value: "100%", label: "Garantía de obra" },
+  { value: "100%", label: "Seguimiento tecnico" },
 ];
 
 export const mamparaEditorialTags = [
@@ -259,3 +259,4 @@ export const mamparaFaqs: MamparaFaqItem[] = [
       "Ofrecen un aislamiento básico o medio. Para necesidades de privacidad alta conviene evaluar doble vidriado o combinar con tabiques ciegos de mejor desempeño acústico.",
   },
 ];
+

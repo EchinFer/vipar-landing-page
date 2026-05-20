@@ -1,0 +1,24 @@
+---
+interface Props {
+  to: string;
+  title?: string;
+}
+
+const { to, title = "Redirigiendo..." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta http-equiv="refresh" content={`0;url=${to}`} />
+    <link rel="canonical" href={to} />
+    <meta name="robots" content="noindex, follow" />
+  </head>
+  <body>
+    <p>
+      Redirigiendo a <a href={to}>{to}</a>.
+    </p>
+  </body>
+</html>

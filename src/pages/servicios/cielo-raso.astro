@@ -9,6 +9,7 @@ import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
 import Layout from "@layouts/Layout.astro";
 import { getRelatedStaticObras } from "@lib/static-obras";
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
 import {
   ceilingDetailImage,
   ceilingDetails,
@@ -19,15 +20,22 @@ import {
   ceilingSystems,
 } from "@lib/static-servicio-cielo-raso";
 import "../../styles/servicio-cielo-raso.css";
-import { SITE_URL, telephone } from "src/constants";
+import { SITE_URL, whatsappNumber } from "src/constants";
 
+const serviceName = "Cielo raso";
 const title = "Cielo Raso | VIPAR S.A.";
 const description =
-  "Sistemas de cielo raso en Paraguay: PVC Armstrong, junta tomada Durlock y bafles acústicos. Instalación profesional para residencias, comercios y corporativos.";
+  "Sistemas de cielo raso en Paraguay: PVC Armstrong, junta tomada Durlock y bafles acusticos. Instalacion profesional para residencias, comercios y corporativos.";
 const canonical = `${SITE_URL}/servicios/cielo-raso`;
 const keywords =
-  "cielo raso paraguay, cielorraso pvc, armstrong, durlock, bafles acústicos, techos técnicos";
-const whatsappNumber = telephone.replace(/[^\d]/g, "");
+  "cielo raso paraguay, cielorraso pvc, armstrong, durlock, bafles acusticos, techos tecnicos";
+const whatsappLink = buildWhatsappUrl(
+  buildWhatsappMessage({
+    serviceName,
+    pageLabel: serviceName,
+    prompt: "Puedo enviar fotos, medidas o referencias del espacio.",
+  })
+);
 const relatedObras = getRelatedStaticObras("cielo-raso");
 ---
 
@@ -38,6 +46,8 @@ const relatedObras = getRelatedStaticObras("cielo-raso");
   keywords={keywords}
   hideWhatsappFAB={true}
   bodyClass="ceiling-service-body"
+  pageType="service"
+  serviceName={serviceName}
 >
   <main class="ceiling-service-page">
     <CeilingHero image={ceilingHeroImage} />
@@ -49,7 +59,11 @@ const relatedObras = getRelatedStaticObras("cielo-raso");
 
     <section class="ceiling-service-section ceiling-service-final">
       <Container>
-        <QuoteCTA whatsappNumber={whatsappNumber} />
+        <QuoteCTA
+          whatsappNumber={whatsappNumber}
+          whatsappHref={whatsappLink}
+          serviceName={serviceName}
+        />
       </Container>
     </section>
   </main>

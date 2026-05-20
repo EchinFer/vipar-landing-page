@@ -5,10 +5,21 @@ import Text from "@components/ui/Text.astro";
 
 interface Props {
   whatsappNumber: string;
+  whatsappHref?: string;
+  serviceName?: string;
+  ctaLocation?: string;
+  messageType?: string;
   class?: string;
 }
 
-const { whatsappNumber, class: className = "" } = Astro.props;
+const {
+  whatsappNumber,
+  whatsappHref,
+  serviceName,
+  ctaLocation = "final_cta",
+  messageType = "service_quote",
+  class: className = "",
+} = Astro.props;
 ---
 
 <section class:list={["ds-quote-cta", className]}>
@@ -18,13 +29,17 @@ const { whatsappNumber, class: className = "" } = Astro.props;
     asesoramiento técnico especializado.
   </Text>
   <Button
-    href={`https://wa.me/${whatsappNumber}`}
+    href={whatsappHref ?? `https://wa.me/${whatsappNumber}`}
     target="_blank"
     rel="noopener noreferrer"
     variant="contained"
     tone="primary"
     size="lg"
     class="ds-quote-cta__button"
+    data-track-event="whatsapp_service_click"
+    data-cta-location={ctaLocation}
+    data-service-name={serviceName}
+    data-whatsapp-message-type={messageType}
   >
     Solicitar presupuesto por WhatsApp
   </Button>

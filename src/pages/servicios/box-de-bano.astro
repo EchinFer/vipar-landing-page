@@ -11,6 +11,7 @@ import QuoteCTA from "@components/ui/QuoteCTA.astro";
 import Container from "@components/ui/Container.astro";
 import Layout from "@layouts/Layout.astro";
 import { getRelatedStaticObras } from "@lib/static-obras";
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
 import {
   boxBenefits,
   boxCompareRows,
@@ -20,15 +21,22 @@ import {
   boxProcessSteps,
 } from "@lib/static-servicio-box-de-bano";
 import "../../styles/servicio-box-de-bano.css";
-import { SITE_URL, telephone } from "src/constants";
+import { SITE_URL, whatsappNumber } from "src/constants";
 
-const title = "Box de Baño | VIPAR S.A.";
+const serviceName = "Box de ba\u00F1o";
+const title = "Box de Ba\u00F1o | VIPAR S.A.";
 const description =
-  "Box de baño a medida en Paraguay. Soluciones en acrílico, cristal templado y sistemas safonados con instalación profesional.";
+  "Box de ba\u00F1o a medida en Paraguay. Soluciones en acr\u00EDlico, cristal templado y sistemas safonados con instalaci\u00F3n profesional.";
 const canonical = `${SITE_URL}/servicios/box-de-bano`;
 const keywords =
-  "box de baño paraguay, mamparas para baño, box de ducha a medida, cristal templado baño, acrílico para baño, box plegable";
-const whatsappNumber = telephone.replace(/[^\d]/g, "");
+  "box de ba\u00F1o paraguay, mamparas para ba\u00F1o, box de ducha a medida, cristal templado ba\u00F1o, acr\u00EDlico para ba\u00F1o, box plegable";
+const whatsappLink = buildWhatsappUrl(
+  buildWhatsappMessage({
+    serviceName,
+    pageLabel: serviceName,
+    prompt: "Puedo enviar medidas y fotos del ba\u00F1o.",
+  })
+);
 const relatedObras = getRelatedStaticObras("box-de-bano");
 ---
 
@@ -39,6 +47,8 @@ const relatedObras = getRelatedStaticObras("box-de-bano");
   canonical={canonical}
   hideWhatsappFAB={true}
   bodyClass="box-service-body"
+  pageType="service"
+  serviceName={serviceName}
 >
   <main class="box-service-page">
     <BoxHero image={boxHeroImage} tags={boxHeroTags} />
@@ -52,7 +62,11 @@ const relatedObras = getRelatedStaticObras("box-de-bano");
 
     <section class="box-service-section box-service-final">
       <Container>
-        <QuoteCTA whatsappNumber={whatsappNumber} />
+        <QuoteCTA
+          whatsappNumber={whatsappNumber}
+          whatsappHref={whatsappLink}
+          serviceName={serviceName}
+        />
       </Container>
     </section>
   </main>

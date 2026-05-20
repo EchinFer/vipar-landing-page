@@ -166,7 +166,8 @@ export const boxProcessSteps: BoxProcessStep[] = [
     number: "05",
     title: "Instalación",
     description:
-      "Montaje preciso por técnicos capacitados, garantizando estanqueidad y limpieza.",
+      "Montaje preciso por técnicos capacitados, con control de estanqueidad y limpieza.",
     active: true,
   },
 ];
+

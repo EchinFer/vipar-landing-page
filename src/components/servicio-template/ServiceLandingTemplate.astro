@@ -15,9 +15,10 @@ interface Props {
   content: ServiceTemplateContent;
   whatsappNumber: string;
   whatsappLink: string;
+  serviceName?: string;
 }
 
-const { content, whatsappNumber, whatsappLink } = Astro.props;
+const { content, whatsappNumber, whatsappLink, serviceName } = Astro.props;
 const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
 ---
 
@@ -35,7 +36,18 @@ const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
           <Button href="/contacto/" variant="contained" tone="primary" size="lg">
             {content.hero.primaryCtaLabel}
           </Button>
-          <Button href={whatsappLink} target="_blank" rel="noopener noreferrer" variant="outlined" tone="primary" size="lg">
+          <Button
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="outlined"
+            tone="primary"
+            size="lg"
+            data-track-event="whatsapp_service_click"
+            data-cta-location="hero"
+            data-service-name={serviceName}
+            data-whatsapp-message-type="service_hero"
+          >
             <span class="material-symbols-outlined" aria-hidden="true">chat</span>
             {content.hero.secondaryCtaLabel ?? "WhatsApp"}
           </Button>
@@ -191,7 +203,11 @@ const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
 
   <section class="service-template-section service-template-final">
     <Container>
-      <QuoteCTA whatsappNumber={whatsappNumber} />
+      <QuoteCTA
+        whatsappNumber={whatsappNumber}
+        whatsappHref={whatsappLink}
+        serviceName={serviceName}
+      />
     </Container>
   </section>
 </main>

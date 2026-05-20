@@ -1,4 +1,4 @@
----
+﻿---
 import HomeAbout from "@components/home/HomeAbout.astro";
 import HomeContact from "@components/home/HomeContact.astro";
 import HomeHero from "@components/home/HomeHero.astro";
@@ -12,9 +12,9 @@ import "@styles/home.css";
 
 const title = "VIPAR S.A. | Cristales y Aluminio";
 const description =
-  "Cristales templados, aluminio y terminaciones para obras en Paraguay. Soluciones para viviendas, comercios, oficinas y obras con presupuesto según medidas y tipo de instalación.";
+  "Cristales templados, aluminio y terminaciones para obras en Paraguay. Soluciones para viviendas, comercios, oficinas y obras con presupuesto segÃºn medidas y tipo de instalaciÃ³n.";
 const keywords =
-  "VIPAR S.A., cristales templados Paraguay, carpintería de aluminio, fachadas integrales, mamparas, cielos rasos, box de baño";
+  "VIPAR S.A., cristales templados Paraguay, carpinterÃ­a de aluminio, fachadas integrales, mamparas, cielos rasos, box de baÃ±o";
 const homePath = `${SITE_URL}/`;
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
 const whatsappMessage =
@@ -24,29 +24,29 @@ const serviceLinks = {
   cristalesTemplados: "/servicios/",
   carpinteriaAluminio: "/servicios/carpinteria-de-aluminio/",
   fachada: "/servicios/fachadas/",
-  mamparaDivisoria: "/servicios/mampara-divisoria/",
+  mamparaDivisoria: "/servicios/mamparas-divisorias/",
   cieloRaso: "/servicios/cielo-raso/",
   boxDeBano: "/servicios/box-de-bano/",
-  ventana: "/servicios/ventana/",
-  puerta: "/servicios/puerta/",
-  cortina: "/servicios/cortina/",
+  ventana: "/servicios/ventanas/",
+  puerta: "/servicios/puertas/",
+  cortina: "/servicios/cortinas/",
 } as const;
 
 const featuredServices = [
   {
     title: "Residencial",
     description:
-      "Soluciones para viviendas donde el detalle, la funcionalidad y la terminación visual son parte central del proyecto.",
+      "Soluciones para viviendas donde el detalle, la funcionalidad y la terminaciÃ³n visual son parte central del proyecto.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCKP0isqGEyF72o13yvNbtYaA8BskwcBePGllcpFlYvtXL36aMshGpz2dWSFPzkgOzo7nqpj2DZ5X-Xu6Th_xfBa-jJNVagIl52a3Iv8JSOySB0cYb8KX4m0j8nFSQOYs68j0hxxpuTYnmARHVyPHs3cswdY4Pm5L4pvxW2HBglXcRddFJKw5HmtXrKvTyzO_1xRMowhIlataGCxtfgmRQydsnC0sZKrNJYbJFXf6jUetDDvMz8TdeH_dfXYup7En30Cdd_eoy7LjY5",
     alt: "Soluciones residenciales VIPAR",
-    points: ["Domótica integrada", "Eficiencia energética", "Acabados de alta exigencia"],
+    points: ["DomÃ³tica integrada", "Eficiencia energÃ©tica", "Acabados de alta exigencia"],
     href: "/servicios/",
   },
   {
     title: "Comercial",
     description:
-      "Infraestructuras pensadas para alto tránsito, durabilidad operativa e identidad de marca en espacios comerciales.",
+      "Infraestructuras pensadas para alto trÃ¡nsito, durabilidad operativa e identidad de marca en espacios comerciales.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuC6JXRCAaP9gCv7APOQsIvz7SY4r6ErStjwkvnaWQKsdFL_7kOa-Zv87P6ekcLRHFyyk52myWq5g6jPdJe9PQlzng9sB9e286qN08AYc9LOA3bCS2z7bjnry0PjQ7XAI45QgzUfTrr99q9TBw8JJJkxreubOcrLOrSDUGBouMr91ZI8l29YZc1gTPHHge1QVtiLBsR1fNjRv-8fROSDb3hGIE1mC6GuRJTVGP6K8PuHanJt3P6mjm3gwg6ITVwmwLUAjRhoSi8I3QVn",
     alt: "Soluciones comerciales VIPAR",
@@ -56,7 +56,7 @@ const featuredServices = [
   {
     title: "Corporativo",
     description:
-      "Espacios de trabajo que buscan productividad, imagen institucional y soluciones técnicas alineadas al uso del edificio.",
+      "Espacios de trabajo que buscan productividad, imagen institucional y soluciones tÃ©cnicas alineadas al uso del edificio.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuA3YtH0XLhc1vWFWkeJw-g5VrGF2gAOps9OTyuxRwaHsSQjMRrtOMIHKOfw9aLQw5Xz7xVC3qiqPd-ABlH6C1AhyTTgZVS5KgtGlujMjqfYOxiAu5dX0b7gnobDmUX2PsFaYrM8l5ykgyvALJpKpTMTEHvTz2IMNuUc-0aP8Lo5z4zUUCoZPBAYerja78rc5PRzdeL5tZQv-KFbsuT_MKH4YynNNMHVDz3M4G834PBdioIg_eK-jdRy2O5Qf5dmEZ-eQsKBtOfZn1G-",
     alt: "Soluciones corporativas VIPAR",
@@ -69,13 +69,13 @@ const complementaryServices = [
   {
     icon: "splitscreen",
     title: "Cristales Templados",
-    description: "Puertas, fachadas, divisiones, cerramientos y box de baño en cristal templado.",
+    description: "Puertas, fachadas, divisiones, cerramientos y box de baÃ±o en cristal templado.",
     href: serviceLinks.cristalesTemplados,
   },
   {
     icon: "door_front",
-    title: "Carpintería de Aluminio",
-    description: "Puertas, ventanas, aberturas y cerramientos según medidas y tipo de apertura.",
+    title: "CarpinterÃ­a de Aluminio",
+    description: "Puertas, ventanas, aberturas y cerramientos segÃºn medidas y tipo de apertura.",
     href: serviceLinks.carpinteriaAluminio,
   },
   {
@@ -105,12 +105,12 @@ const complementaryServices = [
   {
     icon: "roofing",
     title: "Cielo Raso",
-    description: "Instalación de cielos rasos en PVC, Durlock y modulares.",
+    description: "InstalaciÃ³n de cielos rasos en PVC, Durlock y modulares.",
     href: serviceLinks.cieloRaso,
   },
   {
     icon: "shower",
-    title: "Box de Baño",
+    title: "Box de BaÃ±o",
     description: "Mamparas de ducha a medida con herrajes inoxidables.",
     href: serviceLinks.boxDeBano,
   },
@@ -122,7 +122,7 @@ const projects = [
     eyebrow: "Espacio Corporativo",
     title: "Showroom VIPAR",
     description:
-      "Servicios: Cristal Templado, Carpintería de Aluminio, Mobiliario en Vidrio.",
+      "Servicios: Cristal Templado, CarpinterÃ­a de Aluminio, Mobiliario en Vidrio.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuC-39FDUcFsXxt2-cHVwOpA0Wjc2NWCg1VhvF5pPd-XNzK7Z3WupVl1crnJDYLxdsZXjomu-xBzDAedUTI1-VnLwBA5n976BRatH6J_rnImgK0GSUUxwQlhRWU-r7n2EG8CdO3Ur1PJ503BaDHPfvDpBp6yXRlAmiJAJ5hASS501XQCUSh1kXWFDQuoShddMHinuvifgJwMjvIsyI6CWLYJc2_SaTbVCCXJQ1hp1iXpWgk4VGjFU7ZEcwe8qptGEUuYxORq58FKiOG1",
     alt: "Showroom VIPAR",
@@ -132,7 +132,7 @@ const projects = [
     eyebrow: "Frente Comercial",
     title: "Sucursal Tigo MRA",
     description:
-      "Servicios: Grandes Luces en Cristal, Perfilería Reforzada, Accesos de Seguridad.",
+      "Servicios: Grandes Luces en Cristal, PerfilerÃ­a Reforzada, Accesos de Seguridad.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDbd9UQQxqlNAyrWEtvBi_GUT3uDykJb0buw1FcrNqPqe5l199QGOL66ETfkeoo0HZSvVSBedKqI5Jl9J8Bl_CWKHNJZZi6CrMKs5uD6bW6bbKiW7XipUvV6ivTvUaQcf80j1Wxi3QY_t_8jYuxAGPJbc8HOIeNGJqQFOgHYujVD4uipBHjkAyOOhtHewanAyTsnlYPtRE9l_kUFPF8W6irIFk80YUriPdG2-EyKQncAw2xmryuEwFsMNxZ3EKWXhFj9d6QDYDvmSo1",
     alt: "Sucursal Tigo MRA",
@@ -142,7 +142,7 @@ const projects = [
     eyebrow: "Edificio Residencial",
     title: "Edificio Concordia",
     description:
-      "Servicios: Carpintería de Aluminio de Alta Prestación, Cristales de Control Solar.",
+      "Servicios: CarpinterÃ­a de Aluminio de Alta PrestaciÃ³n, Cristales de Control Solar.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAX2oB39hJd82DqZofsOyohWZFqrWx9MfifNvV1-DP_a8aWX840Oc2jv2plL1-SJuH1bELm3TgGX0sjI-z9LtI1n4eQ8MCeJPBAmTe5V81zCRqO6ODMQuMl8KUlH35Qlr2RhiZGLcmJXK9HM5eUgqBItlUgTzOpBHffj4TB7bBS46CThZnyvLeXq9PFCMXgtZ1eMJ6T3kuN8zMF74xLXCo0G4mUcj6U8kmCNPdN_oP-FnWFhz4QTYDFF1G1ObXBIZX_6l4X8k61ftYd",
     alt: "Edificio Concordia",
@@ -152,14 +152,14 @@ const projects = [
 const keyData = [
   {
     icon: "location_on",
-    title: "Ubicación principal",
+    title: "UbicaciÃ³n principal",
     description: address,
   },
   {
     icon: "map",
-    title: "Área de cobertura",
+    title: "Ãrea de cobertura",
     description:
-      "Asunción, Gran Asunción e interior del país (sujeto a envergadura del proyecto).",
+      "AsunciÃ³n, Gran AsunciÃ³n e interior del paÃ­s (sujeto a envergadura del proyecto).",
   },
   {
     icon: "domain",
@@ -199,6 +199,7 @@ const homeStructuredData = JSON.stringify([
   keywords={keywords}
   canonical={homePath}
   bodyClass="vipar-home-body"
+  pageType="home"
 >
   <div class="vipar-home" id="top">
     <main class="vipar-home__main">
@@ -225,6 +226,7 @@ const homeStructuredData = JSON.stringify([
     const form = document.getElementById("vipar-home-form");
     const status = document.getElementById("vipar-home-form-status");
     const message = document.getElementById("vipar-home-form-message");
+    let hasTrackedFormStart = false;
 
     function setStatus(kind, text) {
       if (!(status instanceof HTMLElement) || !(message instanceof HTMLElement)) return;
@@ -239,6 +241,23 @@ const homeStructuredData = JSON.stringify([
       delete status.dataset.state;
       message.textContent = "";
     }
+
+    if (form instanceof HTMLFormElement) {
+      const startedAtInput = form.querySelector('input[name="form_started_at"]');
+      if (startedAtInput instanceof HTMLInputElement && !startedAtInput.value) {
+        startedAtInput.value = String(Date.now());
+      }
+    }
+
+    form?.addEventListener("input", () => {
+      if (hasTrackedFormStart) return;
+      hasTrackedFormStart = true;
+      if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
+        window.viparTrack("form_start", {
+          cta_location: "home_contact_form",
+        });
+      }
+    });
 
     form?.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -255,15 +274,17 @@ const homeStructuredData = JSON.stringify([
       const service = String(formData.get("service") || "").trim();
       const city = String(formData.get("city") || "").trim();
       const details = String(formData.get("message") || "").trim();
+      const website = String(formData.get("website") || "").trim();
+      const formStartedAt = String(formData.get("form_started_at") || "").trim();
 
       if (!name || !phone || !service || !details) {
-        setStatus("error", "Completá nombre, WhatsApp, servicio y detalle de la solicitud.");
+        setStatus("error", "CompletÃ¡ nombre, WhatsApp, servicio y detalle de la solicitud.");
         return;
       }
 
       const composedMessage = [
         `Tipo de servicio: ${service}`,
-        city ? `Ubicación de la obra: ${city}` : "",
+        city ? `UbicaciÃ³n de la obra: ${city}` : "",
         "",
         details,
       ]
@@ -279,9 +300,38 @@ const homeStructuredData = JSON.stringify([
       payload.set("source", String(formData.get("source") || "vipar-home-stitch"));
       payload.set("page", typeof window !== "undefined" ? window.location.href : "");
 
+      const leadContext =
+        typeof window !== "undefined" && typeof window.viparLeadContext === "function"
+          ? window.viparLeadContext({
+              cta_location: "home_contact_form",
+              service_name: service,
+            })
+          : {
+              cta_location: "home_contact_form",
+              service_name: service,
+            };
+
+      payload.set("website", website);
+      payload.set("form_started_at", formStartedAt);
+      payload.set("page_path", String(leadContext.page_path || ""));
+      payload.set("page_title", String(leadContext.page_title || ""));
+      payload.set("page_type", String(leadContext.page_type || ""));
+      payload.set("service_name", String(leadContext.service_name || ""));
+      payload.set("cta_location", String(leadContext.cta_location || "home_contact_form"));
+      payload.set("lead_source", String(leadContext.lead_source || ""));
+      payload.set("lead_medium", String(leadContext.lead_medium || ""));
+      payload.set("campaign", String(leadContext.campaign || ""));
+      payload.set("device_type", String(leadContext.device_type || ""));
+
       const attachment = formData.get("file");
       if (attachment instanceof File && attachment.size > 0) {
         payload.set("file", attachment);
+        if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
+          window.viparTrack("file_upload_attempt", {
+            cta_location: "home_contact_form",
+            service_name: service,
+          });
+        }
       }
 
       const submitButton = formElement.querySelector('button[type="submit"]');
@@ -290,6 +340,13 @@ const homeStructuredData = JSON.stringify([
       }
 
       try {
+        if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
+          window.viparTrack("form_submit", {
+            cta_location: "home_contact_form",
+            service_name: service,
+          });
+        }
+
         const response = await fetch("/api/leads", {
           method: "POST",
           body: payload,
@@ -300,22 +357,27 @@ const homeStructuredData = JSON.stringify([
         if (!response.ok) {
           setStatus(
             "error",
-            data?.error || "No se pudo enviar la solicitud. Probá nuevamente o escribinos por WhatsApp."
+            data?.error || "No se pudo enviar la solicitud. ProbÃ¡ nuevamente o escribinos por WhatsApp."
           );
           return;
         }
 
-        if (typeof window !== "undefined" && typeof window.gtag === "function") {
-          window.gtag("event", "generate_lead", {
+        if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
+          window.viparTrack("generate_lead", {
             method: "contact_form",
-            page_location: window.location.href,
+            cta_location: "home_contact_form",
+            service_name: service,
           });
         }
 
         formElement.reset();
+        const startedAtInput = formElement.querySelector('input[name="form_started_at"]');
+        if (startedAtInput instanceof HTMLInputElement) {
+          startedAtInput.value = String(Date.now());
+        }
         setStatus("success", "Recibimos tu solicitud. Te responderemos a la brevedad.");
       } catch {
-        setStatus("error", "Error de red. Probá nuevamente o escribinos por WhatsApp.");
+        setStatus("error", "Error de red. ProbÃ¡ nuevamente o escribinos por WhatsApp.");
       } finally {
         if (submitButton instanceof HTMLButtonElement) {
           submitButton.disabled = false;
@@ -324,3 +386,4 @@ const homeStructuredData = JSON.stringify([
     });
   </script>
 </Layout>
+

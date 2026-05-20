@@ -4,7 +4,7 @@ export const doorServiceContent: ServiceTemplateContent = {
   title: "Puertas de Aluminio | VIPAR S.A.",
   description:
     "Puertas de aluminio y cristal templado en Paraguay. Fabricación e instalación a medida para accesos residenciales, comerciales e institucionales.",
-  canonicalPath: "/servicios/puerta",
+  canonicalPath: "/servicios/puertas",
   keywords:
     "puertas de aluminio paraguay, puertas de cristal templado, puertas corredizas, puertas batientes, accesos a medida",
   whatsappMessage:
@@ -137,8 +137,8 @@ export const doorServiceContent: ServiceTemplateContent = {
   trust: {
     title: "Confianza e industria nacional",
     description:
-      "VIPAR S.A. es una empresa paraguaya comprometida con el desarrollo constructivo del país. Con planta de producción y presencia física en Ñemby, garantizamos respaldo, servicio postventa y cumplimiento en cada proyecto.",
-    locationLabel: "Planta industrial: Ñemby, Paraguay",
+      "VIPAR S.A. es una empresa paraguaya comprometida con el desarrollo constructivo del país. Con presencia operativa en Ã‘emby, trabajamos con relevamiento, fabricaciÃ³n a medida e instalaciÃ³n propia segÃºn el alcance de cada proyecto.",
+    locationLabel: "UbicaciÃ³n operativa: Ã‘emby, Paraguay",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuD5SUTj8uLe8_yoSaL6zwpOvBISR9f56pg4QTpMM22Ub8JaAH8Rrxgp9U827sU_lm7JW9RlRLm1JN2f9D1RPBSsohyC7qdOAW5bIqkVBEDWbArcN7ub3_sTK4NbKGZmJx5CYzqEYraU9f1UMCrtdgsiKJB8ShPaeOBlYtptqtOC6T0Mj07X5Pt1qNu5gbHlBOMTKEfGb2VTqHk6vYYCF1Jl14wM6s9jNiquK9Lwj19QCWxsY9MzJcgHeGZPIveNOgAa57_9Xr9",
   },
@@ -146,12 +146,12 @@ export const doorServiceContent: ServiceTemplateContent = {
     {
       question: "¿Fabrican puertas a medida o trabajan con medidas estándar?",
       answer:
-        "Fabricamos todas nuestras puertas a medida según el vano real relevado en obra. No trabajamos con medidas cerradas, lo que garantiza ajuste perfecto y sellado óptimo en cada instalación.",
+        "Fabricamos todas nuestras puertas a medida según el vano real relevado en obra. No trabajamos con medidas cerradas, lo que permite ajustar cada puerta al vano real relevado en obra.",
     },
     {
       question: "¿El presupuesto incluye instalación?",
       answer:
-        "Sí. Nuestros presupuestos detallan por separado el costo de fabricación y el de instalación, ejecutada por nuestro equipo técnico especializado con garantía de obra.",
+        "Sí. Nuestros presupuestos detallan por separado el costo de fabricación y el de instalación, ejecutada por nuestro equipo técnico especializado segun el alcance del proyecto y la ubicacion de la obra.",
     },
     {
       question: "¿Qué tipo de cristal usan en las puertas?",
@@ -161,7 +161,14 @@ export const doorServiceContent: ServiceTemplateContent = {
     {
       question: "¿Cuánto tarda la fabricación e instalación?",
       answer:
-        "Para proyectos residenciales estándar, el plazo habitual es de 15 a 20 días hábiles desde la confirmación de medidas. Proyectos de mayor escala se coordinan según cronograma de obra.",
+        "El plazo depende del sistema elegido, del volumen de trabajo y de la agenda de produccion e instalacion vigente al momento de confirmar medidas.",
     },
   ],
 };
+
+
+
+
+
+
+

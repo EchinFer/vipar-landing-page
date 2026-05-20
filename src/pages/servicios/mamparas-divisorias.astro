@@ -1,342 +1,87 @@
 ---
-// Mamparas Divisorias - static page based on Stitch design (Architectural Impact)
+import MamparaComparisonSection from "@components/servicio-mampara/MamparaComparisonSection.astro";
+import MamparaEditorialSection from "@components/servicio-mampara/MamparaEditorialSection.astro";
+import MamparaFactorsSection from "@components/servicio-mampara/MamparaFactorsSection.astro";
+import MamparaHero from "@components/servicio-mampara/MamparaHero.astro";
+import MamparaProblemSection from "@components/servicio-mampara/MamparaProblemSection.astro";
+import MamparaProcessSection from "@components/servicio-mampara/MamparaProcessSection.astro";
+import MamparaSectorsSection from "@components/servicio-mampara/MamparaSectorsSection.astro";
+import MamparaSymptomsSection from "@components/servicio-mampara/MamparaSymptomsSection.astro";
+import MamparaTrustSection from "@components/servicio-mampara/MamparaTrustSection.astro";
+import MamparaTypesSection from "@components/servicio-mampara/MamparaTypesSection.astro";
+import FaqAccordion from "@components/ui/FaqAccordion.astro";
+import Container from "@components/ui/Container.astro";
+import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
+import QuoteCTA from "@components/ui/QuoteCTA.astro";
+import Layout from "@layouts/Layout.astro";
+import { getRelatedStaticObras } from "@lib/static-obras";
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
+import {
+  mamparaComparisonRows,
+  mamparaEditorialTags,
+  mamparaFaqs,
+  mamparaFactors,
+  mamparaHeroImage,
+  mamparaHeroTags,
+  mamparaProblemCases,
+  mamparaProcessSteps,
+  mamparaSectorItems,
+  mamparaSymptoms,
+  mamparaTrustStats,
+  mamparaTypeCards,
+} from "@lib/static-servicio-mampara-divisoria";
+import "../../styles/servicio-mampara-divisoria.css";
+import { SITE_URL, whatsappNumber } from "src/constants";
+
+const serviceName = "Mamparas divisorias";
 const title = "Mamparas Divisorias | VIPAR S.A.";
-const description = "Mamparas divisorias en Paraguay: cristal templado, tabiquería Durlock y sistemas Eucatex. Instalación profesional para oficinas y espacios corporativos.";
-const canonical = "https://vipar.com.py/servicios/mamparas-divisorias";
+const description =
+  "Mamparas divisorias en Paraguay: cristal templado, eucatex y durlock para oficinas, comercios y obras. Instalacion profesional a medida.";
+const canonical = `${SITE_URL}/servicios/mamparas-divisorias`;
+const keywords =
+  "mamparas divisorias paraguay, mamparas para oficinas, mamparas de cristal templado, tabiques de durlock, divisores de ambientes";
+const whatsappLink = buildWhatsappUrl(
+  buildWhatsappMessage({
+    serviceName,
+    pageLabel: serviceName,
+    prompt: "Puedo enviar fotos, medidas o plano del espacio.",
+  })
+);
+const relatedObras = getRelatedStaticObras("mampara-divisoria");
 ---
-<!DOCTYPE html>
-<html class="light" lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={canonical} />
 
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonical} />
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  keywords={keywords}
+  hideWhatsappFAB={true}
+  bodyClass="mampara-service-body"
+  pageType="service"
+  serviceName={serviceName}
+>
+  <main class="mampara-service-page">
+    <MamparaHero image={mamparaHeroImage} tags={mamparaHeroTags} />
+    <MamparaProblemSection cases={mamparaProblemCases} />
+    <MamparaFactorsSection items={mamparaFactors} />
+    <MamparaTypesSection items={mamparaTypeCards} />
+    <MamparaComparisonSection rows={mamparaComparisonRows} />
+    <MamparaSectorsSection items={mamparaSectorItems} />
+    <MamparaSymptomsSection items={mamparaSymptoms} />
+    <MamparaProcessSection steps={mamparaProcessSteps} />
+    <MamparaTrustSection stats={mamparaTrustStats} />
+    <MamparaEditorialSection tags={mamparaEditorialTags} />
+    <FaqAccordion items={mamparaFaqs} />
+    <RelatedWorksGallery obras={relatedObras} />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <script is:inline src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script is:inline id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "surface-dim": "#dadada",
-            "surface-tint": "#465f88",
-            "on-primary-fixed": "#001b3d",
-            "surface-container-low": "#f3f3f3",
-            "tertiary-fixed-dim": "#f1bd81",
-            "secondary-container": "#e2e2e6",
-            "primary-fixed-dim": "#aec7f7",
-            "on-secondary-fixed-variant": "#45474a",
-            "surface": "#f9f9f9",
-            "on-tertiary-fixed-variant": "#623f0f",
-            "on-tertiary-container": "#c6965e",
-            "secondary": "#5d5e62",
-            "tertiary-fixed": "#ffddb9",
-            "surface-container-lowest": "#ffffff",
-            "primary": "#002046",
-            "background": "#f9f9f9",
-            "on-secondary-fixed": "#191c1e",
-            "error": "#ba1a1a",
-            "on-primary-fixed-variant": "#2e476f",
-            "on-primary-container": "#87a0cd",
-            "surface-bright": "#f9f9f9",
-            "secondary-fixed-dim": "#c5c6ca",
-            "outline-variant": "#c4c6cf",
-            "on-surface-variant": "#44474e",
-            "error-container": "#ffdad6",
-            "outline": "#74777f",
-            "on-error-container": "#93000a",
-            "surface-container-highest": "#e2e2e2",
-            "tertiary": "#321c00",
-            "surface-variant": "#e2e2e2",
-            "on-error": "#ffffff",
-            "on-tertiary": "#ffffff",
-            "on-primary": "#ffffff",
-            "primary-container": "#1b365d",
-            "on-tertiary-fixed": "#2b1700",
-            "on-secondary-container": "#636468",
-            "secondary-fixed": "#e2e2e6",
-            "primary-fixed": "#d6e3ff",
-            "tertiary-container": "#4f2f00",
-            "surface-container": "#eeeeee",
-            "on-background": "#1a1c1c",
-            "surface-container-high": "#e8e8e8",
-            "inverse-primary": "#aec7f7",
-            "on-secondary": "#ffffff",
-            "inverse-surface": "#2f3131",
-            "inverse-on-surface": "#f1f1f1",
-            "on-surface": "#1a1c1c"
-          },
-          borderRadius: {
-            "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
-          },
-          fontFamily: {
-            "headline": ["Manrope"],
-            "body": ["Inter"],
-            "label": ["Inter"]
-          }
-        }
-      }
-    }
-  </script>
-  <style is:inline>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    .bg-machined {
-      background: linear-gradient(45deg, #002046 0%, #1B365D 100%);
-    }
-    .editorial-shadow {
-      box-shadow: 0 32px 64px -12px rgba(26, 28, 28, 0.04);
-    }
-  </style>
-</head>
-<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
-
-<!-- Top Navigation -->
-<nav class="fixed top-0 w-full z-50 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md border-b border-slate-200/20 shadow-sm transition-all duration-300 ease-in-out">
-  <div class="flex justify-between items-center px-12 h-20 max-w-[1920px] mx-auto">
-    <a href="/" aria-label="VIPAR S.A. — Inicio">
-      <img src="/img/logo.png" alt="VIPAR S.A." class="hidden md:block h-9 w-auto" />
-      <img src="/img/logo-simple.png" alt="VIPAR S.A." class="block md:hidden h-9 w-9" />
-    </a>
-    <div class="hidden md:flex items-center space-x-10">
-      <a class="text-[#002046] border-b-2 border-[#1B365D] pb-1 font-bold font-headline tracking-tight" href="/servicios/">Servicios</a>
-      <a class="text-slate-500 font-medium hover:text-[#1B365D] transition-all duration-300 ease-in-out font-headline tracking-tight" href="/obras/">Proyectos</a>
-      <a class="text-slate-500 font-medium hover:text-[#1B365D] transition-all duration-300 ease-in-out font-headline tracking-tight" href="/nosotros/">Empresa</a>
-      <a class="text-slate-500 font-medium hover:text-[#1B365D] transition-all duration-300 ease-in-out font-headline tracking-tight" href="/contacto/">Contacto</a>
-    </div>
-    <a href="/contacto/" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold font-headline tracking-tight hover:opacity-80 transition-all active:scale-95 duration-150">
-      Cotizar Proyecto
-    </a>
-  </div>
-</nav>
-
-<main class="pt-20">
-  <!-- Hero Section: Editorial Focus -->
-  <section class="relative h-[921px] flex items-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img class="w-full h-full object-cover" alt="Lobby corporativo minimalista con mamparas de cristal templado" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWL1SdapClxacZbU-BDsOxCm6FeDmKTi4AzWqCwGR5aVqNtlszxC7VxVKys4XN994M17_TqoXF0hMQsX890kJgA7wRPTKU-qdJccKZL2_1eTrPYok8nppN9PfZh6KlD2RmO_4Ff9gVgB2O1llszJiqBKhExzcP9OHfkcwKlgqwV7EAbdYYkWQ7hbLeIUPq-lemrX7JD-4ph5U9lWZ9K0n6Mng4uGgMc1nt9U29bY-LXY8dRfCt9S1TQYRO_oOyCG1vSY2h7IboOrAK" />
-      <div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
-    </div>
-    <div class="container mx-auto px-12 relative z-10 grid grid-cols-12 gap-8">
-      <div class="col-span-12 lg:col-span-7">
-        <span class="label-md font-medium tracking-[0.2em] uppercase text-primary mb-6 block">Arquitectura Corporativa</span>
-        <h1 class="text-display-lg text-[4.5rem] leading-[1.1] font-headline font-extrabold text-primary mb-8 tracking-tighter">
-          Mamparas Divisorias: <br /> El Arte de Separar sin Aislar.
-        </h1>
-        <p class="text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed font-light">
-          Diseñamos atmósferas que respiran. Nuestras soluciones de tabiquería técnica combinan la precisión del cristal templado con la calidez de acabados premium para crear entornos de alto rendimiento.
-        </p>
-        <div class="flex items-center space-x-6">
-          <a href="/contacto/" class="bg-machined text-on-primary px-8 py-4 rounded-xl font-bold font-headline shadow-lg hover:translate-y-[-2px] transition-all">
-            Solicitar Presupuesto
-          </a>
-          <a href="/obras/" class="text-primary font-bold border-b-2 border-primary/20 hover:border-primary transition-all pb-1 font-headline">
-            Ver Casos de Éxito
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Data Monoliths -->
-  <section class="py-24 bg-surface">
-    <div class="container mx-auto px-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="bg-surface-container-lowest p-10 border-l-4 border-primary editorial-shadow">
-          <span class="text-5xl font-headline font-extrabold text-primary block mb-2">99.8%</span>
-          <p class="label-md text-on-surface-variant uppercase tracking-widest font-semibold">Precisión de Corte</p>
-          <p class="mt-4 text-secondary leading-relaxed">Garantizamos ajustes milimétricos en cada panel instalado.</p>
-        </div>
-        <div class="bg-surface-container-lowest p-10 border-l-4 border-primary editorial-shadow">
-          <span class="text-5xl font-headline font-extrabold text-primary block mb-2">45dB</span>
-          <p class="label-md text-on-surface-variant uppercase tracking-widest font-semibold">Aislamiento Acústico</p>
-          <p class="mt-4 text-secondary leading-relaxed">Privacidad sonora total sin sacrificar la transparencia visual.</p>
-        </div>
-        <div class="bg-surface-container-lowest p-10 border-l-4 border-primary editorial-shadow">
-          <span class="text-5xl font-headline font-extrabold text-primary block mb-2">ISO 9001</span>
-          <p class="label-md text-on-surface-variant uppercase tracking-widest font-semibold">Certificación Global</p>
-          <p class="mt-4 text-secondary leading-relaxed">Cumplimos con los estándares internacionales de seguridad y diseño.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sistemas de Partición -->
-  <section class="py-32 bg-surface-container-low">
-    <div class="container mx-auto px-12">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-        <div class="max-w-2xl">
-          <h2 class="text-5xl font-headline font-extrabold text-primary mb-6 tracking-tight">Sistemas de Partición de Vanguardia</h2>
-          <p class="text-lg text-on-surface-variant">Soluciones integrales que transforman metros cuadrados en espacios funcionales de alta gama.</p>
-        </div>
-        <a href="/contacto/" class="bg-primary/5 px-8 py-4 rounded-xl border border-primary/10 hover:bg-primary/10 transition-colors">
-          <span class="text-primary font-bold font-headline">Descargar Catálogo Técnico 2024</span>
-        </a>
-      </div>
-      <!-- Bento Grid -->
-      <div class="grid grid-cols-12 gap-8">
-        <div class="col-span-12 lg:col-span-8 group relative overflow-hidden rounded-xl h-[500px]">
-          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Oficina corporativa con mamparas de cristal templado" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8lXa2MDZCNqr9ZeM9GWc26btEblatw0sv7MfspjBl2xy4pLGRYIWTQRD7crjfBsLOrRkkccn1CSgrmfqq8iRUthQjliI04aHterkSZ0A6AMsECjO0KfZHHazHMUGAkZXNdJmhqYJV_Y-ldm8jnqoAu6cVofWDkNfuBuGvt_lA4VbeV5CuEM5i_zLHF7kGbCzGL-Q51PKe59wK4w-ISiJoudWon73hRgNrT5LYLL3fpgmNLfQz6GlIZBQiX1noIury4uYBhZe8_GVn" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-          <div class="absolute bottom-10 left-10 text-white">
-            <h3 class="text-3xl font-headline font-bold mb-2">Cristal Templado</h3>
-            <p class="text-white/80 max-w-md">Máxima transparencia y seguridad con sistemas de herrajes ocultos.</p>
-          </div>
-        </div>
-        <div class="col-span-12 lg:col-span-4 group relative overflow-hidden rounded-xl h-[500px]">
-          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Tabiquería Durlock con iluminación LED integrada" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEnGKSYyIEYqBOEqxIHihl_BfTfeG01HwRbfdSlOlrZG6tkyZCykrnom449ElEBgCDaLTkpPsv2t2ZXTaiFeTKupEW7785UeLbU2lVJfaoh1gJEsAzqHceXY7AWohCpKl_SYM5e--GbGOYsZwZLTw_o9xEKH9n_Q_hek53oJQol81o7ER1YgDbnaG8WCrOqhI5uRltyPHa2kSXml7UINOxaE_eI2ZbnuCuotw2lWY-TrObrfTvu-vB_bl_AZzf3e6Pr64WYgxUbhkj" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-          <div class="absolute bottom-10 left-10 text-white">
-            <h3 class="text-3xl font-headline font-bold mb-2">Tabiquería Durlock</h3>
-            <p class="text-white/80">Estructuras sólidas con acabados de terminación perfecta.</p>
-          </div>
-        </div>
-        <div class="col-span-12 lg:col-span-6 group relative overflow-hidden rounded-xl h-[400px]">
-          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Sala de reuniones con paneles acústicos Eucatex" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjeUt8adHtF_fopwl34gbDZLmJuWKG3aeIlvBxPoySjhmgxOZhgPoCrBzEmYPjkdHWlHVgDMd4fC0wU_7EXe3XDaFVj5nii_PtHaDdFsfdZ_o0xiXPd3qR06MaYMo8YAig2af1ppeVz8NNMZhdfCKm8hN3wZhoi-XKFh-Ql3dgU4oiFm43cxfcgM44l3E7ASUsAGagk9a4QuALNcnWz3N6wAH-SGfyYqshgD7gyMwoL897CS5Z3PVbN3WFdAnZKHGYmlms6g31gq7-" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-          <div class="absolute bottom-10 left-10 text-white">
-            <h3 class="text-2xl font-headline font-bold mb-2">Sistemas Eucatex</h3>
-            <p class="text-white/80">Versatilidad y rapidez de montaje para entornos dinámicos.</p>
-          </div>
-        </div>
-        <div class="col-span-12 lg:col-span-6 bg-primary-container p-12 rounded-xl flex flex-col justify-center text-white">
-          <span class="material-symbols-outlined text-5xl mb-6">description</span>
-          <h3 class="text-3xl font-headline font-bold mb-4">Guía de Selección Técnica</h3>
-          <p class="text-on-primary-container mb-8 leading-relaxed">Acceda a nuestra herramienta interactiva para determinar la solución ideal basada en sus requerimientos de luz, acústica y presupuesto.</p>
-          <a href="/contacto/" class="bg-white text-primary px-8 py-4 rounded-xl font-bold font-headline w-fit hover:bg-slate-100 transition-colors">
-            Iniciar Consultoría
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proyectos Recientes -->
-  <section class="py-32 bg-background overflow-hidden">
-    <div class="container mx-auto px-12">
-      <div class="mb-24">
-        <h2 class="text-5xl font-headline font-extrabold text-primary mb-4 tracking-tight">Proyectos Recientes</h2>
-        <div class="w-24 h-1 bg-primary"></div>
-      </div>
-      <div class="space-y-32">
-        <div class="grid grid-cols-12 gap-12 items-center">
-          <div class="col-span-12 lg:col-span-8">
-            <img class="w-full aspect-[16/9] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Sede corporativa con mamparas de cristal curvas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXb6MmdMnLpKzL5HkKi9fJ7zHRJ7sM5j7MPqphiKugPhdGuj2TFzcspHMt2h0LUYSC3RcLyHCW1E8GWRXsTqS_ikoLYcZUwv2Ud5vasVG1gINeA5HaHZJvJeyiCgSVPW_9WaotCvwR87ak_F3MmoWLohwKBXm17Nevze6_dPRCokL_VGIuGH-djHoNBOwEJhm4Xutul_aOkkYHu3rGzRkF4W36WUXhH91nD7idDQIUF2qiIX1UIi0hcRffQrYRLxOLTrlDBU2dshCQ" />
-          </div>
-          <div class="col-span-12 lg:col-span-4 lg:-ml-24 z-10">
-            <div class="bg-white p-12 editorial-shadow border-t-8 border-primary">
-              <span class="text-sm font-label tracking-widest text-secondary block mb-4 uppercase">Sector Financiero</span>
-              <h4 class="text-3xl font-headline font-extrabold text-primary mb-6">Sede Corporativa Banco Global</h4>
-              <p class="text-on-surface-variant leading-relaxed mb-8">
-                Instalación de 450m² de mamparas de cristal con control de privacidad electrocrómico y perfilería de aluminio anonizado negro.
-              </p>
-              <a class="text-primary font-bold flex items-center gap-2 group" href="/obras/">
-                Ver Galería Completa
-                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="grid grid-cols-12 gap-12 items-center">
-          <div class="col-span-12 lg:col-span-4 lg:-mr-24 z-10 order-2 lg:order-1">
-            <div class="bg-white p-12 editorial-shadow border-t-8 border-primary">
-              <span class="text-sm font-label tracking-widest text-secondary block mb-4 uppercase">Tech &amp; Innovation</span>
-              <h4 class="text-3xl font-headline font-extrabold text-primary mb-6">Hub de Innovación Nexo</h4>
-              <p class="text-on-surface-variant leading-relaxed mb-8">
-                División de espacios colaborativos utilizando una combinación de tabiquería Durlock acústica y paneles de cristal doble vidriado.
-              </p>
-              <a class="text-primary font-bold flex items-center gap-2 group" href="/obras/">
-                Ver Galería Completa
-                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-          <div class="col-span-12 lg:col-span-8 order-1 lg:order-2">
-            <img class="w-full aspect-[16/9] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700" alt="Oficina tech con mamparas de vidrio y puestos colaborativos" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfki0fPGWRQsldFgg7_hk6_dqeAtKWm-MunkofUINLQK0dgYYSm52JgwMPntmxm18WMn1G8V5gXeCb4Be7D3QnLLQCacUmVAm3cs-peAumtrq6appEVNC9LJ8GUmehd19ETRzA5PioqI2VPB4zZ6GepIIkw1Iqq9eFg2LxzfHtVQp_5fYMsr2m2DKM9xoshjL5yIhnHuatE3T0Btik_LSuP5EMkU_5bJamazY4bwFK374YgiltrtDiegJmkB1qtds5IhuZ6mihecj7" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="bg-machined py-32 text-center text-white">
-    <div class="container mx-auto px-12 max-w-4xl">
-      <h2 class="text-5xl font-headline font-extrabold mb-8">¿Listo para redefinir su espacio de trabajo?</h2>
-      <p class="text-xl text-on-primary-container mb-12 font-light">Nuestros especialistas técnicos están listos para asesorarlo en la viabilidad y diseño de su próximo proyecto arquitectónico.</p>
-      <div class="flex flex-col md:flex-row justify-center gap-6">
-        <a href="/contacto/" class="bg-white text-primary px-12 py-5 rounded-xl font-bold font-headline text-lg hover:bg-slate-100 transition-colors">
-          Solicitar Presupuesto
-        </a>
-        <a href="https://wa.me/595971000000" class="border-2 border-white/30 text-white px-12 py-5 rounded-xl font-bold font-headline text-lg hover:bg-white/10 transition-colors">
-          Consultar via WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- Footer -->
-<footer class="bg-[#f3f3f3] dark:bg-slate-950 w-full py-16 px-12 border-t border-slate-200 dark:border-slate-800">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1440px] mx-auto">
-    <div class="col-span-1 md:col-span-1">
-      <a href="/" aria-label="VIPAR S.A. — Inicio">
-        <img src="/img/logo.png" alt="VIPAR S.A." class="h-8 w-auto" />
-      </a>
-      <p class="mt-6 text-sm text-slate-500 font-light leading-relaxed">
-        Líderes en soluciones de arquitectura corporativa y sistemas de partición técnica en Paraguay.
-      </p>
-    </div>
-    <div>
-      <h5 class="font-headline font-bold text-primary mb-6 text-xs uppercase tracking-widest">Servicios</h5>
-      <ul class="space-y-4">
-        <li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="/servicios/mamparas-divisorias">Mamparas</a></li>
-        <li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="/servicios/cielo-raso">Cielo Raso</a></li>
-        <li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="/servicios/carpinteria-de-aluminio">Carpintería</a></li>
-        <li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="/servicios/ventanas">Ventanas</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5 class="font-headline font-bold text-primary mb-6 text-xs uppercase tracking-widest">Empresa</h5>
-      <ul class="space-y-4">
-        <li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="/nosotros/">Nosotros</a></li>
-        <li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="/obras/">Proyectos</a></li>
-        <li><a class="text-slate-500 hover:text-[#002046] transition-opacity text-xs font-light uppercase tracking-widest" href="/contacto/">Contacto</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5 class="font-headline font-bold text-primary mb-6 text-xs uppercase tracking-widest">Oficinas</h5>
-      <p class="text-xs text-slate-500 font-light tracking-widest leading-loose">
-        Planta Industrial, Ñemby<br />
-        Paraguay<br />
-        E: info@vipar.com.py
-      </p>
-    </div>
-  </div>
-  <div class="max-w-[1440px] mx-auto mt-16 pt-8 border-t border-slate-200/50">
-    <p class="text-[#002046] dark:text-white font-['Inter'] text-xs font-light uppercase tracking-widest">
-      © 2025 VIPAR S.A. Todos los derechos reservados.
-    </p>
-  </div>
-</footer>
-
-</body>
-</html>
+    <section class="mampara-service-section mampara-service-final">
+      <Container>
+        <QuoteCTA
+          whatsappNumber={whatsappNumber}
+          whatsappHref={whatsappLink}
+          serviceName={serviceName}
+        />
+      </Container>
+    </section>
+  </main>
+</Layout>

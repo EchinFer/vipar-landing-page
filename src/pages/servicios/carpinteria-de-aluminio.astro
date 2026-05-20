@@ -7,6 +7,7 @@ import QuoteCTA from "@components/ui/QuoteCTA.astro";
 import Container from "@components/ui/Container.astro";
 import Layout from "@layouts/Layout.astro";
 import { getRelatedStaticObras } from "@lib/static-obras";
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
 import {
   aluminumChallengeItems,
   aluminumHeroImage,
@@ -14,15 +15,18 @@ import {
   aluminumSystems,
 } from "@lib/static-servicio-carpinteria-de-aluminio";
 import "../../styles/servicio-carpinteria-de-aluminio.css";
-import { SITE_URL, telephone } from "src/constants";
+import { SITE_URL, whatsappNumber } from "src/constants";
 
-const title = "Carpintería de Aluminio | VIPAR S.A.";
+const serviceName = "Carpinteria de aluminio";
+const title = "Carpinteria de Aluminio | VIPAR S.A.";
 const description =
-  "Carpintería de aluminio en Paraguay: puertas batientes y corredizas a medida para viviendas, comercios y obras. Fabricación e instalación profesional.";
+  "Carpinteria de aluminio en Paraguay: puertas batientes y corredizas a medida para viviendas, comercios y obras. Fabricacion e instalacion profesional.";
 const canonical = `${SITE_URL}/servicios/carpinteria-de-aluminio`;
 const keywords =
-  "carpintería de aluminio paraguay, puertas de aluminio, puertas corredizas de aluminio, puertas batientes, aberturas de aluminio";
-const whatsappNumber = telephone.replace(/[^\d]/g, "");
+  "carpinteria de aluminio paraguay, puertas de aluminio, puertas corredizas de aluminio, puertas batientes, aberturas de aluminio";
+const whatsappLink = buildWhatsappUrl(
+  buildWhatsappMessage({ serviceName, pageLabel: serviceName, prompt: "Puedo enviar fotos, medidas o plano." })
+);
 const relatedObras = getRelatedStaticObras("carpinteria-de-aluminio");
 ---
 
@@ -33,6 +37,8 @@ const relatedObras = getRelatedStaticObras("carpinteria-de-aluminio");
   canonical={canonical}
   hideWhatsappFAB={true}
   bodyClass="aluminum-service-body"
+  pageType="service"
+  serviceName={serviceName}
 >
   <main class="aluminum-service-page">
     <AluminumHero image={aluminumHeroImage} specs={aluminumHeroSpecs} />
@@ -42,7 +48,11 @@ const relatedObras = getRelatedStaticObras("carpinteria-de-aluminio");
 
     <section class="aluminum-service-section aluminum-service-final">
       <Container>
-        <QuoteCTA whatsappNumber={whatsappNumber} />
+        <QuoteCTA
+          whatsappNumber={whatsappNumber}
+          whatsappHref={whatsappLink}
+          serviceName={serviceName}
+        />
       </Container>
     </section>
   </main>

@@ -1,12 +1,13 @@
 ---
-import { SOCIAL_LINKS, telephone } from "src/constants";
+import { SOCIAL_LINKS } from "src/constants";
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
 import InstagramIcon from "./icons/InstagramIcon.astro";
 import TiktokIcon from "./icons/TiktokIcon.astro";
 import WhatsappIcon from "./icons/WhatsappIcon.astro";
 
-const whatsappNumber = telephone.replace(/[^\d]/g, "");
-const messagePreview =
-  "¡Hola! Estoy interesado en conocer más sobre sus servicios. Me comunico desde su página web y agradecería su atención.";
+const whatsappHref = buildWhatsappUrl(
+  buildWhatsappMessage({ pageLabel: "sitio web", prompt: "Quiero recibir mas informacion." })
+);
 ---
 
 <style>
@@ -71,12 +72,14 @@ const messagePreview =
 
 <div class="fab-stack" aria-label="Accesos directos">
   <a
-    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messagePreview)}`}
+    href={whatsappHref}
     target="_blank"
     class="btn btn-success text-white rounded-circle shadow fab-btn"
-    id="whatsapp-fab"
     aria-label="WhatsApp VIPAR"
     rel="noopener"
+    data-track-event="whatsapp_fab_click"
+    data-cta-location="floating_fab"
+    data-whatsapp-message-type="floating_fab"
   >
     <WhatsappIcon />
   </a>
@@ -87,7 +90,6 @@ const messagePreview =
         href={SOCIAL_LINKS.instagram}
         target="_blank"
         class="btn rounded-circle shadow fab-btn fab-btn--instagram"
-        id="instagram-fab"
         aria-label="Instagram VIPAR"
         rel="noopener"
       >
@@ -102,7 +104,6 @@ const messagePreview =
         href={SOCIAL_LINKS.tiktok}
         target="_blank"
         class="btn rounded-circle fab-btn fab-btn--label fab-btn--tiktok"
-        id="tiktok-fab"
         aria-label="TikTok VIPAR"
         rel="noopener"
       >
@@ -111,33 +112,3 @@ const messagePreview =
     )
   }
 </div>
-
-<script>
-  function trackFabClick(eventName: any, label: any) {
-    // @ts-ignore
-    if (typeof window !== "undefined" && window.gtag) {
-      // @ts-ignore
-      window.gtag("event", eventName, {
-        event_category: "engagement",
-        event_label: label,
-        value: 1,
-      });
-    }
-  }
-
-  document
-    .getElementById("whatsapp-fab")
-    ?.addEventListener("click", function () {
-      trackFabClick("whatsapp_click", "WhatsApp FAB");
-    });
-
-  document
-    .getElementById("instagram-fab")
-    ?.addEventListener("click", function () {
-      trackFabClick("instagram_click", "Instagram FAB");
-    });
-
-  document.getElementById("tiktok-fab")?.addEventListener("click", function () {
-    trackFabClick("tiktok_click", "TikTok FAB");
-  });
-</script>

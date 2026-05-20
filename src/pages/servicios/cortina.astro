@@ -1,25 +1,5 @@
 ---
-import ServiceLandingTemplate from "@components/servicio-template/ServiceLandingTemplate.astro";
-import Layout from "@layouts/Layout.astro";
-import { curtainServiceContent } from "@lib/static-servicio-cortina";
-import { SITE_URL, telephone } from "src/constants";
-
-const whatsappNumber = telephone.replace(/[^\d]/g, "");
-const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(curtainServiceContent.whatsappMessage)}`;
-const canonical = `${SITE_URL}${curtainServiceContent.canonicalPath}`;
+import LegacyRedirect from "@layouts/LegacyRedirect.astro";
 ---
 
-<Layout
-  title={curtainServiceContent.title}
-  description={curtainServiceContent.description}
-  canonical={canonical}
-  keywords={curtainServiceContent.keywords}
-  hideWhatsappFAB={true}
-  bodyClass="service-template-body"
->
-  <ServiceLandingTemplate
-    content={curtainServiceContent}
-    whatsappNumber={whatsappNumber}
-    whatsappLink={whatsappLink}
-  />
-</Layout>
+<LegacyRedirect to="/servicios/cortinas/" title="Redirigiendo a Cortinas" />

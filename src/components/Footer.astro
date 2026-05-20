@@ -8,17 +8,21 @@ import {
   address,
   email,
   telephone,
+  whatsappNumber,
 } from "src/constants";
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
 
 const currentYear = new Date().getFullYear();
 const serviceLinks = [
   { label: "Cristales Templados", href: "/servicios/" },
   { label: "Carpinteria de Aluminio", href: "/servicios/carpinteria-de-aluminio/" },
   { label: "Fachadas", href: "/servicios/fachadas/" },
-  { label: "Mamparas y Divisiones", href: "/servicios/mampara-divisoria/" },
+  { label: "Mamparas y Divisiones", href: "/servicios/mamparas-divisorias/" },
   { label: "Cielos Rasos", href: "/servicios/cielo-raso/" },
 ];
-const whatsappNumber = telephone.replace(/[^\d]/g, "");
+const footerWhatsappHref = buildWhatsappUrl(
+  buildWhatsappMessage({ pageLabel: "footer", prompt: "Quiero recibir orientacion comercial." })
+);
 ---
 
 <footer class="vipar-site-footer">
@@ -86,13 +90,16 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
       </p>
 
       <Button
-        href={`https://wa.me/${whatsappNumber}`}
+        href={footerWhatsappHref}
         target="_blank"
         rel="noopener noreferrer"
         variant="contained"
         tone="secondary"
         size="md"
         class="vipar-site-footer__cta"
+        data-track-event="whatsapp_click"
+        data-cta-location="footer"
+        data-whatsapp-message-type="footer"
       >
         Solicitar Presupuesto
       </Button>

@@ -11,7 +11,14 @@ import "@assets/vendor/bootstrap-icons/bootstrap-icons.css";
 import ClientProvider from "./ClientProvider.astro";
 import Footer from "@components/Footer.astro";
 import WhatsappFAB from "@components/WhatsappFAB.astro";
-import { MEASUREMENT_ID, SITE_URL } from "src/constants";
+import {
+  MEASUREMENT_ID,
+  SITE_URL,
+  SOCIAL_LINKS,
+  companyAddress,
+  email,
+  telephone,
+} from "src/constants";
 interface Props {
   title: string;
   description?: string;
@@ -19,6 +26,8 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   bodyClass?: string;
+  pageType?: string;
+  serviceName?: string;
   hideHeader?: boolean;
   hideFooter?: boolean;
   hideWhatsappFAB?: boolean;
@@ -26,9 +35,10 @@ interface Props {
 }
 
 const defaultDescription =
-  "Empresa paraguaya con dos generaciones de experiencia en cristales templados para construcción, desarrollos inmobiliarios, comercios y hogares.";
+  "Empresa paraguaya especializada en cristales templados, carpinteria de aluminio y soluciones para obras comerciales, corporativas y residenciales.";
 
-const defaultKeywords = "cristales templados, vidrios templados Paraguay, carpintería de aluminio, box de baño, fachadas vidrio, mamparas divisorias, ventanas aluminio, construcción Paraguay";
+const defaultKeywords =
+  "cristales templados, vidrios templados Paraguay, carpinteria de aluminio, box de bano, fachadas de vidrio, mamparas divisorias, ventanas de aluminio, construccion Paraguay";
 
 const { 
   title, 
@@ -37,6 +47,8 @@ const {
   canonical = SITE_URL,
   ogImage = `${SITE_URL}/img/vipar-og.webp`,
   bodyClass = "",
+  pageType = "generic",
+  serviceName,
   hideHeader = false,
   hideFooter = false,
   hideWhatsappFAB = false,
@@ -84,7 +96,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   </head>
-  <body class={bodyClass}>
+  <body class={bodyClass} data-page-type={pageType} data-service-name={serviceName}>
     {!hideHeader && <Header />}
       {
         MEASUREMENT_ID && MEASUREMENT_ID !== "G-XXXXXXX" && (
@@ -106,6 +118,94 @@ const {
               gtag('js', new Date());
               // basic config; cookies still blocked until consent update
               gtag('config', `${MEASUREMENT_ID}`, { 'anonymize_ip': true });
+            </script>
+            <script is:inline>
+              (function () {
+                function getReferrerHost() {
+                  try {
+                    return document.referrer ? new URL(document.referrer).hostname : "";
+                  } catch (error) {
+                    return "";
+                  }
+                }
+
+                function inferMedium(referrerHost, utmMedium) {
+                  if (utmMedium) return utmMedium;
+                  if (!referrerHost) return "direct";
+                  if (/google\./i.test(referrerHost)) return "organic";
+                  return "referral";
+                }
+
+                function buildLeadContext(extra) {
+                  var params = new URLSearchParams(window.location.search);
+                  var referrerHost = getReferrerHost();
+                  return Object.assign(
+                    {
+                      page_path: window.location.pathname,
+                      page_title: document.title,
+                      page_type: document.body?.dataset.pageType || undefined,
+                      service_name: document.body?.dataset.serviceName || undefined,
+                      lead_source: params.get("utm_source") || referrerHost || "direct",
+                      lead_medium: inferMedium(referrerHost, params.get("utm_medium")),
+                      campaign: params.get("utm_campaign") || undefined,
+                      device_type: window.innerWidth < 768 ? "mobile" : "desktop",
+                    },
+                    extra || {}
+                  );
+                }
+
+                window.viparLeadContext = function (extra) {
+                  return buildLeadContext(extra);
+                };
+
+                window.viparTrack = function (eventName, extra) {
+                  if (typeof window.gtag !== "function") return;
+
+                  var payload = buildLeadContext(extra);
+
+                  Object.keys(payload).forEach(function (key) {
+                    if (payload[key] === undefined || payload[key] === null || payload[key] === "") {
+                      delete payload[key];
+                    }
+                  });
+
+                  window.gtag("event", eventName, payload);
+                };
+
+                document.addEventListener("click", function (event) {
+                  var target = event.target;
+                  if (!(target instanceof Element)) return;
+
+                  var anchor = target.closest("a");
+                  if (!(anchor instanceof HTMLAnchorElement)) return;
+
+                  var href = anchor.getAttribute("href") || "";
+                  var eventName = "";
+
+                  if (href.startsWith("tel:")) eventName = "phone_click";
+                  if (href.startsWith("mailto:")) eventName = "email_click";
+                  if (href.includes("wa.me/")) {
+                    eventName = anchor.dataset.trackEvent || "whatsapp_click";
+                  }
+
+                  if (!eventName) return;
+
+                  var ctaLocation =
+                    anchor.dataset.ctaLocation ||
+                    anchor.closest("[data-cta-location]")?.dataset.ctaLocation ||
+                    "unknown";
+
+                  window.viparTrack(eventName, {
+                    cta_location: ctaLocation,
+                    service_name:
+                      anchor.dataset.serviceName || document.body?.dataset.serviceName || undefined,
+                    whatsapp_message_type: href.includes("wa.me/")
+                      ? anchor.dataset.whatsappMessageType ||
+                        (href.includes("?text=") ? "prefilled" : "generic")
+                      : undefined,
+                  });
+                });
+              })();
             </script>
           </>
         )
@@ -175,20 +275,19 @@ const {
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Vipar",
-        "description": "Vipar S.A. es una empresa paraguaya con la experiencia de dos generaciones dedicadas a la comercialización de cristal e instalación de cristales templados para la industria de la construcción, desarrollos inmobiliarios y viviendas.",
-        "url": "https://vipar.com.py/",
-        "logo": "https://vipar.com.py/img/logo.png",
-        "image": "https://vipar.com.py/img/og.webp",
-        "email": "info@vipar.com.py",
-        "telephone": "+595981256510",
+        "name": "VIPAR S.A.",
+        "description": defaultDescription,
+        "url": SITE_URL,
+        "logo": `${SITE_URL}/img/logo.png`,
+        "image": ogImage,
+        "email": email,
+        "telephone": telephone,
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Pdte. Franco",
-          "addressLocality": "Ñemby",
-          "addressRegion": "Dpto Central",
-          "postalCode": "111212",
-          "addressCountry": "PY"
+          "streetAddress": companyAddress.streetAddress,
+          "addressLocality": companyAddress.addressLocality,
+          "addressRegion": companyAddress.addressRegion,
+          "addressCountry": companyAddress.addressCountry
         },
         "openingHoursSpecification": [
           {
@@ -205,10 +304,7 @@ const {
           }
         ],
         "areaServed": "PY",
-        "sameAs": [
-          "https://www.instagram.com/vipar_py/",
-          "https://www.facebook.com/vipar.vidrios"
-        ],
+        "sameAs": [SOCIAL_LINKS.instagram, SOCIAL_LINKS.facebook],
         "makesOffer": [
           {
             "@type": "Offer",
@@ -459,3 +555,5 @@ const {
   .consent-modal__inner .btn{width:100%}
 }
 </style>
+
+

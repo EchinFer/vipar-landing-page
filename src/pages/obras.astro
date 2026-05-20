@@ -1,4 +1,4 @@
----
+﻿---
 import ObrasConfidence from "@components/obras/ObrasConfidence.astro";
 import ObrasFeatured from "@components/obras/ObrasFeatured.astro";
 import ObrasFilterBar from "@components/obras/ObrasFilterBar.astro";
@@ -13,9 +13,9 @@ import { SITE_URL, telephone } from "src/constants";
 
 const title = "Obras y Proyectos Realizados - Cristales Templados | VIPAR";
 const description =
-  "Portafolio de obras realizadas con cristales templados, carpintería de aluminio, fachadas vidrio y mamparas. Proyectos de construcción en Paraguay con calidad garantizada.";
+  "Portafolio de obras realizadas con cristales templados, carpinterÃ­a de aluminio, fachadas vidrio y mamparas. Proyectos de construcciÃƒÂ³n en Paraguay para viviendas, comercios, oficinas y obras.";
 const keywords =
-  "obras cristales templados, proyectos construcción Paraguay, fachadas vidrio, instalaciones cristal, obras carpintería aluminio, portfolio construcción, proyectos realizados";
+  "obras cristales templados, proyectos construcciÃ³n Paraguay, fachadas vidrio, instalaciones cristal, obras carpinterÃ­a aluminio, portfolio construcciÃ³n, proyectos realizados";
 const canonical = `${SITE_URL}/obras`;
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
 const featuredObra = staticObras[0];
@@ -61,3 +61,6 @@ const featuredTagline = featuredObra ? `${featuredObra.sectorLabel} / ${featured
     applyFilter("all");
   });
 </script>
+
+
+
