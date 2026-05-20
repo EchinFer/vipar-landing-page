@@ -3,7 +3,7 @@ import type { ServiceTemplateContent } from "@lib/service-template";
 export const doorServiceContent: ServiceTemplateContent = {
   title: "Puertas de Aluminio | VIPAR S.A.",
   description:
-    "Puertas de aluminio y cristal templado en Paraguay. Fabricación e instalación a medida para accesos residenciales, comerciales e institucionales.",
+    "Puertas de aluminio y cristal templado en Paraguay. Configuración y presupuesto según medidas y tipo de acceso.",
   canonicalPath: "/servicios/puertas",
   keywords:
     "puertas de aluminio paraguay, puertas de cristal templado, puertas corredizas, puertas batientes, accesos a medida",
@@ -14,7 +14,7 @@ export const doorServiceContent: ServiceTemplateContent = {
     eyebrow: "Puertas en Paraguay",
     title: "Puertas de aluminio y cristal templado en Paraguay",
     description:
-      "Accesos y cerramientos en aluminio estructural y cristal de seguridad fabricados a medida. Soluciones para proyectos residenciales, comerciales e institucionales con instalación profesional.",
+      "Accesos y cerramientos en aluminio y cristal templado configurados según medidas. Soluciones para proyectos residenciales, comerciales e institucionales.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuD-2XOymuc61Lhid1fIDjX1Gcz3dK6EhJH7wtDYoMTkKMC6Pq8tmCmqYoyd44ta6tFX5045eCPaZE1WilmHAft7h600VpJzXBQ02QWJu8UXp9gs1RVcyrNiRBo4lqzYh4GpFIz3pX5MfstV41YNt-b6ytbHzcNlZxD3M-F9RHwanL_b78Wugm4t1V_2qSEuP5iQ1RQcDbItSbEhv53-G4VWGwEWdJc8mgq3RWNfi304A6SoXlVLJJ3qCBCDlHHyvP3pu0CbhNpNKf-j",
     tags: ["Batientes", "Corredizas", "Plegables", "Cristal templado", "A medida"],
@@ -28,7 +28,7 @@ export const doorServiceContent: ServiceTemplateContent = {
       {
         title: "Seguridad insuficiente",
         description:
-          "Accesos con marcos débiles, bisagras deterioradas o cristal común que no ofrece resistencia real.",
+          "Accesos con marcos o bisagras deterioradas que necesitan reemplazo o renovación.",
       },
       {
         title: "Problemas de sellado",
@@ -45,12 +45,12 @@ export const doorServiceContent: ServiceTemplateContent = {
   solutions: {
     title: "Soluciones en puertas",
     description:
-      "Fabricamos e instalamos puertas a medida con perfilería de aluminio estructural y cristal templado de seguridad.",
+      "Trabajamos con puertas a medida en perfilería de aluminio y cristal templado según el sistema, el vano y el tipo de uso.",
     items: [
       {
         title: "Puerta batiente",
         description:
-          "Sistema de apertura frontal en una o dos hojas. Alta resistencia estructural, sellado perimetral y acabado limpio. El sistema más versátil para accesos de cualquier escala.",
+          "Sistema de apertura frontal en una o dos hojas. Sellado perimetral y acabado limpio. Opción versátil para accesos de distintas escalas.",
         idealFor: ["Viviendas", "Oficinas", "Locales con tránsito moderado"],
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuAFrYCkpK_Jtq9rDtp4GQl_tYm9FnppbhqKQBytEULWxtjZCKNw-wSWrVIpUfZ-dbPCpJCFu4sxdMXsBJbU1RjUKNyCtPtLV4xa2cWhk9WtYhm41LIFbIfLO8Flv4qwno1_WZ_B5w9LZgXJM96TU38xeFaaxBhih9q9ZYzE0S-xMYxbqMCukRmtzq8J0tZ5Ei-kPdRQoQa72qXCa-HIKRSlM61X9B1aemyRUtaH_Px7WRQjC5hJ7xhDILLFBmBr_LO6DAAcLhUumuJc",
@@ -66,7 +66,7 @@ export const doorServiceContent: ServiceTemplateContent = {
       {
         title: "Puerta panorámica / plegable",
         description:
-          "Sistema de hojas plegables que permite apertura total del vano, eliminando barreras entre interior y exterior. Máxima integración espacial y lectura arquitectónica limpia.",
+          "Sistema de hojas plegables que permite apertura amplia del vano, buscando continuidad entre interior y exterior en proyectos comerciales y residenciales.",
         idealFor: ["Frentes comerciales", "Quinchos y terrazas", "Showrooms"],
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuC_AZXM1JTcYOaVXmvGw_Vze_hQmvNEAP7Zo4vt3xOhfE5BMcURTbfz5IBX6MZjzmCdyPiFH5AhiEcIDyf-6LKuIsTU6aGr8bdO_Aj-h3ztE6Xfjxg5Rhxw2PqcP0mlVVXD9bVR-OgNctN3iREvcS9-pBCWmFX-znQ1pp8tCNBVTqm_Mr9HyTM3e13VKT8J-4aOXKFRhKsM0qVnOxoB21qyLu-w2vrxqssp-ZlQj94-PR27YMLOi4VTs7wSfPC-AemqrbTdHRXveIBe",
@@ -80,7 +80,7 @@ export const doorServiceContent: ServiceTemplateContent = {
     items: [
       {
         title: "Batiente",
-        description: "Máxima hermeticidad y solidez estructural para cualquier tipo de acceso.",
+        description: "Cierre sólido y acabado limpio para accesos de distinta escala.",
         icon: "sensor_door",
       },
       {
@@ -137,8 +137,8 @@ export const doorServiceContent: ServiceTemplateContent = {
   trust: {
     title: "Confianza e industria nacional",
     description:
-      "VIPAR S.A. es una empresa paraguaya comprometida con el desarrollo constructivo del país. Con presencia operativa en Ã‘emby, trabajamos con relevamiento, fabricaciÃ³n a medida e instalaciÃ³n propia segÃºn el alcance de cada proyecto.",
-    locationLabel: "UbicaciÃ³n operativa: Ã‘emby, Paraguay",
+      "VIPAR S.A. es una empresa paraguaya con presencia operativa en Ñemby que trabaja con vidrio, aluminio y terminaciones para obras. Consultanos según medidas y tipo de proyecto.",
+    locationLabel: "Ubicación operativa: Ñemby, Paraguay",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuD5SUTj8uLe8_yoSaL6zwpOvBISR9f56pg4QTpMM22Ub8JaAH8Rrxgp9U827sU_lm7JW9RlRLm1JN2f9D1RPBSsohyC7qdOAW5bIqkVBEDWbArcN7ub3_sTK4NbKGZmJx5CYzqEYraU9f1UMCrtdgsiKJB8ShPaeOBlYtptqtOC6T0Mj07X5Pt1qNu5gbHlBOMTKEfGb2VTqHk6vYYCF1Jl14wM6s9jNiquK9Lwj19QCWxsY9MzJcgHeGZPIveNOgAa57_9Xr9",
   },
@@ -146,22 +146,22 @@ export const doorServiceContent: ServiceTemplateContent = {
     {
       question: "¿Fabrican puertas a medida o trabajan con medidas estándar?",
       answer:
-        "Fabricamos todas nuestras puertas a medida según el vano real relevado en obra. No trabajamos con medidas cerradas, lo que permite ajustar cada puerta al vano real relevado en obra.",
+        "Cada puerta se define según el vano real de la obra. No trabajamos con medidas cerradas, lo que permite ajustar cada puerta al espacio real.",
     },
     {
       question: "¿El presupuesto incluye instalación?",
       answer:
-        "Sí. Nuestros presupuestos detallan por separado el costo de fabricación y el de instalación, ejecutada por nuestro equipo técnico especializado segun el alcance del proyecto y la ubicacion de la obra.",
+        "Podemos presupuestar fabricación e instalación según el alcance del proyecto y la ubicación de la obra. Lo aclaramos al cotizar.",
     },
     {
       question: "¿Qué tipo de cristal usan en las puertas?",
       answer:
-        "Utilizamos cristal templado de seguridad según normativa vigente. Para puertas de acceso principal recomendamos templado de 10mm o laminado 6+6mm dependiendo del nivel de tránsito y la exposición.",
+        "Trabajamos con cristal templado según el sistema y el tipo de acceso. El espesor y tipo se define según el proyecto al cotizar.",
     },
     {
       question: "¿Cuánto tarda la fabricación e instalación?",
       answer:
-        "El plazo depende del sistema elegido, del volumen de trabajo y de la agenda de produccion e instalacion vigente al momento de confirmar medidas.",
+        "El plazo depende del sistema elegido, del volumen de trabajo y de la agenda de producción e instalación vigente al momento de confirmar medidas.",
     },
   ],
 };

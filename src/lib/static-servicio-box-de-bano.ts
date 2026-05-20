@@ -42,19 +42,19 @@ export const boxBenefits: BoxBenefitItem[] = [
     icon: "bi-droplet",
     title: "Adiós a las filtraciones",
     description:
-      "Un box a medida asegura la estanqueidad, manteniendo el resto del baño seco, seguro y libre de resbalones.",
+      "Un box a medida contribuye a reducir filtraciones, manteniendo el resto del baño seco y más seguro.",
   },
   {
     icon: "bi-stars",
     title: "Higiene superior",
     description:
-      "Superficies no porosas como el cristal templado y acrílico evitan la acumulación de moho y facilitan una limpieza rápida.",
+      "Superficies no porosas como el cristal templado y acrílico facilitan la limpieza y reducen la retención de humedad.",
   },
   {
     icon: "bi-arrows-angle-expand",
     title: "Amplitud visual",
     description:
-      "Las estructuras transparentes y de perfiles finos maximizan la percepción del espacio, ideal para baños compactos.",
+      "Las estructuras transparentes y de perfiles finos mejoran la percepción del espacio, ideal para baños compactos.",
   },
   {
     icon: "bi-bounding-box",
@@ -83,7 +83,7 @@ export const boxOptions: BoxOptionItem[] = [
     chip: "Premium",
     featured: true,
     description:
-      "Cristal de seguridad de 8 mm o 10 mm con herrajes de acero inoxidable o aluminio de alta prestación.",
+      "Cristal de seguridad con herrajes de aluminio o acero según el sistema elegido.",
     idealFor: [
       "Baños principales y suites",
       "Estética minimalista",
@@ -148,7 +148,7 @@ export const boxProcessSteps: BoxProcessStep[] = [
     number: "02",
     title: "Revisión técnica",
     description:
-      "Visita a obra para rectificación milimétrica de vanos y desniveles.",
+      "Medición en obra para verificar vanos y desniveles antes de la fabricación.",
   },
   {
     number: "03",
@@ -160,13 +160,13 @@ export const boxProcessSteps: BoxProcessStep[] = [
     number: "04",
     title: "Fabricación",
     description:
-      "Corte, templado y preparación de perfiles en nuestro taller especializado.",
+      "Corte y preparación de perfiles según especificaciones del proyecto.",
   },
   {
     number: "05",
     title: "Instalación",
     description:
-      "Montaje preciso por técnicos capacitados, con control de estanqueidad y limpieza.",
+      "Montaje según proyecto con verificación de estanqueidad y limpieza final.",
     active: true,
   },
 ];

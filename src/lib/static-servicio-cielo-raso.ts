@@ -49,13 +49,13 @@ export const ceilingEnvironments: CeilingEnvironmentItem[] = [
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAsbiypoa941La3MDHPCUvlLgFgDL22MMmAgJru4tqwgvqM8pbGwT226yd6rV0OqfjVsVIGPFh6Za-05qV-IeBzJ7IJojQJ8xAlnM01MvWLwyj3DZgZbnr3iF4KJWvPKv5SL21OmcmDvrDFLw1R_Iw40UAt367KXCSgOutIDQiQvMS3i0WkSp8_TELcgprE4SYSK0l-5AY_o_RT7GyzsWYZrntjDhfAgPMezSi5RgRUw1xduSAmnJDAD4zbrzXvlMDd_V5qPddp6sP4",
     title: "Corporativo",
-    description: "Productividad optimizada mediante control de reverberación superior.",
+    description: "Soluciones para espacios de trabajo con requerimientos de gestión acústica.",
   },
 ];
 
 export const ceilingMetrics: CeilingMetricItem[] = [
-  { value: "35%", label: "Ahorro energético" },
-  { value: "22dB", label: "Reducción acústica" },
+  { value: "3", label: "Sistemas disponibles" },
+  { value: "3", label: "Ambientes tipo" },
 ];
 
 export const ceilingSystems: CeilingSystemItem[] = [
@@ -64,13 +64,13 @@ export const ceilingSystems: CeilingSystemItem[] = [
     title: "Modulares PVC / Armstrong",
     description:
       "Estructuras desmontables ideales para acceso a instalaciones técnicas y mantenimiento rápido.",
-    bullets: ["100% incombustible", "Resistente a la humedad"],
+    bullets: ["Resistente a la humedad", "Acceso fácil a instalaciones"],
   },
   {
     icon: "bi-layers",
     title: "Junta tomada Durlock",
     description:
-      "Superficies continuas de acabado monolítico. El estándar para diseño arquitectónico de alta gama.",
+      "Superficies continuas de acabado monolítico para diseño arquitectónico.",
     bullets: ["Acabado liso premium", "Flexibilidad formal"],
   },
   {
@@ -78,7 +78,7 @@ export const ceilingSystems: CeilingSystemItem[] = [
     title: "Bafles y nubes acústicas",
     description:
       "Soluciones suspendidas para corrección fónica en espacios abiertos y diseño industrial.",
-    bullets: ["Alta absorción (NRC 0.90)", "Estética escultórica"],
+    bullets: ["Alta absorción acústica", "Estética escultórica"],
   },
 ];
 
@@ -96,7 +96,7 @@ export const ceilingDetails: CeilingDetailItem[] = [
     icon: "bi-volume-mute",
     title: "Acondicionamiento acústico",
     description:
-      "Utilizamos materiales de porosidad controlada que eliminan el eco y mejoran la inteligibilidad de la palabra en cualquier ambiente.",
+      "Utilizamos materiales de porosidad controlada que contribuyen a reducir el eco y mejorar la inteligibilidad en el ambiente.",
   },
   {
     icon: "bi-stars",
@@ -120,6 +120,6 @@ export const ceilingFaqs: CeilingFaqItem[] = [
   {
     question: "¿Son los materiales resistentes al fuego?",
     answer:
-      "Sí, trabajamos con placas de yeso tipo RF y fibras minerales incombustibles que cumplen con las normativas de seguridad vigentes para edificios públicos y corporativos.",
+      "Sí, trabajamos con materiales con buenas propiedades de resistencia al fuego, como placas de yeso y fibras minerales. Las especificaciones aplicables dependen del tipo de proyecto y la normativa local vigente.",
   },
 ];

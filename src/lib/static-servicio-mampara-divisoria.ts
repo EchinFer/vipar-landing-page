@@ -136,7 +136,7 @@ export const mamparaTypeCards: MamparaTypeCardItem[] = [
       "Permite instalaciones ocultas",
       "Terminación sólida y corporativa",
     ],
-    note: "La mejor opción cuando se busca privacidad, robustez y acabado definitivo.",
+    note: "Una opción a considerar cuando se busca privacidad, robustez y acabado definitivo.",
   },
 ];
 
@@ -210,7 +210,7 @@ export const mamparaProcessSteps: MamparaProcessStep[] = [
   },
   {
     title: "Asesoría",
-    description: "Recomendación del sistema más adecuado según uso, normativa y presupuesto.",
+    description: "Recomendación del sistema más adecuado según uso, espacio y presupuesto.",
   },
   {
     title: "Presupuesto",
@@ -227,9 +227,9 @@ export const mamparaProcessSteps: MamparaProcessStep[] = [
 ];
 
 export const mamparaTrustStats: MamparaTrustStat[] = [
-  { value: "15+", label: "Años de experiencia" },
-  { value: "500+", label: "Proyectos ejecutados" },
-  { value: "100%", label: "Seguimiento tecnico" },
+  { value: "3", label: "Tipos de sistema" },
+  { value: "5+", label: "Sectores atendidos" },
+  { value: "PY", label: "Operaciones en Paraguay" },
 ];
 
 export const mamparaEditorialTags = [

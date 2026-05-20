@@ -135,8 +135,8 @@ export const windowServiceContent: ServiceTemplateContent = {
   trust: {
     title: "Confianza y seguimiento tecnico",
     description:
-      "VIPAR S.A. trabaja con relevamiento, fabricacion a medida e instalacion propia segun el alcance de cada proyecto.",
-    locationLabel: "Ubicacion operativa: Nemby, Paraguay",
+      "VIPAR S.A. trabaja con proyectos de vidrio y aluminio en Paraguay, con presencia operativa en Ñemby. Cada solución se define según condiciones y alcance del proyecto.",
+    locationLabel: "Ubicación operativa: Ñemby, Paraguay",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuD5SUTj8uLe8_yoSaL6zwpOvBISR9f56pg4QTpMM22Ub8JaAH8Rrxgp9U827sU_lm7JW9RlRLm1JN2f9D1RPBSsohyC7qdOAW5bIqkVBEDWbArcN7ub3_sTK4NbKGZmJx5CYzqEYraU9f1UMCrtdgsiKJB8ShPaeOBlYtptqtOC6T0Mj07X5Pt1qNu5gbHlBOMTKEfGb2VTqHk6vYYCF1Jl14wM6s9jNiquK9Lwj19QCWxsY9MzJcgHeGZPIveNOgAa57_9Xr9",
   },
