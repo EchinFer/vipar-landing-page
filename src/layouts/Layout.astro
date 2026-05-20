@@ -54,6 +54,101 @@ const {
   hideWhatsappFAB = false,
   hideConsentBanner = false
 } = Astro.props;
+
+const localBusinessStructuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "VIPAR S.A.",
+  description: defaultDescription,
+  url: SITE_URL,
+  logo: `${SITE_URL}/img/logo.png`,
+  image: ogImage,
+  email,
+  telephone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: companyAddress.streetAddress,
+    addressLocality: companyAddress.addressLocality,
+    addressRegion: companyAddress.addressRegion,
+    addressCountry: companyAddress.addressCountry,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "07:00",
+      closes: "17:00",
+    },
+  ],
+  areaServed: "PY",
+  sameAs: [SOCIAL_LINKS.instagram, SOCIAL_LINKS.facebook].filter(Boolean),
+  makesOffer: [
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Box de bano",
+        description: "Instalacion de box de bano en cristal templado y otros cerramientos a medida.",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Cielo raso",
+        description: "Soluciones en cielorrasos de PVC, yeso junta tomada, Durlock y sistemas desmontables.",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Cortinas",
+        description: "Cortinas verticales y horizontales personalizadas para interiores y oficinas.",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Fachadas",
+        description: "Diseno e instalacion de fachadas de vidrio y aluminio para locales, oficinas y edificios.",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Mamparas divisorias",
+        description: "Mamparas en eucatex, cristal templado y tabique de Durlock para ambientes interiores.",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Puertas",
+        description: "Puertas corredizas, batientes y plegables en cristal templado o aluminio para hogares y oficinas.",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Ventanas",
+        description: "Ventanas de aluminio y cristal templado en sistemas basculantes y corredizos.",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Carpinteria de aluminio",
+        description: "Fabricacion e instalacion de puertas, ventanas y cerramientos de aluminio a medida.",
+      },
+    },
+  ],
+});
 ---
 
 <!doctype html>
@@ -271,132 +366,7 @@ const {
     </div>}
     {!hideWhatsappFAB && <WhatsappFAB />}
     <ClientProvider />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "VIPAR S.A.",
-        "description": defaultDescription,
-        "url": SITE_URL,
-        "logo": `${SITE_URL}/img/logo.png`,
-        "image": ogImage,
-        "email": email,
-        "telephone": telephone,
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": companyAddress.streetAddress,
-          "addressLocality": companyAddress.addressLocality,
-          "addressRegion": companyAddress.addressRegion,
-          "addressCountry": companyAddress.addressCountry
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
-            "opens": "07:00",
-            "closes": "17:00"
-          }
-        ],
-        "areaServed": "PY",
-        "sameAs": [SOCIAL_LINKS.instagram, SOCIAL_LINKS.facebook],
-        "makesOffer": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Box de baño",
-              "description": "Instalación de box de baño en acrílico, cristal templado y otros materiales como safonadas."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Cielo raso",
-              "description": "Soluciones en cielorrasos de PVC, yeso junta tomada, Durlock y sistemas desmontables."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Cortinas",
-              "description": "Cortinas verticales y horizontales personalizadas para interiores y oficinas."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Fachadas",
-              "description": "Diseño e instalación de fachadas tipo muro cortina, sistema glazing y entubado."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Mamparas divisorias",
-              "description": "Mamparas en eucatex, cristal templado y tabique de Durlock para ambientes interiores."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Puertas",
-              "description": "Puertas corredizas, batientes y plegables en cristal templado o PVC para hogares y oficinas."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Ventanas",
-              "description": "Ventanas de aluminio y cristal templado: modelos basculantes y corredizos."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Carpintería de Aluminio",
-              "description": "Fabricación e instalación de puertas batientes y corredizas de aluminio a medida."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Supervisión técnica y fiscalización de obras",
-              "description": "Control de calidad, inspecciones, auditorías técnicas y gestión de incidencias en obras."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Dirección de proyectos de construcción",
-              "description": "Planificación estratégica, coordinación de equipos y seguimiento presupuestario de obras."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Gestión de seguridad en construcción",
-              "description": "Supervisión de protocolos de seguridad, capacitaciones e inspecciones técnicas en obra."
-            }
-          }
-        ]
-      }
-    </script>
+    <script type='application/ld+json' set:html={localBusinessStructuredData}></script>
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function(){
         (function(){
@@ -555,5 +525,6 @@ const {
   .consent-modal__inner .btn{width:100%}
 }
 </style>
+
 
 
