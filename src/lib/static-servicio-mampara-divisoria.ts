@@ -130,7 +130,7 @@ export const mamparaComparisonRows: MamparaComparisonRow[] = [
     durlock: "Mayor",
   },
   {
-    label: "Aislamiento acústico",
+    label: "Control de ruido",
     cristal: "Depende del sistema",
     eucatex: "Limitado",
     durlock: "Puede ser mayor según composición",

@@ -57,7 +57,7 @@ export const doorServiceContent: ServiceTemplateContent = {
       {
         title: "Puerta corrediza",
         description:
-          "Hojas deslizantes que optimizan el espacio interior. Útil cuando el radio de apertura es limitado o se busca máxima apertura del vano.",
+          "Hojas deslizantes que optimizan el espacio interior. Útil cuando el radio de apertura es limitado o se busca mayor apertura del vano.",
         idealFor: ["Locales comerciales", "Balcones y terrazas", "Ingresos secundarios"],
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuDs2va21_6Uejboo8d_-DrT4feT09fanU04K0VqpViyeZUfWCqa595a_tJ5PddzEtnrmCy5QrA8pxVt914Qxg-7Y_NuAKXaUGuzweoejejR_BrMBxE7cBQ-wzeIWVCOZ4yDCBg_5TEjI4obHBCFdixYqW69gPHvZ3snP-64cqBeJcSI1lHVjCN3DWiHgRXu5MtihabG5I0FhAYzQFasUyPeBGKRW2MgskLGQbhwBP9Z-R8ZSu4voROIgVF4vmvKG0aiUpfbHAhi9dUu",
