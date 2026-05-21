@@ -1,10 +1,10 @@
 ﻿import type { ServiceTemplateContent } from "@lib/service-template";
 
 export const curtainServiceContent: ServiceTemplateContent = {
-  title: "Cortina de Vidrio | VIPAR S.A.",
+  title: "Cortinas de vidrio en Paraguay | Cerramientos corredizos | VIPAR",
   description:
-    "Cortinas de vidrio en Paraguay para balcones, quinchos y frentes. Cerramientos corredizos con apertura práctica, visual limpia y configuración según medidas y tipo de espacio.",
-  canonicalPath: "/servicios/cortinas",
+    "Cortinas de vidrio corredizas para balcones, quinchos, galerías y frentes. Consultá opciones según medidas, apertura, exposición del espacio y condiciones de instalación.",
+  canonicalPath: "/servicios/cortinas/",
   keywords:
     "cortina de vidrio paraguay, cerramiento de balcon, cortinas corredizas de vidrio, quinchos, cristal templado",
   whatsappMessage:
@@ -14,7 +14,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
     eyebrow: "Cortinas de vidrio",
     title: "Cortinas de vidrio para cerrar sin perder visual ni flexibilidad",
     description:
-      "Sistemas corredizos de cristal templado para balcones, galerÃ­as, quinchos y frentes comerciales. Soluciones a medida para ganar protecciÃ³n sin bloquear luz ni amplitud.",
+      "Sistemas corredizos de cristal templado para balcones, galerías, quinchos y frentes comerciales. Consultá opciones según medidas, tipo de apertura, exposición del espacio y condiciones de instalación.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBEJiTJqpXth_MfquO_J3E-v_DDe0TyRJVLYYzzpH16eej51C8CFf80j_7iewEE7wYqXWcK7k16I9_f1JkfutQcc-s6C2LqxW64b5y9AKSTYoKtjdq8XFNxyvhdnqOgdfftQ8pVWflL4n9KbPUBhmwKhBLIf2ChNbt7mzufk7h46LxtScejB6AU8wTmvocHbchdvLVbqbCXRennx3hNVqFojmj3YAuXgFUCjF4tAzCATY4Mk9ADk9LJ8vlq5KOhXRBkjg7t_xFPG2O-",
     tags: ["Balcones", "Quinchos", "Galerías", "Cristal templado"],
@@ -26,8 +26,8 @@ export const curtainServiceContent: ServiceTemplateContent = {
       "Cuando un balcón, quincho o galería queda demasiado expuesto, el desafío es sumar protección climática sin perder visual, apertura ni lectura arquitectónica liviana.",
     cases: [
       {
-        title: "Exposición al viento o lluvia",
-        description: "Espacios abiertos que hoy no pueden usarse con comodidad todo el año.",
+        title: "Espacios abiertos o expuestos",
+        description: "Balcones, quinchos o galerías donde se busca mayor control de apertura y cierre según el clima y el uso.",
       },
       {
         title: "Cierre visualmente pesado",
@@ -42,12 +42,12 @@ export const curtainServiceContent: ServiceTemplateContent = {
   solutions: {
     title: "Soluciones en cortinas de vidrio",
     description:
-      "Diseñamos cerramientos corredizos y plegables según el tipo de apertura, la exposición del lugar y el uso real del espacio.",
+      "Opciones de cerramientos corredizos y plegables según el tipo de apertura, la exposición del lugar y el uso del espacio.",
     items: [
       {
         title: "Cortina para balcón",
         description:
-          "Sistema pensado para sumar protección y confort sin perder la vista ni la entrada de luz natural en departamentos y terrazas.",
+          "Cerramientos corredizos para sumar opciones de flexibilidad sin perder la vista ni la entrada de luz natural en departamentos y terrazas.",
         idealFor: ["Departamentos", "Balcones urbanos", "Frentes residenciales"],
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuBjz8d1csB8yEcfqQb_ovu_3-Cynl60L8-3sMkPHfv5hP49Ku2bipoK0Ao5hhtdhhQxD52tkpBW4WAV97xOHkRNNRveprZ5Wc6V18y20BJ-bAbFaoXUgez2-8MhHquQKrPUpcHHSD7QHStxo2dlwhWFXrkgnXIQQr9M0gPr1DD4lhVu4Aq_lyviD0CK88qBNgBmgzy-DUPQ7ATFJcXLGtyCzy2Lt5sl1Dt3gft181m2d46MpdNT5zfiCZkv1C3a3_uzGA440sIpl0ER",
@@ -55,7 +55,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
       {
         title: "Cortina para quincho o galería",
         description:
-          "Permite cerrar el espacio en días de lluvia o viento y abrirlo por completo cuando se busca ventilación y continuidad exterior.",
+          "Permite cerrar el espacio según el clima y abrirlo por completo cuando se busca ventilación y continuidad con el exterior.",
         idealFor: ["Quinchos", "Galerías", "Áreas sociales"],
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuC_AZXM1JTcYOaVXmvGw_Vze_hQmvNEAP7Zo4vt3xOhfE5BMcURTbfz5IBX6MZjzmCdyPiFH5AhiEcIDyf-6LKuIsTU6aGr8bdO_Aj-h3ztE6Xfjxg5Rhxw2PqcP0mlVVXD9bVR-OgNctN3iREvcS9-pBCWmFX-znQ1pp8tCNBVTqm_Mr9HyTM3e13VKT8J-4aOXKFRhKsM0qVnOxoB21qyLu-w2vrxqssp-ZlQj94-PR27YMLOi4VTs7wSfPC-AemqrbTdHRXveIBe",
@@ -81,8 +81,8 @@ export const curtainServiceContent: ServiceTemplateContent = {
         icon: "open_in_full",
       },
       {
-        title: "Mayor protección",
-        description: "Para zonas más expuestas a viento, lluvia o polvo.",
+        title: "Mayor control del cierre",
+        description: "Para espacios donde se necesita revisar exposición, apertura y condiciones del lugar.",
         icon: "shield",
       },
       {
@@ -95,7 +95,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
   applications: {
     title: "Aplicaciones por proyecto",
     description:
-      "Adaptamos cada cortina a la geometrÃ­a del lugar y al modo en que ese espacio se usa todos los dÃ­as.",
+      "Adaptamos cada cortina a la geometría del lugar y al modo en que ese espacio se usa todos los días.",
     items: [
       {
         title: "Balcones",
@@ -124,14 +124,14 @@ export const curtainServiceContent: ServiceTemplateContent = {
       "Analizamos apertura, dimensiones y exposición para definir un sistema que funcione bien en uso real.",
     steps: [
       { label: "Enviá fotos" },
-      { label: "Tomamos medidas" },
+      { label: "Compartí medidas" },
       { label: "Definimos apertura" },
-      { label: "Proponemos sistema" },
-      { label: "Coordinamos instalación" },
+      { label: "Orientamos el sistema" },
+      { label: "Coordinamos los siguientes pasos" },
     ],
   },
   trust: {
-    title: "Confianza e industria nacional",
+    title: "Orientación según el proyecto",
     description:
       "VIPAR S.A. es una empresa paraguaya con presencia operativa en Ñemby que trabaja con vidrio, aluminio y terminaciones para obras. Consultanos según medidas y tipo de proyecto.",
     locationLabel: "Ubicación operativa: Ñemby, Paraguay",
@@ -142,7 +142,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
     {
       question: "¿Las cortinas de vidrio cierran completamente el paso del agua?",
       answer:
-        "Depende del sistema, del nivel de exposición y de la geometría del lugar. Diseñamos la solución buscando el mejor equilibrio entre estanqueidad, apertura y liviandad visual.",
+        "La respuesta depende del sistema, la exposición del lugar y las condiciones de instalación. Al cotizar se revisa qué nivel de cierre puede lograrse según el espacio.",
     },
     {
       question: "¿Se pueden abrir por completo?",
@@ -152,7 +152,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
     {
       question: "¿Sirven para balcones y quinchos?",
       answer:
-        "Sí. Son dos de las aplicaciones más comunes porque permiten ganar protección climática y extender el uso del espacio sin cerrar visualmente el ambiente.",
+        "Sí. Son dos de las aplicaciones más comunes porque permiten ganar flexibilidad de apertura y mayor control del espacio según el clima.",
     },
   ],
 };
