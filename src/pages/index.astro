@@ -109,7 +109,7 @@ const complementaryServices = [
   },
 ];
 
-const projects = staticObras.slice(0, 3).map((obra, i) => ({
+const projects = staticObras.filter((obra) => obra.featured).slice(0, 3).map((obra, i) => ({
   layout: i === 0 ? "hero" : "side",
   eyebrow: obra.sectorLabel,
   title: obra.titulo,

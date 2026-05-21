@@ -19,6 +19,7 @@ export interface StaticObra {
   displayTags: string[];
   filterTags: string[];
   category: StaticObraCategory[];
+  featured?: boolean;
 }
 
 export type RelatedServiceKey =
@@ -85,6 +86,7 @@ export const staticObras: StaticObra[] = [
     displayTags: ["Cristal", "Aluminio", "Terminaciones"],
     filterTags: ["cristal-templado", "aluminio", "fachadas"],
     category: [{ name: "Corporativo", slug: "corporativo" }],
+    featured: true,
   },
   {
     slug: "sucursal-tigo-mra",
@@ -107,6 +109,7 @@ export const staticObras: StaticObra[] = [
     displayTags: ["Fachadas", "Cristal templado"],
     filterTags: ["fachadas", "cristal-templado", "aluminio"],
     category: [{ name: "Comercial", slug: "comercial" }],
+    featured: true,
   },
   {
     slug: "edificio-concordia",
@@ -130,6 +133,7 @@ export const staticObras: StaticObra[] = [
     displayTags: ["Residencial", "Aluminio"],
     filterTags: ["aluminio", "ventanas", "cristal-templado"],
     category: [{ name: "Residencial", slug: "residencial" }],
+    featured: true,
   },
   {
     slug: "cooperativa-medalla",

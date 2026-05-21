@@ -28,7 +28,7 @@ const { project } = Astro.props;
     "vipar-project-card",
     `vipar-project-card--${project.layout}`,
   ]}
-  tabindex="0"
+  tabindex={project.href ? undefined : "0"}
 >
   <div class="vipar-project-card__image">
     <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
