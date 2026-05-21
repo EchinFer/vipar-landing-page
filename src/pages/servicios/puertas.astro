@@ -3,9 +3,16 @@ import ServiceLandingTemplate from "@components/servicio-template/ServiceLanding
 import Layout from "@layouts/Layout.astro";
 import { doorServiceContent } from "@lib/static-servicio-puerta";
 import { SITE_URL, whatsappNumber } from "src/constants";
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
 
 const serviceName = "Puertas";
-const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(doorServiceContent.whatsappMessage)}`;
+const whatsappLink = buildWhatsappUrl(
+  buildWhatsappMessage({
+    serviceName,
+    pageLabel: serviceName,
+    prompt: doorServiceContent.whatsappMessage,
+  })
+);
 const canonical = `${SITE_URL}${doorServiceContent.canonicalPath}`;
 ---
 
@@ -14,7 +21,6 @@ const canonical = `${SITE_URL}${doorServiceContent.canonicalPath}`;
   description={doorServiceContent.description}
   canonical={canonical}
   keywords={doorServiceContent.keywords}
-  hideWhatsappFAB={true}
   bodyClass="service-template-body"
   pageType="service"
   serviceName={serviceName}

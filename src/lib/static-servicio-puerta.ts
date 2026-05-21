@@ -65,7 +65,7 @@ export const doorServiceContent: ServiceTemplateContent = {
       {
         title: "Puerta panorámica o plegable",
         description:
-          "Sistema de hojas plegables que permite apertura amplia del vano, útil para proyectos comerciales y residenciales donde se busca integración espacial.",
+          "Sistema de hojas plegables que permite mayor apertura del vano, útil para proyectos comerciales y residenciales donde se busca integración espacial.",
         idealFor: ["Frentes comerciales", "Terrazas y quinchos", "Showrooms"],
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuC_AZXM1JTcYOaVXmvGw_Vze_hQmvNEAP7Zo4vt3xOhfE5BMcURTbfz5IBX6MZjzmCdyPiFH5AhiEcIDyf-6LKuIsTU6aGr8bdO_Aj-h3ztE6Xfjxg5Rhxw2PqcP0mlVVXD9bVR-OgNctN3iREvcS9-pBCWmFX-znQ1pp8tCNBVTqm_Mr9HyTM3e13VKT8J-4aOXKFRhKsM0qVnOxoB21qyLu-w2vrxqssp-ZlQj94-PR27YMLOi4VTs7wSfPC-AemqrbTdHRXveIBe",
