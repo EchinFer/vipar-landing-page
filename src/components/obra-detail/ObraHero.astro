@@ -19,7 +19,7 @@ const { titulo, ubicacion, imagen } = Astro.props;
 
 <div class="od-hero-wrap">
   <div class="od-hero">
-    <img class="od-hero__img" src={imagen} alt={titulo} loading="eager" decoding="async" />
+    <img class="od-hero__img" src={imagen} alt={`${titulo} – ${ubicacion} | VIPAR`} loading="eager" decoding="async" />
     <div class="od-hero__overlay"></div>
 
     <div class="od-hero__meta">

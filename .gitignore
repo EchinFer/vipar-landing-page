@@ -28,8 +28,14 @@ pnpm-debug.log*
 
 https___vipar.com.py*
 
-.jpg
-.JPEG
-.JPG
-.png
-.webp
+*.jpg
+*.jpeg
+*.JPEG
+*.JPG
+*.png
+*.webp
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm

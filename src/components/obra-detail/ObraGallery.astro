@@ -3,11 +3,12 @@ import Heading from "@components/ui/Heading.astro";
 
 interface Props {
   titulo: string;
+  systemLabel: string;
   imagen: string;
   imagenes?: string[];
 }
 
-const { titulo, imagen, imagenes = [] } = Astro.props;
+const { titulo, systemLabel, imagen, imagenes = [] } = Astro.props;
 
 const allImages = [...(imagen ? [imagen] : []), ...imagenes];
 ---
@@ -26,7 +27,7 @@ const allImages = [...(imagen ? [imagen] : []), ...imagenes];
         >
           <img
             src={img}
-            alt={`${titulo} - imagen ${i + 1}`}
+            alt={`${systemLabel} – ${titulo}, foto ${i + 1}`}
             loading={i === 0 ? "eager" : "lazy"}
             decoding="async"
           />
