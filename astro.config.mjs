@@ -59,9 +59,6 @@ export default defineConfig({
           item.changefreq = 'yearly';
         }
         
-        // Añadir lastmod a todas las URLs
-        item.lastmod = new Date().toISOString();
-        
         return item;
       },
     }),
