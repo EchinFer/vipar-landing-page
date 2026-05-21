@@ -4,8 +4,16 @@ import Layout from "@layouts/Layout.astro";
 import { windowServiceContent } from "@lib/static-servicio-ventana";
 import { SITE_URL, whatsappNumber } from "src/constants";
 
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
+
 const serviceName = "Ventanas";
-const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(windowServiceContent.whatsappMessage)}`;
+const whatsappLink = buildWhatsappUrl(
+  buildWhatsappMessage({
+    serviceName,
+    pageLabel: serviceName,
+    prompt: windowServiceContent.whatsappMessage,
+  })
+);
 const canonical = `${SITE_URL}${windowServiceContent.canonicalPath}`;
 ---
 
@@ -14,7 +22,6 @@ const canonical = `${SITE_URL}${windowServiceContent.canonicalPath}`;
   description={windowServiceContent.description}
   canonical={canonical}
   keywords={windowServiceContent.keywords}
-  hideWhatsappFAB={true}
   bodyClass="service-template-body"
   pageType="service"
   serviceName={serviceName}

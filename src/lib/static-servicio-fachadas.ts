@@ -166,8 +166,8 @@ export const facadesServiceContent: ServiceTemplateContent = {
       { label: "Compartí medidas o planos" },
       { label: "Contanos el tipo de proyecto" },
       { label: "Indicá el sistema que te interesa" },
-      { label: "Recibí revisión técnica y presupuesto" },
-      { label: "Coordinamos la ejecución" },
+      { label: "Recibí orientación inicial y presupuesto" },
+      { label: "Coordinamos los siguientes pasos" },
     ],
   },
   trust: {

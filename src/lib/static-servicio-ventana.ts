@@ -1,10 +1,10 @@
 import type { ServiceTemplateContent } from "@lib/service-template";
 
 export const windowServiceContent: ServiceTemplateContent = {
-  title: "Ventanas de aluminio | VIPAR S.A.",
+  title: "Ventanas de aluminio en Paraguay | Corredizas, basculantes y cristal templado | VIPAR",
   description:
     "Ventanas de aluminio y cristal templado en Paraguay. Fabricacion e instalacion a medida segun requerimientos de obra.",
-  canonicalPath: "/servicios/ventanas",
+  canonicalPath: "/servicios/ventanas/",
   keywords:
     "ventanas de aluminio paraguay, ventanas corredizas, ventanas basculantes, cristal templado, aberturas a medida",
   whatsappMessage:
@@ -12,13 +12,14 @@ export const windowServiceContent: ServiceTemplateContent = {
   relatedWorksKey: "ventana",
   hero: {
     eyebrow: "Ventanas en Paraguay",
-    title: "Ventanas de aluminio y cristal templado para viviendas, comercios y oficinas",
+    title: "Ventanas de aluminio y cristal templado para viviendas, comercios y obras",
     description:
-      "Fabricamos e instalamos ventanas a medida segun el uso del ambiente, la ventilacion necesaria y las condiciones reales de la obra.",
+      "Consultá opciones corredizas, basculantes u otros sistemas según medidas, tipo de apertura, uso del ambiente y condiciones de instalación.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuD-2XOymuc61Lhid1fIDjX1Gcz3dK6EhJH7wtDYoMTkKMC6Pq8tmCmqYoyd44ta6tFX5045eCPaZE1WilmHAft7h600VpJzXBQ02QWJu8UXp9gs1RVcyrNiRBo4lqzYh4GpFIz3pX5MfstV41YNt-b6ytbHzcNlZxD3M-F9RHwanL_b78Wugm4t1V_2qSEuP5iQ1RQcDbItSbEhv53-G4VWGwEWdJc8mgq3RWNfi304A6SoXlVLJJ3qCBCDlHHyvP3pu0CbhNpNKf-j",
     tags: ["Basculantes", "Corredizas", "Cristal templado", "A medida"],
-    primaryCtaLabel: "Cotizar ventanas",
+    primaryCtaLabel: "Cotizar en la web",
+    secondaryCtaLabel: "Cotizar por WhatsApp",
   },
   problem: {
     title: "Necesitas cambiar, instalar o cotizar ventanas para tu obra?",
@@ -35,8 +36,8 @@ export const windowServiceContent: ServiceTemplateContent = {
           "Espacios que necesitan ganar iluminacion natural sin perder control del cierre.",
       },
       {
-        title: "Filtraciones o cierres deficientes",
-        description: "Lluvia, polvo o viento por soluciones mal resueltas o fuera de escuadra.",
+        title: "Condiciones climáticas o de uso",
+        description: "Revisión de opciones según la necesidad de ventilación o luz en cada sector.",
       },
     ],
   },
