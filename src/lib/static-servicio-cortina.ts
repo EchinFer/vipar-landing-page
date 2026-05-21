@@ -23,7 +23,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
   problem: {
     title: "¿Querés cerrar un espacio sin convertirlo en un ambiente oscuro o pesado?",
     description:
-      "Cuando un balcón, quincho o galería queda demasiado expuesto, el desafío es sumar protección climática sin perder visual, apertura ni lectura arquitectónica liviana.",
+      "Cuando un balcón, quincho o galería queda demasiado expuesto, el desafío es revisar una solución de cierre que permita mayor control del espacio sin perder visual, apertura ni una lectura liviana del ambiente.",
     cases: [
       {
         title: "Espacios abiertos o expuestos",
@@ -145,7 +145,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
         "La respuesta depende del sistema, la exposición del lugar y las condiciones de instalación. Al cotizar se revisa qué nivel de cierre puede lograrse según el espacio.",
     },
     {
-      question: "¿Se pueden abrir por completo?",
+      question: "¿Se pueden abrir en gran parte?",
       answer:
         "Sí, según el sistema elegido. Existen configuraciones que permiten apilar o desplazar las hojas para liberar gran parte del vano.",
     },
