@@ -55,11 +55,11 @@ export const mamparaHeroTags = ["Cristal templado", "Eucatex", "Durlock"];
 export const mamparaProblemCases: MamparaCaseItem[] = [
   {
     title: "Salas de reuniones",
-    description: "Aislamiento acústico y privacidad visual controlada.",
+    description: "División de espacios para reuniones, atención o trabajo interno según el nivel de privacidad buscado.",
   },
   {
     title: "Despachos gerenciales",
-    description: "Estética premium con cristal templado de seguridad.",
+    description: "Divisiones en cristal templado para mantener luz natural y una imagen más ordenada del espacio.",
   },
   {
     title: "Consultorios médicos",
@@ -73,34 +73,16 @@ export const mamparaProblemCases: MamparaCaseItem[] = [
 
 export const mamparaFactors: MamparaFactorItem[] = [
   {
-    title: "Acústica requerida",
-    description:
-      "No todos los materiales aíslan el sonido igual. El cristal simple difiere del doble vidriado o del durlock con lana de vidrio.",
+    title: "Acústica y privacidad",
+    description: "El nivel de privacidad, luz, mantenimiento y tipo de instalación depende del material elegido y de las condiciones del espacio.",
   },
   {
-    title: "Paso de luz natural",
-    description:
-      "Si la oficina interior requiere luz de las ventanas externas, el cristal total o parcial se vuelve determinante.",
+    title: "Luz y estética",
+    description: "El nivel de privacidad, luz, mantenimiento y tipo de instalación depende del material elegido y de las condiciones del espacio.",
   },
   {
-    title: "Instalaciones eléctricas",
-    description:
-      "El durlock permite ocultar cables y cajas de luz dentro del tabique; el cristal requiere ductos visibles o perfiles especiales.",
-  },
-  {
-    title: "Seguridad estructural",
-    description:
-      "En áreas de alto tránsito o industriales, se exigen cristales templados o laminados que no astillen en caso de impacto.",
-  },
-  {
-    title: "Mantenimiento e higiene",
-    description:
-      "Clínicas, laboratorios y cocinas necesitan superficies de limpieza frecuente y buena respuesta a humedad o productos químicos.",
-  },
-  {
-    title: "Flexibilidad futura",
-    description:
-      "No es lo mismo una división definitiva que un sistema desmontable para reorganizar la planta dentro de algunos meses.",
+    title: "Instalación",
+    description: "El nivel de privacidad, luz, mantenimiento y tipo de instalación depende del material elegido y de las condiciones del espacio.",
   },
 ];
 
@@ -121,7 +103,7 @@ export const mamparaTypeCards: MamparaTypeCardItem[] = [
     description:
       "Solución modular, rápida y económica para subdivisiones operativas o administrativas.",
     bullets: [
-      "Montaje y desmontaje ágil",
+      "Sistema modular según condiciones de obra",
       "Buena relación costo-beneficio",
       "Fácil ampliación o reubicación futura",
     ],
@@ -132,7 +114,7 @@ export const mamparaTypeCards: MamparaTypeCardItem[] = [
     description:
       "Divisiones de tabiquería seca con mejor desempeño acústico y posibilidad de ocultar instalaciones internas.",
     bullets: [
-      "Excelente base para aislamiento acústico",
+      "Puede aportar mayor privacidad según composición y terminación",
       "Permite instalaciones ocultas",
       "Terminación sólida y corporativa",
     ],
@@ -205,30 +187,30 @@ export const mamparaProcessSteps: MamparaProcessStep[] = [
     description: "Recepción de la necesidad inicial vía web o WhatsApp.",
   },
   {
-    title: "Relevamiento",
-    description: "Visita técnica para toma de medidas exactas y evaluación del sitio.",
+    title: "Revisión de medidas",
+    description: "Toma de medidas exactas y evaluación del sitio.",
   },
   {
-    title: "Asesoría",
-    description: "Recomendación del sistema más adecuado según uso, espacio y presupuesto.",
+    title: "Orientación del sistema",
+    description: "Recomendación del material más adecuado según uso, espacio y presupuesto.",
   },
   {
-    title: "Presupuesto",
-    description: "Envío de cotización formal detallada con alcances y plazos.",
+    title: "Cotización según alcance",
+    description: "Envío de cotización con alcances y plazos.",
   },
   {
-    title: "Fabricación",
-    description: "Preparación de perfiles, paneles o cristales según proyecto aprobado.",
+    title: "Preparación",
+    description: "Preparación de materiales según proyecto.",
   },
   {
-    title: "Montaje",
-    description: "Instalación limpia en obra por personal técnico calificado.",
+    title: "Montaje según condiciones del espacio",
+    description: "Instalación en obra por personal calificado.",
   },
 ];
 
 export const mamparaTrustStats: MamparaTrustStat[] = [
   { value: "3", label: "Tipos de sistema" },
-  { value: "5+", label: "Sectores atendidos" },
+  { value: "Sectores de aplicación", label: "Diversos rubros" },
   { value: "PY", label: "Operaciones en Paraguay" },
 ];
 

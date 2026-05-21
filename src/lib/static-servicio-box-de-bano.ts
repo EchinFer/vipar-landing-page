@@ -40,15 +40,15 @@ export const boxHeroTags = [
 export const boxBenefits: BoxBenefitItem[] = [
   {
     icon: "bi-droplet",
-    title: "Adiós a las filtraciones",
+    title: "Ayuda a reducir salpicaduras",
     description:
-      "Un box a medida contribuye a reducir filtraciones, manteniendo el resto del baño seco y más seguro.",
+      "Un box a medida ayuda a mantener el baño más ordenado y seco según el uso.",
   },
   {
     icon: "bi-stars",
-    title: "Higiene superior",
+    title: "Limpieza más práctica",
     description:
-      "Superficies no porosas como el cristal templado y acrílico facilitan la limpieza y reducen la retención de humedad.",
+      "Superficies como el cristal templado y acrílico facilitan la limpieza y reducen la retención de humedad.",
   },
   {
     icon: "bi-arrows-angle-expand",
@@ -70,7 +70,7 @@ export const boxOptions: BoxOptionItem[] = [
     title: "Acrílico",
     chip: "Económico",
     description:
-      "Estructura de aluminio con paneles de acrílico texturizado. Ligero, seguro y de fácil montaje.",
+      "Estructura de aluminio con paneles de acrílico texturizado. Liviano y práctico según el sistema elegido.",
     idealFor: [
       "Baños de uso intensivo",
       "Proyectos de presupuesto ajustado",
@@ -80,7 +80,7 @@ export const boxOptions: BoxOptionItem[] = [
   {
     icon: "bi-stop",
     title: "Cristal templado",
-    chip: "Premium",
+    chip: "Cristal templado",
     featured: true,
     description:
       "Cristal de seguridad con herrajes de aluminio o acero según el sistema elegido.",
@@ -114,7 +114,7 @@ export const boxCompareRows: BoxCompareRow[] = [
   {
     feature: "Durabilidad",
     acrylic: "Estándar",
-    temperedGlass: "Alta",
+    temperedGlass: "Mayor resistencia según el sistema elegido",
     folding: "Buena",
   },
   {
