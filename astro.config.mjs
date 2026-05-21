@@ -23,6 +23,15 @@ export default defineConfig({
   site,
   integrations: [
     sitemap({
+      filter(page) {
+        const legacyRedirects = new Set([
+          `${site}/servicios/cortina/`,
+          `${site}/servicios/mampara-divisoria/`,
+          `${site}/servicios/puerta/`,
+          `${site}/servicios/ventana/`,
+        ]);
+        return !legacyRedirects.has(page);
+      },
       // Función para personalizar cada URL en el sitemap
       // @ts-ignore - Los valores de changefreq son válidos pero TypeScript no los reconoce correctamente
       serialize(item) {
