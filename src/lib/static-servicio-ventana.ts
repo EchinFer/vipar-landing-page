@@ -3,12 +3,12 @@ import type { ServiceTemplateContent } from "@lib/service-template";
 export const windowServiceContent: ServiceTemplateContent = {
   title: "Ventanas de aluminio en Paraguay | Corredizas, basculantes y cristal templado | VIPAR",
   description:
-    "Ventanas de aluminio y cristal templado en Paraguay. Fabricacion e instalacion a medida segun requerimientos de obra.",
+    "Ventanas de aluminio y cristal templado en Paraguay. Consultá opciones corredizas, basculantes u otros sistemas según medidas, tipo de apertura y condiciones de instalación.",
   canonicalPath: "/servicios/ventanas/",
   keywords:
     "ventanas de aluminio paraguay, ventanas corredizas, ventanas basculantes, cristal templado, aberturas a medida",
   whatsappMessage:
-    "Hola, quiero cotizar ventanas de aluminio. Me comunico desde su pagina web.",
+    "Hola, quiero cotizar ventanas de aluminio. Me comunico desde su página web.",
   relatedWorksKey: "ventana",
   hero: {
     eyebrow: "Ventanas en Paraguay",
@@ -22,18 +22,18 @@ export const windowServiceContent: ServiceTemplateContent = {
     secondaryCtaLabel: "Cotizar por WhatsApp",
   },
   problem: {
-    title: "Necesitas cambiar, instalar o cotizar ventanas para tu obra?",
+    title: "¿Necesitás cambiar, instalar o cotizar ventanas para tu obra?",
     description:
-      "Definir una ventana no es solo elegir un perfil. Hay que revisar ventilacion, entrada de luz, exposicion al clima y forma de uso del ambiente.",
+      "Definir una ventana no es solo elegir un perfil. Hay que revisar ventilación, entrada de luz, exposición al clima y forma de uso del ambiente.",
     cases: [
       {
-        title: "Poca ventilacion",
-        description: "Ambientes cerrados o humedos que necesitan flujo de aire constante y controlado.",
+        title: "Poca ventilación",
+        description: "Ambientes cerrados o húmedos que necesitan flujo de aire constante y controlado.",
       },
       {
         title: "Mala entrada de luz",
         description:
-          "Espacios que necesitan ganar iluminacion natural sin perder control del cierre.",
+          "Espacios que necesitan ganar iluminación natural sin perder control del cierre.",
       },
       {
         title: "Condiciones climáticas o de uso",
@@ -44,20 +44,20 @@ export const windowServiceContent: ServiceTemplateContent = {
   solutions: {
     title: "Soluciones en ventanas",
     description:
-      "Trabajamos distintos sistemas de apertura y configuracion segun el tipo de obra y el uso esperado.",
+      "Trabajamos distintos sistemas de apertura y configuración según el tipo de obra y el uso esperado.",
     items: [
       {
         title: "Ventana basculante",
         description:
-          "Sistema de eje horizontal pensado para ventilacion constante y segura en ambientes de servicio.",
-        idealFor: ["Banos", "Cocinas", "Areas de servicio"],
+          "Sistema de apertura superior o parcial, útil para ambientes donde se busca ventilación controlada.",
+        idealFor: ["Baños", "Cocinas", "Áreas de servicio"],
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuAFrYCkpK_Jtq9rDtp4GQl_tYm9FnppbhqKQBytEULWxtjZCKNw-wSWrVIpUfZ-dbPCpJCFu4sxdMXsBJbU1RjUKNyCtPtLV4xa2cWhk9WtYhm41LIFbIfLO8Flv4qwno1_WZ_B5w9LZgXJM96TU38xeFaaxBhih9q9ZYzE0S-xMYxbqMCukRmtzq8J0tZ5Ei-kPdRQoQa72qXCa-HIKRSlM61X9B1aemyRUtaH_Px7WRQjC5hJ7xhDILLFBmBr_LO6DAAcLhUumuJc",
       },
       {
         title: "Ventana corrediza",
         description:
-          "Hojas deslizantes que aprovechan mejor el espacio interior y permiten paños mas amplios.",
+          "Hojas deslizantes que aprovechan mejor el espacio interior y permiten paños más amplios.",
         idealFor: ["Dormitorios", "Salas de estar", "Balcones"],
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuDs2va21_6Uejboo8d_-DrT4feT09fanU04K0VqpViyeZUfWCqa595a_tJ5PddzEtnrmCy5QrA8pxVt914Qxg-7Y_NuAKXaUGuzweoejejR_BrMBxE7cBQ-wzeIWVCOZ4yDCBg_5TEjI4obHBCFdixYqW69gPHvZ3snP-64cqBeJcSI1lHVjCN3DWiHgRXu5MtihabG5I0FhAYzQFasUyPeBGKRW2MgskLGQbhwBP9Z-R8ZSu4voROIgVF4vmvKG0aiUpfbHAhi9dUu",
@@ -65,7 +65,7 @@ export const windowServiceContent: ServiceTemplateContent = {
       {
         title: "Ventana con cristal templado",
         description:
-          "Solucion de lectura mas limpia para frentes, oficinas y sectores donde la transparencia es parte del proyecto.",
+          "Solución de lectura más limpia para frentes, oficinas y sectores donde la transparencia es parte del proyecto.",
         idealFor: ["Frentes comerciales", "Oficinas", "Cerramientos especiales"],
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuC_AZXM1JTcYOaVXmvGw_Vze_hQmvNEAP7Zo4vt3xOhfE5BMcURTbfz5IBX6MZjzmCdyPiFH5AhiEcIDyf-6LKuIsTU6aGr8bdO_Aj-h3ztE6Xfjxg5Rhxw2PqcP0mlVVXD9bVR-OgNctN3iREvcS9-pBCWmFX-znQ1pp8tCNBVTqm_Mr9HyTM3e13VKT8J-4aOXKFRhKsM0qVnOxoB21qyLu-w2vrxqssp-ZlQj94-PR27YMLOi4VTs7wSfPC-AemqrbTdHRXveIBe",
@@ -73,13 +73,13 @@ export const windowServiceContent: ServiceTemplateContent = {
     ],
   },
   selection: {
-    title: "Guia de seleccion",
+    title: "Guía de selección",
     description:
-      "Te ayudamos a elegir el sistema segun ventilacion, limpieza visual, apertura y mantenimiento.",
+      "Te ayudamos a elegir el sistema según ventilación, limpieza visual, apertura y mantenimiento.",
     items: [
       {
         title: "Basculante",
-        description: "Para priorizar ventilacion y privacidad en ambientes de servicio.",
+        description: "Para priorizar ventilación y privacidad en ambientes de servicio.",
         icon: "air",
       },
       {
@@ -88,8 +88,8 @@ export const windowServiceContent: ServiceTemplateContent = {
         icon: "view_compact",
       },
       {
-        title: "Pano fijo o templado",
-        description: "Para proyectos donde la visual y la seguridad del vidrio pesan mas.",
+        title: "Paño fijo o templado",
+        description: "Para proyectos donde la visual, el tipo de vidrio y la terminación forman parte del diseño.",
         icon: "architecture",
       },
     ],
@@ -97,7 +97,7 @@ export const windowServiceContent: ServiceTemplateContent = {
   applications: {
     title: "Aplicaciones por proyecto",
     description:
-      "Adaptamos la solucion a viviendas, oficinas, locales y obras en desarrollo segun escala y uso.",
+      "Adaptamos la solución a viviendas, oficinas, locales y obras en desarrollo según escala y uso.",
     items: [
       {
         title: "Viviendas",
@@ -122,19 +122,19 @@ export const windowServiceContent: ServiceTemplateContent = {
     ],
   },
   process: {
-    title: "Proceso de cotizacion",
+    title: "Proceso de cotización",
     description:
       "Revisamos datos del vano, uso del ambiente y necesidades del proyecto antes de presupuestar.",
     steps: [
-      { label: "Envia fotos" },
-      { label: "Comparti medidas" },
+      { label: "Enviá fotos" },
+      { label: "Compartí medidas" },
       { label: "Definimos el uso" },
-      { label: "Recibis orientacion" },
-      { label: "Coordinamos la visita" },
+      { label: "Recibís orientación" },
+      { label: "Coordinamos los siguientes pasos" },
     ],
   },
   trust: {
-    title: "Confianza y seguimiento tecnico",
+    title: "Orientación según el proyecto",
     description:
       "VIPAR S.A. trabaja con proyectos de vidrio y aluminio en Paraguay, con presencia operativa en Ñemby. Cada solución se define según condiciones y alcance del proyecto.",
     locationLabel: "Ubicación operativa: Ñemby, Paraguay",
@@ -143,19 +143,19 @@ export const windowServiceContent: ServiceTemplateContent = {
   },
   faqs: [
     {
-      question: "Trabajan con medidas estandar?",
+      question: "¿Trabajan con medidas estándar?",
       answer:
-        "No. Cada ventana se define segun el vano real y las necesidades del ambiente.",
+        "No. Cada ventana se define según el vano real y las necesidades del ambiente.",
     },
     {
-      question: "Incluyen instalacion en el presupuesto?",
+      question: "¿Incluyen instalación en el presupuesto?",
       answer:
-        "Podemos contemplar fabricacion e instalacion segun el alcance del proyecto y la ubicacion de la obra.",
+        "El alcance se define según medidas, tipo de sistema, ubicación y condiciones de instalación.",
     },
     {
-      question: "Que datos conviene enviar para cotizar?",
+      question: "¿Qué datos conviene enviar para cotizar?",
       answer:
-        "Fotos del lugar, medidas aproximadas, ubicacion de la obra y el tipo de ventana que tenes en mente.",
+        "Fotos del lugar, medidas aproximadas, ubicación de la obra y el tipo de ventana que tenés en mente.",
     },
   ],
 };
