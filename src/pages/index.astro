@@ -8,6 +8,7 @@ import HomeSpecialties from "@components/home/HomeSpecialties.astro";
 import Layout from "@layouts/Layout.astro";
 import "@styles/tailwind.css";
 import { SITE_URL, address, email, telephone } from "src/constants";
+import { staticObras } from "@lib/static-obras";
 import "@styles/home.css";
 
 const title = "VIPAR S.A. | Cristales y Aluminio";
@@ -108,38 +109,15 @@ const complementaryServices = [
   },
 ];
 
-const projects = [
-  {
-    layout: "hero",
-    eyebrow: "Espacio Corporativo",
-    title: "Showroom VIPAR",
-    description:
-      "Servicios: Cristal Templado, Carpintería de Aluminio, Mobiliario en Vidrio.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC-39FDUcFsXxt2-cHVwOpA0Wjc2NWCg1VhvF5pPd-XNzK7Z3WupVl1crnJDYLxdsZXjomu-xBzDAedUTI1-VnLwBA5n976BRatH6J_rnImgK0GSUUxwQlhRWU-r7n2EG8CdO3Ur1PJ503BaDHPfvDpBp6yXRlAmiJAJ5hASS501XQCUSh1kXWFDQuoShddMHinuvifgJwMjvIsyI6CWLYJc2_SaTbVCCXJQ1hp1iXpWgk4VGjFU7ZEcwe8qptGEUuYxORq58FKiOG1",
-    alt: "Showroom VIPAR",
-  },
-  {
-    layout: "side",
-    eyebrow: "Frente Comercial",
-    title: "Sucursal Tigo MRA",
-    description:
-      "Servicios: Grandes Luces en Cristal, Perfilería según necesidad de la obra, Accesos de Seguridad.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDbd9UQQxqlNAyrWEtvBi_GUT3uDykJb0buw1FcrNqPqe5l199QGOL66ETfkeoo0HZSvVSBedKqI5Jl9J8Bl_CWKHNJZZi6CrMKs5uD6bW6bbKiW7XipUvV6ivTvUaQcf80j1Wxi3QY_t_8jYuxAGPJbc8HOIeNGJqQFOgHYujVD4uipBHjkAyOOhtHewanAyTsnlYPtRE9l_kUFPF8W6irIFk80YUriPdG2-EyKQncAw2xmryuEwFsMNxZ3EKWXhFj9d6QDYDvmSo1",
-    alt: "Sucursal Tigo MRA",
-  },
-  {
-    layout: "side",
-    eyebrow: "Edificio Residencial",
-    title: "Edificio Concordia",
-    description:
-      "Servicios: Carpintería de Aluminio de Alta Prestación, Cristales y aluminio según requerimiento del proyecto.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAX2oB39hJd82DqZofsOyohWZFqrWx9MfifNvV1-DP_a8aWX840Oc2jv2plL1-SJuH1bELm3TgGX0sjI-z9LtI1n4eQ8MCeJPBAmTe5V81zCRqO6ODMQuMl8KUlH35Qlr2RhiZGLcmJXK9HM5eUgqBItlUgTzOpBHffj4TB7bBS46CThZnyvLeXq9PFCMXgtZ1eMJ6T3kuN8zMF74xLXCo0G4mUcj6U8kmCNPdN_oP-FnWFhz4QTYDFF1G1ObXBIZX_6l4X8k61ftYd",
-    alt: "Edificio Concordia",
-  },
-];
+const projects = staticObras.slice(0, 3).map((obra, i) => ({
+  layout: i === 0 ? "hero" : "side",
+  eyebrow: obra.sectorLabel,
+  title: obra.titulo,
+  description: obra.systemLabel,
+  image: obra.imagen,
+  alt: `${obra.titulo} – ${obra.ubicacion} | VIPAR`,
+  href: `/obras/${obra.slug}/`,
+}));
 
 const keyData = [
   {

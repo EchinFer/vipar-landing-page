@@ -10,6 +10,7 @@ interface Project {
   description: string;
   image: string;
   alt: string;
+  href?: string;
 }
 
 interface Props {
@@ -20,7 +21,8 @@ const { project } = Astro.props;
 ---
 
 <Card
-  as="article"
+  as={project.href ? "a" : "article"}
+  href={project.href}
   variant="immersive"
   class:list={[
     "vipar-project-card",
