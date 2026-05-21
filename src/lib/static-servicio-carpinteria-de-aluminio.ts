@@ -37,8 +37,8 @@ export const aluminumChallengeItems: AluminumChallengeItem[] = [
   },
   {
     icon: "bi-lock",
-    title: "Vulnerabilidad de seguridad",
-    description: "Integración de cerraduras multipunto en perfilerías robustas.",
+    title: "Tipos de cierre según sistema",
+    description: "Distintas opciones de herrajes y cerraduras según el tipo de puerta y uso del espacio.",
   },
 ];
 
@@ -51,12 +51,12 @@ export const aluminumSystems: AluminumSystemCard[] = [
       "Sistema de apertura pivotante para accesos principales e interiores donde el espacio de barrido no es una limitante.",
     idealFor: [
       "Accesos principales a viviendas",
-      "Puertas interiores de alto tránsito comercial",
-      "Salidas de emergencia",
+      "Puertas interiores en comercios",
+      "Sectores de circulación frecuente",
     ],
     solvedProblems: [
-      "Buen nivel de herméticidad acústica y térmica",
-      "Integración sencilla de cerraduras electromagnéticas",
+      "Apertura controlada con cierre limpio",
+      "Adaptable a distintos tipos de herrajes",
     ],
     tags: ["Bisagras reforzadas", "Doble contacto"],
     ctaLabel: "Cotizar batiente",
@@ -73,8 +73,8 @@ export const aluminumSystems: AluminumSystemCard[] = [
       "Divisiones de ambientes amplios",
     ],
     solvedProblems: [
-      "Ahorro total de espacio de barrido",
-      "Grandes luces de acristalamiento",
+      "Mayor espacio disponible al abrir",
+      "Continuidad visual entre ambientes",
     ],
     tags: ["Rodamientos regulables", "Felpa perimetral"],
     ctaLabel: "Cotizar corrediza",
