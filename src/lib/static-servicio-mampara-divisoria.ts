@@ -63,11 +63,11 @@ export const mamparaProblemCases: MamparaCaseItem[] = [
   },
   {
     title: "Consultorios médicos",
-    description: "Opciones higiénicas y de fácil limpieza en durlock o eucatex.",
+    description: "Divisiones para consultorios o espacios de atención según el nivel de privacidad y mantenimiento requerido.",
   },
   {
     title: "Subdivisión industrial",
-    description: "Soluciones económicas y rápidas de montar o desmontar.",
+    description: "Divisiones funcionales para separar áreas operativas según el tipo de espacio.",
   },
 ];
 
@@ -101,22 +101,22 @@ export const mamparaTypeCards: MamparaTypeCardItem[] = [
   {
     title: "Mamparas Eucatex",
     description:
-      "Solución modular, rápida y económica para subdivisiones operativas o administrativas.",
+      "Solución modular para subdivisiones operativas o administrativas.",
     bullets: [
       "Sistema modular según condiciones de obra",
-      "Buena relación costo-beneficio",
-      "Fácil ampliación o reubicación futura",
+      "Alternativa funcional según presupuesto y uso del espacio",
+      "Puede adaptarse a cambios futuros según el sistema instalado",
     ],
     note: "Adecuadas para oficinas funcionales que priorizan flexibilidad y velocidad de obra.",
   },
   {
     title: "Tabiques de durlock",
     description:
-      "Divisiones de tabiquería seca con mejor desempeño acústico y posibilidad de ocultar instalaciones internas.",
+      "Divisiones de tabiquería seca con mayor privacidad visual o separación física según composición y terminación.",
     bullets: [
       "Puede aportar mayor privacidad según composición y terminación",
-      "Permite instalaciones ocultas",
-      "Terminación sólida y corporativa",
+      "Puede permitir integración de instalaciones según diseño y condiciones de obra",
+      "Terminación continua para espacios interiores",
     ],
     note: "Una opción a considerar cuando se busca privacidad, robustez y acabado definitivo.",
   },
@@ -125,40 +125,40 @@ export const mamparaTypeCards: MamparaTypeCardItem[] = [
 export const mamparaComparisonRows: MamparaComparisonRow[] = [
   {
     label: "Privacidad visual",
-    cristal: "Baja a media",
-    eucatex: "Alta",
-    durlock: "Alta",
+    cristal: "Depende del sistema",
+    eucatex: "Mayor",
+    durlock: "Mayor",
   },
   {
     label: "Aislamiento acústico",
-    cristal: "Medio",
-    eucatex: "Medio",
-    durlock: "Alto",
+    cristal: "Depende del sistema",
+    eucatex: "Limitado",
+    durlock: "Puede ser mayor según composición",
   },
   {
     label: "Paso de luz natural",
-    cristal: "Alto",
-    eucatex: "Nulo",
-    durlock: "Nulo",
+    cristal: "Mayor",
+    eucatex: "No aplica / limitado",
+    durlock: "No aplica / limitado",
   },
   {
-    label: "Velocidad de instalación",
-    cristal: "Media",
-    eucatex: "Alta",
-    durlock: "Media",
+    label: "Condiciones de montaje",
+    cristal: "Depende del sistema",
+    eucatex: "Mayor rapidez relativa",
+    durlock: "Depende del sistema",
   },
   {
-    label: "Reubicación futura",
-    cristal: "Media",
-    eucatex: "Alta",
-    durlock: "Nula",
+    label: "Posibilidad de adaptación futura",
+    cristal: "Limitada",
+    eucatex: "Posible",
+    durlock: "No aplica / limitado",
   },
 ];
 
 export const mamparaSectorItems: MamparaSectorItem[] = [
-  { title: "Oficinas corporativas", description: "Estética premium y control de luz." },
+  { title: "Oficinas corporativas", description: "Divisiones interiores con paso de luz según el sistema elegido." },
   { title: "Locales comerciales", description: "Divisiones rápidas para áreas de atención y apoyo." },
-  { title: "Empresas e industrias", description: "Durabilidad y seguridad para operación diaria." },
+  { title: "Empresas e industrias", description: "Separación de áreas operativas según uso y condiciones del espacio." },
   { title: "Clínicas médicas", description: "Higiene, privacidad y limpieza sencilla." },
   { title: "Obras temporales", description: "Cerramientos desmontables y escalables." },
 ];
@@ -167,17 +167,17 @@ export const mamparaSymptoms: MamparaSymptomItem[] = [
   {
     title: "Ruido excesivo en áreas operativas",
     description:
-      "Si las conversaciones cruzan las oficinas afectando la concentración, falta aislamiento acústico adecuado.",
+      "Si las conversaciones cruzan las oficinas afectando la concentración, puede ser necesario revisar una división más adecuada del ambiente.",
   },
   {
     title: 'Espacios oscuros o "encerrados"',
     description:
-      "Las paredes ciegas actuales bloquean la luz natural y aumentan el consumo eléctrico.",
+      "Las paredes ciegas actuales pueden limitar el aprovechamiento de la luz natural.",
   },
   {
     title: "Falta de privacidad en reuniones",
     description:
-      "Cuando no existen boxes cerrados para llamadas sensibles o reuniones con clientes, la operación pierde calidad.",
+      "Cuando no existen boxes cerrados para llamadas sensibles o reuniones con clientes, puede ser necesario definir espacios más reservados.",
   },
 ];
 
@@ -204,7 +204,7 @@ export const mamparaProcessSteps: MamparaProcessStep[] = [
   },
   {
     title: "Montaje según condiciones del espacio",
-    description: "Instalación en obra por personal calificado.",
+    description: "Montaje según medidas, sistema elegido y condiciones del espacio.",
   },
 ];
 
@@ -215,13 +215,13 @@ export const mamparaTrustStats: MamparaTrustStat[] = [
 ];
 
 export const mamparaEditorialTags = [
-  "Tabiques de oficina",
-  "Cerramientos de vidrio",
-  "Paredes de durlock",
+  "Mamparas para oficinas",
+  "Divisiones interiores",
+  "Mamparas de cristal templado",
+  "Tabiques de Durlock",
+  "Mamparas Eucatex",
   "Divisores de ambientes",
-  "Instalación de blindex",
-  "Mamparas acústicas",
-  "Estructuras de aluminio",
+  "Cerramientos interiores",
 ];
 
 export const mamparaFaqs: MamparaFaqItem[] = [

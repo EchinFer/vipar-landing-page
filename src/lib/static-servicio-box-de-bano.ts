@@ -83,11 +83,11 @@ export const boxOptions: BoxOptionItem[] = [
     chip: "Cristal templado",
     featured: true,
     description:
-      "Cristal de seguridad con herrajes de aluminio o acero según el sistema elegido.",
+      "Cristal templado según el sistema elegido.",
     idealFor: [
       "Baños principales y suites",
       "Estética minimalista",
-      "Máxima durabilidad",
+      "Mayor resistencia según el sistema elegido",
     ],
   },
   {
