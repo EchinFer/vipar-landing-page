@@ -144,7 +144,7 @@ export const mamparaComparisonRows: MamparaComparisonRow[] = [
   {
     label: "Condiciones de montaje",
     cristal: "Depende del sistema",
-    eucatex: "Mayor rapidez relativa",
+    eucatex: "Puede variar según el sistema",
     durlock: "Depende del sistema",
   },
   {
@@ -157,9 +157,9 @@ export const mamparaComparisonRows: MamparaComparisonRow[] = [
 
 export const mamparaSectorItems: MamparaSectorItem[] = [
   { title: "Oficinas corporativas", description: "Divisiones interiores con paso de luz según el sistema elegido." },
-  { title: "Locales comerciales", description: "Divisiones rápidas para áreas de atención y apoyo." },
+  { title: "Locales comerciales", description: "Divisiones funcionales para áreas de atención y apoyo." },
   { title: "Empresas e industrias", description: "Separación de áreas operativas según uso y condiciones del espacio." },
-  { title: "Clínicas médicas", description: "Higiene, privacidad y limpieza sencilla." },
+  { title: "Clínicas médicas", description: "Privacidad y mantenimiento según el sistema elegido." },
   { title: "Obras temporales", description: "Cerramientos desmontables y escalables." },
 ];
 

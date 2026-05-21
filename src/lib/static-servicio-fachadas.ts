@@ -4,11 +4,11 @@ export const facadesServiceContent: ServiceTemplateContent = {
   title: "Fachadas de Vidrio y Aluminio en Paraguay | Muro Cortina y Glazing | VIPAR",
   description:
     "Cotizá fachadas de vidrio y aluminio en Paraguay con VIPAR. Soluciones entubadas, muro cortina y sistema glazing para locales comerciales, edificios, oficinas y obras. Solicitá presupuesto.",
-  canonicalPath: "/servicios/fachadas",
+  canonicalPath: "/servicios/fachadas/",
   keywords:
     "fachadas de vidrio paraguay, fachadas de aluminio paraguay, fachadas comerciales paraguay, fachada para local comercial, fachada vidriada paraguay, muro cortina paraguay, sistema glazing paraguay",
   whatsappMessage:
-    "Hola, quiero cotizar una fachada. Envío fotos, medidas o referencia desde la página web.",
+    "Puedo enviar fotos, medidas, plano o referencia desde la página web.",
   relatedWorksKey: "fachadas",
   hero: {
     eyebrow: "Fachadas en Paraguay",
