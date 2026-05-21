@@ -26,8 +26,8 @@ export const aluminumHeroSpecs = [
 export const aluminumChallengeItems: AluminumChallengeItem[] = [
   {
     icon: "bi-droplet",
-    title: "Filtraciones de agua y aire",
-    description: "Filtraciones de agua y aire por juntas o cierres deficientes.",
+    title: "Control de entrada de luz y ventilación",
+    description: "Definir el tipo de apertura según ventilación, entrada de luz y condiciones del espacio.",
   },
   {
     icon: "bi-arrows-collapse",
@@ -58,7 +58,7 @@ export const aluminumSystems: AluminumSystemCard[] = [
       "Apertura controlada con cierre limpio",
       "Adaptable a distintos tipos de herrajes",
     ],
-    tags: ["Bisagras reforzadas", "Doble contacto"],
+    tags: ["Apertura frontal", "Cierre limpio"],
     ctaLabel: "Cotizar batiente",
   },
   {
@@ -76,7 +76,7 @@ export const aluminumSystems: AluminumSystemCard[] = [
       "Mayor espacio disponible al abrir",
       "Continuidad visual entre ambientes",
     ],
-    tags: ["Rodamientos regulables", "Felpa perimetral"],
+    tags: ["Desplazamiento horizontal", "Felpa perimetral"],
     ctaLabel: "Cotizar corrediza",
   },
 ];

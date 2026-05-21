@@ -25,7 +25,7 @@ const canonical = `${SITE_URL}/servicios/carpinteria-de-aluminio/`;
 const keywords =
   "carpintería de aluminio paraguay, aberturas de aluminio, puertas y ventanas, cerramientos, aluminio a medida";
 const whatsappLink = buildWhatsappUrl(
-  buildWhatsappMessage({ serviceName, pageLabel: serviceName, prompt: "Puedo enviar fotos, medidas o plano." })
+  buildWhatsappMessage({ serviceName, pageLabel: serviceName, prompt: "Hola, quiero cotizar carpintería de aluminio. Me comunico desde su página web." })
 );
 const relatedObras = getRelatedStaticObras("carpinteria-de-aluminio");
 ---
@@ -35,7 +35,6 @@ const relatedObras = getRelatedStaticObras("carpinteria-de-aluminio");
   description={description}
   keywords={keywords}
   canonical={canonical}
-  hideWhatsappFAB={true}
   bodyClass="aluminum-service-body"
   pageType="service"
   serviceName={serviceName}
