@@ -86,7 +86,6 @@ export const staticObras: StaticObra[] = [
     displayTags: ["Cristal", "Aluminio", "Terminaciones"],
     filterTags: ["cristal-templado", "aluminio", "fachadas"],
     category: [{ name: "Corporativo", slug: "corporativo" }],
-    featured: true,
   },
   {
     slug: "sucursal-tigo-mra",
@@ -115,9 +114,9 @@ export const staticObras: StaticObra[] = [
     slug: "edificio-concordia",
     titulo: "Edificio Concordia",
     descripcion:
-      "Soluciones integrales para obra con provisión e instalación de aberturas de aluminio de alta prestación.",
+      "Soluciones integrales para obra con provisión e instalación de aberturas de aluminio según medidas y condiciones del proyecto.",
     resumen:
-      "Soluciones integrales para obra. Provisión e instalación de aberturas de aluminio de alta prestación.",
+      "Provisión e instalación de aberturas de aluminio según medidas y condiciones del proyecto.",
     imagen: "/img/obras/edificio-concordia/vidrio-aluminio-edificio-concordia-01.webp",
     imagenes: [
       "/img/obras/edificio-concordia/vidrio-aluminio-edificio-concordia-02.webp",
@@ -537,7 +536,7 @@ export const staticObras: StaticObra[] = [
     slug: "pedro-juan-caballero",
     titulo: "Universidad Pacífico – Ciencias Médicas",
     descripcion:
-      "Fachada acristalada de gran escala para sede universitaria en Pedro Juan Caballero. El muro cortina de vidrio reflectivo azul con estructura de aluminio de alta resistencia cubre la totalidad de la fachada principal, aportando identidad arquitectónica y eficiencia energética al edificio.",
+      "Fachada acristalada de gran escala para sede universitaria en Pedro Juan Caballero. El muro cortina de vidrio reflectivo azul con estructura de aluminio cubre la totalidad de la fachada principal, según las condiciones del proyecto, aportando presencia visual e identidad arquitectónica al edificio.",
     resumen:
       "Muro cortina de vidrio reflectivo azul para edificio de la Universidad Pacífico en Pedro Juan Caballero.",
     imagen: "/img/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-01.webp",
@@ -557,6 +556,7 @@ export const staticObras: StaticObra[] = [
     displayTags: ["Fachadas", "Cristal templado", "Aluminio"],
     filterTags: ["fachadas", "cristal-templado", "aluminio"],
     category: [{ name: "Institucional", slug: "institucional" }],
+    featured: true,
   },
   {
     slug: "alto-parana-presidente-franco",

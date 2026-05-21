@@ -109,7 +109,11 @@ const complementaryServices = [
   },
 ];
 
-const projects = staticObras.filter((obra) => obra.featured).slice(0, 3).map((obra, i) => ({
+const FEATURED_OBRA_SLUGS = ["sucursal-tigo-mra", "pedro-juan-caballero", "edificio-concordia"];
+const projects = FEATURED_OBRA_SLUGS
+  .map((slug) => staticObras.find((obra) => obra.slug === slug))
+  .filter((obra): obra is NonNullable<typeof obra> => obra != null)
+  .map((obra, i) => ({
   layout: i === 0 ? "hero" : "side",
   eyebrow: obra.sectorLabel,
   title: obra.titulo,
