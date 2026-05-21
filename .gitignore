@@ -27,3 +27,9 @@ pnpm-debug.log*
 .unlighthouse
 
 https___vipar.com.py*
+
+.jpg
+.JPEG
+.JPG
+.png
+.webp
