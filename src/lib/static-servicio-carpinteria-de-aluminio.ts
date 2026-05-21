@@ -19,7 +19,7 @@ export const aluminumHeroImage =
 
 export const aluminumHeroSpecs = [
   { label: "Perfilaría", value: "Aluminio según proyecto" },
-  { label: "Vidriado", value: "Templado / DVH según requerimiento" },
+  { label: "Vidriado", value: "Vidrio según requerimiento" },
   { label: "Cierre", value: "Según sistema y uso" },
 ];
 
@@ -33,7 +33,7 @@ export const aluminumChallengeItems: AluminumChallengeItem[] = [
     icon: "bi-arrows-collapse",
     title: "Deformación por calor",
     description:
-      "El aluminio mantiene su rigidez estructural en condiciones normales de uso, independientemente de variaciones de temperatura habituales.",
+      "El sistema se define según el tipo de uso, exposición y condiciones del espacio.",
   },
   {
     icon: "bi-lock",
@@ -76,7 +76,7 @@ export const aluminumSystems: AluminumSystemCard[] = [
       "Mayor espacio disponible al abrir",
       "Continuidad visual entre ambientes",
     ],
-    tags: ["Desplazamiento horizontal", "Felpa perimetral"],
+    tags: ["Desplazamiento horizontal", "Sistema según apertura"],
     ctaLabel: "Cotizar corrediza",
   },
 ];

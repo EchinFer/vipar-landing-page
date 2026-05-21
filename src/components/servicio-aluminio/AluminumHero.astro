@@ -12,9 +12,10 @@ interface HeroSpec {
 interface Props {
   image: string;
   specs: HeroSpec[];
+  whatsappHref: string;
 }
 
-const { image, specs } = Astro.props;
+const { image, specs, whatsappHref } = Astro.props;
 ---
 
 <section class="aluminum-service-hero">
@@ -24,19 +25,28 @@ const { image, specs } = Astro.props;
         Carpintería de aluminio en Paraguay
       </Text>
       <Heading level={1} variant="display">
-        Puertas de aluminio a medida para viviendas, comercios y obras.
+        Carpintería de aluminio para puertas, ventanas y cerramientos
       </Heading>
       <Text variant="body-lg">
-        Sistemas de cerramiento de alta precisión. Diseñamos, fabricamos e instalamos soluciones
-        en aluminio que combinan estética contemporánea, aislamiento técnico y durabilidad
-        estructural superior.
+        Consultá opciones según medidas, uso del espacio, tipo de apertura y condiciones de instalación. Trabajamos con sistemas diversos adaptados a cada proyecto.
       </Text>
       <div class="aluminum-service-hero__actions">
-        <Button href="/contacto/" variant="contained" tone="primary" size="lg">
-          Cotizar puerta de aluminio
+        <Button
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="contained"
+          tone="primary"
+          size="lg"
+          data-track-event="whatsapp_service_click"
+          data-cta-location="carpinteria_aluminio_hero"
+          data-service-name="Carpintería de aluminio"
+          data-whatsapp-message-type="service_hero"
+        >
+          Cotizar por WhatsApp
         </Button>
         <Button href="#tipos" variant="outlined" tone="primary" size="lg">
-          Ver tipos de puertas
+          Ver tipos de aberturas
         </Button>
       </div>
       <div class="aluminum-service-hero__tags" aria-label="Soluciones disponibles">
