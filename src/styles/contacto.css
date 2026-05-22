@@ -113,6 +113,7 @@
   overflow: hidden;
   min-height: 400px;
   padding: 0;
+  aspect-ratio: 16 / 9;
 }
 
 .contact-media-panel img {
@@ -309,6 +310,7 @@
 
   .contact-media-panel {
     min-height: 220px;
+    aspect-ratio: unset;
   }
 
   .contact-social-grid {

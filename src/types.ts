@@ -123,6 +123,7 @@ export interface ServicioListItem {
   title: string;
   href: string;
   image: string;
+  alt?: string;
   description: string;
 }
 
