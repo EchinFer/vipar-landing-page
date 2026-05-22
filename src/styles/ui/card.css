@@ -305,7 +305,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #6b7f8f;
+  color: var(--ds-color-secondary);
   font-size: 0.9rem;
 }
 

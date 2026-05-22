@@ -308,6 +308,7 @@
 
 .box-service-trust__badge {
   text-transform: uppercase;
+  color: var(--ds-color-surface);
 }
 
 .box-service-trust__inner h2 {

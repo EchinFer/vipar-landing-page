@@ -72,6 +72,10 @@
   text-decoration: none;
 }
 
+.vipar-site-footer__column .ds-btn {
+  color: var(--btn-fg);
+}
+
 .vipar-site-footer__column a:hover,
 .vipar-site-footer__bottom a:hover {
   color: var(--ds-color-surface);
