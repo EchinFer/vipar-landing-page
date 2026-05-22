@@ -1,7 +1,7 @@
 ﻿import type { ServicioFilterItem, ServicioListItem } from "@types";
 
 export const serviciosHeroImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCLC931dzH1AA9QK0jvOTqs7MwamibyZM3lb9_JrmtMs0_LMKYOSboN4_RY_XsxV0f5mdYJ1Nc5VPC6sdkmlHas55OPPMQJEw-G38NaFywqf76K2ARaOJyg4gilb6Abt-ed4i3D9r9y-wlzCqdO2d7XklU1MWe7PubfL9JDzdMJRmUN6-enGxzaLg8tJ2aMS8OROseP_RLon76e8LLkjw-sSAoxFndmPeZWhXYPx8d6oQhrdAwyKld3j7Y0zadQwIwt58I0oBO9dYi6";
+  "/img/services/services-hero.png";
 
 export const staticServicios: ServicioListItem[] = [
   {

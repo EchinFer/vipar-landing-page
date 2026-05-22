@@ -209,10 +209,11 @@
 
 .vipar-hero__backdrop-overlay {
   background: linear-gradient(
-    90deg,
-    rgba(243, 250, 255, 0.96) 0%,
-    rgba(243, 250, 255, 0.78) 38%,
-    rgba(243, 250, 255, 0.2) 100%
+    108deg,
+    rgba(0, 15, 30, 0.92) 0%,
+    rgba(0, 30, 55, 0.72) 35%,
+    rgba(0, 75, 115, 0.22) 68%,
+    rgba(0, 101, 139, 0.04) 100%
   );
 }
 
@@ -247,7 +248,7 @@
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  color: var(--vipar-secondary);
+  color: var(--vipar-inverse-soft);
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -255,7 +256,7 @@
 }
 
 .vipar-hero__support {
-  color: var(--vipar-text-soft);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -282,12 +283,17 @@
   color: var(--vipar-text-soft);
 }
 
+.vipar-hero h1 {
+  color: #ffffff;
+}
+
 .vipar-hero p {
   max-width: 42rem;
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.75;
   font-weight: 300;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .vipar-actions {
@@ -1059,10 +1065,10 @@
 
   .vipar-hero__backdrop-overlay {
     background: linear-gradient(
-      180deg,
-      rgba(243, 250, 255, 0.94) 0%,
-      rgba(243, 250, 255, 0.72) 48%,
-      rgba(243, 250, 255, 0.3) 100%
+      175deg,
+      rgba(0, 15, 30, 0.90) 0%,
+      rgba(0, 30, 55, 0.65) 50%,
+      rgba(0, 75, 115, 0.18) 100%
     );
   }
 
