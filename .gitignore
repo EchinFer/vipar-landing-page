@@ -28,6 +28,7 @@ pnpm-debug.log*
 
 https___vipar.com.py*
 
+# Images — ignored globally, except curated folders in public/
 *.jpg
 *.jpeg
 *.JPEG
@@ -39,3 +40,9 @@ https___vipar.com.py*
 *.avi
 *.mkv
 *.webm
+
+# Allow tracked image folders (home, services)
+!public/img/home/
+!public/img/home/**
+!public/img/services/
+!public/img/services/**
