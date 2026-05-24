@@ -1,19 +1,70 @@
 ﻿---
+import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import Container from "@components/ui/Container.astro";
 import Layout from "@layouts/Layout.astro";
 import "../styles/nosotros.css";
-import { SITE_URL, whatsappNumber } from "src/constants";
+import heroImage from "../assets/image/hero-nosotros.png";
+import { SITE_URL, SOCIAL_LINKS, companyAddress, whatsappNumber } from "src/constants";
 
-const title = "Sobre Nosotros | VIPAR S.A.";
-const description = "VIPAR S.A. es una empresa paraguaya con mas de 25 anos de experiencia en cristales templados, carpinteria de aluminio y terminaciones para obras en Paraguay. Ubicados en Nemby, Central.";
-const keywords = "VIPAR Paraguay, empresa cristales templados, historia VIPAR, experiencia construccion, empresa familiar Paraguay, cristales desde 2000, calidad construccion";
+const title = "Sobre VIPAR S.A. | 25+ años en cristales templados y aluminio en Paraguay";
+const description = "Conocé la historia de VIPAR S.A., empresa paraguaya con más de 25 años en cristales templados, carpintería de aluminio y terminaciones para obras residenciales, comerciales y corporativas.";
+const keywords = "sobre VIPAR, cristales templados Paraguay, carpintería de aluminio Paraguay, empresa familiar Paraguay, showroom VIPAR Ñemby, historia VIPAR";
 const canonical = `${SITE_URL}/nosotros/`;
+const ogImage = `${SITE_URL}/img/home/hero-home.webp`;
+const ogImageAlt = "Showroom y fachada de vidrio y aluminio de VIPAR en Ñemby";
 
 const whatsappMessage = "Hola, quiero consultar sobre VIPAR. Me comunico desde la pagina Nosotros.";
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
 const BASE = "https://vipar.moochsoft.com/obras/showroom-vipar";
+
+const aboutPageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: title,
+  description,
+  url: canonical,
+  inLanguage: "es-PY",
+  primaryImageOfPage: ogImage,
+  mainEntity: {
+    "@type": "Organization",
+    name: "VIPAR S.A.",
+    foundingDate: "2000",
+    url: SITE_URL,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: companyAddress.streetAddress,
+      addressLocality: companyAddress.addressLocality,
+      addressRegion: companyAddress.addressRegion,
+      addressCountry: companyAddress.addressCountry,
+    },
+    sameAs: [
+      SOCIAL_LINKS.instagram,
+      SOCIAL_LINKS.facebook,
+      SOCIAL_LINKS.tiktok,
+    ].filter(Boolean),
+  },
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Inicio",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Nosotros",
+      item: canonical,
+    },
+  ],
+};
 ---
 
 <Layout
@@ -21,16 +72,26 @@ const BASE = "https://vipar.moochsoft.com/obras/showroom-vipar";
   description={description}
   keywords={keywords}
   canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt={ogImageAlt}
+  ogType="website"
   bodyClass="vipar-nosotros-body"
+  pageType="about"
+  structuredData={[aboutPageStructuredData, breadcrumbStructuredData]}
 >
   <!-- Hero -->
   <section class="nosotros-hero">
     <div class="nosotros-hero__backdrop">
-      <img
-        src="/img/home/hero-home-2.png"
+      <Image
+        src={heroImage}
         alt="Fachada integral de vidrio y aluminio &mdash; Showroom VIPAR en &Ntilde;emby"
+        widths={[768, 1280, 1600]}
+        sizes="100vw"
+        quality={72}
+        format="webp"
         loading="eager"
         fetchpriority="high"
+        decoding="async"
       />
     </div>
     <Container class="nosotros-hero__content">
@@ -109,26 +170,46 @@ const BASE = "https://vipar.moochsoft.com/obras/showroom-vipar";
           src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-01.webp`}
           alt="Fachada integral del showroom VIPAR &mdash; vidrio y aluminio"
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+          width="1200"
+          height="900"
         />
         <img
           src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-04.webp`}
           alt="Interior del showroom VIPAR"
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+          width="1200"
+          height="900"
         />
         <img
           src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-05.webp`}
           alt="Detalle de carpinter&iacute;a de aluminio en el showroom"
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+          width="1200"
+          height="900"
         />
         <img
           src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-08.webp`}
           alt="Pa&ntilde;os de vidrio templado &mdash; showroom VIPAR"
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+          width="1200"
+          height="900"
         />
         <img
           src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-10.webp`}
           alt="Terminaciones interiores &mdash; showroom VIPAR"
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+          width="1200"
+          height="900"
         />
       </div>
     </Container>

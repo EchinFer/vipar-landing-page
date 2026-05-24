@@ -25,9 +25,13 @@ interface Props {
   keywords?: string;
   canonical?: string;
   ogImage?: string;
+  ogImageAlt?: string;
   bodyClass?: string;
   pageType?: string;
   serviceName?: string;
+  ogType?: string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
   hideHeader?: boolean;
   hideFooter?: boolean;
   hideWhatsappFAB?: boolean;
@@ -46,16 +50,20 @@ const {
   keywords = defaultKeywords,
   canonical = SITE_URL,
   ogImage = `${SITE_URL}/img/vipar-og.webp`,
+  ogImageAlt = title,
   bodyClass = "",
   pageType = "generic",
   serviceName,
+  ogType = "website",
+  noindex = false,
+  structuredData = [],
   hideHeader = false,
   hideFooter = false,
   hideWhatsappFAB = false,
   hideConsentBanner = false
 } = Astro.props;
 
-const localBusinessStructuredData = JSON.stringify({
+const localBusinessStructuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "VIPAR S.A.",
@@ -148,7 +156,16 @@ const localBusinessStructuredData = JSON.stringify({
       },
     },
   ],
-});
+};
+
+const structuredDataItems = [
+  localBusinessStructuredData,
+  ...(Array.isArray(structuredData)
+    ? structuredData
+    : structuredData
+      ? [structuredData]
+      : []),
+].map((item) => JSON.stringify(item));
 ---
 
 <!doctype html>
@@ -159,22 +176,28 @@ const localBusinessStructuredData = JSON.stringify({
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
-    <meta name="robots" content="index, follow" />
+    <meta name="author" content="VIPAR S.A." />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0f2a3d" />
 
     <link rel="canonical" href={canonical} />
     <!-- SEO Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:type" content="website" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="VIPAR S.A." />
+    <meta property="og:locale" content="es_PY" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -185,6 +208,7 @@ const localBusinessStructuredData = JSON.stringify({
     <!-- Sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
     <!-- Fonts for redesign (Manrope + Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -364,7 +388,9 @@ const localBusinessStructuredData = JSON.stringify({
     </div>}
     {!hideWhatsappFAB && <WhatsappFAB />}
     <ClientProvider />
-    <script type='application/ld+json' set:html={localBusinessStructuredData}></script>
+    {structuredDataItems.map((item) => (
+      <script type="application/ld+json" set:html={item}></script>
+    ))}
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function(){
         (function(){
