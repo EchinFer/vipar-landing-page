@@ -1,4 +1,4 @@
-﻿import type { ServiceTemplateContent } from "@lib/service-template";
+import type { ServiceTemplateContent } from "@lib/service-template";
 
 export const curtainServiceContent: ServiceTemplateContent = {
   title: "Cortinas de vidrio en Paraguay | Cerramientos corredizos | VIPAR",
@@ -16,7 +16,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
     description:
       "Sistemas corredizos de cristal templado para balcones, galerías, quinchos y frentes comerciales. Consultá opciones según medidas, tipo de apertura, exposición del espacio y condiciones de instalación.",
     image:
-      "/img/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-01.webp",
+      "https://vipar.moochsoft.com/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-01.webp",
     tags: ["Balcones", "Quinchos", "Galerías", "Cristal templado"],
     primaryCtaLabel: "Cotizar cortina",
   },
@@ -50,7 +50,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
           "Cerramientos corredizos para sumar opciones de flexibilidad sin perder la vista ni la entrada de luz natural en departamentos y terrazas.",
         idealFor: ["Departamentos", "Balcones urbanos", "Frentes residenciales"],
         image:
-          "/img/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-02.webp",
+          "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-02.webp",
       },
       {
         title: "Cortina para quincho o galería",
@@ -58,7 +58,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
           "Permite cerrar el espacio según el clima y abrirlo por completo cuando se busca ventilación y continuidad con el exterior.",
         idealFor: ["Quinchos", "Galerías", "Áreas sociales"],
         image:
-          "/img/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-02.webp",
+          "https://vipar.moochsoft.com/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-02.webp",
       },
       {
         title: "Cortina para frente comercial",
@@ -66,7 +66,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
           "Cerramiento de vidrio con apertura práctica para locales que necesitan visibilidad y una fachada limpia.",
         idealFor: ["Locales", "Showrooms", "Frentes comerciales"],
         image:
-          "/img/obras/galeria-senador-long/fachadas-puertas-vidrio-galeria-senador-long-01.webp",
+          "https://vipar.moochsoft.com/obras/galeria-senador-long/fachadas-puertas-vidrio-galeria-senador-long-01.webp",
       },
     ],
   },
@@ -100,21 +100,21 @@ export const curtainServiceContent: ServiceTemplateContent = {
       {
         title: "Balcones",
         image:
-          "/img/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-03.webp",
+          "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-03.webp",
       },
       {
         title: "Quinchos",
         image:
-          "/img/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-01.webp",
+          "https://vipar.moochsoft.com/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-01.webp",
       },
       { title: "Galerías",
         image:
-          "/img/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-02.webp",
+          "https://vipar.moochsoft.com/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-02.webp",
       },
       {
         title: "Locales",
         image:
-          "/img/obras/galeria-senador-long/fachadas-puertas-vidrio-galeria-senador-long-02.webp",
+          "https://vipar.moochsoft.com/obras/galeria-senador-long/fachadas-puertas-vidrio-galeria-senador-long-02.webp",
       },
     ],
   },
@@ -136,7 +136,7 @@ export const curtainServiceContent: ServiceTemplateContent = {
       "VIPAR S.A. es una empresa paraguaya con presencia operativa en Ñemby que trabaja con vidrio, aluminio y terminaciones para obras. Consultanos según medidas y tipo de proyecto.",
     locationLabel: "Ubicación operativa: Ñemby, Paraguay",
     image:
-      "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-02.webp",
+      "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-02.webp",
   },
   faqs: [
     {

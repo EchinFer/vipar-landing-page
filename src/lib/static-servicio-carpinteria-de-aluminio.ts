@@ -15,7 +15,7 @@ export interface AluminumChallengeItem {
 }
 
 export const aluminumHeroImage =
-  "/img/obras/vivienda-trotte/aberturas-aluminio-cristal-vivienda-trotte-01.webp";
+  "https://vipar.moochsoft.com/obras/vivienda-trotte/aberturas-aluminio-cristal-vivienda-trotte-01.webp";
 
 export const aluminumHeroSpecs = [
   { label: "Perfilaría", value: "Aluminio según proyecto" },
@@ -45,7 +45,7 @@ export const aluminumChallengeItems: AluminumChallengeItem[] = [
 export const aluminumSystems: AluminumSystemCard[] = [
   {
     image:
-      "/img/obras/vivienda-lc/puertas-aluminio-vivienda-lc-01.webp",
+      "https://vipar.moochsoft.com/obras/vivienda-lc/puertas-aluminio-vivienda-lc-01.webp",
     title: "Puertas batientes de aluminio",
     description:
       "Sistema de apertura pivotante para accesos principales e interiores donde el espacio de barrido no es una limitante.",
@@ -63,7 +63,7 @@ export const aluminumSystems: AluminumSystemCard[] = [
   },
   {
     image:
-      "/img/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-01.webp",
+      "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-01.webp",
     title: "Puertas corredizas de aluminio",
     description:
       "Sistemas de desplazamiento sobre rieles que amplían la percepción visual y el aprovechamiento espacial. Útiles para integrar ambientes interiores con exteriores.",

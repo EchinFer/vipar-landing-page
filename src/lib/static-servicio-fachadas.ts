@@ -16,7 +16,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
     description:
       "Soluciones para fachadas entubadas, muro cortina y sistema glazing en locales comerciales, edificios, oficinas, showrooms y proyectos arquitectónicos. En VIPAR podés consultar por fachadas con vidrio y aluminio según las medidas, el diseño, la estructura y las condiciones de cada obra.",
     image:
-      "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-01.webp",
+      "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-01.webp",
     tags: [
       "Fachadas comerciales",
       "Muro cortina",
@@ -67,7 +67,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
           "Espacios corporativos",
         ],
         image:
-          "/img/obras/local-comercial-capiata/vidriera-fachada-local-comercial-capiata-01.webp",
+          "https://vipar.moochsoft.com/obras/local-comercial-capiata/vidriera-fachada-local-comercial-capiata-01.webp",
       },
       {
         title: "Muro cortina",
@@ -81,7 +81,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
           "Proyectos inmobiliarios",
         ],
         image:
-          "/img/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-01.webp",
+          "https://vipar.moochsoft.com/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-01.webp",
       },
       {
         title: "Sistema glazing",
@@ -95,7 +95,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
           "Accesos vidriados",
         ],
         image:
-          "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-03.webp",
+          "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-03.webp",
       },
     ],
   },
@@ -138,22 +138,22 @@ export const facadesServiceContent: ServiceTemplateContent = {
       {
         title: "Locales comerciales",
         image:
-          "/img/obras/sucursal-tigo-mariano-roque-alonso/fachada-comercial-sucursal-tigo-mra-01.webp",
+          "https://vipar.moochsoft.com/obras/sucursal-tigo-mariano-roque-alonso/fachada-comercial-sucursal-tigo-mra-01.webp",
       },
       {
         title: "Showrooms",
         image:
-          "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-04.webp",
+          "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-04.webp",
       },
       {
         title: "Oficinas",
         image:
-          "/img/obras/asuncion-norte-2025/fachada-vidrio-natatorio-club-internacional-tenis-01.webp",
+          "https://vipar.moochsoft.com/obras/asuncion-norte-2025/fachada-vidrio-natatorio-club-internacional-tenis-01.webp",
       },
       {
         title: "Edificios",
         image:
-          "/img/obras/edificio-concordia/vidrio-aluminio-edificio-concordia-01.webp",
+          "https://vipar.moochsoft.com/obras/edificio-concordia/vidrio-aluminio-edificio-concordia-01.webp",
       },
     ],
   },
@@ -176,7 +176,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
       "Una fachada no es un elemento aislado. Debe integrarse al diseño del proyecto, a la estructura existente y al uso real del espacio. VIPAR S.A. aparece públicamente como una empresa paraguaya activa, con ubicación física en Ñemby, canales de contacto y portafolio de obras. Su oferta confirmada incluye cristales templados, carpintería de aluminio, fachadas, ventanas, puertas, mamparas, cielos rasos y box de baño.",
     locationLabel: "Ubicación operativa: Ñemby, Paraguay",
     image:
-      "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-05.webp",
+      "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-05.webp",
   },
   faqs: [
     {

@@ -16,7 +16,7 @@ export const windowServiceContent: ServiceTemplateContent = {
     description:
       "Consultá opciones corredizas, basculantes u otros sistemas según medidas, tipo de apertura, uso del ambiente y condiciones de instalación.",
     image:
-      "/img/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-01.webp",
+      "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-01.webp",
     tags: ["Basculantes", "Corredizas", "Cristal templado", "A medida"],
     primaryCtaLabel: "Cotizar en la web",
     secondaryCtaLabel: "Cotizar por WhatsApp",
@@ -52,7 +52,7 @@ export const windowServiceContent: ServiceTemplateContent = {
           "Sistema de apertura superior o parcial, útil para ambientes donde se busca ventilación controlada.",
         idealFor: ["Baños", "Cocinas", "Áreas de servicio"],
         image:
-          "/img/obras/alto-parana-presidente-franco/ventanas-aluminio-local-comercial-presidente-franco-01.webp",
+          "https://vipar.moochsoft.com/obras/alto-parana-presidente-franco/ventanas-aluminio-local-comercial-presidente-franco-01.webp",
       },
       {
         title: "Ventana corrediza",
@@ -60,7 +60,7 @@ export const windowServiceContent: ServiceTemplateContent = {
           "Hojas deslizantes que aprovechan mejor el espacio interior y permiten paños más amplios.",
         idealFor: ["Dormitorios", "Salas de estar", "Balcones"],
         image:
-          "/img/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-02.webp",
+          "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-02.webp",
       },
       {
         title: "Ventana con cristal templado",
@@ -68,7 +68,7 @@ export const windowServiceContent: ServiceTemplateContent = {
           "Solución de lectura más limpia para frentes, oficinas y sectores donde la transparencia es parte del proyecto.",
         idealFor: ["Frentes comerciales", "Oficinas", "Cerramientos especiales"],
         image:
-          "/img/obras/vivienda-trotte/aberturas-aluminio-cristal-vivienda-trotte-01.webp",
+          "https://vipar.moochsoft.com/obras/vivienda-trotte/aberturas-aluminio-cristal-vivienda-trotte-01.webp",
       },
     ],
   },
@@ -102,22 +102,22 @@ export const windowServiceContent: ServiceTemplateContent = {
       {
         title: "Viviendas",
         image:
-          "/img/obras/vivienda-trotte/aberturas-aluminio-cristal-vivienda-trotte-02.webp",
+          "https://vipar.moochsoft.com/obras/vivienda-trotte/aberturas-aluminio-cristal-vivienda-trotte-02.webp",
       },
       {
         title: "Departamentos",
         image:
-          "/img/obras/asuncion-centro-2020/ventanas-aluminio-edificio-longvillage-asuncion-01.webp",
+          "https://vipar.moochsoft.com/obras/asuncion-centro-2020/ventanas-aluminio-edificio-longvillage-asuncion-01.webp",
       },
       {
         title: "Oficinas",
         image:
-          "/img/obras/maria-antonieta-shopping-mariano-roque-alonso/vidriera-pano-fijo-maria-antonieta-shopping-mra-01.webp",
+          "https://vipar.moochsoft.com/obras/maria-antonieta-shopping-mariano-roque-alonso/vidriera-pano-fijo-maria-antonieta-shopping-mra-01.webp",
       },
       {
         title: "Obras",
         image:
-          "/img/obras/alto-parana-presidente-franco/ventanas-aluminio-local-comercial-presidente-franco-02.webp",
+          "https://vipar.moochsoft.com/obras/alto-parana-presidente-franco/ventanas-aluminio-local-comercial-presidente-franco-02.webp",
       },
     ],
   },
@@ -139,7 +139,7 @@ export const windowServiceContent: ServiceTemplateContent = {
       "VIPAR S.A. trabaja con proyectos de vidrio y aluminio en Paraguay, con presencia operativa en Ñemby. Cada solución se define según condiciones y alcance del proyecto.",
     locationLabel: "Ubicación operativa: Ñemby, Paraguay",
     image:
-      "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-07.webp",
+      "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-07.webp",
   },
   faqs: [
     {

@@ -29,25 +29,25 @@ export interface CeilingFaqItem {
 }
 
 export const ceilingHeroImage =
-  "/img/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-01.webp";
+  "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-01.webp";
 
 export const ceilingEnvironments: CeilingEnvironmentItem[] = [
   {
     image:
-      "/img/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-02.webp",
+      "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-02.webp",
     title: "Residencial",
     description: "Mejora visual y orden de instalaciones para tu hogar.",
     featured: true,
   },
   {
     image:
-      "/img/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-01.webp",
+      "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-01.webp",
     title: "Comercial",
     description: "Versatilidad y opciones de mantenimiento ágil para tu local.",
   },
   {
     image:
-      "/img/obras/asuncion-norte-2017/cielo-raso-torre-provenza-asuncion-01.webp",
+      "https://vipar.moochsoft.com/obras/asuncion-norte-2017/cielo-raso-torre-provenza-asuncion-01.webp",
     title: "Corporativo",
     description: "Soluciones para oficinas con terminación continua o modular.",
   },
@@ -92,7 +92,7 @@ export const ceilingSystems: CeilingSystemItem[] = [
 ];
 
 export const ceilingDetailImage =
-  "/img/obras/san-antonio-central/drywall-cielo-raso-local-comercial-san-antonio-central-01.webp";
+  "https://vipar.moochsoft.com/obras/san-antonio-central/drywall-cielo-raso-local-comercial-san-antonio-central-01.webp";
 
 export const ceilingDetails: CeilingDetailItem[] = [
   {

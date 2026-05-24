@@ -28,7 +28,7 @@ export interface BoxProcessStep {
 }
 
 export const boxHeroImage =
-  "/img/obras/caaguazu/mamparas-bano-aluminio-tienda-go-caaguazu-01.webp";
+  "https://vipar.moochsoft.com/obras/caaguazu/mamparas-bano-aluminio-tienda-go-caaguazu-01.webp";
 
 export const boxHeroTags = [
   "Acrílico",

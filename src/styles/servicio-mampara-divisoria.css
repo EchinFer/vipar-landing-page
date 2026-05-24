@@ -292,7 +292,7 @@
   border-radius: var(--ds-radius-lg);
   background:
     linear-gradient(rgba(0, 32, 70, 0.18), rgba(0, 32, 70, 0.18)),
-    url("/img/obras/cooperativa-medalla-milagrosa-central/mamparas-vidrio-cooperativa-medalla-milagrosa-01.webp")
+    url("https://vipar.moochsoft.com/obras/cooperativa-medalla-milagrosa-central/mamparas-vidrio-cooperativa-medalla-milagrosa-01.webp")
       center/cover no-repeat;
 }
 

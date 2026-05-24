@@ -48,7 +48,7 @@ export interface MamparaFaqItem {
 }
 
 export const mamparaHeroImage =
-  "/img/obras/cooperativa-medalla-milagrosa-central/mamparas-vidrio-cooperativa-medalla-milagrosa-01.webp";
+  "https://vipar.moochsoft.com/obras/cooperativa-medalla-milagrosa-central/mamparas-vidrio-cooperativa-medalla-milagrosa-01.webp";
 
 export const mamparaHeroTags = ["Cristal templado", "Eucatex", "Durlock"];
 
