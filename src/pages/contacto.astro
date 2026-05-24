@@ -79,8 +79,7 @@ const socialItems: ContactSocialItem[] = [
     </main>
   </div>
 
-  <script is:inline>
-    const whatsappNumber = {JSON.stringify(whatsappNumber)};
+  <script define:vars={{ whatsappNumber }}>
     const form = document.getElementById("vipar-contact-form");
     const status = document.getElementById("vipar-contact-form-status");
     const message = document.getElementById("vipar-contact-form-message");

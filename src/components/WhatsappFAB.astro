@@ -28,6 +28,8 @@ const whatsappHref = buildWhatsappUrl(
     align-items: center;
     justify-content: center;
     padding: 0;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
   }
 
   .fab-btn--label {
@@ -54,6 +56,16 @@ const whatsappHref = buildWhatsappUrl(
     filter: brightness(0.95);
   }
 
+  .fab-btn--whatsapp {
+    color: #fff;
+    background: #25d366;
+  }
+
+  .fab-btn--whatsapp:hover {
+    color: #fff;
+    filter: brightness(0.96);
+  }
+
   .fab-btn--tiktok {
     border: 0;
     color: #fff;
@@ -74,7 +86,7 @@ const whatsappHref = buildWhatsappUrl(
   <a
     href={whatsappHref}
     target="_blank"
-    class="btn btn-success text-white rounded-circle shadow fab-btn"
+    class="fab-btn fab-btn--whatsapp"
     aria-label="WhatsApp VIPAR"
     rel="noopener"
     data-track-event="whatsapp_fab_click"
@@ -89,7 +101,7 @@ const whatsappHref = buildWhatsappUrl(
       <a
         href={SOCIAL_LINKS.instagram}
         target="_blank"
-        class="btn rounded-circle shadow fab-btn fab-btn--instagram"
+        class="fab-btn fab-btn--instagram"
         aria-label="Instagram VIPAR"
         rel="noopener"
       >
@@ -103,7 +115,7 @@ const whatsappHref = buildWhatsappUrl(
       <a
         href={SOCIAL_LINKS.tiktok}
         target="_blank"
-        class="btn rounded-circle fab-btn fab-btn--label fab-btn--tiktok"
+        class="fab-btn fab-btn--label fab-btn--tiktok"
         aria-label="TikTok VIPAR"
         rel="noopener"
       >

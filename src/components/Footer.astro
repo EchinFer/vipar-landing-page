@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import Button from "./ui/Button.astro";
 import Container from "./ui/Container.astro";
+import logoFull from "../assets/image/logo-full-public.png";
 import {
   LOGO_TEXT,
   MENU_ITEMS,
@@ -29,7 +31,14 @@ const footerWhatsappHref = buildWhatsappUrl(
   <Container class="vipar-site-footer__grid">
     <div class="vipar-site-footer__brand">
       <a href="/" aria-label="VIPAR S.A. — Inicio" class="vipar-site-footer__logo">
-        <img src="/img/logo.png" alt="VIPAR S.A." />
+        <Image
+          src={logoFull}
+          alt="VIPAR S.A."
+          widths={[254]}
+          sizes="254px"
+          format="webp"
+          quality={70}
+        />
       </a>
       <p>
         Empresa paraguaya dedicada a cristales templados, aluminio y terminaciones para
@@ -44,7 +53,7 @@ const footerWhatsappHref = buildWhatsappUrl(
             rel="noopener noreferrer"
             aria-label="Instagram VIPAR"
           >
-            <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
+            <i class="bi bi-instagram" aria-hidden="true"></i>
           </a>
         )}
         {SOCIAL_LINKS.facebook && (
@@ -54,7 +63,7 @@ const footerWhatsappHref = buildWhatsappUrl(
             rel="noopener noreferrer"
             aria-label="Facebook VIPAR"
           >
-            <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+            <i class="bi bi-facebook" aria-hidden="true"></i>
           </a>
         )}
       </div>
@@ -77,15 +86,15 @@ const footerWhatsappHref = buildWhatsappUrl(
     <div class="vipar-site-footer__column">
       <h3>Contacto</h3>
       <p class="vipar-site-footer__contact">
-        <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+        <i class="bi bi-geo-alt" aria-hidden="true"></i>
         <span>{address}</span>
       </p>
       <p class="vipar-site-footer__contact">
-        <span class="material-symbols-outlined" aria-hidden="true">call</span>
+        <i class="bi bi-telephone" aria-hidden="true"></i>
         <a href={`tel:${telephone}`}>{telephone}</a>
       </p>
       <p class="vipar-site-footer__contact">
-        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+        <i class="bi bi-envelope" aria-hidden="true"></i>
         <a href={`mailto:${email}`}>{email}</a>
       </p>
 

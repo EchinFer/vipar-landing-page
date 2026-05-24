@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from "astro";
 import HomeAbout from "@components/home/HomeAbout.astro";
 import HomeContact from "@components/home/HomeContact.astro";
 import HomeHero from "@components/home/HomeHero.astro";
@@ -6,7 +7,10 @@ import HomeProjects from "@components/home/HomeProjects.astro";
 import HomeServices from "@components/home/HomeServices.astro";
 import HomeSpecialties from "@components/home/HomeSpecialties.astro";
 import Layout from "@layouts/Layout.astro";
-import "@styles/tailwind.css";
+import heroImage from "../assets/image/hero-nosotros.png";
+import residentialImage from "../assets/image/home-residencial-entorno.png";
+import commercialImage from "../assets/image/home-comercial-entorno.png";
+import corporateImage from "../assets/image/home-corporativo-entorno.png";
 import { SITE_URL, address, email, telephone } from "src/constants";
 import { staticObras } from "@lib/static-obras";
 import "@styles/home.css";
@@ -38,7 +42,7 @@ const featuredServices = [
     title: "Residencial",
     description:
       "Soluciones para viviendas donde el detalle, la funcionalidad y la terminación visual son parte central del proyecto.",
-    image: "/img/home/residencial-entorno.png",
+    image: residentialImage,
     alt: "Soluciones residenciales VIPAR",
     points: [
       "Instalaciones según medidas y tipo de obra",
@@ -51,8 +55,7 @@ const featuredServices = [
     title: "Comercial",
     description:
       "Infraestructuras pensadas para alto tránsito, durabilidad operativa e identidad de marca en espacios comerciales.",
-    image:
-      "/img/home/comercial-entorno.png",
+    image: commercialImage,
     alt: "Soluciones comerciales VIPAR",
     points: ["Locales de retail", "Centros comerciales", "Soluciones para espacios comerciales"],
     href: "/servicios/",
@@ -61,47 +64,53 @@ const featuredServices = [
     title: "Corporativo",
     description:
       "Espacios de trabajo que buscan productividad, imagen institucional y soluciones técnicas alineadas al uso del edificio.",
-    image:
-      "/img/home/corporativo-entorno.png",
+    image: corporateImage,
     alt: "Soluciones corporativas VIPAR",
     points: ["Oficinas y espacios corporativos", "Auditorios y sedes", "Requerimientos institucionales"],
     href: "/servicios/",
   },
-];
+] satisfies Array<{
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  alt: string;
+  points: string[];
+  href: string;
+}>;
 
 const complementaryServices = [
   {
-    icon: "splitscreen",
+    iconClass: "bi-columns-gap",
     title: "Cristales Templados",
     description: "Puertas, fachadas, divisiones, cerramientos y box de baño en cristal templado.",
     href: serviceLinks.cristalesTemplados,
   },
   {
-    icon: "door_front",
+    iconClass: "bi-door-closed",
     title: "Carpintería de Aluminio",
     description: "Puertas, ventanas, aberturas y cerramientos según medidas y tipo de apertura.",
     href: serviceLinks.carpinteriaAluminio,
   },
   {
-    icon: "apartment",
+    iconClass: "bi-building",
     title: "Fachadas Integrales",
     description: "Entubado, muro cortina y sistema glazing para locales, oficinas y edificios.",
     href: serviceLinks.fachada,
   },
   {
-    icon: "grid_view",
+    iconClass: "bi-grid-1x2",
     title: "Mamparas",
     description: "Divisiones para oficinas y espacios comerciales.",
     href: serviceLinks.mamparaDivisoria,
   },
   {
-    icon: "roofing",
+    iconClass: "bi-grid-3x3-gap",
     title: "Cielo Raso",
     description: "Instalación de cielos rasos en PVC, Durlock y modulares.",
     href: serviceLinks.cieloRaso,
   },
   {
-    icon: "shower",
+    iconClass: "bi-droplet-half",
     title: "Box de Baño",
     description: "Mamparas de ducha a medida con herrajes inoxidables.",
     href: serviceLinks.boxDeBano,
@@ -124,18 +133,18 @@ const projects = FEATURED_OBRA_SLUGS
 
 const keyData = [
   {
-    icon: "location_on",
+    iconClass: "bi-geo-alt",
     title: "Ubicación principal",
     description: address,
   },
   {
-    icon: "map",
+    iconClass: "bi-map",
     title: "Área de cobertura",
     description:
       "Asunción, Gran Asunción e interior del país (sujeto a envergadura del proyecto).",
   },
   {
-    icon: "domain",
+    iconClass: "bi-building-check",
     title: "Tipos de obra",
     description:
       "Viviendas, oficinas, locales comerciales, edificios e instituciones.",
@@ -172,10 +181,20 @@ const homeStructuredData = JSON.stringify([
   canonical={homePath}
   bodyClass="vipar-home-body"
   pageType="home"
+  loadAosAssets={false}
+  loadLightboxAssets={false}
+  loadSwiperAssets={false}
+  loadIsotopeAssets={false}
+  loadBootstrapJs={false}
+  useMaterialSymbols={false}
 >
   <div class="vipar-home" id="top">
     <main class="vipar-home__main">
-      <HomeHero whatsappNumber={whatsappNumber} whatsappMessage={whatsappMessage} />
+      <HomeHero
+        whatsappNumber={whatsappNumber}
+        whatsappMessage={whatsappMessage}
+        image={heroImage}
+      />
       <HomeSpecialties serviceLinks={serviceLinks} />
       <HomeServices
         featuredServices={featuredServices}
@@ -195,8 +214,7 @@ const homeStructuredData = JSON.stringify([
 
   <script type="application/ld+json" set:html={homeStructuredData}></script>
 
-  <script is:inline>
-    const whatsappNumber = {JSON.stringify(whatsappNumber)};
+  <script define:vars={{ whatsappNumber }}>
     const form = document.getElementById("vipar-home-form");
     const status = document.getElementById("vipar-home-form-status");
     const message = document.getElementById("vipar-home-form-message");

@@ -1,6 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Button from "./ui/Button.astro";
 import Container from "./ui/Container.astro";
+import logoFull from "../assets/image/logo-full-public.png";
+import logoSimple from "../assets/image/logo-simple-public.png";
 import { LOGO_TEXT, MENU_ITEMS } from "src/constants";
 
 const currentPathname = new URL(Astro.request.url).pathname;
@@ -9,8 +12,30 @@ const currentPathname = new URL(Astro.request.url).pathname;
 <header class="vipar-site-header" aria-label="Menu principal">
   <Container as="nav" class="vipar-site-header__nav" aria-label="Navegacion principal">
     <a class="vipar-site-header__brand" href="/" aria-label="VIPAR S.A. — Inicio">
-      <img src="/img/logo.png" alt="VIPAR S.A." class="vipar-site-header__logo-full" />
-      <img src="/img/logo-simple.png" alt="VIPAR S.A." class="vipar-site-header__logo-icon" />
+        <Image
+          src={logoFull}
+          alt="VIPAR S.A."
+          widths={[254]}
+          sizes="254px"
+          format="webp"
+          quality={70}
+          loading="eager"
+          decoding="async"
+          fetchpriority="low"
+          class="vipar-site-header__logo-full"
+        />
+        <Image
+          src={logoSimple}
+          alt="VIPAR S.A."
+          widths={[63]}
+          sizes="63px"
+          format="webp"
+          quality={70}
+          loading="eager"
+          decoding="async"
+          fetchpriority="low"
+          class="vipar-site-header__logo-icon"
+        />
     </a>
 
     <button

@@ -37,7 +37,7 @@
   gap: 16px;
 }
 
-.ds-card.vipar-key-card .vipar-key-card__item .material-symbols-outlined {
+.ds-card.vipar-key-card .vipar-key-card__item i {
   color: var(--vipar-secondary);
 }
 
@@ -142,7 +142,7 @@
   font-weight: 500;
 }
 
-.ds-card--variant-media .vipar-service-card__list .material-symbols-outlined {
+.ds-card--variant-media .vipar-service-card__list i {
   font-size: 1rem;
   color: #aec7f7;
 }
@@ -161,7 +161,7 @@
   background: var(--vipar-surface-low);
 }
 
-.ds-card--variant-soft .material-symbols-outlined {
+.ds-card--variant-soft .vipar-mini-card__icon i {
   color: var(--vipar-secondary);
   font-size: 2rem;
 }

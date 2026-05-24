@@ -42,12 +42,8 @@
   max-width: 100%;
 }
 
-.vipar-home .material-symbols-outlined {
-  font-variation-settings:
-    "FILL" 0,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 24;
+.vipar-home .bi {
+  line-height: 1;
 }
 
 .vipar-home-body {
@@ -443,7 +439,7 @@
   border-radius: var(--vipar-radius-sm);
 }
 
-.vipar-mini-card__icon .material-symbols-outlined {
+.vipar-mini-card__icon .bi {
   font-size: 1.5rem;
 }
 
@@ -503,7 +499,7 @@
   }
 }
 
-.ds-card--variant-soft .material-symbols-outlined,
+.ds-card--variant-soft .vipar-mini-card__icon .bi,
 .vipar-strength-card .material-symbols-outlined {
   color: var(--vipar-secondary);
   font-size: 2rem;
@@ -788,6 +784,10 @@
   background: var(--vipar-primary-container);
   color: #ffffff;
   flex: 0 0 auto;
+}
+
+.vipar-contact-item__icon .bi {
+  font-size: 1.25rem;
 }
 
 .vipar-contact-item div {

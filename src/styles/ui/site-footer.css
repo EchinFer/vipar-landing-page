@@ -48,6 +48,11 @@
   transition: background-color 0.2s ease;
 }
 
+.vipar-site-footer__socials i,
+.vipar-site-footer__contact i {
+  line-height: 1;
+}
+
 .vipar-site-footer__socials a:hover {
   background: var(--ds-color-accent);
 }
@@ -87,6 +92,11 @@
   gap: 8px;
   margin: 0;
   line-height: 1.7;
+}
+
+.vipar-site-footer__contact i {
+  font-size: 1rem;
+  margin-top: 0.2rem;
 }
 
 .vipar-site-footer__cta {

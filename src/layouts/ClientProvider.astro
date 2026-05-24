@@ -1,3 +1,23 @@
-<script is:inline src="/vendor/glightbox/js/glightbox.min.js" defer></script>
-<script is:inline src="/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
-<script is:inline src="/vendor/swiper/swiper-bundle.min.js" defer></script>
+---
+interface Props {
+  loadLightboxAssets?: boolean;
+  loadIsotopeAssets?: boolean;
+  loadSwiperAssets?: boolean;
+}
+
+const {
+  loadLightboxAssets = true,
+  loadIsotopeAssets = true,
+  loadSwiperAssets = true,
+} = Astro.props;
+---
+
+{loadLightboxAssets && (
+  <script is:inline src="/vendor/glightbox/js/glightbox.min.js" defer></script>
+)}
+{loadIsotopeAssets && (
+  <script is:inline src="/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+)}
+{loadSwiperAssets && (
+  <script is:inline src="/vendor/swiper/swiper-bundle.min.js" defer></script>
+)}

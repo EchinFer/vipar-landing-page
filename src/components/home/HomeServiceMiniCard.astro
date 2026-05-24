@@ -4,7 +4,7 @@ import Heading from "@components/ui/Heading.astro";
 import Text from "@components/ui/Text.astro";
 
 interface ComplementaryService {
-  icon: string;
+  iconClass: string;
   title: string;
   description: string;
   href: string;
@@ -19,11 +19,11 @@ const { service } = Astro.props;
 
 <Card as="a" variant="soft" href={service.href} class="vipar-mini-card">
   <div class="vipar-mini-card__icon">
-    <span class="material-symbols-outlined" aria-hidden="true">{service.icon}</span>
+    <i class:list={["bi", service.iconClass]} aria-hidden="true"></i>
   </div>
   <div class="vipar-mini-card__body">
     <Heading level={3}>{service.title}</Heading>
     <Text variant="body-sm" tone="muted">{service.description}</Text>
   </div>
-  <span class="material-symbols-outlined vipar-mini-card__arrow" aria-hidden="true">arrow_forward</span>
+  <i class="bi bi-arrow-right vipar-mini-card__arrow" aria-hidden="true"></i>
 </Card>

@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Button from "@components/ui/Button.astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -8,20 +10,26 @@ import Text from "@components/ui/Text.astro";
 interface Props {
   whatsappNumber: string;
   whatsappMessage: string;
+  image: ImageMetadata;
 }
 
-const { whatsappNumber, whatsappMessage } = Astro.props;
+const { whatsappNumber, whatsappMessage, image } = Astro.props;
 void whatsappNumber;
 void whatsappMessage;
 ---
 
 <section class="vipar-hero">
   <div class="vipar-hero__backdrop">
-    <img
-      src="/img/home/hero-home-2.png"
+    <Image
+      src={image}
       alt="Lobby corporativo con superficies vidriadas y terminaciones arquitect&oacute;nicas"
+      widths={[768, 1280, 1600]}
+      sizes="100vw"
+      quality={72}
+      format="webp"
       loading="eager"
       fetchpriority="high"
+      decoding="async"
     />
     <div class="vipar-hero__backdrop-overlay"></div>
   </div>

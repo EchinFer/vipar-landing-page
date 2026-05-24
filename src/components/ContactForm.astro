@@ -136,8 +136,7 @@ const whatsappHref = buildWhatsappUrl(
   </noscript>
 </form>
 
-<script is:inline>
-  const whatsappNumber = {JSON.stringify(whatsappNumber)};
+<script define:vars={{ whatsappNumber }}>
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   const success = document.getElementById("form-success");

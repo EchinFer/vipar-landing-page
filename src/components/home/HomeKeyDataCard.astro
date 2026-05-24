@@ -4,7 +4,7 @@ import Heading from "../ui/Heading.astro";
 import Text from "../ui/Text.astro";
 
 interface KeyDataItem {
-  icon: string;
+  iconClass: string;
   title: string;
   description: string;
 }
@@ -22,7 +22,7 @@ const { keyData } = Astro.props;
   <div class="vipar-key-card__list">
     {keyData.map((item) => (
       <div class="vipar-key-card__item">
-        <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
+        <i class:list={["bi", item.iconClass]} aria-hidden="true"></i>
         <div>
           <Text as="strong" variant="label-sm" tone="default">{item.title}</Text>
           <Text as="span" size="sm">{item.description}</Text>

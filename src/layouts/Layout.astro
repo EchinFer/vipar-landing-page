@@ -1,12 +1,7 @@
 ---
 import Header from "@components/Header.astro";
 import "@styles/design-system.css";
-import "@styles/bootstrap.scss";
 
-import "@assets/vendor/aos/aos.css";
-import "@assets/vendor/glightbox/css/glightbox.min.css";
-import "@assets/vendor/glightbox/css/plyr.min.css";
-import "@assets/vendor/swiper/swiper-bundle.min.css";
 import "@assets/vendor/bootstrap-icons/bootstrap-icons.css";
 import ClientProvider from "./ClientProvider.astro";
 import Footer from "@components/Footer.astro";
@@ -32,6 +27,12 @@ interface Props {
   ogType?: string;
   noindex?: boolean;
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+  loadAosAssets?: boolean;
+  loadLightboxAssets?: boolean;
+  loadSwiperAssets?: boolean;
+  loadIsotopeAssets?: boolean;
+  loadBootstrapJs?: boolean;
+  useMaterialSymbols?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
   hideWhatsappFAB?: boolean;
@@ -57,6 +58,12 @@ const {
   ogType = "website",
   noindex = false,
   structuredData = [],
+  loadAosAssets = true,
+  loadLightboxAssets = true,
+  loadSwiperAssets = true,
+  loadIsotopeAssets = true,
+  loadBootstrapJs = true,
+  useMaterialSymbols = true,
   hideHeader = false,
   hideFooter = false,
   hideWhatsappFAB = false,
@@ -211,7 +218,22 @@ const structuredDataItems = [
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    {useMaterialSymbols && (
+      <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet"
+      />
+    )}
+    {loadAosAssets && <link rel="stylesheet" href="/vendor/aos/aos.css" />}
+    {loadLightboxAssets && (
+      <>
+        <link rel="stylesheet" href="/vendor/glightbox/css/glightbox.min.css" />
+        <link rel="stylesheet" href="/vendor/glightbox/css/plyr.min.css" />
+      </>
+    )}
+    {loadSwiperAssets && (
+      <link rel="stylesheet" href="/vendor/swiper/swiper-bundle.min.css" />
+    )}
   </head>
   <body class={bodyClass} data-page-type={pageType} data-service-name={serviceName}>
     {!hideHeader && <Header />}
@@ -328,16 +350,24 @@ const structuredDataItems = [
         )
       }
 
-    <script>
-      import "bootstrap/js/dist/toast";
-      import "bootstrap/js/dist/tooltip";
-      import "bootstrap/js/dist/collapse";
-      import AOS from "aos";
+    {(loadBootstrapJs || loadAosAssets) && (
+      <script define:vars={{ loadBootstrapJs, loadAosAssets }}>
+        (async () => {
+          if (loadBootstrapJs) {
+            await import("bootstrap/js/dist/toast");
+            await import("bootstrap/js/dist/tooltip");
+            await import("bootstrap/js/dist/collapse");
+          }
 
-      window.addEventListener("load", () => {
-        AOS.init();
-      });
-    </script>
+          if (loadAosAssets) {
+            const AOS = await import("aos");
+            window.addEventListener("load", () => {
+              AOS.default.init();
+            });
+          }
+        })();
+      </script>
+    )}
 
     <main id="main">
       <slot />
@@ -346,18 +376,18 @@ const structuredDataItems = [
     {!hideFooter && <Footer />}
     <!-- Cookie / Consent banner (improved, fixed to footer) -->
     {!hideConsentBanner && <div id="consent-banner" class="consent-banner" aria-hidden="true" role="dialog" aria-live="polite">
-      <div class="consent-inner container d-flex align-items-center justify-content-between">
-        <div class="d-flex gap-3 align-items-center">
+      <div class="consent-inner ds-container">
+        <div class="consent-copy">
           <div class="consent-logo" aria-hidden="true">VIPAR</div>
           <div class="consent-text">
             <strong>Usamos cookies</strong>
-            <div class="small">Usamos cookies propias y de terceros para mejorar la experiencia, analizar tráfico y ofrecer servicios. Podés aceptar todas o configurar tus preferencias.</div>
+            <div class="consent-note">Usamos cookies propias y de terceros para mejorar la experiencia, analizar tráfico y ofrecer servicios. Podés aceptar todas o configurar tus preferencias.</div>
           </div>
         </div>
-        <div class="consent-actions d-flex gap-2 align-items-center">
-          <button id="consent-preferences" class="btn btn-outline-secondary">Preferencias</button>
-          <button id="consent-reject" class="btn btn-light">Rechazar</button>
-          <button id="consent-accept" class="btn btn-primary w-100">Aceptar todas</button>
+        <div class="consent-actions">
+          <button id="consent-preferences" class="ds-btn ds-btn--outlined ds-btn--primary ds-btn--md">Preferencias</button>
+          <button id="consent-reject" class="ds-btn ds-btn--outlined ds-btn--primary ds-btn--md consent-btn-muted">Rechazar</button>
+          <button id="consent-accept" class="ds-btn ds-btn--contained ds-btn--primary ds-btn--md">Aceptar todas</button>
         </div>
       </div>
     </div>}
@@ -367,27 +397,31 @@ const structuredDataItems = [
       <div class="consent-modal__backdrop" aria-hidden="true"></div>
       <div class="consent-modal__inner">
         <h4>Preferencias de cookies</h4>
-        <p class="small text-muted">Seleccioná qué tipos de cookies autorizás:</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="pref-necessary" disabled checked>
-          <label class="form-check-label" for="pref-necessary">Necesarias (siempre permitidas)</label>
-        </div>
-        <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" id="pref-analytics">
-          <label class="form-check-label" for="pref-analytics">Analíticas (Analytics)</label>
-        </div>
-        <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" id="pref-marketing">
-          <label class="form-check-label" for="pref-marketing">Marketing y anuncios</label>
-        </div>
-        <div class="d-flex justify-content-end gap-2 mt-3">
-          <button id="pref-cancel" class="btn btn-light">Cancelar</button>
-          <button id="pref-save" class="btn btn-primary">Guardar preferencias</button>
+        <p class="consent-note">Seleccioná qué tipos de cookies autorizás:</p>
+        <label class="consent-option consent-option--disabled" for="pref-necessary">
+          <input class="consent-option__input" type="checkbox" value="" id="pref-necessary" disabled checked>
+          <span class="consent-option__label">Necesarias (siempre permitidas)</span>
+        </label>
+        <label class="consent-option" for="pref-analytics">
+          <input class="consent-option__input" type="checkbox" id="pref-analytics">
+          <span class="consent-option__label">Analíticas (Analytics)</span>
+        </label>
+        <label class="consent-option" for="pref-marketing">
+          <input class="consent-option__input" type="checkbox" id="pref-marketing">
+          <span class="consent-option__label">Marketing y anuncios</span>
+        </label>
+        <div class="consent-modal__actions">
+          <button id="pref-cancel" class="ds-btn ds-btn--outlined ds-btn--primary ds-btn--md consent-btn-muted">Cancelar</button>
+          <button id="pref-save" class="ds-btn ds-btn--contained ds-btn--primary ds-btn--md">Guardar preferencias</button>
         </div>
       </div>
     </div>}
     {!hideWhatsappFAB && <WhatsappFAB />}
-    <ClientProvider />
+    <ClientProvider
+      loadLightboxAssets={loadLightboxAssets}
+      loadIsotopeAssets={loadIsotopeAssets}
+      loadSwiperAssets={loadSwiperAssets}
+    />
     {structuredDataItems.map((item) => (
       <script type="application/ld+json" set:html={item}></script>
     ))}
@@ -506,36 +540,71 @@ const structuredDataItems = [
   box-shadow:0 8px 30px rgba(0,0,0,0.08);
   font-family:var(--font-default);
 }
+.consent-copy{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 .consent-logo{font-weight:700;color:var(--color-primary);padding-left:4px}
 .consent-text{max-width:75%}
 .consent-text strong{display:block;font-size:15px;color:var(--color-dark)}
-.consent-text .small{color:#6c757d}
-.consent-actions .btn{min-width:110px;border-radius:8px}
-.consent-actions .btn{white-space:nowrap;word-break:normal}
-.consent-actions .btn-primary{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
-.consent-actions .btn-primary:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover)}
-.consent-actions .btn-outline-secondary{color:var(--color-primary);border-color:var(--color-primary);background:transparent}
-.consent-actions .btn-light{background:#f7f7f8;border:1px solid #e9eaec}
-.consent-actions button{margin-left:8px}
+.consent-note{color:#6c757d}
+.consent-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-end;
+}
+.consent-actions .ds-btn,
+.consent-modal__actions .ds-btn{
+  white-space:nowrap;
+  word-break:normal;
+}
+.consent-btn-muted{
+  background:#f7f7f8;
+  border-color:#e9eaec;
+  color:var(--color-primary);
+}
 
 /* modal */
 .consent-modal{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100002;justify-content:center;padding:20px;width:100%;max-width:100vw}
 .consent-modal__backdrop{position:fixed;inset:0;z-index:100001}
 .consent-modal__inner{width:420px;max-width:92vw;background:#fff;border-radius:12px;padding:20px;box-shadow:0 20px 50px rgba(7,12,20,0.18);border:1px solid rgba(20,24,40,0.04);z-index:100002}
 .consent-modal__inner h4{margin:0 0 8px;color:var(--color-secondary);font-family:var(--font-primary)}
-.consent-modal__inner .form-check-label{color:var(--color-default)}
-.consent-modal__inner .btn-primary{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
-.consent-modal__inner .btn-primary:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover)}
+.consent-option{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-top:12px;
+  color:var(--color-default);
+}
+.consent-option--disabled{
+  opacity:.72;
+}
+.consent-option__input{
+  margin-top:2px;
+}
+.consent-option__label{
+  line-height:1.45;
+}
+.consent-modal__actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:18px;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .consent-inner{flex-direction:column;gap:10px;text-align:center;padding:12px 14px;align-items:center}
+  .consent-copy{flex-direction:column}
   .consent-text{max-width:100%}
   .consent-actions{width:100%;display:flex;flex-direction:column;gap:10px;align-items:stretch}
-  .consent-actions .btn{width:100%;min-width:0;margin-left:0;padding:0.65rem 0}
+  .consent-actions .ds-btn{width:100%;min-width:0;padding:0.65rem 0}
   .consent-logo{display:none}
   .consent-text strong{font-size:1rem}
-  .consent-text .small{font-size:0.95rem}
+  .consent-note{font-size:0.95rem}
 }
 
 /* mobile: modal as bottom sheet */
@@ -545,8 +614,8 @@ const structuredDataItems = [
   .consent-modal{top:auto;left:0;right:0;bottom:0;transform:none;padding:0}
   .consent-modal__backdrop{display:block}
   .consent-modal__inner{width:100%;border-radius:12px 12px 0 0;max-height:80vh;overflow:auto}
-  .consent-modal__inner .d-flex.justify-content-end{flex-direction:column;align-items:stretch}
-  .consent-modal__inner .btn{width:100%}
+  .consent-modal__actions{flex-direction:column;align-items:stretch}
+  .consent-modal__actions .ds-btn{width:100%}
 }
 </style>
 

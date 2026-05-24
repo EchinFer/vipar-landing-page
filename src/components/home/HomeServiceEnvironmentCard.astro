@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Button from "@components/ui/Button.astro";
 import Card from "@components/ui/Card.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -7,7 +9,7 @@ import Text from "@components/ui/Text.astro";
 interface FeaturedService {
   title: string;
   description: string;
-  image: string;
+  image: ImageMetadata;
   alt: string;
   points: string[];
   href: string;
@@ -22,7 +24,16 @@ const { service } = Astro.props;
 
 <Card variant="media">
   <div class="vipar-service-card__image">
-    <img src={service.image} alt={service.alt} loading="lazy" decoding="async" />
+    <Image
+      src={service.image}
+      alt={service.alt}
+      widths={[480, 640, 968]}
+      sizes="(max-width: 768px) 85vw, (max-width: 1180px) 50vw, 33vw"
+      quality={68}
+      format="webp"
+      loading="lazy"
+      decoding="async"
+    />
   </div>
   <div class="vipar-service-card__body">
     <Heading level={3}>{service.title}</Heading>
@@ -30,14 +41,14 @@ const { service } = Astro.props;
     <ul class="vipar-service-card__list">
       {service.points.map((point) => (
         <li>
-          <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
           <span>{point}</span>
         </li>
       ))}
     </ul>
     <Button href={service.href} variant="contained" tone="inverse" size="md" fullWidth>
       Ver soluciones
-      <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+      <i class="bi bi-arrow-right" aria-hidden="true"></i>
     </Button>
   </div>
 </Card>
