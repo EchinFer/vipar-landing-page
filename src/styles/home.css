@@ -54,11 +54,6 @@
   background: var(--color-background, #f3faff);
 }
 
-.vipar-shell {
-  width: min(calc(100% - 48px), var(--vipar-shell));
-  margin: 0 auto;
-}
-
 .vipar-home__main {
   padding-top: 0;
 }
@@ -424,7 +419,8 @@
 }
 
 /* ── Mini service card — layout only, DS Card handles visuals ── */
-.vipar-mini-card {
+.vipar-mini-card,
+.ds-card--variant-soft.vipar-mini-card {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -977,10 +973,6 @@
 @media (max-width: 960px) {
   .vipar-home {
     --vipar-topbar-height: 72px;
-  }
-
-  .vipar-shell {
-    width: min(calc(100% - 32px), var(--vipar-shell));
   }
 
   .vipar-topbar__nav,
