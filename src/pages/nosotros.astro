@@ -1,256 +1,195 @@
 ﻿---
+import Button from "@components/ui/Button.astro";
+import Container from "@components/ui/Container.astro";
 import Layout from "@layouts/Layout.astro";
-import { SITE_URL } from "src/constants";
+import "../styles/nosotros.css";
+import { SITE_URL, whatsappNumber } from "src/constants";
 
-const title = "Sobre Nosotros - Dos Generaciones de Experiencia | VIPAR";
-const description = "VIPAR S.A. - Empresa paraguaya con dos generaciones de experiencia en cristales templados. Operando desde el año 2000. ✓ Alta terminación ✓ Trayectoria comprobable ✓ Instalación profesional en construcción.";
-const keywords = "VIPAR Paraguay, empresa cristales templados, historia VIPAR, experiencia construcción, empresa familiar Paraguay, cristales desde 2000, calidad construcción";
-const canonical = `${SITE_URL}/nosotros`;
+const title = "Sobre Nosotros | VIPAR S.A.";
+const description = "VIPAR S.A. es una empresa paraguaya con mas de 25 anos de experiencia en cristales templados, carpinteria de aluminio y terminaciones para obras en Paraguay. Ubicados en Nemby, Central.";
+const keywords = "VIPAR Paraguay, empresa cristales templados, historia VIPAR, experiencia construccion, empresa familiar Paraguay, cristales desde 2000, calidad construccion";
+const canonical = `${SITE_URL}/nosotros/`;
 
-const teamMembers = [
-  {
-    name: "Walter White",
-    position: "Chief Executive Officer",
-    image: "/assets/img/team/team-1.jpg",
-    description:
-      "Aliquam iure quaerat voluptatem praesentium possimus unde laudantium vel dolorum distinctio dire flow",
-    social: {
-      twitter: "#",
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-    },
-  },
-  {
-    name: "Sarah Jhonson",
-    position: "Product Manager",
-    image: "/assets/img/team/team-2.jpg",
-    description:
-      "Labore ipsam sit consequatur exercitationem rerum laboriosam laudantium aut quod dolores exercitationem ut",
-    social: {
-      twitter: "#",
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-    },
-  },
-  {
-    name: "William Anderson",
-    position: "CTO",
-    image: "/assets/img/team/team-3.jpg",
-    description:
-      "Illum minima ea autem doloremque ipsum quidem quas aspernatur modi ut praesentium vel tque sed facilis at qui",
-    social: {
-      twitter: "#",
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-    },
-  },
-  {
-    name: "Amanda Jepson",
-    position: "Accountant",
-    image: "/assets/img/team/team-4.jpg",
-    description:
-      "Magni voluptatem accusamus assumenda cum nisi aut qui dolorem voluptate sed et veniam quasi quam consectetur",
-    social: {
-      twitter: "#",
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-    },
-  },
-  {
-    name: "Brian Doe",
-    position: "Marketing",
-    image: "/assets/img/team/team-5.jpg",
-    description:
-      "Qui consequuntur quos accusamus magnam quo est molestiae eius laboriosam sunt doloribus quia impedit laborum velit",
-    social: {
-      twitter: "#",
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-    },
-  },
-  {
-    name: "Josepha Palas",
-    position: "Operation",
-    image: "/assets/img/team/team-6.jpg",
-    description:
-      "Sint sint eveniet explicabo amet consequatur nesciunt error enim rerum earum et omnis fugit eligendi cupiditate vel",
-    social: {
-      twitter: "#",
-      facebook: "#",
-      instagram: "#",
-      linkedin: "#",
-    },
-  },
-];
+const whatsappMessage = "Hola, quiero consultar sobre VIPAR. Me comunico desde la pagina Nosotros.";
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+const BASE = "https://vipar.moochsoft.com/obras/showroom-vipar";
 ---
 
-<Layout 
+<Layout
   title={title}
   description={description}
   keywords={keywords}
   canonical={canonical}
+  bodyClass="vipar-nosotros-body"
 >
-  <main id="main">
-    <!-- Breadcrumbs -->
-    <div
-      class="breadcrumbs d-flex align-items-center"
-      style="background-image: url('/img/breadcrumbs-bg.jpg');"
-    >
-      <div
-        class="container position-relative d-flex flex-column align-items-center"
-        data-aos="fade"
-      >
-        <h2>Nosotros</h2>
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li>Nosotros</li>
-        </ol>
-      </div>
-    </div><!-- End Breadcrumbs -->
+  <!-- Hero -->
+  <section class="nosotros-hero">
+    <div class="nosotros-hero__backdrop">
+      <img
+        src="/img/home/hero-home-2.png"
+        alt="Fachada integral de vidrio y aluminio &mdash; Showroom VIPAR en &Ntilde;emby"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="nosotros-hero__content">
+      <Container>
+        <span class="nosotros-hero__eyebrow">Sobre Nosotros</span>
+        <h1 class="nosotros-hero__title">Empresa paraguaya en cristales y aluminio desde el a&ntilde;o 2000</h1>
+        <p class="nosotros-hero__subtitle">
+          M&aacute;s de dos d&eacute;cadas instalando cristales templados, carpinter&iacute;a de aluminio y terminaciones para obras residenciales, comerciales y corporativas en Paraguay.
+        </p>
+      </Container>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-        <div class="row position-relative">
-          <div
-            class="col-lg-7 about-img"
-            style="background-image: url('/img/about.jpg');"
-          >
+  <!-- Historia + Stats -->
+  <main class="nosotros-main">
+    <Container class="ds-container">
+      <div class="nosotros-historia-grid">
+
+        <!-- Texto -->
+        <div>
+          <span class="nosotros-historia__label ds-text-label-md ds-text-accent">Nuestra historia</span>
+          <h2 class="ds-heading-md ds-heading-default nosotros-historia__title">
+            Dos generaciones dedicadas al cristal y la construcci&oacute;n
+          </h2>
+          <div class="nosotros-historia__body">
+            <p>
+              VIPAR S.A. naci&oacute; en el a&ntilde;o 2000 como una empresa familiar paraguaya dedicada a la comercializaci&oacute;n e instalaci&oacute;n de cristales templados. Lo que empez&oacute; como un peque&ntilde;o taller en &Ntilde;emby, Central, creci&oacute; con el paso de los a&ntilde;os hasta convertirse en una empresa de referencia para obras residenciales, comerciales y corporativas en todo el pa&iacute;s.
+            </p>
+            <p>
+              La segunda generaci&oacute;n tom&oacute; el desaf&iacute;o de ampliar el cat&aacute;logo y profesionalizar los procesos, incorporando soluciones en carpinter&iacute;a de aluminio, fachadas integrales, mamparas divisorias, cielos rasos y box de ba&ntilde;o. Cada servicio parte de datos concretos: medidas, ubicaci&oacute;n y tipo de proyecto.
+            </p>
+            <p>
+              Hoy operamos desde nuestro showroom en &Ntilde;emby, donde exhibimos los sistemas que instalamos. Es el mismo espacio donde coordinamos cada obra y donde los clientes pueden ver de cerca las terminaciones antes de decidir.
+            </p>
           </div>
-          <div class="col-lg-7">
-            <h2>Dos generaciones de experiencia</h2>
-            <div class="our-story">
-              <h4>¡Operando desde el año 2000!</h4>
-              <h3>Nuestra Historia</h3>
-              <p>
-                Vipar S.A. es una empresa paraguaya con la experiencia de dos
-                generaciones dedicadas a la comercialización de cristal. Nuestra
-                experiencia se traduce en diseños innovadores e instalaciones de
-                cristales templados para la industria de la construcción,
-                desarrollos inmobiliarios y viviendas.
-              </p>
-              <ul>
-                <li>
-                  <i class="bi bi-check-circle"></i>
-                  <span>Aplicación de los más altos estándares de calidad.</span
-                  >
-                </li>
-                <li>
-                  <i class="bi bi-check-circle"></i>
-                  <span
-                    >Soluciones para constructores, desarrolladores y
-                    particulares.</span
-                  >
-                </li>
-                <li>
-                  <i class="bi bi-check-circle"></i>
-                  <span
-                    >Respaldo de las marcas más competitivas del mercado.</span
-                  >
-                </li>
-              </ul>
-              <p>
-                Con una fe firme en Dios y un compromiso con la patria, Vipar ha
-                cultivado relaciones con clientes y amigos que han sido
-                fundamentales para su crecimiento continuo y sostenible.
-              </p>
+        </div>
 
-              <div
-                class="watch-video d-flex align-items-center position-relative"
-              >
-                <i class="bi bi-play-circle"></i>
-                <a
-                  href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-                  class="glightbox stretched-link">Watch Video</a
-                >
-              </div>
+        <!-- Stats -->
+        <div>
+          <div class="nosotros-stats">
+            <div class="nosotros-stat">
+              <span class="nosotros-stat__value">+25</span>
+              <span class="nosotros-stat__label">a&ntilde;os en el mercado</span>
+            </div>
+            <div class="nosotros-stat">
+              <span class="nosotros-stat__value">+33</span>
+              <span class="nosotros-stat__label">obras documentadas</span>
+            </div>
+            <div class="nosotros-stat">
+              <span class="nosotros-stat__value">8</span>
+              <span class="nosotros-stat__label">l&iacute;neas de servicio</span>
+            </div>
+            <div class="nosotros-stat">
+              <span class="nosotros-stat__value">2&ordf;</span>
+              <span class="nosotros-stat__label">generaci&oacute;n al frente</span>
             </div>
           </div>
         </div>
-      </div>
-    </section><!-- End About Section -->
 
-    <section id="mission-vision" class="mission-vision section-bg">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-6">
-            <h3>Misión</h3>
-            <p>
-              Brindar calidad y alta terminación en la colocación de vidrieras,
-              mamparas, cielorrasos, divisorias de oficinas y todo lo
-              relacionado al ramo de la construcción. Nuestro objetivo es
-              distinguirnos y lograr un alto posicionamiento en el mercado
-              mediante un servicio ágil, claro y orientado a cada proyecto.
-            </p>
-          </div>
-          <div class="col-lg-6">
-            <h3>Visión</h3>
-            <p>
-              Ser una empresa de prestigio nacional, reconocida por la
-              excelencia en sus productos y servicios. Comprometida con la
-              mejora continua, alianzas estratégicas y la satisfacción del
-              cliente, mientras fomenta el desarrollo integral de su recurso
-              humano.
-            </p>
-          </div>
-        </div>
       </div>
-    </section><!-- End Mission and Vision Section -->
+    </Container>
+  </main>
 
-    <!-- Our Team Section -->
-    <!-- <section id="team" class="team"> -->
-      <!-- <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Our Team</h2>
-          <p>
-            Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro
-            incidunt dolores placeat sunt id nobis omnis tiledo stran delop
+  <!-- Showroom -->
+  <section class="nosotros-showroom">
+    <Container class="ds-container">
+      <div class="nosotros-showroom__head">
+        <span class="nosotros-showroom__eyebrow ds-text-label-md ds-text-accent">Nuestro espacio</span>
+        <h2 class="ds-heading-md ds-heading-inverse nosotros-showroom__title">
+          Showroom en &Ntilde;emby
+        </h2>
+        <p class="nosotros-showroom__body">
+          Pod&eacute;s visitarnos en San Francisco 770 c/ Sexta Bo. Salinas, &Ntilde;emby, Central. En el showroom exhibimos los sistemas que instalamos: fachadas de vidrio, carpinter&iacute;a de aluminio, mamparas y terminaciones.
+        </p>
+      </div>
+      <div class="nosotros-showroom__grid">
+        <img
+          src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-01.webp`}
+          alt="Fachada integral del showroom VIPAR &mdash; vidrio y aluminio"
+          loading="lazy"
+        />
+        <img
+          src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-04.webp`}
+          alt="Interior del showroom VIPAR"
+          loading="lazy"
+        />
+        <img
+          src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-05.webp`}
+          alt="Detalle de carpinter&iacute;a de aluminio en el showroom"
+          loading="lazy"
+        />
+        <img
+          src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-08.webp`}
+          alt="Pa&ntilde;os de vidrio templado &mdash; showroom VIPAR"
+          loading="lazy"
+        />
+        <img
+          src={`${BASE}/fachadas-vidrio-aluminio-showroom-vipar-10.webp`}
+          alt="Terminaciones interiores &mdash; showroom VIPAR"
+          loading="lazy"
+        />
+      </div>
+    </Container>
+  </section>
+
+  <!-- Pilares -->
+  <section class="nosotros-pilares">
+    <Container class="ds-container">
+      <div class="nosotros-pilares__head">
+        <span class="ds-text-label-md ds-text-accent">Por qu&eacute; trabajar con nosotros</span>
+        <h2 class="ds-heading-md ds-heading-default" style="margin-top: 10px;">Lo que define cada proyecto VIPAR</h2>
+      </div>
+      <div class="nosotros-pilares__grid">
+        <div class="nosotros-pilar">
+          <div class="nosotros-pilar__icon">
+            <span class="material-symbols-outlined" aria-hidden="true">straighten</span>
+          </div>
+          <h3 class="nosotros-pilar__title">Presupuesto seg&uacute;n medidas reales</h3>
+          <p class="nosotros-pilar__body">
+            Cada cotizaci&oacute;n parte de datos concretos: medidas del espacio, tipo de apertura, material y condiciones de instalaci&oacute;n. Sin precios gen&eacute;ricos.
           </p>
         </div>
-        <div class="row gy-5">
-          {
-            teamMembers.map((member, index) => (
-              <div
-                class="col-lg-4 col-md-6 member"
-                data-aos="fade-up"
-                data-aos-delay={`${(index + 1) * 100}`}
-              >
-                <div class="member-img">
-                  <img src={member.image} class="img-fluid" alt={member.name} />
-                  <div class="social">
-                    <a href={member.social.twitter}>
-                      <i class="bi bi-twitter" />
-                    </a>
-                    <a href={member.social.facebook}>
-                      <i class="bi bi-facebook" />
-                    </a>
-                    <a href={member.social.instagram}>
-                      <i class="bi bi-instagram" />
-                    </a>
-                    <a href={member.social.linkedin}>
-                      <i class="bi bi-linkedin" />
-                    </a>
-                  </div>
-                </div>
-                <div class="member-info text-center">
-                  <h4>{member.name}</h4>
-                  <span>{member.position}</span>
-                  <p>{member.description}</p>
-                </div>
-              </div>
-            ))
-          }
+        <div class="nosotros-pilar">
+          <div class="nosotros-pilar__icon">
+            <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+          </div>
+          <h3 class="nosotros-pilar__title">Trayectoria comprobable</h3>
+          <p class="nosotros-pilar__body">
+            M&aacute;s de 25 a&ntilde;os de obras residenciales, comerciales y corporativas en Paraguay. Las obras est&aacute;n documentadas y disponibles para consultar en nuestro cat&aacute;logo.
+          </p>
         </div>
-      </div> -->
-    <!--</section> End Our Team Section -->
-  </main>
+        <div class="nosotros-pilar">
+          <div class="nosotros-pilar__icon">
+            <span class="material-symbols-outlined" aria-hidden="true">build</span>
+          </div>
+          <h3 class="nosotros-pilar__title">Instalaci&oacute;n profesional</h3>
+          <p class="nosotros-pilar__body">
+            Coordinamos medici&oacute;n, fabricaci&oacute;n e instalaci&oacute;n. El equipo trabaja directamente en obra para garantizar que el resultado coincida con lo presupuestado.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <section class="nosotros-cta">
+    <Container class="ds-container">
+      <h2 class="nosotros-cta__title">&iquest;Ten&eacute;s un proyecto en mente?</h2>
+      <p class="nosotros-cta__body">
+        Cont&aacute;nos las medidas, el tipo de obra y la ubicaci&oacute;n. Te orientamos y preparamos un presupuesto.
+      </p>
+      <div class="nosotros-cta__actions">
+        <Button href={whatsappLink} variant="contained" tone="primary" size="lg" target="_blank" rel="noopener noreferrer">
+          Consultar por WhatsApp
+        </Button>
+        <Button href="/obras/" variant="outlined" tone="primary" size="lg">
+          Ver obras realizadas
+        </Button>
+      </div>
+    </Container>
+  </section>
 </Layout>
-
-
-
-
