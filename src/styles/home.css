@@ -525,7 +525,7 @@
   width: 50%;
   background:
     linear-gradient(90deg, rgba(15, 42, 61, 0) 0%, rgba(15, 42, 61, 0.35) 100%),
-    url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2069&auto=format&fit=crop")
+    url("/img/home/footer-bg.jpg")
       center / cover no-repeat;
   opacity: 0.12;
 }

@@ -44,14 +44,14 @@ export const obraFilters = [
 ];
 
 export const obrasHeroImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDzOkMJrP0BidDmeBUr5ZXvSdYG_OOsM600QUAHHF0Zaz1v5PLe_vT8XA1oAvJ6sMnMOMZg4v6FfMQ1TyTXMadeHc7NNokmFcPIfrduEPXnADO2kFOOo5EeavJTbh-1BYKO9vqSQjg5X7Oc6QFoCYMFXhc8oxgUHJoxjNCU83Q1epBLDof1Lv0OhdpygGTQB8rN0hrYo6x9k_KiySi14cSCLEYfwywp944pjWkVHV7GaOQcmitV3PgO3aWDCporCxeSO30jbCClP4LE";
+  "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-01.webp";
 
 export const staticObras: StaticObra[] = [
   {
     slug: "showroom-vipar",
     titulo: "Showroom VIPAR",
     descripcion:
-      "Instalación completa de sistemas de cerramiento interior y exterior, demostrando la capacidad de integración de perfiles de aluminio de alta prestación con cristales de seguridad de gran formato.",
+      "Instalación completa de sistemas de cerramiento interior y exterior, con integración de perfiles de aluminio y paños de vidrio de gran formato según el proyecto.",
     resumen:
       "Soluciones integrales en vidrio y aluminio para nuestro propio espacio de exhibición técnico.",
     imagen: "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-01.webp",
@@ -157,11 +157,11 @@ export const staticObras: StaticObra[] = [
     slug: "residencia-san-lorenzo",
     titulo: "Residencia San Lorenzo",
     descripcion:
-      "Aberturas de aluminio de alta prestación y grandes paños de vidrio para residencia de lujo, con énfasis en hermeticidad, durabilidad y lectura arquitectónica limpia.",
+      "Aberturas de aluminio y grandes paños de vidrio para residencia, con foco en cierre, durabilidad y lectura arquitectónica limpia.",
     resumen:
-      "Aberturas de aluminio de alta prestación y grandes paños de vidrio para residencia de lujo.",
+      "Aberturas de aluminio y grandes paños de vidrio para residencia.",
     imagen:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBEJiTJqpXth_MfquO_J3E-v_DDe0TyRJVLYYzzpH16eej51C8CFf80j_7iewEE7wYqXWcK7k16I9_f1JkfutQcc-s6C2LqxW64b5y9AKSTYoKtjdq8XFNxyvhdnqOgdfftQ8pVWflL4n9KbPUBhmwKhBLIf2ChNbt7mzufk7h46LxtScejB6AU8wTmvocHbchdvLVbqbCXRennx3hNVqFojmj3YAuXgFUCjF4tAzCATY4Mk9ADk9LJ8vlq5KOhXRBkjg7t_xFPG2O-",
+      "/img/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-01.webp",
     imagenes: [],
     cliente: "Residencia privada",
     fecha: "2023",
@@ -177,11 +177,11 @@ export const staticObras: StaticObra[] = [
     slug: "oficinas-corporativas-itau",
     titulo: "Oficinas Corporativas Itau",
     descripcion:
-      "Tabiques de vidrio con control acústico y perfilería de aluminio de diseño exclusivo para oficinas corporativas que requieren privacidad sin perder apertura visual.",
+      "Tabiques de vidrio con tratamiento acústico y perfilería de aluminio para oficinas corporativas que requieren privacidad sin perder apertura visual.",
     resumen:
-      "Tabiques de vidrio con control acústico y perfilería de aluminio de diseño exclusivo.",
+      "Tabiques de vidrio con tratamiento acústico y perfilería de aluminio.",
     imagen:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBfr3lDxjuQgQuq-kF5745xz48eaIdcKbOBogIRFUaDADvg_gCQaTkAaaucoTCHTKpZYBxETH-mS-geejW8tAYiFd5V444kiJB8qUqaEowcgez5AUo-hCE7qsjAR7zDLP07Oxh-soYheX2QMD3oo1pHdD7VARtI6XU3wCUIFdmDQ-gKxYjEkO6ivouG7z1Z96J4KSpcubIdqs66NQdt9t-wwM5uPSEV0P7IVumwVvwzziOVsD9862jjbPN6vo7Mlm7e1mBcm1Up4mw8",
+      "/img/obras/cooperativa-medalla-milagrosa-central/mamparas-vidrio-cooperativa-medalla-milagrosa-01.webp",
     imagenes: [],
     cliente: "Itau",
     fecha: "2022",
@@ -446,7 +446,7 @@ export const staticObras: StaticObra[] = [
     slug: "virgen-del-huerto-asuncion",
     titulo: "Instalación Médica – Virgen del Huerto",
     descripcion:
-      "Instalación de cielo raso desmontable con placas de mineral fiber y paneles LED integrados para corredor y áreas clínicas de institución médica. El sistema garantiza accesibilidad para mantenimiento de instalaciones y cumple con los requerimientos de higiene propios del sector salud.",
+      "Instalación de cielo raso desmontable con placas de mineral fiber y paneles LED integrados para corredor y áreas clínicas de institución médica. El sistema facilita el acceso para mantenimiento de instalaciones y acompaña los requerimientos de higiene propios del sector salud.",
     resumen:
       "Cielo raso con paneles LED para institución médica en Barrio Virgen del Huerto, Asunción.",
     imagen: "/img/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-01.webp",
@@ -505,7 +505,7 @@ export const staticObras: StaticObra[] = [
     slug: "canada-del-ybyray",
     titulo: "IPS – Laboratorio Microbiología",
     descripcion:
-      "Construcción y equipamiento de área de laboratorio clínico para el Instituto de Previsión Social del Paraguay. El proyecto incluyó tabiques de estructura metálica con placa, y la fabricación e instalación de puertas de cristal templado esmerilado con perfilería de aluminio y logo institucional.",
+      "Construcción y equipamiento de área de laboratorio clínico para el Instituto de Previsión Social del Paraguay. El proyecto incluyó tabiques de estructura metálica con placa, y la provisión e instalación de puertas de cristal templado esmerilado con perfilería de aluminio y logo institucional.",
     resumen:
       "Tabiques metálicos y puertas de cristal templado para laboratorio del IPS, Asunción.",
     imagen: "/img/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-01.webp",
@@ -671,7 +671,7 @@ export const staticObras: StaticObra[] = [
     slug: "edificio-fortaleza-milano-asuncion",
     titulo: "Edificio Fortaleza Milano",
     descripcion:
-      "Instalación de barandas con herrajes en acero inoxidable y paños de vidrio templado en escalera exterior y perímetro de terraza de edificio residencial. El sistema combina postes de acero inoxidable pulido con vidrio transparente, logrando una estética moderna y seguridad estructural.",
+      "Instalación de barandas con herrajes en acero inoxidable y paños de vidrio templado en escalera exterior y perímetro de terraza de edificio residencial. El sistema combina postes de acero inoxidable pulido con vidrio transparente, logrando una estética moderna y una lectura limpia del conjunto.",
     resumen:
       "Barandas de acero inoxidable con vidrio templado en escalera y terraza de edificio residencial Fortaleza Milano, Asunción.",
     imagen: "/img/obras/asuncion-centro-2021/barandas-vidrio-templado-escalera-fortaleza-milano-01.webp",
@@ -728,7 +728,7 @@ export const staticObras: StaticObra[] = [
     slug: "auditorio-arandu-loma-pyta",
     titulo: "Salón Auditorio Arandú – Ex Caballería",
     descripcion:
-      "Instalación de cerramiento con vidrio templado semi-polarizado y puerta batiente de aluminio para el Salón Auditorio Arandú, ubicado en las instalaciones del Ex Comando de Caballería en Loma Pyta. El vidrio templado con tinte polarizado aporta privacidad, control lumínico y seguridad estructural al espacio de eventos.",
+      "Instalación de cerramiento con vidrio templado semi-polarizado y puerta batiente de aluminio para el Salón Auditorio Arandú, ubicado en las instalaciones del Ex Comando de Caballería en Loma Pyta. El vidrio templado con tinte polarizado aporta privacidad y control lumínico al espacio de eventos.",
     resumen:
       "Vidrio templado semi-polarizado y puerta batiente de aluminio para el Auditorio Arandú, Loma Pyta.",
     imagen: "/img/obras/loma-pyta-asuncion/vidrio-templado-puerta-batiente-auditorio-arandu-loma-pyta-01.webp",

@@ -29,25 +29,25 @@ export interface CeilingFaqItem {
 }
 
 export const ceilingHeroImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBTThe-DxuXVPa_P17jGDfd043E1s_vY_i_qkWdwLXZVxVu_3o5z7rUMcyfiFYPy1HQMC9UORhzngw326OMUEKpd5DSqZg-mnD_Lf5zUsf_nKMrRrUPndkmaWoiDle8sYkGmPcAuCt1MRatKqatl-T10NIPPdEOJUOpjx3-UfdnbHmCzN5oBko3b82sbFRgIrMbFY_CF6D39InpQBBw1ylDjJ1-PYEH11u3pjFy_jKekDaswBjxaRUnvsJwpRg_W5Knf1Bw5IvIun5K";
+  "/img/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-01.webp";
 
 export const ceilingEnvironments: CeilingEnvironmentItem[] = [
   {
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDus0MUds3B1q_uSq8q7mQzDhk29OBssfBjXZqiZhSIxRklfZrheXv1NoIT-eyXUXQVedbz0f1hEhhIpIQQn8iMxLaMtslhGMDXtSs-90Hsoj3KPyBn04wG_9vyy_96-eCqdBw6_vx_8zytqM-uURHNhzcmvkHTVFDZnEvmMMKpqOaLoR7F3hFLvYBKz4u3thFbXv7dsMbJG3KDU8HhyrGXlKUxvgJfdLHUQuxr_g3vJgzH_qSYtD1lT0d_IwHQdK3zvCDxCfKv8yGQ",
+      "/img/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-02.webp",
     title: "Residencial",
     description: "Mejora visual y orden de instalaciones para tu hogar.",
     featured: true,
   },
   {
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCBOb1PWZbu4lMjUJGA5v2Lepb5LeYYd33bc_Tjl1w9-XWwwYSD1T7AZuQhNoapbmvbPJ9RxxWaHC4Cy6iPfpUb0jfbl0oVGOi-3Q3cNwmG_4OA5BMMLvgtVsCw36TJtCfNCBTzl9VNBczkFvUFWXbq9QEx1gZ_wmz0hdflAt2UGORhdiTtyzbWj4hsB_SQk5LA8xC73NTwxg4D1rRUerhM8E1WFErW7PcC9BzVfUjdaKnIo5TTar5XJPXILkjGGsd_-LYAHgSG4BVl",
+      "/img/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-01.webp",
     title: "Comercial",
     description: "Versatilidad y opciones de mantenimiento ágil para tu local.",
   },
   {
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAsbiypoa941La3MDHPCUvlLgFgDL22MMmAgJru4tqwgvqM8pbGwT226yd6rV0OqfjVsVIGPFh6Za-05qV-IeBzJ7IJojQJ8xAlnM01MvWLwyj3DZgZbnr3iF4KJWvPKv5SL21OmcmDvrDFLw1R_Iw40UAt367KXCSgOutIDQiQvMS3i0WkSp8_TELcgprE4SYSK0l-5AY_o_RT7GyzsWYZrntjDhfAgPMezSi5RgRUw1xduSAmnJDAD4zbrzXvlMDd_V5qPddp6sP4",
+      "/img/obras/asuncion-norte-2017/cielo-raso-torre-provenza-asuncion-01.webp",
     title: "Corporativo",
     description: "Soluciones para oficinas con terminación continua o modular.",
   },
@@ -92,7 +92,7 @@ export const ceilingSystems: CeilingSystemItem[] = [
 ];
 
 export const ceilingDetailImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuARSNj5BWtTallB4nWBrw4ct7nGMG243G079B9dM7Vw-WSZKQGmkgCwPNycJMI7QFEhfGbx8_X4gUc0Y5AbEWePYK85rX-txsh5FMttBch9bDWKtvdv1ferzTfH0cp4ee_z-Vrp8tkTp_QOjNl7DDLwxItzaHx0xg4CLhgGazCGWQl4PbNo_FnO4ZuFM-jQA8hRa9cwSStVVJbAKm1MkvUg0ynesDakMq7jCxPAETO_bMsqu_7IZVUpm5KvbcJq_Bi1vL_CaSgqJH5t";
+  "/img/obras/san-antonio-central/drywall-cielo-raso-local-comercial-san-antonio-central-01.webp";
 
 export const ceilingDetails: CeilingDetailItem[] = [
   {

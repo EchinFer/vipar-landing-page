@@ -16,7 +16,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
     description:
       "Soluciones para fachadas entubadas, muro cortina y sistema glazing en locales comerciales, edificios, oficinas, showrooms y proyectos arquitectónicos. En VIPAR podés consultar por fachadas con vidrio y aluminio según las medidas, el diseño, la estructura y las condiciones de cada obra.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBBUpTN--qBQP1qc3SCers9X65XCQCJTeBOMvsJUWk2o_Xo7750FRY9iZXpvCuugTwIqTJZv9ZJWUQlwQYgSnJSEtccSY4_aVC7lkpgJEObrDfU1pq5UrgPkwlpEfzOEvyMCb_yo7oogdNuWuPt_nabsCuc74aRFvde5M5KnsYFXk09mRPQtcinVjueO1aoGIsgbv4ihat2_-hyrxPxinU2jQV6GmA5DlhbE4TVJaRKdkjchADXNsX0qNGqzLzaiDc7RUbeJn9kTchx",
+      "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-01.webp",
     tags: [
       "Fachadas comerciales",
       "Muro cortina",
@@ -67,7 +67,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
           "Espacios corporativos",
         ],
         image:
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuDY8DHyzD0WpoxvZK76Fa9SlGDoVLOa6qsluCAGQbIZexUiW975Ex8qINya8aRnOTqvKr7gVDTHKDkYcxMpLBjXZr4AqmrM6dbM2Dhr2Qx1Gx9dCXTqJiqFByNfqndRHPOMqdmLpXfuP6V4lGSCfrcfxNGuW65C0lnnwqtrN75Kp0U2wkxUUrNnKONcdwFdxygnS2Gae0gdLW3-hEVNj1Gaen8ewXNichQJ-6FidWIlOOZo62gEe1_EVpYDiNdatETWrkCoM6DNUlia",
+          "/img/obras/local-comercial-capiata/vidriera-fachada-local-comercial-capiata-01.webp",
       },
       {
         title: "Muro cortina",
@@ -81,7 +81,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
           "Proyectos inmobiliarios",
         ],
         image:
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuDhz11UaTdbnMGlFVF4Mxow1klU1bItYJba_DYsr3hdwgPOqUZsbj14Tq1xAEzNg1HlsBw5YIpCwCpEUBtO52EXF9kR6oq6zWII49xjoWelaejEjXSbW-ybP2DWO7u84rhIrcoEoTt0NIjHRYKfspFANbWXm8zqTp7IFMQBjtyjES63RGXSwdx2jMruEWXNae1LvKRbgQ7rl8-2h0ny0vBVI1ApUUIV4aL7PJnyt6J9CK3dRoPSrpYd9phUOZveAQtpUQ91G4-bO6P1",
+          "/img/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-01.webp",
       },
       {
         title: "Sistema glazing",
@@ -95,7 +95,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
           "Accesos vidriados",
         ],
         image:
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuBBUpTN--qBQP1qc3SCers9X65XCQCJTeBOMvsJUWk2o_Xo7750FRY9iZXpvCuugTwIqTJZv9ZJWUQlwQYgSnJSEtccSY4_aVC7lkpgJEObrDfU1pq5UrgPkwlpEfzOEvyMCb_yo7oogdNuWuPt_nabsCuc74aRFvde5M5KnsYFXk09mRPQtcinVjueO1aoGIsgbv4ihat2_-hyrxPxinU2jQV6GmA5DlhbE4TVJaRKdkjchADXNsX0qNGqzLzaiDc7RUbeJn9kTchx",
+          "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-03.webp",
       },
     ],
   },
@@ -138,22 +138,22 @@ export const facadesServiceContent: ServiceTemplateContent = {
       {
         title: "Locales comerciales",
         image:
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuDY8DHyzD0WpoxvZK76Fa9SlGDoVLOa6qsluCAGQbIZexUiW975Ex8qINya8aRnOTqvKr7gVDTHKDkYcxMpLBjXZr4AqmrM6dbM2Dhr2Qx1Gx9dCXTqJiqFByNfqndRHPOMqdmLpXfuP6V4lGSCfrcfxNGuW65C0lnnwqtrN75Kp0U2wkxUUrNnKONcdwFdxygnS2Gae0gdLW3-hEVNj1Gaen8ewXNichQJ-6FidWIlOOZo62gEe1_EVpYDiNdatETWrkCoM6DNUlia",
+          "/img/obras/sucursal-tigo-mariano-roque-alonso/fachada-comercial-sucursal-tigo-mra-01.webp",
       },
       {
         title: "Showrooms",
         image:
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuBBUpTN--qBQP1qc3SCers9X65XCQCJTeBOMvsJUWk2o_Xo7750FRY9iZXpvCuugTwIqTJZv9ZJWUQlwQYgSnJSEtccSY4_aVC7lkpgJEObrDfU1pq5UrgPkwlpEfzOEvyMCb_yo7oogdNuWuPt_nabsCuc74aRFvde5M5KnsYFXk09mRPQtcinVjueO1aoGIsgbv4ihat2_-hyrxPxinU2jQV6GmA5DlhbE4TVJaRKdkjchADXNsX0qNGqzLzaiDc7RUbeJn9kTchx",
+          "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-04.webp",
       },
       {
         title: "Oficinas",
         image:
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuDhz11UaTdbnMGlFVF4Mxow1klU1bItYJba_DYsr3hdwgPOqUZsbj14Tq1xAEzNg1HlsBw5YIpCwCpEUBtO52EXF9kR6oq6zWII49xjoWelaejEjXSbW-ybP2DWO7u84rhIrcoEoTt0NIjHRYKfspFANbWXm8zqTp7IFMQBjtyjES63RGXSwdx2jMruEWXNae1LvKRbgQ7rl8-2h0ny0vBVI1ApUUIV4aL7PJnyt6J9CK3dRoPSrpYd9phUOZveAQtpUQ91G4-bO6P1",
+          "/img/obras/asuncion-norte-2025/fachada-vidrio-natatorio-club-internacional-tenis-01.webp",
       },
       {
         title: "Edificios",
         image:
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuCGdSLkuoH-YgubTKW_OxI3bHk9GCALaSS6EUl5yGx0ZGiRcWib5xdFyGmSvjrUFplohms3m_WA1Nr_zfee4tJHYaictyp3qUeJGM7aErPKkf-KCVzu6Flr3ipaQ4g5W7KhJ-KdG_q4O_f_UM7-BVuEgf1sTUe9lTE-jihS29Kg9DBB5v3ErlnvQwHHqhJsyhE7vvei4iBCe1ptq-0zTlVXUioTaGM3eOZk-F2lxK0gHwmHvkYuEZ9JzlDTJqXLI11dXMq56Ofib1WS",
+          "/img/obras/edificio-concordia/vidrio-aluminio-edificio-concordia-01.webp",
       },
     ],
   },
@@ -176,7 +176,7 @@ export const facadesServiceContent: ServiceTemplateContent = {
       "Una fachada no es un elemento aislado. Debe integrarse al diseño del proyecto, a la estructura existente y al uso real del espacio. VIPAR S.A. aparece públicamente como una empresa paraguaya activa, con ubicación física en Ñemby, canales de contacto y portafolio de obras. Su oferta confirmada incluye cristales templados, carpintería de aluminio, fachadas, ventanas, puertas, mamparas, cielos rasos y box de baño.",
     locationLabel: "Ubicación operativa: Ñemby, Paraguay",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD5SUTj8uLe8_yoSaL6zwpOvBISR9f56pg4QTpMM22Ub8JaAH8Rrxgp9U827sU_lm7JW9RlRLm1JN2f9D1RPBSsohyC7qdOAW5bIqkVBEDWbArcN7ub3_sTK4NbKGZmJx5CYzqEYraU9f1UMCrtdgsiKJB8ShPaeOBlYtptqtOC6T0Mj07X5Pt1qNu5gbHlBOMTKEfGb2VTqHk6vYYCF1Jl14wM6s9jNiquK9Lwj19QCWxsY9MzJcgHeGZPIveNOgAa57_9Xr9",
+      "/img/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-05.webp",
   },
   faqs: [
     {

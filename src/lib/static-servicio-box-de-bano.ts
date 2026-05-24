@@ -28,7 +28,7 @@ export interface BoxProcessStep {
 }
 
 export const boxHeroImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAL9ocVDcgbbeeTWUGXZwUIVJXbW0oQ7O035-ByZsSHDjAZAVaqTQrfxwNY5ML9tXU72LOCASsvPef8WimJp6BYh6D6IGL3cHsnsxTBcvdeTNVphrHdn9MFS-vqzF-VxngQnoa2IshCT2QQszxMJ6DY3eK75sNlPySM2qfmxPHr727-r3c4vKr9i4BMRgn0fyCxhbdfjxqZuwuXNTwOvfZ6knNfQH0hQcI1r1NpeS9u0Nv00IKv9mjBtnage4CLgo5M5q4AetVczoxf";
+  "/img/obras/caaguazu/mamparas-bano-aluminio-tienda-go-caaguazu-01.webp";
 
 export const boxHeroTags = [
   "Acrílico",
@@ -170,4 +170,3 @@ export const boxProcessSteps: BoxProcessStep[] = [
     active: true,
   },
 ];
-

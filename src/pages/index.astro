@@ -150,8 +150,7 @@ const homeStructuredData = JSON.stringify([
     description,
     url: homePath,
     inLanguage: "es-PY",
-    primaryImageOfPage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAtYeMTXO0AnjfSOC94kAz8n0OBRKSvPWT6rUKxRgCUGJRzrgVJYowS8ApJtp1i0NhKdlWf9YFVtMOuTHos3DzPSc6qcH_0mk78qTL_WUGzF4FQRBxGGe-mO_FioLDOmzAvMGS_KN3ysQAG8LbgBEDVwUwchfUyg6H7WCTAk57yz-7xq1m5YHXfBP3IWzzKggbt7PnkPq_61lM3jWfH_PTQrzxSCMJZkTbC2UXsfBEfYcv0aEGQNAIfke7SiIk9DwNMrUf43knKJLtA",
+    primaryImageOfPage: `${SITE_URL}/img/home/hero-home.webp`,
   },
   {
     "@context": "https://schema.org",
@@ -197,6 +196,7 @@ const homeStructuredData = JSON.stringify([
   <script type="application/ld+json" set:html={homeStructuredData}></script>
 
   <script is:inline>
+    const whatsappNumber = {JSON.stringify(whatsappNumber)};
     const form = document.getElementById("vipar-home-form");
     const status = document.getElementById("vipar-home-form-status");
     const message = document.getElementById("vipar-home-form-message");
@@ -214,6 +214,22 @@ const homeStructuredData = JSON.stringify([
       status.hidden = true;
       delete status.dataset.state;
       message.textContent = "";
+    }
+
+    function buildWhatsappUrl(fields) {
+      const lines = [
+        "Hola, quiero solicitar un presupuesto.",
+        `Nombre: ${fields.name}`,
+        `WhatsApp: ${fields.phone}`,
+        fields.email ? `Email: ${fields.email}` : "",
+        `Servicio: ${fields.service}`,
+        fields.city ? `Ubicación: ${fields.city}` : "",
+        "",
+        "Detalle:",
+        fields.details,
+      ].filter(Boolean);
+
+      return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
     }
 
     if (form instanceof HTMLFormElement) {
@@ -321,35 +337,28 @@ const homeStructuredData = JSON.stringify([
           });
         }
 
-        const response = await fetch("/api/leads", {
-          method: "POST",
-          body: payload,
-        });
-
-        const data = await response.json().catch(() => null);
-
-        if (!response.ok) {
-          setStatus(
-            "error",
-            data?.error || "No se pudo enviar la solicitud. Proba nuevamente o escribinos por WhatsApp."
-          );
-          return;
-        }
-
         if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
-          window.viparTrack("generate_lead", {
-            method: "contact_form",
+          window.viparTrack("whatsapp_click", {
             cta_location: "home_contact_form",
             service_name: service,
+            whatsapp_message_type: "prefilled",
           });
         }
 
-        formElement.reset();
-        const startedAtInput = formElement.querySelector('input[name="form_started_at"]');
-        if (startedAtInput instanceof HTMLInputElement) {
-          startedAtInput.value = String(Date.now());
+        const whatsappUrl = buildWhatsappUrl({
+          name,
+          phone,
+          email: emailValue,
+          service,
+          city,
+          details,
+        });
+
+        if (typeof window !== "undefined") {
+          window.open(whatsappUrl, "_blank", "noopener,noreferrer");
         }
-        setStatus("success", "Recibimos tu solicitud. Te responderemos a la brevedad.");
+
+        setStatus("success", "Abrimos WhatsApp con tu mensaje listo para enviar.");
       } catch {
         setStatus("error", "Error de red. Proba nuevamente o escribinos por WhatsApp.");
       } finally {

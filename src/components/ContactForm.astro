@@ -1,5 +1,5 @@
 ---
-import { email } from "src/constants";
+import { email, whatsappNumber } from "src/constants";
 import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
 
 const whatsappHref = buildWhatsappUrl(
@@ -137,6 +137,7 @@ const whatsappHref = buildWhatsappUrl(
 </form>
 
 <script is:inline>
+  const whatsappNumber = {JSON.stringify(whatsappNumber)};
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   const success = document.getElementById("form-success");
@@ -190,13 +191,22 @@ const whatsappHref = buildWhatsappUrl(
     error.textContent = message;
   }
 
-  function trackEvent(eventName, params) {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", eventName, params || {});
-    }
+  function buildWhatsappUrl(fields) {
+    const lines = [
+      "Hola, quiero solicitar un presupuesto.",
+      `Nombre: ${fields.name}`,
+      fields.phone ? `Telefono: ${fields.phone}` : "",
+      fields.email ? `Email: ${fields.email}` : "",
+      fields.city ? `Ciudad o zona: ${fields.city}` : "",
+      "",
+      "Detalle:",
+      fields.message,
+    ].filter(Boolean);
+
+    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
   }
 
-  form?.addEventListener("submit", async (event) => {
+  form?.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const formElement = event.currentTarget;
@@ -209,7 +219,6 @@ const whatsappHref = buildWhatsappUrl(
     const city = String(formData.get("city") || "").trim();
     const message = String(formData.get("message") || "").trim();
     const website = String(formData.get("website") || "").trim();
-    const formStartedAt = String(formData.get("form_started_at") || "").trim();
     const captchaA = String(formData.get("captcha_a") || "").trim();
     const captchaB = String(formData.get("captcha_b") || "").trim();
     const captchaAnswer = String(formData.get("captcha_answer") || "").trim();
@@ -224,79 +233,50 @@ const whatsappHref = buildWhatsappUrl(
       return;
     }
 
-    try {
-      const leadContext =
-        typeof window !== "undefined" && typeof window.viparLeadContext === "function"
-          ? window.viparLeadContext({ cta_location: "contact_form" })
-          : { cta_location: "contact_form" };
+    if (website) {
+      showError("No se pudo enviar. Proba de nuevo.");
+      return;
+    }
 
+    if (Number(captchaA) + Number(captchaB) !== Number(captchaAnswer)) {
+      showError("La verificacion rapida no coincide.");
+      seedCaptcha();
+      return;
+    }
+
+    try {
       if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
         window.viparTrack("form_submit", {
           cta_location: "contact_form",
         });
       }
 
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          city,
-          message,
-          source: "vipar-landing",
-          page: typeof window !== "undefined" ? window.location.href : "",
-          website,
-          form_started_at: formStartedAt,
-          page_path: leadContext.page_path,
-          page_title: leadContext.page_title,
-          page_type: leadContext.page_type,
-          service_name: leadContext.service_name,
-          cta_location: leadContext.cta_location,
-          lead_source: leadContext.lead_source,
-          lead_medium: leadContext.lead_medium,
-          campaign: leadContext.campaign,
-          device_type: leadContext.device_type,
-          captcha_a: captchaA,
-          captcha_b: captchaB,
-          captcha_answer: captchaAnswer,
-        }),
+      if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
+        window.viparTrack("whatsapp_click", {
+          cta_location: "contact_form",
+          whatsapp_message_type: "prefilled",
+        });
+      }
+
+      const whatsappUrl = buildWhatsappUrl({
+        name,
+        email,
+        phone,
+        city,
+        message,
       });
 
-      const data = await res.json().catch(() => null);
-
-      if (!res.ok) {
-        const statusCode = res.status;
-        const msg =
-          data?.error ||
-          (statusCode === 403
-            ? "Verificacion invalida. Proba de nuevo."
-            : statusCode === 429
-              ? "Demasiadas solicitudes. Intenta mas tarde."
-              : "No se pudo enviar. Proba por WhatsApp.");
-        showError(msg);
-        return;
+      if (typeof window !== "undefined") {
+        window.open(whatsappUrl, "_blank", "noopener,noreferrer");
       }
 
-      if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
-        window.viparTrack("generate_lead", {
-          method: "contact_form",
-          cta_location: "contact_form",
-        });
-      } else {
-        trackEvent("generate_lead", {
-          method: "contact_form",
-          page_location: typeof window !== "undefined" ? window.location.href : "",
-        });
-      }
-
+      success.textContent = "Abrimos WhatsApp con tu mensaje listo para enviar.";
       showSuccess();
       formElement.reset();
       seedCaptcha();
       resetStartedAt(formElement);
     } catch (submissionError) {
-      showError("Error de red. Proba por WhatsApp.");
+      showError("No se pudo abrir WhatsApp. Proba de nuevo.");
     }
   });
 </script>

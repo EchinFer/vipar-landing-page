@@ -48,7 +48,7 @@ export interface MamparaFaqItem {
 }
 
 export const mamparaHeroImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDtZPhdR8GJ_E7xW7jb4gKVOWBalBQA9JvrUepR8PDiIRknf59Yk386a8xxjnGIZmwyEwal2wbWdcoe5ENTS-8jJlZsf_xs0mKn_zkZfOgMUAY18_qFjr6xTsgq0r-Vhc0-xx3W87pBUKcb8uh1oUbSVPS9rdruf6uf7uAiL9AMI6smSivdrt6WSuoGkg1UYqq9NnNbHUbUhhKeCxtnAdgAtTS6vpn2HcvUJSjPl7vkGZnMcCNNaTYHvaNi8B1qAgAFa0uNSsZ2_bqp";
+  "/img/obras/cooperativa-medalla-milagrosa-central/mamparas-vidrio-cooperativa-medalla-milagrosa-01.webp";
 
 export const mamparaHeroTags = ["Cristal templado", "Eucatex", "Durlock"];
 
@@ -96,7 +96,7 @@ export const mamparaTypeCards: MamparaTypeCardItem[] = [
       "Paso de luz sin bloquear visuales",
       "Opciones con perfilería o herrajes minimalistas",
     ],
-    note: "Recomendadas cuando la estética y la luz pesan más que el aislamiento total.",
+    note: "Recomendadas cuando la estética y la luz pesan más que la separación acústica.",
   },
   {
     title: "Mamparas Eucatex",
@@ -239,11 +239,10 @@ export const mamparaFaqs: MamparaFaqItem[] = [
   },
   {
     question: "¿Qué diferencia hay entre cristal templado, Durlock y Eucatex?",
-    answer: "Las diferencias radican en el aislamiento, estética y tiempos de obra. La mejor opción depende de medidas, uso, condiciones del espacio y sistema elegido.",
+    answer: "Las diferencias radican en la separación acústica, la estética y los tiempos de obra. La mejor opción depende de medidas, uso, condiciones del espacio y sistema elegido.",
   },
   {
     question: "¿Cuánto tarda la instalación?",
     answer: "El plazo de obra varía de acuerdo al volumen y la complejidad. Depende de medidas, uso, condiciones del espacio y sistema elegido.",
   },
 ];
-
