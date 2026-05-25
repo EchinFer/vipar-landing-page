@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -28,7 +29,8 @@ const { image, specs, whatsappHref } = Astro.props;
         Carpintería de aluminio para puertas, ventanas y cerramientos
       </Heading>
       <Text variant="body-lg">
-        Consultá opciones según medidas, uso del espacio, tipo de apertura y condiciones de instalación. Trabajamos con sistemas diversos adaptados a cada proyecto.
+        Consultá opciones según medidas, uso del espacio, tipo de apertura y condiciones de
+        instalación. Trabajamos con sistemas diversos adaptados a cada proyecto.
       </Text>
       <div class="aluminum-service-hero__actions">
         <Button
@@ -57,7 +59,18 @@ const { image, specs, whatsappHref } = Astro.props;
     </div>
 
     <div class="aluminum-service-hero__media">
-      <img src={image} alt="Instalación de puerta de aluminio" />
+      <Image
+        src={image}
+        alt="Instalacion de puerta de aluminio"
+        inferSize={true}
+        widths={[768, 1024, 1280, 1600]}
+        sizes="(max-width: 1100px) 100vw, 58vw"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        format="webp"
+        quality={72}
+      />
       <div class="aluminum-service-hero__specs">
         {specs.map((spec, index) => (
           <>

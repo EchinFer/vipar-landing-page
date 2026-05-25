@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -23,7 +24,9 @@ const { image, tags, whatsappHref } = Astro.props;
         Mamparas divisorias para oficinas, comercios y espacios interiores
       </Heading>
       <Text variant="body-lg">
-        Mamparas divisorias para oficinas, comercios y espacios interiores en Paraguay. Consultá opciones en cristal templado, Durlock o Eucatex según medidas, uso del ambiente y condiciones de instalación.
+        Mamparas divisorias para oficinas, comercios y espacios interiores en Paraguay. Consultá
+        opciones en cristal templado, Durlock o Eucatex según medidas, uso del ambiente y
+        condiciones de instalación.
       </Text>
       <div class="mampara-service-hero__actions">
         <Button
@@ -49,7 +52,18 @@ const { image, tags, whatsappHref } = Astro.props;
       </div>
     </div>
     <div class="mampara-service-hero__media">
-      <img src={image} alt="Mamparas divisorias para oficinas y comercios" />
+      <Image
+        src={image}
+        alt="Mamparas divisorias para oficinas y comercios"
+        inferSize={true}
+        widths={[768, 1024, 1280, 1600]}
+        sizes="(max-width: 1100px) 100vw, 58vw"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        format="webp"
+        quality={72}
+      />
     </div>
   </Container>
 </section>

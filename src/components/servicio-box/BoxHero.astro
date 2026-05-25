@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -53,7 +54,18 @@ const { image, tags, whatsappHref } = Astro.props;
     </div>
 
     <div class="box-service-hero__media">
-      <img src={image} alt="Box de baño en cristal templado instalado" />
+      <Image
+        src={image}
+        alt="Box de bano en cristal templado instalado"
+        inferSize={true}
+        widths={[768, 1024, 1280, 1600]}
+        sizes="(max-width: 1100px) 100vw, 58vw"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        format="webp"
+        quality={72}
+      />
     </div>
   </Container>
 </section>

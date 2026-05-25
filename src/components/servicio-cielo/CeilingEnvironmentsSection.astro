@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Card from "@components/ui/Card.astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -21,7 +22,8 @@ const { environments, metrics } = Astro.props;
         <Heading level={2} variant="lg">Adaptación por entorno</Heading>
       </div>
       <Text variant="body-lg">
-        Orientamos cada opción según el tipo de ambiente, el uso del espacio y las condiciones de instalación.
+        Orientamos cada opción según el tipo de ambiente, el uso del espacio y las condiciones de
+        instalación.
       </Text>
     </div>
 
@@ -33,7 +35,17 @@ const { environments, metrics } = Astro.props;
             item.featured && "ceiling-service-environment--featured",
           ]}
         >
-          <img src={item.image} alt={item.title} />
+          <Image
+            src={item.image}
+            alt={item.title}
+            inferSize={true}
+            widths={[480, 720, 960]}
+            sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            loading="lazy"
+            decoding="async"
+            format="webp"
+            quality={68}
+          />
           <div class="ceiling-service-environment__overlay">
             <Heading level={3} variant="md" tone="inverse">{item.title}</Heading>
             <Text tone="inverse">{item.description}</Text>
