@@ -1,5 +1,6 @@
 ---
 import "@styles/ui/faq-accordion.css";
+import UiIcon from "@components/icons/UiIcon.astro";
 import Container from "./Container.astro";
 import Heading from "./Heading.astro";
 import Text from "./Text.astro";
@@ -29,7 +30,7 @@ const { items, title = "Preguntas frecuentes", class: className = "" } = Astro.p
         <details class="ds-faq-accordion__item" open={index === 0}>
           <summary>
             <span>{item.question}</span>
-            <i aria-hidden="true" class="bi bi-chevron-down"></i>
+            <UiIcon name="chevron-down" />
           </summary>
           <div>
             <Text>{item.answer}</Text>

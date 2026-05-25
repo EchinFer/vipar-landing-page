@@ -8,6 +8,7 @@ import Button from "@components/ui/Button.astro";
 import FaqAccordion from "@components/ui/FaqAccordion.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
 import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
+import UiIcon from "@components/icons/UiIcon.astro";
 import type { ServiceTemplateContent } from "@lib/service-template";
 import { getRelatedStaticObras } from "@lib/static-obras";
 import "../../styles/servicio-template.css";
@@ -23,20 +24,20 @@ const { content, whatsappNumber, whatsappLink, serviceName } = Astro.props;
 const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
 
 const serviceTemplateIconMap: Record<string, string> = {
-  open_in_full: "bi-arrows-fullscreen",
-  shield: "bi-shield-check",
-  visibility: "bi-eye",
-  storefront: "bi-shop",
-  business: "bi-building",
-  window: "bi-window",
-  precision_manufacturing: "bi-tools",
-  sensor_door: "bi-door-open",
-  view_compact: "bi-columns-gap",
-  air: "bi-wind",
-  architecture: "bi-building",
+  open_in_full: "arrows-fullscreen",
+  shield: "shield-check",
+  visibility: "eye",
+  storefront: "shop",
+  business: "building",
+  window: "window",
+  precision_manufacturing: "tools",
+  sensor_door: "door-open",
+  view_compact: "columns-gap",
+  air: "wind",
+  architecture: "building",
 };
 
-const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "bi-square";
+const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "square";
 ---
 
 <main class="service-template-page">
@@ -65,7 +66,7 @@ const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "b
             data-service-name={serviceName}
             data-whatsapp-message-type="service_hero"
           >
-            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            <UiIcon name="whatsapp" />
             {content.hero.secondaryCtaLabel ?? "WhatsApp"}
           </Button>
         </div>
@@ -106,7 +107,7 @@ const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "b
         <div class="service-template-problem__list">
           {content.problem.cases.map((item) => (
             <article class="service-template-problem__item">
-              <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+              <UiIcon name="exclamation-triangle" />
               <div>
                 <strong>{item.title}</strong>
                 <Text variant="body-sm">{item.description}</Text>
@@ -170,7 +171,7 @@ const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "b
       <div class="service-template-selection__grid">
         {content.selection.items.map((item) => (
           <Card class="service-template-selection__card">
-            <i class:list={["bi", resolveTemplateIcon(item.icon)]} aria-hidden="true"></i>
+            <UiIcon name={resolveTemplateIcon(item.icon)} />
             <Heading level={3} variant="sm">{item.title}</Heading>
             <Text variant="body-sm">{item.description}</Text>
           </Card>
@@ -234,7 +235,7 @@ const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "b
           <Heading level={2} variant="lg">{content.trust.title}</Heading>
           <Text variant="body-lg">{content.trust.description}</Text>
           <div class="service-template-trust__location">
-            <i class="bi bi-geo-alt" aria-hidden="true"></i>
+            <UiIcon name="geo-alt" />
             <span>{content.trust.locationLabel}</span>
           </div>
         </div>

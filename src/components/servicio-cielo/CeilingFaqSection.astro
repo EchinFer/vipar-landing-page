@@ -1,6 +1,7 @@
 ---
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
+import UiIcon from "@components/icons/UiIcon.astro";
 import type { CeilingFaqItem } from "@lib/static-servicio-cielo-raso";
 
 interface Props {
@@ -20,7 +21,7 @@ const { items } = Astro.props;
         <details class="ceiling-service-faq__item" open={index === 0}>
           <summary>
             <span>{item.question}</span>
-            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            <UiIcon name="chevron-down" />
           </summary>
           <div>{item.answer}</div>
         </details>

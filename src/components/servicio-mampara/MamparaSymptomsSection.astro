@@ -1,14 +1,16 @@
 ---
+import { Image } from "astro:assets";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
 import Text from "@components/ui/Text.astro";
 import type { MamparaSymptomItem } from "@lib/static-servicio-mampara-divisoria";
 
 interface Props {
+  image: string;
   items: MamparaSymptomItem[];
 }
 
-const { items } = Astro.props;
+const { image, items } = Astro.props;
 ---
 
 <section class="mampara-service-section mampara-service-symptoms">
@@ -24,6 +26,18 @@ const { items } = Astro.props;
         ))}
       </div>
     </div>
-    <div class="mampara-service-symptoms__media"></div>
+    <div class="mampara-service-symptoms__media">
+      <Image
+        src={image}
+        alt="Mamparas divisorias instaladas en espacio corporativo"
+        inferSize={true}
+        widths={[540, 720, 960]}
+        sizes="(max-width: 1100px) 100vw, 50vw"
+        loading="lazy"
+        decoding="async"
+        format="webp"
+        quality={68}
+      />
+    </div>
   </Container>
 </section>

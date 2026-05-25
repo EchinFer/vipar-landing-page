@@ -2,6 +2,7 @@
 import ServiciosCatalog from "@components/servicios/ServiciosCatalog.astro";
 import ServiciosFilterBar from "@components/servicios/ServiciosFilterBar.astro";
 import ServiciosHero from "@components/servicios/ServiciosHero.astro";
+import UiIcon from "@components/icons/UiIcon.astro";
 import FaqAccordion from "@components/ui/FaqAccordion.astro";
 import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
 import Layout from "@layouts/Layout.astro";
@@ -104,7 +105,19 @@ const hubFaqs = [
 const featuredObras = staticObras.slice(0, 3);
 ---
 
-<Layout title={title} description={description} canonical={canonical} keywords={keywords}>
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  keywords={keywords}
+  loadAosAssets={false}
+  loadLightboxAssets={false}
+  loadSwiperAssets={false}
+  loadIsotopeAssets={false}
+  loadBootstrapJs={false}
+  loadBootstrapIcons={false}
+  useMaterialSymbols={false}
+>
   <main class="vipar-servicios-page">
     <ServiciosHero image={serviciosHeroImage} />
 
@@ -120,7 +133,7 @@ const featuredObras = staticObras.slice(0, 3);
       <div class="servicios-hub-needs__grid">
         {needsServices.map((item) => (
           <a href={item.href} class="servicios-hub-need-card">
-            <i class="material-symbols-outlined servicios-hub-need-card__icon">{item.icon}</i>
+            <UiIcon name={item.icon} class="servicios-hub-need-card__icon" />
             <strong class="servicios-hub-need-card__need">{item.need}</strong>
             <p class="servicios-hub-need-card__desc">{item.description}</p>
           </a>
@@ -163,7 +176,7 @@ const featuredObras = staticObras.slice(0, 3);
             data-cta-location="services_hub_quoting"
             data-whatsapp-message-type="services_hub"
           >
-            <i class="material-symbols-outlined">chat</i>
+            <UiIcon name="chat" />
             Enviar fotos o medidas por WhatsApp
           </a>
         </div>

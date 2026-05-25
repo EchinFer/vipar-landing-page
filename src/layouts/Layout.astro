@@ -223,12 +223,23 @@ const structuredDataItems = [
     {preconnectOrigins.map((origin) => (
       <link rel="preconnect" href={origin} crossorigin />
     ))}
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <!-- Non-blocking Google Fonts (avoids render-blocking) -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    </noscript>
     {loadBootstrapIcons && <link rel="stylesheet" href={bootstrapIconsHref} />}
     {useMaterialSymbols && (
       <link
+        rel="preload"
+        as="style"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet"
+        onload="this.onload=null;this.rel='stylesheet'"
       />
     )}
     {loadAosAssets && <link rel="stylesheet" href="/vendor/aos/aos.css" />}

@@ -321,11 +321,11 @@
   display: none;
 }
 
-.ceiling-service-faq__item[open] summary i {
+.ceiling-service-faq__item[open] summary :is(i, svg) {
   transform: rotate(180deg);
 }
 
-.ceiling-service-faq__item summary i {
+.ceiling-service-faq__item summary :is(i, svg) {
   transition: transform 180ms ease;
 }
 

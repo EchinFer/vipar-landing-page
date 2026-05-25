@@ -43,11 +43,11 @@
   display: none;
 }
 
-.ds-faq-accordion__item summary i {
+.ds-faq-accordion__item summary :is(i, svg) {
   transition: transform 180ms ease;
 }
 
-.ds-faq-accordion__item[open] summary i {
+.ds-faq-accordion__item[open] summary :is(i, svg) {
   transform: rotate(180deg);
 }
 

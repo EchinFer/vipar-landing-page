@@ -4,6 +4,7 @@ import Card from "@components/ui/Card.astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
 import Text from "@components/ui/Text.astro";
+import UiIcon from "@components/icons/UiIcon.astro";
 import type { CeilingDetailItem } from "@lib/static-servicio-cielo-raso";
 
 interface Props {
@@ -35,7 +36,7 @@ const { image, items } = Astro.props;
         {items.map((item) => (
           <article class="ceiling-service-detail">
             <Card as="div" class="ceiling-service-detail__icon-wrap">
-              <i class={`${item.icon} ceiling-service-detail__icon`} aria-hidden="true"></i>
+              <UiIcon name={item.icon} class="ceiling-service-detail__icon" />
             </Card>
             <div>
               <Heading level={3} variant="sm">{item.title}</Heading>

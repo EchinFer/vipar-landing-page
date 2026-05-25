@@ -1,7 +1,7 @@
+import serviciosHeroImageAsset from "@assets/image/services-hero.png";
 import type { ServicioFilterItem, ServicioListItem } from "@types";
 
-export const serviciosHeroImage =
-  "/img/services/services-hero.png";
+export const serviciosHeroImage = serviciosHeroImageAsset;
 
 export const staticServicios: ServicioListItem[] = [
   {

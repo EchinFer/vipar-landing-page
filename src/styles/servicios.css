@@ -170,7 +170,9 @@
 }
 
 .servicios-hub-need-card__icon {
+  display: inline-block;
   font-size: 28px;
+  line-height: 1;
   color: var(--ds-color-accent, #0066cc);
 }
 

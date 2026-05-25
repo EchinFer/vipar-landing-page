@@ -37,7 +37,7 @@
   gap: 16px;
 }
 
-.ds-card.vipar-key-card .vipar-key-card__item i {
+.ds-card.vipar-key-card .vipar-key-card__item :is(i, svg) {
   color: var(--vipar-secondary);
 }
 
@@ -142,7 +142,7 @@
   font-weight: 500;
 }
 
-.ds-card--variant-media .vipar-service-card__list i {
+.ds-card--variant-media .vipar-service-card__list :is(i, svg) {
   font-size: 1rem;
   color: #aec7f7;
 }
@@ -161,7 +161,7 @@
   background: var(--vipar-surface-low);
 }
 
-.ds-card--variant-soft .vipar-mini-card__icon i {
+.ds-card--variant-soft .vipar-mini-card__icon :is(i, svg) {
   color: var(--vipar-secondary);
   font-size: 2rem;
 }
@@ -309,7 +309,7 @@
   font-size: 0.9rem;
 }
 
-.ds-card--variant-gallery .vipar-obras-card__location i {
+.ds-card--variant-gallery .vipar-obras-card__location :is(i, svg) {
   line-height: 1;
 }
 

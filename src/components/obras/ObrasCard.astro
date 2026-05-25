@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import UiIcon from "@components/icons/UiIcon.astro";
 import ActionLink from "../ui/ActionLink.astro";
 import Card from "../ui/Card.astro";
 import Heading from "../ui/Heading.astro";
@@ -33,7 +34,7 @@ const { obra } = Astro.props;
     </Text>
     <Heading level={3} variant="sm">{obra.titulo}</Heading>
     <div class="vipar-obras-card__location">
-      <i class="bi bi-geo-alt" aria-hidden="true"></i>
+      <UiIcon name="geo-alt" />
       {obra.ubicacion}
     </div>
     <Text size="sm">{obra.resumen}</Text>
@@ -44,7 +45,7 @@ const { obra } = Astro.props;
       class="vipar-obras-card__cta"
     >
       Ver obra
-      <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      <UiIcon name="arrow-right" />
     </ActionLink>
   </div>
 </Card>
