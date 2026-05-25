@@ -1,0 +1,122 @@
+---
+interface Props {
+  name: string;
+  class?: string;
+  title?: string;
+}
+
+const { name, class: className = "", title } = Astro.props;
+const iconName = name.replace(/^bi-/, "");
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  width="1em"
+  height="1em"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.9"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class:list={["bi", `bi-${iconName}`, className]}
+  aria-hidden={title ? undefined : "true"}
+  role={title ? "img" : undefined}
+  focusable="false"
+>
+  {title && <title>{title}</title>}
+  {iconName === "arrow-right" && (
+    <>
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </>
+  )}
+  {iconName === "check-circle-fill" && (
+    <>
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="m9.5 12 1.8 1.8 3.8-4"></path>
+    </>
+  )}
+  {iconName === "grid-3x3-gap" && (
+    <>
+      <rect x="4" y="4" width="4" height="4"></rect>
+      <rect x="10" y="4" width="4" height="4"></rect>
+      <rect x="16" y="4" width="4" height="4"></rect>
+      <rect x="4" y="10" width="4" height="4"></rect>
+      <rect x="10" y="10" width="4" height="4"></rect>
+      <rect x="16" y="10" width="4" height="4"></rect>
+      <rect x="4" y="16" width="4" height="4"></rect>
+      <rect x="10" y="16" width="4" height="4"></rect>
+      <rect x="16" y="16" width="4" height="4"></rect>
+    </>
+  )}
+  {iconName === "columns-gap" && (
+    <>
+      <rect x="4" y="5" width="6" height="14"></rect>
+      <rect x="14" y="5" width="6" height="14"></rect>
+      <path d="M12 5v14"></path>
+    </>
+  )}
+  {iconName === "door-closed" && (
+    <>
+      <path d="M6 21V4.8a1 1 0 0 1 .7-1L16 1v20"></path>
+      <path d="M16 21H6"></path>
+      <path d="M13 11h.01"></path>
+    </>
+  )}
+  {iconName === "building" && (
+    <>
+      <path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"></path>
+      <path d="M2 21h20"></path>
+      <path d="M9 7h1"></path>
+      <path d="M13 7h1"></path>
+      <path d="M9 11h1"></path>
+      <path d="M13 11h1"></path>
+      <path d="M9 15h1"></path>
+      <path d="M13 15h1"></path>
+    </>
+  )}
+  {iconName === "grid-1x2" && (
+    <>
+      <rect x="4" y="4" width="16" height="6"></rect>
+      <rect x="4" y="14" width="16" height="6"></rect>
+    </>
+  )}
+  {iconName === "droplet-half" && (
+    <>
+      <path d="M12 3s6 5.4 6 10a6 6 0 1 1-12 0c0-4.6 6-10 6-10Z"></path>
+      <path d="M12 3v16"></path>
+    </>
+  )}
+  {iconName === "map" && (
+    <>
+      <path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Z"></path>
+      <path d="M9 3v15"></path>
+      <path d="M15 6v15"></path>
+    </>
+  )}
+  {iconName === "building-check" && (
+    <>
+      <path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5"></path>
+      <path d="M2 21h10"></path>
+      <path d="M9 7h1"></path>
+      <path d="M13 7h1"></path>
+      <path d="M9 11h1"></path>
+      <path d="M13 11h1"></path>
+      <path d="m14 18 2 2 4-4"></path>
+    </>
+  )}
+  {iconName === "clock" && (
+    <>
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M12 7v5l3 3"></path>
+    </>
+  )}
+  {iconName === "upload" && (
+    <>
+      <path d="M12 16V4"></path>
+      <path d="m7 9 5-5 5 5"></path>
+      <path d="M20 16v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3"></path>
+    </>
+  )}
+</svg>

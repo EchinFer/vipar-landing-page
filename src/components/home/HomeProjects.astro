@@ -2,6 +2,7 @@
 import Button from "../ui/Button.astro";
 import Container from "../ui/Container.astro";
 import Heading from "../ui/Heading.astro";
+import UiIcon from "../icons/UiIcon.astro";
 import Stack from "../ui/Stack.astro";
 import Text from "../ui/Text.astro";
 import HomeProjectCard from "./HomeProjectCard.astro";
@@ -43,7 +44,7 @@ const { projects } = Astro.props;
       <div class="vipar-projects-footer-action">
         <Button href="/obras/" variant="outlined" tone="primary" size="lg">
           Explorar cat&aacute;logo completo
-          <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i>
+          <UiIcon name="grid-3x3-gap" />
         </Button>
       </div>
     </Stack>

@@ -48,8 +48,8 @@
   transition: background-color 0.2s ease;
 }
 
-.vipar-site-footer__socials i,
-.vipar-site-footer__contact i {
+.vipar-site-footer__socials :is(i, svg),
+.vipar-site-footer__contact :is(i, svg) {
   line-height: 1;
 }
 
@@ -94,9 +94,10 @@
   line-height: 1.7;
 }
 
-.vipar-site-footer__contact i {
+.vipar-site-footer__contact :is(i, svg) {
   font-size: 1rem;
   margin-top: 0.2rem;
+  flex: 0 0 auto;
 }
 
 .vipar-site-footer__cta {

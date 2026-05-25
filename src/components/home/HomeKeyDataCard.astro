@@ -1,6 +1,7 @@
 ---
 import Card from "../ui/Card.astro";
 import Heading from "../ui/Heading.astro";
+import UiIcon from "../icons/UiIcon.astro";
 import Text from "../ui/Text.astro";
 
 interface KeyDataItem {
@@ -22,7 +23,7 @@ const { keyData } = Astro.props;
   <div class="vipar-key-card__list">
     {keyData.map((item) => (
       <div class="vipar-key-card__item">
-        <i class:list={["bi", item.iconClass]} aria-hidden="true"></i>
+        <UiIcon name={item.iconClass} />
         <div>
           <Text as="strong" variant="label-sm" tone="default">{item.title}</Text>
           <Text as="span" size="sm">{item.description}</Text>

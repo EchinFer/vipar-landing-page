@@ -1,5 +1,6 @@
 ---
 import Button from "../ui/Button.astro";
+import UiIcon from "../icons/UiIcon.astro";
 import Card from "../ui/Card.astro";
 import Field from "../ui/Field.astro";
 import Input from "../ui/Input.astro";
@@ -64,7 +65,7 @@ import Textarea from "../ui/Textarea.astro";
 
     <Field as="label" class="vipar-field vipar-field--file">
       <span>
-        <i class="bi bi-upload" aria-hidden="true"></i>
+        <UiIcon name="upload" />
         Adjuntar planos o referencias (PDF, JPG, PNG)
       </span>
       <Input id="file" name="file" type="file" accept=".pdf,.jpg,.jpeg,.png" />

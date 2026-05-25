@@ -1,6 +1,9 @@
 ---
+import ClockIcon from "../icons/UiIcon.astro";
+import EnvelopeIcon from "../icons/EnvelopeIcon.astro";
 import Heading from "../ui/Heading.astro";
 import Stack from "../ui/Stack.astro";
+import TelephoneIcon from "../icons/TelephoneIcon.astro";
 import Text from "../ui/Text.astro";
 
 interface Props {
@@ -24,7 +27,7 @@ const { whatsappNumber, whatsappMessage, telephone, email } = Astro.props;
   <div class="vipar-contact-list">
     <div class="vipar-contact-item">
       <div class="vipar-contact-item__icon">
-        <i class="bi bi-telephone" aria-hidden="true"></i>
+        <TelephoneIcon />
       </div>
       <div>
         <Text as="strong" variant="label-sm" tone="default">Tel&eacute;fono / WhatsApp</Text>
@@ -37,7 +40,7 @@ const { whatsappNumber, whatsappMessage, telephone, email } = Astro.props;
 
     <div class="vipar-contact-item">
       <div class="vipar-contact-item__icon">
-        <i class="bi bi-envelope" aria-hidden="true"></i>
+        <EnvelopeIcon />
       </div>
       <div>
         <Text as="strong" variant="label-sm" tone="default">Correo Electr&oacute;nico</Text>
@@ -47,7 +50,7 @@ const { whatsappNumber, whatsappMessage, telephone, email } = Astro.props;
 
     <div class="vipar-contact-item">
       <div class="vipar-contact-item__icon">
-        <i class="bi bi-clock" aria-hidden="true"></i>
+        <ClockIcon name="clock" />
       </div>
       <div>
         <Text as="strong" variant="label-sm" tone="default">Horario de atenci&oacute;n</Text>

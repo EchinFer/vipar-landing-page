@@ -4,6 +4,7 @@ import type { ImageMetadata } from "astro";
 import Button from "@components/ui/Button.astro";
 import Card from "@components/ui/Card.astro";
 import Heading from "@components/ui/Heading.astro";
+import UiIcon from "@components/icons/UiIcon.astro";
 import Text from "@components/ui/Text.astro";
 
 interface FeaturedService {
@@ -41,14 +42,14 @@ const { service } = Astro.props;
     <ul class="vipar-service-card__list">
       {service.points.map((point) => (
         <li>
-          <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+          <UiIcon name="check-circle-fill" />
           <span>{point}</span>
         </li>
       ))}
     </ul>
     <Button href={service.href} variant="contained" tone="inverse" size="md" fullWidth>
       Ver soluciones
-      <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      <UiIcon name="arrow-right" />
     </Button>
   </div>
 </Card>

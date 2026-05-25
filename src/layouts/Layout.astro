@@ -1,8 +1,7 @@
 ---
 import Header from "@components/Header.astro";
-import "@styles/design-system.css";
-
-import "@assets/vendor/bootstrap-icons/bootstrap-icons.css";
+import bootstrapIconsHref from "@assets/vendor/bootstrap-icons/bootstrap-icons.css?url";
+import "@styles/design-system-core.css";
 import ClientProvider from "./ClientProvider.astro";
 import Footer from "@components/Footer.astro";
 import WhatsappFAB from "@components/WhatsappFAB.astro";
@@ -32,7 +31,9 @@ interface Props {
   loadSwiperAssets?: boolean;
   loadIsotopeAssets?: boolean;
   loadBootstrapJs?: boolean;
+  loadBootstrapIcons?: boolean;
   useMaterialSymbols?: boolean;
+  preconnectOrigins?: string[];
   hideHeader?: boolean;
   hideFooter?: boolean;
   hideWhatsappFAB?: boolean;
@@ -63,7 +64,9 @@ const {
   loadSwiperAssets = true,
   loadIsotopeAssets = true,
   loadBootstrapJs = true,
+  loadBootstrapIcons = true,
   useMaterialSymbols = true,
+  preconnectOrigins = [],
   hideHeader = false,
   hideFooter = false,
   hideWhatsappFAB = false,
@@ -217,7 +220,11 @@ const structuredDataItems = [
     <!-- Fonts for redesign (Manrope + Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {preconnectOrigins.map((origin) => (
+      <link rel="preconnect" href={origin} crossorigin />
+    ))}
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    {loadBootstrapIcons && <link rel="stylesheet" href={bootstrapIconsHref} />}
     {useMaterialSymbols && (
       <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"

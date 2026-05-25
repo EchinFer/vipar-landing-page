@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Card from "../ui/Card.astro";
 import Heading from "../ui/Heading.astro";
 import Text from "../ui/Text.astro";
@@ -18,6 +19,12 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const imageWidths =
+  project.layout === "hero" ? [640, 960, 1280, 1600] : [360, 540, 720, 960];
+const imageSizes =
+  project.layout === "hero"
+    ? "(max-width: 960px) 100vw, 66vw"
+    : "(max-width: 960px) 100vw, 33vw";
 ---
 
 <Card
@@ -31,7 +38,17 @@ const { project } = Astro.props;
   tabindex={project.href ? undefined : "0"}
 >
   <div class="vipar-project-card__image">
-    <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
+    <Image
+      src={project.image}
+      alt={project.alt}
+      inferSize={true}
+      widths={imageWidths}
+      sizes={imageSizes}
+      format="webp"
+      quality={66}
+      loading="lazy"
+      decoding="async"
+    />
   </div>
 
   <div class="vipar-project-card__body">
