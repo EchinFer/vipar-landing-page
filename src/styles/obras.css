@@ -102,8 +102,9 @@
   margin-top: auto;
 }
 
-.vipar-obras-card__cta .material-symbols-outlined {
+.vipar-obras-card__cta .bi {
   font-size: 1.1rem;
+  line-height: 1;
 }
 
 .vipar-obras-card__cta:hover {

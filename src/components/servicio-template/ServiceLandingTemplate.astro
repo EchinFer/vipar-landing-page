@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Container from "@components/ui/Container.astro";
 import Card from "@components/ui/Card.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -20,6 +21,22 @@ interface Props {
 
 const { content, whatsappNumber, whatsappLink, serviceName } = Astro.props;
 const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
+
+const serviceTemplateIconMap: Record<string, string> = {
+  open_in_full: "bi-arrows-fullscreen",
+  shield: "bi-shield-check",
+  visibility: "bi-eye",
+  storefront: "bi-shop",
+  business: "bi-building",
+  window: "bi-window",
+  precision_manufacturing: "bi-tools",
+  sensor_door: "bi-door-open",
+  view_compact: "bi-columns-gap",
+  air: "bi-wind",
+  architecture: "bi-building",
+};
+
+const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "bi-square";
 ---
 
 <main class="service-template-page">
@@ -48,7 +65,7 @@ const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
             data-service-name={serviceName}
             data-whatsapp-message-type="service_hero"
           >
-            <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
             {content.hero.secondaryCtaLabel ?? "WhatsApp"}
           </Button>
         </div>
@@ -61,7 +78,18 @@ const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
       </div>
 
       <div class="service-template-hero__media">
-        <img src={content.hero.image} alt={content.hero.title} loading="eager" decoding="async" />
+        <Image
+          src={content.hero.image}
+          alt={content.hero.title}
+          inferSize={true}
+          widths={[768, 1024, 1280, 1600]}
+          sizes="(max-width: 1100px) 100vw, 58vw"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          format="webp"
+          quality={72}
+        />
       </div>
     </Container>
   </section>
@@ -78,7 +106,7 @@ const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
         <div class="service-template-problem__list">
           {content.problem.cases.map((item) => (
             <article class="service-template-problem__item">
-              <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+              <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
               <div>
                 <strong>{item.title}</strong>
                 <Text variant="body-sm">{item.description}</Text>
@@ -101,7 +129,17 @@ const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
         {content.solutions.items.map((item) => (
           <Card class="service-template-solution">
             <div class="service-template-solution__media">
-              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+              <Image
+                src={item.image}
+                alt={item.title}
+                inferSize={true}
+                widths={[360, 540, 720]}
+                sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                loading="lazy"
+                decoding="async"
+                format="webp"
+                quality={68}
+              />
             </div>
             <div class="service-template-solution__body">
               <Heading level={3} variant="sm">{item.title}</Heading>
@@ -132,7 +170,7 @@ const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
       <div class="service-template-selection__grid">
         {content.selection.items.map((item) => (
           <Card class="service-template-selection__card">
-            <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
+            <i class:list={["bi", resolveTemplateIcon(item.icon)]} aria-hidden="true"></i>
             <Heading level={3} variant="sm">{item.title}</Heading>
             <Text variant="body-sm">{item.description}</Text>
           </Card>
@@ -152,7 +190,17 @@ const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
         {content.applications.items.map((item) => (
           <article class="service-template-application">
             <div class="service-template-application__media">
-              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+              <Image
+                src={item.image}
+                alt={item.title}
+                inferSize={true}
+                widths={[240, 320, 480]}
+                sizes="(max-width: 760px) 50vw, (max-width: 1100px) 50vw, 25vw"
+                loading="lazy"
+                decoding="async"
+                format="webp"
+                quality={68}
+              />
             </div>
             <Heading level={3} variant="sm">{item.title}</Heading>
           </article>
@@ -186,13 +234,23 @@ const relatedObras = getRelatedStaticObras(content.relatedWorksKey);
           <Heading level={2} variant="lg">{content.trust.title}</Heading>
           <Text variant="body-lg">{content.trust.description}</Text>
           <div class="service-template-trust__location">
-            <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+            <i class="bi bi-geo-alt" aria-hidden="true"></i>
             <span>{content.trust.locationLabel}</span>
           </div>
         </div>
 
         <div class="service-template-trust__media">
-          <img src={content.trust.image} alt={content.trust.title} loading="lazy" decoding="async" />
+          <Image
+            src={content.trust.image}
+            alt={content.trust.title}
+            inferSize={true}
+            widths={[240, 320, 480]}
+            sizes="240px"
+            loading="lazy"
+            decoding="async"
+            format="webp"
+            quality={70}
+          />
         </div>
       </div>
     </Container>

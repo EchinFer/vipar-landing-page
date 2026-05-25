@@ -21,6 +21,14 @@ export default defineConfig({
   output: "static",
   base: "/",
   site,
+  image: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "vipar.moochsoft.com",
+      },
+    ],
+  },
   integrations: [
     sitemap({
       filter(page) {

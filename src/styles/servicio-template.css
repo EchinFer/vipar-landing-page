@@ -124,7 +124,7 @@
   gap: 12px;
 }
 
-.service-template-problem__item .material-symbols-outlined {
+.service-template-problem__item .bi {
   margin-top: 2px;
   color: var(--ds-color-accent);
 }
@@ -193,9 +193,16 @@
   text-align: center;
 }
 
-.service-template-selection__card .material-symbols-outlined {
+.service-template-selection__card .bi {
   color: var(--ds-color-accent);
   font-size: 2rem;
+}
+
+.service-template-hero__actions .bi,
+.service-template-problem__item .bi,
+.service-template-selection__card .bi,
+.service-template-trust__location .bi {
+  line-height: 1;
 }
 
 .service-template-selection__card h3,

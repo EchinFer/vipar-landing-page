@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import ActionLink from "../ui/ActionLink.astro";
 import Card from "../ui/Card.astro";
 import Heading from "../ui/Heading.astro";
@@ -14,7 +15,17 @@ const { obra } = Astro.props;
 
 <Card as="article" variant="gallery" class="vipar-obras-card" data-tags={obra.filterTags.join(",")}>
   <div class="vipar-obras-card__image">
-    <img src={obra.imagen} alt={obra.titulo} loading="lazy" decoding="async" />
+    <Image
+      src={obra.imagen}
+      alt={obra.titulo}
+      inferSize={true}
+      widths={[360, 540, 720, 960]}
+      sizes="(max-width: 720px) 100vw, (max-width: 1080px) 50vw, 33vw"
+      loading="lazy"
+      decoding="async"
+      format="webp"
+      quality={68}
+    />
   </div>
   <div class="vipar-obras-card__body">
     <Text as="span" variant="label-sm" tone="accent" class="vipar-obras-card__eyebrow">
@@ -22,7 +33,7 @@ const { obra } = Astro.props;
     </Text>
     <Heading level={3} variant="sm">{obra.titulo}</Heading>
     <div class="vipar-obras-card__location">
-      <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+      <i class="bi bi-geo-alt" aria-hidden="true"></i>
       {obra.ubicacion}
     </div>
     <Text size="sm">{obra.resumen}</Text>
@@ -33,7 +44,7 @@ const { obra } = Astro.props;
       class="vipar-obras-card__cta"
     >
       Ver obra
-      <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+      <i class="bi bi-arrow-right" aria-hidden="true"></i>
     </ActionLink>
   </div>
 </Card>

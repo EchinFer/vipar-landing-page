@@ -309,6 +309,10 @@
   font-size: 0.9rem;
 }
 
+.ds-card--variant-gallery .vipar-obras-card__location i {
+  line-height: 1;
+}
+
 .ds-card--variant-gallery p {
   margin: 0;
   flex: 1;

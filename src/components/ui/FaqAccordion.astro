@@ -28,7 +28,7 @@ const { items, title = "Preguntas frecuentes", class: className = "" } = Astro.p
         <details class="ds-faq-accordion__item" open={index === 0}>
           <summary>
             <span>{item.question}</span>
-            <i aria-hidden="true" class="material-symbols-outlined">expand_more</i>
+            <i aria-hidden="true" class="bi bi-chevron-down"></i>
           </summary>
           <div>
             <Text>{item.answer}</Text>
