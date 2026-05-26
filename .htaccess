@@ -1,7 +1,11 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-
-  RewriteRule ^admin$ /admin/ [R=301,L]
+  
+  # Redirects de URLs legadas (slug singular -> slug plural correcto)
+  RewriteRule ^servicios/ventana/?$ /servicios/ventanas/ [R=301,L]
+  RewriteRule ^servicios/puerta/?$ /servicios/puertas/ [R=301,L]
+  RewriteRule ^servicios/cortina/?$ /servicios/cortinas/ [R=301,L]
+  RewriteRule ^servicios/mampara-divisoria/?$ /servicios/mamparas-divisorias/ [R=301,L]
 
   # Si ES www -> redirigir a no-www
   RewriteCond %{HTTP_HOST} ^www\.vipar\.com\.py$ [NC]
