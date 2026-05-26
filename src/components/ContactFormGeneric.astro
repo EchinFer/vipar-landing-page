@@ -1,0 +1,602 @@
+---
+import Button from "@components/ui/Button.astro";
+import Card from "@components/ui/Card.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import Input from "@components/ui/Input.astro";
+
+export interface Props {
+  formId: string;
+  source: string;
+  variant?: "home" | "contact";
+  title?: string;
+  intro?: string;
+  cardClass?: string;
+  formClass?: string;
+  showServiceSelect?: boolean;
+  showAsuntoSelect?: boolean;
+  showFileUpload?: boolean;
+  whatsappNumber?: string;
+}
+
+const {
+  formId,
+  source,
+  variant = "contact",
+  title = "¿Cómo podemos ayudarte?",
+  intro = "Elegí una opción y dejá tu correo para que te contactemos.",
+  cardClass = "",
+  formClass = "",
+  showServiceSelect = true,
+  showAsuntoSelect = true,
+  whatsappNumber = "+595981256510",
+} = Astro.props;
+
+const stepNumbers = {
+  service: 1,
+  consultation: showServiceSelect ? 2 : 1,
+  contact: showServiceSelect && showAsuntoSelect ? 3 : showServiceSelect || showAsuntoSelect ? 2 : 1,
+};
+
+// Opciones predefinidas
+const serviceOptions = [
+  { label: "Mamparas / Divisiones", value: "Mamparas / Divisiones" },
+  { label: "Ventanas", value: "Ventanas" },
+  { label: "Box de Baño", value: "Box de Baño" },
+  { label: "Cielos Rasos", value: "Cielos Rasos" },
+  { label: "Carpintería de Aluminio", value: "Carpintería de Aluminio" },
+  { label: "Cristales Templados", value: "Cristales Templados" },
+  { label: "Otro", value: "Otro" },
+];
+
+const consultationTypes = [
+  { label: "Presupuesto", value: "Presupuesto" },
+  { label: "Consulta Técnica", value: "Consulta Técnica" },
+  { label: "Otro", value: "Otro" },
+];
+---
+
+<Card as="article" class:list={["smart-form-panel", cardClass]}>
+  <div class="smart-form-container">
+    <div class="smart-form-header">
+      {title && <Heading level={2} variant="md">{title}</Heading>}
+      {intro && <Text class="form-intro">{intro}</Text>}
+    </div>
+
+    <!-- Step 1: Tipo de Servicio -->
+    {showServiceSelect && (
+    <div class="smart-form-step" data-step="1">
+      <div class="step-header">
+        <span class="step-number">{stepNumbers.service}</span>
+        <Heading level={3} variant="sm">¿Qué servicio te interesa?</Heading>
+      </div>
+      <div class="options-grid">
+        {serviceOptions.map((option) => {
+          return (
+            <button
+              type="button"
+              class="option-btn"
+              data-option={option.value}
+              aria-label={`Seleccionar ${option.label}`}
+            >
+              <span class="option-btn__copy">
+                <span class="option-btn__label">{option.label}</span>
+                <span class="option-btn__hint">Tocar para continuar</span>
+              </span>
+              <span class="option-btn__icon" aria-hidden="true">→</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+    )}
+
+    <!-- Step 2: Tipo de Consulta -->
+    {showAsuntoSelect && (
+    <div class="smart-form-step" data-step="2" hidden>
+      <div class="step-header">
+        <span class="step-number">{stepNumbers.consultation}</span>
+        <Heading level={3} variant="sm">¿Qué necesitas?</Heading>
+      </div>
+      <div class="options-grid vertical">
+        {consultationTypes.map((option) => {
+          return (
+            <button
+              type="button"
+              class="option-btn"
+              data-option={option.value}
+              aria-label={`Seleccionar ${option.label}`}
+            >
+              <span class="option-btn__copy">
+                <span class="option-btn__label">{option.label}</span>
+                <span class="option-btn__hint">Elegir esta opción</span>
+              </span>
+              <span class="option-btn__icon" aria-hidden="true">→</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+    )}
+
+    <!-- Step 3: Email -->
+    <div class="smart-form-step" data-step="3" hidden>
+      <div class="step-header">
+        <span class="step-number">{stepNumbers.contact}</span>
+        <Heading level={3} variant="sm">Tu correo</Heading>
+      </div>
+      <form class:list={["contact-form", formClass]} id={formId} novalidate>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="tu@email.com"
+            required
+          />
+        </div>
+
+        <input type="hidden" name="service" />
+        <input type="hidden" name="consultation_type" />
+        <input type="hidden" name="source" value={source} />
+        <input type="hidden" name="form_started_at" value="" />
+        <div
+          style="position:absolute;left:-9999px;opacity:0;pointer-events:none;"
+          aria-hidden="true"
+        >
+          <label>
+            Website
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="form-actions">
+          {(showServiceSelect || showAsuntoSelect) && (
+          <Button
+            type="button"
+            variant="outlined"
+            size="md"
+            fullWidth
+            class="btn-back"
+          >
+            Atrás
+          </Button>
+          )}
+          <Button
+            type="submit"
+            variant="contained"
+            tone="primary"
+            size="md"
+            fullWidth
+            class="btn-submit"
+          >
+            Continuar por WhatsApp
+          </Button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Status -->
+    <div class="form-status" hidden id={`${formId}-status`}>
+      <p id={`${formId}-message`}></p>
+    </div>
+  </div>
+</Card>
+
+<script define:vars={{ formId, source, variant, whatsappNumber }}>
+  const form = document.getElementById(formId);
+  const statusEl = document.getElementById(`${formId}-status`);
+  const messageEl = document.getElementById(`${formId}-message`);
+  const hasServiceStep = Boolean(document.querySelector('[data-step="1"]'));
+  const hasConsultationStep = Boolean(document.querySelector('[data-step="2"]'));
+  const initialStep = hasServiceStep ? 1 : hasConsultationStep ? 2 : 3;
+
+  let currentStep = 1;
+  let formData = {
+    service: "",
+    consultation_type: "",
+    email: "",
+  };
+
+  function showStep(step) {
+    document
+      .querySelectorAll(".smart-form-step")
+      .forEach((el) => (el.hidden = true));
+    const stepEl = document.querySelector(`[data-step="${step}"]`);
+    if (stepEl) stepEl.hidden = false;
+    currentStep = step;
+  }
+
+  function setStatus(type, text) {
+    if (!statusEl || !messageEl) return;
+    statusEl.hidden = false;
+    statusEl.dataset.state = type;
+    messageEl.textContent = text;
+  }
+
+  function clearStatus() {
+    if (statusEl) statusEl.hidden = true;
+  }
+
+  function identifyLead(emailValue) {
+    if (!emailValue) return;
+    if (typeof window !== "undefined" && typeof window.posthog === "object" && typeof window.posthog.identify === "function") {
+      window.posthog.identify(emailValue, {
+        email: emailValue,
+        source,
+        form_id: formId,
+        variant,
+        service_interest: formData.service || undefined,
+        consultation_type: formData.consultation_type || undefined,
+      });
+    }
+  }
+
+  function buildWhatsappUrl() {
+    const lines = [
+      "Hola, quiero hacer una consulta.",
+      formData.service ? `Servicio: ${formData.service}` : "",
+      formData.consultation_type ? `Tipo de consulta: ${formData.consultation_type}` : "",
+      `Email: ${formData.email}`,
+    ].filter(Boolean);
+
+    return `https://wa.me/${String(whatsappNumber || "").replace(/\D/g, "")}?text=${encodeURIComponent(lines.join("\n"))}`;
+  }
+
+  function trackEvent(name, props = {}) {
+    const baseProps = {
+      form_id: formId,
+      page_path: typeof window !== "undefined" ? window.location.pathname : "",
+      source,
+      variant,
+    };
+
+    if (typeof window !== "undefined" && typeof window.posthog === "object") {
+      window.posthog.capture(name, {
+        ...baseProps,
+        ...props,
+      });
+    }
+    if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
+      window.viparTrack(name, {
+        cta_location: formId === "vipar-home-form" ? "home_contact_form" : "contact_form",
+        ...baseProps,
+        ...props,
+      });
+    }
+  }
+
+  // Step 1: Service Selection
+  document.querySelectorAll('[data-step="1"] .option-btn').forEach((btn) => {
+    btn.addEventListener("click", () => {
+      formData.service = btn.dataset.option || "";
+      trackEvent("form_service_selected", { service: formData.service });
+      showStep(hasConsultationStep ? 2 : 3);
+    });
+  });
+
+  // Step 2: Consultation Type
+  document.querySelectorAll('[data-step="2"] .option-btn').forEach((btn) => {
+    btn.addEventListener("click", () => {
+      formData.consultation_type = btn.dataset.option || "";
+      trackEvent("form_consultation_selected", {
+        consultation_type: formData.consultation_type,
+      });
+      showStep(3);
+    });
+  });
+
+  // Step 3: Contact Form
+  if (form) {
+    form.addEventListener("input", () => {
+      const emailInput = form.querySelector('input[name="email"]');
+
+      if (emailInput) formData.email = emailInput.value;
+    });
+
+    // Back button
+    form.querySelector(".btn-back")?.addEventListener("click", () => {
+      if (hasConsultationStep) {
+        showStep(2);
+        return;
+      }
+      if (hasServiceStep) {
+        showStep(1);
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      clearStatus();
+
+      if (typeof form.reportValidity === "function" && !form.reportValidity()) {
+        return;
+      }
+
+      formData.email = String((form.querySelector('input[name="email"]')?.value || "")).trim();
+
+      if (!formData.email) {
+        setStatus("error", "Completá tu correo.");
+        return;
+      }
+
+      identifyLead(formData.email);
+
+      trackEvent("lead_email_captured", {
+        email: formData.email,
+        service: formData.service,
+        consultation_type: formData.consultation_type,
+        email_domain: formData.email.includes("@") ? formData.email.split("@")[1] : "",
+      });
+
+      trackEvent("form_submit", {
+        email_only: true,
+        email: formData.email,
+        service: formData.service,
+        consultation_type: formData.consultation_type,
+        email_domain: formData.email.includes("@") ? formData.email.split("@")[1] : "",
+      });
+
+      trackEvent("whatsapp_click", {
+        source: "smart_form",
+        email: formData.email,
+        service: formData.service,
+        consultation_type: formData.consultation_type,
+      });
+
+      if (typeof window !== "undefined") {
+        window.open(buildWhatsappUrl(), "_blank", "noopener,noreferrer");
+      }
+
+      setStatus("success", "Abrimos WhatsApp y registramos tu correo en GA y PostHog.");
+      form.reset();
+      formData.email = "";
+    });
+  }
+
+  // Initialize
+  if (form) {
+    const startedAtInput = form.querySelector('input[name="form_started_at"]');
+    if (startedAtInput && !startedAtInput.value) {
+      startedAtInput.value = String(Date.now());
+    }
+  }
+  
+  // Track form view
+  trackEvent("form_view", { variant: "smart_form" });
+  showStep(initialStep);
+</script>
+
+<style>
+  .smart-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .smart-form-header {
+    text-align: center;
+  }
+
+  .form-intro {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .smart-form-step {
+    animation: none;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .options-grid.vertical {
+    grid-template-columns: 1fr;
+  }
+
+  .option-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    min-height: 84px;
+    padding: 1rem 1rem 1rem 1.2rem;
+    border: 1px solid rgba(0, 21, 36, 0.14);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .option-btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 4px;
+    border-radius: 999px;
+    background: rgba(0, 101, 139, 0.16);
+  }
+
+  .option-btn__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.32rem;
+    min-width: 0;
+  }
+
+  .option-btn__label {
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .option-btn__hint {
+    color: var(--color-text-secondary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    letter-spacing: 0.01em;
+  }
+
+  .option-btn__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 2.65rem;
+    height: 2.65rem;
+    border-radius: 0.8rem;
+    border: 1px solid rgba(0, 101, 139, 0.14);
+    background: rgba(0, 101, 139, 0.06);
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .option-btn:focus-visible::before {
+    background: var(--color-primary);
+  }
+
+  .option-btn:focus-visible .option-btn__icon {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+  }
+
+  .option-btn:focus-visible {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow:
+      0 0 0 4px rgba(0, 101, 139, 0.14),
+      0 12px 28px rgba(5, 30, 40, 0.08);
+  }
+
+  @media (max-width: 720px) {
+    .options-grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .option-btn {
+      min-height: 80px;
+      padding: 0.95rem 1rem;
+      border-radius: 0.9rem;
+    }
+
+    .option-btn__label {
+      font-size: 0.98rem;
+    }
+
+    .option-btn__hint {
+      font-size: 0.78rem;
+    }
+
+    .option-btn__icon {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+  }
+
+  .contact-form,
+  .details-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-weight: 500;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  .form-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .form-status {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .form-status[data-state="success"] {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  .form-status[data-state="error"] {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+</style>

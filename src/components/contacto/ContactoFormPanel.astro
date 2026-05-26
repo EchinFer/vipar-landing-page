@@ -1,91 +1,20 @@
 ---
-import Button from "@components/ui/Button.astro";
-import Card from "@components/ui/Card.astro";
-import Field from "@components/ui/Field.astro";
-import Heading from "@components/ui/Heading.astro";
-import Input from "@components/ui/Input.astro";
-import Select from "@components/ui/Select.astro";
-import Text from "@components/ui/Text.astro";
-import Textarea from "@components/ui/Textarea.astro";
+import ContactFormGeneric from "@components/ContactFormGeneric.astro";
+import { telephone } from "src/constants";
+
+const whatsappNumber = telephone.replace(/[^\d]/g, "");
 ---
 
-<Card as="article" class="contact-form-panel" id="consulta-tecnica">
-  <div>
-    <Heading level={2} variant="md" class="contact-form-panel__title">Consulta Técnica</Heading>
-    <Text class="contact-form-panel__intro">
-      Su consulta no molesta. Estamos aquí para responder a sus consultas técnicas y ayudarlo a
-      encontrar la mejor solución para su proyecto u obra.
-    </Text>
-
-    <form class="contact-form" id="vipar-contact-form" novalidate>
-      <Field as="label" class="contact-field">
-        <span>Nombre Completo / Empresa</span>
-        <Input
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Ej. Juan Pérez - Constructora o Particular"
-          required
-        />
-      </Field>
-
-      <Field as="label" class="contact-field">
-        <span>Correo Electrónico</span>
-        <Input id="email" name="email" type="email" placeholder="ejemplo@empresa.com.py" />
-      </Field>
-
-      <Field as="label" class="contact-field">
-        <span>Teléfono / WhatsApp</span>
-        <Input id="phone" name="phone" type="tel" placeholder="+595 981 256 510" required />
-      </Field>
-
-      <Field as="label" class="contact-field">
-        <span>Asunto</span>
-        <Select id="city" name="city">
-          <option value="">Seleccione el motivo de su consulta</option>
-          <option value="Solicitud de Cotización">Solicitud de Cotización</option>
-          <option value="Consulta Técnica">Consulta Técnica</option>
-          <option value="Mantenimiento">Mantenimiento</option>
-          <option value="Otros">Otros</option>
-        </Select>
-      </Field>
-
-      <Field as="label" class="contact-field">
-        <span>Mensaje / Detalles del Proyecto</span>
-        <Textarea
-          id="message"
-          name="message"
-          rows="4"
-          placeholder="Describa brevemente su proyecto, medidas aproximadas o el tipo de solución técnica que necesita..."
-          required
-        />
-      </Field>
-
-      <Field as="label" class="contact-upload">
-        <span>Adjuntar Planos / Especificaciones (Opcional)</span>
-        <Input id="file" name="file" type="file" accept=".pdf,.jpg,.jpeg,.png" />
-      </Field>
-
-      <input type="hidden" name="source" value="vipar-contacto" />
-      <input type="hidden" name="form_started_at" value="" />
-      <div
-        style="position:absolute;left:-9999px;opacity:0;pointer-events:none;"
-        aria-hidden="true"
-      >
-        <label>
-          Website
-          <input type="text" name="website" tabindex="-1" autocomplete="off" />
-        </label>
-      </div>
-
-      <div class="contact-form__status" id="vipar-contact-form-status" hidden>
-        <p id="vipar-contact-form-message"></p>
-      </div>
-
-      <Button type="submit" variant="contained" tone="secondary" size="lg" fullWidth>
-        <span>Enviar Mensaje</span>
-        <span class="material-symbols-outlined" aria-hidden="true">send</span>
-      </Button>
-    </form>
-  </div>
-</Card>
+<ContactFormGeneric
+  formId="vipar-contact-form"
+  source="vipar-contacto"
+  variant="contact"
+  title="Consulta Técnica"
+  intro="Su consulta no molesta. Estamos aquí para responder a sus consultas técnicas y ayudarlo a encontrar la mejor solución para su proyecto u obra."
+  showServiceSelect={false}
+  showAsuntoSelect={true}
+  showFileUpload={true}
+  cardClass="contact-form-panel"
+  formClass="contact-form"
+  whatsappNumber={whatsappNumber}
+/>

@@ -124,3 +124,22 @@ const whatsappHref = buildWhatsappUrl(
     )
   }
 </div>
+
+<script>
+  // Track WhatsApp clicks from floating FAB
+  document.addEventListener("DOMContentLoaded", () => {
+    const fabWhatsappBtn = document.querySelector(
+      '.fab-btn--whatsapp[data-track-event="whatsapp_fab_click"]'
+    );
+    if (fabWhatsappBtn) {
+      fabWhatsappBtn.addEventListener("click", () => {
+        if (typeof window !== "undefined" && typeof (window as any).posthog === "object") {
+          (window as any).posthog.capture("whatsapp_click", {
+            source_page: window.location.pathname,
+            cta_location: "floating_fab",
+          });
+        }
+      });
+    }
+  });
+</script>

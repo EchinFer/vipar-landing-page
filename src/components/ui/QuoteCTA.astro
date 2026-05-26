@@ -45,3 +45,23 @@ const {
     Solicitar presupuesto por WhatsApp
   </Button>
 </section>
+
+<script define:vars={{ serviceName, ctaLocation }}>
+  // Track WhatsApp clicks from quote CTA
+  document.addEventListener("DOMContentLoaded", () => {
+    const quoteCtaBtn = document.querySelector(
+      '.ds-quote-cta__button[data-track-event="whatsapp_service_click"]'
+    );
+    if (quoteCtaBtn) {
+      quoteCtaBtn.addEventListener("click", () => {
+        if (typeof window !== "undefined" && typeof window.posthog === "object") {
+          window.posthog.capture("whatsapp_click", {
+            service_name: serviceName,
+            source_page: window.location.pathname,
+            cta_location: ctaLocation,
+          });
+        }
+      });
+    }
+  });
+</script>

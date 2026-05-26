@@ -16,6 +16,23 @@ interface Props {
 const { whatsappNumber, whatsappMessage, telephone, email } = Astro.props;
 ---
 
+<script>
+  // Track WhatsApp clicks from contact info
+  document.addEventListener("DOMContentLoaded", () => {
+    const whatsappLink = document.querySelector('a[href*="wa.me"]');
+    if (whatsappLink) {
+      whatsappLink.addEventListener("click", () => {
+        if (typeof window !== "undefined" && typeof (window as any).posthog === "object") {
+          (window as any).posthog.capture("whatsapp_click", {
+            source_page: window.location.pathname,
+            cta_location: "home_contact_info",
+          });
+        }
+      });
+    }
+  });
+</script>
+
 <Stack size="md">
   <Text as="span" variant="label-md" tone="accent" class="vipar-label">Contacto</Text>
   <Heading level={2}>Solicite su presupuesto sin compromiso</Heading>

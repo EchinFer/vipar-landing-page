@@ -257,10 +257,10 @@
 .vipar-section h2 {
   margin: 0;
   color: var(--vipar-text);
-  font-size: clamp(3rem, 6vw, 4.6rem);
-  line-height: 1.06;
+  /* font-size: clamp(3rem, 6vw, 4.6rem); */
+  /* line-height: 1.06;
   letter-spacing: -0.05em;
-  font-weight: 800;
+  font-weight: 800; */
 }
 
 .vipar-hero p,
