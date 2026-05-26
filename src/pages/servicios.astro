@@ -213,6 +213,10 @@ const featuredObras = staticObras.slice(0, 3);
 
       filterBar.addEventListener("filterchange", (e) => {
         apply(e.detail.value);
+        window.posthog?.capture('service_filter_applied', {
+          filter_value: e.detail.value,
+          page_path: window.location.pathname,
+        });
       });
 
       apply("all");

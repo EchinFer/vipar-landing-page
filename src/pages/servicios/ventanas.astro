@@ -40,3 +40,12 @@ const canonical = `${SITE_URL}${windowServiceContent.canonicalPath}`;
     serviceName={serviceName}
   />
 </Layout>
+
+<script is:inline define:vars={{ serviceName }}>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.posthog?.capture('service_page_viewed', {
+      service_name: serviceName,
+      page_path: window.location.pathname,
+    });
+  });
+</script>

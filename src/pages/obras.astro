@@ -56,6 +56,10 @@ const featuredTagline = featuredObra ? `${featuredObra.sectorLabel} / ${featured
 
     filterBar?.addEventListener("filterchange", (e) => {
       applyFilter(e.detail.value);
+      window.posthog?.capture('obra_filter_applied', {
+        filter_value: e.detail.value,
+        page_path: window.location.pathname,
+      });
     });
 
     applyFilter("all");

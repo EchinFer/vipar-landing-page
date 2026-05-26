@@ -75,3 +75,14 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
     }
   });
 </script>
+
+<script is:inline define:vars={{ obraSlug: project.slug, obraTitulo: project.titulo, obraSector: project.sectorLabel }}>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.posthog?.capture('obra_detail_viewed', {
+      obra_slug: obraSlug,
+      obra_titulo: obraTitulo,
+      obra_sector: obraSector,
+      page_path: window.location.pathname,
+    });
+  });
+</script>
