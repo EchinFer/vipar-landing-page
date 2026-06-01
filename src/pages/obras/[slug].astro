@@ -24,7 +24,7 @@ const description = project.descripcion
   ? `${project.descripcion.replace(/<[^>]*>/g, "").substring(0, 150)}... Proyecto de ${project.category.map((c) => c.name).join(", ")} realizado por VIPAR.`
   : `Obra de ${project.category.map((c) => c.name).join(", ")}: ${project.titulo}. Instalación profesional en Paraguay.`;
 const keywords = `${project.titulo}, ${project.category.map((c) => c.name).join(", ")}, obras cristales templados, proyectos construcción, instalación profesional Paraguay`;
-const canonical = `${SITE_URL}/obras/${project.slug}`;
+const canonical = `${SITE_URL}/obras/${project.slug}/`;
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
 ---
 
