@@ -112,7 +112,7 @@ const footerWhatsappHref = buildWhatsappUrl(
         size="md"
         class="vipar-site-footer__cta"
         data-track-event="whatsapp_click"
-        data-cta-location="footer"
+                data-cta-location="footer_cta"
         data-whatsapp-message-type="footer"
       >
         Solicitar Presupuesto
@@ -128,22 +128,3 @@ const footerWhatsappHref = buildWhatsappUrl(
     </div>
   </Container>
 </footer>
-
-<script>
-  // Track WhatsApp clicks from footer
-  document.addEventListener("DOMContentLoaded", () => {
-    const footerWhatsappBtn = document.querySelector(
-      '.vipar-site-footer__cta[data-track-event="whatsapp_click"]'
-    );
-    if (footerWhatsappBtn) {
-      footerWhatsappBtn.addEventListener("click", () => {
-        if (typeof window !== "undefined" && typeof (window as any).posthog === "object") {
-          (window as any).posthog.capture("whatsapp_click", {
-            source_page: window.location.pathname,
-            cta_location: "footer",
-          });
-        }
-      });
-    }
-  });
-</script>

@@ -30,7 +30,15 @@ const { titulo, ubicacion, imagen } = Astro.props;
           <span>{ubicacion}</span>
         </div>
       </div>
-      <Button href="/contacto/" variant="contained" tone="secondary" size="md" class="od-hero__cta">
+      <Button
+        href="/contacto/"
+        variant="contained"
+        tone="secondary"
+        size="md"
+        class="od-hero__cta"
+        data-track-event="contact_cta_click"
+        data-cta-location="obra_hero_primary"
+      >
         Cotizar algo similar
       </Button>
     </div>

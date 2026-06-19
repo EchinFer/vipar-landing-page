@@ -68,7 +68,15 @@ const { items } = Astro.props;
               ))}
             </div>
 
-            <Button href="/contacto/" variant="outlined" tone="primary" size="lg" fullWidth>
+            <Button
+              href="/contacto/"
+              variant="outlined"
+              tone="primary"
+              size="lg"
+              fullWidth
+              data-track-event="contact_cta_click"
+              data-cta-location="aluminum_systems_card"
+            >
               {item.ctaLabel}
             </Button>
           </div>

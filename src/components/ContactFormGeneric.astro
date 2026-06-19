@@ -194,11 +194,16 @@ const consultationTypes = [
   const initialStep = hasServiceStep ? 1 : hasConsultationStep ? 2 : 3;
 
   let currentStep = 1;
+  let hasTrackedFormStart = false;
   let formData = {
     service: "",
     consultation_type: "",
     email: "",
   };
+
+  function getCtaLocation() {
+    return formId === "vipar-home-form" ? "home_contact_form" : "contact_form";
+  }
 
   function showStep(step) {
     document
@@ -242,7 +247,19 @@ const consultationTypes = [
       `Email: ${formData.email}`,
     ].filter(Boolean);
 
-    return `https://wa.me/${String(whatsappNumber || "").replace(/\D/g, "")}?text=${encodeURIComponent(lines.join("\n"))}`;
+    const rawHref = `https://wa.me/${String(whatsappNumber || "").replace(/\D/g, "")}?text=${encodeURIComponent(lines.join("\n"))}`;
+
+    if (typeof window !== "undefined" && typeof window.viparBuildWhatsappUrl === "function") {
+      return window.viparBuildWhatsappUrl(rawHref, {
+        cta_location: getCtaLocation(),
+        form_id: formId,
+        email: formData.email,
+        service_name: formData.service || undefined,
+        consultation_type: formData.consultation_type || undefined,
+      });
+    }
+
+    return rawHref;
   }
 
   function trackEvent(name, props = {}) {
@@ -253,26 +270,30 @@ const consultationTypes = [
       variant,
     };
 
-    if (typeof window !== "undefined" && typeof window.posthog === "object") {
-      window.posthog.capture(name, {
-        ...baseProps,
-        ...props,
-      });
-    }
     if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
       window.viparTrack(name, {
-        cta_location: formId === "vipar-home-form" ? "home_contact_form" : "contact_form",
+        cta_location: getCtaLocation(),
         ...baseProps,
         ...props,
       });
     }
   }
 
+  function ensureFormStart(extra = {}) {
+    if (hasTrackedFormStart) return;
+    hasTrackedFormStart = true;
+    trackEvent("form_start", extra);
+  }
+
   // Step 1: Service Selection
   document.querySelectorAll('[data-step="1"] .option-btn').forEach((btn) => {
     btn.addEventListener("click", () => {
+      ensureFormStart({ entry_step: "service_selection" });
       formData.service = btn.dataset.option || "";
-      trackEvent("form_service_selected", { service: formData.service });
+      trackEvent("form_service_selected", {
+        service: formData.service,
+        service_name: formData.service,
+      });
       showStep(hasConsultationStep ? 2 : 3);
     });
   });
@@ -280,6 +301,7 @@ const consultationTypes = [
   // Step 2: Consultation Type
   document.querySelectorAll('[data-step="2"] .option-btn').forEach((btn) => {
     btn.addEventListener("click", () => {
+      ensureFormStart({ entry_step: "consultation_selection" });
       formData.consultation_type = btn.dataset.option || "";
       trackEvent("form_consultation_selected", {
         consultation_type: formData.consultation_type,
@@ -291,6 +313,7 @@ const consultationTypes = [
   // Step 3: Contact Form
   if (form) {
     form.addEventListener("input", () => {
+      ensureFormStart({ entry_step: "email_input" });
       const emailInput = form.querySelector('input[name="email"]');
 
       if (emailInput) formData.email = emailInput.value;
@@ -327,6 +350,7 @@ const consultationTypes = [
       trackEvent("lead_email_captured", {
         email: formData.email,
         service: formData.service,
+        service_name: formData.service,
         consultation_type: formData.consultation_type,
         email_domain: formData.email.includes("@") ? formData.email.split("@")[1] : "",
       });
@@ -335,6 +359,7 @@ const consultationTypes = [
         email_only: true,
         email: formData.email,
         service: formData.service,
+        service_name: formData.service,
         consultation_type: formData.consultation_type,
         email_domain: formData.email.includes("@") ? formData.email.split("@")[1] : "",
       });
@@ -343,6 +368,7 @@ const consultationTypes = [
         source: "smart_form",
         email: formData.email,
         service: formData.service,
+        service_name: formData.service,
         consultation_type: formData.consultation_type,
       });
 

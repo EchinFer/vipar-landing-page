@@ -21,6 +21,7 @@ export default defineConfig({
   output: "static",
   base: "/",
   site,
+  trailingSlash: "always",
   image: {
     remotePatterns: [
       {

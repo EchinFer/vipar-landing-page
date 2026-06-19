@@ -295,6 +295,70 @@ const structuredDataItems = [
                   return "referral";
                 }
 
+                var LEGACY_EVENT_NAME_MAP = {
+                  whatsapp_fab_click: "whatsapp_click",
+                  whatsapp_service_click: "whatsapp_click",
+                  whatsapp_service_hub_click: "whatsapp_click",
+                };
+
+                var CTA_LOCATION_MAP = {
+                  footer: "footer_cta",
+                  header_primary: "header_cta",
+                  legacy_home_hero_primary: "hero_cta",
+                  legacy_home_hero_secondary: "hero_cta",
+                  home_hero_primary: "hero_cta",
+                  home_hero_secondary: "hero_cta",
+                  obra_hero_primary: "hero_cta",
+                  about_primary: "hero_cta",
+                  about_secondary: "final_cta",
+                  home_contact_info: "final_cta",
+                  contact_form_alt: "contact_form",
+                  carpinteria_aluminio_hero: "service_cta",
+                  box_bano_hero: "service_cta",
+                  cielo_raso_hero: "service_cta",
+                  mamparas_divisorias_hero: "service_cta",
+                  hero: "service_cta",
+                  aluminum_systems_card: "service_cta",
+                  services_hub_quoting: "services_hub_cta",
+                };
+
+                function normalizeEventName(eventName, href) {
+                  if (href.includes("wa.me/")) return "whatsapp_click";
+                  return LEGACY_EVENT_NAME_MAP[eventName] || eventName;
+                }
+
+                function normalizeCtaLocation(rawValue, eventName, pageType) {
+                  if (rawValue && CTA_LOCATION_MAP[rawValue]) {
+                    return CTA_LOCATION_MAP[rawValue];
+                  }
+
+                  if (rawValue) return rawValue;
+
+                  if (eventName === "whatsapp_click") {
+                    if (pageType === "service") return "service_cta";
+                    if (pageType === "services_hub") return "services_hub_cta";
+                    if (pageType === "contact") return "contact_form";
+                    if (pageType === "home") return "hero_cta";
+                  }
+
+                  return "unknown";
+                }
+
+                function appendLabeledLine(message, label, value) {
+                  if (!value) return message;
+
+                  var normalizedMessage = String(message || "");
+                  var prefix = `${label.toLowerCase()}:`;
+
+                  if (normalizedMessage.toLowerCase().includes(prefix)) {
+                    return normalizedMessage;
+                  }
+
+                  return normalizedMessage
+                    ? `${normalizedMessage}\n${label}: ${value}`
+                    : `${label}: ${value}`;
+                }
+
                 function buildLeadContext(extra) {
                   var params = new URLSearchParams(window.location.search);
                   var referrerHost = getReferrerHost();
@@ -317,9 +381,41 @@ const structuredDataItems = [
                   return buildLeadContext(extra);
                 };
 
-                window.viparTrack = function (eventName, extra) {
-                  if (typeof window.gtag !== "function") return;
+                window.viparBuildWhatsappUrl = function (rawHref, extra) {
+                  try {
+                    var url = new URL(rawHref, window.location.origin);
+                    if (!/wa\.me$/i.test(url.hostname) && !/api\.whatsapp\.com$/i.test(url.hostname)) {
+                      return rawHref;
+                    }
 
+                    var payload = buildLeadContext(extra);
+                    var message = url.searchParams.get("text") || "";
+
+                    message = appendLabeledLine(message, "Servicio", payload.service_name);
+                    message = appendLabeledLine(message, "Landing", payload.page_path);
+                    message = appendLabeledLine(message, "Origen", payload.lead_source);
+                    message = appendLabeledLine(message, "Medio", payload.lead_medium);
+                    message = appendLabeledLine(message, "Campaña", payload.campaign);
+                    message = appendLabeledLine(message, "CTA", payload.cta_location);
+                    message = appendLabeledLine(message, "Formulario", payload.form_id);
+                    message = appendLabeledLine(message, "Email", payload.email);
+                    message = appendLabeledLine(
+                      message,
+                      "Tipo de consulta",
+                      payload.consultation_type
+                    );
+
+                    if (message) {
+                      url.searchParams.set("text", message);
+                    }
+
+                    return url.toString();
+                  } catch (error) {
+                    return rawHref;
+                  }
+                };
+
+                window.viparTrack = function (eventName, extra) {
                   var payload = buildLeadContext(extra);
 
                   Object.keys(payload).forEach(function (key) {
@@ -328,8 +424,35 @@ const structuredDataItems = [
                     }
                   });
 
-                  window.gtag("event", eventName, payload);
+                  if (typeof window.gtag === "function") {
+                    window.gtag("event", eventName, payload);
+                  }
+
+                  if (
+                    typeof window.posthog === "object" &&
+                    typeof window.posthog.capture === "function"
+                  ) {
+                    window.posthog.capture(eventName, payload);
+                  }
                 };
+
+                function trackServicePageView() {
+                  if (document.body?.dataset.pageType !== "service") return;
+                  if (window.__viparServicePageViewed) return;
+
+                  window.__viparServicePageViewed = true;
+                  window.viparTrack("service_page_viewed", {
+                    service_name: document.body?.dataset.serviceName || undefined,
+                  });
+                }
+
+                if (document.readyState === "loading") {
+                  document.addEventListener("DOMContentLoaded", trackServicePageView, {
+                    once: true,
+                  });
+                } else {
+                  trackServicePageView();
+                }
 
                 document.addEventListener("click", function (event) {
                   var target = event.target;
@@ -339,25 +462,43 @@ const structuredDataItems = [
                   if (!(anchor instanceof HTMLAnchorElement)) return;
 
                   var href = anchor.getAttribute("href") || "";
-                  var eventName = "";
+                  var legacyEventName = anchor.dataset.trackEvent || "";
+                  var eventName = legacyEventName;
 
-                  if (href.startsWith("tel:")) eventName = "phone_click";
-                  if (href.startsWith("mailto:")) eventName = "email_click";
-                  if (href.includes("wa.me/")) {
-                    eventName = anchor.dataset.trackEvent || "whatsapp_click";
+                  if (!eventName && href.startsWith("tel:")) eventName = "phone_click";
+                  if (!eventName && href.startsWith("mailto:")) eventName = "email_click";
+                  if (!eventName && href.includes("wa.me/")) {
+                    eventName = "whatsapp_click";
                   }
 
                   if (!eventName) return;
 
-                  var ctaLocation =
+                  eventName = normalizeEventName(eventName, href);
+
+                  var rawCtaLocation =
                     anchor.dataset.ctaLocation ||
                     anchor.closest("[data-cta-location]")?.dataset.ctaLocation ||
-                    "unknown";
+                    "";
+                  var ctaLocation = normalizeCtaLocation(
+                    rawCtaLocation,
+                    eventName,
+                    document.body?.dataset.pageType || ""
+                  );
+
+                  if (eventName === "whatsapp_click" && href.includes("wa.me/")) {
+                    anchor.href = window.viparBuildWhatsappUrl(anchor.href, {
+                      cta_location: ctaLocation,
+                      service_name:
+                        anchor.dataset.serviceName || document.body?.dataset.serviceName || undefined,
+                    });
+                  }
 
                   window.viparTrack(eventName, {
                     cta_location: ctaLocation,
                     service_name:
                       anchor.dataset.serviceName || document.body?.dataset.serviceName || undefined,
+                    legacy_event_name:
+                      legacyEventName && legacyEventName !== eventName ? legacyEventName : undefined,
                     whatsapp_message_type: href.includes("wa.me/")
                       ? anchor.dataset.whatsappMessageType ||
                         (href.includes("?text=") ? "prefilled" : "generic")
@@ -369,6 +510,230 @@ const structuredDataItems = [
           </>
         )
       }
+
+    <script is:inline>
+      (function () {
+        if (typeof window.viparTrack === "function") return;
+
+        function getReferrerHost() {
+          try {
+            return document.referrer ? new URL(document.referrer).hostname : "";
+          } catch (error) {
+            return "";
+          }
+        }
+
+        function inferMedium(referrerHost, utmMedium) {
+          if (utmMedium) return utmMedium;
+          if (!referrerHost) return "direct";
+          if (/google\./i.test(referrerHost)) return "organic";
+          return "referral";
+        }
+
+        var LEGACY_EVENT_NAME_MAP = {
+          whatsapp_fab_click: "whatsapp_click",
+          whatsapp_service_click: "whatsapp_click",
+          whatsapp_service_hub_click: "whatsapp_click",
+        };
+
+        var CTA_LOCATION_MAP = {
+          footer: "footer_cta",
+          header_primary: "header_cta",
+          legacy_home_hero_primary: "hero_cta",
+          legacy_home_hero_secondary: "hero_cta",
+          home_hero_primary: "hero_cta",
+          home_hero_secondary: "hero_cta",
+          obra_hero_primary: "hero_cta",
+          about_primary: "hero_cta",
+          about_secondary: "final_cta",
+          home_contact_info: "final_cta",
+          contact_form_alt: "contact_form",
+          carpinteria_aluminio_hero: "service_cta",
+          box_bano_hero: "service_cta",
+          cielo_raso_hero: "service_cta",
+          mamparas_divisorias_hero: "service_cta",
+          hero: "service_cta",
+          aluminum_systems_card: "service_cta",
+          services_hub_quoting: "services_hub_cta",
+        };
+
+        function normalizeEventName(eventName, href) {
+          if (href.includes("wa.me/")) return "whatsapp_click";
+          return LEGACY_EVENT_NAME_MAP[eventName] || eventName;
+        }
+
+        function normalizeCtaLocation(rawValue, eventName, pageType) {
+          if (rawValue && CTA_LOCATION_MAP[rawValue]) {
+            return CTA_LOCATION_MAP[rawValue];
+          }
+
+          if (rawValue) return rawValue;
+
+          if (eventName === "whatsapp_click") {
+            if (pageType === "service") return "service_cta";
+            if (pageType === "services_hub") return "services_hub_cta";
+            if (pageType === "contact") return "contact_form";
+            if (pageType === "home") return "hero_cta";
+          }
+
+          return "unknown";
+        }
+
+        function appendLabeledLine(message, label, value) {
+          if (!value) return message;
+
+          var normalizedMessage = String(message || "");
+          var prefix = `${label.toLowerCase()}:`;
+
+          if (normalizedMessage.toLowerCase().includes(prefix)) {
+            return normalizedMessage;
+          }
+
+          return normalizedMessage
+            ? `${normalizedMessage}\n${label}: ${value}`
+            : `${label}: ${value}`;
+        }
+
+        function buildLeadContext(extra) {
+          var params = new URLSearchParams(window.location.search);
+          var referrerHost = getReferrerHost();
+          return Object.assign(
+            {
+              page_path: window.location.pathname,
+              page_title: document.title,
+              page_type: document.body?.dataset.pageType || undefined,
+              service_name: document.body?.dataset.serviceName || undefined,
+              lead_source: params.get("utm_source") || referrerHost || "direct",
+              lead_medium: inferMedium(referrerHost, params.get("utm_medium")),
+              campaign: params.get("utm_campaign") || undefined,
+              device_type: window.innerWidth < 768 ? "mobile" : "desktop",
+            },
+            extra || {}
+          );
+        }
+
+        window.viparLeadContext = function (extra) {
+          return buildLeadContext(extra);
+        };
+
+        window.viparBuildWhatsappUrl = function (rawHref, extra) {
+          try {
+            var url = new URL(rawHref, window.location.origin);
+            if (!/wa\.me$/i.test(url.hostname) && !/api\.whatsapp\.com$/i.test(url.hostname)) {
+              return rawHref;
+            }
+
+            var payload = buildLeadContext(extra);
+            var message = url.searchParams.get("text") || "";
+
+            message = appendLabeledLine(message, "Servicio", payload.service_name);
+            message = appendLabeledLine(message, "Landing", payload.page_path);
+            message = appendLabeledLine(message, "Origen", payload.lead_source);
+            message = appendLabeledLine(message, "Medio", payload.lead_medium);
+            message = appendLabeledLine(message, "Campaña", payload.campaign);
+            message = appendLabeledLine(message, "CTA", payload.cta_location);
+            message = appendLabeledLine(message, "Formulario", payload.form_id);
+            message = appendLabeledLine(message, "Email", payload.email);
+            message = appendLabeledLine(message, "Tipo de consulta", payload.consultation_type);
+
+            if (message) {
+              url.searchParams.set("text", message);
+            }
+
+            return url.toString();
+          } catch (error) {
+            return rawHref;
+          }
+        };
+
+        window.viparTrack = function (eventName, extra) {
+          var payload = buildLeadContext(extra);
+
+          Object.keys(payload).forEach(function (key) {
+            if (payload[key] === undefined || payload[key] === null || payload[key] === "") {
+              delete payload[key];
+            }
+          });
+
+          if (
+            typeof window.posthog === "object" &&
+            typeof window.posthog.capture === "function"
+          ) {
+            window.posthog.capture(eventName, payload);
+          }
+        };
+
+        function trackServicePageView() {
+          if (document.body?.dataset.pageType !== "service") return;
+          if (window.__viparServicePageViewed) return;
+
+          window.__viparServicePageViewed = true;
+          window.viparTrack("service_page_viewed", {
+            service_name: document.body?.dataset.serviceName || undefined,
+          });
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", trackServicePageView, {
+            once: true,
+          });
+        } else {
+          trackServicePageView();
+        }
+
+        document.addEventListener("click", function (event) {
+          var target = event.target;
+          if (!(target instanceof Element)) return;
+
+          var anchor = target.closest("a");
+          if (!(anchor instanceof HTMLAnchorElement)) return;
+
+          var href = anchor.getAttribute("href") || "";
+          var legacyEventName = anchor.dataset.trackEvent || "";
+          var eventName = legacyEventName;
+
+          if (!eventName && href.startsWith("tel:")) eventName = "phone_click";
+          if (!eventName && href.startsWith("mailto:")) eventName = "email_click";
+          if (!eventName && href.includes("wa.me/")) {
+            eventName = "whatsapp_click";
+          }
+
+          if (!eventName) return;
+
+          eventName = normalizeEventName(eventName, href);
+
+          var rawCtaLocation =
+            anchor.dataset.ctaLocation ||
+            anchor.closest("[data-cta-location]")?.dataset.ctaLocation ||
+            "";
+          var ctaLocation = normalizeCtaLocation(
+            rawCtaLocation,
+            eventName,
+            document.body?.dataset.pageType || ""
+          );
+
+          if (eventName === "whatsapp_click" && href.includes("wa.me/")) {
+            anchor.href = window.viparBuildWhatsappUrl(anchor.href, {
+              cta_location: ctaLocation,
+              service_name:
+                anchor.dataset.serviceName || document.body?.dataset.serviceName || undefined,
+            });
+          }
+
+          window.viparTrack(eventName, {
+            cta_location: ctaLocation,
+            service_name:
+              anchor.dataset.serviceName || document.body?.dataset.serviceName || undefined,
+            legacy_event_name:
+              legacyEventName && legacyEventName !== eventName ? legacyEventName : undefined,
+            whatsapp_message_type: href.includes("wa.me/")
+              ? anchor.dataset.whatsappMessageType ||
+                (href.includes("?text=") ? "prefilled" : "generic")
+              : undefined,
+          });
+        });
+      })();
+    </script>
 
     {(loadBootstrapJs || loadAosAssets) && (
       <script define:vars={{ loadBootstrapJs, loadAosAssets }}>
@@ -501,6 +866,16 @@ const structuredDataItems = [
               } else {
                 gtag('event','consent_reject',{method: 'banner', analytics: false, marketing: !!obj.marketing});
                 try{ gtag('set', {'user_properties': { consent_analytics: 'denied' }}); }catch(e){}
+              }
+            }
+
+            if (window.posthog && typeof window.posthog === 'object') {
+              if (obj.analytics && typeof window.posthog.opt_in_capturing === 'function') {
+                window.posthog.opt_in_capturing();
+              }
+
+              if (!obj.analytics && typeof window.posthog.opt_out_capturing === 'function') {
+                window.posthog.opt_out_capturing();
               }
             }
           }

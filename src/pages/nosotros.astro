@@ -262,10 +262,27 @@ const breadcrumbStructuredData = {
         Cont&aacute;nos las medidas, el tipo de obra y la ubicaci&oacute;n. Te orientamos y preparamos un presupuesto.
       </p>
       <div class="nosotros-cta__actions">
-        <Button href={whatsappLink} variant="contained" tone="primary" size="lg" target="_blank" rel="noopener noreferrer">
+        <Button
+          href={whatsappLink}
+          variant="contained"
+          tone="primary"
+          size="lg"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track-event="whatsapp_click"
+          data-cta-location="about_primary"
+          data-whatsapp-message-type="about_prefilled"
+        >
           Consultar por WhatsApp
         </Button>
-        <Button href="/obras/" variant="outlined" tone="primary" size="lg">
+        <Button
+          href="/obras/"
+          variant="outlined"
+          tone="primary"
+          size="lg"
+          data-track-event="portfolio_cta_click"
+          data-cta-location="about_secondary"
+        >
           Ver obras realizadas
         </Button>
       </div>
