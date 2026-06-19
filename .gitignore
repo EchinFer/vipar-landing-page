@@ -46,3 +46,4 @@ https___vipar.com.py*
 !public/img/home/**
 !public/img/services/
 !public/img/services/**
+.gstack/
