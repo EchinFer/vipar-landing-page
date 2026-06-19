@@ -9,8 +9,8 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
   formId="vipar-home-form"
   source="vipar-home-stitch"
   variant="home"
-  title={undefined}
-  intro={undefined}
+  title="Solicitá presupuesto sin salir de esta pantalla"
+  intro="Elegí el servicio, dejá tu correo y seguí por WhatsApp con el contexto precargado."
   showServiceSelect={true}
   showAsuntoSelect={false}
   showFileUpload={true}
@@ -22,32 +22,12 @@ const whatsappNumber = telephone.replace(/[^\d]/g, "");
 <style>
   :global(.vipar-form-card) {
     --form-padding: 1.5rem;
+    scroll-margin-top: 120px;
   }
 
   :global(.vipar-form) {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-  }
-
-  :global(.vipar-form__grid) {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  :global(.vipar-form__grid--2) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-
-  :global(.vipar-field) {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  :global(.vipar-field--file span) {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
 </style>

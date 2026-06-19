@@ -35,10 +35,12 @@ const { featuredServices, complementaryServices, viewAllHref } = Astro.props;
 <section class="vipar-section vipar-section--surface" id="servicios">
   <Container class="vipar-shell vipar-stack-lg">
     <Stack class="vipar-section-heading vipar-section-heading--center" gap="sm">
-      <Text as="span" variant="label-sm" tone="accent" class="vipar-label">Nuestros Servicios</Text>
-      <Heading level={2}>Soluciones por entorno</Heading>
+      <Text as="span" variant="label-sm" tone="accent" class="vipar-label">Servicios Destacados</Text>
+      <Heading level={2}>Cielo raso, box de bano y mamparas divisorias en Paraguay</Heading>
       <Text variant="body-lg" tone="muted">
-        Especializaci&oacute;n t&eacute;cnica adaptada a los requerimientos de viviendas, espacios comerciales y proyectos corporativos.
+        Conoce soluciones en cielo raso, box de bano y mamparas divisorias para viviendas,
+        oficinas y espacios comerciales. Revisa materiales, tipos de instalacion y opciones para
+        solicitar tu presupuesto segun medidas y tipo de proyecto.
       </Text>
     </Stack>
 
@@ -55,7 +57,12 @@ const { featuredServices, complementaryServices, viewAllHref } = Astro.props;
     </div>
     {viewAllHref && (
       <div class="vipar-services-view-all">
-        <a href={viewAllHref} class="ds-btn ds-btn--outlined ds-btn--primary">
+        <a
+          href={viewAllHref}
+          class="ds-btn ds-btn--outlined ds-btn--primary"
+          data-track-event="services_nav_click"
+          data-cta-location="services_hub_cta"
+        >
           Ver todos los servicios
         </a>
       </div>

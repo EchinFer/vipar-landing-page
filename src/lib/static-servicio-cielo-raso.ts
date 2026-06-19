@@ -57,7 +57,7 @@ export const ceilingMetrics: CeilingMetricItem[] = [
   { value: "✓", label: "Permite ordenar instalaciones" },
   { value: "✓", label: "Mejora la terminación visual del ambiente" },
   { value: "✓", label: "Facilita mantenimiento según el sistema" },
-  { value: "✓", label: "Adapta el espacio a su uso" },
+  { value: "✓", label: "Se adapta a precio, uso y tipo de obra" },
 ];
 
 export const ceilingSystems: CeilingSystemItem[] = [
@@ -65,28 +65,28 @@ export const ceilingSystems: CeilingSystemItem[] = [
     icon: "bi-grid-3x3-gap",
     title: "Cielo raso desmontable",
     description:
-      "Estructuras ideales para acceso a instalaciones y mantenimiento rápido.",
+      "Estructuras ideales para oficinas, comercios y espacios donde importa acceder a instalaciones sin romper terminaciones.",
     bullets: ["Fácil registro de instalaciones", "Mantenimiento ágil"],
   },
   {
     icon: "bi-layers",
     title: "Cielo raso de Durlock / junta tomada",
     description:
-      "Superficies continuas de acabado liso para un mejor diseño interior.",
+      "Superficies continuas de acabado liso, muy buscadas cuando se quiere una imagen más limpia y arquitectónica.",
     bullets: ["Terminación continua", "Adaptable a distintos diseños"],
   },
   {
     icon: "bi-aspect-ratio",
     title: "Cielo raso de PVC",
     description:
-      "Solución práctica y lavable, ideal para diversos ambientes.",
+      "Solución práctica y lavable, especialmente consultada para ambientes que priorizan limpieza y velocidad de montaje.",
     bullets: ["Fácil limpieza", "Montaje según condiciones del espacio"],
   },
   {
     icon: "bi-view-list",
     title: "Cielo raso Eucatex / modular",
     description:
-      "Placas modulares que se adaptan a diferentes tipos de proyectos.",
+      "Placas modulares que se adaptan a proyectos donde importa resolver mantenimiento y reposición por módulos.",
     bullets: ["Terminación prolija", "Opciones variadas"],
   },
 ];
@@ -119,12 +119,17 @@ export const ceilingFaqs: CeilingFaqItem[] = [
   {
     question: "¿Qué tipos de cielo raso ofrece VIPAR?",
     answer:
-      "VIPAR puede orientar opciones como PVC, Durlock, desmontable, Eucatex u otros sistemas según el tipo de ambiente y condiciones de la obra.",
+      "VIPAR puede orientar opciones como yeso, PVC, Durlock, desmontable, Eucatex u otros sistemas según el tipo de ambiente, el mantenimiento esperado y las condiciones de la obra.",
+  },
+  {
+    question: "¿Cuál conviene: cielo raso de yeso, PVC o Durlock?",
+    answer:
+      "Depende del uso del ambiente, la terminación buscada, la necesidad de limpieza y si el proyecto requiere o no acceso frecuente a instalaciones.",
   },
   {
     question: "¿Qué datos necesito para cotizar?",
     answer:
-      "Fotos del espacio, medidas aproximadas, ubicación de la obra, tipo de ambiente y referencias del resultado esperado.",
+      "Fotos del espacio, medidas aproximadas, ubicación de la obra, tipo de ambiente y referencias del resultado esperado. Si ya sabés si buscás yeso, PVC o desmontable, mejor.",
   },
   {
     question: "¿Qué cielo raso conviene para una oficina?",
@@ -135,6 +140,11 @@ export const ceilingFaqs: CeilingFaqItem[] = [
     question: "¿Puedo cotizar sin plano?",
     answer:
       "Sí. Podés enviar fotos, medidas aproximadas y una descripción del espacio para recibir orientación inicial.",
+  },
+  {
+    question: "¿Cuánto cuesta un cielo raso?",
+    answer:
+      "El precio depende del sistema elegido, las medidas, la preparación del techo y la complejidad de la obra. Por eso se cotiza según datos reales del espacio.",
   },
   {
     question: "¿Cuánto tarda la instalación?",

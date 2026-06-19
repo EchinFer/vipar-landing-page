@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import Card from "@components/ui/Card.astro";
 import Container from "@components/ui/Container.astro";
@@ -28,16 +27,13 @@ const { items } = Astro.props;
       {items.map((item) => (
         <Card as="article" class="aluminum-service-system">
           <div class="aluminum-service-system__media">
-            <Image
+            <img
               src={item.image}
               alt={item.title}
-              inferSize={true}
-              widths={[480, 720, 960]}
-              sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
+              width={1200}
+              height={900}
               loading="lazy"
               decoding="async"
-              format="webp"
-              quality={68}
             />
           </div>
           <div class="aluminum-service-system__body">
@@ -75,7 +71,7 @@ const { items } = Astro.props;
               size="lg"
               fullWidth
               data-track-event="contact_cta_click"
-              data-cta-location="aluminum_systems_card"
+              data-cta-location="service_cta"
             >
               {item.ctaLabel}
             </Button>

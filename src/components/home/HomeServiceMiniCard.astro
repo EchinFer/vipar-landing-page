@@ -18,7 +18,14 @@ interface Props {
 const { service } = Astro.props;
 ---
 
-<Card as="a" variant="soft" href={service.href} class="vipar-mini-card">
+<Card
+  as="a"
+  variant="soft"
+  href={service.href}
+  class="vipar-mini-card"
+  data-track-event="services_nav_click"
+  data-cta-location="services_hub_cta"
+>
   <div class="vipar-mini-card__icon">
     <UiIcon name={service.iconClass} />
   </div>

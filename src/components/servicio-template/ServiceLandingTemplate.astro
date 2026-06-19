@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Container from "@components/ui/Container.astro";
 import Card from "@components/ui/Card.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -79,17 +78,14 @@ const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "s
       </div>
 
       <div class="service-template-hero__media">
-        <Image
+        <img
           src={content.hero.image}
           alt={content.hero.title}
-          inferSize={true}
-          widths={[768, 1024, 1280, 1600]}
-          sizes="(max-width: 1100px) 100vw, 58vw"
+          width={1600}
+          height={1200}
           loading="eager"
           fetchpriority="high"
           decoding="async"
-          format="webp"
-          quality={72}
         />
       </div>
     </Container>
@@ -130,16 +126,13 @@ const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "s
         {content.solutions.items.map((item) => (
           <Card class="service-template-solution">
             <div class="service-template-solution__media">
-              <Image
+              <img
                 src={item.image}
                 alt={item.title}
-                inferSize={true}
-                widths={[360, 540, 720]}
-                sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                width={1200}
+                height={900}
                 loading="lazy"
                 decoding="async"
-                format="webp"
-                quality={68}
               />
             </div>
             <div class="service-template-solution__body">
@@ -191,16 +184,13 @@ const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "s
         {content.applications.items.map((item) => (
           <article class="service-template-application">
             <div class="service-template-application__media">
-              <Image
+              <img
                 src={item.image}
                 alt={item.title}
-                inferSize={true}
-                widths={[240, 320, 480]}
-                sizes="(max-width: 760px) 50vw, (max-width: 1100px) 50vw, 25vw"
+                width={1200}
+                height={900}
                 loading="lazy"
                 decoding="async"
-                format="webp"
-                quality={68}
               />
             </div>
             <Heading level={3} variant="sm">{item.title}</Heading>
@@ -241,16 +231,13 @@ const resolveTemplateIcon = (icon: string) => serviceTemplateIconMap[icon] ?? "s
         </div>
 
         <div class="service-template-trust__media">
-          <Image
+          <img
             src={content.trust.image}
             alt={content.trust.title}
-            inferSize={true}
-            widths={[240, 320, 480]}
-            sizes="240px"
+            width={640}
+            height={640}
             loading="lazy"
             decoding="async"
-            format="webp"
-            quality={70}
           />
         </div>
       </div>

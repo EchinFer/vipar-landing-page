@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
 import Card from "../ui/Card.astro";
 import Heading from "../ui/Heading.astro";
@@ -14,16 +13,13 @@ const { servicio } = Astro.props;
 ---
 
 <Card as="article" variant="catalog" class="vipar-servicios-card" data-category={servicio.key}>
-  <Image
+  <img
     src={servicio.image}
     alt={servicio.alt ?? servicio.title}
-    inferSize={true}
-    widths={[360, 540, 720]}
-    sizes="(max-width: 700px) 50vw, (max-width: 1024px) 50vw, 33vw"
+    width={1200}
+    height={900}
     loading="lazy"
     decoding="async"
-    format="webp"
-    quality={66}
   />
   <div class="vipar-servicios-card__body">
     <Heading level={3} variant="sm">{servicio.title}</Heading>

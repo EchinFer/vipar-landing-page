@@ -13,14 +13,14 @@ interface Props {
 const { whatsappNumber, whatsappMessage, telephone, email } = Astro.props;
 ---
 
-<section class="vipar-section vipar-section--surface" id="contacto">
+<section class="vipar-section vipar-section--surface" id="contacto" data-consent-sensitive>
   <Container class="vipar-shell vipar-contact-grid">
+    <HomeContactForm />
     <HomeContactInfo
       whatsappNumber={whatsappNumber}
       whatsappMessage={whatsappMessage}
       telephone={telephone}
       email={email}
     />
-    <HomeContactForm />
   </Container>
 </section>

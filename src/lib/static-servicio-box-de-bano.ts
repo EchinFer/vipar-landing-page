@@ -31,6 +31,7 @@ export const boxHeroImage =
   "https://vipar.moochsoft.com/obras/caaguazu/mamparas-bano-aluminio-tienda-go-caaguazu-01.webp";
 
 export const boxHeroTags = [
+  "Precio según medidas",
   "Acrílico",
   "Cristal templado",
   "Safonadas / plegables",
@@ -42,7 +43,7 @@ export const boxBenefits: BoxBenefitItem[] = [
     icon: "bi-droplet",
     title: "Ayuda a reducir salpicaduras",
     description:
-      "Un box a medida ayuda a mantener el baño más ordenado y seco según el uso.",
+      "Un box a medida ayuda a mantener el baño más ordenado y seco según el uso diario y el tamaño de la ducha.",
   },
   {
     icon: "bi-stars",
@@ -70,7 +71,7 @@ export const boxOptions: BoxOptionItem[] = [
     title: "Acrílico",
     chip: "Económico",
     description:
-      "Estructura de aluminio con paneles de acrílico texturizado. Liviano y práctico según el sistema elegido.",
+      "Estructura de aluminio con paneles de acrílico texturizado. Suele ser la opción más accesible para cerrar la ducha con bajo mantenimiento.",
     idealFor: [
       "Baños de uso intensivo",
       "Proyectos de presupuesto ajustado",
@@ -83,7 +84,7 @@ export const boxOptions: BoxOptionItem[] = [
     chip: "Cristal templado",
     featured: true,
     description:
-      "Cristal templado según el sistema elegido.",
+      "Cristal templado a medida para quienes priorizan imagen, limpieza y una terminación más premium.",
     idealFor: [
       "Baños principales y suites",
       "Estética minimalista",
@@ -95,7 +96,7 @@ export const boxOptions: BoxOptionItem[] = [
     title: "Safonadas / plegables",
     chip: "Funcional",
     description:
-      "Sistemas de hojas plegables que permiten apertura total, maximizando el área de acceso.",
+      "Sistemas de hojas plegables que permiten apertura total, maximizando el área de acceso cuando el baño es compacto.",
     idealFor: [
       "Baños muy pequeños",
       "Accesibilidad para personas mayores",
@@ -142,7 +143,7 @@ export const boxProcessSteps: BoxProcessStep[] = [
     number: "01",
     title: "Fotos y medidas",
     description:
-      "Envío de referencias preliminares por WhatsApp para evaluación inicial.",
+      "Envío de fotos, medidas aproximadas y referencia del tipo de apertura buscada para una orientación inicial más rápida.",
   },
   {
     number: "02",
@@ -154,7 +155,7 @@ export const boxProcessSteps: BoxProcessStep[] = [
     number: "03",
     title: "Presupuesto",
     description:
-      "Propuesta formal con especificaciones de cristales, aluminios y herrajes.",
+      "Propuesta formal con material recomendado, sistema de apertura y alcance según las medidas relevadas.",
   },
   {
     number: "04",

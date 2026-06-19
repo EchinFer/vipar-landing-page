@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -15,17 +14,14 @@ const { image, whatsappHref } = Astro.props;
 
 <section class="ceiling-service-hero">
   <div class="ceiling-service-hero__media">
-    <Image
+    <img
       src={image}
       alt="Interior con cielo raso tecnico de alta gama"
-      inferSize={true}
-      widths={[768, 1280, 1600]}
-      sizes="100vw"
+      width={1600}
+      height={1200}
       loading="eager"
       fetchpriority="high"
       decoding="async"
-      format="webp"
-      quality={72}
     />
     <div class="ceiling-service-hero__overlay"></div>
   </div>
@@ -33,12 +29,12 @@ const { image, whatsappHref } = Astro.props;
   <Container class="ceiling-service-hero__content">
     <div class="ceiling-service-hero__copy">
       <Heading level={1} variant="display" tone="inverse">
-        Cielo raso
+        Cielo raso en yeso, PVC, Durlock y desmontable
       </Heading>
       <Text variant="body-lg" tone="inverse">
-        Cielo raso para viviendas, comercios, oficinas y obras en Paraguay. Consultá opciones en
-        PVC, Durlock, desmontable y otros sistemas según medidas, uso del espacio y condiciones de
-        instalación.
+        Cotizá cielo raso para viviendas, oficinas y locales en Paraguay. Te orientamos entre
+        yeso, PVC, Durlock y sistemas desmontables según medidas, mantenimiento, uso del espacio y
+        nivel de terminación buscado.
       </Text>
       <div class="ceiling-service-hero__actions">
         <Button

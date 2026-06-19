@@ -1,0 +1,12 @@
+metric,source,scope,baseline_28d,target_28d,post_release_28d,status,notes
+form_view_to_form_submit_rate,PostHog,all_forms,2.4%,>=5.0%,,pending,
+service_page_viewed_to_whatsapp_click_rate,PostHog,all_service_landings,7.34%,>=10.0%,,pending,
+cielo_raso_ctr,GSC,/servicios/cielo-raso/,1.58%,>=2.5%,,pending,
+cielo_raso_avg_position,GSC,/servicios/cielo-raso/,6.3,keep_or_improve,,pending,
+whatsapp_click_unknown_cta_rate,PostHog,whatsapp_click,baseline_with_nulls,0%,,pending,
+organic_sessions_priority_landings,GA4,"/, /servicios/cielo-raso/, /servicios/box-de-bano/, /servicios/mamparas-divisorias/",baseline_required,up,,pending,
+mobile_form_submit_rate,PostHog,vipar-home-form + vipar-contact-form,baseline_required,up,,pending,
+home_form_submit_rate,PostHog,vipar-home-form,baseline_required,up,,pending,
+contact_form_submit_rate,PostHog,vipar-contact-form,baseline_required,up,,pending,
+service_cta_share_of_whatsapp_clicks,PostHog,service_cta,baseline_required,up,,pending,
+floating_fab_share_of_whatsapp_clicks,PostHog,floating_fab,baseline_required,down,,pending,

@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -21,11 +20,11 @@ const { image, tags, whatsappHref } = Astro.props;
         Box de baño en Paraguay
       </Text>
       <Heading level={1} variant="display">
-        Box de baño a medida para duchas más cómodas, limpias y mejor terminadas
+        Box de baño a medida con foco en precio, limpieza y terminación
       </Heading>
       <Text variant="body-lg">
-        Soluciones precisas en acrílico, cristal templado y sistemas safonados para optimizar el
-        espacio y mantener la higiene de tu baño.
+        Cotizá tu box de baño en acrílico, cristal templado o sistema plegable según medidas,
+        tipo de apertura, mantenimiento esperado y presupuesto disponible.
       </Text>
       <div class="box-service-hero__actions">
         <Button
@@ -54,17 +53,14 @@ const { image, tags, whatsappHref } = Astro.props;
     </div>
 
     <div class="box-service-hero__media">
-      <Image
+      <img
         src={image}
         alt="Box de bano en cristal templado instalado"
-        inferSize={true}
-        widths={[768, 1024, 1280, 1600]}
-        sizes="(max-width: 1100px) 100vw, 58vw"
+        width={1600}
+        height={1200}
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        format="webp"
-        quality={72}
       />
     </div>
   </Container>

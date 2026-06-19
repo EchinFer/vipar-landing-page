@@ -10,6 +10,9 @@ interface Props {
   serviceName?: string;
   ctaLocation?: string;
   messageType?: string;
+  titleText?: string;
+  bodyText?: string;
+  buttonLabel?: string;
   class?: string;
 }
 
@@ -19,16 +22,16 @@ const {
   serviceName,
   ctaLocation = "final_cta",
   messageType = "service_quote",
+  titleText = "Quieres cotizar un trabajo similar?",
+  bodyText = "Envia fotos, planos o referencias de tu proyecto para recibir un presupuesto detallado y asesoramiento tecnico especializado.",
+  buttonLabel = "Solicitar presupuesto por WhatsApp",
   class: className = "",
 } = Astro.props;
 ---
 
-<section class:list={["ds-quote-cta", className]}>
-  <Heading level={2}>¿Querés cotizar un trabajo similar?</Heading>
-  <Text>
-    Enviá fotos, planos o referencias de tu proyecto para recibir un presupuesto detallado y
-    asesoramiento técnico especializado.
-  </Text>
+<section class:list={["ds-quote-cta", className]} data-consent-sensitive>
+  <Heading level={2}>{titleText}</Heading>
+  <Text>{bodyText}</Text>
   <Button
     href={whatsappHref ?? `https://wa.me/${whatsappNumber}`}
     target="_blank"
@@ -42,6 +45,6 @@ const {
     data-service-name={serviceName}
     data-whatsapp-message-type={messageType}
   >
-    Solicitar presupuesto por WhatsApp
+    {buttonLabel}
   </Button>
 </section>

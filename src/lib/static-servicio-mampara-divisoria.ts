@@ -74,15 +74,15 @@ export const mamparaProblemCases: MamparaCaseItem[] = [
 export const mamparaFactors: MamparaFactorItem[] = [
   {
     title: "Acústica y privacidad",
-    description: "El nivel de privacidad, luz, mantenimiento y tipo de instalación depende del material elegido y de las condiciones del espacio.",
+    description: "Define cuánto aislamiento visual y acústico necesita cada sala, puesto o área de reunión antes de elegir cristal, Durlock o Eucatex.",
   },
   {
     title: "Luz y estética",
-    description: "El nivel de privacidad, luz, mantenimiento y tipo de instalación depende del material elegido y de las condiciones del espacio.",
+    description: "El cristal suele favorecer el paso de luz y la imagen corporativa; otras soluciones priorizan separación y lectura más opaca del ambiente.",
   },
   {
     title: "Instalación",
-    description: "El nivel de privacidad, luz, mantenimiento y tipo de instalación depende del material elegido y de las condiciones del espacio.",
+    description: "Los tiempos de obra, el tipo de montaje y la posibilidad de reconfigurar el espacio cambian según el sistema elegido.",
   },
 ];
 
@@ -101,7 +101,7 @@ export const mamparaTypeCards: MamparaTypeCardItem[] = [
   {
     title: "Mamparas Eucatex",
     description:
-      "Solución modular para subdivisiones operativas o administrativas.",
+      "Solución modular para subdivisiones operativas o administrativas donde importa flexibilidad de layout y velocidad de ejecución.",
     bullets: [
       "Sistema modular según condiciones de obra",
       "Alternativa funcional según presupuesto y uso del espacio",
@@ -156,11 +156,11 @@ export const mamparaComparisonRows: MamparaComparisonRow[] = [
 ];
 
 export const mamparaSectorItems: MamparaSectorItem[] = [
-  { title: "Oficinas corporativas", description: "Divisiones interiores con paso de luz según el sistema elegido." },
-  { title: "Locales comerciales", description: "Divisiones funcionales para áreas de atención y apoyo." },
-  { title: "Empresas e industrias", description: "Separación de áreas operativas según uso y condiciones del espacio." },
-  { title: "Clínicas médicas", description: "Privacidad y mantenimiento según el sistema elegido." },
-  { title: "Obras temporales", description: "Cerramientos desmontables y escalables." },
+  { title: "Oficinas corporativas", description: "Divisiones interiores para puestos, salas, directorios y recepciones con imagen más ordenada." },
+  { title: "Locales comerciales", description: "Divisiones funcionales para atención, back office y áreas de apoyo." },
+  { title: "Empresas e industrias", description: "Separación de áreas operativas según uso, circulación y necesidad de mantenimiento." },
+  { title: "Clínicas médicas", description: "Privacidad, limpieza y operación según el sistema elegido." },
+  { title: "Obras temporales", description: "Cerramientos desmontables y escalables para reorganizar rápido el espacio." },
 ];
 
 export const mamparaSymptoms: MamparaSymptomItem[] = [
@@ -227,11 +227,11 @@ export const mamparaEditorialTags = [
 export const mamparaFaqs: MamparaFaqItem[] = [
   {
     question: "¿Qué tipo de mampara conviene para una oficina?",
-    answer: "La elección ideal depende de medidas, uso, condiciones del espacio y sistema elegido.",
+    answer: "Depende del nivel de privacidad buscado, el paso de luz deseado, la imagen corporativa y la velocidad de obra que necesita el proyecto.",
   },
   {
     question: "¿Qué datos necesito para cotizar?",
-    answer: "Conviene contar con medidas aproximadas, uso del ambiente y condiciones del espacio para orientar el sistema adecuado.",
+    answer: "Conviene contar con medidas aproximadas, uso del ambiente, fotos o plano, y saber si priorizás privacidad, luz o flexibilidad de layout.",
   },
   {
     question: "¿Puedo cotizar sin plano?",
@@ -239,7 +239,7 @@ export const mamparaFaqs: MamparaFaqItem[] = [
   },
   {
     question: "¿Qué diferencia hay entre cristal templado, Durlock y Eucatex?",
-    answer: "Las diferencias radican en la separación acústica, la estética y los tiempos de obra. La mejor opción depende de medidas, uso, condiciones del espacio y sistema elegido.",
+    answer: "Las diferencias radican en la privacidad, la estética, la flexibilidad futura y los tiempos de obra. La mejor opción depende del uso del ambiente y de cómo querés operar ese espacio.",
   },
   {
     question: "¿Cuánto tarda la instalación?",

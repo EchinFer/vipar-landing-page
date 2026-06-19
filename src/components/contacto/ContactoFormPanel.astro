@@ -5,16 +5,18 @@ import { telephone } from "src/constants";
 const whatsappNumber = telephone.replace(/[^\d]/g, "");
 ---
 
-<ContactFormGeneric
-  formId="vipar-contact-form"
-  source="vipar-contacto"
-  variant="contact"
-  title="Consulta Técnica"
-  intro="Su consulta no molesta. Estamos aquí para responder a sus consultas técnicas y ayudarlo a encontrar la mejor solución para su proyecto u obra."
-  showServiceSelect={false}
-  showAsuntoSelect={true}
-  showFileUpload={true}
-  cardClass="contact-form-panel"
-  formClass="contact-form"
-  whatsappNumber={whatsappNumber}
-/>
+<div data-consent-sensitive>
+  <ContactFormGeneric
+    formId="vipar-contact-form"
+    source="vipar-contacto"
+    variant="contact"
+    title="Cotiza tu proyecto y segui por WhatsApp con el contexto cargado"
+    intro="Elegi el servicio, el tipo de consulta y deja tu correo. Usamos el mismo embudo que en home para responder mas rapido."
+    showServiceSelect={true}
+    showAsuntoSelect={true}
+    showFileUpload={true}
+    cardClass="contact-form-panel"
+    formClass="contact-form"
+    whatsappNumber={whatsappNumber}
+  />
+</div>

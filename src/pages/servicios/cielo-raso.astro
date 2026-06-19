@@ -23,12 +23,12 @@ import "../../styles/servicio-cielo-raso.css";
 import { SITE_URL, whatsappNumber } from "src/constants";
 
 const serviceName = "Cielo raso";
-const title = "Cielo raso en Paraguay | PVC, Durlock y sistemas desmontables | VIPAR";
+const title = "Cielo raso en Paraguay | Yeso, PVC, Durlock y desmontable | VIPAR";
 const description =
-  "Cielo raso para viviendas, oficinas, comercios y obras. Consultá opciones en PVC, Durlock, desmontable y Eucatex en Paraguay.";
+  "Cielo raso en yeso, PVC, Durlock y sistemas desmontables para viviendas, oficinas y locales. Cotizá según medidas, uso, mantenimiento y alcance de obra.";
 const canonical = `${SITE_URL}/servicios/cielo-raso/`;
 const keywords =
-  "cielo raso paraguay, cielorraso pvc, desmontable, eucatex, durlock, techos, instalación";
+  "cielo raso paraguay, cielo raso de yeso, cielo raso pvc, cielo raso durlock, cielo raso desmontable, precio cielo raso";
 const whatsappLink = buildWhatsappUrl(
   buildWhatsappMessage({
     serviceName,
@@ -69,6 +69,9 @@ const relatedObras = getRelatedStaticObras("cielo-raso");
           whatsappNumber={whatsappNumber}
           whatsappHref={whatsappLink}
           serviceName={serviceName}
+          titleText="¿Querés cotizar cielo raso para tu obra?"
+          bodyText="Enviá medidas, fotos y contanos si buscás yeso, PVC, Durlock o desmontable. Te orientamos según uso del ambiente, mantenimiento y rango de inversión."
+          buttonLabel="Pedir cotización de cielo raso"
         />
       </Container>
     </section>

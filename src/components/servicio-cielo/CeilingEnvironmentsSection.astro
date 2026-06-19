@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Card from "@components/ui/Card.astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
@@ -35,16 +34,13 @@ const { environments, metrics } = Astro.props;
             item.featured && "ceiling-service-environment--featured",
           ]}
         >
-          <Image
+          <img
             src={item.image}
             alt={item.title}
-            inferSize={true}
-            widths={[480, 720, 960]}
-            sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            width={1200}
+            height={900}
             loading="lazy"
             decoding="async"
-            format="webp"
-            quality={68}
           />
           <div class="ceiling-service-environment__overlay">
             <Heading level={3} variant="md" tone="inverse">{item.title}</Heading>

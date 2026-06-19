@@ -24,12 +24,29 @@ import "../../styles/servicio-box-de-bano.css";
 import { SITE_URL, whatsappNumber } from "src/constants";
 
 const serviceName = "Box de baño";
-const title = "Box de baño en Paraguay | Acrílico y Cristal Templado | VIPAR";
+const title = "Box de baño en Paraguay | Precio, medidas y cristal templado | VIPAR";
 const description =
-  "Box de baño a medida en Paraguay. Soluciones en acrílico, cristal templado y sistemas safonados con instalación según medidas y condiciones del espacio.";
+  "Box de baño a medida en Paraguay. Compara opciones en acrílico, cristal templado y plegables según precio, medidas, mantenimiento y tiempos de instalación.";
 const canonical = `${SITE_URL}/servicios/box-de-bano/`;
 const keywords =
-  "box de baño paraguay, mamparas para baño, box de ducha a medida, cristal templado baño, acrílico para baño, box plegable";
+  "box de baño paraguay, precio box de ducha, box de cristal templado, box de acrílico, mamparas para baño, box plegable";
+const boxDecisionCards = [
+  {
+    title: "Si priorizas presupuesto",
+    description:
+      "El acrílico suele resolver rápido cuando el objetivo principal es cerrar la ducha con una inversión más contenida.",
+  },
+  {
+    title: "Si priorizas limpieza e imagen",
+    description:
+      "El cristal templado suele ser la opción más buscada para baños principales por su terminación y mantenimiento diario.",
+  },
+  {
+    title: "Si querés cotizar sin demoras",
+    description:
+      "Enviá ancho, alto, fotos del espacio y si preferís corredizo, batiente o plegable. Con eso aceleramos la orientación comercial.",
+  },
+];
 const whatsappLink = buildWhatsappUrl(
   buildWhatsappMessage({
     serviceName,
@@ -58,6 +75,25 @@ const relatedObras = getRelatedStaticObras("box-de-bano");
 >
   <main class="box-service-page">
     <BoxHero image={boxHeroImage} tags={boxHeroTags} whatsappHref={whatsappLink} />
+    <section class="box-service-section box-service-decision">
+      <Container>
+        <div class="box-service-section__head">
+          <h2>Qué conviene según tu baño y tu presupuesto</h2>
+          <p>
+            Este bloque responde las dudas comerciales que más se repiten antes de pedir precio:
+            material, mantenimiento, medidas y la información mínima para cotizar bien.
+          </p>
+        </div>
+        <div class="box-service-decision__grid">
+          {boxDecisionCards.map((card) => (
+            <article class="box-service-decision__card">
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
     <BoxBenefitsSection items={boxBenefits} />
     <BoxOptionsSection items={boxOptions} />
     <BoxCompareSection rows={boxCompareRows} />
@@ -72,6 +108,9 @@ const relatedObras = getRelatedStaticObras("box-de-bano");
           whatsappNumber={whatsappNumber}
           whatsappHref={whatsappLink}
           serviceName={serviceName}
+          titleText="¿Necesitás cotizar un box de baño a medida?"
+          bodyText="Enviá fotos, ancho, alto y el tipo de apertura que te interesa. Te orientamos sobre material, rango de inversión y siguiente paso por WhatsApp."
+          buttonLabel="Pedir cotización de box de baño"
         />
       </Container>
     </section>

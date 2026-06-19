@@ -47,7 +47,15 @@ const { service } = Astro.props;
         </li>
       ))}
     </ul>
-    <Button href={service.href} variant="contained" tone="inverse" size="md" fullWidth>
+    <Button
+      href={service.href}
+      variant="contained"
+      tone="inverse"
+      size="md"
+      fullWidth
+      data-track-event="services_nav_click"
+      data-cta-location="services_hub_cta"
+    >
       Ver soluciones
       <UiIcon name="arrow-right" />
     </Button>

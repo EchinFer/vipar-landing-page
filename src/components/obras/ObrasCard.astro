@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import UiIcon from "@components/icons/UiIcon.astro";
 import ActionLink from "../ui/ActionLink.astro";
 import Card from "../ui/Card.astro";
@@ -16,16 +15,13 @@ const { obra } = Astro.props;
 
 <Card as="article" variant="gallery" class="vipar-obras-card" data-tags={obra.filterTags.join(",")}>
   <div class="vipar-obras-card__image">
-    <Image
+    <img
       src={obra.imagen}
       alt={obra.titulo}
-      inferSize={true}
-      widths={[360, 540, 720, 960]}
-      sizes="(max-width: 720px) 100vw, (max-width: 1080px) 50vw, 33vw"
+      width={1200}
+      height={900}
       loading="lazy"
       decoding="async"
-      format="webp"
-      quality={68}
     />
   </div>
   <div class="vipar-obras-card__body">
