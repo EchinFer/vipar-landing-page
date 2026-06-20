@@ -41,39 +41,39 @@ const featuredServices = [
   {
     title: "Cielo raso",
     description:
-      "Landing prioritaria para consultas de cielo raso de yeso, PVC, Durlock y desmontable, con foco comercial en tipo de sistema, precio y mantenimiento.",
+      "Soluciones en cielo raso de yeso, PVC, Durlock y sistemas desmontables para viviendas, oficinas y locales que buscan mejor terminación, mantenimiento y precio según el uso del ambiente.",
     image: residentialImage,
     alt: "Cielo raso para viviendas, comercios y oficinas",
     points: [
       "Opciones en yeso, PVC, Durlock y desmontable",
-      "Presupuesto segun medidas, uso y alcance",
-      "CTA directo a cotizacion por WhatsApp",
+      "Cotización según medidas, uso y complejidad de obra",
+      "Ideal para hogares, oficinas y espacios comerciales",
     ],
     href: serviceLinks.cieloRaso,
   },
   {
-    title: "Box de bano",
+    title: "Box de baño",
     description:
-      "Landing enfocada en precio, materiales, medidas y tiempos para usuarios que comparan soluciones de box de ducha y quieren una respuesta rapida.",
+      "Box de baño a medida en acrílico, cristal templado y sistemas plegables para quienes quieren comparar materiales, medidas, limpieza y rango de inversión antes de decidir.",
     image: commercialImage,
-    alt: "Box de bano a medida en Paraguay",
+    alt: "Box de baño a medida en Paraguay",
     points: [
-      "Comparativa entre acrilico, cristal y plegables",
-      "Bloque visible para tomar decision comercial",
-      "Paso inmediato a WhatsApp con contexto",
+      "Opciones en acrílico, cristal templado y plegables",
+      "Orientación según medidas, apertura y presupuesto",
+      "Pensado para remodelaciones y baños nuevos",
     ],
     href: serviceLinks.boxDeBano,
   },
   {
     title: "Mamparas divisorias",
     description:
-      "Landing reforzada para oficinas, espacios corporativos y proyectos comerciales que necesitan dividir ambientes con mejor funcion e imagen.",
+      "Mamparas divisorias para oficinas, comercios y espacios corporativos que necesitan separar ambientes con mejor privacidad, imagen profesional y aprovechamiento de la luz.",
     image: corporateImage,
     alt: "Mamparas divisorias para oficinas y comercios",
     points: [
-      "Copy orientado a oficinas, salas y areas operativas",
-      "Comparacion entre cristal, Eucatex y Durlock",
-      "Captacion B2B desde una landing comercial",
+      "Soluciones en cristal templado, Eucatex y Durlock",
+      "Enfoque para oficinas, salas y áreas operativas",
+      "Cotización según layout, uso y nivel de privacidad",
     ],
     href: serviceLinks.mamparaDivisoria,
   },
@@ -130,14 +130,14 @@ const projects = FEATURED_OBRA_SLUGS
   .map((slug) => staticObras.find((obra) => obra.slug === slug))
   .filter((obra): obra is NonNullable<typeof obra> => obra != null)
   .map((obra, i) => ({
-  layout: i === 0 ? "hero" : "side",
-  eyebrow: obra.sectorLabel,
-  title: obra.titulo,
-  description: obra.systemLabel,
-  image: obra.imagen,
-  alt: `${obra.titulo} – ${obra.ubicacion} | VIPAR`,
-  href: `/obras/${obra.slug}/`,
-}));
+    layout: i === 0 ? "hero" : "side",
+    eyebrow: obra.sectorLabel,
+    title: obra.titulo,
+    description: obra.systemLabel,
+    image: obra.imagen,
+    alt: `${obra.titulo} - ${obra.ubicacion} | VIPAR`,
+    href: `/obras/${obra.slug}/`,
+  }));
 
 const keyData = [
   {
@@ -149,7 +149,7 @@ const keyData = [
     iconClass: "bi-map",
     title: "Área de cobertura",
     description:
-      "Asunción, Gran Asunción e interior del país (sujeto a envergadura del proyecto).",
+      "Asunción, Gran Asunción e interior del país (sujeto a la envergadura del proyecto).",
   },
   {
     iconClass: "bi-building-check",

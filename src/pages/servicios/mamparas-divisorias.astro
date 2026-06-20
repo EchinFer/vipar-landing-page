@@ -40,6 +40,57 @@ const description =
 const canonical = `${SITE_URL}/servicios/mamparas-divisorias/`;
 const keywords =
   "mamparas divisorias paraguay, mamparas para oficinas, divisiones para oficinas, mamparas de cristal templado, tabiques de durlock, mamparas corporativas";
+const ogImageAlt = "Mamparas divisorias para oficinas y espacios corporativos en Paraguay";
+const serviceStructuredDataId = `${canonical}#service`;
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": canonical,
+    url: canonical,
+    name: title,
+    description,
+    inLanguage: "es-PY",
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: mamparaHeroImage,
+    },
+    mainEntity: {
+      "@id": serviceStructuredDataId,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": serviceStructuredDataId,
+    name: serviceName,
+    description,
+    serviceType: [
+      "Mamparas divisorias para oficinas",
+      "Mamparas de cristal templado",
+      "Tabiques de Durlock",
+      "Mamparas Eucatex",
+    ],
+    areaServed: {
+      "@type": "Country",
+      name: "Paraguay",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "VIPAR S.A.",
+      url: SITE_URL,
+    },
+    image: [
+      {
+        "@type": "ImageObject",
+        url: mamparaHeroImage,
+      },
+    ],
+    mainEntityOfPage: {
+      "@id": canonical,
+    },
+  },
+];
 const whatsappLink = buildWhatsappUrl(
   buildWhatsappMessage({
     serviceName,
@@ -55,6 +106,9 @@ const relatedObras = getRelatedStaticObras("mampara-divisoria");
   description={description}
   canonical={canonical}
   keywords={keywords}
+  ogImage={mamparaHeroImage}
+  ogImageAlt={ogImageAlt}
+  structuredData={structuredData}
   loadAosAssets={false}
   loadLightboxAssets={false}
   loadSwiperAssets={false}

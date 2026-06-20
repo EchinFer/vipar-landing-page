@@ -188,7 +188,10 @@ const structuredDataItems = [
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content="VIPAR S.A." />
-    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta
+      name="robots"
+      content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"}
+    />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0f2a3d" />
 

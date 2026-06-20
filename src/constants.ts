@@ -22,11 +22,16 @@ export const MENU_ITEMS = [
   },
   {
     id: 4,
+    title: "Blog",
+    url: "/blog/",
+  },
+  {
+    id: 5,
     title: "Nosotros",
     url: "/nosotros/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Contacto",
     url: "/contacto/",
   },

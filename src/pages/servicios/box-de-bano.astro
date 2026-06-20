@@ -30,6 +30,56 @@ const description =
 const canonical = `${SITE_URL}/servicios/box-de-bano/`;
 const keywords =
   "box de baño paraguay, precio box de ducha, box de cristal templado, box de acrílico, mamparas para baño, box plegable";
+const ogImageAlt = "Box de baño a medida con cristal templado en Paraguay";
+const serviceStructuredDataId = `${canonical}#service`;
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": canonical,
+    url: canonical,
+    name: title,
+    description,
+    inLanguage: "es-PY",
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: boxHeroImage,
+    },
+    mainEntity: {
+      "@id": serviceStructuredDataId,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": serviceStructuredDataId,
+    name: serviceName,
+    description,
+    serviceType: [
+      "Box de baño en cristal templado",
+      "Box de baño en acrílico",
+      "Box de baño plegable",
+    ],
+    areaServed: {
+      "@type": "Country",
+      name: "Paraguay",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "VIPAR S.A.",
+      url: SITE_URL,
+    },
+    image: [
+      {
+        "@type": "ImageObject",
+        url: boxHeroImage,
+      },
+    ],
+    mainEntityOfPage: {
+      "@id": canonical,
+    },
+  },
+];
 const boxDecisionCards = [
   {
     title: "Si priorizas presupuesto",
@@ -62,6 +112,9 @@ const relatedObras = getRelatedStaticObras("box-de-bano");
   description={description}
   keywords={keywords}
   canonical={canonical}
+  ogImage={boxHeroImage}
+  ogImageAlt={ogImageAlt}
+  structuredData={structuredData}
   loadAosAssets={false}
   loadLightboxAssets={false}
   loadSwiperAssets={false}

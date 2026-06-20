@@ -1,0 +1,457 @@
+---
+import Button from "@components/ui/Button.astro";
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import FaqAccordion from "@components/ui/FaqAccordion.astro";
+import Heading from "@components/ui/Heading.astro";
+import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
+import Text from "@components/ui/Text.astro";
+import { getStaticObraBySlug } from "@lib/static-obras";
+import type { StaticObra } from "@lib/static-obras";
+import Layout from "@layouts/Layout.astro";
+import {
+  blogArticles,
+  getBlogArticleBySlug,
+  getBlogArticleCanonical,
+  getBlogArticleOgImage,
+} from "@lib/static-blog";
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
+import "@styles/blog.css";
+import { SITE_URL } from "src/constants";
+
+export function getStaticPaths() {
+  return blogArticles.map((article) => ({
+    params: { slug: article.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const article = slug ? getBlogArticleBySlug(slug) : undefined;
+
+if (!article) {
+  throw new Error("Blog article data not found.");
+}
+
+const canonical = getBlogArticleCanonical(article.slug);
+const publishedLabel = new Intl.DateTimeFormat("es-PY", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(new Date(article.publishDate));
+const modifiedLabel = new Intl.DateTimeFormat("es-PY", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(new Date(article.modifiedDate));
+
+const { src: ogImage, alt: ogImageAlt } = getBlogArticleOgImage(article.slug);
+
+const whatsappHref = buildWhatsappUrl(
+  buildWhatsappMessage({
+    serviceName: article.serviceName,
+    pageLabel: article.title,
+    prompt: "Puedo enviar fotos y contexto general del proyecto.",
+  }),
+);
+
+const relatedArticles = blogArticles
+  .filter((item) => item.slug !== article.slug && item.topic === article.topic)
+  .slice(0, 2);
+
+const topicWorkSlugs = {
+  "box-de-bano": ["vivienda-box-de-bano", "tienda-go-caaguazu", "showroom-vipar"],
+  "mamparas-divisorias": ["cooperativa-medalla", "oficina-divisorias", "ips-central-asuncion"],
+  "cielo-raso": ["carde-apf-ypane", "virgen-del-huerto-asuncion", "san-antonio-central"],
+} as const;
+
+const visualWorks = topicWorkSlugs[article.topic]
+  .map((workSlug) => getStaticObraBySlug(workSlug))
+  .filter((obra): obra is StaticObra => Boolean(obra))
+  .slice(0, 3);
+
+const photoGalleryItems = visualWorks
+  .flatMap((obra) => {
+    const images = [obra.imagen, ...obra.imagenes].filter(Boolean).slice(0, 2);
+
+    return images.map((image, index) => ({
+      image,
+      alt: `${obra.titulo} - ${obra.systemLabel}, foto ${index + 1}`,
+      title: obra.titulo,
+      location: obra.ubicacion,
+      href: `/obras/${obra.slug}/`,
+    }));
+  })
+  .slice(0, 4);
+
+const sectionAnchor = (title: string) =>
+  title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${canonical}#article`,
+    headline: article.title,
+    description: article.description,
+    image: ogImage,
+    datePublished: article.publishDate,
+    dateModified: article.modifiedDate,
+    inLanguage: "es-PY",
+    mainEntityOfPage: canonical,
+    articleSection: article.category,
+    keywords: article.keywords,
+    author: {
+      "@type": "Organization",
+      name: "VIPAR S.A.",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "VIPAR S.A.",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/img/logo.png`,
+      },
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: article.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${SITE_URL}/blog/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.title,
+        item: canonical,
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title={article.title}
+  description={article.description}
+  canonical={canonical}
+  keywords={article.keywords}
+  ogImage={ogImage}
+  ogImageAlt={ogImageAlt}
+  structuredData={structuredData}
+  ogType="article"
+  loadAosAssets={false}
+  loadLightboxAssets={false}
+  loadSwiperAssets={false}
+  loadIsotopeAssets={false}
+  loadBootstrapJs={false}
+  loadBootstrapIcons={false}
+  useMaterialSymbols={false}
+  bodyClass="blog-page"
+  pageType="blog"
+  serviceName={article.serviceName}
+>
+  <div class="blog-shell">
+    <section class="blog-hero">
+      <Container>
+        <Card class="blog-hero-card blog-hero-card--article">
+          <div class="blog-hero-intro">
+            <nav class="blog-breadcrumbs" aria-label="Breadcrumb">
+              <a href="/">Inicio</a>
+              <span aria-hidden="true">/</span>
+              <a href="/blog/">Blog</a>
+              <span aria-hidden="true">/</span>
+              <span>{article.serviceName}</span>
+            </nav>
+            <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+              {article.serviceName}
+            </Text>
+            <Text as="div" variant="label-sm" tone="muted" class="blog-meta">
+              {article.category} · {article.readingTime} · Publicado el {publishedLabel}
+            </Text>
+            <Heading level={1} variant="display" class="blog-hero-title blog-hero-title--wide">
+              {article.title}
+            </Heading>
+            <Text size="lg" tone="muted" class="blog-hero-text">
+              {article.heroSummary}
+            </Text>
+          </div>
+
+          <div class="blog-hero-panel">
+            <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+              Resumen técnico
+            </Text>
+            <Text size="md" tone="muted">{article.quickAnswer}</Text>
+            <ul class="blog-list-points">
+              {article.quickBullets.map((bullet) => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+            <div class="blog-actions">
+              <Button
+                href={article.serviceHref}
+                variant="contained"
+                tone="primary"
+                size="md"
+                data-track-event="service_navigation_click"
+                data-cta-location="blog_article_hero_service"
+                data-service-name={article.serviceName}
+              >
+                Ver servicio
+              </Button>
+              <Button
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outlined"
+                tone="primary"
+                size="md"
+                data-track-event="whatsapp_click"
+                data-cta-location="blog_article_hero_whatsapp"
+                data-service-name={article.serviceName}
+                data-whatsapp-message-type="blog-hero"
+              >
+                Consultar por WhatsApp
+              </Button>
+            </div>
+          </div>
+        </Card>
+      </Container>
+    </section>
+
+    <section class="blog-content">
+      <Container>
+        <div class="blog-grid">
+          <article class="blog-article">
+            {article.sections.map((section) => (
+              <Card id={sectionAnchor(section.title)} class="blog-section-card blog-section-card--editorial">
+                <Heading level={2} variant="md">{section.title}</Heading>
+                {section.paragraphs.map((paragraph) => (
+                  <Text size="md" tone="muted">{paragraph}</Text>
+                ))}
+                {section.bullets && (
+                  <ul class="blog-list-points">
+                    {section.bullets.map((bullet) => (
+                      <li>{bullet}</li>
+                    ))}
+                  </ul>
+                )}
+              </Card>
+            ))}
+
+            {article.comparisonRows && (
+              <Card class="blog-section-card">
+                <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+                  Criterios de evaluación
+                </Text>
+                <Heading level={2} variant="md">{article.comparisonTitle}</Heading>
+                <div class="blog-summary-grid">
+                  {article.comparisonRows.map((row) => (
+                    <div class="blog-summary-row">
+                      <Text as="strong" variant="label-md" tone="default">
+                        {row.label}
+                      </Text>
+                      <Text size="md" tone="muted">{row.value}</Text>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            )}
+
+            {photoGalleryItems.length > 0 && (
+              <Card class="blog-section-card blog-section-card--photos">
+                <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+                  Fotos de obra
+                </Text>
+                <Heading level={2} variant="md">Fotos de obras realizadas</Heading>
+                <Text size="md" tone="muted">
+                  Referencias visuales para revisar terminaciones, proporciones y aplicaciones
+                  reales antes de avanzar con una consulta.
+                </Text>
+                <div class="blog-photo-grid">
+                  {photoGalleryItems.map((item) => (
+                    <a href={item.href} class="blog-photo-card">
+                      <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
+                      <div class="blog-photo-card__body">
+                        <Text as="strong" variant="label-md" tone="default">
+                          {item.title}
+                        </Text>
+                        <Text size="sm" tone="muted">{item.location}</Text>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </Card>
+            )}
+
+            <Card class="blog-section-card blog-section-card--cta">
+              <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+                Cotización
+              </Text>
+              <Heading level={2} variant="md">
+                La cotización inicial puede comenzar con fotos del espacio y una descripción
+                general del trabajo
+              </Heading>
+              <Text size="md" tone="muted">
+                Si además existen medidas aproximadas, ayudan a orientar más rápido la propuesta.
+                La definición final depende del relevamiento y de las condiciones reales de obra.
+              </Text>
+              <div class="blog-actions">
+                <Button
+                  href={article.serviceHref}
+                  variant="contained"
+                  tone="primary"
+                  size="md"
+                  data-track-event="service_navigation_click"
+                  data-cta-location="blog_inline_service"
+                  data-service-name={article.serviceName}
+                >
+                  Ver servicio
+                </Button>
+                <Button
+                  href="/contacto/"
+                  variant="link"
+                  tone="primary"
+                  size="md"
+                  data-track-event="contact_cta_click"
+                  data-cta-location="blog_inline_contact"
+                >
+                  Solicitar presupuesto
+                </Button>
+              </div>
+            </Card>
+
+            <FaqAccordion items={article.faqs} class="blog-faq-block" title="Preguntas frecuentes" />
+          </article>
+
+          <div class="blog-sidebar-stack">
+            <Card as="aside" variant="info" class="blog-sidebar">
+              <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+                Índice del artículo
+              </Text>
+              <nav class="blog-anchor-nav" aria-label="Índice del artículo">
+                {article.sections.map((section) => (
+                  <a href={`#${sectionAnchor(section.title)}`}>{section.title}</a>
+                ))}
+              </nav>
+            </Card>
+
+            <Card as="aside" variant="info" class="blog-sidebar">
+              <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+                Cómo se cotiza
+              </Text>
+              <Heading level={2} variant="sm" class="blog-sidebar-title">
+                {article.sidebarTitle}
+              </Heading>
+              <ul class="blog-list-points">
+                {article.sidebarPoints.map((point) => (
+                  <li>{point}</li>
+                ))}
+              </ul>
+              <Text size="sm" tone="muted">
+                Actualizado el {modifiedLabel}.
+              </Text>
+              <div class="blog-actions blog-actions--stack">
+                <Button
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="contained"
+                  tone="primary"
+                  size="md"
+                  data-track-event="whatsapp_click"
+                  data-cta-location="blog_sidebar_whatsapp"
+                  data-service-name={article.serviceName}
+                  data-whatsapp-message-type="blog-sidebar"
+                >
+                  Enviar consulta
+                </Button>
+                <Button
+                  href={article.serviceHref}
+                  variant="outlined"
+                  tone="primary"
+                  size="md"
+                  data-track-event="service_navigation_click"
+                  data-cta-location="blog_sidebar_service"
+                  data-service-name={article.serviceName}
+                >
+                  Ver servicio
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class="blog-content">
+      <Container>
+        <Card class="blog-related-card">
+          <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+            Lecturas relacionadas
+          </Text>
+          <Heading level={2} variant="md">Artículos del mismo tema</Heading>
+          <div class="blog-related-grid">
+            {relatedArticles.map((relatedArticle) => (
+              <Card variant="soft" class="blog-related-item">
+                <Text as="span" variant="label-sm" tone="accent">
+                  {relatedArticle.category}
+                </Text>
+                <Heading level={3} variant="sm">{relatedArticle.title}</Heading>
+                <Text size="md" tone="muted">{relatedArticle.excerpt}</Text>
+                <Button
+                  href={`/blog/${relatedArticle.slug}/`}
+                  variant="link"
+                  tone="primary"
+                  size="md"
+                  data-track-event="blog_article_open"
+                  data-cta-location="blog_related_article"
+                  data-service-name={relatedArticle.serviceName}
+                >
+                  Leer artículo
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </Card>
+      </Container>
+    </section>
+
+    <RelatedWorksGallery
+      obras={visualWorks}
+      title="Obras vinculadas"
+      description="Selección de trabajos reales para revisar soluciones ejecutadas, terminaciones y contexto de uso."
+      ctaHref="/obras/"
+      ctaLabel="Ver catálogo de obras"
+      class="blog-related-works"
+    />
+  </div>
+</Layout>

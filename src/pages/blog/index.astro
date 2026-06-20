@@ -1,0 +1,229 @@
+---
+import Button from "@components/ui/Button.astro";
+import Card from "@components/ui/Card.astro";
+import Container from "@components/ui/Container.astro";
+import Heading from "@components/ui/Heading.astro";
+import Text from "@components/ui/Text.astro";
+import Layout from "@layouts/Layout.astro";
+import { blogArticles, getBlogArticleOgImage } from "@lib/static-blog";
+import "@styles/blog.css";
+import { SITE_URL } from "src/constants";
+
+const title = "Blog de VIPAR | Guías técnicas y criterios para proyectos";
+const description =
+  "Artículos técnicos de VIPAR sobre box de baño, mamparas divisorias y cielo raso, con criterios de selección, comparativas y referencias de obra.";
+const canonical = `${SITE_URL}/blog/`;
+const keywords =
+  "blog VIPAR, guías técnicas VIPAR, box de baño Paraguay, mamparas divisorias Paraguay, cielo raso Paraguay";
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${canonical}#blog`,
+    name: "Blog VIPAR",
+    description,
+    url: canonical,
+    inLanguage: "es-PY",
+    publisher: {
+      "@type": "Organization",
+      name: "VIPAR S.A.",
+      url: SITE_URL,
+    },
+    blogPost: blogArticles.map((article) => ({
+      "@type": "BlogPosting",
+      headline: article.title,
+      description: article.description,
+      url: `${canonical}${article.slug}/`,
+      image: getBlogArticleOgImage(article.slug).src,
+      datePublished: article.publishDate,
+      dateModified: article.modifiedDate,
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: canonical,
+      },
+    ],
+  },
+];
+
+const topicDefinitions = [
+  {
+    key: "box-de-bano",
+    label: "Box de baño",
+    intro:
+      "Criterios para evaluar materiales, aperturas, medidas y variables que afectan la decisión antes de instalar un box de baño.",
+  },
+  {
+    key: "mamparas-divisorias",
+    label: "Mamparas divisorias",
+    intro:
+      "Contenidos orientados a oficinas, áreas operativas y espacios corporativos que requieren orden, privacidad y una solución compatible con el uso diario.",
+  },
+  {
+    key: "cielo-raso",
+    label: "Cielo raso",
+    intro:
+      "Guías para comparar sistemas, entender variables de presupuesto y definir qué solución responde mejor al tipo de ambiente y mantenimiento previsto.",
+  },
+] as const;
+
+const topicSections = topicDefinitions.map((topic) => ({
+  ...topic,
+  articles: blogArticles.filter((article) => article.topic === topic.key),
+}));
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  keywords={keywords}
+  structuredData={structuredData}
+  ogType="website"
+  loadAosAssets={false}
+  loadLightboxAssets={false}
+  loadSwiperAssets={false}
+  loadIsotopeAssets={false}
+  loadBootstrapJs={false}
+  loadBootstrapIcons={false}
+  useMaterialSymbols={false}
+  bodyClass="blog-page"
+  pageType="blog"
+>
+  <div class="blog-shell">
+    <section class="blog-hero">
+      <Container>
+        <Card class="blog-hero-card blog-hero-card--hub">
+          <div class="blog-hero-intro">
+            <nav class="blog-breadcrumbs" aria-label="Breadcrumb">
+              <a href="/">Inicio</a>
+              <span aria-hidden="true">/</span>
+              <span>Blog</span>
+            </nav>
+            <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+              Biblioteca técnica
+            </Text>
+            <Heading level={1} variant="display" class="blog-hero-title blog-hero-title--wide">
+              Criterios de obra, materiales y referencias para tomar decisiones mejor informadas
+            </Heading>
+            <Text size="lg" tone="muted" class="blog-hero-text">
+              Esta sección reúne artículos pensados para responder consultas reales previas a una
+              cotización: diferencias entre sistemas, variables que modifican el presupuesto,
+              medidas orientativas y referencias útiles para evaluar un proyecto con mayor criterio.
+            </Text>
+          </div>
+
+          <div class="blog-hero-panel">
+            <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+              Alcance editorial
+            </Text>
+            <ul class="blog-list-points">
+              <li>Comparativas entre soluciones que VIPAR instala o cotiza habitualmente.</li>
+              <li>Criterios de selección aplicados a vivienda, oficina y comercio.</li>
+              <li>Referencias de obra para acompañar la evaluación técnica.</li>
+            </ul>
+            <div class="blog-actions">
+              <Button
+                href="/servicios/"
+                variant="contained"
+                tone="primary"
+                size="md"
+                data-track-event="blog_services_click"
+                data-cta-location="blog_hub_primary"
+              >
+                Ver servicios
+              </Button>
+              <Button
+                href="/contacto/"
+                variant="outlined"
+                tone="primary"
+                size="md"
+                data-track-event="contact_cta_click"
+                data-cta-location="blog_hub_secondary"
+              >
+                Solicitar presupuesto
+              </Button>
+            </div>
+          </div>
+        </Card>
+      </Container>
+    </section>
+
+    <section class="blog-content">
+      <Container>
+        <div class="blog-topic-list">
+          {topicSections.map((topic) => (
+            <Card class="blog-topic-card">
+              <div class="blog-topic-head">
+                <div class="blog-topic-copy">
+                  <Text as="span" variant="label-sm" tone="accent" class="blog-eyebrow">
+                    {topic.label}
+                  </Text>
+                  <Heading level={2} variant="lg">{topic.label}</Heading>
+                  <Text size="md" tone="muted">{topic.intro}</Text>
+                </div>
+                <Text as="div" variant="label-sm" tone="muted" class="blog-topic-count">
+                  {topic.articles.length} artículos
+                </Text>
+              </div>
+
+              <div class="blog-topic-articles">
+                {topic.articles.map((article) => (
+                  <Card class="blog-topic-article" as="article">
+                    <Text as="div" variant="label-sm" tone="muted" class="blog-meta">
+                      {article.category} · {article.readingTime}
+                    </Text>
+                    <Heading level={3} variant="sm" class="blog-card-title">
+                      {article.title}
+                    </Heading>
+                    <Text size="md" tone="muted" class="blog-card-text">
+                      {article.excerpt}
+                    </Text>
+                    <div class="blog-actions blog-actions--compact">
+                      <Button
+                        href={`/blog/${article.slug}/`}
+                        variant="contained"
+                        tone="primary"
+                        size="md"
+                        data-track-event="blog_article_open"
+                        data-cta-location="blog_card_primary"
+                        data-service-name={article.serviceName}
+                      >
+                        Leer artículo
+                      </Button>
+                      <Button
+                        href={article.serviceHref}
+                        variant="link"
+                        tone="primary"
+                        size="md"
+                        data-track-event="service_navigation_click"
+                        data-cta-location="blog_card_service"
+                        data-service-name={article.serviceName}
+                      >
+                        Ver servicio
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </Container>
+    </section>
+  </div>
+</Layout>
