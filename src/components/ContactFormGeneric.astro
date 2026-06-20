@@ -133,7 +133,7 @@ const visibleSections = [
             required
           />
           <Text class="smart-form-helper">
-            Te respondemos con una orientación inicial y abrimos WhatsApp con el contexto cargado.
+            Te orientamos con una primera respuesta y te ayudamos a continuar por WhatsApp.
           </Text>
         </div>
       </section>
@@ -260,10 +260,11 @@ const visibleSections = [
 
   function buildWhatsappUrl() {
     const lines = [
-      "Hola, quiero hacer una consulta.",
-      formData.service ? `Servicio: ${formData.service}` : "",
-      formData.consultation_type ? `Tipo de consulta: ${formData.consultation_type}` : "",
-      `Email: ${formData.email}`,
+      "Hola VIPAR, quiero hacer una consulta.",
+      formData.service ? `Me interesa: ${formData.service}.` : "",
+      formData.consultation_type ? `Tipo de consulta: ${formData.consultation_type}.` : "",
+      `Mi correo es: ${formData.email}.`,
+      "Quedo atento/a.",
     ].filter(Boolean);
 
     const rawHref = `https://wa.me/${String(whatsappNumber || "").replace(/\D/g, "")}?text=${encodeURIComponent(lines.join("\n"))}`;
@@ -401,7 +402,7 @@ const visibleSections = [
         window.open(buildWhatsappUrl(), "_blank", "noopener,noreferrer");
       }
 
-      setStatus("success", "Abrimos WhatsApp y registramos tu correo en GA y PostHog.");
+      setStatus("success", "Te llevamos a WhatsApp para continuar tu consulta.");
       form.reset();
       formData.service = "";
       formData.consultation_type = "";

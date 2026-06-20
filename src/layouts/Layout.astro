@@ -347,21 +347,6 @@ const structuredDataItems = [
                   return "unknown";
                 }
 
-                function appendLabeledLine(message, label, value) {
-                  if (!value) return message;
-
-                  var normalizedMessage = String(message || "");
-                  var prefix = `${label.toLowerCase()}:`;
-
-                  if (normalizedMessage.toLowerCase().includes(prefix)) {
-                    return normalizedMessage;
-                  }
-
-                  return normalizedMessage
-                    ? `${normalizedMessage}\n${label}: ${value}`
-                    : `${label}: ${value}`;
-                }
-
                 function buildLeadContext(extra) {
                   var params = new URLSearchParams(window.location.search);
                   var referrerHost = getReferrerHost();
@@ -389,27 +374,6 @@ const structuredDataItems = [
                     var url = new URL(rawHref, window.location.origin);
                     if (!/wa\.me$/i.test(url.hostname) && !/api\.whatsapp\.com$/i.test(url.hostname)) {
                       return rawHref;
-                    }
-
-                    var payload = buildLeadContext(extra);
-                    var message = url.searchParams.get("text") || "";
-
-                    message = appendLabeledLine(message, "Servicio", payload.service_name);
-                    message = appendLabeledLine(message, "Landing", payload.page_path);
-                    message = appendLabeledLine(message, "Origen", payload.lead_source);
-                    message = appendLabeledLine(message, "Medio", payload.lead_medium);
-                    message = appendLabeledLine(message, "Campaña", payload.campaign);
-                    message = appendLabeledLine(message, "CTA", payload.cta_location);
-                    message = appendLabeledLine(message, "Formulario", payload.form_id);
-                    message = appendLabeledLine(message, "Email", payload.email);
-                    message = appendLabeledLine(
-                      message,
-                      "Tipo de consulta",
-                      payload.consultation_type
-                    );
-
-                    if (message) {
-                      url.searchParams.set("text", message);
                     }
 
                     return url.toString();
@@ -582,21 +546,6 @@ const structuredDataItems = [
           return "unknown";
         }
 
-        function appendLabeledLine(message, label, value) {
-          if (!value) return message;
-
-          var normalizedMessage = String(message || "");
-          var prefix = `${label.toLowerCase()}:`;
-
-          if (normalizedMessage.toLowerCase().includes(prefix)) {
-            return normalizedMessage;
-          }
-
-          return normalizedMessage
-            ? `${normalizedMessage}\n${label}: ${value}`
-            : `${label}: ${value}`;
-        }
-
         function buildLeadContext(extra) {
           var params = new URLSearchParams(window.location.search);
           var referrerHost = getReferrerHost();
@@ -624,23 +573,6 @@ const structuredDataItems = [
             var url = new URL(rawHref, window.location.origin);
             if (!/wa\.me$/i.test(url.hostname) && !/api\.whatsapp\.com$/i.test(url.hostname)) {
               return rawHref;
-            }
-
-            var payload = buildLeadContext(extra);
-            var message = url.searchParams.get("text") || "";
-
-            message = appendLabeledLine(message, "Servicio", payload.service_name);
-            message = appendLabeledLine(message, "Landing", payload.page_path);
-            message = appendLabeledLine(message, "Origen", payload.lead_source);
-            message = appendLabeledLine(message, "Medio", payload.lead_medium);
-            message = appendLabeledLine(message, "Campaña", payload.campaign);
-            message = appendLabeledLine(message, "CTA", payload.cta_location);
-            message = appendLabeledLine(message, "Formulario", payload.form_id);
-            message = appendLabeledLine(message, "Email", payload.email);
-            message = appendLabeledLine(message, "Tipo de consulta", payload.consultation_type);
-
-            if (message) {
-              url.searchParams.set("text", message);
             }
 
             return url.toString();
