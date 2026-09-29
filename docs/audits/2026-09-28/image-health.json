@@ -1,0 +1,3869 @@
+{
+  "checkedAt": "2026-09-28T21:06:31.774Z",
+  "policy": {
+    "critical": "fail",
+    "secondary": "warn",
+    "resolution": "warn",
+    "http": "200 sin redirect",
+    "freshNetworkCheck": true,
+    "tlsVerification": true
+  },
+  "summary": {
+    "total": 111,
+    "passed": 111,
+    "criticalFailures": 0,
+    "secondaryFailures": 0,
+    "resolutionWarnings": 15,
+    "shouldFail": false
+  },
+  "results": [
+    {
+      "url": "https://vipar.moochsoft.com/obras/alto-parana-presidente-franco/ventanas-aluminio-local-comercial-presidente-franco-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 550
+        },
+        {
+          "file": "src/lib/static-servicio-ventana.ts",
+          "line": 55
+        },
+        {
+          "file": "dist/obras/alto-parana-presidente-franco/index.html",
+          "page": "https://vipar.com.py/obras/alto-parana-presidente-franco/",
+          "alt": "Local Comercial – Presidente Franco – Presidente Franco, Alto Paraná | VIPAR"
+        },
+        {
+          "file": "dist/obras/alto-parana-presidente-franco/index.html",
+          "page": "https://vipar.com.py/obras/alto-parana-presidente-franco/",
+          "alt": "Ventanas de aluminio de gran formato – Local Comercial – Presidente Franco, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Ventanas de aluminio de gran formato — Local Comercial – Presidente Franco, Presidente Franco, Alto Paraná"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Ventana basculante"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 206564
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/alto-parana-presidente-franco/ventanas-aluminio-local-comercial-presidente-franco-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 552
+        },
+        {
+          "file": "src/lib/static-servicio-ventana.ts",
+          "line": 120
+        },
+        {
+          "file": "dist/obras/alto-parana-presidente-franco/index.html",
+          "page": "https://vipar.com.py/obras/alto-parana-presidente-franco/",
+          "alt": "Ventanas de aluminio de gran formato – Local Comercial – Presidente Franco, foto 2"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Obras"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 166396
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/alto-parana-presidente-franco/ventanas-aluminio-local-comercial-presidente-franco-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 553
+        },
+        {
+          "file": "dist/obras/alto-parana-presidente-franco/index.html",
+          "page": "https://vipar.com.py/obras/alto-parana-presidente-franco/",
+          "alt": "Ventanas de aluminio de gran formato – Local Comercial – Presidente Franco, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 198290
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/alto-parana-presidente-franco/ventanas-aluminio-local-comercial-presidente-franco-04.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 554
+        },
+        {
+          "file": "dist/obras/alto-parana-presidente-franco/index.html",
+          "page": "https://vipar.com.py/obras/alto-parana-presidente-franco/",
+          "alt": "Ventanas de aluminio de gran formato – Local Comercial – Presidente Franco, foto 4"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1211,
+      "bytes": 487712
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/alto-parana-presidente-franco/ventanas-aluminio-local-comercial-presidente-franco-05.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 555
+        },
+        {
+          "file": "dist/obras/alto-parana-presidente-franco/index.html",
+          "page": "https://vipar.com.py/obras/alto-parana-presidente-franco/",
+          "alt": "Ventanas de aluminio de gran formato – Local Comercial – Presidente Franco, foto 5"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 375392
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/asuncion-centro-2020/ventanas-aluminio-edificio-longvillage-asuncion-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 640
+        },
+        {
+          "file": "src/lib/static-servicio-ventana.ts",
+          "line": 110
+        },
+        {
+          "file": "dist/obras/edificio-longvillage-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/edificio-longvillage-asuncion/",
+          "alt": "Edificio Longvillage – Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/edificio-longvillage-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/edificio-longvillage-asuncion/",
+          "alt": "Ventanas corredizas de aluminio – Edificio Longvillage, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Ventanas corredizas de aluminio — Edificio Longvillage, Asunción"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Departamentos"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1442,
+      "bytes": 86052
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/asuncion-centro-2021/barandas-vidrio-templado-escalera-fortaleza-milano-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 659
+        },
+        {
+          "file": "dist/obras/edificio-fortaleza-milano-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/edificio-fortaleza-milano-asuncion/",
+          "alt": "Edificio Fortaleza Milano – Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/edificio-fortaleza-milano-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/edificio-fortaleza-milano-asuncion/",
+          "alt": "Barandas de vidrio templado y acero inoxidable – Edificio Fortaleza Milano, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Barandas de vidrio templado y acero inoxidable — Edificio Fortaleza Milano, Asunción"
+        },
+        {
+          "file": "dist/servicios/vidrio-templado/index.html",
+          "page": "https://vipar.com.py/servicios/vidrio-templado/",
+          "alt": "Barandas de vidrio templado y acero inoxidable — Edificio Fortaleza Milano, Asunción"
+        },
+        {
+          "file": "dist/servicios/vidrio-templado/index.html",
+          "page": "https://vipar.com.py/servicios/vidrio-templado/",
+          "alt": "Barandas de vidrio templado y acero inoxidable — Edificio Fortaleza Milano, Asunción"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 393820
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/asuncion-norte-2017/cielo-raso-torre-provenza-asuncion-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1175
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 596
+        },
+        {
+          "file": "src/lib/static-servicio-cielo-raso.ts",
+          "line": 39
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Ventanas de vidrio templado y cielo raso — Torre Provenza, Asunción"
+        },
+        {
+          "file": "dist/obras/torre-provenza-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/torre-provenza-asuncion/",
+          "alt": "Torre Provenza – Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/torre-provenza-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/torre-provenza-asuncion/",
+          "alt": "Ventanas de vidrio templado y cielo raso – Torre Provenza, foto 1"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Torre Provenza · Cielo raso en ejecución · Asunción"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 153894
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/asuncion-norte-2017/cielo-raso-torre-provenza-asuncion-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 598
+        },
+        {
+          "file": "dist/obras/torre-provenza-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/torre-provenza-asuncion/",
+          "alt": "Ventanas de vidrio templado y cielo raso – Torre Provenza, foto 2"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 242924
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/asuncion-norte-2017/cielo-raso-torre-provenza-asuncion-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 599
+        },
+        {
+          "file": "dist/obras/torre-provenza-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/torre-provenza-asuncion/",
+          "alt": "Ventanas de vidrio templado y cielo raso – Torre Provenza, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 245166
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/asuncion-norte-2025/fachada-vidrio-natatorio-club-internacional-tenis-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 678
+        },
+        {
+          "file": "src/lib/static-servicio-fachadas.ts",
+          "line": 151
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Fachada de vidrio y aluminio — Natatorio – Club Internacional de Tenis, Luque, Central"
+        },
+        {
+          "file": "dist/obras/natatorio-cit-luque/index.html",
+          "page": "https://vipar.com.py/obras/natatorio-cit-luque/",
+          "alt": "Natatorio – Club Internacional de Tenis – Luque, Central | VIPAR"
+        },
+        {
+          "file": "dist/obras/natatorio-cit-luque/index.html",
+          "page": "https://vipar.com.py/obras/natatorio-cit-luque/",
+          "alt": "Fachada de vidrio y aluminio – Natatorio – Club Internacional de Tenis, foto 1"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Oficinas"
+        },
+        {
+          "file": "dist/servicios/vidrio-templado/index.html",
+          "page": "https://vipar.com.py/servicios/vidrio-templado/",
+          "alt": "Fachada de vidrio y aluminio — Natatorio – Club Internacional de Tenis, Luque, Central"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 734234
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/asuncion-sur-2020/cielo-raso-mamparas-ips-central-asuncion-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1163
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 618
+        },
+        {
+          "file": "dist/blog/como-dividir-oficinas-sin-obras-mayores/index.html",
+          "page": "https://vipar.com.py/blog/como-dividir-oficinas-sin-obras-mayores/",
+          "alt": "IPS Central – Salas de Atención - Cielo raso y mamparas institucionales, foto 1"
+        },
+        {
+          "file": "dist/blog/como-dividir-oficinas-sin-obras-mayores/index.html",
+          "page": "https://vipar.com.py/blog/como-dividir-oficinas-sin-obras-mayores/",
+          "alt": "Cielo raso y mamparas institucionales — IPS Central – Salas de Atención, Asunción"
+        },
+        {
+          "file": "dist/blog/costo-mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/blog/costo-mamparas-divisorias/",
+          "alt": "IPS Central – Salas de Atención - Cielo raso y mamparas institucionales, foto 1"
+        },
+        {
+          "file": "dist/blog/costo-mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/blog/costo-mamparas-divisorias/",
+          "alt": "Cielo raso y mamparas institucionales — IPS Central – Salas de Atención, Asunción"
+        },
+        {
+          "file": "dist/blog/mamparas-divisorias-oficinas/index.html",
+          "page": "https://vipar.com.py/blog/mamparas-divisorias-oficinas/",
+          "alt": "IPS Central – Salas de Atención - Cielo raso y mamparas institucionales, foto 1"
+        },
+        {
+          "file": "dist/blog/mamparas-divisorias-oficinas/index.html",
+          "page": "https://vipar.com.py/blog/mamparas-divisorias-oficinas/",
+          "alt": "Cielo raso y mamparas institucionales — IPS Central – Salas de Atención, Asunción"
+        },
+        {
+          "file": "dist/blog/vidrio-vs-panel-solido/index.html",
+          "page": "https://vipar.com.py/blog/vidrio-vs-panel-solido/",
+          "alt": "IPS Central – Salas de Atención - Cielo raso y mamparas institucionales, foto 1"
+        },
+        {
+          "file": "dist/blog/vidrio-vs-panel-solido/index.html",
+          "page": "https://vipar.com.py/blog/vidrio-vs-panel-solido/",
+          "alt": "Cielo raso y mamparas institucionales — IPS Central – Salas de Atención, Asunción"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Cielo raso y mamparas institucionales — IPS Central – Salas de Atención, Asunción"
+        },
+        {
+          "file": "dist/obras/ips-central-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/ips-central-asuncion/",
+          "alt": "IPS Central – Salas de Atención – Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/ips-central-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/ips-central-asuncion/",
+          "alt": "Cielo raso y mamparas institucionales – IPS Central – Salas de Atención, foto 1"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1437,
+      "bytes": 252358
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/asuncion-sur-2020/cielo-raso-mamparas-ips-central-asuncion-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1155
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 620
+        },
+        {
+          "file": "dist/blog/como-dividir-oficinas-sin-obras-mayores/index.html",
+          "page": "https://vipar.com.py/blog/como-dividir-oficinas-sin-obras-mayores/",
+          "alt": "IPS Central – Salas de Atención - Cielo raso y mamparas institucionales, foto 2"
+        },
+        {
+          "file": "dist/blog/costo-mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/blog/costo-mamparas-divisorias/",
+          "alt": "IPS Central – Salas de Atención - Cielo raso y mamparas institucionales, foto 2"
+        },
+        {
+          "file": "dist/blog/mamparas-divisorias-oficinas/index.html",
+          "page": "https://vipar.com.py/blog/mamparas-divisorias-oficinas/",
+          "alt": "IPS Central – Salas de Atención - Cielo raso y mamparas institucionales, foto 2"
+        },
+        {
+          "file": "dist/blog/vidrio-vs-panel-solido/index.html",
+          "page": "https://vipar.com.py/blog/vidrio-vs-panel-solido/",
+          "alt": "IPS Central – Salas de Atención - Cielo raso y mamparas institucionales, foto 2"
+        },
+        {
+          "file": "dist/obras/ips-central-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/ips-central-asuncion/",
+          "alt": "Cielo raso y mamparas institucionales – IPS Central – Salas de Atención, foto 2"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1437,
+      "bytes": 99456
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/asuncion-sur-2020/cielo-raso-mamparas-ips-central-asuncion-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 621
+        },
+        {
+          "file": "dist/obras/ips-central-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/ips-central-asuncion/",
+          "alt": "Cielo raso y mamparas institucionales – IPS Central – Salas de Atención, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1437,
+      "bytes": 111522
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/caaguazu/mamparas-bano-aluminio-tienda-go-caaguazu-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1135
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 697
+        },
+        {
+          "file": "dist/blog/box-de-bano-vidrio-vs-acrilico/index.html",
+          "page": "https://vipar.com.py/blog/box-de-bano-vidrio-vs-acrilico/",
+          "alt": "Tienda GO! – Caaguazú III - Mamparas y puertas de baño en aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/box-de-bano-vidrio-vs-acrilico/index.html",
+          "page": "https://vipar.com.py/blog/box-de-bano-vidrio-vs-acrilico/",
+          "alt": "Mamparas y puertas de baño en aluminio — Tienda GO! – Caaguazú III, Caaguazú"
+        },
+        {
+          "file": "dist/blog/como-elegir-box-de-bano-ideal/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-box-de-bano-ideal/",
+          "alt": "Tienda GO! – Caaguazú III - Mamparas y puertas de baño en aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/como-elegir-box-de-bano-ideal/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-box-de-bano-ideal/",
+          "alt": "Mamparas y puertas de baño en aluminio — Tienda GO! – Caaguazú III, Caaguazú"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-box-de-bano-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-box-de-bano-paraguay/",
+          "alt": "Tienda GO! – Caaguazú III - Mamparas y puertas de baño en aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-box-de-bano-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-box-de-bano-paraguay/",
+          "alt": "Mamparas y puertas de baño en aluminio — Tienda GO! – Caaguazú III, Caaguazú"
+        },
+        {
+          "file": "dist/blog/medidas-estandar-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/medidas-estandar-box-de-bano/",
+          "alt": "Tienda GO! – Caaguazú III - Mamparas y puertas de baño en aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/medidas-estandar-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/medidas-estandar-box-de-bano/",
+          "alt": "Mamparas y puertas de baño en aluminio — Tienda GO! – Caaguazú III, Caaguazú"
+        },
+        {
+          "file": "dist/blog/tipos-de-apertura-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/tipos-de-apertura-box-de-bano/",
+          "alt": "Tienda GO! – Caaguazú III - Mamparas y puertas de baño en aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/tipos-de-apertura-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/tipos-de-apertura-box-de-bano/",
+          "alt": "Mamparas y puertas de baño en aluminio — Tienda GO! – Caaguazú III, Caaguazú"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Mamparas y puertas de baño en aluminio — Tienda GO! – Caaguazú III, Caaguazú"
+        },
+        {
+          "file": "dist/obras/tienda-go-caaguazu/index.html",
+          "page": "https://vipar.com.py/obras/tienda-go-caaguazu/",
+          "alt": "Tienda GO! – Caaguazú III – Caaguazú | VIPAR"
+        },
+        {
+          "file": "dist/obras/tienda-go-caaguazu/index.html",
+          "page": "https://vipar.com.py/obras/tienda-go-caaguazu/",
+          "alt": "Mamparas y puertas de baño en aluminio – Tienda GO! – Caaguazú III, foto 1"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 225656
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 493
+        },
+        {
+          "file": "src/lib/static-servicio-puerta.ts",
+          "line": 19
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "IPS – Laboratorio Microbiología – Cañada del Ybyray, Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Puertas de cristal templado esmerilado — IPS – Laboratorio Microbiología, Cañada del Ybyray, Asunción"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Puertas de aluminio y cristal templado para viviendas, comercios, oficinas y obras en Paraguay"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 46984
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 495
+        },
+        {
+          "file": "src/lib/static-servicio-puerta.ts",
+          "line": 115
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 2"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Oficinas"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 196988
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 496
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 219252
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-04.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 497
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 4"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 234696
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-05.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 498
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 5"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 218720
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-06.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 499
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 6"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 192476
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-07.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 500
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 7"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 38282
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-08.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 501
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 8"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 34664
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-09.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 502
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 9"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 47462
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-10.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 503
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 10"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 18118
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-11.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 504
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 11"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 42332
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/canada-del-ybyray/puerta-cristal-esmerilado-laboratorio-ips-asuncion-12.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 505
+        },
+        {
+          "file": "dist/obras/canada-del-ybyray/index.html",
+          "page": "https://vipar.com.py/obras/canada-del-ybyray/",
+          "alt": "Puertas de cristal templado esmerilado – IPS – Laboratorio Microbiología, foto 12"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 51598
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/cooperativa-medalla-milagrosa-central/mamparas-vidrio-cooperativa-medalla-milagrosa-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1151
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 126
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 166
+        },
+        {
+          "file": "dist/blog/como-dividir-oficinas-sin-obras-mayores/index.html",
+          "page": "https://vipar.com.py/blog/como-dividir-oficinas-sin-obras-mayores/",
+          "alt": "Cooperativa Medalla Milagrosa - Particiones institucionales en vidrio, foto 1"
+        },
+        {
+          "file": "dist/blog/como-dividir-oficinas-sin-obras-mayores/index.html",
+          "page": "https://vipar.com.py/blog/como-dividir-oficinas-sin-obras-mayores/",
+          "alt": "Particiones institucionales en vidrio — Cooperativa Medalla Milagrosa, Fernando de la Mora"
+        },
+        {
+          "file": "dist/blog/costo-mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/blog/costo-mamparas-divisorias/",
+          "alt": "Cooperativa Medalla Milagrosa - Particiones institucionales en vidrio, foto 1"
+        },
+        {
+          "file": "dist/blog/costo-mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/blog/costo-mamparas-divisorias/",
+          "alt": "Particiones institucionales en vidrio — Cooperativa Medalla Milagrosa, Fernando de la Mora"
+        },
+        {
+          "file": "dist/blog/mamparas-divisorias-oficinas/index.html",
+          "page": "https://vipar.com.py/blog/mamparas-divisorias-oficinas/",
+          "alt": "Cooperativa Medalla Milagrosa - Particiones institucionales en vidrio, foto 1"
+        },
+        {
+          "file": "dist/blog/mamparas-divisorias-oficinas/index.html",
+          "page": "https://vipar.com.py/blog/mamparas-divisorias-oficinas/",
+          "alt": "Particiones institucionales en vidrio — Cooperativa Medalla Milagrosa, Fernando de la Mora"
+        },
+        {
+          "file": "dist/blog/vidrio-vs-panel-solido/index.html",
+          "page": "https://vipar.com.py/blog/vidrio-vs-panel-solido/",
+          "alt": "Cooperativa Medalla Milagrosa - Particiones institucionales en vidrio, foto 1"
+        },
+        {
+          "file": "dist/blog/vidrio-vs-panel-solido/index.html",
+          "page": "https://vipar.com.py/blog/vidrio-vs-panel-solido/",
+          "alt": "Particiones institucionales en vidrio — Cooperativa Medalla Milagrosa, Fernando de la Mora"
+        },
+        {
+          "file": "dist/obras/cooperativa-medalla/index.html",
+          "page": "https://vipar.com.py/obras/cooperativa-medalla/",
+          "alt": "Cooperativa Medalla Milagrosa – Fernando de la Mora | VIPAR"
+        },
+        {
+          "file": "dist/obras/cooperativa-medalla/index.html",
+          "page": "https://vipar.com.py/obras/cooperativa-medalla/",
+          "alt": "Particiones institucionales en vidrio – Cooperativa Medalla Milagrosa, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Particiones institucionales en vidrio — Cooperativa Medalla Milagrosa, Fernando de la Mora"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Particiones acústicas en vidrio — Oficinas Corporativas Itau, Asunción"
+        },
+        {
+          "file": "dist/obras/oficinas-corporativas-itau/index.html",
+          "page": "https://vipar.com.py/obras/oficinas-corporativas-itau/",
+          "alt": "Oficinas Corporativas Itau – Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/oficinas-corporativas-itau/index.html",
+          "page": "https://vipar.com.py/obras/oficinas-corporativas-itau/",
+          "alt": "Particiones acústicas en vidrio – Oficinas Corporativas Itau, foto 1"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 15864,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/cooperativa-medalla-milagrosa-concepcion/cielo-raso-mamparas-cooperativa-medalla-concepcion-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 381
+        },
+        {
+          "file": "dist/obras/cooperativa-medalla-milagrosa-concepcion/index.html",
+          "page": "https://vipar.com.py/obras/cooperativa-medalla-milagrosa-concepcion/",
+          "alt": "Cooperativa Medalla Milagrosa – Concepción – Concepción | VIPAR"
+        },
+        {
+          "file": "dist/obras/cooperativa-medalla-milagrosa-concepcion/index.html",
+          "page": "https://vipar.com.py/obras/cooperativa-medalla-milagrosa-concepcion/",
+          "alt": "Cielo raso y mamparas divisorias – Cooperativa Medalla Milagrosa – Concepción, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Cielo raso y mamparas divisorias — Cooperativa Medalla Milagrosa – Concepción, Concepción"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 16630,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/cooperativa-medalla-milagrosa-concepcion/cielo-raso-mamparas-cooperativa-medalla-concepcion-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 383
+        },
+        {
+          "file": "dist/obras/cooperativa-medalla-milagrosa-concepcion/index.html",
+          "page": "https://vipar.com.py/obras/cooperativa-medalla-milagrosa-concepcion/",
+          "alt": "Cielo raso y mamparas divisorias – Cooperativa Medalla Milagrosa – Concepción, foto 2"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 25356
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/cooperativa-medalla-milagrosa-concepcion/cielo-raso-mamparas-cooperativa-medalla-concepcion-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 384
+        },
+        {
+          "file": "dist/obras/cooperativa-medalla-milagrosa-concepcion/index.html",
+          "page": "https://vipar.com.py/obras/cooperativa-medalla-milagrosa-concepcion/",
+          "alt": "Cielo raso y mamparas divisorias – Cooperativa Medalla Milagrosa – Concepción, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 217612
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/edificio-concordia/vidrio-aluminio-edificio-concordia-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 102
+        },
+        {
+          "file": "src/lib/static-servicio-fachadas.ts",
+          "line": 156
+        },
+        {
+          "file": "dist/obras/edificio-concordia/index.html",
+          "page": "https://vipar.com.py/obras/edificio-concordia/",
+          "alt": "Edificio Concordia – Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/edificio-concordia/index.html",
+          "page": "https://vipar.com.py/obras/edificio-concordia/",
+          "alt": "Soluciones residenciales en vidrio – Edificio Concordia, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Soluciones residenciales en vidrio — Edificio Concordia, Asunción"
+        },
+        {
+          "file": "dist/servicios/carpinteria-de-aluminio/index.html",
+          "page": "https://vipar.com.py/servicios/carpinteria-de-aluminio/",
+          "alt": "Soluciones residenciales en vidrio — Edificio Concordia, Asunción"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Edificios"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Soluciones residenciales en vidrio — Edificio Concordia, Asunción"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Soluciones residenciales en vidrio — Edificio Concordia, Asunción"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Soluciones residenciales en vidrio — Edificio Concordia, Asunción"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Soluciones residenciales en vidrio — Edificio Concordia, Asunción"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 309,
+      "bytes": 28234,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/edificio-concordia/vidrio-aluminio-edificio-concordia-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 104
+        },
+        {
+          "file": "dist/obras/edificio-concordia/index.html",
+          "page": "https://vipar.com.py/obras/edificio-concordia/",
+          "alt": "Soluciones residenciales en vidrio – Edificio Concordia, foto 2"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 309,
+      "bytes": 21482
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/edificio-concordia/vidrio-aluminio-edificio-concordia-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 105
+        },
+        {
+          "file": "dist/obras/edificio-concordia/index.html",
+          "page": "https://vipar.com.py/obras/edificio-concordia/",
+          "alt": "Soluciones residenciales en vidrio – Edificio Concordia, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 309,
+      "bytes": 28040
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/edificio-concordia/vidrio-aluminio-edificio-concordia-04.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 106
+        },
+        {
+          "file": "dist/obras/edificio-concordia/index.html",
+          "page": "https://vipar.com.py/obras/edificio-concordia/",
+          "alt": "Soluciones residenciales en vidrio – Edificio Concordia, foto 4"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 309,
+      "bytes": 39246
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/galeria-senador-long/fachadas-puertas-vidrio-galeria-senador-long-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 362
+        },
+        {
+          "file": "src/lib/static-servicio-cortina.ts",
+          "line": 69
+        },
+        {
+          "file": "src/lib/static-servicio-puerta.ts",
+          "line": 110
+        },
+        {
+          "file": "dist/obras/galeria-senador-long/index.html",
+          "page": "https://vipar.com.py/obras/galeria-senador-long/",
+          "alt": "Galería Senador Long – Paraguay | VIPAR"
+        },
+        {
+          "file": "dist/obras/galeria-senador-long/index.html",
+          "page": "https://vipar.com.py/obras/galeria-senador-long/",
+          "alt": "Fachadas y puertas de vidrio – Galería Senador Long, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Fachadas y puertas de vidrio — Galería Senador Long, Paraguay"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Cortina para frente comercial"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Locales comerciales"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 26902,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/galeria-senador-long/fachadas-puertas-vidrio-galeria-senador-long-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 363
+        },
+        {
+          "file": "src/lib/static-servicio-cortina.ts",
+          "line": 117
+        },
+        {
+          "file": "dist/obras/galeria-senador-long/index.html",
+          "page": "https://vipar.com.py/obras/galeria-senador-long/",
+          "alt": "Fachadas y puertas de vidrio – Galería Senador Long, foto 2"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Locales"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 28998
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/local-comercial-capiata/vidriera-fachada-local-comercial-capiata-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 226
+        },
+        {
+          "file": "src/lib/static-servicio-fachadas.ts",
+          "line": 70
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Vidrieras y fachadas — Local Comercial – Capiatá, Capiatá"
+        },
+        {
+          "file": "dist/obras/local-comercial-capiata/index.html",
+          "page": "https://vipar.com.py/obras/local-comercial-capiata/",
+          "alt": "Local Comercial – Capiatá – Capiatá | VIPAR"
+        },
+        {
+          "file": "dist/obras/local-comercial-capiata/index.html",
+          "page": "https://vipar.com.py/obras/local-comercial-capiata/",
+          "alt": "Vidrieras y fachadas – Local Comercial – Capiatá, foto 1"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Fachada entubada"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 24750,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/loma-pyta-asuncion/vidrio-templado-puerta-batiente-auditorio-arandu-loma-pyta-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 716
+        },
+        {
+          "file": "src/lib/static-servicio-puerta.ts",
+          "line": 55
+        },
+        {
+          "file": "dist/obras/auditorio-arandu-loma-pyta/index.html",
+          "page": "https://vipar.com.py/obras/auditorio-arandu-loma-pyta/",
+          "alt": "Salón Auditorio Arandú – Ex Caballería – Loma Pyta, Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/auditorio-arandu-loma-pyta/index.html",
+          "page": "https://vipar.com.py/obras/auditorio-arandu-loma-pyta/",
+          "alt": "Vidrio templado polarizado y puerta batiente – Salón Auditorio Arandú – Ex Caballería, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Vidrio templado polarizado y puerta batiente — Salón Auditorio Arandú – Ex Caballería, Loma Pyta, Asunción"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Puerta batiente"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 354468
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/loma-pyta-asuncion/vidrio-templado-puerta-batiente-auditorio-arandu-loma-pyta-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 718
+        },
+        {
+          "file": "src/lib/static-servicio-puerta.ts",
+          "line": 120
+        },
+        {
+          "file": "dist/obras/auditorio-arandu-loma-pyta/index.html",
+          "page": "https://vipar.com.py/obras/auditorio-arandu-loma-pyta/",
+          "alt": "Vidrio templado polarizado y puerta batiente – Salón Auditorio Arandú – Ex Caballería, foto 2"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Obras en construcción"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 378022
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/loma-pyta-asuncion/vidrio-templado-puerta-batiente-auditorio-arandu-loma-pyta-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 719
+        },
+        {
+          "file": "dist/obras/auditorio-arandu-loma-pyta/index.html",
+          "page": "https://vipar.com.py/obras/auditorio-arandu-loma-pyta/",
+          "alt": "Vidrio templado polarizado y puerta batiente – Salón Auditorio Arandú – Ex Caballería, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 414714
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/loma-pyta-asuncion/vidrio-templado-puerta-batiente-auditorio-arandu-loma-pyta-04.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 720
+        },
+        {
+          "file": "dist/obras/auditorio-arandu-loma-pyta/index.html",
+          "page": "https://vipar.com.py/obras/auditorio-arandu-loma-pyta/",
+          "alt": "Vidrio templado polarizado y puerta batiente – Salón Auditorio Arandú – Ex Caballería, foto 4"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 2560,
+      "bytes": 485632
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/maria-antonieta-shopping-mariano-roque-alonso/vidriera-pano-fijo-maria-antonieta-shopping-mra-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 343
+        },
+        {
+          "file": "src/lib/static-servicio-ventana.ts",
+          "line": 115
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Vidrieras de paño fijo — María Antonieta – Shopping MRA, Mariano Roque Alonso"
+        },
+        {
+          "file": "dist/obras/maria-antonieta-shopping-mariano-roque-alonso/index.html",
+          "page": "https://vipar.com.py/obras/maria-antonieta-shopping-mariano-roque-alonso/",
+          "alt": "María Antonieta – Shopping MRA – Mariano Roque Alonso | VIPAR"
+        },
+        {
+          "file": "dist/obras/maria-antonieta-shopping-mariano-roque-alonso/index.html",
+          "page": "https://vipar.com.py/obras/maria-antonieta-shopping-mariano-roque-alonso/",
+          "alt": "Vidrieras de paño fijo – María Antonieta – Shopping MRA, foto 1"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Oficinas"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 24020,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 739
+        },
+        {
+          "file": "src/lib/static-servicio-cortina.ts",
+          "line": 19
+        },
+        {
+          "file": "src/lib/static-servicio-cortina.ts",
+          "line": 108
+        },
+        {
+          "file": "src/lib/static-servicios.ts",
+          "line": 64
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Cerramiento de quincho en vidrio con cortinas plegables — Quincho – Edificio Brasília, Av. Brasilia 1840, Asunción"
+        },
+        {
+          "file": "dist/obras/quincho-edificio-brasilia-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/quincho-edificio-brasilia-asuncion/",
+          "alt": "Quincho – Edificio Brasília – Av. Brasilia 1840, Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/quincho-edificio-brasilia-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/quincho-edificio-brasilia-asuncion/",
+          "alt": "Cerramiento de quincho en vidrio con cortinas plegables – Quincho – Edificio Brasília, foto 1"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Cortinas de vidrio para cerrar sin perder visual ni flexibilidad"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Quinchos"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Cerramiento de vidrio con cortinas plegables en quincho de edificio"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1442,
+      "bytes": 365236
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/mariscal-lopez-asuncion/cerramiento-vidrio-cortinas-plegables-quincho-edificio-brasilia-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 741
+        },
+        {
+          "file": "src/lib/static-servicio-cortina.ts",
+          "line": 61
+        },
+        {
+          "file": "src/lib/static-servicio-cortina.ts",
+          "line": 112
+        },
+        {
+          "file": "dist/obras/quincho-edificio-brasilia-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/quincho-edificio-brasilia-asuncion/",
+          "alt": "Cerramiento de quincho en vidrio con cortinas plegables – Quincho – Edificio Brasília, foto 2"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Cortina para quincho o galería"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Galerías"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1437,
+      "bytes": 117170
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/oficina-cooperativa-medalla-milagrosa/cortinas-divisorias-oficina-cooperativa-medalla-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 305
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Cortinas y divisorias — Oficina Cooperativa Medalla Milagrosa, Paraguay"
+        },
+        {
+          "file": "dist/obras/oficina-cooperativa-medalla-milagrosa/index.html",
+          "page": "https://vipar.com.py/obras/oficina-cooperativa-medalla-milagrosa/",
+          "alt": "Oficina Cooperativa Medalla Milagrosa – Paraguay | VIPAR"
+        },
+        {
+          "file": "dist/obras/oficina-cooperativa-medalla-milagrosa/index.html",
+          "page": "https://vipar.com.py/obras/oficina-cooperativa-medalla-milagrosa/",
+          "alt": "Cortinas y divisorias – Oficina Cooperativa Medalla Milagrosa, foto 1"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 36972,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/oficina/cielo-raso-mamparas-oficina-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1159
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 245
+        },
+        {
+          "file": "src/lib/static-servicio-cielo-raso.ts",
+          "line": 54
+        },
+        {
+          "file": "src/lib/static-servicio-mampara-divisoria.ts",
+          "line": 51
+        },
+        {
+          "file": "src/lib/static-servicios.ts",
+          "line": 46
+        },
+        {
+          "file": "dist/blog/como-dividir-oficinas-sin-obras-mayores/index.html",
+          "page": "https://vipar.com.py/blog/como-dividir-oficinas-sin-obras-mayores/",
+          "alt": "Oficina – Divisorias y Cielo Raso - Cielo raso y mamparas, foto 1"
+        },
+        {
+          "file": "dist/blog/como-dividir-oficinas-sin-obras-mayores/index.html",
+          "page": "https://vipar.com.py/blog/como-dividir-oficinas-sin-obras-mayores/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        },
+        {
+          "file": "dist/blog/costo-mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/blog/costo-mamparas-divisorias/",
+          "alt": "Oficina – Divisorias y Cielo Raso - Cielo raso y mamparas, foto 1"
+        },
+        {
+          "file": "dist/blog/costo-mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/blog/costo-mamparas-divisorias/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        },
+        {
+          "file": "dist/blog/mamparas-divisorias-oficinas/index.html",
+          "page": "https://vipar.com.py/blog/mamparas-divisorias-oficinas/",
+          "alt": "Oficina – Divisorias y Cielo Raso - Cielo raso y mamparas, foto 1"
+        },
+        {
+          "file": "dist/blog/mamparas-divisorias-oficinas/index.html",
+          "page": "https://vipar.com.py/blog/mamparas-divisorias-oficinas/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        },
+        {
+          "file": "dist/blog/vidrio-vs-panel-solido/index.html",
+          "page": "https://vipar.com.py/blog/vidrio-vs-panel-solido/",
+          "alt": "Oficina – Divisorias y Cielo Raso - Cielo raso y mamparas, foto 1"
+        },
+        {
+          "file": "dist/blog/vidrio-vs-panel-solido/index.html",
+          "page": "https://vipar.com.py/blog/vidrio-vs-panel-solido/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        },
+        {
+          "file": "dist/index.html",
+          "page": "https://vipar.com.py/",
+          "alt": "Cielo raso desmontable de yeso cartón en una oficina — obra VIPAR"
+        },
+        {
+          "file": "dist/index.html",
+          "page": "https://vipar.com.py/",
+          "alt": "Divisorias de oficina de vidrio templado con perfiles de aluminio — obra VIPAR"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        },
+        {
+          "file": "dist/obras/oficina-divisorias/index.html",
+          "page": "https://vipar.com.py/obras/oficina-divisorias/",
+          "alt": "Oficina – Divisorias y Cielo Raso – Paraguay | VIPAR"
+        },
+        {
+          "file": "dist/obras/oficina-divisorias/index.html",
+          "page": "https://vipar.com.py/obras/oficina-divisorias/",
+          "alt": "Cielo raso y mamparas – Oficina – Divisorias y Cielo Raso, foto 1"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Oficina · Cielo raso desmontable y divisorias · Paraguay"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Divisorias de vidrio templado con aluminio en una oficina — obra VIPAR"
+        },
+        {
+          "file": "dist/servicios/mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/servicios/mamparas-divisorias/",
+          "alt": "Oficina dividida con mamparas de vidrio templado y perfiles de aluminio — obra VIPAR"
+        },
+        {
+          "file": "dist/servicios/mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/servicios/mamparas-divisorias/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        },
+        {
+          "file": "dist/servicios/mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/servicios/mamparas-divisorias/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        },
+        {
+          "file": "dist/servicios/mamparas-divisorias/index.html",
+          "page": "https://vipar.com.py/servicios/mamparas-divisorias/",
+          "alt": "Mamparas divisorias instaladas en espacio corporativo"
+        },
+        {
+          "file": "dist/servicios/vidrio-templado/index.html",
+          "page": "https://vipar.com.py/servicios/vidrio-templado/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        },
+        {
+          "file": "dist/servicios/vidrio-templado/index.html",
+          "page": "https://vipar.com.py/servicios/vidrio-templado/",
+          "alt": "Cielo raso y mamparas — Oficina – Divisorias y Cielo Raso, Paraguay"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 367,
+      "bytes": 22570,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 524
+        },
+        {
+          "file": "src/lib/static-servicio-fachadas.ts",
+          "line": 84
+        },
+        {
+          "file": "dist/index.html",
+          "page": "https://vipar.com.py/",
+          "alt": "Universidad Pacífico – Ciencias Médicas - Pedro Juan Caballero, Amambay | VIPAR"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Muro cortina de vidrio reflectivo — Universidad Pacífico – Ciencias Médicas, Pedro Juan Caballero, Amambay"
+        },
+        {
+          "file": "dist/obras/pedro-juan-caballero/index.html",
+          "page": "https://vipar.com.py/obras/pedro-juan-caballero/",
+          "alt": "Universidad Pacífico – Ciencias Médicas – Pedro Juan Caballero, Amambay | VIPAR"
+        },
+        {
+          "file": "dist/obras/pedro-juan-caballero/index.html",
+          "page": "https://vipar.com.py/obras/pedro-juan-caballero/",
+          "alt": "Muro cortina de vidrio reflectivo – Universidad Pacífico – Ciencias Médicas, foto 1"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Muro cortina"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 307292
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 526
+        },
+        {
+          "file": "dist/obras/pedro-juan-caballero/index.html",
+          "page": "https://vipar.com.py/obras/pedro-juan-caballero/",
+          "alt": "Muro cortina de vidrio reflectivo – Universidad Pacífico – Ciencias Médicas, foto 2"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 115532
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 527
+        },
+        {
+          "file": "dist/obras/pedro-juan-caballero/index.html",
+          "page": "https://vipar.com.py/obras/pedro-juan-caballero/",
+          "alt": "Muro cortina de vidrio reflectivo – Universidad Pacífico – Ciencias Médicas, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 177348
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-04.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 528
+        },
+        {
+          "file": "dist/obras/pedro-juan-caballero/index.html",
+          "page": "https://vipar.com.py/obras/pedro-juan-caballero/",
+          "alt": "Muro cortina de vidrio reflectivo – Universidad Pacífico – Ciencias Médicas, foto 4"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 187358
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-05.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 529
+        },
+        {
+          "file": "dist/obras/pedro-juan-caballero/index.html",
+          "page": "https://vipar.com.py/obras/pedro-juan-caballero/",
+          "alt": "Muro cortina de vidrio reflectivo – Universidad Pacífico – Ciencias Médicas, foto 5"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 214128
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/pedro-juan-caballero/fachada-vidrio-universidad-pacifico-pedro-juan-caballero-06.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 530
+        },
+        {
+          "file": "dist/obras/pedro-juan-caballero/index.html",
+          "page": "https://vipar.com.py/obras/pedro-juan-caballero/",
+          "alt": "Muro cortina de vidrio reflectivo – Universidad Pacífico – Ciencias Médicas, foto 6"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 239016
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 146
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 403
+        },
+        {
+          "file": "src/lib/static-servicio-carpinteria-de-aluminio.ts",
+          "line": 66
+        },
+        {
+          "file": "src/lib/static-servicio-puerta.ts",
+          "line": 63
+        },
+        {
+          "file": "src/lib/static-servicio-ventana.ts",
+          "line": 19
+        },
+        {
+          "file": "src/lib/static-servicios.ts",
+          "line": 28
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Ventanas residenciales premium — Residencia San Lorenzo, San Lorenzo"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Ventanas y puertas corredizas de aluminio — Edificio Residencial – Recoleta, Recoleta, Asunción"
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Edificio Residencial – Recoleta – Recoleta, Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 1"
+        },
+        {
+          "file": "dist/obras/residencia-san-lorenzo/index.html",
+          "page": "https://vipar.com.py/obras/residencia-san-lorenzo/",
+          "alt": "Residencia San Lorenzo – San Lorenzo | VIPAR"
+        },
+        {
+          "file": "dist/obras/residencia-san-lorenzo/index.html",
+          "page": "https://vipar.com.py/obras/residencia-san-lorenzo/",
+          "alt": "Ventanas residenciales premium – Residencia San Lorenzo, foto 1"
+        },
+        {
+          "file": "dist/servicios/carpinteria-de-aluminio/index.html",
+          "page": "https://vipar.com.py/servicios/carpinteria-de-aluminio/",
+          "alt": "Puertas corredizas de aluminio"
+        },
+        {
+          "file": "dist/servicios/carpinteria-de-aluminio/index.html",
+          "page": "https://vipar.com.py/servicios/carpinteria-de-aluminio/",
+          "alt": "Ventanas residenciales premium — Residencia San Lorenzo, San Lorenzo"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Ventanas residenciales premium — Residencia San Lorenzo, San Lorenzo"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Ventanas y puertas corredizas de aluminio en edificio residencial"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Puerta corrediza"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Ventanas residenciales premium — Residencia San Lorenzo, San Lorenzo"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Ventanas de aluminio y cristal templado para viviendas, comercios y obras"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Ventanas residenciales premium — Residencia San Lorenzo, San Lorenzo"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 176878
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1147
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 405
+        },
+        {
+          "file": "src/lib/static-servicio-cortina.ts",
+          "line": 53
+        },
+        {
+          "file": "src/lib/static-servicio-ventana.ts",
+          "line": 63
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 2"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Cortina para balcón"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Ventana corrediza"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 91034
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 406
+        },
+        {
+          "file": "src/lib/static-servicio-cortina.ts",
+          "line": 103
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 3"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Balcones"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 127608
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-04.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 407
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 4"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 128018
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-05.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 408
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 5"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 2560,
+      "bytes": 446322
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-06.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 409
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 6"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 2560,
+      "bytes": 482040
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-07.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 410
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 7"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 172540
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-08.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 411
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 8"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 161506
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-09.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 412
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 9"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 113922
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-10.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 413
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 10"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 2560,
+      "bytes": 210820
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-11.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 414
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 11"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 2560,
+      "bytes": 244780
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/recoleta-asuncion/ventana-puerta-corrediza-aluminio-recoleta-asuncion-12.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 415
+        },
+        {
+          "file": "dist/obras/recoleta-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/recoleta-asuncion/",
+          "alt": "Ventanas y puertas corredizas de aluminio – Edificio Residencial – Recoleta, foto 12"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 136540
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-antonio-central/drywall-cielo-raso-local-comercial-san-antonio-central-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1171
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 574
+        },
+        {
+          "file": "src/lib/static-servicio-cielo-raso.ts",
+          "line": 47
+        },
+        {
+          "file": "src/lib/static-servicio-cielo-raso.ts",
+          "line": 103
+        },
+        {
+          "file": "dist/blog/cielo-raso-pvc-vs-yeso/index.html",
+          "page": "https://vipar.com.py/blog/cielo-raso-pvc-vs-yeso/",
+          "alt": "Remodelación Comercial – San Antonio - Drywall y cielo raso, foto 1"
+        },
+        {
+          "file": "dist/blog/cielo-raso-pvc-vs-yeso/index.html",
+          "page": "https://vipar.com.py/blog/cielo-raso-pvc-vs-yeso/",
+          "alt": "Drywall y cielo raso — Remodelación Comercial – San Antonio, San Antonio, Central"
+        },
+        {
+          "file": "dist/blog/como-elegir-cielo-raso/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-cielo-raso/",
+          "alt": "Remodelación Comercial – San Antonio - Drywall y cielo raso, foto 1"
+        },
+        {
+          "file": "dist/blog/como-elegir-cielo-raso/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-cielo-raso/",
+          "alt": "Drywall y cielo raso — Remodelación Comercial – San Antonio, San Antonio, Central"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-cielo-raso-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-cielo-raso-paraguay/",
+          "alt": "Remodelación Comercial – San Antonio - Drywall y cielo raso, foto 1"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-cielo-raso-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-cielo-raso-paraguay/",
+          "alt": "Drywall y cielo raso — Remodelación Comercial – San Antonio, San Antonio, Central"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Drywall y cielo raso — Remodelación Comercial – San Antonio, San Antonio, Central"
+        },
+        {
+          "file": "dist/obras/san-antonio-central/index.html",
+          "page": "https://vipar.com.py/obras/san-antonio-central/",
+          "alt": "Remodelación Comercial – San Antonio – San Antonio, Central | VIPAR"
+        },
+        {
+          "file": "dist/obras/san-antonio-central/index.html",
+          "page": "https://vipar.com.py/obras/san-antonio-central/",
+          "alt": "Drywall y cielo raso – Remodelación Comercial – San Antonio, foto 1"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Drywall y cielo raso — Remodelación Comercial – San Antonio, San Antonio, Central"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Remodelación de local comercial · San Antonio, Central"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Detalle tecnico de materiales de cielo raso"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 142496
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-antonio-central/drywall-cielo-raso-local-comercial-san-antonio-central-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 576
+        },
+        {
+          "file": "dist/obras/san-antonio-central/index.html",
+          "page": "https://vipar.com.py/obras/san-antonio-central/",
+          "alt": "Drywall y cielo raso – Remodelación Comercial – San Antonio, foto 2"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 205344
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-antonio-central/drywall-cielo-raso-local-comercial-san-antonio-central-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 577
+        },
+        {
+          "file": "dist/obras/san-antonio-central/index.html",
+          "page": "https://vipar.com.py/obras/san-antonio-central/",
+          "alt": "Drywall y cielo raso – Remodelación Comercial – San Antonio, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 170828
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 465
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Cielo raso y vidriera de aluminio — Local Comercial – San Lorenzo, San Lorenzo, Central"
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Local Comercial – San Lorenzo – San Lorenzo, Central | VIPAR"
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Cielo raso y vidriera de aluminio – Local Comercial – San Lorenzo, foto 1"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 81292
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 467
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Cielo raso y vidriera de aluminio – Local Comercial – San Lorenzo, foto 2"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1084,
+      "bytes": 96862
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 468
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Cielo raso y vidriera de aluminio – Local Comercial – San Lorenzo, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1084,
+      "bytes": 59860
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-04.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 469
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Cielo raso y vidriera de aluminio – Local Comercial – San Lorenzo, foto 4"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1084,
+      "bytes": 33138
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-05.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 470
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Cielo raso y vidriera de aluminio – Local Comercial – San Lorenzo, foto 5"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1084,
+      "bytes": 50208
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-06.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 471
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Cielo raso y vidriera de aluminio – Local Comercial – San Lorenzo, foto 6"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1084,
+      "bytes": 58270
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-07.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 472
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Cielo raso y vidriera de aluminio – Local Comercial – San Lorenzo, foto 7"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1084,
+      "bytes": 40848
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-08.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 473
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Cielo raso y vidriera de aluminio – Local Comercial – San Lorenzo, foto 8"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 286666
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-09.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 474
+        },
+        {
+          "file": "dist/obras/san-lorenzo-central/index.html",
+          "page": "https://vipar.com.py/obras/san-lorenzo-central/",
+          "alt": "Cielo raso y vidriera de aluminio – Local Comercial – San Lorenzo, foto 9"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 97616
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1143
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 48
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 58
+        },
+        {
+          "file": "src/lib/static-servicio-fachadas.ts",
+          "line": 19
+        },
+        {
+          "file": "dist/blog/box-de-bano-vidrio-vs-acrilico/index.html",
+          "page": "https://vipar.com.py/blog/box-de-bano-vidrio-vs-acrilico/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/box-de-bano-vidrio-vs-acrilico/index.html",
+          "page": "https://vipar.com.py/blog/box-de-bano-vidrio-vs-acrilico/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/blog/como-elegir-box-de-bano-ideal/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-box-de-bano-ideal/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/como-elegir-box-de-bano-ideal/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-box-de-bano-ideal/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-box-de-bano-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-box-de-bano-paraguay/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-box-de-bano-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-box-de-bano-paraguay/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/blog/medidas-estandar-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/medidas-estandar-box-de-bano/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/medidas-estandar-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/medidas-estandar-box-de-bano/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/blog/tipos-de-apertura-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/tipos-de-apertura-box-de-bano/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 1"
+        },
+        {
+          "file": "dist/blog/tipos-de-apertura-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/tipos-de-apertura-box-de-bano/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/nosotros/index.html",
+          "page": "https://vipar.com.py/nosotros/",
+          "alt": "Fachada integral del showroom VIPAR — vidrio y aluminio"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Obras VIPAR"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Showroom VIPAR"
+        },
+        {
+          "file": "dist/obras/showroom-vipar/index.html",
+          "page": "https://vipar.com.py/obras/showroom-vipar/",
+          "alt": "Showroom VIPAR – Ñemby, Central | VIPAR"
+        },
+        {
+          "file": "dist/obras/showroom-vipar/index.html",
+          "page": "https://vipar.com.py/obras/showroom-vipar/",
+          "alt": "Fachadas de vidrio y aluminio – Showroom VIPAR, foto 1"
+        },
+        {
+          "file": "dist/servicios/carpinteria-de-aluminio/index.html",
+          "page": "https://vipar.com.py/servicios/carpinteria-de-aluminio/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Fachadas de vidrio y aluminio en Paraguay"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Fachadas de vidrio y aluminio — Showroom VIPAR, Ñemby, Central"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 17586,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1139
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 60
+        },
+        {
+          "file": "src/lib/static-servicio-cortina.ts",
+          "line": 139
+        },
+        {
+          "file": "dist/blog/box-de-bano-vidrio-vs-acrilico/index.html",
+          "page": "https://vipar.com.py/blog/box-de-bano-vidrio-vs-acrilico/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 2"
+        },
+        {
+          "file": "dist/blog/como-elegir-box-de-bano-ideal/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-box-de-bano-ideal/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 2"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-box-de-bano-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-box-de-bano-paraguay/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 2"
+        },
+        {
+          "file": "dist/blog/medidas-estandar-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/medidas-estandar-box-de-bano/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 2"
+        },
+        {
+          "file": "dist/blog/tipos-de-apertura-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/tipos-de-apertura-box-de-bano/",
+          "alt": "Showroom VIPAR - Fachadas de vidrio y aluminio, foto 2"
+        },
+        {
+          "file": "dist/obras/showroom-vipar/index.html",
+          "page": "https://vipar.com.py/obras/showroom-vipar/",
+          "alt": "Fachadas de vidrio y aluminio – Showroom VIPAR, foto 2"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Orientación según el proyecto"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 11384
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-servicio-fachadas.ts",
+          "line": 98
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Sistema glazing"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 180508
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-04.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-servicio-fachadas.ts",
+          "line": 146
+        },
+        {
+          "file": "dist/nosotros/index.html",
+          "page": "https://vipar.com.py/nosotros/",
+          "alt": "Interior del showroom VIPAR"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Showrooms"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 297552
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-05.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-servicio-fachadas.ts",
+          "line": 179
+        },
+        {
+          "file": "dist/nosotros/index.html",
+          "page": "https://vipar.com.py/nosotros/",
+          "alt": "Detalle de carpintería de aluminio en el showroom"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Cotizá fachadas con una empresa paraguaya del rubro vidrio y aluminio"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 371340
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-06.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-servicio-puerta.ts",
+          "line": 142
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Orientación según el proyecto"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 157884
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-07.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-servicio-ventana.ts",
+          "line": 142
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Orientación según el proyecto"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 152606
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-08.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "dist/nosotros/index.html",
+          "page": "https://vipar.com.py/nosotros/",
+          "alt": "Paños de vidrio templado — showroom VIPAR"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 2560,
+      "bytes": 227684
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/showroom-vipar/fachadas-vidrio-aluminio-showroom-vipar-10.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "dist/nosotros/index.html",
+          "page": "https://vipar.com.py/nosotros/",
+          "alt": "Terminaciones interiores — showroom VIPAR"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 53004
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/sucursal-tigo-mariano-roque-alonso/fachada-comercial-sucursal-tigo-mra-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 79
+        },
+        {
+          "file": "src/lib/static-servicio-fachadas.ts",
+          "line": 141
+        },
+        {
+          "file": "src/lib/static-servicios.ts",
+          "line": 11
+        },
+        {
+          "file": "src/lib/static-servicios.ts",
+          "line": 55
+        },
+        {
+          "file": "dist/index.html",
+          "page": "https://vipar.com.py/",
+          "alt": "Sucursal Tigo - M.R.A. - Mariano Roque Alonso | VIPAR"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Sistemas de fachada comercial — Sucursal Tigo - M.R.A., Mariano Roque Alonso"
+        },
+        {
+          "file": "dist/obras/sucursal-tigo-mra/index.html",
+          "page": "https://vipar.com.py/obras/sucursal-tigo-mra/",
+          "alt": "Sucursal Tigo - M.R.A. – Mariano Roque Alonso | VIPAR"
+        },
+        {
+          "file": "dist/obras/sucursal-tigo-mra/index.html",
+          "page": "https://vipar.com.py/obras/sucursal-tigo-mra/",
+          "alt": "Sistemas de fachada comercial – Sucursal Tigo - M.R.A., foto 1"
+        },
+        {
+          "file": "dist/servicios/cortinas/index.html",
+          "page": "https://vipar.com.py/servicios/cortinas/",
+          "alt": "Sistemas de fachada comercial — Sucursal Tigo - M.R.A., Mariano Roque Alonso"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Locales comerciales"
+        },
+        {
+          "file": "dist/servicios/fachadas/index.html",
+          "page": "https://vipar.com.py/servicios/fachadas/",
+          "alt": "Sistemas de fachada comercial — Sucursal Tigo - M.R.A., Mariano Roque Alonso"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Frente comercial en vidrio templado — sucursal Tigo, Mariano Roque Alonso"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Fachada comercial con cristal templado en sucursal Tigo Mariano Roque Alonso"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Sistemas de fachada comercial — Sucursal Tigo - M.R.A., Mariano Roque Alonso"
+        },
+        {
+          "file": "dist/servicios/vidrio-templado/index.html",
+          "page": "https://vipar.com.py/servicios/vidrio-templado/",
+          "alt": "Puertas y frente de vidrio templado en la sucursal Tigo de Mariano Roque Alonso"
+        },
+        {
+          "file": "dist/servicios/vidrio-templado/index.html",
+          "page": "https://vipar.com.py/servicios/vidrio-templado/",
+          "alt": "Sistemas de fachada comercial — Sucursal Tigo - M.R.A., Mariano Roque Alonso"
+        },
+        {
+          "file": "dist/servicios/vidrio-templado/index.html",
+          "page": "https://vipar.com.py/servicios/vidrio-templado/",
+          "alt": "Sistemas de fachada comercial — Sucursal Tigo - M.R.A., Mariano Roque Alonso"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 33086,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/sucursal-tigo-mariano-roque-alonso/fachada-comercial-sucursal-tigo-mra-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 81
+        },
+        {
+          "file": "dist/obras/sucursal-tigo-mra/index.html",
+          "page": "https://vipar.com.py/obras/sucursal-tigo-mra/",
+          "alt": "Sistemas de fachada comercial – Sucursal Tigo - M.R.A., foto 2"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 20402
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/sucursal-tigo-mariano-roque-alonso/fachada-comercial-sucursal-tigo-mra-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 82
+        },
+        {
+          "file": "dist/obras/sucursal-tigo-mra/index.html",
+          "page": "https://vipar.com.py/obras/sucursal-tigo-mra/",
+          "alt": "Sistemas de fachada comercial – Sucursal Tigo - M.R.A., foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 32616
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/tigo-central/cielo-raso-vidrio-tigo-central-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 324
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Cielo raso y vidrios fijos — Tigo – Central, Central"
+        },
+        {
+          "file": "dist/obras/tigo-central/index.html",
+          "page": "https://vipar.com.py/obras/tigo-central/",
+          "alt": "Tigo – Central – Central | VIPAR"
+        },
+        {
+          "file": "dist/obras/tigo-central/index.html",
+          "page": "https://vipar.com.py/obras/tigo-central/",
+          "alt": "Cielo raso y vidrios fijos – Tigo – Central, foto 1"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 13630,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 434
+        },
+        {
+          "file": "src/lib/static-servicio-cielo-raso.ts",
+          "line": 34
+        },
+        {
+          "file": "src/lib/static-servicios.ts",
+          "line": 73
+        },
+        {
+          "file": "dist/blog/cielo-raso-pvc-vs-yeso/index.html",
+          "page": "https://vipar.com.py/blog/cielo-raso-pvc-vs-yeso/",
+          "alt": "Instalación Médica – Virgen del Huerto - Cielo raso con paneles LED, foto 1"
+        },
+        {
+          "file": "dist/blog/cielo-raso-pvc-vs-yeso/index.html",
+          "page": "https://vipar.com.py/blog/cielo-raso-pvc-vs-yeso/",
+          "alt": "Cielo raso con paneles LED — Instalación Médica – Virgen del Huerto, Virgen del Huerto, Asunción"
+        },
+        {
+          "file": "dist/blog/como-elegir-cielo-raso/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-cielo-raso/",
+          "alt": "Instalación Médica – Virgen del Huerto - Cielo raso con paneles LED, foto 1"
+        },
+        {
+          "file": "dist/blog/como-elegir-cielo-raso/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-cielo-raso/",
+          "alt": "Cielo raso con paneles LED — Instalación Médica – Virgen del Huerto, Virgen del Huerto, Asunción"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-cielo-raso-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-cielo-raso-paraguay/",
+          "alt": "Instalación Médica – Virgen del Huerto - Cielo raso con paneles LED, foto 1"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-cielo-raso-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-cielo-raso-paraguay/",
+          "alt": "Cielo raso con paneles LED — Instalación Médica – Virgen del Huerto, Virgen del Huerto, Asunción"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Cielo raso con paneles LED — Instalación Médica – Virgen del Huerto, Virgen del Huerto, Asunción"
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Instalación Médica – Virgen del Huerto – Virgen del Huerto, Asunción | VIPAR"
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 1"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Cielo raso desmontable con paneles LED — instalación médica Virgen del Huerto, Asunción"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Cielo raso con paneles LED — Instalación Médica – Virgen del Huerto, Virgen del Huerto, Asunción"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Cielo raso con paneles LED — Instalación Médica – Virgen del Huerto, Virgen del Huerto, Asunción"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Cielo raso con paneles LED en instalación institucional"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 59036
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 436
+        },
+        {
+          "file": "dist/blog/cielo-raso-pvc-vs-yeso/index.html",
+          "page": "https://vipar.com.py/blog/cielo-raso-pvc-vs-yeso/",
+          "alt": "Instalación Médica – Virgen del Huerto - Cielo raso con paneles LED, foto 2"
+        },
+        {
+          "file": "dist/blog/como-elegir-cielo-raso/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-cielo-raso/",
+          "alt": "Instalación Médica – Virgen del Huerto - Cielo raso con paneles LED, foto 2"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-cielo-raso-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-cielo-raso-paraguay/",
+          "alt": "Instalación Médica – Virgen del Huerto - Cielo raso con paneles LED, foto 2"
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 2"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 48134
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 437
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 59416
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-04.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 438
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 4"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 2560,
+      "bytes": 128586
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-05.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 439
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 5"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 135570
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-06.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 440
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 6"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 101252
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-07.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 441
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 7"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 2560,
+      "bytes": 103930
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-08.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 442
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 8"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 69948
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-09.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 443
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 9"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 54484
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-10.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 444
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 10"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 54910
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-11.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 445
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 11"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 74114
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-12.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 446
+        },
+        {
+          "file": "dist/obras/virgen-del-huerto-asuncion/index.html",
+          "page": "https://vipar.com.py/obras/virgen-del-huerto-asuncion/",
+          "alt": "Cielo raso con paneles LED – Instalación Médica – Virgen del Huerto, foto 12"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 93364
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/vivienda-lc/puertas-aluminio-vivienda-lc-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 283
+        },
+        {
+          "file": "src/lib/static-servicio-carpinteria-de-aluminio.ts",
+          "line": 48
+        },
+        {
+          "file": "src/lib/static-servicio-puerta.ts",
+          "line": 71
+        },
+        {
+          "file": "src/lib/static-servicios.ts",
+          "line": 37
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Puertas de carpintería de aluminio — Vivienda LC, Paraguay"
+        },
+        {
+          "file": "dist/obras/vivienda-lc/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-lc/",
+          "alt": "Vivienda LC – Paraguay | VIPAR"
+        },
+        {
+          "file": "dist/obras/vivienda-lc/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-lc/",
+          "alt": "Puertas de carpintería de aluminio – Vivienda LC, foto 1"
+        },
+        {
+          "file": "dist/servicios/carpinteria-de-aluminio/index.html",
+          "page": "https://vipar.com.py/servicios/carpinteria-de-aluminio/",
+          "alt": "Puertas batientes de aluminio"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Puerta de carpintería de aluminio instalada en vivienda"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Puerta panorámica o plegable"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 733,
+      "bytes": 62916,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/vivienda-lc/puertas-aluminio-vivienda-lc-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 285
+        },
+        {
+          "file": "src/lib/static-servicio-puerta.ts",
+          "line": 105
+        },
+        {
+          "file": "dist/obras/vivienda-lc/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-lc/",
+          "alt": "Puertas de carpintería de aluminio – Vivienda LC, foto 2"
+        },
+        {
+          "file": "dist/servicios/puertas/index.html",
+          "page": "https://vipar.com.py/servicios/puertas/",
+          "alt": "Viviendas"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 25056
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/vivienda-lc/puertas-aluminio-vivienda-lc-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 286
+        },
+        {
+          "file": "dist/obras/vivienda-lc/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-lc/",
+          "alt": "Puertas de carpintería de aluminio – Vivienda LC, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 413,
+      "bytes": 27756
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/vivienda-seket/barandas-vidrio-templado-vivienda-seket-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 207
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Barandas de vidrio templado — Vivienda Seket, Paraguay"
+        },
+        {
+          "file": "dist/obras/vivienda-seket/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-seket/",
+          "alt": "Vivienda Seket – Paraguay | VIPAR"
+        },
+        {
+          "file": "dist/obras/vivienda-seket/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-seket/",
+          "alt": "Barandas de vidrio templado – Vivienda Seket, foto 1"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 429,
+      "bytes": 46148,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/vivienda-trotte/aberturas-aluminio-cristal-vivienda-trotte-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 185
+        },
+        {
+          "file": "src/lib/static-servicio-carpinteria-de-aluminio.ts",
+          "line": 18
+        },
+        {
+          "file": "src/lib/static-servicio-ventana.ts",
+          "line": 71
+        },
+        {
+          "file": "src/lib/static-servicios.ts",
+          "line": 19
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Aberturas de aluminio y cristal — Vivienda Trotte, Paraguay"
+        },
+        {
+          "file": "dist/obras/vivienda-trotte/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-trotte/",
+          "alt": "Vivienda Trotte – Paraguay | VIPAR"
+        },
+        {
+          "file": "dist/obras/vivienda-trotte/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-trotte/",
+          "alt": "Aberturas de aluminio y cristal – Vivienda Trotte, foto 1"
+        },
+        {
+          "file": "dist/servicios/carpinteria-de-aluminio/index.html",
+          "page": "https://vipar.com.py/servicios/carpinteria-de-aluminio/",
+          "alt": "Instalacion de puerta de aluminio"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Aberturas de aluminio y cristal instaladas en vivienda por VIPAR"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Ventana con cristal templado"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 309,
+      "bytes": 47076,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/vivienda-trotte/aberturas-aluminio-cristal-vivienda-trotte-02.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 187
+        },
+        {
+          "file": "src/lib/static-servicio-ventana.ts",
+          "line": 105
+        },
+        {
+          "file": "dist/obras/vivienda-trotte/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-trotte/",
+          "alt": "Aberturas de aluminio y cristal – Vivienda Trotte, foto 2"
+        },
+        {
+          "file": "dist/servicios/ventanas/index.html",
+          "page": "https://vipar.com.py/servicios/ventanas/",
+          "alt": "Viviendas"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 309,
+      "bytes": 23548
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/vivienda-trotte/aberturas-aluminio-cristal-vivienda-trotte-03.webp",
+      "critical": false,
+      "references": [
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 188
+        },
+        {
+          "file": "dist/obras/vivienda-trotte/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-trotte/",
+          "alt": "Aberturas de aluminio y cristal – Vivienda Trotte, foto 3"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 309,
+      "bytes": 29500
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/vivienda/box-bano-vidrio-templado-vivienda-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1131
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 264
+        },
+        {
+          "file": "src/lib/static-servicio-box-de-bano.ts",
+          "line": 32
+        },
+        {
+          "file": "src/lib/static-servicios.ts",
+          "line": 82
+        },
+        {
+          "file": "dist/blog/box-de-bano-vidrio-vs-acrilico/index.html",
+          "page": "https://vipar.com.py/blog/box-de-bano-vidrio-vs-acrilico/",
+          "alt": "Vivienda – Box de Baño - Box de baño en vidrio templado, foto 1"
+        },
+        {
+          "file": "dist/blog/box-de-bano-vidrio-vs-acrilico/index.html",
+          "page": "https://vipar.com.py/blog/box-de-bano-vidrio-vs-acrilico/",
+          "alt": "Box de baño en vidrio templado — Vivienda – Box de Baño, Paraguay"
+        },
+        {
+          "file": "dist/blog/como-elegir-box-de-bano-ideal/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-box-de-bano-ideal/",
+          "alt": "Vivienda – Box de Baño - Box de baño en vidrio templado, foto 1"
+        },
+        {
+          "file": "dist/blog/como-elegir-box-de-bano-ideal/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-box-de-bano-ideal/",
+          "alt": "Box de baño en vidrio templado — Vivienda – Box de Baño, Paraguay"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-box-de-bano-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-box-de-bano-paraguay/",
+          "alt": "Vivienda – Box de Baño - Box de baño en vidrio templado, foto 1"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-box-de-bano-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-box-de-bano-paraguay/",
+          "alt": "Box de baño en vidrio templado — Vivienda – Box de Baño, Paraguay"
+        },
+        {
+          "file": "dist/blog/medidas-estandar-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/medidas-estandar-box-de-bano/",
+          "alt": "Vivienda – Box de Baño - Box de baño en vidrio templado, foto 1"
+        },
+        {
+          "file": "dist/blog/medidas-estandar-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/medidas-estandar-box-de-bano/",
+          "alt": "Box de baño en vidrio templado — Vivienda – Box de Baño, Paraguay"
+        },
+        {
+          "file": "dist/blog/tipos-de-apertura-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/tipos-de-apertura-box-de-bano/",
+          "alt": "Vivienda – Box de Baño - Box de baño en vidrio templado, foto 1"
+        },
+        {
+          "file": "dist/blog/tipos-de-apertura-box-de-bano/index.html",
+          "page": "https://vipar.com.py/blog/tipos-de-apertura-box-de-bano/",
+          "alt": "Box de baño en vidrio templado — Vivienda – Box de Baño, Paraguay"
+        },
+        {
+          "file": "dist/index.html",
+          "page": "https://vipar.com.py/",
+          "alt": "Box de ducha en vidrio templado de 8 mm — vivienda en Paraguay"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Box de baño en vidrio templado — Vivienda – Box de Baño, Paraguay"
+        },
+        {
+          "file": "dist/obras/vivienda-box-de-bano/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-box-de-bano/",
+          "alt": "Vivienda – Box de Baño – Paraguay | VIPAR"
+        },
+        {
+          "file": "dist/obras/vivienda-box-de-bano/index.html",
+          "page": "https://vipar.com.py/obras/vivienda-box-de-bano/",
+          "alt": "Box de baño en vidrio templado – Vivienda – Box de Baño, foto 1"
+        },
+        {
+          "file": "dist/servicios/box-de-bano/index.html",
+          "page": "https://vipar.com.py/servicios/box-de-bano/",
+          "alt": "Box de ducha residencial en vidrio templado de 8 mm con perfiles de aluminio — obra VIPAR"
+        },
+        {
+          "file": "dist/servicios/box-de-bano/index.html",
+          "page": "https://vipar.com.py/servicios/box-de-bano/",
+          "alt": "Box de baño en vidrio templado — Vivienda – Box de Baño, Paraguay"
+        },
+        {
+          "file": "dist/servicios/box-de-bano/index.html",
+          "page": "https://vipar.com.py/servicios/box-de-bano/",
+          "alt": "Box de baño en vidrio templado — Vivienda – Box de Baño, Paraguay"
+        },
+        {
+          "file": "dist/servicios/index.html",
+          "page": "https://vipar.com.py/servicios/",
+          "alt": "Box de baño en vidrio templado instalado en vivienda"
+        },
+        {
+          "file": "dist/servicios/vidrio-templado/index.html",
+          "page": "https://vipar.com.py/servicios/vidrio-templado/",
+          "alt": "Box de baño en vidrio templado — Vivienda – Box de Baño, Paraguay"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 550,
+      "height": 825,
+      "bytes": 15302,
+      "warning": "Hero menor a 800 px: solicitar original de mayor resolución"
+    },
+    {
+      "url": "https://vipar.moochsoft.com/obras/ypane-central/cielo-raso-pvc-carde-apf-ypane-01.webp",
+      "critical": true,
+      "references": [
+        {
+          "file": "src/lib/static-blog.ts",
+          "line": 1167
+        },
+        {
+          "file": "src/lib/static-obras.ts",
+          "line": 761
+        },
+        {
+          "file": "dist/blog/cielo-raso-pvc-vs-yeso/index.html",
+          "page": "https://vipar.com.py/blog/cielo-raso-pvc-vs-yeso/",
+          "alt": "CARDE – Centro de Alto Rendimiento APF - Cielo raso de PVC, foto 1"
+        },
+        {
+          "file": "dist/blog/cielo-raso-pvc-vs-yeso/index.html",
+          "page": "https://vipar.com.py/blog/cielo-raso-pvc-vs-yeso/",
+          "alt": "Cielo raso de PVC — CARDE – Centro de Alto Rendimiento APF, Ypané, Central"
+        },
+        {
+          "file": "dist/blog/como-elegir-cielo-raso/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-cielo-raso/",
+          "alt": "CARDE – Centro de Alto Rendimiento APF - Cielo raso de PVC, foto 1"
+        },
+        {
+          "file": "dist/blog/como-elegir-cielo-raso/index.html",
+          "page": "https://vipar.com.py/blog/como-elegir-cielo-raso/",
+          "alt": "Cielo raso de PVC — CARDE – Centro de Alto Rendimiento APF, Ypané, Central"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-cielo-raso-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-cielo-raso-paraguay/",
+          "alt": "CARDE – Centro de Alto Rendimiento APF - Cielo raso de PVC, foto 1"
+        },
+        {
+          "file": "dist/blog/cuanto-cuesta-cielo-raso-paraguay/index.html",
+          "page": "https://vipar.com.py/blog/cuanto-cuesta-cielo-raso-paraguay/",
+          "alt": "Cielo raso de PVC — CARDE – Centro de Alto Rendimiento APF, Ypané, Central"
+        },
+        {
+          "file": "dist/index.html",
+          "page": "https://vipar.com.py/",
+          "alt": "CARDE – Centro de Alto Rendimiento APF - Ypané, Central | VIPAR"
+        },
+        {
+          "file": "dist/obras/carde-apf-ypane/index.html",
+          "page": "https://vipar.com.py/obras/carde-apf-ypane/",
+          "alt": "CARDE – Centro de Alto Rendimiento APF – Ypané, Central | VIPAR"
+        },
+        {
+          "file": "dist/obras/carde-apf-ypane/index.html",
+          "page": "https://vipar.com.py/obras/carde-apf-ypane/",
+          "alt": "Cielo raso de PVC – CARDE – Centro de Alto Rendimiento APF, foto 1"
+        },
+        {
+          "file": "dist/obras/index.html",
+          "page": "https://vipar.com.py/obras/",
+          "alt": "Cielo raso de PVC — CARDE – Centro de Alto Rendimiento APF, Ypané, Central"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Cielo raso de PVC — CARDE – Centro de Alto Rendimiento APF, Ypané, Central"
+        },
+        {
+          "file": "dist/servicios/cielo-raso/index.html",
+          "page": "https://vipar.com.py/servicios/cielo-raso/",
+          "alt": "Cielo raso de PVC — CARDE – Centro de Alto Rendimiento APF, Ypané, Central"
+        }
+      ],
+      "ok": true,
+      "status": 200,
+      "contentType": "image/webp",
+      "width": 1920,
+      "height": 1437,
+      "bytes": 182420
+    }
+  ]
+}

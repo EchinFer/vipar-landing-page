@@ -28,7 +28,7 @@ const {
 
 {
   obras.length > 0 && (
-    <section class:list={["ds-related-works", className]}>
+    <section class:list={["ds-related-works", obras.length === 1 && "ds-related-works--single", className]}>
       <Container>
         <div class="ds-related-works__head">
           <div class="ds-related-works__copy">

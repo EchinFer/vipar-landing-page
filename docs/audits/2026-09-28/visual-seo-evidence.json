@@ -1,0 +1,722 @@
+{
+  "generatedAt": "2026-09-28T21:10:19.759Z",
+  "source": "evidence.json / gsc.namedQueriesCurrent + gsc.queryPageCurrent",
+  "period": {
+    "start": "2026-06-28",
+    "end": "2026-09-25"
+  },
+  "filter": "vidrio templado|cristal templado|blindex",
+  "scope": "Solo queries visibles; no representa volumen total del mercado",
+  "totals": {
+    "queries": 43,
+    "impressions": 182,
+    "clicks": 3
+  },
+  "blindex": {
+    "queries": 4,
+    "impressions": 4,
+    "clicks": 1
+  },
+  "queries": [
+    {
+      "query": "cristal templado precio",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 8
+    },
+    {
+      "query": "mampara blindex baño",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 44
+    },
+    {
+      "query": "vidrio templado precio paraguay",
+      "clicks": 1,
+      "impressions": 27,
+      "ctr": 0.037,
+      "position": 3.3
+    },
+    {
+      "query": "baño de vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "blindex para baño",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "query": "box de baño vidrio templado",
+      "clicks": 0,
+      "impressions": 49,
+      "ctr": 0,
+      "position": 6.1
+    },
+    {
+      "query": "comprar vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "cortinas de vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "cristal templado",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "query": "cristal templado a medida",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "donde comprar vidrio templado a medida",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "query": "fabrica de cristal templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "fabrica de vidrio templado",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10.7
+    },
+    {
+      "query": "instalacion de mamparas de vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "query": "mampara de vidrio templado",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "query": "mamparas de baño de cristal templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "mamparas de cristal templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "query": "mamparas de vidrio templado",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2.3
+    },
+    {
+      "query": "mamparas de vidrio templado para baños",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "mamparas vidrio templado para baño",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "oficina de vidrio templado",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "paredes de vidrio templado para casa",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "precio de vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "query": "precio de vidrio templado para baño",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "query": "precio del vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "query": "precio vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "proveedor de vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "query": "proveedores de vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "puertas batientes de vidrio templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "query": "puertas blindex reparación",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "puertas de blindex para negocios",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "vidrio cristal templado",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "query": "vidrio templado",
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "query": "vidrio templado 6mm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "vidrio templado a medida",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "query": "vidrio templado cerca de mi",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "query": "vidrio templado medidas y precio",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "vidrio templado para baño",
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 6.3
+    },
+    {
+      "query": "vidrio templado para baño precio",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "query": "vidrio templado para ventanas",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "query": "vidrio templado precio",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 6.8
+    },
+    {
+      "query": "vidrio templado precio m2 paraguay",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "query": "vidrio templados",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    }
+  ],
+  "queryPages": [
+    {
+      "query": "box de baño vidrio templado",
+      "page": "https://vipar.com.py/servicios/box-de-bano/",
+      "clicks": 0,
+      "impressions": 31,
+      "ctr": 0,
+      "position": 5.3
+    },
+    {
+      "query": "vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 8.2
+    },
+    {
+      "query": "vidrio templado precio paraguay",
+      "page": "https://vipar.com.py/",
+      "clicks": 1,
+      "impressions": 27,
+      "ctr": 0.037,
+      "position": 3.3
+    },
+    {
+      "query": "box de baño vidrio templado",
+      "page": "https://vipar.com.py/blog/box-de-bano-vidrio-vs-acrilico/",
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 8.9
+    },
+    {
+      "query": "vidrio templado para baño",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 6.3
+    },
+    {
+      "query": "vidrio templado precio",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 6.8
+    },
+    {
+      "query": "vidrio templado cerca de mi",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "query": "box de baño vidrio templado",
+      "page": "https://vipar.com.py/blog/cuanto-cuesta-box-de-bano-paraguay/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 2.4
+    },
+    {
+      "query": "fabrica de vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10.7
+    },
+    {
+      "query": "mamparas de vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2.3
+    },
+    {
+      "query": "box de baño vidrio templado",
+      "page": "https://vipar.com.py/blog/como-elegir-box-de-bano-ideal/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "cristal templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "query": "mampara de vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "query": "mamparas de vidrio templado para baños",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "oficina de vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "vidrio templado a medida",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "query": "vidrio templado para baño",
+      "page": "https://vipar.com.py/servicios/box-de-bano/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11.5
+    },
+    {
+      "query": "vidrio templado para baño precio",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "query": "cristal templado precio",
+      "page": "https://vipar.com.py/",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 8
+    },
+    {
+      "query": "mampara blindex baño",
+      "page": "https://vipar.com.py/servicios/box-de-bano/",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 44
+    },
+    {
+      "query": "baño de vidrio templado",
+      "page": "https://vipar.com.py/servicios/box-de-bano/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "blindex para baño",
+      "page": "https://vipar.com.py/servicios/box-de-bano/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "query": "comprar vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "cortinas de vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "cristal templado a medida",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "cristal templado a medida",
+      "page": "https://vipar.com.py/servicios/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "query": "donde comprar vidrio templado a medida",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "query": "fabrica de cristal templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "instalacion de mamparas de vidrio templado",
+      "page": "https://vipar.com.py/blog/costo-mamparas-divisorias/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "query": "mamparas de baño de cristal templado",
+      "page": "https://vipar.com.py/servicios/box-de-bano/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "query": "mamparas de cristal templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "query": "mamparas vidrio templado para baño",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "paredes de vidrio templado para casa",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "precio de vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "query": "precio de vidrio templado para baño",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "query": "precio del vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "query": "precio vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "proveedor de vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "query": "proveedores de vidrio templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "puertas batientes de vidrio templado",
+      "page": "https://vipar.com.py/servicios/puertas/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "query": "puertas blindex reparación",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "puertas de blindex para negocios",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "query": "vidrio cristal templado",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "query": "vidrio templado",
+      "page": "https://vipar.com.py/servicios/box-de-bano/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "vidrio templado 6mm",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "query": "vidrio templado medidas y precio",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "vidrio templado para ventanas",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "query": "vidrio templado precio m2 paraguay",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "query": "vidrio templados",
+      "page": "https://vipar.com.py/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    }
+  ],
+  "brandOffer": {
+    "status": "confirmed_by_user",
+    "date": "2026-09-28",
+    "doesNotConfirm": "Distribución oficial, certificaciones o marca del vidrio de cada foto"
+  }
+}

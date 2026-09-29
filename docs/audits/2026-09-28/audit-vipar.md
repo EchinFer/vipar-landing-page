@@ -1,5 +1,7 @@
 # 1. Executive Summary
 
+**Actualización de revisión, 28/09/2026:** [los cambios preparados y el orden operativo](implementation-followup.md) incorporan la corrección directa del formulario, la validación comercial de Asunción y los clusters existentes antes de crear más artículos. Este informe conserva el baseline previo a publicación.
+
 Auditoría de VIPAR, realizada el 28/09/2026 con datos de GA4, Google Search Console y PostHog. **La mayor oportunidad observable está en recuperar y mejorar la captación comercial de cielo raso, box de baño y mamparas divisorias, y convertir la demanda de precios en consultas identificables. El impacto en leads calificados o ventas todavía no puede demostrarse.**
 
 1. Organic Search aporta **651 de 783 sesiones** y **101 usuarios con intención de contacto** en los últimos 90 días. Es el principal canal de captación observado.
@@ -79,7 +81,7 @@ La unión de eventos deduplica usuarios/sesiones de WhatsApp, formulario, teléf
 |---|---|---|---|
 | Crítico | No existe registro accesible de consultas recibidas, calificación o ventas; confirmado por el usuario | No se puede calcular Qualified Leads, pipeline, revenue ni ROI por servicio | Crear registro mínimo con identificador y estados comerciales; requiere colaboración del cliente |
 | Crítico | 127 key events = 119 WhatsApp + 8 formularios; el formulario genera también WhatsApp | Un mismo recorrido produce varias conversiones contabilizadas | Separar etapas y publicar una métrica deduplicada de contacto; no sumar todos los key events |
-| Crítico | El formulario incluye email en payloads enviados por el dispatcher a GA4 | Riesgo de enviar información identificable; redacción efectiva no verificada | Eliminar email y datos personales antes del dispatch a GA4; usar ID opaco |
+| Crítico | El formulario incluye email en payloads enviados por el dispatcher a GA4 | El código envía explícitamente el email a `gtag('event', eventName, payload)` sin redacción; no se verificó su almacenamiento histórico en el receptor | Eliminar datos personales antes del dispatch; usar ID opaco cuando exista registro comercial |
 | Importante | 841 pageviews en localhost en el periodo anterior, de 1.585 totales | Distorsiona tráfico, engagement, páginas y comparaciones | Mantener baseline limpio; separar desarrollo y comprobar filtros internos de producción |
 | Importante | GSC cubre únicamente el prefijo sin `www`; GA4 registra tráfico orgánico histórico en `www` | El descenso de febrero–abril y el rebote posterior coinciden con el cambio de host; la visibilidad global histórica no queda cubierta | Incorporar propiedad de dominio y/o propiedad de `www`; conservar ambas series sin asumir recuperación retroactiva |
 | Importante | Cielo raso: 174 pageviews en PostHog frente a 46 `service_page_viewed`; GA4 registra 620 eventos de servicio y PostHog 254 en el periodo | El funnel basado en el evento custom omite visitas | Coordinar vista de página y consentimiento; emitir una sola vista válida cuando haya consentimiento y navegación nueva |
@@ -489,7 +491,8 @@ Impacto, confianza y esfuerzo son cualitativos; no se inventa un ICE numérico n
 | P2 | Probar casos pertinentes integrados en servicios | UX / CRO | Incierto | Baja–media | Medio | Portfolio poco frecuente antes de contacto |
 | P2 | Redirigir box-bano y auditar aliases históricos | SEO / UX | Bajo con evidencia actual | Alta | Bajo | 404, 1 clic |
 | P2 | Medir intentos/validación nativa, teléfono/email y errores JS | Tracking | Medio | Alta en necesidad; QA pendiente | Medio | Sin serie completa de estos resultados |
-| P3 | Evaluar nuevas páginas PVC/cristal templado/locales | Arquitectura | No estimable aún | Baja–media | Medio–alto | Demanda existente; diferenciación/oferta a validar |
+| P2 | Validar cobertura real y una posible landing de Asunción | SEO local | Potencial comercial por comprobar | Media en demanda; cobertura pendiente | Medio | vidrieria asuncion: 464 impresiones, 5 clics, posición 5,7; evitar páginas duplicadas |
+| P3 | Evaluar nuevas páginas PVC/cristal templado | Arquitectura | No estimable aún | Baja–media | Medio–alto | Demanda existente; diferenciación/oferta a validar |
 | P3 | Integrar CRM/WhatsApp comercial y revenue automatizados | Business | Alto potencial futuro | Dependiente de acceso | Alto / no estimable | Registro mínimo todavía inexistente |
 
 P0 de registro comercial no exige que la agencia obtenga acceso completo al CRM: un listado mínimo de IDs y estados del cliente puede ser suficiente para empezar. Sin su participación, esa parte seguirá no disponible.

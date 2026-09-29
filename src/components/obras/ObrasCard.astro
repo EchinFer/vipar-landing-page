@@ -17,7 +17,8 @@ const { obra } = Astro.props;
   <div class="vipar-obras-card__image">
     <img
       src={obra.imagen}
-      alt={obra.titulo}
+      alt={`${obra.systemLabel} — ${obra.titulo}, ${obra.ubicacion}`}
+      class:list={[obra.imageRotation === 90 && "ds-photo-rotate-90"]}
       width={1200}
       height={900}
       loading="lazy"
@@ -29,13 +30,14 @@ const { obra } = Astro.props;
       {obra.sectorLabel}
     </Text>
     <Heading level={3} variant="sm">{obra.titulo}</Heading>
+    <Text size="sm">Sistema: {obra.systemLabel}</Text>
     <div class="vipar-obras-card__location">
       <UiIcon name="geo-alt" />
       {obra.ubicacion}
     </div>
     <Text size="sm">{obra.resumen}</Text>
     <ActionLink
-      href={`/obras/${obra.slug}`}
+      href={`/obras/${obra.slug}/`}
       tone="primary"
       size="sm"
       class="vipar-obras-card__cta"
@@ -45,3 +47,7 @@ const { obra } = Astro.props;
     </ActionLink>
   </div>
 </Card>
+<style>
+  .vipar-obras-card__image { position: relative; overflow: hidden; }
+  .ds-photo-rotate-90 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg) scale(1.6); }
+</style>

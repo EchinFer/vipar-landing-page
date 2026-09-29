@@ -1,18 +1,10 @@
 // @ts-nocheck
 import { defineConfig } from "astro/config";
-import { loadEnv } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import compress from "vite-plugin-compression";
 import sitemap from "@astrojs/sitemap";
+import imageAudit from "./scripts/image-audit-integration.mjs";
 
-const { NODE_TLS_REJECT_UNAUTHORIZED } = loadEnv(
-  // @ts-ignore
-  process.env.NODE_ENV,
-  // @ts-ignore
-  process.cwd(),
-  ""
-);
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = NODE_TLS_REJECT_UNAUTHORIZED;
 // @ts-ignore
 const site = process.env.ASTRO_SITE_URL || "https://vipar.com.py";
 
@@ -70,6 +62,7 @@ export default defineConfig({
         return item;
       },
     }),
+    imageAudit(site),
   ],
   vite: {
     plugins: [tailwindcss(), compress()],

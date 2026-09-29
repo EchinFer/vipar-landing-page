@@ -1,50 +1,28 @@
-# VIPAR Unified Measurement Rollout
+# VIPAR Unified Measurement Rollout — v2
 
-## Implemented in code
-- `whatsapp_click` is now the canonical WhatsApp conversion event across the site.
-- `service_page_viewed` is emitted centrally for every service landing through `Layout.astro`.
-- WhatsApp links are enriched client-side with landing, source, medium, campaign, CTA location, form ID, and email when available.
-- Service hub and legacy WhatsApp CTA names are normalized to a shared taxonomy.
-- Legacy service slugs now redirect to the current canonical URLs:
-  - `/servicios/mampara-divisoria/` -> `/servicios/mamparas-divisorias/`
-  - `/servicios/fachada/` -> `/servicios/fachadas/`
-  - `/servicios/ventana/` -> `/servicios/ventanas/`
+Estado: preparado en el repositorio, sin publicar. Contrato y migración: [implementation-followup.md](../audits/2026-09-28/implementation-followup.md).
 
-## Manual GA4 follow-up
-- Mark these events as `Key events` in GA4:
-  - `whatsapp_click`
-  - `form_submit`
-  - `lead_email_captured`
-- Validate in DebugView that these properties arrive consistently:
-  - `page_path`
-  - `page_type`
-  - `service_name`
-  - `cta_location`
-  - `device_type`
-  - `lead_source`
-  - `lead_medium`
-  - `campaign`
-  - `form_id`
+## Eventos
 
-## Manual PostHog follow-up
-- Repair any form funnel that still starts on `form_start`.
-- Preferred funnels:
-  - `service_page_viewed -> whatsapp_click`
-  - `form_view -> lead_email_captured -> form_submit -> whatsapp_click`
-- Recommended breakdowns:
-  - `service_name`
-  - `cta_location`
-  - `page_type`
-  - `device_type`
-  - `form_id`
+- `whatsapp_handoff`: intención en enlaces, FAB y formulario. Abrir WhatsApp no confirma consulta recibida.
+- Formulario: `form_view` visible, `form_start`, `form_submit_attempt`, `form_error` y `form_validated`. Email y servicio opcionales; Presupuesto por defecto; preselección contextual.
+- `service_page_viewed`: después del consentimiento y disponibilidad del proveedor, una vez por página/herramienta. Validar contra vistas reales de servicio.
+- El formulario activo deja de emitir `lead_email_captured` y `form_submit`; aliases de WhatsApp se normalizan a `whatsapp_handoff`.
+- Leads recibidos/calificados, presupuestos enviados, ventas y revenue: **No disponible / no instrumentado**.
 
-## QA checklist
-- Confirm every service page emits one `service_page_viewed` on load.
-- Confirm WhatsApp CTAs no longer create fragmented primary events like `whatsapp_service_click` or `whatsapp_fab_click`.
-- Confirm both `vipar-home-form` and `vipar-contact-form` emit:
-  - `form_view`
-  - `form_start`
-  - `lead_email_captured`
-  - `form_submit`
-  - `whatsapp_click`
-- Confirm `cta_location` does not accumulate meaningful traffic in `unknown`.
+## Privacidad y atribución
+
+Lista permitida de propiedades sin email, nombre, teléfono, mensaje, URL completa de WhatsApp u objetos anidados. Email opcional únicamente en el mensaje destinado al receptor de WhatsApp; `has_email` booleano. Identificación por email retirada del formulario activo en PostHog.
+
+`form_source` es contexto del formulario. `first_touch_*`, `session_*` y `current_referrer` son conceptos distintos; referrers internos no sustituyen la adquisición. No enviar analytics de producción desde localhost/previews.
+
+## Acciones manuales al publicar
+
+1. Anotar fecha/hora real y separar versiones.
+2. Marcar `whatsapp_handoff` como Key event de intención en GA4. Retirar la suma de eventos de validación/email/formulario como supuestos leads.
+3. Actualizar dimensiones y dashboards; usar usuarios/sesiones únicos y unión de contactos.
+4. QA de consentimiento nuevo, guardado y rechazado, SDK tardío, preselección, payloads y deduplicación.
+5. Verificar aliases HTTP: box-bano sigue 404 en producción al 28/09/2026. Apache debe aplicar el `.htaccess` incluido en `dist`; otros proveedores necesitan reglas equivalentes.
+6. Crear propiedad GSC de dominio cuando haya acceso autorizado de DNS.
+
+Baseline: [audit-vipar.md](../audits/2026-09-28/audit-vipar.md). Los antiguos funnels y targets requieren revalidación de periodo, semántica y muestra antes de aplicarlos a v2.

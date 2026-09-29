@@ -9,6 +9,7 @@ export interface StaticObra {
   descripcion: string;
   resumen: string;
   imagen: string;
+  imageRotation?: 90;
   imagenes: string[];
   cliente: string;
   fecha: string;
@@ -249,8 +250,8 @@ export const staticObras: StaticObra[] = [
     sector: "corporativo",
     sectorLabel: "Corporativo",
     systemLabel: "Cielo raso y mamparas",
-    displayTags: ["Cielo raso", "Mamparas", "Aluminio"],
-    filterTags: ["cielos-rasos", "mamparas", "aluminio"],
+    displayTags: ["Cielo raso", "Mamparas", "Aluminio", "Cristal templado"],
+    filterTags: ["cielos-rasos", "mamparas", "aluminio", "cristal-templado"],
     category: [{ name: "Corporativo", slug: "corporativo" }],
   },
   {
@@ -268,7 +269,7 @@ export const staticObras: StaticObra[] = [
     sector: "residencial",
     sectorLabel: "Residencial",
     systemLabel: "Box de baño en vidrio templado",
-    displayTags: ["Box de baño", "Cristal"],
+    displayTags: ["Box de baño", "Cristal templado"],
     filterTags: ["cristal-templado", "aluminio"],
     category: [{ name: "Residencial", slug: "residencial" }],
   },
@@ -751,6 +752,7 @@ export const staticObras: StaticObra[] = [
   },
   {
     slug: "carde-apf-ypane",
+    imageRotation: 90,
     titulo: "CARDE – Centro de Alto Rendimiento APF",
     descripcion:
       "Instalación de cielo raso de PVC en el Centro de Alto Rendimiento Deportivo (CARDE) de la Asociación Paraguaya de Fútbol, ubicado en Ypané. El cielo raso de PVC fue elegido por su alta resistencia a la humedad, fácil mantenimiento y acabado limpio, ideal para instalaciones deportivas de uso intensivo.",
@@ -781,20 +783,20 @@ const relatedObraPresets: Record<
   }
 > = {
   "box-de-bano": {
-    preferredSlugs: ["showroom-vipar", "residencia-san-lorenzo", "edificio-concordia"],
-    fallbackTags: ["cristal-templado", "aluminio", "ventanas"],
+    preferredSlugs: ["vivienda-box-de-bano"],
+    fallbackTags: [],
   },
   "carpinteria-de-aluminio": {
     preferredSlugs: ["showroom-vipar", "edificio-concordia", "residencia-san-lorenzo"],
     fallbackTags: ["aluminio", "ventanas", "puertas"],
   },
   "cielo-raso": {
-    preferredSlugs: ["showroom-vipar", "cooperativa-medalla", "oficinas-corporativas-itau"],
-    fallbackTags: ["mamparas", "aluminio", "cristal-templado"],
+    preferredSlugs: ["virgen-del-huerto-asuncion", "oficina-divisorias", "carde-apf-ypane"],
+    fallbackTags: ["cielos-rasos"],
   },
   "mampara-divisoria": {
-    preferredSlugs: ["cooperativa-medalla", "oficinas-corporativas-itau", "showroom-vipar"],
-    fallbackTags: ["mamparas", "cristal-templado", "aluminio"],
+    preferredSlugs: ["oficina-divisorias"],
+    fallbackTags: [],
   },
   ventana: {
     preferredSlugs: ["residencia-san-lorenzo", "edificio-concordia", "showroom-vipar"],

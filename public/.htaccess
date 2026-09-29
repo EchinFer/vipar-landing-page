@@ -1,0 +1,12 @@
+# Keep this file in the static build; Apache must allow mod_rewrite in .htaccess.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.vipar\.com\.py$ [NC]
+  RewriteRule ^ https://vipar.com.py%{REQUEST_URI} [R=301,L]
+
+  RewriteRule ^servicios/ventana/?$ /servicios/ventanas/ [R=301,L]
+  RewriteRule ^servicios/puerta/?$ /servicios/puertas/ [R=301,L]
+  RewriteRule ^servicios/cortina/?$ /servicios/cortinas/ [R=301,L]
+  RewriteRule ^servicios/mampara-divisoria/?$ /servicios/mamparas-divisorias/ [R=301,L]
+  RewriteRule ^servicios/box-bano/?$ /servicios/box-de-bano/ [R=301,L]
+</IfModule>

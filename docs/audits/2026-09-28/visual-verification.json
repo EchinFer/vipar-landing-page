@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-09-28T21:10:19.756Z",
+  "scope": "SEO visual, vidrio templado y Blindex, pruebas de obra e integridad de imágenes",
+  "runtime": "v24.18.0",
+  "astroCheck": {
+    "files": 184,
+    "errors": 0,
+    "warnings": 0,
+    "hints": 88,
+    "exitCode": 0
+  },
+  "build": {
+    "pages": 63,
+    "exitCode": 0
+  },
+  "unitTests": {
+    "command": "node --test tests/analytics.test.mjs tests/image-health.test.mjs",
+    "passed": 15,
+    "failed": 0
+  },
+  "imageHealth": {
+    "total": 111,
+    "passed": 111,
+    "criticalFailures": 0,
+    "secondaryFailures": 0,
+    "resolutionWarnings": 15,
+    "shouldFail": false,
+    "tlsVerification": true,
+    "report": "image-health.json"
+  },
+  "imageSitemap": {
+    "pages": 60,
+    "indexLinked": true
+  },
+  "browser": {
+    "status": "passed",
+    "viewports": [
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 1440,
+        "height": 900
+      }
+    ],
+    "externalAnalytics": "blocked",
+    "sdk": "mocked",
+    "report": "visual-browser-verification.json",
+    "checkedAt": "2026-09-28T21:10:41.494Z"
+  },
+  "gitDiffCheck": {
+    "status": "passed",
+    "notes": "Solo avisos de normalización LF/CRLF"
+  },
+  "deployment": "pending",
+  "qualifiedLeads": "No disponible / no instrumentado"
+}

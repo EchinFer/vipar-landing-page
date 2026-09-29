@@ -1,0 +1,53 @@
+---
+import Container from "./Container.astro";
+import Heading from "./Heading.astro";
+import Text from "./Text.astro";
+import { blogArticles } from "@lib/static-blog";
+import type { BlogArticleData } from "@lib/static-blog";
+
+interface Props { topic: BlogArticleData["topic"] }
+const { topic } = Astro.props;
+const details = {
+  "cielo-raso": {
+    title: "¿Cuánto cuesta instalar cielo raso?",
+    summary: "El precio depende del sistema, la superficie, la estructura necesaria y las condiciones de instalación. Estas guías te ayudan a comparar antes de cotizar.",
+    price: "cuanto-cuesta-cielo-raso-paraguay",
+    priceLabel: "Ver guía de precios de cielo raso en Paraguay",
+  },
+  "box-de-bano": {
+    title: "Precio, materiales y medidas para tu mampara de baño",
+    summary: "El costo cambia según el material, los herrajes, la apertura, las medidas y la instalación. Compará las opciones según tu baño antes de pedir presupuesto.",
+    price: "cuanto-cuesta-box-de-bano-paraguay",
+    priceLabel: "Ver guía de precios de box de baño en Paraguay",
+  },
+  "mamparas-divisorias": {
+    title: "Precio y opciones de mamparas para oficinas",
+    summary: "El material, la altura, las puertas y las condiciones del espacio influyen en la cotización. Estas guías te ayudan a definir la distribución y comparar sistemas.",
+    price: "costo-mamparas-divisorias",
+    priceLabel: "Ver guía de precios de mamparas divisorias",
+  },
+}[topic];
+const supporting = blogArticles.filter((article) => article.topic === topic && article.slug !== details.price);
+---
+
+<section class="service-guides" aria-label="Guías para elegir y cotizar">
+  <Container>
+    <Heading level={2} variant="md">{details.title}</Heading>
+    <Text class="service-guides__summary">{details.summary}</Text>
+    <a class="service-guides__price" href={`/blog/${details.price}/`} data-track-event="blog_article_open" data-cta-location="service_price_guide">
+      {details.priceLabel} →
+    </a>
+    <ul class="service-guides__links">
+      {supporting.map((article) => <li><a href={`/blog/${article.slug}/`} data-track-event="blog_article_open" data-cta-location="service_supporting_guide">{article.title}</a></li>)}
+    </ul>
+  </Container>
+</section>
+
+<style>
+  .service-guides { padding: clamp(2rem, 5vw, 4rem) 0; background: var(--color-light, #f6f8fa); }
+  .service-guides__summary { max-width: 75ch; margin: 1rem 0; }
+  .service-guides a { color: var(--color-primary, #0f2a3d); text-underline-offset: .2em; }
+  .service-guides__price { display: inline-block; font-weight: 700; }
+  .service-guides__links { display: grid; gap: .75rem; margin: 1.5rem 0 0; padding-left: 1.25rem; }
+  @media (min-width: 768px) { .service-guides__links { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; } }
+</style>

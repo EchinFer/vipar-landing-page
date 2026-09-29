@@ -47,3 +47,4 @@ https___vipar.com.py*
 !public/img/services/
 !public/img/services/**
 .gstack/
+image-health-cache/

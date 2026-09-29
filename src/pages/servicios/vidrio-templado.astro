@@ -1,0 +1,139 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Button from "@components/ui/Button.astro";
+import Container from "@components/ui/Container.astro";
+import FaqAccordion from "@components/ui/FaqAccordion.astro";
+import RealWorkPhoto from "@components/ui/RealWorkPhoto.astro";
+import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
+import ServiceQuotePrompt from "@components/ui/ServiceQuotePrompt.astro";
+import { getStaticObraBySlug } from "@lib/static-obras";
+import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
+import { SITE_URL } from "src/constants";
+
+const serviceName = "Vidrio templado";
+const canonical = `${SITE_URL}/servicios/vidrio-templado/`;
+const title = "Vidrio templado y Blindex en Paraguay | A medida | VIPAR";
+const description = "Provisión e instalación de vidrio templado y Blindex en Paraguay. Puertas, mamparas, box de baño, barandas y fachadas a medida. Mirá obras reales y consultá tu proyecto.";
+const hero = getStaticObraBySlug("sucursal-tigo-mra")!;
+const whatsappHref = buildWhatsappUrl(buildWhatsappMessage({ serviceName, pageLabel: serviceName,
+  prompt: "Puedo enviar fotos, medidas y ubicación de la obra. Me interesa vidrio templado o Blindex." }));
+const applications = [
+  { title: "Puertas y accesos", summary: "Para frentes comerciales y accesos vidriados.", slug: "sucursal-tigo-mra", href: "/servicios/puertas/", link: "Ver soluciones de puertas" },
+  { title: "Mamparas y divisiones", summary: "Para separar oficinas y salas manteniendo el paso de luz.", slug: "oficina-divisorias", href: "/servicios/mamparas-divisorias/", link: "Ver mamparas divisorias" },
+  { title: "Box de baño", summary: "Mamparas de ducha según medidas y tipo de apertura.", slug: "vivienda-box-de-bano", href: "/servicios/box-de-bano/", link: "Ver box y mamparas para baño" },
+  { title: "Barandas", summary: "Para escaleras y terrazas, con definición técnica del vidrio y los herrajes.", slug: "edificio-fortaleza-milano-asuncion", href: "/obras/edificio-fortaleza-milano-asuncion/", link: "Ver barandas ejecutadas" },
+  { title: "Fachadas y cerramientos", summary: "Vidrio y aluminio para frentes comerciales y edificios.", slug: "natatorio-cit-luque", href: "/servicios/fachadas/", link: "Ver sistemas de fachadas" },
+];
+const works = ["sucursal-tigo-mra", "oficina-divisorias", "edificio-fortaleza-milano-asuncion"]
+  .map(slug => getStaticObraBySlug(slug)!).filter(Boolean);
+const faqs = [
+  { question: "¿VIPAR trabaja con Blindex?", answer: "Sí. VIPAR ofrece provisión e instalación de vidrio templado y opciones de marca Blindex. La marca, el tipo de vidrio y el alcance de instalación se especifican en la propuesta para tu proyecto." },
+  { question: "¿Vidrio templado y Blindex son lo mismo?", answer: "Vidrio templado describe un tipo de vidrio; Blindex es una marca. Al cotizar, conviene definir la aplicación, el sistema y la marca requerida. Indicá si necesitás Blindex para incluir esa marca en tu presupuesto." },
+  { question: "¿Cuánto cuesta el vidrio templado en Paraguay?", answer: "El precio depende de las medidas, la aplicación, el tipo de vidrio, la apertura, los perfiles, los herrajes y el alcance de instalación. Enviá fotos y medidas aproximadas para orientar la cotización; el importe se confirma en el presupuesto." },
+  { question: "¿Qué espesor de vidrio necesito?", answer: "Se define según la aplicación y el sistema. Una mampara de ducha, una puerta y una baranda requieren revisión técnica propia. No cotizamos todas las aplicaciones con un único espesor." },
+  { question: "¿Qué información envío para pedir presupuesto?", answer: "Fotos del lugar, ancho y alto aproximados, ubicación y uso del espacio. Si tenés plano, referencia del resultado o una marca requerida, podés adjuntarlos por WhatsApp." },
+  { question: "¿Puedo pedir orientación sin tener un plano?", answer: "Sí. Las fotos y medidas aproximadas permiten iniciar la consulta. Las medidas definitivas, la solución técnica y las condiciones de instalación se confirman durante la revisión del proyecto." },
+];
+const structuredData = [
+  { "@context": "https://schema.org", "@type": "WebPage", "@id": canonical, url: canonical, name: title, description, inLanguage: "es-PY", primaryImageOfPage: { "@type": "ImageObject", url: hero.imagen }, mainEntity: { "@id": `${canonical}#service` } },
+  { "@context": "https://schema.org", "@type": "Service", "@id": `${canonical}#service`, name: "Provisión e instalación de vidrio templado y Blindex", description, url: canonical, image: hero.imagen,
+    provider: { "@type": "Organization", name: "VIPAR S.A.", url: SITE_URL }, areaServed: { "@type": "Country", name: "Paraguay" }, mainEntityOfPage: { "@id": canonical } },
+];
+---
+<Layout title={title} description={description} canonical={canonical} ogImage={hero.imagen}
+  ogImageAlt="Frente comercial en vidrio templado — Sucursal Tigo, Mariano Roque Alonso"
+  structuredData={structuredData} pageType="service" serviceName={serviceName}
+  loadAosAssets={false} loadLightboxAssets={false} loadSwiperAssets={false} loadIsotopeAssets={false}
+  loadBootstrapJs={false} loadBootstrapIcons={false} useMaterialSymbols={false}>
+  <main class="glass-service-page">
+    <section class="glass-hero">
+      <Container>
+        <div class="glass-hero__copy">
+          <span class="glass-eyebrow">Provisión e instalación a medida</span>
+          <h1>Vidrio templado y Blindex en Paraguay</h1>
+          <p>Puertas, mamparas, box de baño, barandas y fachadas. Definimos el sistema según tu espacio y lo instalamos según las condiciones de obra.</p>
+          <div class="glass-actions">
+            <Button href={whatsappHref} target="_blank" rel="noopener noreferrer" variant="contained" tone="primary"
+              data-track-event="whatsapp_handoff" data-service-name={serviceName} data-cta-location="service_cta" data-whatsapp-message-type="service_hero">Cotizar por WhatsApp</Button>
+            <Button href="#aplicaciones" variant="outlined" tone="primary">Ver cómo queda</Button>
+          </div>
+          <ul class="glass-facts"><li>A medida</li><li>Para viviendas y comercios</li><li>Fotos de obras VIPAR</li></ul>
+        </div>
+        <figure>
+          <img src={hero.imagen} alt="Puertas y frente de vidrio templado en la sucursal Tigo de Mariano Roque Alonso" width="550" height="413" loading="eager" fetchpriority="high" decoding="async" />
+          <figcaption>{hero.systemLabel} · {hero.titulo} · {hero.ubicacion}</figcaption>
+        </figure>
+      </Container>
+    </section>
+    <section id="aplicaciones" class="glass-section">
+      <Container>
+        <h2>Elegí la aplicación para tu proyecto</h2>
+        <p class="glass-intro">Mirá ejemplos reales y profundizá en la solución que necesitás.</p>
+        <div class="glass-applications">
+          {applications.map(item => <article>
+            <h3>{item.title}</h3>
+            <RealWorkPhoto slug={item.slug} />
+            <p>{item.summary}</p>
+            <a href={item.href}>{item.link} →</a>
+          </article>)}
+        </div>
+      </Container>
+    </section>
+    <RelatedWorksGallery obras={works} title="Vidrio templado en obras reales" />
+    <section class="glass-section" id="cotizacion">
+      <Container>
+        <h2>Qué define el precio del vidrio templado</h2>
+        <div class="glass-quote-grid">
+          <article><h3>Medidas y aplicación</h3><p>Ancho, alto, ubicación y uso: ducha, acceso, división, fachada o baranda.</p></article>
+          <article><h3>Sistema y terminación</h3><p>Tipo de vidrio, marca requerida, apertura, perfiles y herrajes.</p></article>
+          <article><h3>Instalación</h3><p>Condiciones del lugar, preparación y alcance de la obra.</p></article>
+        </div>
+      </Container>
+    </section>
+    <ServiceQuotePrompt serviceName={serviceName} whatsappHref={whatsappHref} />
+    <section class="glass-section">
+      <Container>
+        <h2>Vidrio templado, cristal templado y Blindex</h2>
+        <p>Si buscás cristal templado o vidrio templado, contanos para qué lo necesitás. La aplicación permite definir el sistema, las medidas y la instalación.</p>
+        <p>También trabajamos con Blindex. Es una marca de vidrio, por lo que la propuesta debe identificar el producto requerido. No todos los sistemas ni todas las obras usan la misma marca o configuración.</p>
+        <h3>De la consulta a la instalación</h3>
+        <ol><li>Enviás fotos, medidas aproximadas y ubicación.</li><li>Revisamos la aplicación y los requerimientos técnicos.</li><li>Preparamos la propuesta con materiales, marca y alcance definidos.</li><li>Coordinamos las medidas definitivas y la instalación.</li></ol>
+        <a href="/contacto/?servicio=vidrio-templado">Enviar los datos de tu proyecto →</a>
+        <h3>Guías para elegir una aplicación</h3>
+        <ul>
+          <li><a href="/blog/box-de-bano-vidrio-vs-acrilico/">Box de baño: vidrio templado o acrílico</a></li>
+          <li><a href="/blog/mamparas-divisorias-oficinas/">Mamparas divisorias para oficinas</a></li>
+        </ul>
+      </Container>
+    </section>
+    <FaqAccordion items={faqs} />
+    <ServiceQuotePrompt serviceName={serviceName} whatsappHref={whatsappHref} ctaLocation="service_final" />
+  </main>
+</Layout>
+<style>
+  .glass-service-page { background: var(--ds-color-background); padding-bottom: 4rem; }
+  .glass-hero { padding: 3rem 0; }
+  .glass-hero :global(.ds-container) { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .glass-hero__copy { display: grid; gap: 1.3rem; }
+  .glass-eyebrow { color: var(--ds-color-primary); font-size: .9rem; font-weight: 600; }
+  h1 { font-size: clamp(2rem, 3.5vw, 3.5rem); line-height: 1.12; margin: 0; }
+  h2 { font-size: clamp(1.6rem, 2.5vw, 2.4rem); margin: 0 0 1.2rem; }
+  h3 { font-size: 1.25rem; margin: 0 0 1rem; }
+  p, li { line-height: 1.65; }
+  figure { margin: 0; }
+  figure img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--ds-radius-lg); }
+  figcaption { font-size: .85rem; padding: .7rem 0; }
+  .glass-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .glass-facts { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; padding-left: 1rem; margin: 0; font-size: .85rem; }
+  .glass-section { padding: 3.5rem 0; border-top: 1px solid var(--ds-color-border); }
+  .glass-intro { margin-bottom: 2rem; }
+  .glass-applications, .glass-quote-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  article { min-width: 0; padding: 1.5rem; border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-lg); }
+  a { font-weight: 600; }
+  @media (max-width: 1000px) { .glass-applications { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) {
+    .glass-hero :global(.ds-container), .glass-applications, .glass-quote-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .glass-hero { padding: 2rem 0; }
+    .glass-section { padding: 2.5rem 0; }
+  }
+</style>

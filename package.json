@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check; astro build",
+    "build": "astro check && astro build",
+    "test:analytics": "node --test tests/analytics.test.mjs",
+    "images:check": "node scripts/image-health.mjs",
+    "images:check:strict": "node scripts/image-health.mjs --strict",
+    "test:images": "node --test tests/image-health.test.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "perf": "node scripts/perf-test.mjs",

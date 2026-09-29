@@ -36,7 +36,7 @@ const { environments, metrics } = Astro.props;
         >
           <img
             src={item.image}
-            alt={item.title}
+            alt={item.caption}
             width={1200}
             height={900}
             loading="lazy"
@@ -45,6 +45,7 @@ const { environments, metrics } = Astro.props;
           <div class="ceiling-service-environment__overlay">
             <Heading level={3} variant="md" tone="inverse">{item.title}</Heading>
             <Text tone="inverse">{item.description}</Text>
+            <Text tone="inverse" size="sm">{item.caption}</Text>
           </div>
         </article>
       ))}

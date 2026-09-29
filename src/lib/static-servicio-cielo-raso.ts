@@ -1,4 +1,5 @@
 export interface CeilingEnvironmentItem {
+  caption: string;
   image: string;
   title: string;
   description: string;
@@ -11,6 +12,7 @@ export interface CeilingMetricItem {
 }
 
 export interface CeilingSystemItem {
+  proofSlug?: string;
   icon: string;
   title: string;
   description: string;
@@ -34,21 +36,24 @@ export const ceilingHeroImage =
 export const ceilingEnvironments: CeilingEnvironmentItem[] = [
   {
     image:
-      "https://vipar.moochsoft.com/obras/virgen-del-huerto-asuncion/cielo-raso-panel-led-instalacion-medica-asuncion-02.webp",
+      "https://vipar.moochsoft.com/obras/asuncion-norte-2017/cielo-raso-torre-provenza-asuncion-01.webp",
     title: "Residencial",
+    caption: "Torre Provenza · Cielo raso en ejecución · Asunción",
     description: "Mejora visual y orden de instalaciones para tu hogar.",
     featured: true,
   },
   {
     image:
-      "https://vipar.moochsoft.com/obras/san-lorenzo-central/cielo-raso-led-vidriera-aluminio-san-lorenzo-central-01.webp",
+      "https://vipar.moochsoft.com/obras/san-antonio-central/drywall-cielo-raso-local-comercial-san-antonio-central-01.webp",
     title: "Comercial",
+    caption: "Remodelación de local comercial · San Antonio, Central",
     description: "Versatilidad y opciones de mantenimiento ágil para tu local.",
   },
   {
     image:
-      "https://vipar.moochsoft.com/obras/asuncion-norte-2017/cielo-raso-torre-provenza-asuncion-01.webp",
+      "https://vipar.moochsoft.com/obras/oficina/cielo-raso-mamparas-oficina-01.webp",
     title: "Corporativo",
+    caption: "Oficina · Cielo raso desmontable y divisorias · Paraguay",
     description: "Soluciones para oficinas con terminación continua o modular.",
   },
 ];
@@ -64,6 +69,7 @@ export const ceilingSystems: CeilingSystemItem[] = [
   {
     icon: "bi-grid-3x3-gap",
     title: "Cielo raso desmontable",
+    proofSlug: "virgen-del-huerto-asuncion",
     description:
       "Estructuras ideales para oficinas, comercios y espacios donde importa acceder a instalaciones sin romper terminaciones.",
     bullets: ["Fácil registro de instalaciones", "Mantenimiento ágil"],
@@ -71,6 +77,7 @@ export const ceilingSystems: CeilingSystemItem[] = [
   {
     icon: "bi-layers",
     title: "Cielo raso de Durlock / junta tomada",
+    proofSlug: "san-antonio-central",
     description:
       "Superficies continuas de acabado liso, muy buscadas cuando se quiere una imagen más limpia y arquitectónica.",
     bullets: ["Terminación continua", "Adaptable a distintos diseños"],
@@ -78,6 +85,7 @@ export const ceilingSystems: CeilingSystemItem[] = [
   {
     icon: "bi-aspect-ratio",
     title: "Cielo raso de PVC",
+    proofSlug: "carde-apf-ypane",
     description:
       "Solución práctica y lavable, especialmente consultada para ambientes que priorizan limpieza y velocidad de montaje.",
     bullets: ["Fácil limpieza", "Montaje según condiciones del espacio"],

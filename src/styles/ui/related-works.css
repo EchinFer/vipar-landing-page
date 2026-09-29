@@ -55,10 +55,16 @@
   height: 100%;
 }
 
+.service-option-detail { margin: .75rem 0; }
+.service-option-detail summary { cursor: pointer; padding: .5rem 0; font-weight: 600; }
+.service-hero-caption { padding: .6rem 1rem; font-size: .85rem; line-height: 1.5; background: var(--ds-color-surface); }
+
 @media (min-width: 1024px) {
   .ds-related-works__item {
     flex-basis: calc((100% - 48px) / 3);
   }
+  .ds-related-works--single .ds-related-works__item { flex-basis: 100%; }
+  .ds-related-works--single .vipar-obras-card { display: grid; grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 760px) {

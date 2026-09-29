@@ -14,13 +14,15 @@ interface Project {
   description: string;
   image: string;
   alt: string;
+  imageRotation?: 90;
 }
 
 interface Props {
   projects: Project[];
+  totalProjects?: number;
 }
 
-const { projects } = Astro.props;
+const { projects, totalProjects } = Astro.props;
 ---
 
 <section class="vipar-section vipar-section--projects-architectural" id="obras">
@@ -28,10 +30,9 @@ const { projects } = Astro.props;
     <Stack size="lg">
       <Stack size="sm" class="vipar-projects-heading">
         <Text as="span" variant="label-md" tone="accent" class="vipar-label">Nuestras Obras</Text>
-        <Heading level={2}>Proyectos destacados que transforman espacios</Heading>
+        <Heading level={2}>Obras reales ejecutadas por VIPAR</Heading>
         <Text>
-          Una mirada t&eacute;cnica a soluciones constructivas donde la precisi&oacute;n y el
-          dise&ntilde;o se encuentran.
+          Vidrio, aluminio y cielos rasos en proyectos comerciales, educativos e institucionales.
         </Text>
       </Stack>
 
@@ -43,7 +44,7 @@ const { projects } = Astro.props;
 
       <div class="vipar-projects-footer-action">
         <Button href="/obras/" variant="outlined" tone="primary" size="lg">
-          Explorar cat&aacute;logo completo
+          {totalProjects ? `Ver ${totalProjects} obras del catálogo` : "Explorar catálogo completo"}
           <UiIcon name="grid-3x3-gap" />
         </Button>
       </div>

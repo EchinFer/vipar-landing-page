@@ -1,18 +1,15 @@
 ---
-import type { ImageMetadata } from "astro";
 import HomeAbout from "@components/home/HomeAbout.astro";
 import HomeContact from "@components/home/HomeContact.astro";
 import HomeHero from "@components/home/HomeHero.astro";
 import HomeProjects from "@components/home/HomeProjects.astro";
 import HomeServices from "@components/home/HomeServices.astro";
+import HomeOtherServices from "@components/home/HomeOtherServices.astro";
 import HomeSpecialties from "@components/home/HomeSpecialties.astro";
 import Layout from "@layouts/Layout.astro";
 import heroImage from "../assets/image/hero-nosotros.png";
-import residentialImage from "../assets/image/home-residencial-entorno.png";
-import commercialImage from "../assets/image/home-comercial-entorno.png";
-import corporateImage from "../assets/image/home-corporativo-entorno.png";
 import { SITE_URL, address, email, telephone } from "src/constants";
-import { staticObras } from "@lib/static-obras";
+import { getStaticObraBySlug, staticObras } from "@lib/static-obras";
 import "@styles/home.css";
 
 const title = "VIPAR S.A. | Cristales y Aluminio";
@@ -26,7 +23,7 @@ const whatsappMessage =
   "Hola, quiero solicitar un presupuesto para una obra. Me contacto desde la home.";
 
 const serviceLinks = {
-  cristalesTemplados: "/servicios/",
+  cristalesTemplados: "/servicios/vidrio-templado/",
   carpinteriaAluminio: "/servicios/carpinteria-de-aluminio/",
   fachada: "/servicios/fachadas/",
   mamparaDivisoria: "/servicios/mamparas-divisorias/",
@@ -42,8 +39,9 @@ const featuredServices = [
     title: "Cielo raso",
     description:
       "Soluciones en cielo raso de yeso, PVC, Durlock y sistemas desmontables para viviendas, oficinas y locales que buscan mejor terminación, mantenimiento y precio según el uso del ambiente.",
-    image: residentialImage,
-    alt: "Cielo raso para viviendas, comercios y oficinas",
+    image: getStaticObraBySlug("oficina-divisorias")!.imagen,
+    alt: "Cielo raso desmontable de yeso cartón en una oficina — obra VIPAR",
+    caption: "Cielo raso desmontable · Oficina en Paraguay",
     points: [
       "Opciones en yeso, PVC, Durlock y desmontable",
       "Cotización según medidas, uso y complejidad de obra",
@@ -55,8 +53,9 @@ const featuredServices = [
     title: "Box de baño",
     description:
       "Box de baño a medida en acrílico, cristal templado y sistemas plegables para quienes quieren comparar materiales, medidas, limpieza y rango de inversión antes de decidir.",
-    image: commercialImage,
-    alt: "Box de baño a medida en Paraguay",
+    image: getStaticObraBySlug("vivienda-box-de-bano")!.imagen,
+    alt: "Box de ducha en vidrio templado de 8 mm — vivienda en Paraguay",
+    caption: "Box de baño de vidrio templado · Vivienda",
     points: [
       "Opciones en acrílico, cristal templado y plegables",
       "Orientación según medidas, apertura y presupuesto",
@@ -68,8 +67,9 @@ const featuredServices = [
     title: "Mamparas divisorias",
     description:
       "Mamparas divisorias para oficinas, comercios y espacios corporativos que necesitan separar ambientes con mejor privacidad, imagen profesional y aprovechamiento de la luz.",
-    image: corporateImage,
-    alt: "Mamparas divisorias para oficinas y comercios",
+    image: getStaticObraBySlug("oficina-divisorias")!.imagen,
+    alt: "Divisorias de oficina de vidrio templado con perfiles de aluminio — obra VIPAR",
+    caption: "Divisorias de vidrio templado · Oficina en Paraguay",
     points: [
       "Soluciones en cristal templado, Eucatex y Durlock",
       "Enfoque para oficinas, salas y áreas operativas",
@@ -80,7 +80,8 @@ const featuredServices = [
 ] satisfies Array<{
   title: string;
   description: string;
-  image: ImageMetadata;
+  image: string;
+  caption: string;
   alt: string;
   points: string[];
   href: string;
@@ -89,8 +90,8 @@ const featuredServices = [
 const complementaryServices = [
   {
     iconClass: "bi-columns-gap",
-    title: "Cristales Templados",
-    description: "Puertas, fachadas, divisiones, cerramientos y box de baño en cristal templado.",
+    title: "Vidrio templado y Blindex",
+    description: "Provisión e instalación a medida para puertas, mamparas, box, barandas y fachadas.",
     href: serviceLinks.cristalesTemplados,
   },
   {
@@ -107,25 +108,25 @@ const complementaryServices = [
   },
   {
     iconClass: "bi-grid-1x2",
-    title: "Mamparas",
-    description: "Divisiones para oficinas y espacios comerciales.",
-    href: serviceLinks.mamparaDivisoria,
+    title: "Ventanas",
+    description: "Aberturas de vidrio y aluminio según medidas y tipo de apertura.",
+    href: serviceLinks.ventana,
   },
   {
-    iconClass: "bi-grid-3x3-gap",
-    title: "Cielo Raso",
-    description: "Instalación de cielos rasos en PVC, Durlock y modulares.",
-    href: serviceLinks.cieloRaso,
+    iconClass: "bi-door-closed",
+    title: "Puertas",
+    description: "Soluciones para accesos residenciales y comerciales.",
+    href: serviceLinks.puerta,
   },
   {
-    iconClass: "bi-droplet-half",
-    title: "Box de Baño",
-    description: "Mamparas de ducha a medida con herrajes inoxidables.",
-    href: serviceLinks.boxDeBano,
+    iconClass: "bi-view-list",
+    title: "Cortinas",
+    description: "Cerramientos y sistemas de apertura para tu espacio.",
+    href: serviceLinks.cortina,
   },
 ];
 
-const FEATURED_OBRA_SLUGS = ["sucursal-tigo-mra", "pedro-juan-caballero", "edificio-concordia"];
+const FEATURED_OBRA_SLUGS = ["sucursal-tigo-mra", "pedro-juan-caballero", "carde-apf-ypane"];
 const projects = FEATURED_OBRA_SLUGS
   .map((slug) => staticObras.find((obra) => obra.slug === slug))
   .filter((obra): obra is NonNullable<typeof obra> => obra != null)
@@ -133,8 +134,9 @@ const projects = FEATURED_OBRA_SLUGS
     layout: i === 0 ? "hero" : "side",
     eyebrow: obra.sectorLabel,
     title: obra.titulo,
-    description: obra.systemLabel,
+    description: `${obra.systemLabel} · ${obra.ubicacion}`,
     image: obra.imagen,
+    imageRotation: obra.imageRotation,
     alt: `${obra.titulo} - ${obra.ubicacion} | VIPAR`,
     href: `/obras/${obra.slug}/`,
   }));
@@ -167,7 +169,7 @@ const homeStructuredData = JSON.stringify([
     description,
     url: homePath,
     inLanguage: "es-PY",
-    primaryImageOfPage: `${SITE_URL}/img/home/hero-home.webp`,
+    primaryImageOfPage: new URL(heroImage.src, SITE_URL).href,
   },
   {
     "@context": "https://schema.org",
@@ -204,13 +206,12 @@ const homeStructuredData = JSON.stringify([
         whatsappMessage={whatsappMessage}
         image={heroImage}
       />
-      <HomeSpecialties serviceLinks={serviceLinks} />
       <HomeServices
         featuredServices={featuredServices}
-        complementaryServices={complementaryServices}
-        viewAllHref="/servicios/"
       />
-      <HomeProjects projects={projects} />
+      <HomeProjects projects={projects} totalProjects={staticObras.length} />
+      <HomeOtherServices services={complementaryServices} />
+      <HomeSpecialties serviceLinks={serviceLinks} />
       <HomeAbout keyData={keyData} />
       <HomeContact
         whatsappNumber={whatsappNumber}

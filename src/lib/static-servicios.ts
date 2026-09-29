@@ -5,6 +5,14 @@ export const serviciosHeroImage = serviciosHeroImageAsset;
 
 export const staticServicios: ServicioListItem[] = [
   {
+    key: "vidrio-templado",
+    title: "Vidrio templado y Blindex",
+    href: "/servicios/vidrio-templado/",
+    image: "https://vipar.moochsoft.com/obras/sucursal-tigo-mariano-roque-alonso/fachada-comercial-sucursal-tigo-mra-01.webp",
+    alt: "Frente comercial en vidrio templado — sucursal Tigo, Mariano Roque Alonso",
+    description: "Provisión e instalación de vidrio templado y Blindex para puertas, mamparas, box de baño, barandas y fachadas a medida.",
+  },
+  {
     key: "carpinteria-aluminio",
     title: "Carpintería de Aluminio",
     href: "/servicios/carpinteria-de-aluminio/",
@@ -35,8 +43,8 @@ export const staticServicios: ServicioListItem[] = [
     key: "mamparas-divisorias",
     title: "Mamparas divisorias",
     href: "/servicios/mamparas-divisorias/",
-    image: "https://vipar.moochsoft.com/obras/cooperativa-medalla-milagrosa-central/mamparas-vidrio-cooperativa-medalla-milagrosa-01.webp",
-    alt: "Mamparas de vidrio para espacio institucional realizadas por VIPAR",
+    image: "https://vipar.moochsoft.com/obras/oficina/cielo-raso-mamparas-oficina-01.webp",
+    alt: "Divisorias de vidrio templado con aluminio en una oficina — obra VIPAR",
     description:
       "Mamparas divisorias para oficinas y espacios comerciales, con opciones en cristal y vidrio templado según requerimiento del proyecto.",
   },

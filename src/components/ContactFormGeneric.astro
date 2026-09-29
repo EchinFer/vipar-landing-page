@@ -4,6 +4,7 @@ import Card from "@components/ui/Card.astro";
 import Heading from "@components/ui/Heading.astro";
 import Text from "@components/ui/Text.astro";
 import Input from "@components/ui/Input.astro";
+import { contactServices } from "@lib/service-context";
 
 export interface Props {
   formId: string;
@@ -24,7 +25,7 @@ const {
   source,
   variant = "contact",
   title = "¿Cómo podemos ayudarte?",
-  intro = "Elegí una opción y dejá tu correo para que te contactemos.",
+  intro = "Contanos qué necesitás y continuá por WhatsApp. El email es opcional.",
   cardClass = "",
   formClass = "",
   showServiceSelect = true,
@@ -32,15 +33,7 @@ const {
   whatsappNumber = "+595981256510",
 } = Astro.props;
 
-const serviceOptions = [
-  { label: "Mamparas divisorias", value: "Mamparas divisorias" },
-  { label: "Ventanas", value: "Ventanas" },
-  { label: "Box de Baño", value: "Box de Baño" },
-  { label: "Cielo raso", value: "Cielo raso" },
-  { label: "Carpintería de Aluminio", value: "Carpintería de Aluminio" },
-  { label: "Cristales Templados", value: "Cristales Templados" },
-  { label: "Otro", value: "Otro" },
-];
+const serviceOptions = contactServices.map(({ name }) => ({ label: name, value: name }));
 
 const consultationTypes = [
   { label: "Presupuesto", value: "Presupuesto" },
@@ -48,11 +41,6 @@ const consultationTypes = [
   { label: "Otro", value: "Otro" },
 ];
 
-const visibleSections = [
-  showServiceSelect ? "service_selection" : null,
-  showAsuntoSelect ? "consultation_selection" : null,
-  "email_capture",
-].filter(Boolean) as string[];
 ---
 
 <Card as="article" class:list={["smart-form-panel", cardClass]}>
@@ -62,12 +50,12 @@ const visibleSections = [
       {intro && <Text class="form-intro">{intro}</Text>}
     </div>
 
-    <form class:list={["contact-form", "contact-form--smart", formClass]} id={formId} novalidate>
+    <form class:list={["contact-form", "contact-form--smart", formClass]} id={formId} novalidate data-smart-form data-form-source={source} data-variant={variant} data-whatsapp-number={whatsappNumber}>
       {showServiceSelect && (
         <section class="smart-form-step smart-form-step--visible" data-step-name="service_selection">
           <div class="step-header">
             <span class="step-number">1</span>
-            <Heading level={3} variant="sm">¿Qué servicio te interesa?</Heading>
+            <Heading level={3} variant="sm">¿Qué servicio te interesa? (opcional)</Heading>
           </div>
           <div class="options-grid">
             {serviceOptions.map((option) => (
@@ -76,6 +64,7 @@ const visibleSections = [
                 class="option-btn"
                 data-group="service"
                 data-option={option.value}
+                aria-pressed="false"
                 aria-label={`Seleccionar ${option.label}`}
               >
                 <span class="option-btn__copy">
@@ -102,6 +91,7 @@ const visibleSections = [
                 class="option-btn"
                 data-group="consultation"
                 data-option={option.value}
+                aria-pressed="false"
                 aria-label={`Seleccionar ${option.label}`}
               >
                 <span class="option-btn__copy">
@@ -115,7 +105,7 @@ const visibleSections = [
         </section>
       )}
 
-      <section class="smart-form-step smart-form-step--visible" data-step-name="email_capture">
+      <section class="smart-form-step smart-form-step--visible" data-step-name="email_optional">
         <div class="step-header">
           <span class="step-number">
             {showServiceSelect && showAsuntoSelect ? 3 : showServiceSelect || showAsuntoSelect ? 2 : 1}
@@ -123,23 +113,22 @@ const visibleSections = [
           <Heading level={3} variant="sm">Tu correo</Heading>
         </div>
         <div class="form-group">
-          <label for={`${formId}-email`}>Email *</label>
+          <label for={`${formId}-email`}>Email (opcional)</label>
           <Input
             id={`${formId}-email`}
             name="email"
             type="email"
             autocomplete="email"
             placeholder="tu@email.com"
-            required
           />
           <Text class="smart-form-helper">
-            Te orientamos con una primera respuesta y te ayudamos a continuar por WhatsApp.
+            Podés dejarlo para recibir presupuesto o documentación. También podés continuar sin email.
           </Text>
         </div>
       </section>
 
       <input type="hidden" name="service" />
-      <input type="hidden" name="consultation_type" />
+      <input type="hidden" name="consultation_type" value="Presupuesto" />
       <input type="hidden" name="source" value={source} />
       <input type="hidden" name="form_started_at" value="" />
       <div
@@ -155,10 +144,10 @@ const visibleSections = [
       <div class="smart-form-summary">
         <Text as="span" variant="label-sm" tone="muted">Resumen de tu consulta</Text>
         <div class="smart-form-summary__chips">
-          {showServiceSelect && <span class="summary-chip" data-summary-chip="service">Servicio pendiente</span>}
+          {showServiceSelect && <span class="summary-chip" data-summary-chip="service">Consulta general</span>}
           {showAsuntoSelect && (
             <span class="summary-chip" data-summary-chip="consultation">
-              Tipo de consulta pendiente
+              Presupuesto
             </span>
           )}
           <span class="summary-chip summary-chip--accent">Respuesta por WhatsApp</span>
@@ -185,249 +174,10 @@ const visibleSections = [
   </div>
 </Card>
 
-<script define:vars={{ formId, source, variant, whatsappNumber, showServiceSelect, showAsuntoSelect, visibleSections }}>
-  const form = document.getElementById(formId);
-  const statusEl = document.getElementById(`${formId}-status`);
-  const messageEl = document.getElementById(`${formId}-message`);
-  let hasTrackedFormStart = false;
-  let formData = {
-    service: "",
-    consultation_type: "",
-    email: "",
-  };
-
-  function getCtaLocation() {
-    return formId === "vipar-home-form" ? "home_contact_form" : "contact_form";
-  }
-
-  function setStatus(type, text) {
-    if (!statusEl || !messageEl) return;
-    statusEl.hidden = false;
-    statusEl.dataset.state = type;
-    messageEl.textContent = text;
-  }
-
-  function clearStatus() {
-    if (statusEl) statusEl.hidden = true;
-  }
-
-  function markOptionSelection(group, value) {
-    document
-      .querySelectorAll(`.option-btn[data-group="${group}"]`)
-      .forEach((button) => {
-        const isSelected = button.dataset.option === value;
-        button.classList.toggle("is-selected", isSelected);
-        button.setAttribute("aria-pressed", isSelected ? "true" : "false");
-      });
-  }
-
-  function updateSummaryChip(key, value, fallback) {
-    const chip = document.querySelector(`[data-summary-chip="${key}"]`);
-    if (!chip) return;
-    chip.textContent = value || fallback;
-    chip.classList.toggle("is-filled", Boolean(value));
-  }
-
-  function identifyLead(emailValue) {
-    if (!emailValue) return;
-    if (
-      typeof window !== "undefined" &&
-      typeof window.posthog === "object" &&
-      typeof window.posthog.identify === "function"
-    ) {
-      window.posthog.identify(emailValue, {
-        email: emailValue,
-        source,
-        form_id: formId,
-        variant,
-        service_interest: formData.service || undefined,
-        consultation_type: formData.consultation_type || undefined,
-      });
-    }
-  }
-
-  function buildTrackingPayload(props = {}) {
-    return {
-      ...props,
-      cta_location: getCtaLocation(),
-      form_id: formId,
-      source,
-      variant,
-      service_name: formData.service || undefined,
-      consultation_type: formData.consultation_type || undefined,
-    };
-  }
-
-  function buildWhatsappUrl() {
-    const lines = [
-      "Hola VIPAR, quiero hacer una consulta.",
-      formData.service ? `Me interesa: ${formData.service}.` : "",
-      formData.consultation_type ? `Tipo de consulta: ${formData.consultation_type}.` : "",
-      `Mi correo es: ${formData.email}.`,
-      "Quedo atento/a.",
-    ].filter(Boolean);
-
-    const rawHref = `https://wa.me/${String(whatsappNumber || "").replace(/\D/g, "")}?text=${encodeURIComponent(lines.join("\n"))}`;
-
-    if (typeof window !== "undefined" && typeof window.viparBuildWhatsappUrl === "function") {
-      return window.viparBuildWhatsappUrl(rawHref, {
-        cta_location: getCtaLocation(),
-        form_id: formId,
-        email: formData.email,
-        service_name: formData.service || undefined,
-        consultation_type: formData.consultation_type || undefined,
-      });
-    }
-
-    return rawHref;
-  }
-
-  function trackEvent(name, props = {}) {
-    if (typeof window !== "undefined" && typeof window.viparTrack === "function") {
-      window.viparTrack(name, buildTrackingPayload(props));
-    }
-  }
-
-  function ensureFormStart(extra = {}) {
-    if (hasTrackedFormStart) return;
-    hasTrackedFormStart = true;
-    trackEvent("form_start", extra);
-  }
-
-  document.querySelectorAll('.option-btn[data-group="service"]').forEach((btn) => {
-    btn.addEventListener("click", () => {
-      ensureFormStart({ entry_step: "service_selection" });
-      formData.service = btn.dataset.option || "";
-      const hiddenService = form?.querySelector('input[name="service"]');
-      if (hiddenService) hiddenService.value = formData.service;
-      markOptionSelection("service", formData.service);
-      updateSummaryChip("service", formData.service, "Servicio pendiente");
-      trackEvent("form_service_selected", {
-        selected_step: "service_selection",
-      });
-    });
-  });
-
-  document.querySelectorAll('.option-btn[data-group="consultation"]').forEach((btn) => {
-    btn.addEventListener("click", () => {
-      ensureFormStart({ entry_step: "consultation_selection" });
-      formData.consultation_type = btn.dataset.option || "";
-      const hiddenConsultation = form?.querySelector('input[name="consultation_type"]');
-      if (hiddenConsultation) hiddenConsultation.value = formData.consultation_type;
-      markOptionSelection("consultation", formData.consultation_type);
-      updateSummaryChip(
-        "consultation",
-        formData.consultation_type,
-        "Tipo de consulta pendiente"
-      );
-      trackEvent("form_consultation_selected", {
-        selected_step: "consultation_selection",
-      });
-    });
-  });
-
-  if (form) {
-    form.addEventListener("input", () => {
-      ensureFormStart({ entry_step: "email_input" });
-      const emailInput = form.querySelector('input[name="email"]');
-      if (emailInput) formData.email = emailInput.value;
-    });
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      clearStatus();
-
-      const emailInput = form.querySelector('input[name="email"]');
-      formData.email = String(emailInput?.value || "").trim();
-
-      if (showServiceSelect && !formData.service) {
-        trackEvent("form_error", {
-          field_name: "service",
-          error_type: "missing_required_selection",
-          step_name: "service_selection",
-        });
-        setStatus("error", "Elegí primero el servicio que te interesa.");
-        return;
-      }
-
-      if (showAsuntoSelect && !formData.consultation_type) {
-        trackEvent("form_error", {
-          field_name: "consultation_type",
-          error_type: "missing_required_selection",
-          step_name: "consultation_selection",
-        });
-        setStatus("error", "Seleccioná qué tipo de consulta necesitás.");
-        return;
-      }
-
-      if (typeof form.reportValidity === "function" && !form.reportValidity()) {
-        trackEvent("form_error", {
-          field_name: "email",
-          error_type: "invalid_or_missing_email",
-          step_name: "email_capture",
-        });
-        return;
-      }
-
-      if (!formData.email) {
-        trackEvent("form_error", {
-          field_name: "email",
-          error_type: "missing_required_value",
-          step_name: "email_capture",
-        });
-        setStatus("error", "Completá tu correo.");
-        return;
-      }
-
-      identifyLead(formData.email);
-
-      trackEvent("lead_email_captured", {
-        email: formData.email,
-        email_domain: formData.email.includes("@") ? formData.email.split("@")[1] : "",
-      });
-
-      trackEvent("form_submit", {
-        email_only: true,
-        email: formData.email,
-        email_domain: formData.email.includes("@") ? formData.email.split("@")[1] : "",
-      });
-
-      trackEvent("whatsapp_click", {
-        interaction_source: "smart_form",
-        email: formData.email,
-        whatsapp_message_type: "smart_form_prefilled",
-      });
-
-      if (typeof window !== "undefined") {
-        window.open(buildWhatsappUrl(), "_blank", "noopener,noreferrer");
-      }
-
-      setStatus("success", "Te llevamos a WhatsApp para continuar tu consulta.");
-      form.reset();
-      formData.service = "";
-      formData.consultation_type = "";
-      formData.email = "";
-      markOptionSelection("service", "");
-      markOptionSelection("consultation", "");
-      updateSummaryChip("service", "", "Servicio pendiente");
-      updateSummaryChip("consultation", "", "Tipo de consulta pendiente");
-    });
-  }
-
-  if (form) {
-    const startedAtInput = form.querySelector('input[name="form_started_at"]');
-    if (startedAtInput && !startedAtInput.value) {
-      startedAtInput.value = String(Date.now());
-    }
-  }
-
-  updateSummaryChip("service", "", "Servicio pendiente");
-  updateSummaryChip("consultation", "", "Tipo de consulta pendiente");
-
-  trackEvent("form_view", { visible_sections: visibleSections.join(",") });
-  visibleSections.forEach(function (stepName) {
-    trackEvent("form_step_viewed", { step_name: stepName });
-  });
+<script>
+  import { initializeContactForms } from "../lib/contact-form";
+  initializeContactForms();
+  document.addEventListener("astro:page-load", initializeContactForms);
 </script>
 
 <style>

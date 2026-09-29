@@ -12,7 +12,9 @@ import MamparaTypesSection from "@components/servicio-mampara/MamparaTypesSectio
 import FaqAccordion from "@components/ui/FaqAccordion.astro";
 import Container from "@components/ui/Container.astro";
 import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
+import ServiceGuides from "@components/ui/ServiceGuides.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
+import ServiceQuotePrompt from "@components/ui/ServiceQuotePrompt.astro";
 import Layout from "@layouts/Layout.astro";
 import { getRelatedStaticObras } from "@lib/static-obras";
 import { buildWhatsappMessage, buildWhatsappUrl } from "@lib/whatsapp";
@@ -122,17 +124,19 @@ const relatedObras = getRelatedStaticObras("mampara-divisoria");
 >
   <main class="mampara-service-page">
     <MamparaHero image={mamparaHeroImage} tags={mamparaHeroTags} whatsappHref={whatsappLink} />
+    <MamparaTypesSection items={mamparaTypeCards} />
+    <RelatedWorksGallery obras={relatedObras} title="Divisorias de vidrio en una oficina real" />
+    <MamparaComparisonSection rows={mamparaComparisonRows} />
+    <ServiceQuotePrompt serviceName={serviceName} whatsappHref={whatsappLink} />
     <MamparaProblemSection cases={mamparaProblemCases} />
     <MamparaFactorsSection items={mamparaFactors} />
-    <MamparaTypesSection items={mamparaTypeCards} />
-    <MamparaComparisonSection rows={mamparaComparisonRows} />
     <MamparaSectorsSection items={mamparaSectorItems} />
     <MamparaSymptomsSection image={mamparaHeroImage} items={mamparaSymptoms} />
     <MamparaProcessSection steps={mamparaProcessSteps} />
     <MamparaTrustSection stats={mamparaTrustStats} />
     <MamparaEditorialSection tags={mamparaEditorialTags} />
     <FaqAccordion items={mamparaFaqs} />
-    <RelatedWorksGallery obras={relatedObras} />
+    <ServiceGuides topic="mamparas-divisorias" />
 
     <section class="mampara-service-section mampara-service-final">
       <Container>

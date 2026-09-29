@@ -1,11 +1,14 @@
 ---
 import CeilingDetailsSection from "@components/servicio-cielo/CeilingDetailsSection.astro";
+import CeilingCompareSection from "@components/servicio-cielo/CeilingCompareSection.astro";
+import ServiceQuotePrompt from "@components/ui/ServiceQuotePrompt.astro";
 import CeilingEnvironmentsSection from "@components/servicio-cielo/CeilingEnvironmentsSection.astro";
 import CeilingFaqSection from "@components/servicio-cielo/CeilingFaqSection.astro";
 import CeilingHero from "@components/servicio-cielo/CeilingHero.astro";
 import CeilingSystemsSection from "@components/servicio-cielo/CeilingSystemsSection.astro";
 import Container from "@components/ui/Container.astro";
 import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
+import ServiceGuides from "@components/ui/ServiceGuides.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
 import Layout from "@layouts/Layout.astro";
 import { getRelatedStaticObras } from "@lib/static-obras";
@@ -23,7 +26,7 @@ import "../../styles/servicio-cielo-raso.css";
 import { SITE_URL, whatsappNumber } from "src/constants";
 
 const serviceName = "Cielo raso";
-const title = "Cielo raso en Paraguay | Yeso, PVC, Durlock y desmontable | VIPAR";
+const title = "Cielo raso en Paraguay | Instalación en PVC, Durlock y desmontable | VIPAR";
 const description =
   "Cielo raso en yeso, PVC, Durlock y sistemas desmontables para viviendas, oficinas y locales. Cotizá según medidas, uso, mantenimiento y alcance de obra.";
 const canonical = `${SITE_URL}/servicios/cielo-raso/`;
@@ -111,11 +114,14 @@ const relatedObras = getRelatedStaticObras("cielo-raso");
 >
   <main class="ceiling-service-page">
     <CeilingHero image={ceilingHeroImage} whatsappHref={whatsappLink} />
-    <CeilingEnvironmentsSection environments={ceilingEnvironments} metrics={ceilingMetrics} />
     <CeilingSystemsSection items={ceilingSystems} />
+    <RelatedWorksGallery obras={relatedObras} title="Cielos rasos ejecutados por VIPAR" />
+    <CeilingCompareSection />
+    <ServiceQuotePrompt serviceName={serviceName} whatsappHref={whatsappLink} />
+    <CeilingEnvironmentsSection environments={ceilingEnvironments} metrics={ceilingMetrics} />
     <CeilingDetailsSection image={ceilingDetailImage} items={ceilingDetails} />
     <CeilingFaqSection items={ceilingFaqs} />
-    <RelatedWorksGallery obras={relatedObras} />
+    <ServiceGuides topic="cielo-raso" />
 
     <section class="ceiling-service-section ceiling-service-final">
       <Container>

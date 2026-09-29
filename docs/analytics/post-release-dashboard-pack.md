@@ -1,5 +1,7 @@
 # VIPAR Post-Release Dashboard Pack
 
+> Documento de una versión anterior. Sus eventos, baselines, targets y ventana de 28 días requieren revalidación y no representan el contrato actual. Usar [la migración v2 y sus KPIs](../audits/2026-09-28/implementation-followup.md) para el release preparado el 28/09/2026.
+
 ## Objetivo
 Medir el impacto real del sprint de captacion en los primeros 28 dias posteriores al release, con foco en:
 

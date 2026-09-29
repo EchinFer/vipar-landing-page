@@ -9,6 +9,7 @@ interface Project {
   title: string;
   description: string;
   image: string;
+  imageRotation?: 90;
   alt: string;
   href?: string;
 }
@@ -33,6 +34,7 @@ const { project } = Astro.props;
   <div class="vipar-project-card__image">
     <img
       src={project.image}
+      class:list={[project.imageRotation === 90 && "project-photo-rotate-90"]}
       alt={project.alt}
       width={1600}
       height={1200}
@@ -58,3 +60,7 @@ const { project } = Astro.props;
     )}
   </div>
 </Card>
+<style>
+  .vipar-project-card__image { position: relative; overflow: hidden; }
+  .project-photo-rotate-90 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg) scale(1.6); }
+</style>

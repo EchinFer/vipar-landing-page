@@ -1,0 +1,87 @@
+{
+  "checked_at": "2026-09-28",
+  "status": "passed",
+  "deployment": "not_published",
+  "runtime": "Node.js v24.18.0",
+  "analytics_tests": {
+    "command": "node --test tests/analytics.test.mjs",
+    "tests": 10,
+    "passed": 10,
+    "failed": 0
+  },
+  "astro_check": {
+    "command": "pnpm exec astro check",
+    "files": 175,
+    "errors": 0,
+    "warnings": 0,
+    "hints": 87
+  },
+  "astro_build": {
+    "command": "pnpm exec astro build",
+    "pages": 62,
+    "result": "complete",
+    "redirect_rules_in_dist": true
+  },
+  "browser": {
+    "command": "node tests/browser-smoke.mjs",
+    "viewports": [
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 1440,
+        "height": 900
+      }
+    ],
+    "result": "passed",
+    "sdk_mode": "mocked",
+    "external_network": "blocked at browser-context level",
+    "checks": [
+      "service preselection",
+      "email optional",
+      "invalid email validation",
+      "one canonical handoff per form submit",
+      "no submitted email in custom GA4/PostHog payloads",
+      "one service view with delayed PostHog readiness",
+      "FAB handoff",
+      "service to contact context",
+      "SEO titles/H1",
+      "cluster links",
+      "box project",
+      "no horizontal overflow in form",
+      "no page errors"
+    ],
+    "limits": "Does not verify real SDK ingestion, production deployment, visual quality of blocked remote assets, or commercial lift."
+  },
+  "production_http_before_publication": [
+    {
+      "url": "https://www.vipar.com.py/",
+      "status": 301,
+      "location": "https://vipar.com.py/"
+    },
+    {
+      "url": "https://www.vipar.com.py/servicios/cielo-raso/?utm_source=redirect-check",
+      "status": 301,
+      "location": "https://vipar.com.py/servicios/cielo-raso/?utm_source=redirect-check"
+    },
+    {
+      "url": "http://www.vipar.com.py/blog/cuanto-cuesta-cielo-raso-paraguay/",
+      "status": 301,
+      "location": "https://vipar.com.py/blog/cuanto-cuesta-cielo-raso-paraguay/"
+    },
+    {
+      "url": "https://vipar.com.py/servicios/box-bano/",
+      "status": 404,
+      "location": null
+    }
+  ],
+  "pending": [
+    "Review and publication",
+    "GA4 key event/dimensions and PostHog funnel migration at release",
+    "Real provider payload and semantic-view coverage verification after release",
+    "Business confirmation for Asuncion local landing",
+    "Domain GSC property/DNS access",
+    "Client record of actual leads, qualification, quotes and sales"
+  ]
+}

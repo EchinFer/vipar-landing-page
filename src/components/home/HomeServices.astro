@@ -1,35 +1,25 @@
 ---
-import type { ImageMetadata } from "astro";
 import Container from "@components/ui/Container.astro";
 import Heading from "@components/ui/Heading.astro";
 import Stack from "@components/ui/Stack.astro";
 import Text from "@components/ui/Text.astro";
 import HomeServiceEnvironmentCard from "./HomeServiceEnvironmentCard.astro";
-import HomeServiceMiniCard from "./HomeServiceMiniCard.astro";
 
 interface FeaturedService {
   title: string;
   description: string;
-  image: ImageMetadata;
+  image: string;
+  caption: string;
   alt: string;
   points: string[];
   href: string;
 }
 
-interface ComplementaryService {
-  iconClass: string;
-  title: string;
-  description: string;
-  href: string;
-}
-
 interface Props {
   featuredServices: FeaturedService[];
-  complementaryServices: ComplementaryService[];
-  viewAllHref?: string;
 }
 
-const { featuredServices, complementaryServices, viewAllHref } = Astro.props;
+const { featuredServices } = Astro.props;
 ---
 
 <section class="vipar-section vipar-section--surface" id="servicios">
@@ -50,22 +40,5 @@ const { featuredServices, complementaryServices, viewAllHref } = Astro.props;
       ))}
     </div>
 
-    <div class="vipar-mini-grid">
-      {complementaryServices.map((service) => (
-        <HomeServiceMiniCard service={service} />
-      ))}
-    </div>
-    {viewAllHref && (
-      <div class="vipar-services-view-all">
-        <a
-          href={viewAllHref}
-          class="ds-btn ds-btn--outlined ds-btn--primary"
-          data-track-event="services_nav_click"
-          data-cta-location="services_hub_cta"
-        >
-          Ver todos los servicios
-        </a>
-      </div>
-    )}
   </Container>
 </section>

@@ -1,0 +1,15 @@
+---
+import Container from "@components/ui/Container.astro";
+import HomeServiceMiniCard from "./HomeServiceMiniCard.astro";
+interface Props { services: Array<{ iconClass: string; title: string; description: string; href: string; }>; }
+const { services } = Astro.props;
+---
+<section class="vipar-section" id="otras-soluciones">
+  <Container class="vipar-shell">
+    <h2>Más soluciones para tu obra</h2>
+    <div class="vipar-mini-grid">{services.map(service => <HomeServiceMiniCard service={service} />)}</div>
+    <div class="vipar-services-view-all">
+      <a href="/servicios/" class="ds-btn ds-btn--outlined ds-btn--primary" data-track-event="services_nav_click" data-cta-location="services_hub_cta">Ver todos los servicios</a>
+    </div>
+  </Container>
+</section>

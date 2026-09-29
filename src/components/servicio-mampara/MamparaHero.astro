@@ -50,16 +50,17 @@ const { image, tags, whatsappHref } = Astro.props;
         {tags.map((tag) => <span class="ds-tag">{tag}</span>)}
       </div>
     </div>
-    <div class="mampara-service-hero__media">
+    <figure class="mampara-service-hero__media" style="margin:0">
       <img
         src={image}
-        alt="Mamparas divisorias para oficinas y comercios"
-        width={1600}
-        height={1200}
+        alt="Oficina dividida con mamparas de vidrio templado y perfiles de aluminio — obra VIPAR"
+        width={550}
+        height={367}
         loading="eager"
         fetchpriority="high"
         decoding="async"
       />
-    </div>
+      <figcaption class="service-hero-caption">Obra VIPAR · Divisorias de vidrio templado · Oficina en Paraguay</figcaption>
+    </figure>
   </Container>
 </section>

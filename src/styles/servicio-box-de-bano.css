@@ -3,6 +3,8 @@
   background: var(--ds-color-background);
 }
 
+.box-service-hero__copy h1 { font-size: clamp(2rem, 3.5vw, 3.5rem); overflow-wrap: break-word; }
+
 .box-service-section {
   padding: 80px 0;
 }
@@ -78,16 +80,20 @@
 
 .box-service-hero__media {
   min-height: 600px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border-radius: var(--ds-radius-lg);
 }
 
 .box-service-hero__media img {
   width: 100%;
-  height: 100%;
+  height: 560px;
   object-fit: cover;
   display: block;
 }
+
+.box-service-option__visual svg { width: 1em; height: 1em; }
 
 .box-service-benefits {
   background: var(--ds-color-surface);
@@ -412,6 +418,16 @@
 }
 
 @media (max-width: 760px) {
+  .box-service-hero__copy { display: contents; }
+  .box-service-hero__eyebrow { order: 1; }
+  .box-service-hero__copy h1 { order: 2; }
+  .box-service-hero__actions { order: 3; }
+  .box-service-hero__media { order: 4; }
+  .box-service-hero__copy > p { order: 5; }
+  .box-service-hero__tags { order: 6; }
+  .box-service-hero__media img { height: 360px; }
+  .box-service-hero__inner { gap: 20px; }
+
   .box-service-section {
     padding: 64px 0;
   }

@@ -1,0 +1,27 @@
+---
+import Container from "@components/ui/Container.astro";
+const rows = [
+  ["Desmontable", "Acceso a instalaciones", "Registro y mantenimiento"],
+  ["Durlock / junta tomada", "Terminación continua", "Diseño y acabado liso"],
+  ["PVC", "Limpieza práctica", "Condiciones de montaje"],
+  ["Eucatex / modular", "Terminación por módulos", "Reposición de placas"],
+];
+---
+<section class="ceiling-service-section" id="comparacion">
+  <Container>
+    <h2>Compará el sistema según tu espacio</h2>
+    <div class="ceiling-compare-scroll" tabindex="0" role="region" aria-label="Comparación de sistemas de cielo raso">
+      <table>
+        <caption>El precio y el plazo se confirman según medidas, preparación y condiciones de obra.</caption>
+        <thead><tr><th scope="col">Sistema</th><th scope="col">Si priorizás</th><th scope="col">Qué revisar</th></tr></thead>
+        <tbody>{rows.map(row => <tr>{row.map((cell, index) => index === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+  </Container>
+</section>
+<style>
+  .ceiling-compare-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 32rem; }
+  th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--ds-color-border); }
+  caption { text-align: left; margin-bottom: 1rem; }
+</style>

@@ -55,8 +55,7 @@ const whatsappHref = buildWhatsappUrl(
 );
 
 const relatedArticles = blogArticles
-  .filter((item) => item.slug !== article.slug && item.topic === article.topic)
-  .slice(0, 2);
+  .filter((item) => item.slug !== article.slug && item.topic === article.topic);
 
 const topicWorkSlugs = {
   "box-de-bano": ["vivienda-box-de-bano", "tienda-go-caaguazu", "showroom-vipar"],
@@ -317,8 +316,7 @@ const structuredData = [
                 Cotización
               </Text>
               <Heading level={2} variant="md">
-                La cotización inicial puede comenzar con fotos del espacio y una descripción
-                general del trabajo
+                ¿Ya sabés qué sistema necesitás?
               </Heading>
               <Text size="md" tone="muted">
                 Si además existen medidas aproximadas, ayudan a orientar más rápido la propuesta.
@@ -334,10 +332,16 @@ const structuredData = [
                   data-cta-location="blog_inline_service"
                   data-service-name={article.serviceName}
                 >
-                  Ver servicio
+                  {article.topic === "cielo-raso" ? "Ver instalación de cielo raso" : `Ver ${article.serviceName.toLowerCase()} a medida`}
                 </Button>
+                {["box-de-bano-vidrio-vs-acrilico", "mamparas-divisorias-oficinas"].includes(article.slug) && (
+                  <Button href="/servicios/vidrio-templado/" variant="link" tone="primary" size="md"
+                    data-track-event="service_navigation_click" data-cta-location="blog_inline_service" data-service-name="Vidrio templado">
+                    Vidrio templado y Blindex para otras aplicaciones
+                  </Button>
+                )}
                 <Button
-                  href="/contacto/"
+                  href={`/contacto/?servicio=${article.topic}`}
                   variant="link"
                   tone="primary"
                   size="md"

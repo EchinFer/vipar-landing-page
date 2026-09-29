@@ -1,0 +1,26 @@
+---
+import Button from "./Button.astro";
+import Container from "./Container.astro";
+interface Props { serviceName: string; whatsappHref: string; ctaLocation?: string; }
+const { serviceName, whatsappHref, ctaLocation = "service_comparison" } = Astro.props;
+---
+<section class="service-quote-prompt">
+  <Container>
+    <div>
+      <h2>¿Querés cotizar {serviceName.toLowerCase()}?</h2>
+      <p>Enviá fotos, medidas aproximadas y ubicación. Te orientamos sobre el sistema y el alcance de instalación.</p>
+    </div>
+    <Button href={whatsappHref} target="_blank" rel="noopener noreferrer" variant="contained" tone="primary"
+      data-track-event="whatsapp_handoff" data-service-name={serviceName}
+      data-cta-location={ctaLocation} data-whatsapp-message-type={ctaLocation}>
+      Consultar por WhatsApp
+    </Button>
+  </Container>
+</section>
+<style>
+  section { padding: 2.5rem 0; background: var(--ds-color-surface); border-block: 1px solid var(--ds-color-border); }
+  section :global(.ds-container) { display: flex; justify-content: space-between; gap: 1.5rem; align-items: center; }
+  h2 { font-size: 1.35rem; margin: 0 0 .75rem; }
+  p { margin: 0; max-width: 42rem; }
+  @media (max-width: 760px) { section :global(.ds-container) { flex-direction: column; align-items: stretch; } }
+</style>

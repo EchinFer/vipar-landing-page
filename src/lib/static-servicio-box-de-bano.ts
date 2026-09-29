@@ -11,6 +11,7 @@ export interface BoxOptionItem {
   description: string;
   idealFor: string[];
   featured?: boolean;
+  proofSlug?: string;
 }
 
 export interface BoxCompareRow {
@@ -28,7 +29,7 @@ export interface BoxProcessStep {
 }
 
 export const boxHeroImage =
-  "https://vipar.moochsoft.com/obras/caaguazu/mamparas-bano-aluminio-tienda-go-caaguazu-01.webp";
+  "https://vipar.moochsoft.com/obras/vivienda/box-bano-vidrio-templado-vivienda-01.webp";
 
 export const boxHeroTags = [
   "Precio según medidas",
@@ -83,6 +84,7 @@ export const boxOptions: BoxOptionItem[] = [
     title: "Cristal templado",
     chip: "Cristal templado",
     featured: true,
+    proofSlug: "vivienda-box-de-bano",
     description:
       "Cristal templado a medida para quienes priorizan imagen, limpieza y una terminación más premium.",
     idealFor: [

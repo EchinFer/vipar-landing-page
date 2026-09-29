@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-09-28T21:10:41.494Z",
+  "status": "passed",
+  "analytics_network": "blocked",
+  "images": "cached real photos from HTTP audit",
+  "sdk": "mocked",
+  "reports": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "result": "passed",
+      "checked": [
+        "service preselection",
+        "email optional",
+        "invalid email",
+        "one handoff",
+        "no PII in GA4 or PostHog",
+        "late SDK service view once",
+        "FAB handoff",
+        "service → contact context",
+        "SEO titles",
+        "cluster links",
+        "box project",
+        "early real works on four services and home",
+        "hero image decoded",
+        "vidrio templado service event and form context",
+        "no horizontal overflow",
+        "no page errors"
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "result": "passed",
+      "checked": [
+        "service preselection",
+        "email optional",
+        "invalid email",
+        "one handoff",
+        "no PII in GA4 or PostHog",
+        "late SDK service view once",
+        "FAB handoff",
+        "service → contact context",
+        "SEO titles",
+        "cluster links",
+        "box project",
+        "early real works on four services and home",
+        "hero image decoded",
+        "vidrio templado service event and form context",
+        "no horizontal overflow",
+        "no page errors"
+      ]
+    }
+  ]
+}

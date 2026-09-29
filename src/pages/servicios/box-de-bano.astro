@@ -7,7 +7,9 @@ import BoxOptionsSection from "@components/servicio-box/BoxOptionsSection.astro"
 import BoxProcessSection from "@components/servicio-box/BoxProcessSection.astro";
 import BoxTrustSection from "@components/servicio-box/BoxTrustSection.astro";
 import RelatedWorksGallery from "@components/ui/RelatedWorksGallery.astro";
+import ServiceGuides from "@components/ui/ServiceGuides.astro";
 import QuoteCTA from "@components/ui/QuoteCTA.astro";
+import ServiceQuotePrompt from "@components/ui/ServiceQuotePrompt.astro";
 import Container from "@components/ui/Container.astro";
 import Layout from "@layouts/Layout.astro";
 import { getRelatedStaticObras } from "@lib/static-obras";
@@ -24,9 +26,9 @@ import "../../styles/servicio-box-de-bano.css";
 import { SITE_URL, whatsappNumber } from "src/constants";
 
 const serviceName = "Box de baño";
-const title = "Box de baño en Paraguay | Precio, medidas y cristal templado | VIPAR";
+const title = "Box de baño y mamparas para baño en Paraguay | VIPAR";
 const description =
-  "Box de baño a medida en Paraguay. Compara opciones en acrílico, cristal templado y plegables según precio, medidas, mantenimiento y tiempos de instalación.";
+  "Box de baño y mamparas de ducha a medida en Paraguay. Compará acrílico, cristal templado y sistemas plegables según medidas, apertura e instalación.";
 const canonical = `${SITE_URL}/servicios/box-de-bano/`;
 const keywords =
   "box de baño paraguay, precio box de ducha, box de cristal templado, box de acrílico, mamparas para baño, box plegable";
@@ -128,6 +130,10 @@ const relatedObras = getRelatedStaticObras("box-de-bano");
 >
   <main class="box-service-page">
     <BoxHero image={boxHeroImage} tags={boxHeroTags} whatsappHref={whatsappLink} />
+    <BoxOptionsSection items={boxOptions} />
+    <RelatedWorksGallery obras={relatedObras} title="Así queda un box de baño instalado" />
+    <BoxCompareSection rows={boxCompareRows} />
+    <ServiceQuotePrompt serviceName={serviceName} whatsappHref={whatsappLink} />
     <section class="box-service-section box-service-decision">
       <Container>
         <div class="box-service-section__head">
@@ -148,12 +154,10 @@ const relatedObras = getRelatedStaticObras("box-de-bano");
       </Container>
     </section>
     <BoxBenefitsSection items={boxBenefits} />
-    <BoxOptionsSection items={boxOptions} />
-    <BoxCompareSection rows={boxCompareRows} />
     <BoxProcessSection steps={boxProcessSteps} />
     <BoxTrustSection />
     <BoxEditorialSection />
-    <RelatedWorksGallery obras={relatedObras} />
+    <ServiceGuides topic="box-de-bano" />
 
     <section class="box-service-section box-service-final">
       <Container>
