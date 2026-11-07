@@ -1,0 +1,102 @@
+---
+// GA4 diferido + aviso de cookies con Consent Mode. Un solo lugar para toda la medición.
+---
+
+<div
+	id="aviso-cookies"
+	hidden
+	role="dialog"
+	aria-label="Aviso de cookies"
+	class="fixed inset-x-0 bottom-14 z-40 border-t border-aluminum bg-white p-3 text-sm shadow-lg md:inset-x-auto md:bottom-4 md:left-4 md:max-w-md md:border"
+>
+	<p>Usamos cookies de Google Analytics para medir cuántas personas visitan el sitio.</p>
+	<div class="mt-2 flex gap-2">
+		<button type="button" data-cookies="granted" class="bg-brand px-4 py-2 text-white">Aceptar</button>
+		<button type="button" data-cookies="denied" class="border border-aluminum px-4 py-2">Rechazar</button>
+	</div>
+</div>
+
+<script>
+	const ID = "G-TZ2CL571FZ";
+	const CLAVE = "vipar-cookies";
+
+	declare global {
+		interface Window {
+			dataLayer: unknown[];
+			gtag: (...args: unknown[]) => void;
+		}
+	}
+
+	window.dataLayer = window.dataLayer || [];
+	window.gtag = function gtag() {
+		// gtag.js espera el objeto `arguments`, no un array.
+		// eslint-disable-next-line prefer-rest-params
+		window.dataLayer.push(arguments);
+	};
+
+	const local = ["localhost", "127.0.0.1"].includes(location.hostname);
+	const forzar = new URLSearchParams(location.search).has("medir");
+
+	let guardado: string | null = null;
+	try {
+		guardado = localStorage.getItem(CLAVE);
+	} catch {
+		guardado = null;
+	}
+
+	window.gtag("consent", "default", {
+		ad_storage: "denied",
+		ad_user_data: "denied",
+		ad_personalization: "denied",
+		analytics_storage: guardado === "granted" ? "granted" : "denied",
+	});
+	window.gtag("js", new Date());
+	// En local solo se prueba el peso de gtag.js: sin hits a la propiedad real.
+	window.gtag("config", ID, local ? { send_page_view: false } : {});
+
+	if (!local || forzar) {
+		window.addEventListener("load", () => {
+			setTimeout(() => {
+				const script = document.createElement("script");
+				script.async = true;
+				script.src = `https://www.googletagmanager.com/gtag/js?id=${ID}`;
+				document.head.appendChild(script);
+			}, 800);
+		});
+	}
+
+	const aviso = document.getElementById("aviso-cookies");
+	if (aviso && guardado === null) aviso.hidden = false;
+
+	aviso?.addEventListener("click", (evento) => {
+		const boton = (evento.target as HTMLElement).closest<HTMLElement>("[data-cookies]");
+		if (!boton) return;
+		const valor = boton.dataset.cookies === "granted" ? "granted" : "denied";
+		try {
+			localStorage.setItem(CLAVE, valor);
+		} catch {
+			/* sin almacenamiento: el aviso vuelve en la próxima visita */
+		}
+		window.gtag("consent", "update", { analytics_storage: valor });
+		aviso.hidden = true;
+	});
+
+	// Lead: cada clic a WhatsApp es un contacto. `origen` dice desde dónde.
+	document.addEventListener("click", (evento) => {
+		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="https://wa.me/"]');
+		if (!enlace) return;
+		let texto = "";
+		try {
+			texto = decodeURIComponent(enlace.href.split("?text=")[1] ?? "");
+		} catch {
+			texto = "";
+		}
+		const delTexto = texto.match(/Servicio:\s*(.+)/i)?.[1]?.trim();
+		const delaRuta = location.pathname.match(/^\/servicios\/([^/]+)\//)?.[1];
+		window.gtag("event", "generate_lead", {
+			servicio: delTexto ?? delaRuta ?? "sin_servicio",
+			origen: enlace.dataset.origen ?? ("waBar" in enlace.dataset ? "barra" : "contenido"),
+			pagina: location.pathname,
+		});
+	});
+</script>

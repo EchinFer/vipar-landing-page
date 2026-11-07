@@ -19,7 +19,7 @@ const inicialMensaje = mensajePedido(pedidoInicial);
 const hrefInicial = waUrl(inicialMensaje.texto);
 ---
 
-<section class="border border-ink bg-paper p-4 md:p-8" id="presupuesto" data-calculadora data-fijo={fijo ?? ""}>
+<section class="border border-brand bg-white p-4 md:p-8" id="presupuesto" data-calculadora data-fijo={fijo ?? ""}>
 	<p class="text-xs tracking-[0.16em] uppercase text-muted">Pedido</p>
 	<h2 class="mt-2 font-display text-4xl leading-none tracking-tight md:text-5xl">Armá lo que querés instalar</h2>
 	<p class="mt-4 max-w-xl text-muted">Elegí el tipo, el material, la apertura y una medida aproximada. El mensaje de WhatsApp sale con esos datos.</p>
@@ -73,18 +73,18 @@ const hrefInicial = waUrl(inicialMensaje.texto);
 		<div class="grid grid-cols-2 gap-3">
 			<label class="block text-sm">
 				Ancho (m)
-				<input class="mt-2 w-full border border-aluminum bg-paper px-3 py-3 text-lg" name="ancho" type="number" inputmode="decimal" min="0.4" max="8" step="0.05" value={base.ancho} />
+				<input class="mt-2 w-full border border-aluminum bg-white px-3 py-3 text-lg" name="ancho" type="number" inputmode="decimal" min="0.4" max="8" step="0.05" value={base.ancho} />
 			</label>
 			<label class="block text-sm">
 				Alto (m)
-				<input class="mt-2 w-full border border-aluminum bg-paper px-3 py-3 text-lg" name="alto" type="number" inputmode="decimal" min="0.4" max="8" step="0.05" value={base.alto} />
+				<input class="mt-2 w-full border border-aluminum bg-white px-3 py-3 text-lg" name="alto" type="number" inputmode="decimal" min="0.4" max="8" step="0.05" value={base.alto} />
 			</label>
 		</div>
 	</form>
 
 	<p class="resultado mt-8 font-display text-4xl leading-none tracking-tight md:text-5xl" data-resultado>El rango te lo pasamos por WhatsApp.</p>
 	<p class="mt-3 max-w-xl text-sm text-muted" data-aclaracion>El precio se cierra cuando medimos en la obra.</p>
-	<a class="mt-6 flex h-14 items-center justify-center bg-oxide text-paper" data-pedir href={hrefInicial}>Pedir presupuesto</a>
+	<a class="mt-6 flex h-14 items-center justify-center bg-brand text-white" data-pedir data-origen="calculadora" href={hrefInicial}>Pedir presupuesto</a>
 </section>
 
 <script>

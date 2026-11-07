@@ -1,16 +1,20 @@
 ---
+import { Image } from "astro:assets";
+import logo from "../assets/marca/logo-full.webp";
 import { waUrl, mensajeLibre } from "../lib/pedido";
 
 const presupuesto = waUrl(mensajeLibre("Vi la web y quiero coordinar una medición."));
 const ruta = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-aluminum/70 bg-paper/95 px-4 backdrop-blur-sm md:px-8">
-	<a href="/" class="font-display text-2xl leading-none tracking-tight">VIPAR</a>
+<header class="sticky top-0 z-30 flex h-14 items-center justify-between bg-brand px-4 text-white md:px-8">
+	<a href="/" aria-label="VIPAR S.A. - Terminaciones y obras, inicio">
+		<Image src={logo} alt="VIPAR S.A. Terminaciones y obras" width={146} height={36} class="h-9 w-auto" loading="eager" />
+	</a>
 	<nav class="flex items-center gap-5 text-sm">
 		<a href="/obras/" class:list={["hidden sm:inline", ruta.startsWith("/obras") && "underline underline-offset-4"]}>Obras</a>
 		<a href="/servicios/" class:list={["hidden sm:inline", ruta.startsWith("/servicios") && "underline underline-offset-4"]}>Servicios</a>
 		<a href="/contacto/" class:list={["hidden md:inline", ruta.startsWith("/contacto") && "underline underline-offset-4"]}>Contacto</a>
-		<a href={presupuesto} class="hidden bg-oxide px-3 py-2 text-paper md:inline">Pedir presupuesto</a>
+		<a href={presupuesto} data-origen="cabecera" class="hidden bg-white px-3 py-2 font-semibold text-brand md:inline">Pedir presupuesto</a>
 	</nav>
 </header>

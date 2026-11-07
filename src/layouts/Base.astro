@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppBar from "../components/WhatsAppBar.astro";
+import Medicion from "../components/Medicion.astro";
 import { canonical, empresa } from "../data/empresa";
 import { mensajeLibre, waUrl } from "../lib/pedido";
 
@@ -66,18 +67,21 @@ const bloques = {
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imagen} />
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-		<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="icon" href="/favicon.png" type="image/png" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<meta name="theme-color" content="#002046" />
+		<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 		<meta name="generator" content={Astro.generator} />
 		<script type="application/ld+json" set:html={JSON.stringify(bloques)} />
 	</head>
 	<body class="pb-14 md:pb-0">
-		<a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-paper focus:p-2">Saltar al contenido</a>
+		<a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-2">Saltar al contenido</a>
 		<Header />
 		<main id="contenido">
 			<slot />
 		</main>
 		<Footer />
 		<WhatsAppBar href={wa} />
+		<Medicion />
 	</body>
 </html>

@@ -286,6 +286,47 @@ export const obras: Obra[] = [
 	},
 ];
 
+/** Nombre con el que cada obra estaba publicada en vipar.com.py. Va en el title y el H1. */
+const nombresCompletos: Record<string, string> = {
+	"alto-parana-presidente-franco": "Local Comercial – Presidente Franco",
+	"auditorio-arandu-loma-pyta": "Salón Auditorio Arandú – Ex Caballería",
+	"canada-del-ybyray": "IPS – Laboratorio Microbiología",
+	"carde-apf-ypane": "CARDE – Centro de Alto Rendimiento APF",
+	"cooperativa-medalla-milagrosa-concepcion": "Cooperativa Medalla Milagrosa – Concepción",
+	"cooperativa-medalla": "Cooperativa Medalla Milagrosa",
+	"edificio-concordia": "Edificio Concordia",
+	"edificio-fortaleza-milano-asuncion": "Edificio Fortaleza Milano",
+	"edificio-longvillage-asuncion": "Edificio Longvillage",
+	"galeria-senador-long": "Galería Senador Long",
+	"ips-central-asuncion": "IPS Central – Salas de Atención",
+	"local-comercial-capiata": "Local Comercial – Capiatá",
+	"maria-antonieta-shopping-mariano-roque-alonso": "María Antonieta – Shopping MRA",
+	"natatorio-cit-luque": "Natatorio – Club Internacional de Tenis",
+	"oficina-cooperativa-medalla-milagrosa": "Oficina Cooperativa Medalla Milagrosa",
+	"oficina-divisorias": "Oficina – Divisorias y Cielo Raso",
+	"oficinas-corporativas-itau": "Oficinas Corporativas Itaú",
+	"pedro-juan-caballero": "Universidad Pacífico – Ciencias Médicas",
+	"quincho-edificio-brasilia-asuncion": "Quincho – Edificio Brasília",
+	"recoleta-asuncion": "Edificio Residencial – Recoleta",
+	"residencia-san-lorenzo": "Residencia San Lorenzo",
+	"san-antonio-central": "Remodelación Comercial – San Antonio",
+	"san-lorenzo-central": "Local Comercial – San Lorenzo",
+	"showroom-vipar": "Showroom VIPAR",
+	"sucursal-tigo-mra": "Sucursal Tigo – M.R.A.",
+	"tienda-go-caaguazu": "Tienda GO! – Caaguazú III",
+	"tigo-central": "Tigo – Central",
+	"torre-provenza-asuncion": "Torre Provenza",
+	"virgen-del-huerto-asuncion": "Instalación Médica – Virgen del Huerto",
+	"vivienda-box-de-bano": "Vivienda – Box de Baño",
+	"vivienda-lc": "Vivienda LC",
+	"vivienda-seket": "Vivienda Seket",
+	"vivienda-trotte": "Vivienda Trotte",
+};
+
+export function nombreCompleto(obra: Obra) {
+	return nombresCompletos[obra.slug] ?? obra.titulo;
+}
+
 export function obraPorSlug(slug: string) {
 	return obras.find((obra) => obra.slug === slug);
 }

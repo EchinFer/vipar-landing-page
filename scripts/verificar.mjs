@@ -43,7 +43,7 @@ if (!pedido.texto.includes("0,90 m × 1,90 m")) errores.push(`medidas raras: ${p
 if (!pedido.texto.includes("El precio final se define en la medición.")) errores.push("falta el cierre");
 
 const html = readFileSync("dist/calculadora/index.html", "utf8");
-const href = html.match(/data-pedir href="([^"]+)"/)?.[1] ?? "";
+const href = html.match(/data-pedir[^>]*? href="([^"]+)"/)?.[1] ?? "";
 const texto = decodeURIComponent(href.split("text=")[1] ?? "");
 if (!href.startsWith("https://wa.me/595981256510")) errores.push("el enlace no es wa.me");
 if (texto.includes("Gs.")) errores.push("el href publicado trae un monto");

@@ -1,0 +1,827 @@
+{
+	"/": {
+		"title": "VIPAR S.A. | Cristales y Aluminio",
+		"description": "Cristales templados, aluminio y terminaciones para obras en Paraguay. Soluciones para viviendas, comercios, oficinas y obras con presupuesto según medidas y tipo de instalación.",
+		"h1": "Cristales templados, aluminio y terminaciones para obras en Paraguay",
+		"h2": [
+			"Cielo raso, box de baño y mamparas divisorias en Paraguay",
+			"Obras reales ejecutadas por VIPAR",
+			"Más soluciones para tu obra",
+			"Empresa paraguaya enfocada en cristales, aluminio y terminaciones",
+			"Solicitá presupuesto sin salir de esta pantalla",
+			"Solicite su presupuesto sin compromiso"
+		],
+		"palabras": 861
+	},
+	"/blog/": {
+		"title": "Blog VIPAR | Precios, materiales y medidas para tu obra",
+		"description": "Compará materiales, revisá medidas y conocé qué cambia el precio de un box de baño, una mampara o un cielo raso antes de cotizar con VIPAR.",
+		"h1": "Precios, materiales y medidas para tu obra",
+		"h2": [
+			"Box de baño",
+			"Mamparas divisorias",
+			"Cielo raso"
+		],
+		"palabras": 798
+	},
+	"/blog/box-de-bano-vidrio-vs-acrilico/": {
+		"title": "Box de baño de vidrio templado vs acrílico: qué conviene según tu baño",
+		"description": "Comparativa entre box de baño de cristal templado y acrílico para entender diferencias de estética, limpieza, inversión y uso diario.",
+		"h1": "Box de baño de vidrio templado vs acrílico: qué conviene según tu baño",
+		"h2": [
+			"Qué cambia entre un material y otro",
+			"Limpieza, mantenimiento y uso diario",
+			"Cuándo conviene cada uno",
+			"Cómo pensar la decisión",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"Qué conviene enviar para comparar bien",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 1031
+	},
+	"/blog/cielo-raso-pvc-vs-yeso/": {
+		"title": "Cielo raso PVC vs yeso: diferencias, ventajas y qué conviene evaluar",
+		"description": "Comparativa entre cielo raso de PVC y yeso para entender diferencias de limpieza, terminación, mantenimiento y tipo de uso.",
+		"h1": "Cielo raso PVC vs yeso: diferencias, ventajas y qué conviene evaluar",
+		"h2": [
+			"Qué diferencia a un sistema del otro",
+			"Cuándo suele elegirse PVC",
+			"Cuándo suele elegirse yeso",
+			"Cómo ordenar la decisión",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"Qué conviene aclarar antes de consultar",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 893
+	},
+	"/blog/como-dividir-oficinas-sin-obras-mayores/": {
+		"title": "Cómo dividir oficinas sin realizar obras mayores",
+		"description": "Guía para evaluar alternativas de división interior sin grandes intervenciones, según privacidad, tiempos de obra y necesidad de reorganización.",
+		"h1": "Cómo dividir oficinas sin realizar obras mayores",
+		"h2": [
+			"Definí para qué querés dividir",
+			"Velocidad y flexibilidad",
+			"Por qué conviene mirar el espacio completo",
+			"Preguntas útiles antes de avanzar",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"Qué compartir para orientar la propuesta",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 870
+	},
+	"/blog/como-elegir-box-de-bano-ideal/": {
+		"title": "Cómo elegir el box de baño ideal según el tamaño y uso de tu baño",
+		"description": "Guía para elegir un box de baño según tamaño del ambiente, tipo de apertura, material y forma de uso diaria.",
+		"h1": "Cómo elegir el box de baño ideal según el tamaño y uso de tu baño",
+		"h2": [
+			"Empezá por el espacio disponible",
+			"Material y objetivo del proyecto",
+			"Pensá en el uso diario",
+			"Tres preguntas que ordenan la decisión",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"Datos que conviene tener a mano",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 1010
+	},
+	"/blog/como-elegir-cielo-raso/": {
+		"title": "Cómo elegir el mejor cielo raso para oficinas y comercios",
+		"description": "Guía para evaluar cielo raso en oficinas y comercios según mantenimiento, terminación, acceso a instalaciones y tipo de espacio.",
+		"h1": "Cómo elegir el mejor cielo raso para oficinas y comercios",
+		"h2": [
+			"Pensá primero en el uso del espacio",
+			"Acceso a instalaciones y mantenimiento",
+			"Imagen final del ambiente",
+			"Cómo ordenar la decisión",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"Qué conviene compartir al consultar",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 872
+	},
+	"/blog/costo-mamparas-divisorias/": {
+		"title": "Cuánto cuesta instalar mamparas divisorias en Paraguay y qué cambia el presupuesto",
+		"description": "Guía para entender cuánto puede influir el material, la privacidad, las medidas y el tipo de obra en el presupuesto de mamparas divisorias.",
+		"h1": "Cuánto cuesta instalar mamparas divisorias en Paraguay y qué cambia el presupuesto",
+		"h2": [
+			"Por qué no alcanza con preguntar el precio por metro",
+			"Qué factores cambian más el presupuesto",
+			"Cómo se cotiza una mampara divisoria",
+			"Qué ordenar antes de consultar",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"La cotización se orienta primero con fotos, uso previsto del espacio y una idea general del layout",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 970
+	},
+	"/blog/cuanto-cuesta-box-de-bano-paraguay/": {
+		"title": "Cuánto cuesta un box de baño en Paraguay y cuál conviene según tu espacio",
+		"description": "Guía para entender cuánto cuesta un box de baño en Paraguay y cómo elegir entre cristal templado, acrílico o plegable según uso, limpieza y presupuesto.",
+		"h1": "Cuánto cuesta un box de baño en Paraguay y cuál conviene según tu espacio",
+		"h2": [
+			"Por qué dos box de baño pueden costar distinto",
+			"Cristal templado, acrílico o plegable",
+			"Cómo se define una cotización inicial",
+			"Variables clave para comparar opciones",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"La propuesta se orienta primero con fotos del baño y el tipo de solución buscada",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 1123
+	},
+	"/blog/cuanto-cuesta-cielo-raso-paraguay/": {
+		"title": "Cuánto cuesta un cielo raso en Paraguay y qué influye en el presupuesto",
+		"description": "Guía para entender cuánto cuesta un cielo raso en Paraguay y qué variables cambian el presupuesto según material, metros, estructura y terminación.",
+		"h1": "Cuánto cuesta un cielo raso en Paraguay y qué influye en el presupuesto",
+		"h2": [
+			"Qué variables hacen variar el precio",
+			"Cuándo conviene cada tipo de cielo raso",
+			"Cómo se cotiza un cielo raso",
+			"Resumen rápido para evaluar opciones",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"La cotización inicial se orienta con fotos del ambiente, uso previsto y estado general del techo",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 1128
+	},
+	"/blog/mamparas-divisorias-oficinas/": {
+		"title": "Mamparas divisorias para oficinas: ventajas y aplicaciones según el tipo de espacio",
+		"description": "Guía sobre mamparas divisorias para oficinas y cómo evaluar cristal templado, Eucatex o Durlock según privacidad, luz y tipo de operación.",
+		"h1": "Mamparas divisorias para oficinas: ventajas y aplicaciones según el tipo de espacio",
+		"h2": [
+			"Dónde suelen aplicarse",
+			"Privacidad, luz y estética",
+			"Cómo pensar la elección",
+			"Qué suele pesar en la decisión",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"Qué conviene preparar para cotizar",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 929
+	},
+	"/blog/medidas-estandar-box-de-bano/": {
+		"title": "Medidas estándar para box de baño y qué revisar antes de instalar",
+		"description": "Guía para entender cómo pensar las medidas de un box de baño y qué revisar antes de cotizar una solución a medida.",
+		"h1": "Medidas estándar para box de baño y qué revisar antes de instalar",
+		"h2": [
+			"Por qué no existe una sola medida estándar",
+			"Qué conviene medir",
+			"Cómo se arma la cotización",
+			"Lo que realmente importa medir",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"La orientación inicial puede comenzar con fotos del baño, aun cuando las medidas no sean definitivas",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 972
+	},
+	"/blog/tipos-de-apertura-box-de-bano/": {
+		"title": "Tipos de apertura para box de baño: corrediza, batiente y plegable",
+		"description": "Guía para comparar aperturas corrediza, batiente y plegable en box de baño según espacio, comodidad y uso diario.",
+		"h1": "Tipos de apertura para box de baño: corrediza, batiente y plegable",
+		"h2": [
+			"Apertura corrediza",
+			"Apertura batiente",
+			"Apertura plegable",
+			"Cómo pensar la apertura",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"Qué mirar antes de decidir la apertura",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 912
+	},
+	"/blog/vidrio-vs-panel-solido/": {
+		"title": "Vidrio o panel sólido: qué tipo de mampara elegir para una oficina",
+		"description": "Comparativa entre mamparas de vidrio y soluciones de panel sólido para oficinas, salas y áreas de atención según privacidad, luz y operación.",
+		"h1": "Vidrio o panel sólido: qué tipo de mampara elegir para una oficina",
+		"h2": [
+			"Cuándo el vidrio tiene más sentido",
+			"Cuándo un panel sólido puede ser mejor",
+			"La decisión depende del uso real",
+			"Cómo pensar vidrio vs panel sólido",
+			"Fotos de obras realizadas",
+			"¿Ya sabés qué sistema necesitás?",
+			"Preguntas frecuentes",
+			"Qué información ayuda a decidir",
+			"Artículos del mismo tema",
+			"Obras vinculadas"
+		],
+		"palabras": 901
+	},
+	"/contacto/": {
+		"title": "Contacto | VIPAR S.A.",
+		"description": "Contacto técnico y comercial de VIPAR S.A. en Ñemby, Paraguay. Consultas, cotizaciones y coordinación de proyectos en cristales, aluminio y terminaciones.",
+		"h1": "Contacto",
+		"h2": [
+			"Información Corporativa",
+			"Cotiza tu proyecto y segui por WhatsApp con el contexto cargado",
+			"Ubicación Estratégica"
+		],
+		"palabras": 336
+	},
+	"/nosotros/": {
+		"title": "Sobre VIPAR S.A. | 25+ años en cristales templados y aluminio en Paraguay",
+		"description": "Conocé la historia de VIPAR S.A., empresa paraguaya con más de 25 años en cristales templados, carpintería de aluminio y terminaciones para obras residenciales, comerciales y corporativas.",
+		"h1": "Empresa paraguaya en cristales y aluminio desde el a&ntilde;o 2000",
+		"h2": [
+			"Dos generaciones dedicadas al cristal y la construcci&oacute;n",
+			"Showroom en &Ntilde;emby",
+			"Lo que define cada proyecto VIPAR",
+			"&iquest;Ten&eacute;s un proyecto en mente?"
+		],
+		"palabras": 463
+	},
+	"/obras/": {
+		"title": "Obras y Proyectos Realizados - Cristales Templados | VIPAR",
+		"description": "Portafolio de obras realizadas con cristales templados, carpintería de aluminio, fachadas vidrio y mamparas. Proyectos de construcción en Paraguay para viviendas, comercios, oficinas y obras.",
+		"h1": "Obras y proyectos realizados por VIPAR",
+		"h2": [
+			"Obras reales para evaluar mejor el trabajo",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 1199
+	},
+	"/obras/alto-parana-presidente-franco/": {
+		"title": "Local Comercial – Presidente Franco - Obra Realizada | VIPAR Paraguay",
+		"description": "Suministro e instalación de ventanas de aluminio de gran formato con vidrio templado incoloro para nuevo local comercial en construcción en Presidente... Proyecto de Comercial realizado por VIPAR.",
+		"h1": "Local Comercial – Presidente Franco",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 284
+	},
+	"/obras/auditorio-arandu-loma-pyta/": {
+		"title": "Salón Auditorio Arandú – Ex Caballería - Obra Realizada | VIPAR Paraguay",
+		"description": "Instalación de cerramiento con vidrio templado semi-polarizado y puerta batiente de aluminio para el Salón Auditorio Arandú, ubicado en las instalacio... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "Salón Auditorio Arandú – Ex Caballería",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 294
+	},
+	"/obras/canada-del-ybyray/": {
+		"title": "IPS – Laboratorio Microbiología - Obra Realizada | VIPAR Paraguay",
+		"description": "Construcción y equipamiento de área de laboratorio clínico para el Instituto de Previsión Social del Paraguay. El proyecto incluyó tabiques de estruct... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "IPS – Laboratorio Microbiología",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 272
+	},
+	"/obras/carde-apf-ypane/": {
+		"title": "CARDE – Centro de Alto Rendimiento APF - Obra Realizada | VIPAR Paraguay",
+		"description": "Instalación de cielo raso de PVC en el Centro de Alto Rendimiento Deportivo (CARDE) de la Asociación Paraguaya de Fútbol, ubicado en Ypané. El cielo r... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "CARDE – Centro de Alto Rendimiento APF",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 294
+	},
+	"/obras/cooperativa-medalla-milagrosa-concepcion/": {
+		"title": "Cooperativa Medalla Milagrosa – Concepción - Obra Realizada | VIPAR Paraguay",
+		"description": "Cielo raso desmontable de placas de durlock pintadas con perfilería de aluminio 1.20×60. Mamparas divisorias de eucatex y cortinas horizontales de alu... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "Cooperativa Medalla Milagrosa – Concepción",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 236
+	},
+	"/obras/cooperativa-medalla/": {
+		"title": "Cooperativa Medalla Milagrosa - Obra Realizada | VIPAR Paraguay",
+		"description": "Terminaciones arquitectónicas interiores con divisiones en cristal y perfilería a medida.... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "Cooperativa Medalla Milagrosa",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 223
+	},
+	"/obras/edificio-concordia/": {
+		"title": "Edificio Concordia - Obra Realizada | VIPAR Paraguay",
+		"description": "Soluciones integrales para obra con provisión e instalación de aberturas de aluminio según medidas y condiciones del proyecto.... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Edificio Concordia",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 224
+	},
+	"/obras/edificio-fortaleza-milano-asuncion/": {
+		"title": "Edificio Fortaleza Milano - Obra Realizada | VIPAR Paraguay",
+		"description": "Instalación de barandas con herrajes en acero inoxidable y paños de vidrio templado en escalera exterior y perímetro de terraza de edificio residencia... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Edificio Fortaleza Milano",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 265
+	},
+	"/obras/edificio-longvillage-asuncion/": {
+		"title": "Edificio Longvillage - Obra Realizada | VIPAR Paraguay",
+		"description": "Provisión e instalación de ventanas corredizas de perfilería de aluminio en múltiples plantas del patio interior de edificio residencial. Trabajo ejec... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Edificio Longvillage",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 260
+	},
+	"/obras/galeria-senador-long/": {
+		"title": "Galería Senador Long - Obra Realizada | VIPAR Paraguay",
+		"description": "Paños fijos de vidriera incoloro con puertas batientes de abrir para galería comercial.... Proyecto de Comercial realizado por VIPAR.",
+		"h1": "Galería Senador Long",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 227
+	},
+	"/obras/ips-central-asuncion/": {
+		"title": "IPS Central – Salas de Atención - Obra Realizada | VIPAR Paraguay",
+		"description": "Instalación de cielo raso de durlock y mamparas separadoras para salas de atención médica con camillas en el Hospital Central del IPS. Las divisiones ... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "IPS Central – Salas de Atención",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 269
+	},
+	"/obras/local-comercial-capiata/": {
+		"title": "Local Comercial – Capiatá - Obra Realizada | VIPAR Paraguay",
+		"description": "Vidrio templado 10mm incoloro para frente comercial de alto tránsito.... Proyecto de Comercial realizado por VIPAR.",
+		"h1": "Local Comercial – Capiatá",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 227
+	},
+	"/obras/maria-antonieta-shopping-mariano-roque-alonso/": {
+		"title": "María Antonieta – Shopping MRA - Obra Realizada | VIPAR Paraguay",
+		"description": "Vidrieras de paño fijo incoloro para local en shopping de alto tránsito.... Proyecto de Comercial realizado por VIPAR.",
+		"h1": "María Antonieta – Shopping MRA",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 235
+	},
+	"/obras/natatorio-cit-luque/": {
+		"title": "Natatorio – Club Internacional de Tenis - Obra Realizada | VIPAR Paraguay",
+		"description": "Diseño y ejecución de fachada completa en vidrio y aluminio para el natatorio del Club Internacional de Tenis. La envolvente de gran formato genera un... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "Natatorio – Club Internacional de Tenis",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 292
+	},
+	"/obras/oficina-cooperativa-medalla-milagrosa/": {
+		"title": "Oficina Cooperativa Medalla Milagrosa - Obra Realizada | VIPAR Paraguay",
+		"description": "Cortina vertical de tela poliéster para control solar en espacios de trabajo.... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "Oficina Cooperativa Medalla Milagrosa",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 219
+	},
+	"/obras/oficina-divisorias/": {
+		"title": "Oficina – Divisorias y Cielo Raso - Obra Realizada | VIPAR Paraguay",
+		"description": "Cielo raso desmontable de placas de yeso cartón 60x60 con perfilería fosco. Divisorias de oficina de vidrio templado con perfiles de aluminio entubado... Proyecto de Corporativo realizado por VIPAR.",
+		"h1": "Oficina – Divisorias y Cielo Raso",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 275
+	},
+	"/obras/oficinas-corporativas-itau/": {
+		"title": "Oficinas Corporativas Itau - Obra Realizada | VIPAR Paraguay",
+		"description": "Tabiques de vidrio con tratamiento acústico y perfilería de aluminio para oficinas corporativas que requieren privacidad sin perder apertura visual.... Proyecto de Corporativo realizado por VIPAR.",
+		"h1": "Oficinas Corporativas Itau",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 230
+	},
+	"/obras/pedro-juan-caballero/": {
+		"title": "Universidad Pacífico – Ciencias Médicas - Obra Realizada | VIPAR Paraguay",
+		"description": "Fachada acristalada de gran escala para sede universitaria en Pedro Juan Caballero. El muro cortina de vidrio reflectivo azul con estructura de alumin... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "Universidad Pacífico – Ciencias Médicas",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 288
+	},
+	"/obras/quincho-edificio-brasilia-asuncion/": {
+		"title": "Quincho – Edificio Brasília - Obra Realizada | VIPAR Paraguay",
+		"description": "Cerramiento integral del quincho del Edificio Brasília con vidrio transparente y cortinas plegables para control solar. El sistema permite cerrar comp... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Quincho – Edificio Brasília",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 286
+	},
+	"/obras/recoleta-asuncion/": {
+		"title": "Edificio Residencial – Recoleta - Obra Realizada | VIPAR Paraguay",
+		"description": "Instalación de ventanas y puertas corredizas de perfilería de aluminio con vidrio incoloro de gran formato en edificio residencial de alta gama. Los c... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Edificio Residencial – Recoleta",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 275
+	},
+	"/obras/residencia-san-lorenzo/": {
+		"title": "Residencia San Lorenzo - Obra Realizada | VIPAR Paraguay",
+		"description": "Aberturas de aluminio y grandes paños de vidrio para residencia, con foco en cierre, durabilidad y lectura arquitectónica limpia.... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Residencia San Lorenzo",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 236
+	},
+	"/obras/san-antonio-central/": {
+		"title": "Remodelación Comercial – San Antonio - Obra Realizada | VIPAR Paraguay",
+		"description": "Remodelación integral de local comercial que incluyó la construcción de tabiques de drywall con terminación de masilla, instalación de cielo raso con ... Proyecto de Comercial realizado por VIPAR.",
+		"h1": "Remodelación Comercial – San Antonio",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 251
+	},
+	"/obras/san-lorenzo-central/": {
+		"title": "Local Comercial – San Lorenzo - Obra Realizada | VIPAR Paraguay",
+		"description": "Proyecto integral de local comercial que incluyó la instalación de cielo raso con placas desmontables y paneles LED empotrados, y vidriera frontal de ... Proyecto de Comercial realizado por VIPAR.",
+		"h1": "Local Comercial – San Lorenzo",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 278
+	},
+	"/obras/showroom-vipar/": {
+		"title": "Showroom VIPAR - Obra Realizada | VIPAR Paraguay",
+		"description": "Instalación completa de sistemas de cerramiento interior y exterior, con integración de perfiles de aluminio y paños de vidrio de gran formato según e... Proyecto de Corporativo realizado por VIPAR.",
+		"h1": "Showroom VIPAR",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 250
+	},
+	"/obras/sucursal-tigo-mra/": {
+		"title": "Sucursal Tigo - M.R.A. - Obra Realizada | VIPAR Paraguay",
+		"description": "Cerramientos y terminaciones integrales con fachada principal en cristal templado para alto tránsito comercial.... Proyecto de Comercial realizado por VIPAR.",
+		"h1": "Sucursal Tigo - M.R.A.",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 235
+	},
+	"/obras/tienda-go-caaguazu/": {
+		"title": "Tienda GO! – Caaguazú III - Obra Realizada | VIPAR Paraguay",
+		"description": "Instalación de sistema completo de cubículos sanitarios con mamparas de panel compacto textura granito y puertas de celosía de aluminio color champagn... Proyecto de Comercial realizado por VIPAR.",
+		"h1": "Tienda GO! – Caaguazú III",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 269
+	},
+	"/obras/tigo-central/": {
+		"title": "Tigo – Central - Obra Realizada | VIPAR Paraguay",
+		"description": "Cielo raso de yeso y vidrios de paños fijo para sucursal comercial.... Proyecto de Comercial realizado por VIPAR.",
+		"h1": "Tigo – Central",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 221
+	},
+	"/obras/torre-provenza-asuncion/": {
+		"title": "Torre Provenza - Obra Realizada | VIPAR Paraguay",
+		"description": "Provisión e instalación de ventanas de vidrio templado con perfilería de aluminio y cielo raso desmontable de placas Armstrong en edificio residencial... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Torre Provenza",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 284
+	},
+	"/obras/virgen-del-huerto-asuncion/": {
+		"title": "Instalación Médica – Virgen del Huerto - Obra Realizada | VIPAR Paraguay",
+		"description": "Instalación de cielo raso desmontable con placas de mineral fiber y paneles LED integrados para corredor y áreas clínicas de institución médica. El si... Proyecto de Institucional realizado por VIPAR.",
+		"h1": "Instalación Médica – Virgen del Huerto",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 263
+	},
+	"/obras/vivienda-box-de-bano/": {
+		"title": "Vivienda – Box de Baño - Obra Realizada | VIPAR Paraguay",
+		"description": "Box de baño de vidrio templado 8mm incoloro con perfiles de aluminio color fosco natural.... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Vivienda – Box de Baño",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 234
+	},
+	"/obras/vivienda-lc/": {
+		"title": "Vivienda LC - Obra Realizada | VIPAR Paraguay",
+		"description": "Puerta de carpintería de aluminio color fosco.... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Vivienda LC",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 215
+	},
+	"/obras/vivienda-seket/": {
+		"title": "Vivienda Seket - Obra Realizada | VIPAR Paraguay",
+		"description": "Baranda de vidrio templado de diseño moderno.... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Vivienda Seket",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 215
+	},
+	"/obras/vivienda-trotte/": {
+		"title": "Vivienda Trotte - Obra Realizada | VIPAR Paraguay",
+		"description": "Barandas con herrajes. Ventanas proyectante de carpintería de aluminio, puertas de vidrio templado todo en color verde.... Proyecto de Residencial realizado por VIPAR.",
+		"h1": "Vivienda Trotte",
+		"h2": [
+			"Sobre este proyecto",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 245
+	},
+	"/servicios/": {
+		"title": "Servicios de Cristales, Aluminio y Terminaciones - VIPAR S.A.",
+		"description": "Servicios de cristales templados, carpintería de aluminio, fachadas, mamparas, cielo raso y box de baño para proyectos en Paraguay. Consultá según medidas y tipo de obra.",
+		"h1": "Cristales templados, aluminio y terminaciones para obras en Paraguay.",
+		"h2": [
+			"Soluciones según tu proyecto",
+			"Catálogo de Sistemas",
+			"Cómo pedir una cotización",
+			"Proyectos realizados",
+			"Preguntas frecuentes sobre nuestros servicios"
+		],
+		"palabras": 839
+	},
+	"/servicios/box-de-bano/": {
+		"title": "Box de baño y mamparas para baño en Paraguay | VIPAR",
+		"description": "Box de baño y mamparas de ducha a medida en Paraguay. Compará acrílico, cristal templado y sistemas plegables según medidas, apertura e instalación.",
+		"h1": "Box de baño y mamparas de ducha a medida",
+		"h2": [
+			"Opciones de cerramiento a medida",
+			"Así queda un box de baño instalado",
+			"Cuadro comparativo de materiales",
+			"¿Querés cotizar box de baño?",
+			"Qué conviene según tu baño y tu presupuesto",
+			"El problema de las duchas mal terminadas",
+			"Nuestro proceso de trabajo",
+			"Experiencia y respaldo tecnico en Nemby y Gran Asuncion",
+			"Mamparas y box de ducha: estética y funcionalidad para baños modernos en Paraguay",
+			"Precio, materiales y medidas para tu mampara de baño",
+			"¿Necesitás cotizar un box de baño a medida?"
+		],
+		"palabras": 1121
+	},
+	"/servicios/carpinteria-de-aluminio/": {
+		"title": "Carpintería de aluminio en Paraguay | Puertas, ventanas y cerramientos | VIPAR",
+		"description": "Carpintería de aluminio para viviendas, comercios y obras. Consultá opciones para puertas, ventanas, aberturas y cerramientos según medidas, tipo de apertura y condiciones de instalación.",
+		"h1": "Carpintería de aluminio para puertas, ventanas y cerramientos",
+		"h2": [
+			"Desafios arquitectonicos resueltos con precision",
+			"Sistemas de apertura",
+			"Obras relacionadas",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 564
+	},
+	"/servicios/cielo-raso/": {
+		"title": "Cielo raso en Paraguay | Instalación en PVC, Durlock y desmontable | VIPAR",
+		"description": "Cielo raso en yeso, PVC, Durlock y sistemas desmontables para viviendas, oficinas y locales. Cotizá según medidas, uso, mantenimiento y alcance de obra.",
+		"h1": "Cielo raso en Paraguay: instalación en PVC, Durlock, yeso y desmontable",
+		"h2": [
+			"Sistemas de terminación",
+			"Cielos rasos ejecutados por VIPAR",
+			"Compará el sistema según tu espacio",
+			"¿Querés cotizar cielo raso?",
+			"Adaptación por entorno",
+			"Ingeniería de detalle",
+			"Consultas frecuentes",
+			"¿Cuánto cuesta instalar cielo raso?",
+			"¿Querés cotizar cielo raso para tu obra?"
+		],
+		"palabras": 987
+	},
+	"/servicios/cortinas/": {
+		"title": "Cortinas de vidrio en Paraguay | Cerramientos corredizos | VIPAR",
+		"description": "Cortinas de vidrio corredizas para balcones, quinchos, galerías y frentes. Consultá opciones según medidas, apertura, exposición del espacio y condiciones de instalación.",
+		"h1": "Cortinas de vidrio para cerrar sin perder visual ni flexibilidad",
+		"h2": [
+			"¿Querés cerrar un espacio sin convertirlo en un ambiente oscuro o pesado?",
+			"Soluciones en cortinas de vidrio",
+			"Guía de selección",
+			"Aplicaciones por proyecto",
+			"Proceso de cotización",
+			"Orientación según el proyecto",
+			"Preguntas frecuentes",
+			"Obras relacionadas",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 748
+	},
+	"/servicios/fachada/": {
+		"title": "Fachadas de Vidrio y Aluminio en Paraguay | Muro Cortina y Glazing | VIPAR",
+		"description": "Cotizá fachadas de vidrio y aluminio en Paraguay con VIPAR. Soluciones entubadas, muro cortina y sistema glazing para locales comerciales, edificios, oficinas y obras. Solicitá presupuesto.",
+		"h1": "Fachadas de vidrio y aluminio en Paraguay",
+		"h2": [
+			"¿Tu local, edificio u oficina necesita una fachada más profesional?",
+			"Tipos de fachadas que podés cotizar con VIPAR",
+			"¿Qué tipo de fachada conviene para tu proyecto?",
+			"Fachadas para locales comerciales, edificios, oficinas y obras",
+			"Cómo cotizar una fachada con VIPAR",
+			"Cotizá fachadas con una empresa paraguaya del rubro vidrio y aluminio",
+			"Preguntas frecuentes",
+			"Obras relacionadas",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 1171
+	},
+	"/servicios/fachadas/": {
+		"title": "Fachadas de Vidrio y Aluminio en Paraguay | Muro Cortina y Glazing | VIPAR",
+		"description": "Cotizá fachadas de vidrio y aluminio en Paraguay con VIPAR. Soluciones entubadas, muro cortina y sistema glazing para locales comerciales, edificios, oficinas y obras. Solicitá presupuesto.",
+		"h1": "Fachadas de vidrio y aluminio en Paraguay",
+		"h2": [
+			"¿Tu local, edificio u oficina necesita una fachada más profesional?",
+			"Tipos de fachadas que podés cotizar con VIPAR",
+			"¿Qué tipo de fachada conviene para tu proyecto?",
+			"Fachadas para locales comerciales, edificios, oficinas y obras",
+			"Cómo cotizar una fachada con VIPAR",
+			"Cotizá fachadas con una empresa paraguaya del rubro vidrio y aluminio",
+			"Preguntas frecuentes",
+			"Obras relacionadas",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 1171
+	},
+	"/servicios/mampara-divisoria/": {
+		"title": "Mamparas divisorias para oficinas en Paraguay | Cristal, Durlock y Eucatex | VIPAR",
+		"description": "Mamparas divisorias para oficinas, comercios y espacios corporativos. Cotizá opciones en cristal templado, Durlock o Eucatex según privacidad, imagen, plazos y uso del ambiente.",
+		"h1": "Mamparas divisorias para oficinas, comercios y espacios corporativos",
+		"h2": [
+			"Tipos de mamparas divisorias",
+			"Divisorias de vidrio en una oficina real",
+			"Comparativa técnica",
+			"¿Querés cotizar mamparas divisorias?",
+			"¿Necesitás separar ambientes sin perder funcionalidad?",
+			"Una mampara mal elegida puede arruinar el espacio",
+			"Soluciones por sector",
+			"Señales de que necesitás renovar tus divisiones",
+			"Proceso de cotización e instalación",
+			"Expertos en cerramientos y divisiones en Paraguay",
+			"Preguntas frecuentes",
+			"Precio y opciones de mamparas para oficinas",
+			"¿Necesitás dividir oficinas o áreas operativas?"
+		],
+		"palabras": 1401
+	},
+	"/servicios/mamparas-divisorias/": {
+		"title": "Mamparas divisorias para oficinas en Paraguay | Cristal, Durlock y Eucatex | VIPAR",
+		"description": "Mamparas divisorias para oficinas, comercios y espacios corporativos. Cotizá opciones en cristal templado, Durlock o Eucatex según privacidad, imagen, plazos y uso del ambiente.",
+		"h1": "Mamparas divisorias para oficinas, comercios y espacios corporativos",
+		"h2": [
+			"Tipos de mamparas divisorias",
+			"Divisorias de vidrio en una oficina real",
+			"Comparativa técnica",
+			"¿Querés cotizar mamparas divisorias?",
+			"¿Necesitás separar ambientes sin perder funcionalidad?",
+			"Una mampara mal elegida puede arruinar el espacio",
+			"Soluciones por sector",
+			"Señales de que necesitás renovar tus divisiones",
+			"Proceso de cotización e instalación",
+			"Expertos en cerramientos y divisiones en Paraguay",
+			"Preguntas frecuentes",
+			"Precio y opciones de mamparas para oficinas",
+			"¿Necesitás dividir oficinas o áreas operativas?"
+		],
+		"palabras": 1401
+	},
+	"/servicios/puertas/": {
+		"title": "Puertas de aluminio en Paraguay | Corredizas, batientes y plegables | VIPAR",
+		"description": "Puertas de aluminio, cristal templado y sistemas plegables para viviendas, comercios y obras. Consultá opciones según medidas, tipo de apertura, uso del espacio y condiciones de instalación.",
+		"h1": "Puertas de aluminio y cristal templado para viviendas, comercios, oficinas y obras en Paraguay",
+		"h2": [
+			"¿Necesitás cambiar, instalar o cotizar puertas para tu obra?",
+			"Soluciones en puertas",
+			"Guía de selección",
+			"Aplicaciones por proyecto",
+			"Proceso de cotización",
+			"Orientación según el proyecto",
+			"Preguntas frecuentes",
+			"Obras relacionadas",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 720
+	},
+	"/servicios/ventana/": {
+		"title": "Ventanas de aluminio en Paraguay | Corredizas, basculantes y cristal templado | VIPAR",
+		"description": "Ventanas de aluminio y cristal templado en Paraguay. Consultá opciones corredizas, basculantes u otros sistemas según medidas, tipo de apertura y condiciones de instalación.",
+		"h1": "Ventanas de aluminio y cristal templado para viviendas, comercios y obras",
+		"h2": [
+			"¿Necesitás cambiar, instalar o cotizar ventanas para tu obra?",
+			"Soluciones en ventanas",
+			"Guía de selección",
+			"Aplicaciones por proyecto",
+			"Proceso de cotización",
+			"Orientación según el proyecto",
+			"Preguntas frecuentes",
+			"Obras relacionadas",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 679
+	},
+	"/servicios/ventanas/": {
+		"title": "Ventanas de aluminio en Paraguay | Corredizas, basculantes y cristal templado | VIPAR",
+		"description": "Ventanas de aluminio y cristal templado en Paraguay. Consultá opciones corredizas, basculantes u otros sistemas según medidas, tipo de apertura y condiciones de instalación.",
+		"h1": "Ventanas de aluminio y cristal templado para viviendas, comercios y obras",
+		"h2": [
+			"¿Necesitás cambiar, instalar o cotizar ventanas para tu obra?",
+			"Soluciones en ventanas",
+			"Guía de selección",
+			"Aplicaciones por proyecto",
+			"Proceso de cotización",
+			"Orientación según el proyecto",
+			"Preguntas frecuentes",
+			"Obras relacionadas",
+			"Quieres cotizar un trabajo similar?"
+		],
+		"palabras": 679
+	},
+	"/servicios/vidrio-templado/": {
+		"title": "Vidrio templado y Blindex en Paraguay | A medida | VIPAR",
+		"description": "Provisión e instalación de vidrio templado y Blindex en Paraguay. Puertas, mamparas, box de baño, barandas y fachadas a medida. Mirá obras reales y consultá tu proyecto.",
+		"h1": "Vidrio templado y Blindex en Paraguay",
+		"h2": [
+			"Vidrio para cada espacio",
+			"Vidrio templado en obras reales",
+			"Qué cambia el precio del vidrio templado",
+			"¿Querés cotizar vidrio templado?",
+			"Vidrio templado, cristal templado y Blindex",
+			"De la consulta a la instalación",
+			"Preguntas frecuentes",
+			"¿Querés cotizar vidrio templado?"
+		],
+		"palabras": 828
+	}
+}

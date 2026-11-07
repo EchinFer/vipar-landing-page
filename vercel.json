@@ -2,16 +2,6 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/blog/cuanto-cuesta-box-de-bano-paraguay",
-      "destination": "/servicios/box-de-bano/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/cuanto-cuesta-box-de-bano-paraguay/",
-      "destination": "/servicios/box-de-bano/",
-      "permanent": true
-    },
-    {
       "source": "/blog/box-de-bano-vidrio-vs-acrilico",
       "destination": "/servicios/box-de-bano/",
       "permanent": true
@@ -52,16 +42,6 @@
       "permanent": true
     },
     {
-      "source": "/blog/costo-mamparas-divisorias",
-      "destination": "/servicios/mamparas-divisorias/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/costo-mamparas-divisorias/",
-      "destination": "/servicios/mamparas-divisorias/",
-      "permanent": true
-    },
-    {
       "source": "/blog/como-dividir-oficinas-sin-obras-mayores",
       "destination": "/servicios/mamparas-divisorias/",
       "permanent": true
@@ -69,16 +49,6 @@
     {
       "source": "/blog/como-dividir-oficinas-sin-obras-mayores/",
       "destination": "/servicios/mamparas-divisorias/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/cuanto-cuesta-cielo-raso-paraguay",
-      "destination": "/servicios/cielo-raso/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/cuanto-cuesta-cielo-raso-paraguay/",
-      "destination": "/servicios/cielo-raso/",
       "permanent": true
     },
     {

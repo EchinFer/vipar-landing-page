@@ -1,29 +1,45 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Foto from "../../components/Foto.astro";
-import { servicios } from "../../data/servicios";
+import { servicios, pasos } from "../../data/servicios";
 import { fotosDe } from "../../lib/fotos";
 ---
 
 <Base
-	title="Servicios | VIPAR S.A."
-	description="Vidrio templado, aluminio, ventanas, puertas, mamparas, fachadas, cortinas de vidrio, cielo raso y box de baño."
+	title="Servicios de cristales templados, aluminio y terminaciones | VIPAR S.A."
+	description="Cristales templados, carpintería de aluminio, ventanas, puertas, mamparas, fachadas, cortinas de vidrio, cielo raso y box de baño en Paraguay."
 	path="/servicios/"
 >
 	<header class="px-4 pt-8 md:px-8">
-		<h1 class="max-w-[14ch] font-display text-5xl leading-none tracking-tight md:text-7xl">Qué instalamos</h1>
+		<h1 class="max-w-[22ch] font-display text-4xl leading-[1.02] tracking-tight md:text-6xl">Cristales templados, aluminio y terminaciones para obras en Paraguay</h1>
+		<p class="mt-4 max-w-2xl text-lg leading-snug">Nueve líneas de trabajo, todas a medida y con instalación. Elegí una para ver qué incluye, qué no incluye y qué obras hicimos. Para un box de baño o una ventana podés armar el pedido y mandarlo por WhatsApp con las medidas.</p>
 	</header>
 	<ul class="mt-8 grid grid-cols-2 gap-px bg-aluminum md:grid-cols-3">
 		{
 			servicios.map((servicio) => (
-				<li class="bg-paper">
+				<li class="bg-white">
 					<a href={`/servicios/${servicio.slug}/`} class="block">
 						<Foto src={fotosDe(servicio.foto)[0]} alt={servicio.nombre} class="aspect-[4/5] w-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 720]} />
 						<p class="px-3 pt-3 font-display text-3xl leading-none">{servicio.nombre}</p>
-						<p class="px-3 pt-1 pb-4 text-sm text-muted">{servicio.resumen}</p>
+						<p class="px-3 pt-1 text-sm text-muted">{servicio.resumen}</p>
+						<p class="px-3 pt-2 pb-4 text-sm leading-snug">{servicio.description}</p>
 					</a>
 				</li>
 			))
 		}
 	</ul>
+	<section class="bg-wash px-4 py-10 md:px-8">
+		<h2 class="font-display text-3xl leading-none md:text-4xl">Cómo se pide un trabajo</h2>
+		<ol class="mt-5 grid max-w-4xl gap-5 md:grid-cols-5">
+			{
+				pasos.map((paso, indice) => (
+					<li>
+						<p class="text-sm text-muted">0{indice + 1}</p>
+						<h3 class="font-semibold">{paso.titulo}</h3>
+						<p class="mt-1 text-sm leading-snug">{paso.texto}</p>
+					</li>
+				))
+			}
+		</ol>
+	</section>
 </Base>

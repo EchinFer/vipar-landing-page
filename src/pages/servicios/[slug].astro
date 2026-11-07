@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Foto from "../../components/Foto.astro";
 import Calculadora from "../../components/Calculadora.astro";
-import { servicios } from "../../data/servicios";
+import { servicios, pasos } from "../../data/servicios";
 import { obrasDelServicio } from "../../data/obras";
 import { fotosDe } from "../../lib/fotos";
 import { mensajeLibre, waUrl } from "../../lib/pedido";
@@ -30,9 +30,9 @@ const jsonLd = {
 	<Foto src={foto} alt={servicio.nombre} priority class="aspect-[4/5] w-full object-cover md:aspect-[16/7]" sizes="100vw" />
 	<article class="px-4 py-8 md:px-8">
 		<p class="text-sm text-muted">Servicio</p>
-		<h1 class="mt-2 max-w-[16ch] font-display text-5xl leading-none tracking-tight md:text-7xl">{servicio.nombre}</h1>
-		<p class="mt-4 max-w-xl text-xl leading-snug">{servicio.description}</p>
-		<a href={waUrl(wa)} class="mt-6 inline-flex h-12 items-center bg-oxide px-4 text-paper">Pedir presupuesto</a>
+		<h1 class="mt-2 max-w-[22ch] font-display text-4xl leading-[1.02] tracking-tight md:text-6xl">{servicio.h1}</h1>
+		<p class="mt-4 max-w-2xl text-xl leading-snug">{servicio.intro}</p>
+		<a href={waUrl(wa)} data-origen="servicio" class="mt-6 inline-flex h-12 items-center bg-brand px-4 text-white">Pedir presupuesto</a>
 
 		<div class="mt-10 grid gap-8 md:grid-cols-2">
 			<div>
@@ -49,7 +49,28 @@ const jsonLd = {
 			</div>
 		</div>
 
-		<h2 class="mt-12 font-display text-3xl leading-none">En obra</h2>
+		{
+			servicio.bloques.map((bloque) => (
+				<section class="mt-12 max-w-3xl">
+					<h2 class="font-display text-3xl leading-none md:text-4xl">{bloque.titulo}</h2>
+					{bloque.parrafos?.map((parrafo) => <p class="mt-3 text-lg leading-snug">{parrafo}</p>)}
+					{
+						bloque.items && (
+							<div class="mt-4 space-y-4">
+								{bloque.items.map((item) => (
+									<div>
+										<h3 class="font-semibold">{item.titulo}</h3>
+										<p class="mt-1 leading-snug">{item.texto}</p>
+									</div>
+								))}
+							</div>
+						)
+					}
+				</section>
+			))
+		}
+
+		<h2 class="mt-12 font-display text-3xl leading-none md:text-4xl">En obra</h2>
 		<ul class="mt-4 max-w-2xl space-y-3 text-lg">
 			{servicio.hechos.map((hecho) => <li>{hecho}</li>)}
 		</ul>
@@ -63,13 +84,42 @@ const jsonLd = {
 		)
 	}
 
+	<section class="border-t border-aluminum px-4 py-10 md:px-8">
+		<h2 class="font-display text-3xl leading-none md:text-4xl">De la consulta a la instalación</h2>
+		<ol class="mt-5 grid max-w-4xl gap-5 md:grid-cols-5">
+			{
+				pasos.map((paso, indice) => (
+					<li>
+						<p class="text-sm text-muted">0{indice + 1}</p>
+						<h3 class="font-semibold">{paso.titulo}</h3>
+						<p class="mt-1 text-sm leading-snug">{paso.texto}</p>
+					</li>
+				))
+			}
+		</ol>
+	</section>
+
+	<section class="border-t border-aluminum px-4 py-10 md:px-8">
+		<h2 class="font-display text-3xl leading-none md:text-4xl">Preguntas frecuentes</h2>
+		<dl class="mt-5 max-w-3xl space-y-5">
+			{
+				servicio.faq.map((item) => (
+					<div>
+						<dt class="font-semibold">{item.p}</dt>
+						<dd class="mt-1 leading-snug">{item.r}</dd>
+					</div>
+				))
+			}
+		</dl>
+	</section>
+
 	{
 		relacionadas.length > 0 && (
 			<section class="border-t border-aluminum">
 				<h2 class="px-4 pt-8 font-display text-4xl leading-none md:px-8">Obras de esta línea</h2>
 				<ul class="mt-4 grid grid-cols-2 gap-px bg-aluminum md:grid-cols-4">
 					{relacionadas.map((obra) => (
-						<li class="bg-paper">
+						<li class="bg-white">
 							<a href={`/obras/${obra.slug}/`} class="block">
 								<Foto src={fotosDe(obra.slug)[0]} alt={obra.titulo} class="aspect-[4/5] w-full object-cover" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480]} />
 								<p class="px-3 py-3 font-display text-xl leading-none">{obra.titulo}</p>
