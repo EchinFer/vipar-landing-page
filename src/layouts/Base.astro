@@ -72,6 +72,7 @@ const bloques = {
 		<meta name="theme-color" content="#002046" />
 		<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 		<meta name="generator" content={Astro.generator} />
+		<script is:inline>document.documentElement.classList.add("js")</script>
 		<script type="application/ld+json" set:html={JSON.stringify(bloques)} />
 	</head>
 	<body class="pb-14 md:pb-0">
@@ -83,5 +84,18 @@ const bloques = {
 		<Footer />
 		<WhatsAppBar href={wa} />
 		<Medicion />
+		<script>
+			const io = new IntersectionObserver(
+				(entradas) =>
+					entradas.forEach((e) => {
+						if (e.isIntersecting) {
+							e.target.classList.add("visto");
+							io.unobserve(e.target);
+						}
+					}),
+				{ rootMargin: "0px 0px -8% 0px" },
+			);
+			document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+		</script>
 	</body>
 </html>

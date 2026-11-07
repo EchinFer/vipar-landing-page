@@ -1,0 +1,17 @@
+---
+interface Props {
+	kicker: string;
+	titulo: string;
+	texto?: string;
+	h1Max?: string;
+}
+
+const { kicker, titulo, texto, h1Max = "max-w-[22ch]" } = Astro.props;
+---
+
+<header class="panes bg-brand px-4 py-12 text-white md:px-8 md:py-20">
+	<p class="kicker text-sky">{kicker}</p>
+	<h1 class:list={["mt-4 text-[2rem] leading-[1.04] md:text-6xl", h1Max]}>{titulo}</h1>
+	{texto && <p class="mt-5 max-w-2xl text-lg leading-snug text-white/90">{texto}</p>}
+	<slot />
+</header>

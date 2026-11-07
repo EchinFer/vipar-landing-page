@@ -46,3 +46,9 @@ La foto de portada de `/servicios/box-de-bano/` viene del sitio anterior y se ve
 ## Marca
 
 El logo completo del sitio actual es blanco, para fondo oscuro. Por eso la cabecera y el pie son azul marino (`#002046`). No tenemos una versión del logo completo en azul para fondo blanco; si existe, se puede cambiar.
+
+## Diseño
+
+- Esta pasada rehízo la home, las fichas de servicio, las listas de obras y las cabeceras. Los límites siguen siendo las fotos: varias son de baja resolución y se ven así en pantallas grandes (por ejemplo Sucursal Tigo en el cuadro grande de la home).
+- No hay logos de clientes ni reseñas. Los logos piden permiso de cada empresa. Las reseñas de Google se pueden mostrar cuando VIPAR tenga ficha en Maps con reseñas.
+- La cifra "33 obras" cuenta las fichas de esta web, no el total histórico de VIPAR. El sitio viejo decía "+1000 obras" y no hay forma de verificarlo.

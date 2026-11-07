@@ -1,6 +1,7 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Galeria from "../../../components/Galeria.astro";
+import CabeceraPagina from "../../../components/CabeceraPagina.astro";
 import { obrasDe, type TipoObra } from "../../../data/obras";
 
 export function getStaticPaths() {
@@ -23,9 +24,6 @@ const nombre = tipo.charAt(0).toUpperCase() + tipo.slice(1);
 	description={`Obras ${nombre.toLowerCase()} de vidrio y aluminio hechas por VIPAR.`}
 	path={`/obras/tipo/${tipo}/`}
 >
-	<header class="px-4 pt-8 md:px-8">
-		<h1 class="font-display text-5xl leading-none tracking-tight md:text-7xl">{nombre}</h1>
-		<p class="mt-4 text-muted">{lista.length} obras en esta lista.</p>
-	</header>
+	<CabeceraPagina kicker="Obras" titulo={`Obras ${nombre.toLowerCase()}s`} texto={`${lista.length} obras en esta lista.`} />
 	<Galeria obras={lista} activa={tipo} />
 </Base>

@@ -2,7 +2,9 @@
 import Base from "../../layouts/Base.astro";
 import Foto from "../../components/Foto.astro";
 import Calculadora from "../../components/Calculadora.astro";
-import { servicios, pasos } from "../../data/servicios";
+import Pasos from "../../components/Pasos.astro";
+import BandaContacto from "../../components/BandaContacto.astro";
+import { servicios } from "../../data/servicios";
 import { obrasDelServicio } from "../../data/obras";
 import { fotosDe } from "../../lib/fotos";
 import { mensajeLibre, waUrl } from "../../lib/pedido";
@@ -27,102 +29,128 @@ const jsonLd = {
 ---
 
 <Base title={`${servicio.title} | VIPAR S.A.`} description={servicio.description} path={`/servicios/${servicio.slug}/`} waTexto={wa} jsonLd={jsonLd}>
-	<Foto src={foto} alt={servicio.nombre} priority class="aspect-[4/5] w-full object-cover md:aspect-[16/7]" sizes="100vw" />
-	<article class="px-4 py-8 md:px-8">
-		<p class="text-sm text-muted">Servicio</p>
-		<h1 class="mt-2 max-w-[22ch] font-display text-4xl leading-[1.02] tracking-tight md:text-6xl">{servicio.h1}</h1>
-		<p class="mt-4 max-w-2xl text-xl leading-snug">{servicio.intro}</p>
-		<a href={waUrl(wa)} data-origen="servicio" class="mt-6 inline-flex h-12 items-center bg-brand px-4 text-white">Pedir presupuesto</a>
-
-		<div class="mt-10 grid gap-8 md:grid-cols-2">
-			<div>
-				<h2 class="font-display text-3xl leading-none">Incluye</h2>
-				<ul class="mt-3 list-disc pl-5 leading-7">
-					{servicio.incluye.map((item) => <li>{item}</li>)}
-				</ul>
+	<section class="panes bg-brand text-white">
+		<div class="grid md:grid-cols-[1fr_1.05fr]">
+			<div class="order-2 flex flex-col justify-center px-4 py-10 md:order-1 md:px-8 md:py-16">
+				<p class="kicker text-sky"><a href="/servicios/" class="underline-offset-4 hover:underline">Servicios</a> / {servicio.nombre}</p>
+				<h1 class="mt-4 max-w-[20ch] text-[2rem] leading-[1.04] md:text-5xl">{servicio.h1}</h1>
+				<p class="mt-5 max-w-xl text-lg leading-snug text-white/90">{servicio.intro}</p>
+				<div class="mt-7 flex flex-wrap gap-3">
+					<a href={waUrl(wa)} data-origen="servicio" class="btn btn-light">Pedir presupuesto</a>
+					{servicio.calculadora ? <a href="#presupuesto" class="btn btn-line">Armar el pedido</a> : relacionadas.length > 0 && <a href="#obras" class="btn btn-line">Ver obras</a>}
+				</div>
 			</div>
-			<div>
-				<h2 class="font-display text-3xl leading-none">No incluye</h2>
-				<ul class="mt-3 list-disc pl-5 leading-7">
-					{servicio.noIncluye.map((item) => <li>{item}</li>)}
-				</ul>
+			<div class="order-1 md:order-2">
+				<Foto src={foto} alt={servicio.nombre} priority class="aspect-[4/3] size-full object-cover md:aspect-auto md:min-h-[32rem]" sizes="(min-width: 768px) 52vw, 100vw" />
 			</div>
 		</div>
+	</section>
 
-		{
-			servicio.bloques.map((bloque) => (
-				<section class="mt-12 max-w-3xl">
-					<h2 class="font-display text-3xl leading-none md:text-4xl">{bloque.titulo}</h2>
-					{bloque.parrafos?.map((parrafo) => <p class="mt-3 text-lg leading-snug">{parrafo}</p>)}
-					{
-						bloque.items && (
-							<div class="mt-4 space-y-4">
-								{bloque.items.map((item) => (
-									<div>
-										<h3 class="font-semibold">{item.titulo}</h3>
-										<p class="mt-1 leading-snug">{item.texto}</p>
-									</div>
-								))}
-							</div>
-						)
-					}
-				</section>
-			))
-		}
+	<div class="px-4 py-12 md:grid md:grid-cols-[1fr_20rem] md:gap-14 md:px-8 md:py-16">
+		<article>
+			<div class="grid gap-4 md:grid-cols-2">
+				<div class="reveal bg-wash p-6">
+					<h2 class="text-xl font-bold text-brand">Incluye</h2>
+					<ul class="mt-4 space-y-3">
+						{servicio.incluye.map((item) => (
+							<li class="flex gap-3 leading-snug"><span aria-hidden="true" class="font-bold text-brand">✓</span><span>{item}</span></li>
+						))}
+					</ul>
+				</div>
+				<div class="reveal border border-aluminum/60 p-6">
+					<h2 class="text-xl font-bold text-brand">No incluye</h2>
+					<ul class="mt-4 space-y-3">
+						{servicio.noIncluye.map((item) => (
+							<li class="flex gap-3 leading-snug"><span aria-hidden="true" class="font-bold text-muted">—</span><span>{item}</span></li>
+						))}
+					</ul>
+				</div>
+			</div>
 
-		<h2 class="mt-12 font-display text-3xl leading-none md:text-4xl">En obra</h2>
-		<ul class="mt-4 max-w-2xl space-y-3 text-lg">
-			{servicio.hechos.map((hecho) => <li>{hecho}</li>)}
-		</ul>
-	</article>
+			{
+				servicio.bloques.map((bloque) => (
+					<section class="reveal mt-14 max-w-3xl">
+						<h2 class="text-2xl leading-tight text-brand md:text-3xl">{bloque.titulo}</h2>
+						{bloque.parrafos?.map((parrafo) => <p class="mt-4 text-lg leading-relaxed">{parrafo}</p>)}
+						{
+							bloque.items && (
+								<div class="mt-5 grid gap-3 md:grid-cols-2">
+									{bloque.items.map((item) => (
+										<div class="border border-aluminum/60 p-5">
+											<h3 class="font-bold text-brand">{item.titulo}</h3>
+											<p class="mt-2 leading-snug">{item.texto}</p>
+										</div>
+									))}
+								</div>
+							)
+						}
+					</section>
+				))
+			}
+
+			<section class="reveal mt-14 max-w-3xl">
+				<h2 class="text-2xl leading-tight text-brand md:text-3xl">En obra</h2>
+				<ul class="mt-5 space-y-3">
+					{servicio.hechos.map((hecho) => <li class="border-l-4 border-brand bg-wash py-3 pr-4 pl-4 text-lg leading-snug">{hecho}</li>)}
+				</ul>
+			</section>
+		</article>
+
+		<aside class="hidden md:block">
+			<div class="top-20 border border-brand p-6 md:sticky">
+				<p class="kicker text-muted">Presupuesto</p>
+				<p class="mt-2 text-2xl leading-tight font-bold text-brand">{servicio.nombre}</p>
+				<p class="mt-3 text-sm leading-snug">Mandanos fotos y medidas por WhatsApp. El precio final se cierra cuando medimos en tu obra.</p>
+				<a href={waUrl(wa)} data-origen="lateral" class="btn btn-primary mt-5 w-full">Pedir presupuesto</a>
+				<p class="mt-4 text-xs text-muted">{empresa.horario}. {empresa.ciudad}.</p>
+			</div>
+		</aside>
+	</div>
 
 	{
 		servicio.calculadora && (
-			<div class="px-4 pb-12 md:px-8">
+			<div class="px-4 pb-14 md:px-8">
 				<Calculadora servicio={servicio.slug === "ventanas" ? "ventana" : "box"} />
 			</div>
 		)
 	}
 
-	<section class="border-t border-aluminum px-4 py-10 md:px-8">
-		<h2 class="font-display text-3xl leading-none md:text-4xl">De la consulta a la instalación</h2>
-		<ol class="mt-5 grid max-w-4xl gap-5 md:grid-cols-5">
-			{
-				pasos.map((paso, indice) => (
-					<li>
-						<p class="text-sm text-muted">0{indice + 1}</p>
-						<h3 class="font-semibold">{paso.titulo}</h3>
-						<p class="mt-1 text-sm leading-snug">{paso.texto}</p>
-					</li>
-				))
-			}
-		</ol>
-	</section>
+	<Pasos />
 
-	<section class="border-t border-aluminum px-4 py-10 md:px-8">
-		<h2 class="font-display text-3xl leading-none md:text-4xl">Preguntas frecuentes</h2>
-		<dl class="mt-5 max-w-3xl space-y-5">
-			{
-				servicio.faq.map((item) => (
-					<div>
-						<dt class="font-semibold">{item.p}</dt>
-						<dd class="mt-1 leading-snug">{item.r}</dd>
-					</div>
-				))
-			}
-		</dl>
+	<section class="px-4 py-14 md:px-8 md:py-20">
+		<div class="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-16">
+			<div>
+				<p class="kicker text-muted">Dudas</p>
+				<h2 class="mt-3 text-3xl leading-[1.05] text-brand md:text-4xl">Preguntas frecuentes</h2>
+			</div>
+			<div class="border-t border-aluminum/60">
+				{
+					servicio.faq.map((item) => (
+						<details class="group border-b border-aluminum/60">
+							<summary class="flex items-start justify-between gap-4 py-5 text-lg font-bold text-brand">
+								<span>{item.p}</span>
+								<span aria-hidden="true" class="mas mt-1 text-2xl leading-none transition-transform">+</span>
+							</summary>
+							<p class="pb-5 text-base leading-relaxed">{item.r}</p>
+						</details>
+					))
+				}
+			</div>
+		</div>
 	</section>
 
 	{
 		relacionadas.length > 0 && (
-			<section class="border-t border-aluminum">
-				<h2 class="px-4 pt-8 font-display text-4xl leading-none md:px-8">Obras de esta línea</h2>
-				<ul class="mt-4 grid grid-cols-2 gap-px bg-aluminum md:grid-cols-4">
+			<section id="obras" class="bg-wash px-4 py-14 md:px-8 md:py-20">
+				<p class="kicker text-muted">Obras</p>
+				<h2 class="mt-3 text-3xl leading-[1.05] text-brand md:text-4xl">Obras de esta línea</h2>
+				<ul class="mt-8 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
 					{relacionadas.map((obra) => (
-						<li class="bg-white">
-							<a href={`/obras/${obra.slug}/`} class="block">
-								<Foto src={fotosDe(obra.slug)[0]} alt={obra.titulo} class="aspect-[4/5] w-full object-cover" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480]} />
-								<p class="px-3 py-3 font-display text-xl leading-none">{obra.titulo}</p>
+						<li>
+							<a href={`/obras/${obra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
+								<Foto src={fotosDe(obra.slug)[0]} alt={obra.titulo} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480, 720]} />
+								<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
+								<p class="absolute inset-x-0 bottom-0 p-3 text-sm font-bold text-white md:p-4 md:text-base">{obra.titulo}</p>
 							</a>
 						</li>
 					))}
@@ -130,4 +158,6 @@ const jsonLd = {
 			</section>
 		)
 	}
+
+	<BandaContacto asunto={wa} />
 </Base>

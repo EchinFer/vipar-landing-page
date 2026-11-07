@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import CabeceraPagina from "../../components/CabeceraPagina.astro";
 import { notas } from "../../data/blog";
 ---
 
@@ -8,20 +9,19 @@ import { notas } from "../../data/blog";
 	description="Notas de VIPAR sobre box de baño, cielo raso y mamparas: aperturas, sistemas, vidrio o panel y qué define el precio de cada trabajo."
 	path="/blog/"
 >
-	<article class="px-4 py-10 md:px-8">
-		<h1 class="font-display text-5xl leading-none tracking-tight md:text-7xl">Notas</h1>
-		<p class="mt-4 max-w-lg text-muted">Textos con datos concretos de obras de VIPAR. Las notas de precio explican qué mueve el costo de cada trabajo, sin inventar un monto.</p>
-		<ul class="mt-8 divide-y divide-aluminum border-y border-aluminum">
+	<CabeceraPagina kicker="Notas" titulo="Notas sobre box de baño, cielo raso y mamparas" texto="Textos con datos concretos de obras de VIPAR. Las notas de precio explican qué mueve el costo de cada trabajo, sin inventar un monto." />
+	<section class="px-4 py-12 md:px-8 md:py-16">
+		<ul class="divide-y divide-aluminum/60 border-y border-aluminum/60">
 			{
 				notas.map((nota) => (
 					<li>
-						<a href={`/blog/${nota.slug}/`} class="block py-5">
-							<p class="font-display text-3xl leading-none">{nota.title}</p>
-							<p class="mt-2 max-w-xl text-muted">{nota.description}</p>
+						<a href={`/blog/${nota.slug}/`} class="group block py-6">
+							<p class="text-xl font-bold text-brand md:text-2xl">{nota.title} <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span></p>
+							<p class="mt-2 max-w-2xl text-muted">{nota.description}</p>
 						</a>
 					</li>
 				))
 			}
 		</ul>
-	</article>
+	</section>
 </Base>

@@ -1,8 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import Foto from "../components/Foto.astro";
+import ServicioCard from "../components/ServicioCard.astro";
+import Pasos from "../components/Pasos.astro";
+import BandaContacto from "../components/BandaContacto.astro";
 import { empresa } from "../data/empresa";
-import { portada } from "../data/obras";
+import { obras, portada } from "../data/obras";
 import { servicios } from "../data/servicios";
 import { fotosDe } from "../lib/fotos";
 import { mensajeLibre, waUrl } from "../lib/pedido";
@@ -10,6 +13,16 @@ import { mensajeLibre, waUrl } from "../lib/pedido";
 const heroObra = portada.find((obra) => obra.slug === "natatorio-cit-luque") ?? portada[0];
 const hero = fotosDe(heroObra.slug)[0];
 const presupuesto = waUrl(mensajeLibre(`Vi la obra ${heroObra.titulo} y quiero un presupuesto.`));
+const destacadas = portada.filter((obra) => obra.slug !== heroObra.slug).slice(0, 5);
+
+const cifras = [
+	{ valor: String(empresa.desde), texto: "Empresa familiar de Ñemby" },
+	{ valor: String(obras.length), texto: "Obras documentadas en esta web" },
+	{ valor: String(servicios.length), texto: "Líneas de trabajo, todas a medida" },
+	{ valor: "Todo el país", texto: "Asunción, Gran Asunción e interior" },
+];
+const nombresObras = ["sucursal-tigo-mra", "oficinas-corporativas-itau", "ips-central-asuncion", "natatorio-cit-luque", "pedro-juan-caballero", "carde-apf-ypane", "cooperativa-medalla"];
+const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !destacadas.includes(obra) && obra.slug !== heroObra.slug);
 ---
 
 <Base
@@ -18,7 +31,7 @@ const presupuesto = waUrl(mensajeLibre(`Vi la obra ${heroObra.titulo} y quiero u
 	path="/"
 	waTexto={mensajeLibre(`Vi la obra ${heroObra.titulo} y quiero un presupuesto.`)}
 >
-	<section class="relative flex h-[calc(100svh-3.5rem-3.5rem)] min-h-[32rem] items-end bg-brand text-white md:h-[calc(100svh-3.5rem)]">
+	<section class="relative flex h-[calc(100svh-3.5rem-3.5rem)] min-h-[34rem] items-end bg-brand text-white md:h-[calc(100svh-3.5rem)] md:items-center">
 		<Foto
 			src={hero}
 			alt={`${heroObra.titulo}, ${heroObra.ciudad}. ${heroObra.hecho}`}
@@ -26,93 +39,113 @@ const presupuesto = waUrl(mensajeLibre(`Vi la obra ${heroObra.titulo} y quiero u
 			class="absolute inset-0 h-full w-full object-cover"
 			sizes="100vw"
 		/>
-		<div class="absolute inset-0 bg-gradient-to-t from-brand via-brand/80 to-transparent"></div>
-		<div class="relative z-10 w-full px-4 pb-6 md:px-8 md:pb-10">
-			<p class="text-sm">{heroObra.titulo} · {heroObra.ciudad}</p>
-			<h1 class="mt-3 max-w-[20ch] font-display text-[2.2rem] leading-[0.98] tracking-tight md:text-6xl">
-				Cristales templados, aluminio y terminaciones para obras en Paraguay
-			</h1>
-			<p class="mt-3 max-w-md text-base">Medido en tu obra, fabricado a medida e instalado por VIPAR.</p>
-			<p class="mt-4 max-w-md text-sm md:text-base">{empresa.direccion}, {empresa.ciudad}. {empresa.horario}.</p>
-			<a href={presupuesto} data-origen="inicio" class="mt-5 hidden h-12 items-center bg-white px-4 font-semibold text-brand md:inline-flex">Pedir presupuesto</a>
+		<div class="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/30 to-brand/10 md:bg-gradient-to-r md:from-brand/80 md:via-brand/25 md:to-transparent"></div>
+		<div class="relative z-10 w-full p-4 md:p-8">
+			<div class="glass max-w-xl p-5 md:p-8">
+				<p class="kicker text-sky">Ñemby · desde {empresa.desde}</p>
+				<h1 class="mt-3 text-[2rem] leading-[1.02] md:text-5xl">Cristales templados, aluminio y terminaciones para obras en Paraguay</h1>
+				<p class="mt-4 text-base leading-snug text-white/90 md:text-lg">Medido en tu obra, fabricado a medida e instalado por VIPAR.</p>
+				<div class="mt-6 flex flex-wrap gap-3">
+					<a href={presupuesto} data-origen="inicio" class="btn btn-light hidden md:inline-flex">Pedir presupuesto</a>
+					<a href="/obras/" class="btn btn-line">Ver las obras</a>
+				</div>
+			</div>
 		</div>
+		<p class="absolute right-4 bottom-4 z-10 hidden text-xs text-white/80 md:block">{heroObra.titulo} · {heroObra.ciudad}</p>
 	</section>
 
-	<section class="border-b border-aluminum" aria-label="Obras">
-		<div class="flex items-end justify-between px-4 pt-8 md:px-8">
-			<h2 class="font-display text-4xl leading-none">Obras</h2>
-			<a href="/obras/" class="text-sm underline underline-offset-4">Ver las 33</a>
-		</div>
-		<ul class="mt-4 flex gap-3 overflow-x-auto px-4 pb-8 snap-x md:px-8">
+	<section class="border-b border-aluminum/50 bg-white" aria-label="VIPAR en cifras">
+		<dl class="grid grid-cols-2 md:grid-cols-4">
 			{
-				portada.map((obra) => {
+				cifras.map((cifra, indice) => (
+					<div class:list={["reveal px-4 py-6 md:px-8 md:py-9", indice > 0 && "md:border-l md:border-aluminum/50", indice % 2 === 1 && "border-l border-aluminum/50 md:border-l", indice > 1 && "border-t border-aluminum/50 md:border-t-0"]}>
+						<dt class="text-3xl font-bold tracking-tight text-brand md:text-4xl">{cifra.valor}</dt>
+						<dd class="mt-1 text-sm leading-snug text-muted">{cifra.texto}</dd>
+					</div>
+				))
+			}
+		</dl>
+	</section>
+
+	<section class="px-4 py-14 md:px-8 md:py-20" aria-label="Obras">
+		<div class="flex flex-wrap items-end justify-between gap-4">
+			<div>
+				<p class="kicker text-muted">Obras</p>
+				<h2 class="reveal mt-3 max-w-[20ch] text-3xl leading-[1.05] text-brand md:text-5xl">Se ve mejor en una obra terminada</h2>
+			</div>
+			<a href="/obras/" class="text-sm font-semibold text-brand underline underline-offset-4">Ver las {obras.length} obras →</a>
+		</div>
+		<ul class="mt-8 grid grid-cols-2 gap-2 md:h-[640px] md:grid-cols-4 md:grid-rows-2 md:gap-3">
+			{
+				destacadas.map((obra, indice) => {
 					const foto = fotosDe(obra.slug)[0];
 					return (
-						<li class="w-[68vw] shrink-0 snap-start sm:w-64">
-							<a href={`/obras/${obra.slug}/`} class="block">
-								<Foto src={foto} alt={`${obra.titulo}, ${obra.ciudad}`} class="aspect-[4/5] w-full object-cover" sizes="70vw" widths={[320, 480, 720]} />
-								<p class="pt-2 font-display text-2xl leading-none">{obra.titulo}</p>
-								<p class="text-sm text-muted">{obra.ciudad || obra.tipo}</p>
+						<li class:list={["reveal", indice === 0 ? "col-span-2 aspect-[4/3] md:row-span-2 md:aspect-auto" : "aspect-square md:aspect-auto"]}>
+							<a href={`/obras/${obra.slug}/`} class="zoom group relative block size-full overflow-hidden bg-brand">
+								<Foto src={foto} alt={`${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes={indice === 0 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"} widths={[320, 480, 720, 1000]} />
+								<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
+								<div class="absolute inset-x-0 bottom-0 p-3 text-white md:p-5">
+									<p class:list={["font-bold leading-tight", indice === 0 ? "text-xl md:text-3xl" : "text-sm md:text-lg"]}>{obra.titulo}</p>
+									<p class="text-xs text-white/80 capitalize md:text-sm">{obra.ciudad || obra.tipo}</p>
+								</div>
 							</a>
 						</li>
 					);
 				})
 			}
 		</ul>
+		<p class="mt-6 text-sm leading-snug text-muted">
+			<span class="font-semibold text-ink">También en el portfolio:</span>{" "}
+			{algunas.map((obra) => obra.titulo).join(" · ")}.
+		</p>
 	</section>
 
-	<section class="px-4 py-10 md:px-8" aria-label="Servicios">
-		<div class="flex items-end justify-between">
-			<h2 class="font-display text-4xl leading-none">Servicios</h2>
-			<a href="/servicios/" class="text-sm underline underline-offset-4">Ver todos</a>
+	<section class="bg-wash px-4 py-14 md:px-8 md:py-20" aria-label="Servicios">
+		<div class="grid gap-6 md:grid-cols-[1fr_1.1fr] md:gap-16">
+			<div>
+				<p class="kicker text-muted">Servicios</p>
+				<h2 class="reveal mt-3 max-w-[18ch] text-3xl leading-[1.05] text-brand md:text-5xl">Cristales, aluminio y terminaciones, desde {empresa.ciudad}</h2>
+			</div>
+			<div class="text-base leading-snug md:text-lg">
+				<p>VIPAR S.A. es una empresa familiar de Ñemby, Central. Instalamos cristales templados, carpintería de aluminio, fachadas, mamparas divisorias, cielos rasos y box de baño para viviendas, comercios, oficinas y obras. Trabajamos en Asunción, Gran Asunción y ciudades del interior.</p>
+				<p class="mt-3">Cada trabajo parte de datos concretos: medidas, ubicación y tipo de proyecto. Tomamos las medidas en el lugar, fabricamos a medida e instalamos. El precio final se cierra con esa medición.</p>
+			</div>
 		</div>
-		<p class="mt-3 text-sm"><a href="/calculadora/" class="underline underline-offset-4">Armar un box o una ventana</a></p>
-		<ul class="mt-5 grid grid-cols-2 gap-px bg-aluminum md:grid-cols-3">
-			{
-				servicios.map((servicio) => {
-					const foto = fotosDe(servicio.foto)[0];
-					return (
-						<li class="bg-white">
-							<a href={`/servicios/${servicio.slug}/`} class="block">
-								<Foto src={foto} alt={servicio.nombre} class="aspect-[4/5] w-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 720]} />
-								<p class="px-3 pt-3 font-display text-2xl leading-none">{servicio.nombre}</p>
-								<p class="px-3 pt-1 pb-4 text-sm text-muted">{servicio.resumen}</p>
-							</a>
-						</li>
-					);
-				})
-			}
-		</ul>
-	</section>
 
-	<section class="bg-wash px-4 py-10 md:px-8" aria-label="Qué hacemos">
-		<h2 class="max-w-[24ch] font-display text-3xl leading-none md:text-4xl">Cristales, aluminio y terminaciones, desde {empresa.ciudad}</h2>
-		<p class="mt-4 max-w-3xl text-lg leading-snug">VIPAR S.A. es una empresa familiar de Ñemby, Central. Instalamos cristales templados, carpintería de aluminio, fachadas, mamparas divisorias, cielos rasos y box de baño para viviendas, comercios, oficinas y obras. Trabajamos en Asunción, Gran Asunción y ciudades del interior.</p>
-		<p class="mt-3 max-w-3xl text-lg leading-snug">Cada trabajo parte de datos concretos: medidas, ubicación y tipo de proyecto. Tomamos las medidas en el lugar, fabricamos a medida e instalamos. El precio final se cierra con esa medición.</p>
-		<ul class="mt-6 grid max-w-5xl gap-x-8 gap-y-4 md:grid-cols-2">
+		<a href="/calculadora/" class="mt-10 flex flex-col justify-between gap-4 bg-brand p-6 text-white transition-colors hover:bg-[#0a3366] md:flex-row md:items-center md:p-8">
+			<span>
+				<span class="kicker block text-sky">Box de baño y ventanas</span>
+				<span class="mt-2 block text-2xl font-bold leading-tight md:text-3xl">Armá tu pedido en un minuto y mandalo por WhatsApp</span>
+			</span>
+			<span class="font-semibold">Abrir el armador →</span>
+		</a>
+
+		<ul class="mt-8 grid gap-3 md:grid-cols-3 md:gap-5">
 			{
 				servicios.map((servicio) => (
-					<li>
-						<a href={`/servicios/${servicio.slug}/`} class="font-semibold underline underline-offset-4">{servicio.nombre}</a>
-						<p class="mt-1 text-sm leading-snug">{servicio.description}</p>
+					<li class="reveal">
+						<ServicioCard servicio={servicio} />
 					</li>
 				))
 			}
 		</ul>
 	</section>
 
-	<section class="grid gap-8 border-t border-aluminum px-4 py-10 md:grid-cols-2 md:px-8">
-		<div>
-			<h2 class="font-display text-4xl leading-none">Desde {empresa.desde}, en {empresa.ciudad}</h2>
-			<p class="mt-4 max-w-md">Empresa familiar. La segunda generación sumó aluminio, fachadas, mamparas, cielo raso y box de baño. El showroom está en Salinas: se puede ver el sistema antes de encargarlo.</p>
-			<a href="/nosotros/" class="mt-4 inline-block text-sm underline underline-offset-4">La empresa</a>
-		</div>
-		<div class="text-lg leading-8">
-			<p>{empresa.direccion}</p>
-			<p>{empresa.ciudad}</p>
-			<p>{empresa.horario}</p>
-			<p><a href={`tel:${empresa.telefono}`}>{empresa.telefono}</a></p>
-			<p><a href={`mailto:${empresa.email}`}>{empresa.email}</a></p>
+	<Pasos />
+
+	<section class="px-4 py-14 md:px-8 md:py-20" aria-label="La empresa">
+		<div class="grid items-center gap-8 md:grid-cols-2 md:gap-16">
+			<div>
+				<p class="kicker text-muted">La empresa</p>
+				<h2 class="reveal mt-3 text-3xl leading-[1.05] text-brand md:text-5xl">Desde {empresa.desde}, en {empresa.ciudad}</h2>
+				<p class="mt-5 max-w-md text-lg leading-snug">Empresa familiar. La segunda generación sumó aluminio, fachadas, mamparas, cielo raso y box de baño. El showroom está en Salinas: se puede ver el sistema antes de encargarlo.</p>
+				<a href="/nosotros/" class="mt-5 inline-block font-semibold text-brand underline underline-offset-4">Conocer la empresa →</a>
+			</div>
+			<div class="zoom aspect-[4/3] overflow-hidden bg-brand">
+				<Foto src={fotosDe("showroom-vipar")[0]} alt="Showroom de VIPAR en Ñemby" class="size-full object-cover" sizes="(min-width: 768px) 50vw, 100vw" widths={[480, 800, 1200]} />
+			</div>
 		</div>
 	</section>
+
+	<BandaContacto asunto={`Vi la obra ${heroObra.titulo} y quiero un presupuesto.`} />
 </Base>

@@ -1,0 +1,32 @@
+---
+import { empresa } from "../data/empresa";
+import { mensajeLibre, waUrl } from "../lib/pedido";
+
+interface Props {
+	asunto?: string;
+}
+
+const { asunto = "Vi la web y quiero coordinar una medición." } = Astro.props;
+---
+
+<section class="bg-wash px-4 py-14 md:px-8 md:py-20" aria-label="Pedir presupuesto">
+	<div class="grid gap-10 md:grid-cols-[1.3fr_1fr] md:items-end">
+		<div>
+			<p class="kicker text-muted">Presupuesto</p>
+			<h2 class="reveal mt-3 max-w-[18ch] text-4xl leading-[1.02] text-brand md:text-6xl">Mandanos fotos y medidas por WhatsApp</h2>
+			<p class="mt-5 max-w-xl text-lg leading-snug">Con eso armamos el presupuesto. El precio final se cierra cuando medimos en tu obra.</p>
+			<div class="mt-7 flex flex-wrap gap-3">
+				<a href={waUrl(mensajeLibre(asunto))} data-origen="banda" class="btn btn-primary">Escribir por WhatsApp</a>
+				<a href="/calculadora/" class="btn border border-brand text-brand hover:bg-white">Armar un box o una ventana</a>
+			</div>
+		</div>
+		<div class="border-l-2 border-brand pl-5 text-base leading-7">
+			<p class="font-bold text-brand">Showroom</p>
+			<p>{empresa.direccion}</p>
+			<p>{empresa.ciudad}, {empresa.departamento}</p>
+			<p class="mt-2">{empresa.horario}</p>
+			<p class="mt-2"><a href={`tel:${empresa.telefono}`} class="underline underline-offset-4">{empresa.telefono}</a></p>
+			<p><a href={`mailto:${empresa.email}`} class="underline underline-offset-4">{empresa.email}</a></p>
+		</div>
+	</div>
+</section>

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import CabeceraPagina from "../components/CabeceraPagina.astro";
 import { empresa } from "../data/empresa";
 import { waUrl, mensajeLibre } from "../lib/pedido";
 
@@ -12,9 +13,9 @@ const wa = mensajeLibre("Quiero coordinar una visita al showroom o una medición
 	path="/contacto/"
 	waTexto={wa}
 >
-	<article class="px-4 py-10 md:px-8">
-		<h1 class="max-w-[12ch] font-display text-5xl leading-none tracking-tight md:text-7xl">Vení o escribinos</h1>
-		<dl class="mt-8 grid gap-6 text-lg md:grid-cols-2">
+	<CabeceraPagina kicker="Contacto" titulo="Vení o escribinos" h1Max="max-w-[14ch]" />
+	<article class="px-4 py-12 md:px-8 md:py-16">
+		<dl class="grid gap-6 text-lg md:grid-cols-2">
 			<div>
 				<dt class="text-sm text-muted">Showroom</dt>
 				<dd class="mt-1">{empresa.direccion}<br />{empresa.ciudad}, {empresa.departamento}</dd>
@@ -33,6 +34,6 @@ const wa = mensajeLibre("Quiero coordinar una visita al showroom o una medición
 			</div>
 		</dl>
 		<p class="mt-8 max-w-lg">Para un box o una ventana, la página de pedido arma el mensaje con material, apertura y medidas. Para una fachada o un cielo raso, alcanza con fotos del lugar y la ciudad de la obra.</p>
-		<p class="mt-4"><a href="/calculadora/" class="underline underline-offset-4">Armar el pedido</a></p>
+		<p class="mt-6"><a href="/calculadora/" class="btn btn-primary">Armar el pedido</a></p>
 	</article>
 </Base>

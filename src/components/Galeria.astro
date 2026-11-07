@@ -10,32 +10,35 @@ interface Props {
 const { obras, activa } = Astro.props;
 ---
 
-<div class="flex gap-5 overflow-x-auto px-4 py-4 text-sm md:px-8">
+<div class="flex gap-2 overflow-x-auto px-4 py-6 text-sm md:px-8">
 	{
 		tipos.map((tipo) => (
-			<a href={tipo.href} class:list={[tipo.id === activa ? "underline underline-offset-4" : "text-muted"]}>
+			<a href={tipo.href} class:list={["border px-4 py-2", tipo.id === activa ? "border-brand bg-brand text-white" : "border-aluminum/60 text-ink"]}>
 				{tipo.label}
 			</a>
 		))
 	}
 </div>
-<ul class="grid grid-cols-2 gap-px bg-aluminum md:grid-cols-3">
+<ul class="grid grid-cols-2 gap-2 px-4 pb-14 md:grid-cols-3 md:gap-3 md:px-8">
 	{
 		obras.map((obra) => {
 			const foto = fotosDe(obra.slug)[0];
 			const lugar = [obra.ciudad, obra.tipo].filter(Boolean).join(" · ");
 			return (
-				<li class="bg-white">
-					<a href={`/obras/${obra.slug}/`} class="group block">
+				<li>
+					<a href={`/obras/${obra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
 						{foto ? (
-							<Foto src={foto} alt={`${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="aspect-[4/5] w-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 720]} />
+							<Foto src={foto} alt={`${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 720]} />
 						) : (
-							<div class="flex aspect-[4/5] items-end bg-brand p-3 text-white">
-								<p class="text-sm">Sin foto de esta obra</p>
+							<div class="panes absolute inset-0 flex items-start p-3 text-white/70">
+								<p class="text-xs">Foto de esta obra pendiente</p>
 							</div>
 						)}
-						<p class="px-3 pt-3 font-display text-2xl leading-none tracking-tight">{obra.titulo}</p>
-						<p class="px-3 pt-1 pb-4 text-sm text-muted">{lugar}</p>
+						<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
+						<div class="absolute inset-x-0 bottom-0 p-3 text-white md:p-5">
+							<p class="text-sm leading-tight font-bold md:text-xl">{obra.titulo}</p>
+							<p class="text-xs text-white/80 md:text-sm">{lugar}</p>
+						</div>
 					</a>
 				</li>
 			);

@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Foto from "../components/Foto.astro";
+import BandaContacto from "../components/BandaContacto.astro";
 import { empresa } from "../data/empresa";
 import { fotosDe } from "../lib/fotos";
 
@@ -13,9 +14,10 @@ const showroom = fotosDe("showroom-vipar")[0];
 	path="/nosotros/"
 >
 	<Foto src={showroom} alt="Showroom de VIPAR en Ñemby" priority class="aspect-[4/5] w-full object-cover md:aspect-[16/7]" sizes="100vw" />
-	<article class="grid gap-8 px-4 py-8 md:grid-cols-2 md:px-8">
+	<article class="grid gap-10 px-4 py-14 md:grid-cols-2 md:px-8 md:py-20">
 		<div>
-			<h1 class="font-display text-4xl leading-[1.02] tracking-tight md:text-5xl">Empresa paraguaya en cristales y aluminio desde el año {empresa.desde}</h1>
+			<p class="kicker text-muted">La empresa</p>
+			<h1 class="mt-3 text-3xl leading-[1.05] text-brand md:text-5xl">Empresa paraguaya en cristales y aluminio desde el año {empresa.desde}</h1>
 			<p class="mt-4 text-lg">VIPAR empezó como un taller familiar de cristales templados. La segunda generación sumó carpintería de aluminio, fachadas, mamparas, cielo raso y box de baño.</p>
 			<p class="mt-4 text-lg">El showroom está en la misma dirección donde se coordinan las obras. Ahí se ve el sistema antes de encargarlo.</p>
 		</div>
@@ -28,4 +30,5 @@ const showroom = fotosDe("showroom-vipar")[0];
 			<p class="mt-4 text-base text-muted">Asunción, Gran Asunción e interior. En el interior el viaje se confirma con la obra.</p>
 		</div>
 	</article>
+	<BandaContacto />
 </Base>
