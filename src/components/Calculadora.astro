@@ -1,0 +1,172 @@
+---
+import { mensajePedido, opciones, waUrl, type ServicioCalc } from "../lib/pedido";
+
+interface Props {
+	servicio?: ServicioCalc;
+}
+
+const fijo = Astro.props.servicio;
+const inicial: ServicioCalc = fijo ?? "box";
+const base = opciones[inicial];
+const pedidoInicial = {
+	servicio: inicial,
+	material: base.materiales[inicial === "box" ? 1 : 0].id,
+	apertura: base.aperturas[0].id,
+	ancho: base.ancho,
+	alto: base.alto,
+};
+const inicialMensaje = mensajePedido(pedidoInicial);
+const hrefInicial = waUrl(inicialMensaje.texto);
+---
+
+<section class="border border-ink bg-paper p-4 md:p-8" id="presupuesto" data-calculadora data-fijo={fijo ?? ""}>
+	<p class="text-xs tracking-[0.16em] uppercase text-muted">Pedido</p>
+	<h2 class="mt-2 font-display text-4xl leading-none tracking-tight md:text-5xl">Armá lo que querés instalar</h2>
+	<p class="mt-4 max-w-xl text-muted">Elegí el tipo, el material, la apertura y una medida aproximada. El mensaje de WhatsApp sale con esos datos.</p>
+
+	<form class="mt-8 grid gap-6">
+		{
+			!fijo && (
+				<fieldset>
+					<legend class="mb-2 text-sm">Qué es</legend>
+					<div class="grid grid-cols-2 gap-2">
+						{(["box", "ventana"] as const).map((id) => (
+							<label class="choice relative cursor-pointer">
+								<input type="radio" name="servicio" value={id} checked={id === inicial} />
+								<span>{opciones[id].etiqueta}</span>
+							</label>
+						))}
+					</div>
+				</fieldset>
+			)
+		}
+
+		{
+			(["box", "ventana"] as const).map((servicio) => (
+				<div data-panel={servicio} hidden={servicio !== inicial}>
+					<fieldset>
+						<legend class="mb-2 text-sm">Material</legend>
+						<div class="grid gap-2 sm:grid-cols-3">
+							{opciones[servicio].materiales.map((item, indice) => (
+								<label class="choice relative cursor-pointer">
+									<input type="radio" name={`material-${servicio}`} value={item.id} checked={servicio === inicial && indice === (servicio === "box" ? 1 : 0)} />
+									<span>{item.label}</span>
+								</label>
+							))}
+						</div>
+					</fieldset>
+					<fieldset class="mt-6">
+						<legend class="mb-2 text-sm">Apertura</legend>
+						<div class="grid grid-cols-1 gap-2 md:grid-cols-3">
+							{opciones[servicio].aperturas.map((item, indice) => (
+								<label class="choice relative cursor-pointer">
+									<input type="radio" name={`apertura-${servicio}`} value={item.id} checked={servicio === inicial && indice === 0} />
+									<span>{item.label}</span>
+								</label>
+							))}
+						</div>
+					</fieldset>
+				</div>
+			))
+		}
+
+		<div class="grid grid-cols-2 gap-3">
+			<label class="block text-sm">
+				Ancho (m)
+				<input class="mt-2 w-full border border-aluminum bg-paper px-3 py-3 text-lg" name="ancho" type="number" inputmode="decimal" min="0.4" max="8" step="0.05" value={base.ancho} />
+			</label>
+			<label class="block text-sm">
+				Alto (m)
+				<input class="mt-2 w-full border border-aluminum bg-paper px-3 py-3 text-lg" name="alto" type="number" inputmode="decimal" min="0.4" max="8" step="0.05" value={base.alto} />
+			</label>
+		</div>
+	</form>
+
+	<p class="resultado mt-8 font-display text-4xl leading-none tracking-tight md:text-5xl" data-resultado>El rango te lo pasamos por WhatsApp.</p>
+	<p class="mt-3 max-w-xl text-sm text-muted" data-aclaracion>El precio se cierra cuando medimos en la obra.</p>
+	<a class="mt-6 flex h-14 items-center justify-center bg-oxide text-paper" data-pedir href={hrefInicial}>Pedir presupuesto</a>
+</section>
+
+<script>
+	import { mensajePedido, opciones, waUrl, type ServicioCalc } from "../lib/pedido";
+
+	function leerNumero(valor: string) {
+		const n = Number(valor.replace(",", "."));
+		return Number.isFinite(n) ? n : 0;
+	}
+
+	document.querySelectorAll<HTMLElement>("[data-calculadora]").forEach((raiz) => {
+		const fijo = raiz.dataset.fijo as ServicioCalc | "";
+		const form = raiz.querySelector("form");
+		const resultado = raiz.querySelector("[data-resultado]");
+		const aclaracion = raiz.querySelector("[data-aclaracion]");
+		const pedir = raiz.querySelector<HTMLAnchorElement>("[data-pedir]");
+		if (!form || !resultado || !aclaracion || !pedir) return;
+
+		const paneles = raiz.querySelectorAll<HTMLElement>("[data-panel]");
+		let servicioPrevio = servicioActual();
+
+		function servicioActual(): ServicioCalc {
+			if (fijo === "box" || fijo === "ventana") return fijo;
+			const marcado = form!.querySelector<HTMLInputElement>('input[name="servicio"]:checked');
+			return marcado?.value === "ventana" ? "ventana" : "box";
+		}
+
+		function valorMarcado(nombre: string, fallback: string) {
+			let marcado = form!.querySelector<HTMLInputElement>(`input[name="${nombre}"]:checked`);
+			if (!marcado) {
+				marcado = form!.querySelector<HTMLInputElement>(`input[name="${nombre}"]`);
+				if (marcado) marcado.checked = true;
+			}
+			return marcado?.value ?? fallback;
+		}
+
+		function pintar() {
+			const servicio = servicioActual();
+			paneles.forEach((panel) => {
+				panel.hidden = panel.dataset.panel !== servicio;
+			});
+			if (servicio !== servicioPrevio) {
+				const antes = opciones[servicioPrevio];
+				const anchoInput = form!.querySelector<HTMLInputElement>('input[name="ancho"]');
+				const altoInput = form!.querySelector<HTMLInputElement>('input[name="alto"]');
+				if (anchoInput && altoInput) {
+					const anchoActual = leerNumero(anchoInput.value);
+					const altoActual = leerNumero(altoInput.value);
+					const seguiaElDefecto = Math.abs(anchoActual - antes.ancho) < 0.001 && Math.abs(altoActual - antes.alto) < 0.001;
+					if (seguiaElDefecto) {
+						anchoInput.value = String(opciones[servicio].ancho);
+						altoInput.value = String(opciones[servicio].alto);
+					}
+				}
+				servicioPrevio = servicio;
+			}
+			const material = valorMarcado(`material-${servicio}`, opciones[servicio].materiales[0].id);
+			const apertura = valorMarcado(`apertura-${servicio}`, opciones[servicio].aperturas[0].id);
+			const ancho = leerNumero((form!.querySelector<HTMLInputElement>('input[name="ancho"]')?.value ?? ""));
+			const alto = leerNumero((form!.querySelector<HTMLInputElement>('input[name="alto"]')?.value ?? ""));
+			const { texto, calculo } = mensajePedido({ servicio, material, apertura, ancho, alto });
+			if (!calculo) {
+				resultado!.textContent = "El rango te lo pasamos por WhatsApp.";
+				aclaracion!.textContent = "El precio se cierra cuando medimos en la obra.";
+			} else {
+				const marca = calculo.ejemplo ? " PRECIO DE EJEMPLO" : "";
+				resultado!.textContent = `${calculo.min.toLocaleString("es-PY")} a ${calculo.max.toLocaleString("es-PY")}${marca}`;
+				aclaracion!.textContent = calculo.ejemplo
+					? "Este número es de ejemplo. No es un presupuesto de VIPAR. El precio se cierra en la medición."
+					: calculo.fuera
+						? "La medida se sale de la referencia. Tomá el rango como orientación. El precio se cierra en la medición."
+						: "El precio se cierra cuando medimos en la obra.";
+			}
+			const destino = waUrl(texto);
+			pedir!.href = destino;
+			document.querySelectorAll<HTMLAnchorElement>("[data-wa-bar]").forEach((barra) => {
+				barra.href = destino;
+			});
+		}
+
+		form.addEventListener("change", pintar);
+		form.addEventListener("input", pintar);
+		pintar();
+	});
+</script>

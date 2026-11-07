@@ -1,0 +1,27 @@
+---
+import Base from "../../layouts/Base.astro";
+import { notas } from "../../data/blog";
+---
+
+<Base
+	title="Notas | VIPAR S.A."
+	description="Tres notas cortas: apertura de un box, tipos de cielo raso y vidrio o panel en una mampara."
+	path="/blog/"
+>
+	<article class="px-4 py-10 md:px-8">
+		<h1 class="font-display text-5xl leading-none tracking-tight md:text-7xl">Notas</h1>
+		<p class="mt-4 max-w-lg text-muted">Solo textos que dicen algo concreto. Las notas que prometían un precio y no lo daban redirigen al servicio.</p>
+		<ul class="mt-8 divide-y divide-aluminum border-y border-aluminum">
+			{
+				notas.map((nota) => (
+					<li>
+						<a href={`/blog/${nota.slug}/`} class="block py-5">
+							<p class="font-display text-3xl leading-none">{nota.title}</p>
+							<p class="mt-2 max-w-xl text-muted">{nota.description}</p>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</article>
+</Base>

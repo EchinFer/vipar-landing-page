@@ -1,0 +1,27 @@
+---
+import Base from "../../layouts/Base.astro";
+import { notas } from "../../data/blog";
+import { mensajeLibre } from "../../lib/pedido";
+
+export function getStaticPaths() {
+	return notas.map((nota) => ({ params: { slug: nota.slug }, props: { nota } }));
+}
+
+const { nota } = Astro.props;
+---
+
+<Base title={`${nota.title} | VIPAR S.A.`} description={nota.description} path={`/blog/${nota.slug}/`} waTexto={mensajeLibre(`Leí la nota «${nota.title}» y quiero un presupuesto.`)}>
+	<article class="px-4 py-10 md:px-8">
+		<p class="text-sm text-muted"><a href="/blog/" class="underline underline-offset-4">Notas</a></p>
+		<h1 class="mt-3 max-w-[16ch] font-display text-5xl leading-none tracking-tight md:text-6xl">{nota.title}</h1>
+		<p class="mt-4 max-w-xl text-lg">{nota.description}</p>
+		{
+			nota.sections.map((seccion) => (
+				<section class="mt-8 max-w-xl">
+					<h2 class="font-display text-3xl leading-none">{seccion.titulo}</h2>
+					{seccion.parrafos.map((parrafo) => <p class="mt-3 text-lg leading-snug">{parrafo}</p>)}
+				</section>
+			))
+		}
+	</article>
+</Base>

@@ -1,0 +1,101 @@
+---
+import Base from "../layouts/Base.astro";
+import Foto from "../components/Foto.astro";
+import { empresa } from "../data/empresa";
+import { portada } from "../data/obras";
+import { servicios } from "../data/servicios";
+import { fotosDe } from "../lib/fotos";
+import { mensajeLibre, waUrl } from "../lib/pedido";
+
+const heroObra = portada.find((obra) => obra.slug === "natatorio-cit-luque") ?? portada[0];
+const hero = fotosDe(heroObra.slug)[0];
+const presupuesto = waUrl(mensajeLibre(`Vi la obra ${heroObra.titulo} y quiero un presupuesto.`));
+---
+
+<Base
+	title="VIPAR S.A. | Vidrio templado y aluminio en Paraguay"
+	description="Vidrio templado, aluminio, fachadas, mamparas y box de baño. Empresa de Ñemby, desde 2000. Pedí presupuesto por WhatsApp."
+	path="/"
+	waTexto={mensajeLibre(`Vi la obra ${heroObra.titulo} y quiero un presupuesto.`)}
+>
+	<section class="relative flex h-[calc(100svh-3.5rem-3.5rem)] min-h-[32rem] items-end bg-ink text-paper md:h-[calc(100svh-3.5rem)]">
+		<Foto
+			src={hero}
+			alt={`${heroObra.titulo}, ${heroObra.ciudad}. ${heroObra.hecho}`}
+			priority
+			class="absolute inset-0 h-full w-full object-cover"
+			sizes="100vw"
+		/>
+		<div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-transparent"></div>
+		<div class="relative z-10 w-full px-4 pb-6 md:px-8 md:pb-10">
+			<p class="text-sm">{heroObra.titulo} · {heroObra.ciudad}</p>
+			<h1 class="mt-3 max-w-[14ch] font-display text-[2.6rem] leading-[0.95] tracking-tight md:text-7xl">
+				Vidrio templado y aluminio, medido e instalado en tu obra.
+			</h1>
+			<p class="mt-4 max-w-md text-sm md:text-base">{empresa.direccion}, {empresa.ciudad}. {empresa.horario}.</p>
+			<a href={presupuesto} class="mt-5 inline-flex h-12 items-center bg-oxide px-4 text-paper">Pedir presupuesto</a>
+		</div>
+	</section>
+
+	<section class="border-b border-aluminum" aria-label="Obras">
+		<div class="flex items-end justify-between px-4 pt-8 md:px-8">
+			<h2 class="font-display text-4xl leading-none">Obras</h2>
+			<a href="/obras/" class="text-sm underline underline-offset-4">Ver las 33</a>
+		</div>
+		<ul class="mt-4 flex gap-3 overflow-x-auto px-4 pb-8 snap-x md:px-8">
+			{
+				portada.map((obra) => {
+					const foto = fotosDe(obra.slug)[0];
+					return (
+						<li class="w-[68vw] shrink-0 snap-start sm:w-64">
+							<a href={`/obras/${obra.slug}/`} class="block">
+								<Foto src={foto} alt={`${obra.titulo}, ${obra.ciudad}`} class="aspect-[4/5] w-full object-cover" sizes="70vw" widths={[320, 480, 720]} />
+								<p class="pt-2 font-display text-2xl leading-none">{obra.titulo}</p>
+								<p class="text-sm text-muted">{obra.ciudad || obra.tipo}</p>
+							</a>
+						</li>
+					);
+				})
+			}
+		</ul>
+	</section>
+
+	<section class="px-4 py-10 md:px-8" aria-label="Servicios">
+		<div class="flex items-end justify-between">
+			<h2 class="font-display text-4xl leading-none">Servicios</h2>
+			<a href="/servicios/" class="text-sm underline underline-offset-4">Ver todos</a>
+		</div>
+		<p class="mt-3 text-sm"><a href="/calculadora/" class="underline underline-offset-4">Armar un box o una ventana</a></p>
+		<ul class="mt-5 grid grid-cols-2 gap-px bg-aluminum md:grid-cols-3">
+			{
+				servicios.map((servicio) => {
+					const foto = fotosDe(servicio.foto)[0];
+					return (
+						<li class="bg-paper">
+							<a href={`/servicios/${servicio.slug}/`} class="block">
+								<Foto src={foto} alt={servicio.nombre} class="aspect-[4/5] w-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 720]} />
+								<p class="px-3 pt-3 font-display text-2xl leading-none">{servicio.nombre}</p>
+								<p class="px-3 pt-1 pb-4 text-sm text-muted">{servicio.resumen}</p>
+							</a>
+						</li>
+					);
+				})
+			}
+		</ul>
+	</section>
+
+	<section class="grid gap-8 border-t border-aluminum px-4 py-10 md:grid-cols-2 md:px-8">
+		<div>
+			<h2 class="font-display text-4xl leading-none">Desde {empresa.desde}, en {empresa.ciudad}</h2>
+			<p class="mt-4 max-w-md">Empresa familiar. La segunda generación sumó aluminio, fachadas, mamparas, cielo raso y box de baño. El showroom está en Salinas: se puede ver el sistema antes de encargarlo.</p>
+			<a href="/nosotros/" class="mt-4 inline-block text-sm underline underline-offset-4">La empresa</a>
+		</div>
+		<div class="text-lg leading-8">
+			<p>{empresa.direccion}</p>
+			<p>{empresa.ciudad}</p>
+			<p>{empresa.horario}</p>
+			<p><a href={`tel:${empresa.telefono}`}>{empresa.telefono}</a></p>
+			<p><a href={`mailto:${empresa.email}`}>{empresa.email}</a></p>
+		</div>
+	</section>
+</Base>

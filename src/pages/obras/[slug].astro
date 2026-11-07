@@ -1,0 +1,66 @@
+---
+import Base from "../../layouts/Base.astro";
+import Foto from "../../components/Foto.astro";
+import { obras } from "../../data/obras";
+import { servicioPorSlug } from "../../data/servicios";
+import { fotosDe } from "../../lib/fotos";
+import { mensajeLibre } from "../../lib/pedido";
+
+export function getStaticPaths() {
+	return obras.map((obra) => ({ params: { slug: obra.slug }, props: { obra } }));
+}
+
+const { obra } = Astro.props;
+const fotos = fotosDe(obra.slug);
+const lugar = obra.ciudad || "Ciudad no publicada en el sitio anterior";
+const wa = mensajeLibre(`Quiero un presupuesto parecido a esta obra: ${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}. ${obra.hecho}`);
+---
+
+<Base title={`${obra.titulo} | VIPAR S.A.`} description={obra.hecho} path={`/obras/${obra.slug}/`} waTexto={wa}>
+	{
+		fotos[0] ? (
+			<Foto src={fotos[0]} alt={`${obra.titulo}. ${obra.hecho}`} priority class="aspect-[4/5] w-full object-cover md:aspect-[16/8]" sizes="100vw" />
+		) : (
+			<div class="bg-ink px-4 py-16 text-paper md:px-8">
+				<p class="max-w-xl text-lg">{obra.sinFoto}</p>
+			</div>
+		)
+	}
+	<article class="grid gap-8 px-4 py-8 md:grid-cols-[1.4fr_0.8fr] md:px-8">
+		<div>
+			<p class="text-sm uppercase tracking-[0.14em] text-muted">{obra.tipo}</p>
+			<h1 class="mt-2 font-display text-5xl leading-none tracking-tight md:text-6xl">{obra.titulo}</h1>
+			<p class="mt-4 text-lg">{lugar}</p>
+			<p class="mt-4 max-w-xl text-xl leading-snug">{obra.hecho}</p>
+			{
+				obra.sinFoto && fotos.length === 0 && (
+					<p class="mt-4 max-w-xl text-sm text-muted">{obra.sinFoto}</p>
+				)
+			}
+		</div>
+		<ul class="text-sm leading-7">
+			{
+				obra.servicios.map((slug) => {
+					const servicio = servicioPorSlug(slug);
+					if (!servicio) return null;
+					return (
+						<li>
+							<a href={`/servicios/${servicio.slug}/`} class="underline underline-offset-4">{servicio.nombre}</a>
+						</li>
+					);
+				})
+			}
+		</ul>
+	</article>
+	{
+		fotos.length > 1 && (
+			<ul class="grid gap-px bg-aluminum md:grid-cols-2">
+				{fotos.slice(1).map((foto) => (
+					<li>
+						<Foto src={foto} alt={`${obra.titulo}, otra vista`} class="aspect-[4/3] w-full object-cover" sizes="(min-width: 768px) 50vw, 100vw" />
+					</li>
+				))}
+			</ul>
+		)
+	}
+</Base>

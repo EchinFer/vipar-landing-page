@@ -1,0 +1,83 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppBar from "../components/WhatsAppBar.astro";
+import { canonical, empresa } from "../data/empresa";
+import { mensajeLibre, waUrl } from "../lib/pedido";
+
+interface Props {
+	title: string;
+	description: string;
+	path: string;
+	waTexto?: string;
+	jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, path, waTexto, jsonLd } = Astro.props;
+const url = canonical(path);
+const imagen = new URL("/og.webp", empresa.site).href;
+const wa = waUrl(waTexto ?? mensajeLibre("Vi la web y quiero coordinar una medición."));
+const negocio = {
+	"@type": "LocalBusiness",
+	name: empresa.nombre,
+	url: empresa.site,
+	telephone: empresa.telefono,
+	email: empresa.email,
+	image: imagen,
+	foundingDate: String(empresa.desde),
+	address: {
+		"@type": "PostalAddress",
+		streetAddress: empresa.direccion,
+		addressLocality: empresa.ciudad,
+		addressRegion: empresa.departamento,
+		addressCountry: "PY",
+	},
+	openingHoursSpecification: {
+		"@type": "OpeningHoursSpecification",
+		dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+		opens: "07:30",
+		closes: "17:00",
+	},
+	areaServed: ["Asunción", "Gran Asunción", "Paraguay"],
+};
+const bloques = {
+	"@context": "https://schema.org",
+	"@graph": [negocio, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])],
+};
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={url} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_PY" />
+		<meta property="og:site_name" content="VIPAR S.A." />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={url} />
+		<meta property="og:image" content={imagen} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imagen} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<meta name="generator" content={Astro.generator} />
+		<script type="application/ld+json" set:html={JSON.stringify(bloques)} />
+	</head>
+	<body class="pb-14 md:pb-0">
+		<a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-paper focus:p-2">Saltar al contenido</a>
+		<Header />
+		<main id="contenido">
+			<slot />
+		</main>
+		<Footer />
+		<WhatsAppBar href={wa} />
+	</body>
+</html>

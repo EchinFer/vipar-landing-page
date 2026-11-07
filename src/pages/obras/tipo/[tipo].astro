@@ -1,0 +1,31 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Galeria from "../../../components/Galeria.astro";
+import { obrasDe, type TipoObra } from "../../../data/obras";
+
+export function getStaticPaths() {
+	return (["residencial", "comercial", "institucional"] as const).map((tipo) => ({
+		params: { tipo },
+		props: { tipo },
+	}));
+}
+
+interface Props {
+	tipo: TipoObra;
+}
+const { tipo } = Astro.props;
+const lista = obrasDe(tipo);
+const nombre = tipo.charAt(0).toUpperCase() + tipo.slice(1);
+---
+
+<Base
+	title={`Obras ${nombre.toLowerCase()} | VIPAR S.A.`}
+	description={`Obras ${nombre.toLowerCase()} de vidrio y aluminio hechas por VIPAR.`}
+	path={`/obras/tipo/${tipo}/`}
+>
+	<header class="px-4 pt-8 md:px-8">
+		<h1 class="font-display text-5xl leading-none tracking-tight md:text-7xl">{nombre}</h1>
+		<p class="mt-4 text-muted">{lista.length} obras en esta lista.</p>
+	</header>
+	<Galeria obras={lista} activa={tipo} />
+</Base>

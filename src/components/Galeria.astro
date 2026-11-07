@@ -1,0 +1,44 @@
+---
+import Foto from "./Foto.astro";
+import { fotosDe } from "../lib/fotos";
+import { tipos, type Obra, type TipoObra } from "../data/obras";
+
+interface Props {
+	obras: Obra[];
+	activa: TipoObra | "todas";
+}
+const { obras, activa } = Astro.props;
+---
+
+<div class="flex gap-5 overflow-x-auto px-4 py-4 text-sm md:px-8">
+	{
+		tipos.map((tipo) => (
+			<a href={tipo.href} class:list={[tipo.id === activa ? "underline underline-offset-4" : "text-muted"]}>
+				{tipo.label}
+			</a>
+		))
+	}
+</div>
+<ul class="grid grid-cols-2 gap-px bg-aluminum md:grid-cols-3">
+	{
+		obras.map((obra) => {
+			const foto = fotosDe(obra.slug)[0];
+			const lugar = [obra.ciudad, obra.tipo].filter(Boolean).join(" · ");
+			return (
+				<li class="bg-paper">
+					<a href={`/obras/${obra.slug}/`} class="group block">
+						{foto ? (
+							<Foto src={foto} alt={`${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="aspect-[4/5] w-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 720]} />
+						) : (
+							<div class="flex aspect-[4/5] items-end bg-ink p-3 text-paper">
+								<p class="text-sm">Sin foto de esta obra</p>
+							</div>
+						)}
+						<p class="px-3 pt-3 font-display text-2xl leading-none tracking-tight">{obra.titulo}</p>
+						<p class="px-3 pt-1 pb-4 text-sm text-muted">{lugar}</p>
+					</a>
+				</li>
+			);
+		})
+	}
+</ul>

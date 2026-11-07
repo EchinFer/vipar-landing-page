@@ -1,0 +1,125 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/blog/cuanto-cuesta-box-de-bano-paraguay",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cuanto-cuesta-box-de-bano-paraguay/",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/box-de-bano-vidrio-vs-acrilico",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/box-de-bano-vidrio-vs-acrilico/",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/como-elegir-box-de-bano-ideal",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/como-elegir-box-de-bano-ideal/",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/medidas-estandar-box-de-bano",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/medidas-estandar-box-de-bano/",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mamparas-divisorias-oficinas",
+      "destination": "/servicios/mamparas-divisorias/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mamparas-divisorias-oficinas/",
+      "destination": "/servicios/mamparas-divisorias/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/costo-mamparas-divisorias",
+      "destination": "/servicios/mamparas-divisorias/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/costo-mamparas-divisorias/",
+      "destination": "/servicios/mamparas-divisorias/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/como-dividir-oficinas-sin-obras-mayores",
+      "destination": "/servicios/mamparas-divisorias/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/como-dividir-oficinas-sin-obras-mayores/",
+      "destination": "/servicios/mamparas-divisorias/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cuanto-cuesta-cielo-raso-paraguay",
+      "destination": "/servicios/cielo-raso/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cuanto-cuesta-cielo-raso-paraguay/",
+      "destination": "/servicios/cielo-raso/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/como-elegir-cielo-raso",
+      "destination": "/servicios/cielo-raso/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/como-elegir-cielo-raso/",
+      "destination": "/servicios/cielo-raso/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/fachada",
+      "destination": "/servicios/fachadas/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/fachada/",
+      "destination": "/servicios/fachadas/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/ventana",
+      "destination": "/servicios/ventanas/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/ventana/",
+      "destination": "/servicios/ventanas/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/mampara-divisoria",
+      "destination": "/servicios/mamparas-divisorias/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/mampara-divisoria/",
+      "destination": "/servicios/mamparas-divisorias/",
+      "permanent": true
+    }
+  ]
+}

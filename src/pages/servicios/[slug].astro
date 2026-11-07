@@ -1,0 +1,83 @@
+---
+import Base from "../../layouts/Base.astro";
+import Foto from "../../components/Foto.astro";
+import Calculadora from "../../components/Calculadora.astro";
+import { servicios } from "../../data/servicios";
+import { obrasDelServicio } from "../../data/obras";
+import { fotosDe } from "../../lib/fotos";
+import { mensajeLibre, waUrl } from "../../lib/pedido";
+import { empresa } from "../../data/empresa";
+
+export function getStaticPaths() {
+	return servicios.map((servicio) => ({ params: { slug: servicio.slug }, props: { servicio } }));
+}
+
+const { servicio } = Astro.props;
+const foto = fotosDe(servicio.foto)[0];
+const relacionadas = obrasDelServicio(servicio.slug).filter((obra) => fotosDe(obra.slug).length > 0).slice(0, 4);
+const wa = mensajeLibre(`Quiero un presupuesto de ${servicio.nombre}.`);
+const jsonLd = {
+	"@type": "Service",
+	name: servicio.nombre,
+	description: servicio.description,
+	url: new URL(`/servicios/${servicio.slug}/`, empresa.site).href,
+	provider: { "@type": "LocalBusiness", name: empresa.nombre },
+	areaServed: "Paraguay",
+};
+---
+
+<Base title={`${servicio.title} | VIPAR S.A.`} description={servicio.description} path={`/servicios/${servicio.slug}/`} waTexto={wa} jsonLd={jsonLd}>
+	<Foto src={foto} alt={servicio.nombre} priority class="aspect-[4/5] w-full object-cover md:aspect-[16/7]" sizes="100vw" />
+	<article class="px-4 py-8 md:px-8">
+		<p class="text-sm text-muted">Servicio</p>
+		<h1 class="mt-2 max-w-[16ch] font-display text-5xl leading-none tracking-tight md:text-7xl">{servicio.nombre}</h1>
+		<p class="mt-4 max-w-xl text-xl leading-snug">{servicio.description}</p>
+		<a href={waUrl(wa)} class="mt-6 inline-flex h-12 items-center bg-oxide px-4 text-paper">Pedir presupuesto</a>
+
+		<div class="mt-10 grid gap-8 md:grid-cols-2">
+			<div>
+				<h2 class="font-display text-3xl leading-none">Incluye</h2>
+				<ul class="mt-3 list-disc pl-5 leading-7">
+					{servicio.incluye.map((item) => <li>{item}</li>)}
+				</ul>
+			</div>
+			<div>
+				<h2 class="font-display text-3xl leading-none">No incluye</h2>
+				<ul class="mt-3 list-disc pl-5 leading-7">
+					{servicio.noIncluye.map((item) => <li>{item}</li>)}
+				</ul>
+			</div>
+		</div>
+
+		<h2 class="mt-12 font-display text-3xl leading-none">En obra</h2>
+		<ul class="mt-4 max-w-2xl space-y-3 text-lg">
+			{servicio.hechos.map((hecho) => <li>{hecho}</li>)}
+		</ul>
+	</article>
+
+	{
+		servicio.calculadora && (
+			<div class="px-4 pb-12 md:px-8">
+				<Calculadora servicio={servicio.slug === "ventanas" ? "ventana" : "box"} />
+			</div>
+		)
+	}
+
+	{
+		relacionadas.length > 0 && (
+			<section class="border-t border-aluminum">
+				<h2 class="px-4 pt-8 font-display text-4xl leading-none md:px-8">Obras de esta línea</h2>
+				<ul class="mt-4 grid grid-cols-2 gap-px bg-aluminum md:grid-cols-4">
+					{relacionadas.map((obra) => (
+						<li class="bg-paper">
+							<a href={`/obras/${obra.slug}/`} class="block">
+								<Foto src={fotosDe(obra.slug)[0]} alt={obra.titulo} class="aspect-[4/5] w-full object-cover" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480]} />
+								<p class="px-3 py-3 font-display text-xl leading-none">{obra.titulo}</p>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+</Base>

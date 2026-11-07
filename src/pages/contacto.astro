@@ -1,0 +1,38 @@
+---
+import Base from "../layouts/Base.astro";
+import { empresa } from "../data/empresa";
+import { waUrl, mensajeLibre } from "../lib/pedido";
+
+const wa = mensajeLibre("Quiero coordinar una visita al showroom o una medición.");
+---
+
+<Base
+	title="Contacto | VIPAR S.A."
+	description="Showroom en San Francisco 770 c/ Sexta, Bo. Salinas, Ñemby. WhatsApp +595 981 256 510. Lunes a viernes de 7:30 a 17:00."
+	path="/contacto/"
+	waTexto={wa}
+>
+	<article class="px-4 py-10 md:px-8">
+		<h1 class="max-w-[12ch] font-display text-5xl leading-none tracking-tight md:text-7xl">Vení o escribinos</h1>
+		<dl class="mt-8 grid gap-6 text-lg md:grid-cols-2">
+			<div>
+				<dt class="text-sm text-muted">Showroom</dt>
+				<dd class="mt-1">{empresa.direccion}<br />{empresa.ciudad}, {empresa.departamento}</dd>
+			</div>
+			<div>
+				<dt class="text-sm text-muted">Horario</dt>
+				<dd class="mt-1">{empresa.horario}</dd>
+			</div>
+			<div>
+				<dt class="text-sm text-muted">WhatsApp</dt>
+				<dd class="mt-1"><a class="underline underline-offset-4" href={waUrl(wa)}>{empresa.telefono}</a></dd>
+			</div>
+			<div>
+				<dt class="text-sm text-muted">Correo</dt>
+				<dd class="mt-1"><a class="underline underline-offset-4" href={`mailto:${empresa.email}`}>{empresa.email}</a></dd>
+			</div>
+		</dl>
+		<p class="mt-8 max-w-lg">Para un box o una ventana, la página de pedido arma el mensaje con material, apertura y medidas. Para una fachada o un cielo raso, alcanza con fotos del lugar y la ciudad de la obra.</p>
+		<p class="mt-4"><a href="/calculadora/" class="underline underline-offset-4">Armar el pedido</a></p>
+	</article>
+</Base>

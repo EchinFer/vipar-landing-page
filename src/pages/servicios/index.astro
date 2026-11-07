@@ -1,0 +1,29 @@
+---
+import Base from "../../layouts/Base.astro";
+import Foto from "../../components/Foto.astro";
+import { servicios } from "../../data/servicios";
+import { fotosDe } from "../../lib/fotos";
+---
+
+<Base
+	title="Servicios | VIPAR S.A."
+	description="Vidrio templado, aluminio, ventanas, puertas, mamparas, fachadas, cortinas de vidrio, cielo raso y box de baño."
+	path="/servicios/"
+>
+	<header class="px-4 pt-8 md:px-8">
+		<h1 class="max-w-[14ch] font-display text-5xl leading-none tracking-tight md:text-7xl">Qué instalamos</h1>
+	</header>
+	<ul class="mt-8 grid grid-cols-2 gap-px bg-aluminum md:grid-cols-3">
+		{
+			servicios.map((servicio) => (
+				<li class="bg-paper">
+					<a href={`/servicios/${servicio.slug}/`} class="block">
+						<Foto src={fotosDe(servicio.foto)[0]} alt={servicio.nombre} class="aspect-[4/5] w-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 720]} />
+						<p class="px-3 pt-3 font-display text-3xl leading-none">{servicio.nombre}</p>
+						<p class="px-3 pt-1 pb-4 text-sm text-muted">{servicio.resumen}</p>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</Base>
