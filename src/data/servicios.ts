@@ -83,7 +83,7 @@ export const servicios: Servicio[] = [
 			{ p: "¿Cuánto cuesta el vidrio templado en Paraguay?", r: "No publicamos un monto suelto porque cambia con las medidas, el espesor, los herrajes y la instalación. Mandanos fotos del lugar y medidas aproximadas por WhatsApp y te pasamos el presupuesto." },
 			{ p: "¿Puedo pedir un presupuesto sin plano?", r: "Sí. Podés empezar con fotos y medidas aproximadas. Confirmamos las medidas definitivas antes de instalar." },
 		],
-		calculadora: false,
+		calculadora: true,
 	},
 	{
 		slug: "carpinteria-de-aluminio",
@@ -129,7 +129,7 @@ export const servicios: Servicio[] = [
 			{ p: "¿Qué incluye el trabajo?", r: "Perfiles de aluminio, el vidrio del sistema elegido y la instalación. Si el vano necesita corregirse con albañilería, eso no está incluido." },
 			{ p: "¿Qué datos conviene enviar para cotizar?", r: "Fotos del lugar, medidas aproximadas, la zona de la obra y si buscás puerta o ventana, batiente o corrediza." },
 		],
-		calculadora: false,
+		calculadora: true,
 	},
 	{
 		slug: "ventanas",
@@ -216,7 +216,7 @@ export const servicios: Servicio[] = [
 			{ p: "¿Incluyen la instalación en el presupuesto?", r: "Sí. El presupuesto incluye hoja, marco, herrajes e instalación. La cerradura electrónica entra solo si la pedís." },
 			{ p: "¿Qué datos conviene enviar para cotizar?", r: "Fotos del lugar, medidas aproximadas, la zona de la obra y el tipo de puerta que tenés en mente." },
 		],
-		calculadora: false,
+		calculadora: true,
 	},
 	{
 		slug: "mamparas-divisorias",
@@ -280,7 +280,7 @@ export const servicios: Servicio[] = [
 			{ p: "¿Puedo cotizar sin plano?", r: "Sí. Con fotos y medidas aproximadas podemos orientarte. El presupuesto final se cierra con las medidas relevadas en el lugar." },
 			{ p: "¿Cuánto cuesta una mampara divisoria?", r: "Cambia con el material, la altura, las puertas y las condiciones del espacio. No publicamos un monto suelto: mandanos el largo, la altura y las fotos y te pasamos el presupuesto por WhatsApp." },
 		],
-		calculadora: false,
+		calculadora: true,
 	},
 	{
 		slug: "fachadas",
@@ -337,7 +337,7 @@ export const servicios: Servicio[] = [
 			{ p: "¿Qué fachada conviene para un local comercial?", r: "Depende del tamaño del frente, el presupuesto, el diseño, la estructura existente y la visibilidad que busques. En muchos casos se evalúa fachada entubada o glazing." },
 			{ p: "¿Puedo cotizar una fachada enviando fotos?", r: "Sí. Lo ideal es mandar fotos del frente, medidas aproximadas, la ubicación de la obra y referencias visuales." },
 		],
-		calculadora: false,
+		calculadora: true,
 	},
 	{
 		slug: "cortinas",
@@ -377,7 +377,7 @@ export const servicios: Servicio[] = [
 			{ p: "¿Se pueden abrir en gran parte?", r: "Sí, según el sistema. Hay configuraciones que apilan o desplazan las hojas para liberar buena parte del vano." },
 			{ p: "¿Sirven para balcones y quinchos?", r: "Sí. Son dos de los usos más comunes porque dan flexibilidad de apertura y control del espacio según el clima." },
 		],
-		calculadora: false,
+		calculadora: true,
 	},
 	{
 		slug: "cielo-raso",
@@ -436,7 +436,7 @@ export const servicios: Servicio[] = [
 			{ p: "¿Qué datos necesito para cotizar?", r: "Fotos del espacio, medidas aproximadas, la ubicación de la obra, el tipo de ambiente y, si ya lo sabés, el sistema que buscás." },
 			{ p: "¿Cuánto cuesta un cielo raso?", r: "Cambia con el sistema, las medidas, la preparación del techo y la complejidad de la obra. No publicamos un monto suelto. Con fotos y medidas te pasamos el presupuesto por WhatsApp." },
 		],
-		calculadora: false,
+		calculadora: true,
 	},
 	{
 		slug: "box-de-bano",

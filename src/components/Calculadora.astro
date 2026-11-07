@@ -1,5 +1,5 @@
 ---
-import { mensajePedido, opciones, waUrl, type ServicioCalc } from "../lib/pedido";
+import { ids, mensajePedido, opciones, waUrl, type ServicioCalc } from "../lib/pedido";
 
 interface Props {
 	servicio?: ServicioCalc;
@@ -10,28 +10,28 @@ const inicial: ServicioCalc = fijo ?? "box";
 const base = opciones[inicial];
 const pedidoInicial = {
 	servicio: inicial,
-	material: base.materiales[inicial === "box" ? 1 : 0].id,
-	apertura: base.aperturas[0].id,
+	material: base.materiales[base.materialInicial].id,
+	apertura: base.aperturas[0]?.id ?? "",
 	ancho: base.ancho,
 	alto: base.alto,
 };
-const inicialMensaje = mensajePedido(pedidoInicial);
-const hrefInicial = waUrl(inicialMensaje.texto);
+const hrefInicial = waUrl(mensajePedido(pedidoInicial).texto);
+const paneles = fijo ? [fijo] : ids;
 ---
 
 <section class="border border-brand bg-white p-4 md:p-8" id="presupuesto" data-calculadora data-fijo={fijo ?? ""}>
-	<p class="text-xs tracking-[0.16em] uppercase text-muted">Pedido</p>
-	<h2 class="mt-2 font-display text-4xl leading-none tracking-tight md:text-5xl">Armá lo que querés instalar</h2>
-	<p class="mt-4 max-w-xl text-muted">Elegí el tipo, el material, la apertura y una medida aproximada. El mensaje de WhatsApp sale con esos datos.</p>
+	<p class="kicker text-muted">Pedido</p>
+	<h2 class="mt-2 text-3xl leading-[1.05] text-brand md:text-5xl">Armá lo que querés instalar</h2>
+	<p class="mt-4 max-w-xl text-muted">Elegí el tipo, el material y una medida aproximada. El mensaje de WhatsApp sale con esos datos.</p>
 
 	<form class="mt-8 grid gap-6">
 		{
 			!fijo && (
 				<fieldset>
-					<legend class="mb-2 text-sm">Qué es</legend>
-					<div class="grid grid-cols-2 gap-2">
-						{(["box", "ventana"] as const).map((id) => (
-							<label class="choice relative cursor-pointer">
+					<legend class="mb-2 text-sm font-semibold">Qué querés instalar</legend>
+					<div class="grid grid-cols-2 gap-2 md:grid-cols-3">
+						{ids.map((id) => (
+							<label class="choice relative cursor-pointer [&:last-child:nth-child(odd)]:col-span-2 md:[&:last-child:nth-child(odd)]:col-span-1">
 								<input type="radio" name="servicio" value={id} checked={id === inicial} />
 								<span>{opciones[id].etiqueta}</span>
 							</label>
@@ -42,53 +42,62 @@ const hrefInicial = waUrl(inicialMensaje.texto);
 		}
 
 		{
-			(["box", "ventana"] as const).map((servicio) => (
-				<div data-panel={servicio} hidden={servicio !== inicial}>
-					<fieldset>
-						<legend class="mb-2 text-sm">Material</legend>
-						<div class="grid gap-2 sm:grid-cols-3">
-							{opciones[servicio].materiales.map((item, indice) => (
-								<label class="choice relative cursor-pointer">
-									<input type="radio" name={`material-${servicio}`} value={item.id} checked={servicio === inicial && indice === (servicio === "box" ? 1 : 0)} />
-									<span>{item.label}</span>
-								</label>
-							))}
-						</div>
-					</fieldset>
-					<fieldset class="mt-6">
-						<legend class="mb-2 text-sm">Apertura</legend>
-						<div class="grid grid-cols-1 gap-2 md:grid-cols-3">
-							{opciones[servicio].aperturas.map((item, indice) => (
-								<label class="choice relative cursor-pointer">
-									<input type="radio" name={`apertura-${servicio}`} value={item.id} checked={servicio === inicial && indice === 0} />
-									<span>{item.label}</span>
-								</label>
-							))}
-						</div>
-					</fieldset>
-				</div>
-			))
+			paneles.map((servicio) => {
+				const config = opciones[servicio];
+				return (
+					<div data-panel={servicio} hidden={servicio !== inicial}>
+						<fieldset>
+							<legend class="mb-2 text-sm font-semibold">{config.grupoMaterial}</legend>
+							<div class="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+								{config.materiales.map((item, indice) => (
+									<label class="choice relative cursor-pointer">
+										<input type="radio" name={`material-${servicio}`} value={item.id} checked={servicio === inicial && indice === config.materialInicial} />
+										<span>{item.label}</span>
+									</label>
+								))}
+							</div>
+						</fieldset>
+						{config.aperturas.length > 0 && (
+							<fieldset class="mt-6">
+								<legend class="mb-2 text-sm font-semibold">{config.grupoApertura}</legend>
+								<div class="grid grid-cols-1 gap-2 md:grid-cols-3">
+									{config.aperturas.map((item, indice) => (
+										<label class="choice relative cursor-pointer">
+											<input type="radio" name={`apertura-${servicio}`} value={item.id} checked={servicio === inicial && indice === 0} />
+											<span>{item.label}</span>
+										</label>
+									))}
+								</div>
+							</fieldset>
+						)}
+					</div>
+				);
+			})
 		}
 
 		<div class="grid grid-cols-2 gap-3">
-			<label class="block text-sm">
-				Ancho (m)
-				<input class="mt-2 w-full border border-aluminum bg-white px-3 py-3 text-lg" name="ancho" type="number" inputmode="decimal" min="0.4" max="8" step="0.05" value={base.ancho} />
+			<label class="block text-sm font-semibold">
+				<span data-medida="a">{base.medidaA}</span> (m)
+				<input class="mt-2 w-full border border-aluminum bg-white px-3 py-3 text-lg font-normal" name="ancho" type="number" inputmode="decimal" min="0.4" max={base.max} step="0.05" value={base.ancho} />
 			</label>
-			<label class="block text-sm">
-				Alto (m)
-				<input class="mt-2 w-full border border-aluminum bg-white px-3 py-3 text-lg" name="alto" type="number" inputmode="decimal" min="0.4" max="8" step="0.05" value={base.alto} />
+			<label class="block text-sm font-semibold">
+				<span data-medida="b">{base.medidaB}</span> (m)
+				<input class="mt-2 w-full border border-aluminum bg-white px-3 py-3 text-lg font-normal" name="alto" type="number" inputmode="decimal" min="0.4" max={base.max} step="0.05" value={base.alto} />
 			</label>
 		</div>
+		<label class="block text-sm font-semibold">
+			Ciudad o zona de la obra <span class="font-normal text-muted">(opcional)</span>
+			<input class="mt-2 w-full border border-aluminum bg-white px-3 py-3 text-lg font-normal" name="ciudad" type="text" autocomplete="address-level2" placeholder="Ñemby, Asunción, Luque…" maxlength="60" />
+		</label>
 	</form>
 
-	<p class="resultado mt-8 font-display text-4xl leading-none tracking-tight md:text-5xl" data-resultado>El rango te lo pasamos por WhatsApp.</p>
+	<p class="resultado mt-8 text-3xl leading-[1.05] font-bold text-brand md:text-4xl" data-resultado>El rango te lo pasamos por WhatsApp.</p>
 	<p class="mt-3 max-w-xl text-sm text-muted" data-aclaracion>El precio se cierra cuando medimos en la obra.</p>
-	<a class="mt-6 flex h-14 items-center justify-center bg-brand text-white" data-pedir data-origen="calculadora" href={hrefInicial}>Pedir presupuesto</a>
+	<a class="btn btn-primary mt-6 w-full" data-pedir data-origen="calculadora" href={hrefInicial}>Pedir presupuesto</a>
 </section>
 
 <script>
-	import { mensajePedido, opciones, waUrl, type ServicioCalc } from "../lib/pedido";
+	import { ids, mensajePedido, opciones, waUrl, type ServicioCalc } from "../lib/pedido";
 
 	function leerNumero(valor: string) {
 		const n = Number(valor.replace(",", "."));
@@ -107,15 +116,16 @@ const hrefInicial = waUrl(inicialMensaje.texto);
 		let servicioPrevio = servicioActual();
 
 		function servicioActual(): ServicioCalc {
-			if (fijo === "box" || fijo === "ventana") return fijo;
+			if (fijo && ids.includes(fijo)) return fijo;
 			const marcado = form!.querySelector<HTMLInputElement>('input[name="servicio"]:checked');
-			return marcado?.value === "ventana" ? "ventana" : "box";
+			const valor = marcado?.value as ServicioCalc | undefined;
+			return valor && ids.includes(valor) ? valor : "box";
 		}
 
-		function valorMarcado(nombre: string, fallback: string) {
+		function valorMarcado(nombre: string, fallback: string, indice = 0) {
 			let marcado = form!.querySelector<HTMLInputElement>(`input[name="${nombre}"]:checked`);
 			if (!marcado) {
-				marcado = form!.querySelector<HTMLInputElement>(`input[name="${nombre}"]`);
+				marcado = form!.querySelectorAll<HTMLInputElement>(`input[name="${nombre}"]`)[indice] ?? null;
 				if (marcado) marcado.checked = true;
 			}
 			return marcado?.value ?? fallback;
@@ -123,29 +133,38 @@ const hrefInicial = waUrl(inicialMensaje.texto);
 
 		function pintar() {
 			const servicio = servicioActual();
+			const config = opciones[servicio];
 			paneles.forEach((panel) => {
 				panel.hidden = panel.dataset.panel !== servicio;
 			});
+			const anchoInput = form!.querySelector<HTMLInputElement>('input[name="ancho"]');
+			const altoInput = form!.querySelector<HTMLInputElement>('input[name="alto"]');
 			if (servicio !== servicioPrevio) {
 				const antes = opciones[servicioPrevio];
-				const anchoInput = form!.querySelector<HTMLInputElement>('input[name="ancho"]');
-				const altoInput = form!.querySelector<HTMLInputElement>('input[name="alto"]');
 				if (anchoInput && altoInput) {
 					const anchoActual = leerNumero(anchoInput.value);
 					const altoActual = leerNumero(altoInput.value);
 					const seguiaElDefecto = Math.abs(anchoActual - antes.ancho) < 0.001 && Math.abs(altoActual - antes.alto) < 0.001;
 					if (seguiaElDefecto) {
-						anchoInput.value = String(opciones[servicio].ancho);
-						altoInput.value = String(opciones[servicio].alto);
+						anchoInput.value = String(config.ancho);
+						altoInput.value = String(config.alto);
 					}
 				}
 				servicioPrevio = servicio;
 			}
-			const material = valorMarcado(`material-${servicio}`, opciones[servicio].materiales[0].id);
-			const apertura = valorMarcado(`apertura-${servicio}`, opciones[servicio].aperturas[0].id);
-			const ancho = leerNumero((form!.querySelector<HTMLInputElement>('input[name="ancho"]')?.value ?? ""));
-			const alto = leerNumero((form!.querySelector<HTMLInputElement>('input[name="alto"]')?.value ?? ""));
-			const { texto, calculo } = mensajePedido({ servicio, material, apertura, ancho, alto });
+			if (anchoInput) anchoInput.max = String(config.max);
+			if (altoInput) altoInput.max = String(config.max);
+			const a = raiz.querySelector("[data-medida='a']");
+			const b = raiz.querySelector("[data-medida='b']");
+			if (a) a.textContent = config.medidaA;
+			if (b) b.textContent = config.medidaB;
+
+			const material = valorMarcado(`material-${servicio}`, config.materiales[0].id, config.materialInicial);
+			const apertura = config.aperturas.length > 0 ? valorMarcado(`apertura-${servicio}`, config.aperturas[0].id) : "";
+			const ancho = leerNumero(anchoInput?.value ?? "");
+			const alto = leerNumero(altoInput?.value ?? "");
+			const ciudad = form!.querySelector<HTMLInputElement>('input[name="ciudad"]')?.value ?? "";
+			const { texto, calculo } = mensajePedido({ servicio, material, apertura, ancho, alto, ciudad });
 			if (!calculo) {
 				resultado!.textContent = "El rango te lo pasamos por WhatsApp.";
 				aclaracion!.textContent = "El precio se cierra cuando medimos en la obra.";

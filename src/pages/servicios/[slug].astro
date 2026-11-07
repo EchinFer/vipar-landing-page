@@ -7,7 +7,7 @@ import BandaContacto from "../../components/BandaContacto.astro";
 import { servicios } from "../../data/servicios";
 import { obrasDelServicio } from "../../data/obras";
 import { fotosDe } from "../../lib/fotos";
-import { mensajeLibre, waUrl } from "../../lib/pedido";
+import { calcPorSlug, mensajeLibre, waUrl } from "../../lib/pedido";
 import { empresa } from "../../data/empresa";
 
 export function getStaticPaths() {
@@ -110,7 +110,7 @@ const jsonLd = {
 	{
 		servicio.calculadora && (
 			<div class="px-4 pb-14 md:px-8">
-				<Calculadora servicio={servicio.slug === "ventanas" ? "ventana" : "box"} />
+				<Calculadora servicio={calcPorSlug[servicio.slug]} />
 			</div>
 		)
 	}
