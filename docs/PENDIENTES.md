@@ -8,7 +8,7 @@ Los archivos están en `docs/seo/datos-2026-11-07/`.
 
 - Buena parte de las consultas piden precio: "cielo raso pvc precio m2 paraguay", "precio box de baño", "costo mamparas". Hoy las notas de precio explican de qué depende el monto, pero no dan un número. Mientras VIPAR no pase rangos, esa búsqueda queda a medias y otro sitio con números puede ganar el clic.
 - "vidrieria asuncion" y "vidrieria cerca de mi" llegan a la home. "Cerca de mí" se gana sobre todo con la ficha de Google Maps (Perfil de Empresa), no con la web. No sabemos si VIPAR tiene una.
-- Entre febrero y mayo de 2026 Search Console casi no registra clics. No se sabe por qué (pudo ser un cambio de sitio, de dominio o de indexación). Antes de publicar conviene saberlo, porque una migración mal hecha puede repetirlo.
+- Entre febrero y mayo de 2026 Search Console casi no registra clics. Fue un problema del hosting, según VIPAR. El sitio recuperó y duplicó el tráfico después, pero muestra cuánto depende del hosting: el nuevo tiene que ser estable y conviene una alerta de caída (por ejemplo UptimeRobot, gratis) desde el primer día.
 - El 79 % de las sesiones son en celular, y el CTR en celular (2,5 %) es la mitad que en computadora (5 %).
 
 ## Para VIPAR, cuando haya un minuto

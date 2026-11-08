@@ -6,6 +6,7 @@ import Pasos from "../../components/Pasos.astro";
 import BandaContacto from "../../components/BandaContacto.astro";
 import { servicios } from "../../data/servicios";
 import { obrasDelServicio } from "../../data/obras";
+import { notas } from "../../data/blog";
 import { fotosDe } from "../../lib/fotos";
 import { calcPorSlug, mensajeLibre, waUrl } from "../../lib/pedido";
 import { empresa } from "../../data/empresa";
@@ -17,6 +18,7 @@ export function getStaticPaths() {
 const { servicio } = Astro.props;
 const foto = fotosDe(servicio.foto)[0];
 const relacionadas = obrasDelServicio(servicio.slug).filter((obra) => fotosDe(obra.slug).length > 0).slice(0, 4);
+const guias = notas.filter((nota) => nota.servicio === servicio.slug);
 const wa = mensajeLibre(`Quiero un presupuesto de ${servicio.nombre}.`);
 const jsonLd = {
 	"@type": "Service",
@@ -94,6 +96,24 @@ const jsonLd = {
 					{servicio.hechos.map((hecho) => <li class="border-l-4 border-brand bg-wash py-3 pr-4 pl-4 text-lg leading-snug">{hecho}</li>)}
 				</ul>
 			</section>
+
+			{
+				guias.length > 0 && (
+					<section class="reveal mt-14 max-w-3xl">
+						<h2 class="text-2xl leading-tight text-brand md:text-3xl">Guías de {servicio.nombre.toLowerCase()}</h2>
+						<ul class="mt-5 border-t border-aluminum/60">
+							{guias.map((nota) => (
+								<li>
+									<a href={`/blog/${nota.slug}/`} class="group flex items-start justify-between gap-4 border-b border-aluminum/60 py-4">
+										<span class="text-lg leading-snug font-bold text-brand group-hover:underline">{nota.title}</span>
+										<span aria-hidden="true" class="mt-0.5 text-brand">→</span>
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				)
+			}
 		</article>
 
 		<aside class="hidden md:block">

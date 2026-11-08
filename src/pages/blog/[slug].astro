@@ -17,7 +17,7 @@ const wa = mensajeLibre(`Leí la nota «${nota.title}» y quiero un presupuesto.
 
 <Base title={`${nota.title} | VIPAR S.A.`} description={nota.description} path={`/blog/${nota.slug}/`} waTexto={wa}>
 	<header class="panes bg-brand px-4 py-12 text-white md:px-8 md:py-16">
-		<p class="kicker text-sky"><a href="/blog/" class="underline-offset-4 hover:underline">Notas</a>{servicio && <> / <a href={`/servicios/${servicio.slug}/`} class="underline-offset-4 hover:underline">{servicio.nombre}</a></>}</p>
+		<p class="kicker text-sky"><a href="/blog/" class="underline-offset-4 hover:underline">Guías</a>{servicio && <> / <a href={`/servicios/${servicio.slug}/`} class="underline-offset-4 hover:underline">{servicio.nombre}</a></>}</p>
 		<h1 class="mt-4 max-w-[26ch] text-[1.9rem] leading-[1.06] md:text-5xl">{nota.title}</h1>
 		<p class="mt-5 max-w-2xl text-lg leading-snug text-white/90">{nota.description}</p>
 	</header>

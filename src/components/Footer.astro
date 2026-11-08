@@ -18,7 +18,12 @@ import { empresa } from "../data/empresa";
 		<div class="text-sm leading-6">
 			<p><a href={`tel:${empresa.telefono}`}>{empresa.telefono}</a></p>
 			<p><a href={`mailto:${empresa.email}`}>{empresa.email}</a></p>
-			<p class="mt-3"><a href="/obras/" class="underline underline-offset-4">Ver las obras</a></p>
+			<ul class="mt-3 flex flex-wrap gap-x-4">
+				<li><a href="/servicios/" class="underline underline-offset-4">Servicios</a></li>
+				<li><a href="/obras/" class="underline underline-offset-4">Obras</a></li>
+				<li><a href="/blog/" class="underline underline-offset-4">Guías</a></li>
+				<li><a href="/nosotros/" class="underline underline-offset-4">La empresa</a></li>
+			</ul>
 		</div>
 	</div>
 </footer>
