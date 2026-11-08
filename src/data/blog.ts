@@ -1,10 +1,24 @@
+import { estimar, etiqueta, formatGs, preciosM2, preciosVigencia, type ServicioCalc } from "../lib/pedido";
+
+function preciosDe(servicio: ServicioCalc) {
+	return Object.entries(preciosM2)
+		.filter(([clave]) => clave.startsWith(`${servicio}:`))
+		.map(([clave, precio]) => ({ nombre: etiqueta(servicio, "materiales", clave.split(":")[1]), ...precio }));
+}
+
+const total = (servicio: ServicioCalc, material: string, ancho: number, alto: number, apertura = "0") => formatGs(estimar({ servicio, material, apertura, ancho, alto })!.total);
+const cielo = preciosDe("cielo");
+const mamparas = preciosDe("mamparas");
+const buna = formatGs(preciosM2["cielo:durlock"].buna!);
+const bunaHabitacion = formatGs(estimar({ servicio: "cielo", material: "durlock", apertura: "", ancho: 4, alto: 3 })!.buna);
+
 export type Nota = {
 	slug: string;
 	title: string;
 	description: string;
 	/** Slug del servicio al que lleva la nota. */
 	servicio: string;
-	sections: { titulo: string; parrafos: string[] }[];
+	sections: { titulo: string; parrafos: string[]; tabla?: { columnas: string[]; filas: string[][] } }[];
 };
 
 export const notas: Nota[] = [
@@ -272,12 +286,24 @@ export const notas: Nota[] = [
 		slug: "cuanto-cuesta-cielo-raso-paraguay",
 		servicio: "cielo-raso",
 		title: "Cuánto cuesta un cielo raso en Paraguay y qué influye en el presupuesto",
-		description: "Qué define el precio de un cielo raso en Paraguay: sistema, superficie, estructura, preparación del techo y artefactos. Mandá fotos y medidas y te pasamos el presupuesto.",
+		description: `Precio de cielo raso por m² en Paraguay (${preciosVigencia}): yeso desde ${formatGs(preciosM2["cielo:junta-tomada"].m2)}, PVC ${formatGs(preciosM2["cielo:pvc"].m2)}, Durlock ${formatGs(preciosM2["cielo:durlock"].m2)} y desmontable desde ${formatGs(preciosM2["cielo:foil"].m2)}.`,
 		sections: [
 			{
-				titulo: "Por qué no hay un precio por metro",
+				titulo: "Precio por metro cuadrado",
+				parrafos: [`Son los precios de referencia de VIPAR en ${preciosVigencia}. El precio final se confirma cuando medimos en la obra.`],
+				tabla: { columnas: ["Sistema", "Precio por m²"], filas: cielo.map((item) => [item.nombre, formatGs(item.m2)]) },
+			},
+			{
+				titulo: "Un ejemplo con una habitación de 4 × 3 m",
 				parrafos: [
-					"El precio de un cielo raso depende del sistema, la superficie, la estructura que lleva, el estado del techo y la complejidad de la obra. Un monto por metro cuadrado sin esos datos no sirve para presupuestar, y por eso no publicamos uno.",
+					`Son 12 m². En yeso junta tomada da ${total("cielo", "junta-tomada", 4, 3)}, en PVC ${total("cielo", "pvc", 4, 3)} y en Durlock ${total("cielo", "durlock", 4, 3)}. En desmontable, entre ${total("cielo", "foil", 4, 3)} y ${total("cielo", "fibra-mineral", 4, 3)} según la placa.`,
+					`La buña es la terminación del borde, donde el cielo se encuentra con la pared. En yeso y Durlock se cobra aparte, ${buna} por metro lineal: en esa habitación son 14 m y suma ${bunaHabitacion}.`,
+				],
+			},
+			{
+				titulo: "Qué puede mover el precio final",
+				parrafos: [
+					"El precio por m² es la base. En la medición se ve la altura, el estado del techo, si hay que ocultar vigas o instalaciones y el acceso a la obra.",
 				],
 			},
 			{
@@ -317,12 +343,18 @@ export const notas: Nota[] = [
 		slug: "costo-mamparas-divisorias",
 		servicio: "mamparas-divisorias",
 		title: "Cuánto cuesta instalar mamparas divisorias en Paraguay y qué cambia el presupuesto",
-		description: "Qué define el precio de una mampara divisoria en Paraguay: material, altura, puertas, privacidad y condiciones del espacio. Mandá medidas y fotos y te pasamos el presupuesto.",
+		description: `Precio de mamparas divisorias por m² en Paraguay (${preciosVigencia}): Eucatex ciega ${formatGs(preciosM2["mamparas:eucatex-ciega"].m2)} y vidriada ${formatGs(preciosM2["mamparas:eucatex-vidriada"].m2)}, puertas aparte. Qué más cambia el presupuesto.`,
 		sections: [
 			{
-				titulo: "Por qué no publicamos un monto",
+				titulo: "Precio por metro cuadrado",
+				parrafos: [`Son los precios de referencia de VIPAR en ${preciosVigencia}, con perfiles de chapa pintada. Las puertas se cobran por unidad. El cristal templado y el Durlock se cotizan con las medidas.`],
+				tabla: { columnas: ["Mampara", "Por m²", "Puerta"], filas: mamparas.map((item) => [item.nombre, formatGs(item.m2), formatGs(item.puerta!)]) },
+			},
+			{
+				titulo: "Un ejemplo: una división de 3 m de largo y 2,40 m de alto",
 				parrafos: [
-					"Una división de 3 metros con una puerta y una de 12 metros con tres salas no se parecen en nada, aunque las dos se llamen mampara. El precio sale del largo, la altura, el material, las puertas y el espacio donde se instala.",
+					`Son 7,20 m². En Eucatex ciega con una puerta da ${total("mamparas", "eucatex-ciega", 3, 2.4, "1")}. En Eucatex vidriada con una puerta vidriada, ${total("mamparas", "eucatex-vidriada", 3, 2.4, "1")}.`,
+					"Una división de 3 metros con una puerta y una de 12 metros con tres salas no se parecen en nada, aunque las dos se llamen mampara. Por eso el precio final se confirma cuando medimos el espacio.",
 				],
 			},
 			{

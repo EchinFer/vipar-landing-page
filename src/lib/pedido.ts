@@ -18,6 +18,29 @@ export const precios: Record<string, Rango | null> = {
 	"ventana:fijo": null,
 };
 
+/** Mes en que VIPAR pasó los precios por m². Se muestra junto a cada monto. */
+export const preciosVigencia = "noviembre de 2026";
+
+export type PrecioM2 = {
+	m2: number;
+	/** Por unidad, aparte de los m². */
+	puerta?: number;
+	/** Terminación perimetral, por metro lineal. */
+	buna?: number;
+	nota?: string;
+};
+
+/** Precios por m² que pasó VIPAR. La clave es `servicio:material`. */
+export const preciosM2: Record<string, PrecioM2> = {
+	"cielo:junta-tomada": { m2: 80000, buna: 25000 },
+	"cielo:pvc": { m2: 100000 },
+	"cielo:durlock": { m2: 110000, buna: 25000 },
+	"cielo:foil": { m2: 125000 },
+	"cielo:fibra-mineral": { m2: 135000 },
+	"mamparas:eucatex-ciega": { m2: 170000, puerta: 500000, nota: "Con perfiles de chapa pintada." },
+	"mamparas:eucatex-vidriada": { m2: 210000, puerta: 750000, nota: "Con perfiles de chapa pintada." },
+};
+
 export type Opcion = { id: string; label: string };
 
 export type Config = {
@@ -141,17 +164,19 @@ export const opciones: Record<ServicioCalc, Config> = {
 		etiqueta: "Mamparas divisorias",
 		grupoMaterial: "Material",
 		materiales: [
+			{ id: "eucatex-ciega", label: "Eucatex ciega" },
+			{ id: "eucatex-vidriada", label: "Eucatex vidriada" },
 			{ id: "cristal", label: "Cristal templado" },
-			{ id: "eucatex", label: "Eucatex" },
 			{ id: "durlock", label: "Tabique de Durlock" },
 			noSe,
 		],
 		materialInicial: 0,
 		grupoApertura: "Puertas",
 		aperturas: [
-			{ id: "sin", label: "Sin puerta" },
-			{ id: "una", label: "Una puerta" },
-			{ id: "varias", label: "Dos o más" },
+			{ id: "0", label: "Sin puerta" },
+			{ id: "1", label: "1 puerta" },
+			{ id: "2", label: "2 puertas" },
+			{ id: "3", label: "3 o más" },
 		],
 		medidaA: "Largo",
 		medidaB: "Alto",
@@ -198,13 +223,14 @@ export const opciones: Record<ServicioCalc, Config> = {
 		etiqueta: "Cielo raso",
 		grupoMaterial: "Sistema",
 		materiales: [
-			{ id: "desmontable", label: "Desmontable" },
-			{ id: "durlock", label: "Durlock o junta tomada" },
-			{ id: "pvc", label: "PVC" },
-			{ id: "eucatex", label: "Eucatex o modular" },
+			{ id: "junta-tomada", label: "Yeso junta tomada lisa" },
+			{ id: "pvc", label: "PVC blanco" },
+			{ id: "durlock", label: "Durlock (yeso cartón)" },
+			{ id: "foil", label: "Desmontable, placa con foil" },
+			{ id: "fibra-mineral", label: "Desmontable, fibra mineral" },
 			noSe,
 		],
-		materialInicial: 4,
+		materialInicial: 5,
 		grupoApertura: "",
 		aperturas: [],
 		medidaA: "Largo",
@@ -261,6 +287,38 @@ export function calcular(rango: Rango, ancho: number, alto: number) {
 	};
 }
 
+export function tienePrecios(servicio: ServicioCalc) {
+	return Object.keys(preciosM2).some((clave) => clave.startsWith(`${servicio}:`));
+}
+
+export function estimar(pedido: Pedido) {
+	const precio = preciosM2[`${pedido.servicio}:${pedido.material}`];
+	if (!precio || !(pedido.ancho > 0) || !(pedido.alto > 0)) return null;
+	const area = Math.round(pedido.ancho * pedido.alto * 100) / 100;
+	const puertas = precio.puerta ? Number(pedido.apertura) || 0 : 0;
+	const montoPuertas = puertas * (precio.puerta ?? 0);
+	const redondear = (n: number) => Math.round(n / 1000) * 1000;
+	const metrosBuna = Math.round(2 * (pedido.ancho + pedido.alto) * 100) / 100;
+	return {
+		precio,
+		area,
+		puertas,
+		total: redondear(area * precio.m2 + montoPuertas),
+		/** "3 o más" puertas: el monto es un piso. */
+		desde: puertas >= 3,
+		metrosBuna,
+		buna: precio.buna ? redondear(metrosBuna * precio.buna) : 0,
+	};
+}
+
+export function detalleEstimado(estimado: NonNullable<ReturnType<typeof estimar>>) {
+	let detalle = `${formatM(estimado.area)} m² × ${formatGs(estimado.precio.m2)} por m²`;
+	if (estimado.puertas > 0 && estimado.precio.puerta) {
+		detalle += ` + ${estimado.puertas} ${estimado.puertas === 1 ? "puerta" : "puertas"} × ${formatGs(estimado.precio.puerta)}`;
+	}
+	return detalle;
+}
+
 export function formatM(n: number) {
 	if (!Number.isFinite(n) || n <= 0) return "";
 	return n.toLocaleString("es-PY", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -292,8 +350,12 @@ export function mensajePedido(pedido: Pedido) {
 		const marca = calculo.ejemplo ? " (PRECIO DE EJEMPLO)" : "";
 		lineas.push(`Rango que vi en la web${marca}: ${formatGs(calculo.min)} a ${formatGs(calculo.max)}`);
 	}
+	const estimado = estimar(pedido);
+	if (estimado) {
+		lineas.push(`Referencia que vi en la web (${preciosVigencia}): ${estimado.desde ? "desde " : ""}${formatGs(estimado.total)}, ${detalleEstimado(estimado)}`);
+	}
 	lineas.push("El precio final se define en la medición.");
-	return { texto: lineas.join("\n"), calculo };
+	return { texto: lineas.join("\n"), calculo, estimado };
 }
 
 export function waUrl(texto: string) {

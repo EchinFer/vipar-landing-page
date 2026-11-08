@@ -1,3 +1,20 @@
+import { etiqueta, formatGs, preciosM2, preciosVigencia, type ServicioCalc } from "../lib/pedido";
+
+function bloquePrecios(servicio: ServicioCalc, aclaracion: string): Bloque {
+	return {
+		titulo: "Precios de referencia",
+		parrafos: [`Precios de VIPAR por m² en ${preciosVigencia}. ${aclaracion} El precio final se confirma cuando medimos en la obra.`],
+		items: Object.entries(preciosM2)
+			.filter(([clave]) => clave.startsWith(`${servicio}:`))
+			.map(([clave, precio]) => ({
+				titulo: etiqueta(servicio, "materiales", clave.split(":")[1]),
+				texto: `${formatGs(precio.m2)} por m²${precio.puerta ? `. Puerta: ${formatGs(precio.puerta)} por unidad` : ""}.`,
+			})),
+	};
+}
+
+const porM2 = (clave: string) => formatGs(preciosM2[clave].m2);
+
 export type Bloque = {
 	titulo: string;
 	parrafos?: string[];
@@ -223,7 +240,7 @@ const lista: Servicio[] = [
 		nombre: "Mamparas divisorias",
 		title: "Mamparas divisorias para oficinas en Paraguay | Cristal, Durlock y Eucatex",
 		h1: "Mamparas divisorias para oficinas, comercios y espacios corporativos",
-		description: "Mamparas divisorias para oficinas, comercios y consultorios en Paraguay. Cristal templado, Durlock o Eucatex, con instalación y sin obra de mampostería.",
+		description: `Mamparas divisorias para oficinas, comercios y consultorios en Paraguay: cristal templado, Durlock o Eucatex desde ${porM2("mamparas:eucatex-ciega")} por m². Sin obra de mampostería.`,
 		intro: "Hacemos divisiones para salas de reunión, puestos de trabajo, recepciones y áreas operativas. Te ayudamos a elegir entre cristal templado, Durlock o Eucatex según la privacidad, la luz y la rapidez de obra que necesitás.",
 		resumen: "Vidrio o panel para separar ambientes.",
 		foto: "cooperativa-medalla",
@@ -243,6 +260,7 @@ const lista: Servicio[] = [
 					{ titulo: "Tabiques de Durlock", texto: "Tabiquería seca con más privacidad visual y una terminación continua. Sirve cuando buscás privacidad, robustez y un acabado definitivo." },
 				],
 			},
+			bloquePrecios("mamparas", "Eucatex con perfiles de chapa pintada; el cristal templado y el Durlock se cotizan con las medidas."),
 			{
 				titulo: "Qué conviene según el espacio",
 				items: [
@@ -278,7 +296,7 @@ const lista: Servicio[] = [
 			{ p: "¿Qué diferencia hay entre cristal templado, Durlock y Eucatex?", r: "Cambia la privacidad, la estética, la posibilidad de reconfigurar el espacio y los tiempos de obra. El vidrio deja pasar la luz. El Durlock y el Eucatex tapan la vista." },
 			{ p: "¿Qué datos necesito para cotizar?", r: "Medidas aproximadas, el uso del ambiente, fotos o plano, y si priorizás privacidad, luz o flexibilidad de la distribución." },
 			{ p: "¿Puedo cotizar sin plano?", r: "Sí. Con fotos y medidas aproximadas podemos orientarte. El presupuesto final se cierra con las medidas relevadas en el lugar." },
-			{ p: "¿Cuánto cuesta una mampara divisoria?", r: "Cambia con el material, la altura, las puertas y las condiciones del espacio. No publicamos un monto suelto: mandanos el largo, la altura y las fotos y te pasamos el presupuesto por WhatsApp." },
+			{ p: "¿Cuánto cuesta una mampara divisoria?", r: `Como referencia de ${preciosVigencia}, la Eucatex ciega cuesta ${porM2("mamparas:eucatex-ciega")} por m² y la vidriada ${porM2("mamparas:eucatex-vidriada")}, con las puertas aparte. El cristal templado y el Durlock se cotizan con el largo, la altura y fotos. El precio final se confirma en la medición.` },
 		],
 		calculadora: true,
 	},
@@ -384,7 +402,7 @@ const lista: Servicio[] = [
 		nombre: "Cielo raso",
 		title: "Cielo raso en Paraguay | Yeso, Durlock, PVC y desmontable",
 		h1: "Cielo raso en Paraguay: instalación en PVC, Durlock, yeso y desmontable",
-		description: "Cielo raso en Paraguay: instalación en PVC, yeso, Durlock, Eucatex y desmontable para viviendas, oficinas y locales. Mirá obras reales.",
+		description: `Cielo raso en Paraguay: yeso, Durlock, PVC y desmontable para viviendas, oficinas y locales, desde ${porM2("cielo:junta-tomada")} por m². Mirá obras reales.`,
 		intro: "Instalamos cielo raso en viviendas, oficinas y locales. Te ayudamos a elegir entre yeso, PVC, Durlock o desmontable según si hay que lavarlo, pintarlo o llegar a las instalaciones.",
 		resumen: "PVC, yeso, Durlock y desmontable.",
 		foto: "virgen-del-huerto-asuncion",
@@ -405,6 +423,7 @@ const lista: Servicio[] = [
 					{ titulo: "Eucatex o modular", texto: "Placas modulares para proyectos donde importa reponer por módulos y mantener fácil. Se pide también por su terminación prolija." },
 				],
 			},
+			bloquePrecios("cielo", `En yeso y Durlock, la buña perimetral se suma aparte: ${formatGs(preciosM2["cielo:durlock"].buna!)} por metro lineal.`),
 			{
 				titulo: "Qué sistema conviene según tu espacio",
 				items: [
@@ -434,7 +453,7 @@ const lista: Servicio[] = [
 			{ p: "¿Cuál conviene: yeso, PVC o Durlock?", r: "Depende de si hay que limpiarlo seguido, de la terminación que querés y de si necesitás acceder a las instalaciones." },
 			{ p: "¿Qué cielo raso conviene para una oficina?", r: "Si hace falta llegar a las instalaciones, el desmontable. Si querés una terminación continua, Durlock. Si querés reponer por módulos, modular." },
 			{ p: "¿Qué datos necesito para cotizar?", r: "Fotos del espacio, medidas aproximadas, la ubicación de la obra, el tipo de ambiente y, si ya lo sabés, el sistema que buscás." },
-			{ p: "¿Cuánto cuesta un cielo raso?", r: "Cambia con el sistema, las medidas, la preparación del techo y la complejidad de la obra. No publicamos un monto suelto. Con fotos y medidas te pasamos el presupuesto por WhatsApp." },
+			{ p: "¿Cuánto cuesta un cielo raso?", r: `Como referencia de ${preciosVigencia}, por m²: yeso junta tomada ${porM2("cielo:junta-tomada")}, PVC ${porM2("cielo:pvc")}, Durlock ${porM2("cielo:durlock")} y desmontable de ${porM2("cielo:foil")} a ${porM2("cielo:fibra-mineral")}. El precio final se confirma en la medición.` },
 		],
 		calculadora: true,
 	},

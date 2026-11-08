@@ -42,6 +42,13 @@ if (!pedido.texto.includes("Corrediza")) errores.push("falta la apertura");
 if (!pedido.texto.includes("0,90 m × 1,90 m")) errores.push(`medidas raras: ${pedido.texto}`);
 if (!pedido.texto.includes("El precio final se define en la medición.")) errores.push("falta el cierre");
 
+const cielo = mensajePedido({ servicio: "cielo", material: "durlock", apertura: "", ancho: 4, alto: 3 });
+if (!cielo.texto.includes("Gs. 1.320.000, 12,00 m² × Gs. 110.000 por m²")) errores.push(`cielo raso mal calculado: ${cielo.texto}`);
+const mampara = mensajePedido({ servicio: "mamparas", material: "eucatex-ciega", apertura: "1", ancho: 3, alto: 2.4 });
+if (!mampara.texto.includes("Gs. 1.724.000")) errores.push(`mampara mal calculada: ${mampara.texto}`);
+const sinPrecio = mensajePedido({ servicio: "mamparas", material: "cristal", apertura: "1", ancho: 3, alto: 2.4 });
+if (sinPrecio.texto.includes("Gs.")) errores.push("el cristal no tiene precio y el mensaje trae un monto");
+
 const html = readFileSync("dist/calculadora/index.html", "utf8");
 const href = html.match(/data-pedir[^>]*? href="([^"]+)"/)?.[1] ?? "";
 const texto = decodeURIComponent(href.split("text=")[1] ?? "");

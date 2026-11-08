@@ -97,7 +97,7 @@ const paneles = fijo ? [fijo] : ids;
 </section>
 
 <script>
-	import { ids, mensajePedido, opciones, waUrl, type ServicioCalc } from "../lib/pedido";
+	import { detalleEstimado, formatGs, formatM, ids, mensajePedido, opciones, preciosVigencia, tienePrecios, waUrl, type ServicioCalc } from "../lib/pedido";
 
 	function leerNumero(valor: string) {
 		const n = Number(valor.replace(",", "."));
@@ -164,8 +164,18 @@ const paneles = fijo ? [fijo] : ids;
 			const ancho = leerNumero(anchoInput?.value ?? "");
 			const alto = leerNumero(altoInput?.value ?? "");
 			const ciudad = form!.querySelector<HTMLInputElement>('input[name="ciudad"]')?.value ?? "";
-			const { texto, calculo } = mensajePedido({ servicio, material, apertura, ancho, alto, ciudad });
-			if (!calculo) {
+			const { texto, calculo, estimado } = mensajePedido({ servicio, material, apertura, ancho, alto, ciudad });
+			if (estimado) {
+				resultado!.textContent = `${estimado.desde ? "Desde " : ""}${formatGs(estimado.total)}`;
+				const partes = [`Referencia de ${preciosVigencia}: ${detalleEstimado(estimado)}.`];
+				if (estimado.precio.nota) partes.push(estimado.precio.nota);
+				if (estimado.buna) partes.push(`Si lleva buña perimetral, suma ${formatGs(estimado.precio.buna!)} por metro lineal: unos ${formatGs(estimado.buna)} para ${formatM(estimado.metrosBuna)} m de borde.`);
+				partes.push("El precio final se confirma en la medición.");
+				aclaracion!.textContent = partes.join(" ");
+			} else if (tienePrecios(servicio)) {
+				resultado!.textContent = material === "asesoria" ? "Elegí un sistema para ver la referencia." : "Este te lo cotizamos por WhatsApp.";
+				aclaracion!.textContent = material === "asesoria" ? "Si no sabés cuál conviene, mandá el pedido igual y te asesoramos." : "Mandá fotos y medidas. El precio se cierra cuando medimos en la obra.";
+			} else if (!calculo) {
 				resultado!.textContent = "El rango te lo pasamos por WhatsApp.";
 				aclaracion!.textContent = "El precio se cierra cuando medimos en la obra.";
 			} else {
