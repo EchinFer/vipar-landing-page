@@ -12,8 +12,12 @@ function walk(dir, acc = []) {
 }
 
 const faltantes = [];
+const saludosDobles = [];
 for (const archivo of walk("dist")) {
 	const html = readFileSync(archivo, "utf8");
+	for (const coincidencia of html.matchAll(/href="https:\/\/wa\.me\/[^"]*?text=([^"]+)"/g)) {
+		if (decodeURIComponent(coincidencia[1].replaceAll("&amp;", "&")).split("Hola VIPAR").length > 2) saludosDobles.push(archivo);
+	}
 	for (const coincidencia of html.matchAll(/href="([^"]+)"/g)) {
 		const href = coincidencia[1];
 		if (/^(https?:|mailto:|tel:|#)/.test(href)) continue;
@@ -55,6 +59,8 @@ const texto = decodeURIComponent(href.split("text=")[1] ?? "");
 if (!href.startsWith("https://wa.me/595981256510")) errores.push("el enlace no es wa.me");
 if (texto.includes("Gs.")) errores.push("el href publicado trae un monto");
 if (!texto.includes("Box de baño")) errores.push("el href no nombra el box");
+
+if (saludosDobles.length) errores.push(`WhatsApp con el saludo repetido en: ${[...new Set(saludosDobles)].join(", ")}`);
 
 if (faltantes.length || errores.length) {
 	console.error(faltantes.join("\n"));

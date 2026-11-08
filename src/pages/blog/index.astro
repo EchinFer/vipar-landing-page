@@ -1,27 +1,59 @@
 ---
 import Base from "../../layouts/Base.astro";
 import CabeceraPagina from "../../components/CabeceraPagina.astro";
+import Foto from "../../components/Foto.astro";
+import BandaContacto from "../../components/BandaContacto.astro";
 import { notas } from "../../data/blog";
+import { servicios } from "../../data/servicios";
+import { fotosDe } from "../../lib/fotos";
+import { calcPorSlug, desdeM2, formatGs, mensajeLibre } from "../../lib/pedido";
+
+const grupos = servicios
+	.map((servicio) => ({
+		servicio,
+		foto: fotosDe(servicio.foto)[0],
+		desde: desdeM2(calcPorSlug[servicio.slug]),
+		guias: notas.filter((nota) => nota.servicio === servicio.slug).sort((a, b) => Number(Boolean(b.actualizado)) - Number(Boolean(a.actualizado))),
+	}))
+	.filter((grupo) => grupo.guias.length > 0);
 ---
 
 <Base
 	title="Guías de box de baño, cielo raso y mamparas | VIPAR S.A."
 	description="Guías de VIPAR sobre box de baño, cielo raso y mamparas: aperturas, sistemas, vidrio o panel y qué define el precio de cada trabajo."
 	path="/blog/"
+	waTexto={mensajeLibre("Leí las guías de la web y quiero un presupuesto.")}
 >
-	<CabeceraPagina kicker="Guías" titulo="Guías de box de baño, cielo raso y mamparas" texto="Textos con datos concretos de obras de VIPAR. Las guías de cielo raso y mamparas tienen los precios por m² de VIPAR." />
-	<section class="px-4 py-12 md:px-8 md:py-16">
-		<ul class="divide-y divide-aluminum/60 border-y border-aluminum/60">
-			{
-				notas.map((nota) => (
-					<li>
-						<a href={`/blog/${nota.slug}/`} class="group block py-6">
-							<p class="text-xl font-bold text-brand md:text-2xl">{nota.title} <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span></p>
-							<p class="mt-2 max-w-2xl text-muted">{nota.description}</p>
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</section>
+	<CabeceraPagina kicker="Guías" titulo="Guías de box de baño, cielo raso y mamparas" texto="Lo que conviene saber antes de pedir presupuesto, con obras reales de VIPAR. Las de cielo raso y mamparas tienen precios por m²." />
+
+	{
+		grupos.map((grupo, orden) => (
+			<section class:list={["px-4 py-12 md:px-8 md:py-16", orden % 2 === 1 && "bg-wash"]} aria-label={`Guías de ${grupo.servicio.nombre}`}>
+				<div class="grid gap-6 md:grid-cols-[1fr_2fr] md:gap-12">
+					<a href={`/servicios/${grupo.servicio.slug}/`} class="zoom group relative block aspect-[16/9] overflow-hidden bg-brand md:aspect-[4/5]">
+						{grupo.foto && <Foto src={grupo.foto} alt={grupo.servicio.nombre} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 30vw, 100vw" widths={[480, 720, 1000]} />}
+						<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
+						<div class="absolute inset-x-0 bottom-0 p-5 text-white">
+							<p class="text-2xl font-bold">{grupo.servicio.nombre}</p>
+							{grupo.desde && <p class="mt-1 text-sm">Desde <strong>{formatGs(grupo.desde)}</strong> por m², referencia</p>}
+							<p class="mt-2 text-sm font-semibold">Ver el servicio →</p>
+						</div>
+					</a>
+					<ul class="self-start divide-y divide-aluminum/60 border-y border-aluminum/60">
+						{grupo.guias.map((nota) => (
+							<li>
+								<a href={`/blog/${nota.slug}/`} class="group block py-5">
+									{nota.actualizado && <span class="mb-2 inline-block bg-sky px-2 py-0.5 text-xs font-semibold text-brand">Con precios</span>}
+									<p class="text-xl leading-snug font-bold text-brand">{nota.h1 ?? nota.title} <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span></p>
+									<p class="mt-2 max-w-2xl text-muted">{nota.resumen[0]}</p>
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</section>
+		))
+	}
+
+	<BandaContacto texto={mensajeLibre("Leí las guías de la web y quiero un presupuesto.")} />
 </Base>

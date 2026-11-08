@@ -3,10 +3,11 @@ import { empresa } from "../data/empresa";
 import { mensajeLibre, waUrl } from "../lib/pedido";
 
 interface Props {
-	asunto?: string;
+	/** Mensaje completo de WhatsApp, ya armado con `mensajeLibre` o `mensajePedido`. */
+	texto?: string;
 }
 
-const { asunto = "Vi la web y quiero coordinar una medición." } = Astro.props;
+const { texto = mensajeLibre("Vi la web y quiero coordinar una medición.") } = Astro.props;
 ---
 
 <section class="bg-wash px-4 py-14 md:px-8 md:py-20" aria-label="Pedir presupuesto">
@@ -16,7 +17,7 @@ const { asunto = "Vi la web y quiero coordinar una medición." } = Astro.props;
 			<h2 class="reveal mt-3 max-w-[18ch] text-4xl leading-[1.02] text-brand md:text-6xl">Mandanos fotos y medidas por WhatsApp</h2>
 			<p class="mt-5 max-w-xl text-lg leading-snug">Con eso armamos el presupuesto. El precio final se cierra cuando medimos en tu obra.</p>
 			<div class="mt-7 flex flex-wrap gap-3">
-				<a href={waUrl(mensajeLibre(asunto))} data-origen="banda" class="btn btn-primary">Escribir por WhatsApp</a>
+				<a href={waUrl(texto)} data-origen="banda" class="btn btn-primary">Escribir por WhatsApp</a>
 				<a href="/calculadora/" class="btn border border-brand text-brand hover:bg-white">Armar el pedido</a>
 			</div>
 		</div>
