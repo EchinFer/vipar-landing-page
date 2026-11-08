@@ -6,7 +6,7 @@ function bloquePrecios(servicio: ServicioCalc, titulo: string, aclaracion: strin
 		parrafos: [`Precios de VIPAR por m² en ${preciosVigencia}. ${aclaracion}`],
 		items: preciosDe(servicio).map((precio) => ({
 			titulo: precio.nombre,
-			texto: `${formatGs(precio.m2)} por m²${precio.puerta ? `. Puerta: ${formatGs(precio.puerta)} por unidad` : ""}.`,
+			texto: `${formatGs(precio.m2)} por m²${precio.puerta ? ` · Puerta: ${formatGs(precio.puerta)}` : ""}`,
 		})),
 		precios: true,
 	};

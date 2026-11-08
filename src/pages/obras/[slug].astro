@@ -15,7 +15,12 @@ const { obra } = Astro.props;
 const fotos = fotosDe(obra.slug);
 const nombre = nombreCompleto(obra);
 const descripcion = `${obra.hecho} ${obra.ciudad ? `Obra de VIPAR en ${obra.ciudad}, Paraguay.` : "Obra realizada por VIPAR en Paraguay."}`;
-const lugar = obra.ciudad || "Ciudad no publicada en el sitio anterior";
+const otras = obras
+	.filter((otra) => otra.slug !== obra.slug && fotosDe(otra.slug).length > 0)
+	.map((otra) => ({ otra, comunes: otra.servicios.filter((slug) => obra.servicios.includes(slug)).length }))
+	.sort((a, b) => b.comunes - a.comunes)
+	.slice(0, 4)
+	.map(({ otra }) => otra);
 const wa = mensajeLibre(`Quiero un presupuesto parecido a esta obra: ${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}. ${obra.hecho}`);
 ---
 
@@ -31,9 +36,9 @@ const wa = mensajeLibre(`Quiero un presupuesto parecido a esta obra: ${obra.titu
 	}
 	<article class="grid gap-8 px-4 py-8 md:grid-cols-[1.4fr_0.8fr] md:px-8">
 		<div>
-			<p class="kicker text-muted">{obra.tipo}</p>
+			<p class="kicker text-muted"><a href="/obras/" class="underline-offset-4 hover:underline">Obras</a> / <a href={`/obras/tipo/${obra.tipo}/`} class="capitalize underline-offset-4 hover:underline">{obra.tipo}</a></p>
 			<h1 class="mt-3 text-4xl leading-[1.04] text-brand md:text-6xl">{nombre}</h1>
-			<p class="mt-4 text-lg">{lugar}</p>
+			{obra.ciudad && <p class="mt-4 text-lg">{obra.ciudad}</p>}
 			<p class="mt-4 max-w-xl text-xl leading-snug">{obra.hecho}</p>
 			{
 				obra.sinFoto && fotos.length === 0 && (
@@ -68,6 +73,27 @@ const wa = mensajeLibre(`Quiero un presupuesto parecido a esta obra: ${obra.titu
 					</li>
 				))}
 			</ul>
+		)
+	}
+	{
+		otras.length > 0 && (
+			<section class="bg-wash px-4 py-12 md:px-8 md:py-16">
+				<div class="flex flex-wrap items-end justify-between gap-4">
+					<h2 class="text-2xl leading-tight text-brand md:text-3xl">Otras obras parecidas</h2>
+					<a href="/obras/" class="text-sm font-semibold text-brand underline underline-offset-4">Ver las {obras.length} obras →</a>
+				</div>
+				<ul class="mt-6 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+					{otras.map((otra) => (
+						<li>
+							<a href={`/obras/${otra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
+								<Foto src={fotosDe(otra.slug)[0]} alt={otra.titulo} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480, 720]} />
+								<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
+								<p class="absolute inset-x-0 bottom-0 p-3 text-sm font-bold text-white md:p-4 md:text-base">{otra.titulo}<span class="block text-xs font-normal text-white/80">{otra.ciudad}</span></p>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
 		)
 	}
 	<BandaContacto asunto={wa} />

@@ -18,7 +18,9 @@ export function getStaticPaths() {
 
 const { servicio } = Astro.props;
 const foto = fotosDe(servicio.foto)[0];
-const relacionadas = obrasDelServicio(servicio.slug).filter((obra) => fotosDe(obra.slug).length > 0).slice(0, 4);
+const conFoto = obrasDelServicio(servicio.slug).filter((obra) => fotosDe(obra.slug).length > 0);
+const relacionadas = conFoto.slice(0, 4);
+const tira = conFoto.flatMap((obra) => fotosDe(obra.slug).map((foto) => ({ obra, foto }))).slice(0, 10);
 const guias = notas.filter((nota) => nota.servicio === servicio.slug);
 const wa = mensajeLibre(`Quiero un presupuesto de ${servicio.nombre}.`);
 const calc = calcPorSlug[servicio.slug];
@@ -39,6 +41,13 @@ const precio = (nombre: string, monto: number, unidad: "MTK" | "C62") => ({
 		validFrom: preciosFecha,
 	},
 });
+const indice = [
+	{ id: "tipos", label: "Tipos" },
+	precios.length > 0 && { id: "precios", label: "Precios" },
+	servicio.calculadora && { id: "presupuesto", label: "Calcular" },
+	relacionadas.length > 0 && { id: "obras", label: "Obras" },
+	{ id: "preguntas", label: "Preguntas" },
+].filter((item): item is { id: string; label: string } => Boolean(item));
 const jsonLd = [
 	{
 		"@type": "Service",
@@ -79,12 +88,47 @@ const jsonLd = [
 					<a href={waUrl(wa)} data-origen="servicio" class="btn btn-light">Pedir presupuesto</a>
 					{servicio.calculadora ? <a href="#presupuesto" class="btn btn-line">Armar el pedido</a> : relacionadas.length > 0 && <a href="#obras" class="btn btn-line">Ver obras</a>}
 				</div>
+				<ul class="mt-6 flex flex-wrap gap-x-4 gap-y-1 border-t border-white/20 pt-4 text-sm text-white/90">
+					<li><span aria-hidden="true" class="mr-1 text-sky">✓</span>Medimos en tu obra</li>
+					<li><span aria-hidden="true" class="mr-1 text-sky">✓</span>Desde {empresa.desde}</li>
+					<li><span aria-hidden="true" class="mr-1 text-sky">✓</span>Showroom en Ñemby</li>
+				</ul>
 			</div>
 			<div class="order-1 md:order-2">
 				<Foto src={foto} alt={servicio.nombre} priority class="aspect-[4/3] size-full object-cover md:aspect-auto md:min-h-[32rem]" sizes="(min-width: 768px) 52vw, 100vw" />
 			</div>
 		</div>
 	</section>
+
+	<nav class="indice sticky top-14 z-20 border-b border-aluminum/50 bg-white/95 backdrop-blur" aria-label="En esta página">
+		<ul class="flex gap-1 overflow-x-auto px-4 py-2 md:px-8">
+			{indice.map((item) => (
+				<li><a href={`#${item.id}`} data-indice={item.id} class="block px-3 py-2 text-sm font-semibold whitespace-nowrap text-muted transition-colors hover:text-brand">{item.label}</a></li>
+			))}
+		</ul>
+	</nav>
+
+	{
+		tira.length > 1 && (
+			<section class="pt-10 md:pt-14" aria-label="Trabajos reales">
+				<div class="flex items-end justify-between gap-4 px-4 md:px-8">
+					<h2 class="text-2xl leading-tight text-brand md:text-3xl">Trabajos reales de VIPAR</h2>
+					{tira.length > 4 && <p class="hidden text-sm text-muted md:block">Deslizá para ver más</p>}
+				</div>
+				<ul class="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 pb-3 md:scroll-px-8 md:px-8">
+					{tira.map(({ obra, foto }) => (
+						<li class="w-[78%] shrink-0 snap-start sm:w-[45%] md:w-[30%] lg:w-[23%]">
+							<a href={`/obras/${obra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
+								<Foto src={foto} alt={`${servicio.nombre} en ${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 1024px) 23vw, (min-width: 768px) 30vw, 78vw" widths={[320, 480, 720]} />
+								<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
+								<p class="absolute inset-x-0 bottom-0 p-4 font-bold text-white">{obra.titulo}<span class="block text-sm font-normal text-white/80">{obra.ciudad}</span></p>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
 
 	<div class="px-4 py-12 md:grid md:grid-cols-[1fr_20rem] md:gap-14 md:px-8 md:py-16">
 		<article>
@@ -108,12 +152,24 @@ const jsonLd = [
 			</div>
 
 			{
-				servicio.bloques.map((bloque) => (
-					<section class="reveal mt-14 max-w-3xl">
+				servicio.bloques.map((bloque, orden) => (
+					<section id={bloque.precios ? "precios" : orden === 0 ? "tipos" : undefined} class="reveal mt-14 max-w-3xl">
 						<h2 class="text-2xl leading-tight text-brand md:text-3xl">{bloque.titulo}</h2>
 						{bloque.parrafos?.map((parrafo) => <p class="mt-4 text-lg leading-relaxed">{parrafo}</p>)}
 						{
-							bloque.items && (
+							bloque.items && bloque.precios && (
+								<dl class="mt-5 border-t border-aluminum/60">
+									{bloque.items.map((item) => (
+										<div class="flex items-baseline justify-between gap-4 border-b border-aluminum/60 py-3">
+											<dt class="leading-snug">{item.titulo}</dt>
+											<dd class="text-right leading-snug">{item.texto.split(" · ").map((parte, orden) => <span class:list={["block whitespace-nowrap", orden === 0 ? "font-bold text-brand" : "text-sm text-muted"]}>{parte}</span>)}</dd>
+										</div>
+									))}
+								</dl>
+							)
+						}
+						{
+							bloque.items && !bloque.precios && (
 								<div class="mt-5 grid gap-3 md:grid-cols-2">
 									{bloque.items.map((item) => (
 										<div class="border border-aluminum/60 p-5">
@@ -177,7 +233,7 @@ const jsonLd = [
 
 	<Pasos />
 
-	<section class="px-4 py-14 md:px-8 md:py-20">
+	<section id="preguntas" class="px-4 py-14 md:px-8 md:py-20">
 		<div class="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-16">
 			<div>
 				<p class="kicker text-muted">Dudas</p>
@@ -221,3 +277,16 @@ const jsonLd = [
 
 	<BandaContacto asunto={wa} />
 </Base>
+
+<script>
+	const enlaces = document.querySelectorAll<HTMLAnchorElement>("[data-indice]");
+	const marcar = (id: string) => enlaces.forEach((enlace) => enlace.classList.toggle("activo", enlace.dataset.indice === id));
+	const observador = new IntersectionObserver(
+		(entradas) => entradas.forEach((entrada) => entrada.isIntersecting && marcar(entrada.target.id)),
+		{ rootMargin: "-30% 0px -60% 0px" },
+	);
+	enlaces.forEach((enlace) => {
+		const destino = document.getElementById(enlace.dataset.indice ?? "");
+		if (destino) observador.observe(destino);
+	});
+</script>
