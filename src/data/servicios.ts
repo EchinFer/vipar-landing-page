@@ -31,7 +31,7 @@ export const pasos = [
 	{ titulo: "Instalación", texto: "Montamos el sistema en el lugar y lo dejamos terminado." },
 ];
 
-export const servicios: Servicio[] = [
+const lista: Servicio[] = [
 	{
 		slug: "vidrio-templado",
 		nombre: "Vidrio templado",
@@ -90,7 +90,7 @@ export const servicios: Servicio[] = [
 		nombre: "Carpintería de aluminio",
 		title: "Carpintería de aluminio en Paraguay | Puertas, ventanas y cerramientos",
 		h1: "Carpintería de aluminio para puertas, ventanas y cerramientos",
-		description: "Carpintería de aluminio en Paraguay: puertas batientes y corredizas, ventanas y cerramientos a medida, medidos e instalados en la obra.",
+		description: "Carpintería y aberturas de aluminio en Paraguay: puertas batientes y corredizas, ventanas y cerramientos a medida, medidos e instalados en la obra.",
 		intro: "Fabricamos e instalamos puertas, ventanas y cerramientos de aluminio. El perfil, el vidrio y el tipo de apertura se definen según tu obra, y cada abertura se mide en el lugar.",
 		resumen: "Puertas, ventanas y cerramientos a medida.",
 		foto: "vivienda-trotte",
@@ -342,7 +342,7 @@ export const servicios: Servicio[] = [
 	{
 		slug: "cortinas",
 		nombre: "Cortinas de vidrio",
-		title: "Cortinas de vidrio en Paraguay | Cerramientos corredizos",
+		title: "Cortinas de vidrio en Paraguay | Cerramiento de quinchos y balcones",
 		h1: "Cortinas de vidrio para cerrar sin perder visual ni flexibilidad",
 		description: "Cortinas de vidrio en Paraguay: cerramientos corredizos y plegables de cristal templado para balcones, galerías, quinchos y frentes comerciales.",
 		intro: "Son sistemas corredizos y plegables de cristal templado para balcones, galerías, quinchos y frentes comerciales. Cierran el espacio cuando hace falta y lo dejan casi libre cuando el clima acompaña.",
@@ -382,7 +382,7 @@ export const servicios: Servicio[] = [
 	{
 		slug: "cielo-raso",
 		nombre: "Cielo raso",
-		title: "Cielo raso en Paraguay | Instalación en PVC, Durlock y desmontable",
+		title: "Cielo raso en Paraguay | Yeso, Durlock, PVC y desmontable",
 		h1: "Cielo raso en Paraguay: instalación en PVC, Durlock, yeso y desmontable",
 		description: "Cielo raso en Paraguay: instalación en PVC, yeso, Durlock, Eucatex y desmontable para viviendas, oficinas y locales. Mirá obras reales.",
 		intro: "Instalamos cielo raso en viviendas, oficinas y locales. Te ayudamos a elegir entre yeso, PVC, Durlock o desmontable según si hay que lavarlo, pintarlo o llegar a las instalaciones.",
@@ -500,6 +500,14 @@ export const servicios: Servicio[] = [
 		calculadora: true,
 	},
 ];
+
+/** Orden por demanda real: clics de Search Console de los últimos 95 días (docs/seo/datos-2026-11-07/). */
+const ordenPorDemanda = ["box-de-bano", "cielo-raso", "mamparas-divisorias", "carpinteria-de-aluminio", "puertas", "cortinas", "fachadas", "ventanas", "vidrio-templado"];
+
+export const servicios: Servicio[] = [...lista].sort((a, b) => ordenPorDemanda.indexOf(a.slug) - ordenPorDemanda.indexOf(b.slug));
+
+/** Las tres líneas que más buscan en Google. */
+export const principales = servicios.slice(0, 3);
 
 export function servicioPorSlug(slug: string) {
 	return servicios.find((servicio) => servicio.slug === slug);

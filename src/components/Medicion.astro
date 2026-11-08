@@ -81,7 +81,7 @@
 		aviso.hidden = true;
 	});
 
-	// Lead: cada clic a WhatsApp es un contacto. `origen` dice desde dónde.
+	// `whatsapp_click` es el evento clave que ya tiene la propiedad GA4: mantiene la serie histórica de contactos.
 	document.addEventListener("click", (evento) => {
 		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="https://wa.me/"]');
 		if (!enlace) return;
@@ -93,7 +93,7 @@
 		}
 		const delTexto = texto.match(/Servicio:\s*(.+)/i)?.[1]?.trim();
 		const delaRuta = location.pathname.match(/^\/servicios\/([^/]+)\//)?.[1];
-		window.gtag("event", "generate_lead", {
+		window.gtag("event", "whatsapp_click", {
 			servicio: delTexto ?? delaRuta ?? "sin_servicio",
 			origen: enlace.dataset.origen ?? ("waBar" in enlace.dataset ? "barra" : "contenido"),
 			pagina: location.pathname,

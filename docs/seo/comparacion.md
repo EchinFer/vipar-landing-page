@@ -1,12 +1,18 @@
 # Comparación de SEO, sitio vivo contra dist/
 
-URLs del sitio vivo: 63. Redirecciones: 9.
-Datos de Search Console: NO cargados (`docs/seo/gsc-paginas.csv` y `gsc-consultas.csv`). No se evaluaron consultas ni clics por página.
+URLs del sitio vivo: 63. Redirecciones: 23.
+Datos de Search Console: cargados.
 
 ## Sin resolver (0)
 
 Ninguno.
 
-## Justificados (0)
+## Justificados (7)
 
-Ninguno.
+- `/servicios/mampara-divisoria/` redirige-con-clics: URL vieja en singular. Sus clics son históricos (0 en los últimos 95 días) y el sitio actual ya la redirige a la versión en plural, que es la misma página.
+- `/servicios/mampara-divisoria/` redirige-con-clics: URL vieja en singular. Sus clics son históricos (0 en los últimos 95 días) y el sitio actual ya la redirige a la versión en plural, que es la misma página.
+- `/obras/sucursal-tigo-mariano-roque-alonso/` redirige-con-clics: URL vieja de la misma obra, fuera del sitemap actual. Sin redirección daría 404; va a la ficha vigente /obras/sucursal-tigo-mra/.
+- `/blog/como-elegir-box-de-bano-ideal/` redirige-con-clics: 2 clics en 16 meses y 0 sesiones de entrada. El contenido (qué box conviene según el baño) está en la ficha de box de baño.
+- `/blog/como-elegir-cielo-raso/` redirige-con-clics: 1 clic en 16 meses. Va a la nota de PVC vs yeso, que cubre la misma elección.
+- `/servicios/box-bano/` redirige-con-clics: URL mal escrita, 1 clic. Sin redirección daría 404; va a la ficha de box de baño.
+- `/servicios/fachada/` redirige-con-clics: URL vieja en singular, 1 clic histórico. Va a la misma página en plural.

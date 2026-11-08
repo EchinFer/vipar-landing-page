@@ -2,89 +2,229 @@ export type Nota = {
 	slug: string;
 	title: string;
 	description: string;
+	/** Slug del servicio al que lleva la nota. */
+	servicio: string;
 	sections: { titulo: string; parrafos: string[] }[];
 };
 
 export const notas: Nota[] = [
 	{
 		slug: "tipos-de-apertura-box-de-bano",
-		title: "Corrediza, batiente o plegable",
-		description: "Tres formas de abrir un box de baño y cuándo entra cada una.",
+		title: "Tipos de apertura para box de baño: corrediza, batiente y plegable",
+		description: "Cómo elegir la apertura de un box de baño según el espacio libre, la comodidad y el uso diario: corrediza, batiente o plegable.",
+		servicio: "box-de-bano",
 		sections: [
 			{
-				titulo: "Corrediza",
+				titulo: "Apertura corrediza",
 				parrafos: [
-					"La hoja corre sobre el vano y no barre el baño. Entra cuando el inodoro, el lavatorio o la puerta quedan en el camino de una hoja que abre.",
+					"La hoja corre sobre el vano y no barre el baño. Entra cuando el inodoro, el lavatorio o la puerta del baño quedan en el camino de una hoja que abre: no necesita espacio libre delante de la ducha.",
 				],
 			},
 			{
-				titulo: "Batiente",
+				titulo: "Apertura batiente",
 				parrafos: [
-					"Abre como una puerta. Hace falta el espacio libre delante o detrás de la hoja. Si ese espacio está, es la más simple de usar.",
+					"Abre como una puerta. Hace falta espacio libre delante o detrás de la hoja. Si ese espacio está, es la más simple de usar y de limpiar.",
 				],
 			},
 			{
-				titulo: "Plegable",
+				titulo: "Apertura plegable",
 				parrafos: [
-					"Las hojas se juntan a un costado y el vano queda casi libre. Lleva más herraje que las otras dos. Sirve en baños chicos, donde la hoja no tiene dónde abrir ni por dónde correr.",
-					"En una vivienda instalamos templado de 8 mm incoloro con perfil de aluminio fosco. La apertura se define con el ancho libre, no con el gusto solo.",
+					"Las hojas se juntan a un costado y el vano queda casi libre. Lleva más herraje que las otras dos. Sirve en baños muy chicos, para personas mayores o cuando la apertura es atípica.",
+				],
+			},
+			{
+				titulo: "Qué mirar antes de decidir",
+				parrafos: [
+					"El ancho libre del vano, qué hay delante de la ducha y quién la usa. La apertura se define con el espacio, no solo con el gusto.",
+					"En una vivienda instalamos templado de 8 mm incoloro con perfil de aluminio fosco. Si nos mandás fotos del baño y el ancho aproximado, te decimos qué apertura entra.",
 				],
 			},
 		],
 	},
 	{
 		slug: "cielo-raso-pvc-vs-yeso",
-		title: "PVC, yeso o desmontable",
-		description: "Qué cielo raso usamos cuando hay que lavar, pintar o llegar a las instalaciones.",
+		title: "Cielo raso PVC vs yeso: diferencias, ventajas y qué conviene evaluar",
+		description: "Qué es mejor, cielo raso de yeso o de PVC: diferencias de limpieza, terminación, mantenimiento y uso, con obras de VIPAR en Paraguay.",
+		servicio: "cielo-raso",
 		sections: [
 			{
-				titulo: "PVC",
+				titulo: "Qué diferencia a un sistema del otro",
 				parrafos: [
-					"Se lava. Lo instalamos en el CARDE de la APF, en Ypané, un espacio de alto uso donde la placa no puede ser delicada.",
+					"El PVC es un sistema de placas livianas que se lavan y se montan rápido. El yeso, igual que el Durlock con junta tomada, deja una superficie continua y lisa, lista para pintar.",
+					"No hay uno mejor en general. Conviene uno u otro según el ambiente, cómo se limpia y qué terminación querés ver.",
 				],
 			},
 			{
-				titulo: "Yeso o Durlock",
+				titulo: "Cuándo conviene el PVC",
 				parrafos: [
-					"Queda una superficie continua, para pintar. En Tigo Central el cielo es de yeso. En las salas del IPS Central, Durlock.",
+					"Cuando hay que lavar el cielo o el espacio tiene mucho uso. Lo instalamos en el CARDE de la APF, en Ypané, donde la placa no puede ser delicada.",
+					"También cuando el plazo importa: el montaje es rápido.",
 				],
 			},
 			{
-				titulo: "Desmontable",
+				titulo: "Cuándo conviene el yeso o el Durlock",
 				parrafos: [
-					"Sacás una placa y llegás al cable o al aire. Lo usamos en oficinas y en la Cooperativa Medalla Milagrosa de Concepción, junto con las mamparas.",
-					"En Virgen del Huerto el cielo lleva paneles LED. El artefacto forma parte de ese pedido, no de todos.",
+					"Cuando querés una terminación continua, sin juntas a la vista, que se pinta como una pared. En Tigo Central el cielo es de yeso. En las salas del IPS Central usamos Durlock.",
+				],
+			},
+			{
+				titulo: "Y si necesitás llegar a las instalaciones",
+				parrafos: [
+					"Ni PVC ni yeso: el desmontable. Sacás una placa y llegás al cable o al aire acondicionado. Lo usamos en oficinas y en la Cooperativa Medalla Milagrosa de Concepción, junto con las mamparas.",
+				],
+			},
+			{
+				titulo: "Qué conviene aclarar antes de consultar",
+				parrafos: [
+					"El tipo de ambiente, los metros aproximados, si hay que lavarlo, si hay instalaciones arriba y fotos del techo actual. Con eso te recomendamos el sistema y armamos el presupuesto.",
 				],
 			},
 		],
 	},
 	{
 		slug: "vidrio-vs-panel-solido",
-		title: "Vidrio o panel en una mampara",
-		description: "Cuándo la división deja pasar la luz y cuándo tiene que tapar la vista.",
+		title: "Vidrio o panel sólido: qué tipo de mampara elegir para una oficina",
+		description: "Cuándo conviene una mampara de vidrio y cuándo un panel sólido en oficinas, salas y áreas de atención, según privacidad, luz y uso.",
+		servicio: "mamparas-divisorias",
 		sections: [
 			{
-				titulo: "Vidrio",
+				titulo: "Cuándo el vidrio tiene más sentido",
 				parrafos: [
-					"Pasa la luz y se ve del otro lado, salvo que sea esmerilado o polarizado. En la Cooperativa Medalla Milagrosa de Fernando de la Mora las divisiones son de cristal.",
+					"Cuando la luz natural y la imagen limpia pesan más que la privacidad. El vidrio pasa la luz y se ve del otro lado, salvo que sea esmerilado o polarizado. En la Cooperativa Medalla Milagrosa de Fernando de la Mora las divisiones son de cristal.",
 				],
 			},
 			{
-				titulo: "Panel",
+				titulo: "Cuándo un panel sólido puede ser mejor",
 				parrafos: [
 					"Durlock o un panel ciego tapan la vista. Sirve en una sala de atención o en un puesto donde no querés que se vea adentro. En el IPS Central las salas combinan cielo raso y mamparas.",
 				],
 			},
 			{
-				titulo: "Las dos",
+				titulo: "Las dos cosas a la vez",
 				parrafos: [
-					"Se puede dejar vidrio en la parte alta y panel abajo. La luz sigue entrando y la mesa de trabajo queda cubierta. Para cotizar hacen falta el largo, la altura y si la sala tiene que cerrar el sonido o solo la vista.",
+					"Se puede dejar vidrio en la parte alta y panel abajo. La luz sigue entrando y la mesa de trabajo queda cubierta.",
+				],
+			},
+			{
+				titulo: "Qué información ayuda a decidir",
+				parrafos: [
+					"El largo y la altura de la división, el uso de cada sala y si tiene que cerrar el sonido o solo la vista. Con fotos o un plano simple ya podemos orientarte.",
 				],
 			},
 		],
 	},
 	{
+		slug: "mamparas-divisorias-oficinas",
+		title: "Mamparas divisorias para oficinas: ventajas y aplicaciones según el tipo de espacio",
+		description: "Mamparas divisorias para oficinas en Paraguay: cuándo usar cristal templado, Eucatex o Durlock según privacidad, luz y tipo de trabajo.",
+		servicio: "mamparas-divisorias",
+		sections: [
+			{
+				titulo: "Dónde se aplican",
+				parrafos: [
+					"En oficinas corporativas, para puestos, salas, directorios y recepciones. En locales comerciales, para separar atención, depósito y áreas de apoyo. En clínicas y consultorios, donde importan la privacidad y la limpieza. En empresas e industrias, para ordenar áreas operativas según la circulación.",
+					"También en obras temporales, con cerramientos desmontables para reorganizar el espacio rápido.",
+				],
+			},
+			{
+				titulo: "Privacidad, luz y ruido",
+				parrafos: [
+					"El cristal templado deja pasar la luz y da una imagen limpia, pero no tapa la vista. El Eucatex es modular, se arma rápido y aísla poco. El tabique de Durlock da privacidad y una terminación continua, y puede aislar más según cómo se arme.",
+				],
+			},
+			{
+				titulo: "Señales de que necesitás dividir",
+				parrafos: [
+					"Las conversaciones cruzan las oficinas. Las paredes ciegas dejan espacios oscuros. No hay una sala cerrada para atender a un cliente o hacer una llamada sensible.",
+				],
+			},
+			{
+				titulo: "Cómo pensar la elección",
+				parrafos: [
+					"Si priorizás luz e imagen, cristal. Si necesitás cambiar la distribución seguido y terminar rápido, Eucatex. Si buscás privacidad y un acabado definitivo, Durlock. Se pueden combinar en la misma oficina.",
+					"En una oficina combinamos divisorias con cielo raso desmontable, para llegar a las instalaciones sin romper la terminación.",
+				],
+			},
+			{
+				titulo: "Qué conviene preparar para cotizar",
+				parrafos: [
+					"Largo y altura aproximados de las divisiones, cuántas puertas, fotos o un plano simple y si priorizás privacidad, luz o poder cambiar la distribución. Antes de instalar relevamos las medidas definitivas.",
+				],
+			},
+		],
+	},
+	{
+		slug: "medidas-estandar-box-de-bano",
+		title: "Medidas estándar para box de baño y qué revisar antes de instalar",
+		description: "Por qué no existe una sola medida estándar de box de baño, qué medir en tu ducha y qué datos mandar para cotizar uno a medida en Paraguay.",
+		servicio: "box-de-bano",
+		sections: [
+			{
+				titulo: "Por qué no existe una sola medida estándar",
+				parrafos: [
+					"Cada ducha tiene su ancho, su alto y sus paredes, y pocas coinciden. Por eso no trabajamos con medidas estándar: el box se fabrica con la medida de tu baño.",
+				],
+			},
+			{
+				titulo: "Qué conviene medir",
+				parrafos: [
+					"El ancho del vano de la ducha, de pared a pared, arriba y abajo: si las dos medidas no coinciden, la pared no está a plomo y hay que saberlo. El alto que querés que tenga el box. Si hay escalón, plato o desnivel en el piso.",
+					"Fijate también dónde quedan la grifería, el toallero y la puerta del baño. Eso define la apertura.",
+				],
+			},
+			{
+				titulo: "Cómo se arma la cotización",
+				parrafos: [
+					"Con el ancho, el alto, el material y la apertura armamos el presupuesto. En el armador de pedido de la web la medida de ejemplo es 0,90 × 1,90 m: cambiala por la tuya.",
+					"Antes de fabricar tomamos las medidas definitivas en el baño. El precio final se cierra con esa medición.",
+				],
+			},
+			{
+				titulo: "Qué mandar por WhatsApp",
+				parrafos: [
+					"Fotos de la ducha de frente y de costado, el ancho y el alto aproximados, el material que te interesa y la zona de la obra.",
+				],
+			},
+		],
+	},
+	{
+		slug: "box-de-bano-vidrio-vs-acrilico",
+		title: "Box de baño de vidrio templado vs acrílico: qué conviene según tu baño",
+		description: "Box de baño de cristal templado o de acrílico: diferencias de estética, limpieza, inversión y uso diario para elegir bien en Paraguay.",
+		servicio: "box-de-bano",
+		sections: [
+			{
+				titulo: "Qué cambia entre un material y otro",
+				parrafos: [
+					"El acrílico va en una estructura de aluminio con paneles texturizados. El cristal templado se corta a medida y se monta con perfiles de aluminio. En una vivienda instalamos templado de 8 mm incoloro con perfil fosco.",
+					"Entre los dos, el acrílico es la opción más accesible y el cristal templado la de mayor inversión.",
+				],
+			},
+			{
+				titulo: "Limpieza y uso diario",
+				parrafos: [
+					"El cristal templado se limpia fácil, deja pasar la luz y hace que el baño se vea más amplio. El acrílico pide poco mantenimiento y aguanta bien el uso intensivo.",
+				],
+			},
+			{
+				titulo: "Cuándo conviene cada uno",
+				parrafos: [
+					"Acrílico, si querés cerrar la ducha con una inversión más contenida o el baño tiene mucho uso. Cristal templado, si priorizás limpieza e imagen: es el que más se pide para baños principales.",
+					"Si el baño es muy chico, el sistema plegable libera el acceso con cualquiera de los dos.",
+				],
+			},
+			{
+				titulo: "Qué conviene enviar para comparar bien",
+				parrafos: [
+					"Fotos del baño, el ancho y el alto aproximados y la apertura que preferís. Con eso te pasamos las dos opciones para que compares.",
+				],
+			},
+		],
+	},
+
+	{
 		slug: "cuanto-cuesta-box-de-bano-paraguay",
+		servicio: "box-de-bano",
 		title: "Cuánto cuesta un box de baño en Paraguay y cuál conviene según tu espacio",
 		description: "Qué define el precio de un box de baño en Paraguay: material, apertura, medidas, herrajes e instalación. Con tus medidas, el presupuesto sale por WhatsApp.",
 		sections: [
@@ -130,6 +270,7 @@ export const notas: Nota[] = [
 	},
 	{
 		slug: "cuanto-cuesta-cielo-raso-paraguay",
+		servicio: "cielo-raso",
 		title: "Cuánto cuesta un cielo raso en Paraguay y qué influye en el presupuesto",
 		description: "Qué define el precio de un cielo raso en Paraguay: sistema, superficie, estructura, preparación del techo y artefactos. Mandá fotos y medidas y te pasamos el presupuesto.",
 		sections: [
@@ -174,6 +315,7 @@ export const notas: Nota[] = [
 	},
 	{
 		slug: "costo-mamparas-divisorias",
+		servicio: "mamparas-divisorias",
 		title: "Cuánto cuesta instalar mamparas divisorias en Paraguay y qué cambia el presupuesto",
 		description: "Qué define el precio de una mampara divisoria en Paraguay: material, altura, puertas, privacidad y condiciones del espacio. Mandá medidas y fotos y te pasamos el presupuesto.",
 		sections: [

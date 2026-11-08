@@ -32,14 +32,15 @@ El dominio vipar.com.py no se cambia desde este repo. Cuando esté claro quién 
 
 ## Antes de apuntar el dominio
 
-1. Cargar `docs/seo/gsc-paginas.csv` y `docs/seo/gsc-consultas.csv` (ver `docs/seo/LEEME.md`) y correr `node scripts/seo-comparar.mjs`. Tiene que dar 0 sin resolver. Hoy da 0 **sin** esos datos, o sea que no mira clics ni consultas.
-2. Con esos datos, decidir las seis notas del blog que hoy redirigen (ver `docs/PENDIENTES.md`).
-3. Confirmar que `G-TZ2CL571FZ` es la propiedad de GA4 que VIPAR usa. El evento `generate_lead` hay que marcarlo como evento clave en GA4.
+1. Correr `node scripts/seo-comparar.mjs`. Ya usa los datos de Search Console de agosto a noviembre de 2026 (`docs/seo/gsc-*.csv`) y tiene que dar 0 sin resolver. Si pasan meses antes de publicar, exportar de nuevo.
+2. Confirmar que `G-TZ2CL571FZ` (propiedad 488034623) sigue siendo la de VIPAR. La web manda `whatsapp_click`, que ya es evento clave en esa propiedad. Desde octubre de 2026 el sitio viejo mandaba `whatsapp_handoff`, que no es clave, y por eso GA4 muestra 0 contactos desde entonces.
+3. El formulario de `/contacto/` del sitio viejo (7 envíos en 95 días) no existe en la web nueva: todo va por WhatsApp. Si VIPAR quiere seguir recibiendo pedidos por mail, hay que decidirlo antes.
+4. Averiguar de dónde sale la campaña `vipar-home-stitch` (27 sesiones). Si es un enlace pegado en algún perfil o anuncio, que apunte a una URL que siga existiendo.
 
 ## Qué mirar en Search Console la semana siguiente
 
 - **Páginas**, cobertura: que no suban "No encontrada (404)" ni "Página con redirección" en URLs que tenían clics.
 - **Rendimiento**, consultas: comparar clics e impresiones contra las 4 semanas anteriores. Una caída sostenida de una consulta que traía clics apunta a la página que la cubría.
-- **Sitemaps**: enviar `https://vipar.com.py/sitemap-index.xml` y ver que lea las 59 páginas.
+- **Sitemaps**: enviar `https://vipar.com.py/sitemap-index.xml` y ver que lea las 61 páginas.
 - **Inspección de URL** en la home y en `/servicios/box-de-bano/`: que Google vea el título nuevo y el canónico correcto.
-- En GA4, Tiempo real: hacer clic en un botón de WhatsApp y confirmar que llega `generate_lead` con `servicio` y `origen`. Los clics solo se miden si la persona aceptó las cookies o si Consent Mode lo modela.
+- En GA4, Tiempo real: hacer clic en un botón de WhatsApp y confirmar que llega `whatsapp_click` con `servicio`, `origen` y `pagina`. Los clics solo se miden si la persona aceptó las cookies o si Consent Mode lo modela.

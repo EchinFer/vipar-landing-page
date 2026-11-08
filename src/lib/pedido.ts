@@ -215,7 +215,8 @@ export const opciones: Record<ServicioCalc, Config> = {
 	},
 };
 
-export const ids = Object.keys(opciones) as ServicioCalc[];
+/** Mismo orden que los servicios: por demanda en Search Console. */
+export const ids: ServicioCalc[] = ["box", "cielo", "mamparas", "aluminio", "puertas", "cortinas", "fachadas", "ventana", "vidrio"];
 
 /** Del slug de la ficha de servicio al armador. */
 export const calcPorSlug: Record<string, ServicioCalc> = {

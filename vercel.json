@@ -2,16 +2,6 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/blog/box-de-bano-vidrio-vs-acrilico",
-      "destination": "/servicios/box-de-bano/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/box-de-bano-vidrio-vs-acrilico/",
-      "destination": "/servicios/box-de-bano/",
-      "permanent": true
-    },
-    {
       "source": "/blog/como-elegir-box-de-bano-ideal",
       "destination": "/servicios/box-de-bano/",
       "permanent": true
@@ -22,43 +12,53 @@
       "permanent": true
     },
     {
-      "source": "/blog/medidas-estandar-box-de-bano",
-      "destination": "/servicios/box-de-bano/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/medidas-estandar-box-de-bano/",
-      "destination": "/servicios/box-de-bano/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/mamparas-divisorias-oficinas",
-      "destination": "/servicios/mamparas-divisorias/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/mamparas-divisorias-oficinas/",
-      "destination": "/servicios/mamparas-divisorias/",
-      "permanent": true
-    },
-    {
       "source": "/blog/como-dividir-oficinas-sin-obras-mayores",
-      "destination": "/servicios/mamparas-divisorias/",
+      "destination": "/blog/mamparas-divisorias-oficinas/",
       "permanent": true
     },
     {
       "source": "/blog/como-dividir-oficinas-sin-obras-mayores/",
-      "destination": "/servicios/mamparas-divisorias/",
+      "destination": "/blog/mamparas-divisorias-oficinas/",
       "permanent": true
     },
     {
       "source": "/blog/como-elegir-cielo-raso",
-      "destination": "/servicios/cielo-raso/",
+      "destination": "/blog/cielo-raso-pvc-vs-yeso/",
       "permanent": true
     },
     {
       "source": "/blog/como-elegir-cielo-raso/",
-      "destination": "/servicios/cielo-raso/",
+      "destination": "/blog/cielo-raso-pvc-vs-yeso/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/box-bano-vidrio-vs-acrilico",
+      "destination": "/blog/box-de-bano-vidrio-vs-acrilico/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/box-bano-vidrio-vs-acrilico/",
+      "destination": "/blog/box-de-bano-vidrio-vs-acrilico/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cuesta-cielo-raso-paraguay",
+      "destination": "/blog/cuanto-cuesta-cielo-raso-paraguay/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cuesta-cielo-raso-paraguay/",
+      "destination": "/blog/cuanto-cuesta-cielo-raso-paraguay/",
+      "permanent": true
+    },
+    {
+      "source": "/box-de-bano-vidrio-vs-acrilico",
+      "destination": "/blog/box-de-bano-vidrio-vs-acrilico/",
+      "permanent": true
+    },
+    {
+      "source": "/box-de-bano-vidrio-vs-acrilico/",
+      "destination": "/blog/box-de-bano-vidrio-vs-acrilico/",
       "permanent": true
     },
     {
@@ -89,6 +89,146 @@
     {
       "source": "/servicios/mampara-divisoria/",
       "destination": "/servicios/mamparas-divisorias/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/box-bano",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/box-bano/",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/box-d-bano",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/box-d-bano/",
+      "destination": "/servicios/box-de-bano/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/cortina",
+      "destination": "/servicios/cortinas/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/cortina/",
+      "destination": "/servicios/cortinas/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/puerta",
+      "destination": "/servicios/puertas/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/puerta/",
+      "destination": "/servicios/puertas/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/servicio-1",
+      "destination": "/servicios/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/servicio-1/",
+      "destination": "/servicios/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/servicio-2",
+      "destination": "/servicios/",
+      "permanent": true
+    },
+    {
+      "source": "/servicios/servicio-2/",
+      "destination": "/servicios/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/sucursal-tigo-mariano-roque-alonso",
+      "destination": "/obras/sucursal-tigo-mra/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/sucursal-tigo-mariano-roque-alonso/",
+      "destination": "/obras/sucursal-tigo-mra/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/cooperativa-medalla-milagrosa-central",
+      "destination": "/obras/cooperativa-medalla/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/cooperativa-medalla-milagrosa-central/",
+      "destination": "/obras/cooperativa-medalla/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/galeria-senador-long-propietario-lino-pederzani",
+      "destination": "/obras/galeria-senador-long/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/galeria-senador-long-propietario-lino-pederzani/",
+      "destination": "/obras/galeria-senador-long/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/departamento",
+      "destination": "/obras/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/departamento/",
+      "destination": "/obras/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/edificio-1",
+      "destination": "/obras/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/edificio-1/",
+      "destination": "/obras/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/vivienda",
+      "destination": "/obras/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/vivienda/",
+      "destination": "/obras/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/oficina",
+      "destination": "/obras/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/oficina/",
+      "destination": "/obras/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/en-sta-teresa-no-se-que",
+      "destination": "/obras/",
+      "permanent": true
+    },
+    {
+      "source": "/obras/en-sta-teresa-no-se-que/",
+      "destination": "/obras/",
       "permanent": true
     }
   ]

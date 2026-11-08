@@ -51,8 +51,7 @@ const normal = (s) =>
 const PARLERAS = new Set(["de", "la", "el", "en", "y", "para", "un", "una", "los", "las", "del", "a", "al", "con", "por", "que", "o", "e", "se", "su"]);
 const tokens = (s) => normal(s).split(" ").filter((t) => t && !PARLERAS.has(t));
 
-function csv(ruta) {
-	if (!existsSync(ruta)) return null;
+function leerFilas(ruta) {
 	const texto = readFileSync(ruta, "utf8").replace(/^\uFEFF/, "");
 	const filas = [];
 	let fila = [];
@@ -82,13 +81,41 @@ function csv(ruta) {
 		fila.push(celda);
 		filas.push(fila);
 	}
-	const [cabecera, ...datos] = filas;
+	return filas;
+}
+
+function csv(ruta) {
+	if (!existsSync(ruta)) return null;
+	const [cabecera, ...datos] = leerFilas(ruta);
 	const iClics = cabecera.findIndex((h) => /^(clics|clicks)$/i.test(h.trim()));
 	return datos.map((f) => ({ clave: f[0], clics: Number(String(f[iClics] ?? "0").replace(/[^\d]/g, "")) || 0 }));
 }
 
 const paginasGsc = csv("docs/seo/gsc-paginas.csv");
 const consultasGsc = csv("docs/seo/gsc-consultas.csv");
+
+/** Consultas por página (page,query,clicks,...). Si está, cada consulta se mira solo en la página que la recibió. */
+function csvPaginaConsulta(ruta) {
+	if (!existsSync(ruta)) return null;
+	const filas = leerFilas(ruta);
+	const cab = filas.shift().map((h) => h.trim().toLowerCase());
+	const iP = cab.indexOf("page"), iQ = cab.indexOf("query"), iC = cab.findIndex((h) => /^(clics|clicks)$/.test(h));
+	const mapa = new Map();
+	for (const f of filas) {
+		let r;
+		try {
+			r = conBarra(new URL(f[iP]).pathname);
+		} catch {
+			continue;
+		}
+		const clics = Number(f[iC]) || 0;
+		if (clics <= 0) continue;
+		if (!mapa.has(r)) mapa.set(r, []);
+		mapa.get(r).push({ clave: f[iQ], clics });
+	}
+	return mapa;
+}
+const porPagina = csvPaginaConsulta("docs/seo/gsc-pagina-consulta.csv");
 
 const hallazgos = [];
 const marcar = (ruta, tipo, detalle) => hallazgos.push({ ruta, tipo, detalle, clave: `${ruta}|${tipo}` });
@@ -109,10 +136,11 @@ for (const [ruta, viejo] of Object.entries(antes)) {
 	if (esServicioOInicio && nuevo.palabras < viejo.palabras / 2) {
 		marcar(ruta, "texto", `Palabras antes ${viejo.palabras}, ahora ${nuevo.palabras}.`);
 	}
-	if (consultasGsc) {
+	const consultasDeEsta = porPagina ? (porPagina.get(conBarra(ruta)) ?? []) : consultasGsc;
+	if (consultasDeEsta) {
 		const viejoTexto = tokens(`${viejo.title} ${viejo.h1}`);
 		const nuevoTexto = new Set(tokens(`${nuevo.title} ${nuevo.h1}`));
-		for (const { clave: consulta, clics } of consultasGsc) {
+		for (const { clave: consulta, clics } of consultasDeEsta) {
 			if (clics <= 0) continue;
 			const t = tokens(consulta);
 			if (t.length < 2) continue;
