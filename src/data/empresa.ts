@@ -16,3 +16,18 @@ export function canonical(path: string) {
 	const conBarra = normal.endsWith("/") ? normal : `${normal}/`;
 	return new URL(conBarra, empresa.site).href;
 }
+
+/** Identificador del negocio en los datos estructurados: las demás entidades lo referencian. */
+export const negocioId = `${empresa.site}/#negocio`;
+
+export function migas(...pasos: [string, string][]) {
+	return {
+		"@type": "BreadcrumbList",
+		itemListElement: [["Inicio", "/"] as [string, string], ...pasos].map(([nombre, ruta], indice) => ({
+			"@type": "ListItem",
+			position: indice + 1,
+			name: nombre,
+			item: canonical(ruta),
+		})),
+	};
+}

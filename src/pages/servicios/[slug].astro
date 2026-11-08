@@ -4,12 +4,13 @@ import Foto from "../../components/Foto.astro";
 import Calculadora from "../../components/Calculadora.astro";
 import Pasos from "../../components/Pasos.astro";
 import BandaContacto from "../../components/BandaContacto.astro";
+import AvisoPrecios from "../../components/AvisoPrecios.astro";
 import { servicios } from "../../data/servicios";
 import { obrasDelServicio } from "../../data/obras";
 import { notas } from "../../data/blog";
 import { fotosDe } from "../../lib/fotos";
-import { calcPorSlug, mensajeLibre, waUrl } from "../../lib/pedido";
-import { empresa } from "../../data/empresa";
+import { calcPorSlug, desdeM2, formatGs, mensajeLibre, preciosDe, preciosFecha, waUrl } from "../../lib/pedido";
+import { empresa, migas, negocioId } from "../../data/empresa";
 
 export function getStaticPaths() {
 	return servicios.map((servicio) => ({ params: { slug: servicio.slug }, props: { servicio } }));
@@ -20,14 +21,51 @@ const foto = fotosDe(servicio.foto)[0];
 const relacionadas = obrasDelServicio(servicio.slug).filter((obra) => fotosDe(obra.slug).length > 0).slice(0, 4);
 const guias = notas.filter((nota) => nota.servicio === servicio.slug);
 const wa = mensajeLibre(`Quiero un presupuesto de ${servicio.nombre}.`);
-const jsonLd = {
-	"@type": "Service",
-	name: servicio.nombre,
-	description: servicio.description,
-	url: new URL(`/servicios/${servicio.slug}/`, empresa.site).href,
-	provider: { "@type": "LocalBusiness", name: empresa.nombre },
-	areaServed: "Paraguay",
-};
+const calc = calcPorSlug[servicio.slug];
+const precios = calc ? preciosDe(calc) : [];
+const desde = desdeM2(calc);
+const url = new URL(`/servicios/${servicio.slug}/`, empresa.site).href;
+const precio = (nombre: string, monto: number, unidad: "MTK" | "C62") => ({
+	"@type": "Offer",
+	name: nombre,
+	itemOffered: { "@type": "Service", name: nombre },
+	seller: { "@id": negocioId },
+	priceSpecification: {
+		"@type": "UnitPriceSpecification",
+		price: monto,
+		priceCurrency: "PYG",
+		unitCode: unidad,
+		unitText: unidad === "MTK" ? "m²" : "unidad",
+		validFrom: preciosFecha,
+	},
+});
+const jsonLd = [
+	{
+		"@type": "Service",
+		"@id": `${url}#servicio`,
+		name: servicio.nombre,
+		serviceType: servicio.nombre,
+		description: servicio.description,
+		url,
+		provider: { "@id": negocioId },
+		areaServed: { "@type": "Country", name: "Paraguay" },
+		...(precios.length > 0 && {
+			hasOfferCatalog: {
+				"@type": "OfferCatalog",
+				name: `Precios de referencia de ${servicio.nombre.toLowerCase()}`,
+				itemListElement: precios.flatMap((item) => [
+					precio(`${servicio.nombre}: ${item.nombre}, por m²`, item.m2, "MTK"),
+					...(item.puerta ? [precio(`${servicio.nombre}: puerta de ${item.nombre}`, item.puerta, "C62")] : []),
+				]),
+			},
+		}),
+	},
+	{
+		"@type": "FAQPage",
+		mainEntity: servicio.faq.map((item) => ({ "@type": "Question", name: item.p, acceptedAnswer: { "@type": "Answer", text: item.r } })),
+	},
+	migas(["Servicios", "/servicios/"], [servicio.nombre, `/servicios/${servicio.slug}/`]),
+];
 ---
 
 <Base title={`${servicio.title} | VIPAR S.A.`} description={servicio.description} path={`/servicios/${servicio.slug}/`} waTexto={wa} jsonLd={jsonLd}>
@@ -86,6 +124,7 @@ const jsonLd = {
 								</div>
 							)
 						}
+						{bloque.precios && <AvisoPrecios asunto={wa} calcular={servicio.calculadora} />}
 					</section>
 				))
 			}
@@ -120,6 +159,7 @@ const jsonLd = {
 			<div class="top-20 border border-brand p-6 md:sticky">
 				<p class="kicker text-muted">Presupuesto</p>
 				<p class="mt-2 text-2xl leading-tight font-bold text-brand">{servicio.nombre}</p>
+				{desde && <p class="mt-3 text-sm">Desde <strong class="text-lg text-brand">{formatGs(desde)}</strong> por m², precio de referencia.</p>}
 				<p class="mt-3 text-sm leading-snug">Mandanos fotos y medidas por WhatsApp. El precio final se cierra cuando medimos en tu obra.</p>
 				<a href={waUrl(wa)} data-origen="lateral" class="btn btn-primary mt-5 w-full">Pedir presupuesto</a>
 				<p class="mt-4 text-xs text-muted">{empresa.horario}. {empresa.ciudad}.</p>

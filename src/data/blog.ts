@@ -1,10 +1,4 @@
-import { estimar, etiqueta, formatGs, preciosM2, preciosVigencia, type ServicioCalc } from "../lib/pedido";
-
-function preciosDe(servicio: ServicioCalc) {
-	return Object.entries(preciosM2)
-		.filter(([clave]) => clave.startsWith(`${servicio}:`))
-		.map(([clave, precio]) => ({ nombre: etiqueta(servicio, "materiales", clave.split(":")[1]), ...precio }));
-}
+import { estimar, formatGs, preciosDe, preciosFecha, preciosM2, preciosVigencia, type ServicioCalc } from "../lib/pedido";
 
 const total = (servicio: ServicioCalc, material: string, ancho: number, alto: number, apertura = "0") => formatGs(estimar({ servicio, material, apertura, ancho, alto })!.total);
 const cielo = preciosDe("cielo");
@@ -15,10 +9,20 @@ const bunaHabitacion = formatGs(estimar({ servicio: "cielo", material: "durlock"
 export type Nota = {
 	slug: string;
 	title: string;
+	/** Si falta, el H1 es el title. */
+	h1?: string;
+	/** Fecha ISO de la última revisión de los datos de la nota. */
+	actualizado?: string;
 	description: string;
 	/** Slug del servicio al que lleva la nota. */
 	servicio: string;
-	sections: { titulo: string; parrafos: string[]; tabla?: { columnas: string[]; filas: string[][] } }[];
+	sections: {
+		titulo: string;
+		parrafos: string[];
+		tabla?: { titulo: string; columnas: string[]; filas: string[][] };
+		/** Lleva montos: la nota le suma el aviso de precios de referencia. */
+		precios?: boolean;
+	}[];
 };
 
 export const notas: Nota[] = [
@@ -285,13 +289,16 @@ export const notas: Nota[] = [
 	{
 		slug: "cuanto-cuesta-cielo-raso-paraguay",
 		servicio: "cielo-raso",
-		title: "Cuánto cuesta un cielo raso en Paraguay y qué influye en el presupuesto",
+		title: `Precio de cielo raso por m² en Paraguay (${preciosFecha.slice(0, 4)}): PVC, yeso y Durlock`,
+		h1: "Cuánto cuesta un cielo raso en Paraguay: precio por m² de PVC, yeso, Durlock y desmontable",
+		actualizado: preciosFecha,
 		description: `Precio de cielo raso por m² en Paraguay (${preciosVigencia}): yeso desde ${formatGs(preciosM2["cielo:junta-tomada"].m2)}, PVC ${formatGs(preciosM2["cielo:pvc"].m2)}, Durlock ${formatGs(preciosM2["cielo:durlock"].m2)} y desmontable desde ${formatGs(preciosM2["cielo:foil"].m2)}.`,
 		sections: [
 			{
 				titulo: "Precio por metro cuadrado",
-				parrafos: [`Son los precios de referencia de VIPAR en ${preciosVigencia}. El precio final se confirma cuando medimos en la obra.`],
-				tabla: { columnas: ["Sistema", "Precio por m²"], filas: cielo.map((item) => [item.nombre, formatGs(item.m2)]) },
+				parrafos: [`Estos son los precios por metro cuadrado de cielo raso que maneja VIPAR en ${preciosVigencia}, según el sistema.`],
+				tabla: { titulo: `Precio de cielo raso por m² en Paraguay, ${preciosVigencia}`, columnas: ["Sistema", "Precio por m²"], filas: cielo.map((item) => [item.nombre, formatGs(item.m2)]) },
+				precios: true,
 			},
 			{
 				titulo: "Un ejemplo con una habitación de 4 × 3 m",
@@ -343,12 +350,14 @@ export const notas: Nota[] = [
 		slug: "costo-mamparas-divisorias",
 		servicio: "mamparas-divisorias",
 		title: "Cuánto cuesta instalar mamparas divisorias en Paraguay y qué cambia el presupuesto",
+		actualizado: preciosFecha,
 		description: `Precio de mamparas divisorias por m² en Paraguay (${preciosVigencia}): Eucatex ciega ${formatGs(preciosM2["mamparas:eucatex-ciega"].m2)} y vidriada ${formatGs(preciosM2["mamparas:eucatex-vidriada"].m2)}, puertas aparte. Qué más cambia el presupuesto.`,
 		sections: [
 			{
 				titulo: "Precio por metro cuadrado",
-				parrafos: [`Son los precios de referencia de VIPAR en ${preciosVigencia}, con perfiles de chapa pintada. Las puertas se cobran por unidad. El cristal templado y el Durlock se cotizan con las medidas.`],
-				tabla: { columnas: ["Mampara", "Por m²", "Puerta"], filas: mamparas.map((item) => [item.nombre, formatGs(item.m2), formatGs(item.puerta!)]) },
+				parrafos: [`Estos son los precios por metro cuadrado de mamparas divisorias que maneja VIPAR en ${preciosVigencia}, con perfiles de chapa pintada. Las puertas se cobran por unidad. El cristal templado y el Durlock se cotizan con las medidas.`],
+				tabla: { titulo: `Precio de mamparas divisorias por m² en Paraguay, ${preciosVigencia}`, columnas: ["Mampara", "Por m²", "Puerta"], filas: mamparas.map((item) => [item.nombre, formatGs(item.m2), formatGs(item.puerta!)]) },
+				precios: true,
 			},
 			{
 				titulo: "Un ejemplo: una división de 3 m de largo y 2,40 m de alto",

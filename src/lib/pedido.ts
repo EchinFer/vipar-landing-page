@@ -20,6 +20,13 @@ export const precios: Record<string, Rango | null> = {
 
 /** Mes en que VIPAR pasó los precios por m². Se muestra junto a cada monto. */
 export const preciosVigencia = "noviembre de 2026";
+/** Misma fecha en ISO, para los datos estructurados y el sitemap. */
+export const preciosFecha = "2026-11-08";
+
+/** Va junto a cada precio publicado, sin excepción. */
+export const avisoPrecios =
+	"Son precios de referencia y pueden cambiar con el tiempo. Sirven como base para que sepas en qué rango está tu trabajo, no como precio final. Los trabajos más grandes se calculan con más datos: altura, estado del techo o del piso, accesos, cantidad y ubicación de la obra. Escribinos por WhatsApp y te pasamos el presupuesto exacto.";
+export const avisoCorto = "Es un precio de referencia, no el final: puede cambiar con el tiempo y los trabajos más grandes se calculan con más datos. El presupuesto exacto te lo pasamos por WhatsApp.";
 
 export type PrecioM2 = {
 	m2: number;
@@ -285,6 +292,18 @@ export function calcular(rango: Rango, ancho: number, alto: number) {
 		ejemplo: rango.ejemplo,
 		fuera,
 	};
+}
+
+export function preciosDe(servicio: ServicioCalc) {
+	return Object.entries(preciosM2)
+		.filter(([clave]) => clave.startsWith(`${servicio}:`))
+		.map(([clave, precio]) => ({ id: clave.split(":")[1], nombre: etiqueta(servicio, "materiales", clave.split(":")[1]), ...precio }));
+}
+
+export function desdeM2(servicio: ServicioCalc | undefined) {
+	if (!servicio) return null;
+	const montos = preciosDe(servicio).map((precio) => precio.m2);
+	return montos.length > 0 ? Math.min(...montos) : null;
 }
 
 export function tienePrecios(servicio: ServicioCalc) {

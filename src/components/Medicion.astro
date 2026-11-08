@@ -93,10 +93,13 @@
 		}
 		const delTexto = texto.match(/Servicio:\s*(.+)/i)?.[1]?.trim();
 		const delaRuta = location.pathname.match(/^\/servicios\/([^/]+)\//)?.[1];
+		const valor = Number(enlace.dataset.valor);
 		window.gtag("event", "whatsapp_click", {
 			servicio: delTexto ?? delaRuta ?? "sin_servicio",
 			origen: enlace.dataset.origen ?? ("waBar" in enlace.dataset ? "barra" : "contenido"),
 			pagina: location.pathname,
+			// Monto de referencia que vio la persona en el armador: el valor estimado del pedido, no una venta.
+			...(valor > 0 ? { value: valor, currency: "PYG" } : {}),
 		});
 	});
 </script>

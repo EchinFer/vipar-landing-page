@@ -37,6 +37,8 @@ Y lo que falta:
 8. ¿Publico fotos de Hiper Luisitos y del peaje? Sí / No
 ```
 
+Cada precio publicado va con el aviso de `avisoPrecios` (en `pedido.ts`): son de referencia, pueden cambiar y los trabajos grandes se calculan con más datos por WhatsApp. Si se publica un precio nuevo en otra página, tiene que llevar ese aviso.
+
 Los precios en guaraníes se desactualizan. Conviene revisarlos cada tres meses y cambiar `preciosVigencia` aunque no cambien, para que la web no muestre un mes viejo.
 
 Los rangos de box y ventana se cargan en `precios`, en el mismo archivo. Hoy están en `null` y la pantalla no muestra un monto. Si alguien carga números de prueba, tiene que marcar `ejemplo: true`. Con esa marca, la interfaz y el WhatsApp dicen `PRECIO DE EJEMPLO`. No se publica así.

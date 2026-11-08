@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppBar from "../components/WhatsAppBar.astro";
 import Medicion from "../components/Medicion.astro";
-import { canonical, empresa } from "../data/empresa";
+import { canonical, empresa, negocioId } from "../data/empresa";
 import { mensajeLibre, waUrl } from "../lib/pedido";
 
 interface Props {
@@ -21,6 +21,7 @@ const imagen = new URL("/og.webp", empresa.site).href;
 const wa = waUrl(waTexto ?? mensajeLibre("Vi la web y quiero coordinar una medición."));
 const negocio = {
 	"@type": "LocalBusiness",
+	"@id": negocioId,
 	name: empresa.nombre,
 	url: empresa.site,
 	telephone: empresa.telefono,

@@ -8,7 +8,7 @@ import { empresa } from "../data/empresa";
 import { obras, portada } from "../data/obras";
 import { principales, servicios } from "../data/servicios";
 import { fotosDe } from "../lib/fotos";
-import { mensajeLibre, waUrl } from "../lib/pedido";
+import { avisoCorto, desdeM2, formatGs, mensajeLibre, preciosVigencia, waUrl } from "../lib/pedido";
 
 const heroObra = portada.find((obra) => obra.slug === "natatorio-cit-luque") ?? portada[0];
 const hero = fotosDe(heroObra.slug)[0];
@@ -22,6 +22,10 @@ const cifras = [
 	{ valor: "Todo el país", texto: "Asunción, Gran Asunción e interior" },
 ];
 const nombresObras = ["sucursal-tigo-mra", "oficinas-corporativas-itau", "ips-central-asuncion", "natatorio-cit-luque", "pedro-juan-caballero", "carde-apf-ypane", "cooperativa-medalla"];
+const guiasPrecio = [
+	{ nombre: "Cielo raso", desde: desdeM2("cielo"), href: "/blog/cuanto-cuesta-cielo-raso-paraguay/" },
+	{ nombre: "Mamparas divisorias", desde: desdeM2("mamparas"), href: "/blog/costo-mamparas-divisorias/" },
+];
 const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !destacadas.includes(obra) && obra.slug !== heroObra.slug);
 ---
 
@@ -140,6 +144,27 @@ const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !dest
 				))
 			}
 		</ul>
+
+		<div class="reveal mt-12 grid gap-6 border border-brand p-5 md:grid-cols-[1fr_2fr] md:items-center md:p-8">
+			<div>
+				<p class="kicker text-muted">Precios de referencia · {preciosVigencia}</p>
+				<h3 class="mt-2 text-2xl leading-tight font-bold text-brand md:text-3xl">¿Cuánto cuesta?</h3>
+				<p class="mt-3 text-sm leading-snug text-muted">{avisoCorto}</p>
+			</div>
+			<ul class="grid gap-3 sm:grid-cols-2">
+				{
+					guiasPrecio.map((guia) => (
+						<li>
+							<a href={guia.href} class="group block h-full bg-wash p-5 transition-shadow hover:shadow-lg">
+								<p class="font-bold text-brand">{guia.nombre}</p>
+								<p class="mt-1">Desde <strong class="text-2xl text-brand">{guia.desde && formatGs(guia.desde)}</strong> por m²</p>
+								<p class="mt-3 text-sm font-semibold text-brand">Ver todos los precios <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span></p>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
 	</section>
 
 	<Pasos />
