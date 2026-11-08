@@ -82,6 +82,13 @@
 	});
 
 	// `whatsapp_click` es el evento clave que ya tiene la propiedad GA4: mantiene la serie histórica de contactos.
+	// Quien pide cómo llegar al showroom es un contacto, aunque no sea por WhatsApp.
+	document.addEventListener("click", (evento) => {
+		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>("a[data-mapa]");
+		if (!enlace) return;
+		window.gtag("event", "mapa_click", { origen: enlace.dataset.mapa, pagina: location.pathname });
+	});
+
 	document.addEventListener("click", (evento) => {
 		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="https://wa.me/"]');
 		if (!enlace) return;

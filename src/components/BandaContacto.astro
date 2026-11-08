@@ -25,6 +25,7 @@ const { texto = mensajeLibre("Vi la web y quiero coordinar una medición.") } = 
 			<p class="font-bold text-brand">Showroom</p>
 			<p>{empresa.direccion}</p>
 			<p>{empresa.ciudad}, {empresa.departamento}</p>
+			<p><a href={empresa.comoLlegar} data-mapa="banda" class="underline underline-offset-4">Cómo llegar en Google Maps</a></p>
 			<p class="mt-2">{empresa.horario}</p>
 			<p class="mt-2"><a href={`tel:${empresa.telefono}`} class="underline underline-offset-4">{empresa.telefono}</a></p>
 			<p><a href={`mailto:${empresa.email}`} class="underline underline-offset-4">{empresa.email}</a></p>

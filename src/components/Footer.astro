@@ -13,6 +13,7 @@ import { empresa } from "../data/empresa";
 		<div class="text-sm leading-6">
 			<p>{empresa.direccion}</p>
 			<p>{empresa.ciudad}, {empresa.departamento}</p>
+			<p><a href={empresa.comoLlegar} data-mapa="pie" class="underline underline-offset-4">Cómo llegar</a></p>
 			<p class="mt-2">{empresa.horario}</p>
 		</div>
 		<div class="text-sm leading-6">

@@ -9,6 +9,10 @@ export const empresa = {
 	horario: "Lunes a viernes, 7:30 a 17:00",
 	desde: 2000,
 	site: "https://vipar.com.py",
+	/** Ficha de Google Maps. El pin está bien ubicado; el texto de la dirección en la ficha no coincide (ver docs/PENDIENTES.md). */
+	geo: { lat: -25.3975108, lng: -57.553853 },
+	mapa: "https://maps.google.com/?cid=11603711632091616687",
+	comoLlegar: "https://www.google.com/maps/dir/?api=1&destination=VIPAR%20S.A&destination_place_id=ChIJmWtkhIerXZQRr5XjEkCqCKE",
 };
 
 export function canonical(path: string) {

@@ -35,6 +35,9 @@ const negocio = {
 		addressRegion: empresa.departamento,
 		addressCountry: "PY",
 	},
+	geo: { "@type": "GeoCoordinates", latitude: empresa.geo.lat, longitude: empresa.geo.lng },
+	hasMap: empresa.mapa,
+	sameAs: [empresa.mapa],
 	openingHoursSpecification: {
 		"@type": "OpeningHoursSpecification",
 		dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
