@@ -11,12 +11,7 @@ Los archivos están en `docs/seo/datos-2026-11-07/`.
 - Entre febrero y mayo de 2026 Search Console casi no registra clics. Fue un problema del hosting, según VIPAR. El sitio recuperó y duplicó el tráfico después, pero muestra cuánto depende del hosting: el nuevo tiene que ser estable y conviene una alerta de caída (por ejemplo UptimeRobot, gratis) desde el primer día.
 - El 79 % de las sesiones son en celular, y el CTR en celular (2,5 %) es la mitad que en computadora (5 %).
 
-## Para VIPAR, cuando haya un minuto
-
-```
-Hola. Para la web nueva, tres líneas:
-
-1. Box de cristal 8 mm, 0,90 × 1,90## Precios
+## Precios
 
 VIPAR pasó precios por m² de cielo raso y mamparas de Eucatex el 8 de noviembre de 2026. Están en `src/lib/pedido.ts`, en `preciosM2`, y de ahí salen el armador, las fichas, las guías de precio y sus descripciones para Google. Para cambiar un precio se toca solo ese objeto; para cambiar el mes, `preciosVigencia`.
 
@@ -43,7 +38,21 @@ Los precios en guaraníes se desactualizan. Conviene revisarlos cada tres meses 
 
 Los rangos de box y ventana se cargan en `precios`, en el mismo archivo. Hoy están en `null` y la pantalla no muestra un monto. Si alguien carga números de prueba, tiene que marcar `ejemplo: true`. Con esa marca, la interfaz y el WhatsApp dicen `PRECIO DE EJEMPLO`. No se publica así.
 
-terior mostraba la de otra obra:
+## Confianza: lo que solo puede aportar VIPAR
+
+El diseño ya muestra obras reales, nombres de lugares donde se trabajó, precios con aviso y el showroom. Lo que más sumaría ahora no se puede diseñar:
+
+- **Fotos de box de baño.** Es la segunda página con más clics y tiene solo 2 obras con foto. Con 6 a 10 fotos de baños terminados (aunque sean de celular, bien iluminadas y derechas), la ficha cambia.
+- **Una foto del equipo o de la familia en el showroom.** Una cara genera más confianza que cualquier texto, y más en una empresa familiar.
+- **Reseñas de Google.** Hacen falta la ficha de Maps y pedirles reseña a los clientes conformes. Cuando haya, se muestran en la web.
+- **Nombres en la franja "Algunas obras donde trabajamos".** Son obras que ya figuran en las fichas. Si VIPAR prefiere no nombrar alguna (por ejemplo, porque trabajó como subcontratista), se saca de `dondeTrabajamos` en `src/pages/index.astro`.
+- **Garantía.** Si VIPAR da garantía de instalación o de herrajes, decirla con plazo concreto es una de las señales más fuertes. No se publica sin confirmar.
+
+## Fotos
+
+Esta pasada usa las fotos que ya estaban en vipar.com.py. Tres venían giradas 90° desde el sitio anterior (dos del IPS Central y una del CARDE de la APF) y se enderezaron.
+
+Dos fichas quedaron sin foto porque el sitio anterior mostraba la de otra obra:
 
 - Residencia San Lorenzo usaba una foto de Recoleta.
 - Oficinas Itaú usaban una foto de la Cooperativa Medalla Milagrosa.
