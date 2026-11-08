@@ -34,6 +34,8 @@ export type Servicio = {
 	intro: string;
 	resumen: string;
 	foto: string;
+	/** Foto del hero de la ficha: obra y número de foto. Si falta, la primera de `foto`. */
+	hero?: [obra: string, foto: number];
 	incluye: string[];
 	noIncluye: string[];
 	hechos: string[];
@@ -61,6 +63,7 @@ const lista: Servicio[] = [
 		intro: "Proveemos el vidrio y nos encargamos de la instalación en tu vivienda, oficina o comercio. Hacemos puertas, mamparas, box de baño, barandas, fachadas y cerramientos de quincho, siempre a medida.",
 		resumen: "Puertas, mamparas, boxes, barandas y fachadas.",
 		foto: "local-comercial-capiata",
+		hero: ["auditorio-arandu-loma-pyta", 0],
 		incluye: ["Vidrio cortado a la medida de la obra", "Perfiles y herrajes del sistema", "Instalación"],
 		noIncluye: ["Albañilería, plomería y electricidad"],
 		hechos: [
@@ -114,6 +117,7 @@ const lista: Servicio[] = [
 		intro: "Fabricamos e instalamos puertas, ventanas y cerramientos de aluminio. El perfil, el vidrio y el tipo de apertura se definen según tu obra, y cada abertura se mide en el lugar.",
 		resumen: "Puertas, ventanas y cerramientos a medida.",
 		foto: "vivienda-trotte",
+		hero: ["recoleta-asuncion", 1],
 		incluye: ["Perfiles de aluminio", "Vidrio del sistema elegido", "Instalación"],
 		noIncluye: ["Albañilería para corregir el vano"],
 		hechos: [
@@ -207,6 +211,7 @@ const lista: Servicio[] = [
 		intro: "Hacemos puertas a medida en perfilería de aluminio y cristal templado. Se definen según el vano, la forma de apertura y el uso que va a tener el acceso.",
 		resumen: "Batientes, corredizas y de cristal.",
 		foto: "galeria-senador-long",
+		hero: ["vivienda-lc", 1],
 		incluye: ["Hoja, marco y herrajes", "Instalación"],
 		noIncluye: ["Cerradura electrónica, salvo que se pida en el pedido"],
 		hechos: [
@@ -247,6 +252,7 @@ const lista: Servicio[] = [
 		intro: "Hacemos divisiones para salas de reunión, puestos de trabajo, recepciones y áreas operativas. Te ayudamos a elegir entre cristal templado, Durlock o Eucatex según la privacidad, la luz y la rapidez de obra que necesitás.",
 		resumen: "Vidrio o panel para separar ambientes.",
 		foto: "cooperativa-medalla",
+		hero: ["oficina-divisorias", 0],
 		incluye: ["Perfilería", "Paño de vidrio o panel", "Instalación"],
 		noIncluye: ["Aire acondicionado y electricidad de los puestos"],
 		hechos: [
@@ -312,6 +318,7 @@ const lista: Servicio[] = [
 		intro: "Hacemos fachadas entubadas, muro cortina y sistema glazing en locales comerciales, edificios, oficinas y showrooms. El sistema se elige según las medidas, la estructura existente y el diseño de cada obra.",
 		resumen: "Vidrieras, fachadas y muros cortina.",
 		foto: "sucursal-tigo-mra",
+		hero: ["natatorio-cit-luque", 0],
 		incluye: ["Sistema de aluminio y vidrio", "Instalación"],
 		noIncluye: ["Estructura de hormigón y losa"],
 		hechos: [
@@ -409,6 +416,7 @@ const lista: Servicio[] = [
 		intro: "Instalamos cielo raso en viviendas, oficinas y locales. Te ayudamos a elegir entre yeso, PVC, Durlock o desmontable según si hay que lavarlo, pintarlo o llegar a las instalaciones.",
 		resumen: "PVC, yeso, Durlock y desmontable.",
 		foto: "virgen-del-huerto-asuncion",
+		hero: ["virgen-del-huerto-asuncion", 2],
 		incluye: ["Estructura y placas del sistema elegido", "Instalación"],
 		noIncluye: ["Artefactos, salvo que estén en el pedido", "Aire acondicionado"],
 		hechos: [
