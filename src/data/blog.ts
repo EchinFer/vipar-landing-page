@@ -16,8 +16,6 @@ export type Nota = {
 	description: string;
 	/** Slug del servicio al que lleva la nota. */
 	servicio: string;
-	/** Respuesta corta arriba de todo: quien llega desde Google la ve sin bajar. */
-	resumen: string[];
 	sections: {
 		titulo: string;
 		parrafos: string[];
@@ -33,11 +31,6 @@ export const notas: Nota[] = [
 		title: "Tipos de apertura para box de baño: corrediza, batiente y plegable",
 		description: "Cómo elegir la apertura de un box de baño según el espacio libre, la comodidad y el uso diario: corrediza, batiente o plegable.",
 		servicio: "box-de-bano",
-		resumen: [
-			"Corrediza: no barre el baño. Entra cuando hay algo delante de la ducha.",
-			"Batiente: la más simple de usar, pero necesita espacio libre delante o detrás de la hoja.",
-			"Plegable: deja el vano casi libre. Sirve en baños muy chicos o para personas mayores.",
-		],
 		sections: [
 			{
 				titulo: "Apertura corrediza",
@@ -71,11 +64,6 @@ export const notas: Nota[] = [
 		title: "Cielo raso PVC vs yeso: diferencias, ventajas y qué conviene evaluar",
 		description: "Qué es mejor, cielo raso de yeso o de PVC: diferencias de limpieza, terminación, mantenimiento y uso, con obras de VIPAR en Paraguay.",
 		servicio: "cielo-raso",
-		resumen: [
-			"PVC: se lava y se monta rápido. Va en ambientes de mucho uso.",
-			"Yeso o Durlock: superficie continua y lisa, que se pinta como una pared.",
-			"Si hay que llegar a las instalaciones, ninguno de los dos: el desmontable.",
-		],
 		sections: [
 			{
 				titulo: "Qué diferencia a un sistema del otro",
@@ -116,11 +104,6 @@ export const notas: Nota[] = [
 		title: "Vidrio o panel sólido: qué tipo de mampara elegir para una oficina",
 		description: "Cuándo conviene una mampara de vidrio y cuándo un panel sólido en oficinas, salas y áreas de atención, según privacidad, luz y uso.",
 		servicio: "mamparas-divisorias",
-		resumen: [
-			"Vidrio: cuando la luz y la imagen pesan más que la privacidad.",
-			"Panel sólido (Durlock o ciego): cuando no querés que se vea adentro.",
-			"Se pueden combinar: vidrio arriba y panel abajo.",
-		],
 		sections: [
 			{
 				titulo: "Cuándo el vidrio tiene más sentido",
@@ -153,11 +136,6 @@ export const notas: Nota[] = [
 		title: "Mamparas divisorias para oficinas: ventajas y aplicaciones según el tipo de espacio",
 		description: "Mamparas divisorias para oficinas en Paraguay: cuándo usar cristal templado, Eucatex o Durlock según privacidad, luz y tipo de trabajo.",
 		servicio: "mamparas-divisorias",
-		resumen: [
-			"Si priorizás luz e imagen: cristal templado.",
-			"Si cambiás la distribución seguido y querés terminar rápido: Eucatex.",
-			"Si buscás privacidad y un acabado definitivo: Durlock. Se pueden combinar.",
-		],
 		sections: [
 			{
 				titulo: "Dónde se aplican",
@@ -198,11 +176,6 @@ export const notas: Nota[] = [
 		title: "Medidas estándar para box de baño y qué revisar antes de instalar",
 		description: "Por qué no existe una sola medida estándar de box de baño, qué medir en tu ducha y qué datos mandar para cotizar uno a medida en Paraguay.",
 		servicio: "box-de-bano",
-		resumen: [
-			"No hay una medida estándar: el box se fabrica con la medida de tu ducha.",
-			"Medí el ancho de pared a pared, arriba y abajo, y el alto que querés.",
-			"Fijate dónde quedan la grifería, el toallero y la puerta: eso define la apertura.",
-		],
 		sections: [
 			{
 				titulo: "Por qué no existe una sola medida estándar",
@@ -237,11 +210,6 @@ export const notas: Nota[] = [
 		title: "Box de baño de vidrio templado vs acrílico: qué conviene según tu baño",
 		description: "Box de baño de cristal templado o de acrílico: diferencias de estética, limpieza, inversión y uso diario para elegir bien en Paraguay.",
 		servicio: "box-de-bano",
-		resumen: [
-			"Acrílico: la opción más accesible y de poco mantenimiento.",
-			"Cristal templado: se limpia fácil, deja pasar la luz y agranda el baño. Es la de mayor inversión.",
-			"En baños muy chicos, el sistema plegable libera el acceso con cualquiera de los dos.",
-		],
 		sections: [
 			{
 				titulo: "Qué cambia entre un material y otro",
@@ -277,11 +245,6 @@ export const notas: Nota[] = [
 		servicio: "box-de-bano",
 		title: "Cuánto cuesta un box de baño en Paraguay y cuál conviene según tu espacio",
 		description: "Qué define el precio de un box de baño en Paraguay: material, apertura, medidas, herrajes e instalación. Con tus medidas, el presupuesto sale por WhatsApp.",
-		resumen: [
-			"De más económico a mayor inversión: acrílico, plegable y cristal templado.",
-			"La apertura también suma: la plegable lleva más herraje.",
-			"Con tus medidas y fotos te pasamos el presupuesto por WhatsApp.",
-		],
 		sections: [
 			{
 				titulo: "Por qué no hay un precio único",
@@ -330,11 +293,6 @@ export const notas: Nota[] = [
 		h1: "Cuánto cuesta un cielo raso en Paraguay: precio por m² de PVC, yeso, Durlock y desmontable",
 		actualizado: preciosFecha,
 		description: `Precio de cielo raso por m² en Paraguay (${preciosVigencia}): yeso desde ${formatGs(preciosM2["cielo:junta-tomada"].m2)}, PVC ${formatGs(preciosM2["cielo:pvc"].m2)}, Durlock ${formatGs(preciosM2["cielo:durlock"].m2)} y desmontable desde ${formatGs(preciosM2["cielo:foil"].m2)}.`,
-		resumen: [
-			`Por m², en ${preciosVigencia}: yeso junta tomada ${formatGs(preciosM2["cielo:junta-tomada"].m2)}, PVC ${formatGs(preciosM2["cielo:pvc"].m2)} y Durlock ${formatGs(preciosM2["cielo:durlock"].m2)}.`,
-			`Desmontable: de ${formatGs(preciosM2["cielo:foil"].m2)} a ${formatGs(preciosM2["cielo:fibra-mineral"].m2)} por m², según la placa.`,
-			`Una habitación de 4 × 3 m en PVC da ${total("cielo", "pvc", 4, 3)}.`,
-		],
 		sections: [
 			{
 				titulo: "Precio por metro cuadrado",
@@ -394,11 +352,6 @@ export const notas: Nota[] = [
 		title: "Cuánto cuesta instalar mamparas divisorias en Paraguay y qué cambia el presupuesto",
 		actualizado: preciosFecha,
 		description: `Precio de mamparas divisorias por m² en Paraguay (${preciosVigencia}): Eucatex ciega ${formatGs(preciosM2["mamparas:eucatex-ciega"].m2)} y vidriada ${formatGs(preciosM2["mamparas:eucatex-vidriada"].m2)}, puertas aparte. Qué más cambia el presupuesto.`,
-		resumen: [
-			`Eucatex ciega: ${formatGs(preciosM2["mamparas:eucatex-ciega"].m2)} por m², puerta ${formatGs(preciosM2["mamparas:eucatex-ciega"].puerta!)}.`,
-			`Eucatex vidriada: ${formatGs(preciosM2["mamparas:eucatex-vidriada"].m2)} por m², puerta vidriada ${formatGs(preciosM2["mamparas:eucatex-vidriada"].puerta!)}.`,
-			"El cristal templado y el Durlock se cotizan con las medidas.",
-		],
 		sections: [
 			{
 				titulo: "Precio por metro cuadrado",
