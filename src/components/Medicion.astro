@@ -89,6 +89,13 @@
 		window.gtag("event", "mapa_click", { origen: enlace.dataset.mapa, pagina: location.pathname });
 	});
 
+	// Mismos nombres que el sitio anterior, para no cortar la serie de llamadas y correos.
+	document.addEventListener("click", (evento) => {
+		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="tel:"], a[href^="mailto:"]');
+		if (!enlace) return;
+		window.gtag("event", enlace.href.startsWith("tel:") ? "phone_click" : "email_click", { pagina: location.pathname });
+	});
+
 	document.addEventListener("click", (evento) => {
 		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="https://wa.me/"]');
 		if (!enlace) return;
@@ -101,10 +108,16 @@
 		const delTexto = texto.match(/Servicio:\s*(.+)/i)?.[1]?.trim();
 		const delaRuta = location.pathname.match(/^\/servicios\/([^/]+)\//)?.[1];
 		const valor = Number(enlace.dataset.valor);
+		const servicio = delTexto ?? delaRuta ?? "sin_servicio";
+		const origen = enlace.dataset.origen ?? ("waBar" in enlace.dataset ? "barra" : "contenido");
 		window.gtag("event", "whatsapp_click", {
-			servicio: delTexto ?? delaRuta ?? "sin_servicio",
-			origen: enlace.dataset.origen ?? ("waBar" in enlace.dataset ? "barra" : "contenido"),
+			servicio,
+			origen,
 			pagina: location.pathname,
+			// Nombres del sitio anterior: si la propiedad tiene dimensiones personalizadas con ellos, siguen llenándose.
+			...(delTexto && { service_name: delTexto }),
+			...(delaRuta && { service_slug: delaRuta }),
+			cta_location: origen,
 			// Monto de referencia que vio la persona en el armador: el valor estimado del pedido, no una venta.
 			...(valor > 0 ? { value: valor, currency: "PYG" } : {}),
 		});

@@ -8,7 +8,7 @@ import AvisoPrecios from "../../components/AvisoPrecios.astro";
 import { servicios } from "../../data/servicios";
 import { obraPorSlug, obrasDelServicio } from "../../data/obras";
 import { notas } from "../../data/blog";
-import { fotosDe } from "../../lib/fotos";
+import { fotoDeServicio, fotosDe } from "../../lib/fotos";
 import { calcPorSlug, desdeM2, formatGs, mensajeLibre, preciosDe, preciosFecha, waUrl } from "../../lib/pedido";
 import { empresa, migas, negocioId } from "../../data/empresa";
 
@@ -17,8 +17,8 @@ export function getStaticPaths() {
 }
 
 const { servicio } = Astro.props;
-const [heroSlug, heroN] = servicio.hero ?? [servicio.foto, 0];
-const foto = fotosDe(heroSlug)[heroN] ?? fotosDe(servicio.foto)[0];
+const [heroSlug] = servicio.hero ?? [servicio.foto];
+const foto = fotoDeServicio(servicio);
 const heroObra = obraPorSlug(heroSlug);
 const heroLugar = heroObra && [heroObra.titulo, ...heroObra.ciudad.split(", ").filter((parte) => parte && !heroObra.titulo.includes(parte))].join(", ");
 /** Debajo de ~1400 px la foto se pixela a pantalla completa: en computadora va enmarcada sobre un fondo desenfocado. */
@@ -83,7 +83,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={`${servicio.title} | VIPAR S.A.`} description={servicio.description} path={`/servicios/${servicio.slug}/`} waTexto={wa} jsonLd={jsonLd}>
+<Base title={`${servicio.title} | VIPAR S.A.`} description={servicio.description} path={`/servicios/${servicio.slug}/`} waTexto={wa} jsonLd={jsonLd} imagen={foto} imagenAlt={`${servicio.nombre}, obra de VIPAR`}>
 	<section class="relative isolate overflow-hidden bg-brand text-white">
 		<div class="relative h-[50svh] min-h-[19rem] overflow-hidden md:absolute md:inset-0 md:h-auto">
 			<div class="asentar size-full">

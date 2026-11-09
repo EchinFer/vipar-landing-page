@@ -5,7 +5,9 @@ import AvisoPrecios from "../../components/AvisoPrecios.astro";
 import { notas } from "../../data/blog";
 import { servicioPorSlug } from "../../data/servicios";
 import { calcPorSlug, desdeM2, formatGs, mensajeLibre, preciosVigencia, waUrl } from "../../lib/pedido";
-import { canonical, empresa, migas, negocioId } from "../../data/empresa";
+import { canonical, migas, negocioId } from "../../data/empresa";
+import { fotoDeServicio } from "../../lib/fotos";
+import { imagenSocial } from "../../lib/social";
 
 export function getStaticPaths() {
 	return notas.map((nota) => ({ params: { slug: nota.slug }, props: { nota } }));
@@ -18,6 +20,8 @@ const wa = mensajeLibre(`Leí la nota «${nota.h1 ?? nota.title}» y quiero un p
 const calc = servicio ? calcPorSlug[servicio.slug] : undefined;
 const desde = nota.actualizado ? desdeM2(calc) : null;
 const ruta = `/blog/${nota.slug}/`;
+const foto = servicio && fotoDeServicio(servicio);
+const social = await imagenSocial(foto);
 const jsonLd = [
 	{
 		"@type": "Article",
@@ -26,7 +30,7 @@ const jsonLd = [
 		url: canonical(ruta),
 		mainEntityOfPage: canonical(ruta),
 		inLanguage: "es-PY",
-		image: new URL("/og.webp", empresa.site).href,
+		image: social.url,
 		author: { "@id": negocioId },
 		publisher: { "@id": negocioId },
 		...(nota.actualizado && { dateModified: nota.actualizado }),
@@ -36,7 +40,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={`${nota.title} | VIPAR S.A.`} description={nota.description} path={ruta} waTexto={wa} jsonLd={jsonLd}>
+<Base title={`${nota.title} | VIPAR S.A.`} description={nota.description} path={ruta} waTexto={wa} jsonLd={jsonLd} imagen={foto} imagenAlt={servicio?.nombre}>
 	<header class="panes bg-brand px-4 py-12 text-white md:px-8 md:py-16">
 		<p class="kicker text-sky"><a href="/blog/" class="underline-offset-4 hover:underline">Guías</a>{servicio && <> / <a href={`/servicios/${servicio.slug}/`} class="underline-offset-4 hover:underline">{servicio.nombre}</a></>}</p>
 		<h1 class="mt-4 max-w-[26ch] text-[1.9rem] leading-[1.06] md:text-5xl">{nota.h1 ?? nota.title}</h1>

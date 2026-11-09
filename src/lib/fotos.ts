@@ -10,3 +10,9 @@ export function fotosDe(slug: string) {
 		.sort(([a], [b]) => a.localeCompare(b))
 		.map(([, archivo]) => archivo.default);
 }
+
+/** Foto principal de un servicio: la elegida para el hero o, si no hay, la primera de su obra de portada. */
+export function fotoDeServicio(servicio: { foto: string; hero?: [string, number] }) {
+	const [slug, n] = servicio.hero ?? [servicio.foto, 0];
+	return fotosDe(slug)[n] ?? fotosDe(servicio.foto)[0];
+}

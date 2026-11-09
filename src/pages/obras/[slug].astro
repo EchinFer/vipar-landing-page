@@ -24,7 +24,7 @@ const otras = obras
 const wa = mensajeLibre(`Quiero un presupuesto parecido a esta obra: ${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}. ${obra.hecho}`);
 ---
 
-<Base title={`${nombre} - Obra realizada | VIPAR Paraguay`} description={descripcion} path={`/obras/${obra.slug}/`} waTexto={wa}>
+<Base title={`${nombre} - Obra realizada | VIPAR Paraguay`} description={descripcion} path={`/obras/${obra.slug}/`} waTexto={wa} imagen={fotos[0]} imagenAlt={nombre}>
 	{
 		fotos[0] ? (
 			<Foto src={fotos[0]} alt={`${nombre}. ${obra.hecho}`} priority class="aspect-[4/5] w-full object-cover md:aspect-[16/8]" sizes="100vw" />
