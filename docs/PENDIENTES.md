@@ -98,7 +98,11 @@ No está confirmado quién administra vipar.com.py ni el hosting. No se tocó el
 
 ## Fotos de baja resolución
 
-La foto de portada de `/servicios/box-de-bano/` viene del sitio anterior y se ve pixelada en pantalla ancha. Hace falta el original.
+26 fotos venían del sitio anterior a 550 px de ancho. El 9 de noviembre de 2026 se ampliaron al doble (1100 px) con FSRCNN, un ampliador que suaviza el pixelado sin inventar detalle. El peso subió poco (la más grande quedó en 100 KB) y la velocidad se mantuvo: box de baño y nosotros siguen en 100, mamparas en 97. No reemplaza una foto nueva: de cerca se ve suave, no nítida. Box de baño sigue teniendo una sola foto.
+
+Cuatro fotos tienen el sello del celular ("REDMI NOTE … AI QUAD CAMERA") y se dejaron así: borrarlo a mano deja una mancha. Son `edificio-longvillage-asuncion-01`, las dos del quincho de Brasilia y `carde-apf-ypane-01`.
+
+La proporción no está mal en los archivos. La página recorta cada foto según el marco (el hero, las tarjetas, la vista previa de WhatsApp). Recortar el archivo a una sola proporción lo arruinaría en los otros marcos.
 
 ## Marca
 
@@ -106,6 +110,6 @@ El logo completo del sitio actual es blanco, para fondo oscuro. Por eso la cabec
 
 ## Diseño
 
-- Esta pasada rehízo la home, las fichas de servicio, las listas de obras y las cabeceras. Los límites siguen siendo las fotos: varias son de baja resolución y se ven así en pantallas grandes (por ejemplo Sucursal Tigo en el cuadro grande de la home).
+- Esta pasada rehízo la home, las fichas de servicio, las listas de obras y las cabeceras. El límite siguen siendo las fotos: las que eran de 550 px se ven suaves en una pantalla grande, aunque ya no pixeladas.
 - No hay logos de clientes ni reseñas. Los logos piden permiso de cada empresa. Las reseñas de Google se pueden citar cuando la ficha tenga reseñas recientes.
 - La cifra "33 obras" cuenta las fichas de esta web, no el total histórico de VIPAR. El sitio viejo decía "+1000 obras" y no hay forma de verificarlo.
