@@ -180,7 +180,7 @@ export const notas: Nota[] = [
 			{
 				titulo: "Por qué no existe una sola medida estándar",
 				parrafos: [
-					"Cada ducha tiene su ancho, su alto y sus paredes, y pocas coinciden. Por eso no trabajamos con medidas estándar: el box se fabrica con la medida de tu baño.",
+					"Cada ducha tiene su ancho, su alto y sus paredes, y pocas coinciden. Por eso no trabajamos con medidas estándar: el box se instala a la medida de tu baño.",
 				],
 			},
 			{
@@ -194,7 +194,7 @@ export const notas: Nota[] = [
 				titulo: "Cómo se arma la cotización",
 				parrafos: [
 					"Con el ancho, el alto, el material y la apertura armamos el presupuesto. En el armador de pedido de la web la medida de ejemplo es 0,90 × 1,90 m: cambiala por la tuya.",
-					"Antes de fabricar tomamos las medidas definitivas en el baño. El precio final se cierra con esa medición.",
+					"Antes de instalar tomamos las medidas definitivas en el baño. El precio final se cierra con esa medición.",
 				],
 			},
 			{
@@ -214,7 +214,7 @@ export const notas: Nota[] = [
 			{
 				titulo: "Qué cambia entre un material y otro",
 				parrafos: [
-					"El acrílico va en una estructura de aluminio con paneles texturizados. El cristal templado se corta a medida y se monta con perfiles de aluminio. En una vivienda instalamos templado de 8 mm incoloro con perfil fosco.",
+					"El acrílico va en una estructura de aluminio con paneles texturizados. El cristal templado va a medida y se monta con perfiles de aluminio. En una vivienda instalamos templado de 8 mm incoloro con perfil fosco.",
 					"Entre los dos, el acrílico es la opción más accesible y el cristal templado la de mayor inversión.",
 				],
 			},

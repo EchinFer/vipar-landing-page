@@ -49,7 +49,7 @@ export const pasos = [
 	{ titulo: "Fotos y medidas", texto: "Mandás por WhatsApp fotos del lugar, medidas aproximadas y, si lo tenés, el tipo de apertura o sistema que te gusta." },
 	{ titulo: "Revisión técnica", texto: "Tomamos las medidas en la obra y adaptamos el sistema al espacio disponible." },
 	{ titulo: "Presupuesto", texto: "Recibís una propuesta con el material recomendado, el sistema y lo que incluye el trabajo." },
-	{ titulo: "Preparación", texto: "Cortamos y armamos los materiales con las medidas relevadas." },
+	{ titulo: "Preparación", texto: "Preparamos los materiales con las medidas de la obra." },
 	{ titulo: "Instalación", texto: "Montamos el sistema en el lugar y lo dejamos terminado." },
 ];
 
@@ -64,7 +64,7 @@ const lista: Servicio[] = [
 		resumen: "Puertas, mamparas, boxes, barandas y fachadas.",
 		foto: "local-comercial-capiata",
 		hero: ["auditorio-arandu-loma-pyta", 0],
-		incluye: ["Vidrio cortado a la medida de la obra", "Perfiles y herrajes del sistema", "Instalación"],
+		incluye: ["Vidrio a la medida de la obra", "Perfiles y herrajes del sistema", "Instalación"],
 		noIncluye: ["Albañilería, plomería y electricidad"],
 		hechos: [
 			"En Capiatá la fachada es templado de 10 mm incoloro.",
@@ -114,7 +114,7 @@ const lista: Servicio[] = [
 		title: "Carpintería de aluminio en Paraguay | Puertas, ventanas y cerramientos",
 		h1: "Carpintería de aluminio para puertas, ventanas y cerramientos",
 		description: "Carpintería y aberturas de aluminio en Paraguay: puertas batientes y corredizas, ventanas y cerramientos a medida, medidos e instalados en la obra.",
-		intro: "Fabricamos e instalamos puertas, ventanas y cerramientos de aluminio. El perfil, el vidrio y el tipo de apertura se definen según tu obra, y cada abertura se mide en el lugar.",
+		intro: "Medimos e instalamos puertas, ventanas y cerramientos de aluminio. El perfil, el vidrio y el tipo de apertura se definen según tu obra, y cada abertura se mide en el lugar.",
 		resumen: "Puertas, ventanas y cerramientos a medida.",
 		foto: "vivienda-trotte",
 		hero: ["recoleta-asuncion", 1],
@@ -190,7 +190,7 @@ const lista: Servicio[] = [
 			{
 				titulo: "Medidas",
 				parrafos: [
-					"No trabajamos con medidas estándar. Cada ventana se define según el vano real. Las medidas de la calculadora son aproximadas, y las definitivas las tomamos en la obra antes de fabricar.",
+					"No trabajamos con medidas estándar. Cada ventana se define según el vano real. Las medidas de la calculadora son aproximadas, y las definitivas las tomamos en la obra antes de instalar.",
 				],
 			},
 		],
@@ -474,7 +474,7 @@ const lista: Servicio[] = [
 		title: "Box de baño y mamparas para baño en Paraguay",
 		h1: "Box de baño y mamparas de ducha a medida",
 		description: "Box de baño y mamparas de ducha a medida en Paraguay: acrílico, cristal templado 8 mm o plegable. Elegí apertura y medidas y pedí presupuesto por WhatsApp.",
-		intro: "Hacemos box de baño en acrílico, cristal templado de 8 mm y sistema plegable. Lo medimos en tu baño, lo armamos a medida y lo instalamos con sellado de silicona antihongos.",
+		intro: "Hacemos box de baño en acrílico, cristal templado de 8 mm y sistema plegable. Lo medimos en tu baño y lo instalamos a medida, con sellado de silicona antihongos.",
 		resumen: "Acrílico, templado 8 mm o plegable.",
 		foto: "vivienda-box-de-bano",
 		incluye: ["Paños y perfiles", "Herrajes", "Instalación y sellado"],

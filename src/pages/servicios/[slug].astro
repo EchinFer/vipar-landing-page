@@ -4,11 +4,12 @@ import Foto from "../../components/Foto.astro";
 import Calculadora from "../../components/Calculadora.astro";
 import Pasos from "../../components/Pasos.astro";
 import BandaContacto from "../../components/BandaContacto.astro";
+import NoMolesta from "../../components/NoMolesta.astro";
 import AvisoPrecios from "../../components/AvisoPrecios.astro";
 import { servicios } from "../../data/servicios";
 import { obraPorSlug, obrasDelServicio } from "../../data/obras";
 import { notas } from "../../data/blog";
-import { fotoDeServicio, fotosDe } from "../../lib/fotos";
+import { fotoDeServicio, fotosDe, portadaDe } from "../../lib/fotos";
 import { calcPorSlug, desdeM2, formatGs, mensajeLibre, preciosDe, preciosFecha, waUrl } from "../../lib/pedido";
 import { empresa, migas, negocioId } from "../../data/empresa";
 
@@ -26,7 +27,10 @@ const nitida = foto.width >= 1400;
 const totalObras = obrasDelServicio(servicio.slug).length;
 const conFoto = obrasDelServicio(servicio.slug).filter((obra) => fotosDe(obra.slug).length > 0);
 const relacionadas = conFoto.slice(0, 4);
-const tira = conFoto.flatMap((obra) => fotosDe(obra.slug).map((foto) => ({ obra, foto }))).slice(0, 10);
+const tira = conFoto.flatMap((obra) => {
+	const foto = portadaDe(obra.slug);
+	return foto ? [{ obra, foto }] : [];
+}).slice(0, 10);
 const guias = notas.filter((nota) => nota.servicio === servicio.slug);
 const wa = mensajeLibre(`Quiero un presupuesto de ${servicio.nombre}.`);
 const calc = calcPorSlug[servicio.slug];
@@ -109,9 +113,12 @@ const jsonLd = [
 						<span class="text-sm text-white/80">por m², precio de referencia</span>
 					</p>
 				)}
-				<div class="mt-7 flex flex-wrap gap-3">
-					<a href={waUrl(wa)} data-origen="servicio" class="btn btn-light">Pedir presupuesto</a>
-					{servicio.calculadora ? <a href="#presupuesto" class="btn btn-line">Calcular mi caso</a> : relacionadas.length > 0 && <a href="#obras" class="btn btn-line">Ver obras</a>}
+				<div class="mt-7">
+					<div class="flex flex-wrap gap-3">
+						<a href={waUrl(wa)} data-origen="servicio" class="btn btn-light">Pedir presupuesto</a>
+						{servicio.calculadora ? <a href="#presupuesto" class="btn btn-line">Calcular mi caso</a> : relacionadas.length > 0 && <a href="#obras" class="btn btn-line">Ver obras</a>}
+					</div>
+					<NoMolesta claro texto="Preguntá sin tenerlo decidido." />
 				</div>
 				<dl class="mt-9 flex max-w-lg gap-10 border-t border-white/20 pt-5">
 					{totalObras >= 4 && <div class="flex flex-col-reverse"><dt class="mt-1 text-xs leading-tight text-white/70">obras publicadas</dt><dd class="text-2xl leading-none font-bold md:text-3xl">{totalObras}</dd></div>}
@@ -147,7 +154,7 @@ const jsonLd = [
 					{tira.map(({ obra, foto }) => (
 						<li class="w-[78%] shrink-0 snap-start sm:w-[45%] md:w-[30%] lg:w-[23%]">
 							<a href={`/obras/${obra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
-								<Foto src={foto} alt={`${servicio.nombre} en ${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 1024px) 23vw, (min-width: 768px) 30vw, 78vw" widths={[320, 480, 720]} />
+								<Foto src={foto} alt={`${servicio.nombre} en ${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 1024px) 23vw, (min-width: 768px) 30vw, 78vw" widths={[480, 800, 1200, 1600]} />
 								<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
 								<p class="absolute inset-x-0 bottom-0 p-4 font-bold text-white">{obra.titulo}<span class="block text-sm font-normal text-white/80">{obra.ciudad}</span></p>
 							</a>
@@ -240,12 +247,13 @@ const jsonLd = [
 		</article>
 
 		<aside class="hidden md:block">
-			<div class="top-20 border border-brand p-6 md:sticky">
+			<div class="top-[7.5rem] z-10 border border-brand bg-white p-6 md:sticky">
 				<p class="kicker text-muted">Presupuesto</p>
 				<p class="mt-2 text-2xl leading-tight font-bold text-brand">{servicio.nombre}</p>
 				{desde && <p class="mt-3 text-sm">Desde <strong class="text-lg text-brand">{formatGs(desde)}</strong> por m², precio de referencia.</p>}
 				<p class="mt-3 text-sm leading-snug">Mandanos fotos y medidas por WhatsApp. El precio final se cierra cuando medimos en tu obra.</p>
 				<a href={waUrl(wa)} data-origen="lateral" class="btn btn-primary mt-5 w-full">Pedir presupuesto</a>
+				<NoMolesta texto="Con una foto del lugar ya nos alcanza." />
 				<p class="mt-4 text-xs text-muted">{empresa.horario}. {empresa.ciudad}.</p>
 			</div>
 		</aside>
@@ -292,7 +300,7 @@ const jsonLd = [
 					{relacionadas.map((obra) => (
 						<li>
 							<a href={`/obras/${obra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
-								<Foto src={fotosDe(obra.slug)[0]} alt={obra.titulo} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480, 720]} />
+								<Foto src={portadaDe(obra.slug)} alt={obra.titulo} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 25vw, 50vw" widths={[480, 720, 1100, 1400]} />
 								<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
 								<p class="absolute inset-x-0 bottom-0 p-3 text-sm font-bold text-white md:p-4 md:text-base">{obra.titulo}</p>
 							</a>

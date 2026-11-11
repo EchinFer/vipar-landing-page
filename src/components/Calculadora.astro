@@ -1,5 +1,6 @@
 ---
 import { ids, mensajePedido, opciones, waUrl, type ServicioCalc } from "../lib/pedido";
+import NoMolesta from "./NoMolesta.astro";
 
 interface Props {
 	servicio?: ServicioCalc;
@@ -94,6 +95,7 @@ const paneles = fijo ? [fijo] : ids;
 	<p class="resultado mt-8 text-3xl leading-[1.05] font-bold text-brand md:text-4xl" data-resultado>El rango te lo pasamos por WhatsApp.</p>
 	<p class="mt-3 max-w-xl text-sm text-muted" data-aclaracion>El precio se cierra cuando medimos en la obra.</p>
 	<a class="btn btn-primary mt-6 w-full" data-pedir data-origen="calculadora" href={hrefInicial}>Pedir presupuesto</a>
+	<NoMolesta texto="Con estas medidas ya te podemos orientar." />
 </section>
 
 <script>

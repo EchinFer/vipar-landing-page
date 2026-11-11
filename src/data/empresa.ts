@@ -13,6 +13,9 @@ export const empresa = {
 	geo: { lat: -25.3975108, lng: -57.553853 },
 	mapa: "https://maps.google.com/?cid=11603711632091616687",
 	comoLlegar: "https://www.google.com/maps/dir/?api=1&destination=VIPAR%20S.A&destination_place_id=ChIJmWtkhIerXZQRr5XjEkCqCKE",
+	instagram: "https://www.instagram.com/vipar_py/",
+	facebook: "https://www.facebook.com/vipar.vidrios",
+	tiktok: "https://www.tiktok.com/@vipar.s.a",
 };
 
 export function canonical(path: string) {

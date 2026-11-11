@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../assets/marca/logo-full.webp";
+import logo from "../assets/marca/logo.svg";
 import { waUrl, mensajeLibre } from "../lib/pedido";
 import { servicios } from "../data/servicios";
+import Redes from "./Redes.astro";
 
 const presupuesto = waUrl(mensajeLibre("Vi la web y quiero coordinar una medición."));
 const ruta = Astro.url.pathname;
@@ -10,7 +10,7 @@ const ruta = Astro.url.pathname;
 
 <header class="sticky top-0 z-30 flex h-14 items-center justify-between bg-brand px-4 text-white md:px-8">
 	<a href="/" aria-label="VIPAR S.A. - Terminaciones y obras, inicio">
-		<Image src={logo} alt="VIPAR S.A. Terminaciones y obras" width={146} height={36} class="h-9 w-auto" loading="eager" />
+		<img src={logo.src} alt="VIPAR S.A. Terminaciones y obras" width="146" height="36" class="h-9 w-auto" />
 	</a>
 	<nav class="flex items-center gap-5 text-sm">
 		<a href="/obras/" class:list={["hidden sm:inline", ruta.startsWith("/obras") && "underline underline-offset-4"]}>Obras</a>
@@ -34,6 +34,7 @@ const ruta = Astro.url.pathname;
 					<li><a href="/nosotros/" class="block py-2.5">La empresa</a></li>
 					<li><a href="/contacto/" class="block py-2.5">Contacto</a></li>
 				</ul>
+				<Redes donde="menu" />
 			</div>
 		</details>
 	</nav>

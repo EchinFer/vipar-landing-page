@@ -1,5 +1,6 @@
 ---
 import { avisoPrecios, preciosFecha, preciosVigencia, waUrl } from "../lib/pedido";
+import NoMolesta from "./NoMolesta.astro";
 
 interface Props {
 	/** Texto del WhatsApp que arma el botón. */
@@ -18,4 +19,5 @@ const { asunto, calcular = false } = Astro.props;
 		<a href={waUrl(asunto)} data-origen="aviso-precios" class="btn btn-primary">Pedir presupuesto exacto</a>
 		{calcular && <a href="#presupuesto" class="btn btn-line text-brand">Calcular mi caso</a>}
 	</div>
+	<NoMolesta texto="Preguntar el precio no te ata a nada." />
 </aside>

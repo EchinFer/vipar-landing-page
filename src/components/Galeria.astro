@@ -28,7 +28,7 @@ const { obras, activa } = Astro.props;
 				<li>
 					<a href={`/obras/${obra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
 						{foto ? (
-							<Foto src={foto} alt={`${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 720]} />
+							<Foto src={foto} alt={`${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[480, 720, 1100, 1400, 1920]} />
 						) : (
 							<div class="panes absolute inset-0 flex items-start p-3 text-white/70">
 								<p class="text-xs">Foto de esta obra pendiente</p>

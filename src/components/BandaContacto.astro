@@ -1,6 +1,7 @@
 ---
 import { empresa } from "../data/empresa";
 import { mensajeLibre, waUrl } from "../lib/pedido";
+import NoMolesta from "./NoMolesta.astro";
 
 interface Props {
 	/** Mensaje completo de WhatsApp, ya armado con `mensajeLibre` o `mensajePedido`. */
@@ -16,9 +17,12 @@ const { texto = mensajeLibre("Vi la web y quiero coordinar una medición.") } = 
 			<p class="kicker text-muted">Presupuesto</p>
 			<h2 class="reveal mt-3 max-w-[18ch] text-4xl leading-[1.02] text-brand md:text-6xl">Mandanos fotos y medidas por WhatsApp</h2>
 			<p class="mt-5 max-w-xl text-lg leading-snug">Con eso armamos el presupuesto. El precio final se cierra cuando medimos en tu obra.</p>
-			<div class="mt-7 flex flex-wrap gap-3">
-				<a href={waUrl(texto)} data-origen="banda" class="btn btn-primary">Escribir por WhatsApp</a>
-				<a href="/calculadora/" class="btn border border-brand text-brand hover:bg-white">Armar el pedido</a>
+			<div class="mt-7">
+				<div class="flex flex-wrap gap-3">
+					<a href={waUrl(texto)} data-origen="banda" class="btn btn-primary">Escribir por WhatsApp</a>
+					<a href="/calculadora/" class="btn border border-brand text-brand hover:bg-white">Armar el pedido</a>
+				</div>
+				<NoMolesta texto="Si te falta algo, igual escribinos." />
 			</div>
 		</div>
 		<div class="border-l-2 border-brand pl-5 text-base leading-7">

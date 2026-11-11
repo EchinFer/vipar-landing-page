@@ -1,0 +1,10 @@
+---
+interface Props {
+	texto: string;
+	claro?: boolean;
+}
+
+const { texto, claro = false } = Astro.props;
+---
+
+<p class:list={["mt-2 text-sm leading-snug", claro ? "text-white/80" : "text-muted"]}>{texto}</p>

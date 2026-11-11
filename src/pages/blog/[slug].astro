@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Calculadora from "../../components/Calculadora.astro";
 import AvisoPrecios from "../../components/AvisoPrecios.astro";
+import NoMolesta from "../../components/NoMolesta.astro";
 import { notas } from "../../data/blog";
 import { servicioPorSlug } from "../../data/servicios";
 import { calcPorSlug, desdeM2, formatGs, mensajeLibre, preciosVigencia, waUrl } from "../../lib/pedido";
@@ -86,6 +87,7 @@ const jsonLd = [
 						{desde && <p class="mt-3 text-sm">Desde <strong class="text-lg text-brand">{formatGs(desde)}</strong> por m², precio de referencia.</p>}
 						<a href={`/servicios/${servicio.slug}/`} class="mt-4 block font-semibold text-brand underline underline-offset-4">Ver el servicio y las obras →</a>
 						<a href={waUrl(wa)} data-origen="nota" class="btn btn-primary mt-5 w-full">Pedir presupuesto</a>
+						<NoMolesta texto="Si algo no quedó claro, escribinos." />
 					</div>
 				</aside>
 			)

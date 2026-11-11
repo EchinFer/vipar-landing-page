@@ -5,7 +5,7 @@ import BandaContacto from "../components/BandaContacto.astro";
 import { empresa } from "../data/empresa";
 import { fotosDe } from "../lib/fotos";
 
-const showroom = fotosDe("showroom-vipar")[0];
+const showroom = fotosDe("showroom-vipar").find((foto) => foto.width > 1024) ?? fotosDe("showroom-vipar")[0];
 ---
 
 <Base
@@ -20,8 +20,8 @@ const showroom = fotosDe("showroom-vipar")[0];
 		<div>
 			<p class="kicker text-muted">La empresa</p>
 			<h1 class="mt-3 text-3xl leading-[1.05] text-brand md:text-5xl">Empresa paraguaya en cristales y aluminio desde el año {empresa.desde}</h1>
-			<p class="mt-4 text-lg">VIPAR empezó como un taller familiar de cristales templados. La segunda generación sumó carpintería de aluminio, fachadas, mamparas, cielo raso y box de baño.</p>
-			<p class="mt-4 text-lg">El showroom está en la misma dirección donde se coordinan las obras. Ahí se ve el sistema antes de encargarlo.</p>
+			<p class="mt-4 text-lg">VIPAR empezó como un taller familiar de cristales templados. La generación que siguió sumó aluminio y terminaciones de obra.</p>
+			<p class="mt-4 text-lg">El showroom está en la misma dirección donde se coordinan las obras. Ahí podés ver el trabajo antes de encargarlo.</p>
 		</div>
 		<div class="text-lg leading-8">
 			<p>{empresa.direccion}</p>

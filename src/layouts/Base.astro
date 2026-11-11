@@ -43,7 +43,7 @@ const negocio = {
 	},
 	geo: { "@type": "GeoCoordinates", latitude: empresa.geo.lat, longitude: empresa.geo.lng },
 	hasMap: empresa.mapa,
-	sameAs: [empresa.mapa],
+	sameAs: [empresa.mapa, empresa.instagram, empresa.facebook, empresa.tiktok],
 	openingHoursSpecification: {
 		"@type": "OpeningHoursSpecification",
 		dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -89,10 +89,10 @@ const bloques = {
 		<script is:inline>document.documentElement.classList.add("js")</script>
 		<script type="application/ld+json" set:html={JSON.stringify(bloques)} />
 	</head>
-	<body class="pb-14 md:pb-0">
+	<body class="flex min-h-dvh flex-col">
 		<a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-2">Saltar al contenido</a>
 		<Header />
-		<main id="contenido">
+		<main id="contenido" class="flex-1">
 			<slot />
 		</main>
 		<Footer />
