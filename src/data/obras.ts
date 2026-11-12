@@ -1,3 +1,5 @@
+import { fotosDe } from "../lib/fotos";
+
 export type TipoObra = "residencial" | "comercial" | "institucional";
 
 export type Obra = {
@@ -7,6 +9,10 @@ export type Obra = {
 	ciudad: string;
 	hecho: string;
 	servicios: string[];
+	/** Una descripción por foto, en el mismo orden que los archivos. */
+	alts?: string[];
+	/** Recorte del hero cuando el motivo no está al centro. */
+	encuadre?: string;
 	sinFoto?: string;
 };
 
@@ -25,6 +31,34 @@ export const obras: Obra[] = [
 		ciudad: "Ñemby",
 		hecho: "Fachadas de vidrio y aluminio en el showroom, donde se ven los sistemas antes de encargar.",
 		servicios: ["fachadas", "vidrio-templado"],
+	},
+	{
+		slug: "iglesia-mariano-roque-alonso",
+		titulo: "Iglesia",
+		tipo: "institucional",
+		ciudad: "Mariano Roque Alonso",
+		hecho: "Cielo raso desmontable con garganta a los lados.",
+		servicios: ["cielo-raso"],
+		alts: [
+			"Cielo raso desmontable con garganta a los lados, en el salón de una iglesia de Mariano Roque Alonso. El escenario y el piso todavía están en obra.",
+			"Vista del mismo cielo raso desmontable y la garganta contra la pared de ladrillo. En el escenario hay una persona trabajando.",
+		],
+		encuadre: "object-top",
+	},
+	{
+		slug: "casa-vidrio",
+		titulo: "Casa",
+		tipo: "residencial",
+		ciudad: "",
+		hecho: "Vidrio transparente en las aberturas.",
+		servicios: ["vidrio-templado"],
+		alts: [
+			"Casa con aberturas de vidrio transparente hacia el jardín y la pileta.",
+			"Paño de vidrio transparente mientras se coloca en una abertura de la casa.",
+			"Colocación de las hojas de aluminio para el vidrio, en la misma casa.",
+			"Cerramiento de vidrio transparente con marco claro, visto desde el interior. Se refleja una persona en el vidrio.",
+		],
+		encuadre: "object-top",
 	},
 	{
 		slug: "sucursal-tigo-mra",
@@ -99,6 +133,18 @@ export const obras: Obra[] = [
 		ciudad: "",
 		hecho: "Cielo raso desmontable y divisorias de vidrio templado con aluminio entubado.",
 		servicios: ["mamparas-divisorias", "cielo-raso"],
+	},
+	{
+		slug: "edificio-punta-norte-concepcion",
+		titulo: "Edificio Punta Norte",
+		tipo: "residencial",
+		ciudad: "Concepción",
+		hecho: "Carpintería de aluminio, líneas Inova y Gold, mamparas, espejos y cielo raso.",
+		servicios: ["carpinteria-de-aluminio", "ventanas", "mamparas-divisorias", "cielo-raso"],
+		alts: [
+			"Edificio Punta Norte en Concepción, con carpintería de aluminio en las ventanas y los balcones.",
+			"Otra vista del Edificio Punta Norte desde la vereda. Un poste y un cartel de alquiler tapan parte de la planta baja.",
+		],
 	},
 	{
 		slug: "vivienda-box-de-bano",
@@ -297,7 +343,9 @@ const nombresCompletos: Record<string, string> = {
 	"edificio-concordia": "Edificio Concordia",
 	"edificio-fortaleza-milano-asuncion": "Edificio Fortaleza Milano",
 	"edificio-longvillage-asuncion": "Edificio Longvillage",
+	"edificio-punta-norte-concepcion": "Edificio Punta Norte – Concepción",
 	"galeria-senador-long": "Galería Senador Long",
+	"iglesia-mariano-roque-alonso": "Iglesia – Mariano Roque Alonso",
 	"ips-central-asuncion": "IPS Central – Salas de Atención",
 	"local-comercial-capiata": "Local Comercial – Capiatá",
 	"maria-antonieta-shopping-mariano-roque-alonso": "María Antonieta – Shopping MRA",
@@ -331,12 +379,15 @@ export function obraPorSlug(slug: string) {
 	return obras.find((obra) => obra.slug === slug);
 }
 
+/** Sin foto propia no se publica. La ficha queda en `obras` por si aparece la imagen. */
+export const obrasPublicadas = obras.filter((obra) => fotosDe(obra.slug).length > 0);
+
 export function obrasDe(tipo: TipoObra) {
-	return obras.filter((obra) => obra.tipo === tipo);
+	return obrasPublicadas.filter((obra) => obra.tipo === tipo);
 }
 
 export function obrasDelServicio(slug: string) {
-	return obras.filter((obra) => obra.servicios.includes(slug));
+	return obrasPublicadas.filter((obra) => obra.servicios.includes(slug));
 }
 
 export const portada = [

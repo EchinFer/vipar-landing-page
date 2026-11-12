@@ -81,20 +81,79 @@
 		aviso.hidden = true;
 	});
 
+	// `page_type` con los valores del sitio anterior: las obras y el armador quedaban como "generic".
+	const ruta = location.pathname;
+	const page_type =
+		ruta === "/"
+			? "home"
+			: ruta === "/servicios/"
+				? "services_hub"
+				: ruta.startsWith("/servicios/")
+					? "service"
+					: ruta.startsWith("/blog/")
+						? "blog"
+						: ruta === "/nosotros/"
+							? "about"
+							: ruta === "/contacto/"
+								? "contact"
+								: "generic";
+	const servicioDeLaRuta = ruta.match(/^\/servicios\/([^/]+)\//)?.[1];
+
+	const ficha = document.querySelector<HTMLElement>("[data-ficha-servicio]");
+	if (ficha) {
+		window.gtag("event", "service_page_viewed", {
+			page_type,
+			pagina: ruta,
+			service_name: ficha.dataset.fichaServicio,
+			service_slug: servicioDeLaRuta,
+		});
+	}
+
+	// Clics de navegación del sitio anterior (`contact_cta_click`, `services_nav_click`, `blog_article_open`…).
+	// Solo en los enlaces que los tenían, para que las cantidades se puedan comparar.
+	document.addEventListener("click", (evento) => {
+		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>("a[data-evento]");
+		if (!enlace) return;
+		const destino = new URL(enlace.href, location.href).pathname.match(/^\/servicios\/([^/]+)\//)?.[1];
+		const slug = destino ?? servicioDeLaRuta;
+		window.gtag("event", enlace.dataset.evento, {
+			cta_location: enlace.dataset.ubicacion,
+			page_type,
+			pagina: ruta,
+			...(enlace.dataset.servicio && { service_name: enlace.dataset.servicio }),
+			...(slug && { service_slug: slug }),
+		});
+	});
+
 	// `whatsapp_click` es el evento clave que ya tiene la propiedad GA4: mantiene la serie histórica de contactos.
 	// Quien pide cómo llegar al showroom es un contacto, aunque no sea por WhatsApp.
 	document.addEventListener("click", (evento) => {
 		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>("a[data-mapa]");
 		if (!enlace) return;
-		window.gtag("event", "mapa_click", { origen: enlace.dataset.mapa, pagina: location.pathname });
+		window.gtag("event", "mapa_click", { origen: enlace.dataset.mapa, page_type, pagina: ruta });
 	});
 
 	// Mismos nombres que el sitio anterior, para no cortar la serie de llamadas y correos.
 	document.addEventListener("click", (evento) => {
 		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="tel:"], a[href^="mailto:"]');
 		if (!enlace) return;
-		window.gtag("event", enlace.href.startsWith("tel:") ? "phone_click" : "email_click", { pagina: location.pathname });
+		window.gtag("event", enlace.href.startsWith("tel:") ? "phone_click" : "email_click", { page_type, pagina: ruta });
 	});
+
+	// Valores de `cta_location` del sitio anterior. El FAB viejo se veía también en el celular: la barra cuenta como él.
+	const UBICACION_ANTERIOR: Record<string, string> = {
+		fab: "floating_fab",
+		barra: "floating_fab",
+		cabecera: "header_cta",
+		inicio: "hero_cta",
+		obra: "hero_cta",
+		servicio: "service_cta",
+		lateral: "service_cta",
+		banda: "final_cta",
+		nota: "blog_sidebar_whatsapp",
+		"aviso-precios": "service_price_guide",
+		calculadora: "contact_form",
+	};
 
 	document.addEventListener("click", (evento) => {
 		const enlace = (evento.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="https://wa.me/"]');
@@ -106,18 +165,18 @@
 			texto = "";
 		}
 		const delTexto = texto.match(/Servicio:\s*(.+)/i)?.[1]?.trim();
-		const delaRuta = location.pathname.match(/^\/servicios\/([^/]+)\//)?.[1];
 		const valor = Number(enlace.dataset.valor);
-		const servicio = delTexto ?? delaRuta ?? "sin_servicio";
+		const servicio = delTexto ?? servicioDeLaRuta ?? "sin_servicio";
 		const origen = enlace.dataset.origen ?? ("waBar" in enlace.dataset ? "barra" : "contenido");
 		window.gtag("event", "whatsapp_click", {
 			servicio,
 			origen,
-			pagina: location.pathname,
+			pagina: ruta,
+			page_type,
 			// Nombres del sitio anterior: si la propiedad tiene dimensiones personalizadas con ellos, siguen llenándose.
 			...(delTexto && { service_name: delTexto }),
-			...(delaRuta && { service_slug: delaRuta }),
-			cta_location: origen,
+			...(servicioDeLaRuta && { service_slug: servicioDeLaRuta }),
+			cta_location: UBICACION_ANTERIOR[origen] ?? origen,
 			// Monto de referencia que vio la persona en el armador: el valor estimado del pedido, no una venta.
 			...(valor > 0 ? { value: valor, currency: "PYG" } : {}),
 		});

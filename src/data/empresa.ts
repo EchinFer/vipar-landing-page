@@ -16,7 +16,17 @@ export const empresa = {
 	instagram: "https://www.instagram.com/vipar_py/",
 	facebook: "https://www.facebook.com/vipar.vidrios",
 	tiktok: "https://www.tiktok.com/@vipar.s.a",
+	cleanpar: "https://cleanpar.com.py/",
 };
+
+/** Enlace a CleanPar con la visita marcada. En GA4 queda como fuente vipar. */
+export function desdeVipar(ruta: string, medio: string, campana: string) {
+	const url = new URL(ruta.replace(/^\//, ""), empresa.cleanpar);
+	url.searchParams.set("utm_source", "vipar");
+	url.searchParams.set("utm_medium", medio);
+	url.searchParams.set("utm_campaign", campana);
+	return url.href;
+}
 
 export function canonical(path: string) {
 	const normal = path.startsWith("/") ? path : `/${path}`;

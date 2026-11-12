@@ -21,19 +21,14 @@ const { obras, activa } = Astro.props;
 </div>
 <ul class="grid grid-cols-2 gap-2 px-4 pb-14 md:grid-cols-3 md:gap-3 md:px-8">
 	{
-		obras.map((obra) => {
+		obras.flatMap((obra) => {
 			const foto = fotosDe(obra.slug)[0];
+			if (!foto) return [];
 			const lugar = [obra.ciudad, obra.tipo].filter(Boolean).join(" · ");
 			return (
 				<li>
 					<a href={`/obras/${obra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
-						{foto ? (
-							<Foto src={foto} alt={`${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[480, 720, 1100, 1400, 1920]} />
-						) : (
-							<div class="panes absolute inset-0 flex items-start p-3 text-white/70">
-								<p class="text-xs">Foto de esta obra pendiente</p>
-							</div>
-						)}
+						<Foto src={foto} alt={obra.alts?.[0] ?? `${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 33vw, 50vw" widths={[480, 720, 1100, 1400, 1920]} />
 						<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
 						<div class="absolute inset-x-0 bottom-0 p-3 text-white md:p-5">
 							<p class="text-sm leading-tight font-bold md:text-xl">{obra.titulo}</p>

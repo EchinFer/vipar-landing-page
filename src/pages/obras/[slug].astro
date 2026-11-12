@@ -1,88 +1,75 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Foto from "../../components/Foto.astro";
-import { nombreCompleto, obras } from "../../data/obras";
+import { nombreCompleto, obrasPublicadas } from "../../data/obras";
 import { servicioPorSlug } from "../../data/servicios";
 import { fotosDe } from "../../lib/fotos";
+import FotosObra from "../../components/FotosObra.astro";
 import BandaContacto from "../../components/BandaContacto.astro";
 import NoMolesta from "../../components/NoMolesta.astro";
 import { mensajeLibre, waUrl } from "../../lib/pedido";
 
 export function getStaticPaths() {
-	return obras.map((obra) => ({ params: { slug: obra.slug }, props: { obra } }));
+	return obrasPublicadas.map((obra) => ({ params: { slug: obra.slug }, props: { obra } }));
 }
 
 const { obra } = Astro.props;
 const fotos = fotosDe(obra.slug);
 const nombre = nombreCompleto(obra);
 const descripcion = `${obra.hecho} ${obra.ciudad ? `Obra de VIPAR en ${obra.ciudad}, Paraguay.` : "Obra realizada por VIPAR en Paraguay."}`;
-const otras = obras
-	.filter((otra) => otra.slug !== obra.slug && fotosDe(otra.slug).length > 0)
+const otras = obrasPublicadas
+	.filter((otra) => otra.slug !== obra.slug)
 	.map((otra) => ({ otra, comunes: otra.servicios.filter((slug) => obra.servicios.includes(slug)).length }))
 	.sort((a, b) => b.comunes - a.comunes)
 	.slice(0, 4)
 	.map(({ otra }) => otra);
 const wa = mensajeLibre(`Quiero un presupuesto parecido a esta obra: ${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}. ${obra.hecho}`);
+const altDe = (indice: number) => obra.alts?.[indice] ?? (indice === 0 ? `${nombre}. ${obra.hecho}` : `${nombre}, otra vista`);
+const portada = fotos[0];
+const lugar = obra.ciudad && !nombre.includes(obra.ciudad) ? obra.ciudad : "";
 ---
 
-<Base title={`${nombre} - Obra realizada | VIPAR Paraguay`} description={descripcion} path={`/obras/${obra.slug}/`} waTexto={wa} imagen={fotos[0]} imagenAlt={nombre}>
-	{
-		fotos[0] ? (
-			<Foto src={fotos[0]} alt={`${nombre}. ${obra.hecho}`} priority class="aspect-[4/5] w-full object-cover md:aspect-[16/8]" sizes="100vw" />
-		) : (
-			<div class="bg-brand px-4 py-16 text-white md:px-8">
-				<p class="max-w-xl text-lg">{obra.sinFoto}</p>
-			</div>
-		)
-	}
-	<article class="grid gap-8 px-4 py-8 md:grid-cols-[1.4fr_0.8fr] md:px-8">
-		<div>
-			<p class="kicker text-muted"><a href="/obras/" class="underline-offset-4 hover:underline">Obras</a> / <a href={`/obras/tipo/${obra.tipo}/`} class="capitalize underline-offset-4 hover:underline">{obra.tipo}</a></p>
-			<h1 class="mt-3 text-4xl leading-[1.04] text-brand md:text-6xl">{nombre}</h1>
-			{obra.ciudad && <p class="mt-4 text-lg">{obra.ciudad}</p>}
-			<p class="mt-4 max-w-xl text-xl leading-snug">{obra.hecho}</p>
-			{
-				obra.sinFoto && fotos.length === 0 && (
-					<p class="mt-4 max-w-xl text-sm text-muted">{obra.sinFoto}</p>
-				)
-			}
-		</div>
-		<div>
-			<p class="kicker text-muted">En esta obra</p>
-			<ul class="mt-3 flex flex-wrap gap-2 text-sm">
-			{
-				obra.servicios.map((slug) => {
-					const servicio = servicioPorSlug(slug);
-					if (!servicio) return null;
-					return (
-						<li>
-							<a href={`/servicios/${servicio.slug}/`} class="block border border-brand px-3 py-2 text-brand transition-colors hover:bg-brand hover:text-white">{servicio.nombre}</a>
-						</li>
-					);
-				})
-			}
+<Base title={`${nombre} - Obra realizada | VIPAR Paraguay`} description={descripcion} path={`/obras/${obra.slug}/`} waTexto={wa} imagen={fotos[0]} imagenAlt={altDe(0)}>
+	<section class="relative h-[calc(100svh-7rem)] bg-brand text-white md:grid md:h-[calc(100svh-3.5rem)] md:min-h-[36rem] md:grid-cols-[1.45fr_0.7fr]">
+		{
+			portada ? (
+				<Foto src={portada} alt={altDe(0)} priority class:list={["absolute inset-0 size-full object-cover md:static md:h-full", obra.encuadre]} sizes="(min-width: 768px) 66vw, 100vw" />
+			) : (
+				<div class="hidden md:block"></div>
+			)
+		}
+		<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand via-brand/80 to-transparent px-4 pt-24 pb-5 md:static md:flex md:flex-col md:justify-center md:bg-brand md:bg-none md:py-10 md:pl-8 md:pr-20">
+			<p class="kicker text-sky"><a href="/obras/" class="underline-offset-4 hover:underline">Obras</a> / <a href={`/obras/tipo/${obra.tipo}/`} class="capitalize underline-offset-4 hover:underline">{obra.tipo}</a></p>
+			<h1 class="mt-3 text-4xl leading-[1.02] text-balance md:text-5xl">{nombre}</h1>
+			{lugar && <p class="mt-3 text-lg text-white/80">{lugar}</p>}
+			<p class="mt-4 max-w-md text-lg leading-snug text-white/90">{obra.hecho}</p>
+			{obra.sinFoto && fotos.length === 0 && <p class="mt-3 max-w-md text-sm text-white/70">{obra.sinFoto}</p>}
+			<ul class="mt-6 flex flex-wrap gap-2 text-sm">
+				{
+					obra.servicios.map((slug) => {
+						const servicio = servicioPorSlug(slug);
+						if (!servicio) return null;
+						return (
+							<li>
+								<a href={`/servicios/${servicio.slug}/`} class="block border border-white/40 px-3 py-2 font-semibold transition-colors hover:bg-white hover:text-brand">{servicio.nombre}</a>
+							</li>
+						);
+					})
+				}
 			</ul>
-			<a href={waUrl(wa)} data-origen="obra" class="btn btn-primary mt-6 w-full md:w-auto">Pedir algo parecido</a>
-			<NoMolesta texto="No tiene que quedar igual. Contanos tu espacio." />
+			<a href={waUrl(wa)} data-origen="obra" data-evento="contact_cta_click" data-ubicacion="hero_cta" class="btn btn-light mt-6 w-full md:w-auto">Pedir algo parecido</a>
+			<NoMolesta claro texto="No tiene que quedar igual. Contanos tu espacio." />
 		</div>
-	</article>
+	</section>
 	{
-		fotos.length > 1 && (
-			<ul class="grid gap-2 px-4 pb-14 md:grid-cols-2 md:gap-3 md:px-8">
-				{fotos.slice(1).map((foto) => (
-					<li>
-						<Foto src={foto} alt={`${nombre}, otra vista`} class="aspect-[4/3] w-full object-cover" sizes="(min-width: 768px) 50vw, 100vw" />
-					</li>
-				))}
-			</ul>
-		)
+		fotos.length > 1 && <FotosObra fotos={fotos.slice(1).map((src, indice) => ({ src, alt: altDe(indice + 1) }))} />
 	}
 	{
 		otras.length > 0 && (
 			<section class="bg-wash px-4 py-12 md:px-8 md:py-16">
 				<div class="flex flex-wrap items-end justify-between gap-4">
 					<h2 class="text-2xl leading-tight text-brand md:text-3xl">Otras obras parecidas</h2>
-					<a href="/obras/" class="text-sm font-semibold text-brand underline underline-offset-4">Ver las {obras.length} obras →</a>
+					<a href="/obras/" class="text-sm font-semibold text-brand underline underline-offset-4">Ver las {obrasPublicadas.length} obras →</a>
 				</div>
 				<ul class="mt-6 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
 					{otras.map((otra) => (

@@ -15,7 +15,7 @@ import { notas } from "../../data/blog";
 			{
 				notas.map((nota) => (
 					<li>
-						<a href={`/blog/${nota.slug}/`} class="group block py-6">
+						<a href={`/blog/${nota.slug}/`} data-evento="blog_article_open" data-ubicacion="blog_card_primary" class="group block py-6">
 							<p class="text-xl font-bold text-brand md:text-2xl">{nota.title} <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span></p>
 							<p class="mt-2 max-w-2xl text-muted">{nota.description}</p>
 						</a>

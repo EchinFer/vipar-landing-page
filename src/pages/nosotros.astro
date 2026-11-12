@@ -2,26 +2,25 @@
 import Base from "../layouts/Base.astro";
 import Foto from "../components/Foto.astro";
 import BandaContacto from "../components/BandaContacto.astro";
-import { empresa } from "../data/empresa";
-import { fotosDe } from "../lib/fotos";
-
-const showroom = fotosDe("showroom-vipar").find((foto) => foto.width > 1024) ?? fotosDe("showroom-vipar")[0];
+import { desdeVipar, empresa } from "../data/empresa";
+import localVipar from "../assets/obras/showroom-vipar-03.webp";
 ---
 
 <Base
 	title="Sobre VIPAR S.A. | Más de 25 años en cristales templados y aluminio en Paraguay"
-	description="Empresa paraguaya en cristales y aluminio desde el año 2000. Dos generaciones, showroom en Ñemby y obras residenciales, comerciales y corporativas en todo el país."
+	description="Empresa familiar en Ñemby desde el año 2000. Mide en la obra e instala cristales templados, aluminio y terminaciones. En el showroom se ve el trabajo antes de encargarlo."
 	path="/nosotros/"
-	imagen={showroom}
+	imagen={localVipar}
 	imagenAlt="Showroom de VIPAR en Ñemby"
 >
-	<Foto src={showroom} alt="Showroom de VIPAR en Ñemby" priority class="aspect-[4/5] w-full object-cover md:aspect-[16/7]" sizes="100vw" />
+	<Foto src={localVipar} alt="Local de VIPAR en Ñemby" priority class="aspect-[4/5] w-full object-cover object-left md:aspect-[16/7]" sizes="100vw" />
 	<article class="grid gap-10 px-4 py-14 md:grid-cols-2 md:px-8 md:py-20">
 		<div>
 			<p class="kicker text-muted">La empresa</p>
 			<h1 class="mt-3 text-3xl leading-[1.05] text-brand md:text-5xl">Empresa paraguaya en cristales y aluminio desde el año {empresa.desde}</h1>
-			<p class="mt-4 text-lg">VIPAR empezó como un taller familiar de cristales templados. La generación que siguió sumó aluminio y terminaciones de obra.</p>
-			<p class="mt-4 text-lg">El showroom está en la misma dirección donde se coordinan las obras. Ahí podés ver el trabajo antes de encargarlo.</p>
+			<p class="mt-4 text-lg">Somos una familia de Ñemby. Medimos en la obra e instalamos cristales templados, aluminio y terminaciones, a la medida del lugar.</p>
+			<p class="mt-4 text-lg">En el showroom ves cómo queda antes de encargarlo. Desde ahí salen las obras de Asunción, Gran Asunción y el interior. Si la obra está lejos, el viaje se confirma con el trabajo.</p>
+			<p class="mt-4 text-lg">Cuando la obra termina, la limpieza la hace <a href={desdeVipar("", "texto", "nosotros")} data-evento="cleanpar_click" data-ubicacion="about_text" class="font-semibold text-brand underline underline-offset-4">CleanPar</a>.</p>
 		</div>
 		<div class="text-lg leading-8">
 			<p>{empresa.direccion}</p>
@@ -30,8 +29,7 @@ const showroom = fotosDe("showroom-vipar").find((foto) => foto.width > 1024) ?? 
 			<p>{empresa.horario}</p>
 			<p><a href={`tel:${empresa.telefono}`}>{empresa.telefono}</a></p>
 			<p><a href={`mailto:${empresa.email}`}>{empresa.email}</a></p>
-			<p class="mt-4 text-base text-muted">Asunción, Gran Asunción e interior. En el interior el viaje se confirma con la obra.</p>
 		</div>
 	</article>
-	<BandaContacto />
+	<BandaContacto datos={false} />
 </Base>

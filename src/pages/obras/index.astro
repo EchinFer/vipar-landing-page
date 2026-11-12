@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Galeria from "../../components/Galeria.astro";
 import CabeceraPagina from "../../components/CabeceraPagina.astro";
-import { obras } from "../../data/obras";
+import { obrasPublicadas } from "../../data/obras";
 ---
 
 <Base
@@ -11,5 +11,5 @@ import { obras } from "../../data/obras";
 	path="/obras/"
 >
 	<CabeceraPagina kicker="Obras" titulo="Obras y proyectos realizados por VIPAR" texto="Cada ficha dice qué se instaló y en qué ciudad. Si la foto del sitio anterior no era de esa obra, no está." h1Max="max-w-[18ch]" />
-	<Galeria obras={obras} activa="todas" />
+	<Galeria obras={obrasPublicadas} activa="todas" />
 </Base>

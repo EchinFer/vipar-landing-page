@@ -1,0 +1,89 @@
+---
+import Foto from "./Foto.astro";
+import { desdeVipar } from "../data/empresa";
+import foto from "../assets/cleanpar-banner.webp";
+
+const href = desdeVipar("", "banner", "inicio");
+const estrella = "M12 0C12.7 6.4 17.6 11.3 24 12C17.6 12.7 12.7 17.6 12 24C11.3 17.6 6.4 12.7 0 12C6.4 11.3 11.3 6.4 12 0Z";
+const destellos = [
+	{ clase: "right-[9%] top-[18%] size-14 md:size-20", demora: "0s" },
+	{ clase: "right-[24%] top-[52%] hidden size-10 md:block", demora: "0.9s" },
+	{ clase: "right-[5%] bottom-[16%] size-5 md:size-7", demora: "1.6s" },
+	{ clase: "right-[34%] top-[14%] hidden size-5 md:block", demora: "2.2s" },
+];
+---
+
+<section class="bg-white px-4 pb-14 md:px-8" aria-label="CleanPar">
+	<a href={href} data-evento="cleanpar_click" data-ubicacion="home_banner" class="group relative flex min-h-48 overflow-hidden rounded-[20px] bg-[#13262b] text-[#f4f7f7] no-underline md:min-h-[10.5rem]">
+		<Foto src={foto} alt="" class="absolute inset-0 size-full object-cover object-center" sizes="100vw" widths={[640, 960, 1280, 1536]} />
+		<span class="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#13262b_0%,rgb(19_38_43/0.9)_60%,rgb(19_38_43/0.35)_100%)] md:bg-[linear-gradient(90deg,#13262b_0%,rgb(19_38_43/0.92)_44%,rgb(19_38_43/0.45)_62%,transparent_80%)]" aria-hidden="true"></span>
+		<span class="brillo pointer-events-none absolute inset-y-0 -left-1/3 w-1/3" aria-hidden="true"></span>
+		{
+			destellos.map((destello) => (
+				<svg viewBox="0 0 24 24" aria-hidden="true" class:list={["destello pointer-events-none absolute z-10 text-white", destello.clase]} style={`animation-delay:${destello.demora}`}>
+					<path fill="currentColor" d={estrella} />
+				</svg>
+			))
+		}
+		<span class="relative z-10 flex w-full max-w-md flex-col items-start justify-between gap-4 p-6 md:max-w-2xl">
+			<p class="text-[0.7rem] font-semibold tracking-[0.14em] text-[#5FC3C9] uppercase">También de VIPAR</p>
+			<p class="flex flex-wrap items-center gap-x-[0.25em] gap-y-1 text-2xl leading-8 font-semibold tracking-tight md:text-[1.75rem] md:leading-9">
+				<span>Dejá la <span class="text-[#5FC3C9]">limpieza</span></span>
+				<span class="inline-flex items-center gap-x-2.5 whitespace-nowrap">
+					en manos de
+					<img src="/cleanpar-logo.svg" alt="CleanPar" loading="lazy" class="h-7 w-auto translate-y-px md:h-8" width="150" height="32" />
+				</span>
+			</p>
+			<p class="-mt-1 text-sm text-white/75 md:text-base">De la obra terminada al shopping abierto.</p>
+			<span class="inline-flex w-fit items-center gap-1.5 rounded-xl bg-[#2FB3BB] px-3 py-2 text-sm font-semibold text-[#13262b] transition-colors group-hover:bg-[#5FC3C9]">
+				Pedir cotización
+				<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" class="transition-transform group-hover:translate-x-0.5">
+					<path d="M5 12h14M13 6l6 6-6 6"></path>
+				</svg>
+			</span>
+		</span>
+	</a>
+</section>
+
+<style>
+	.destello {
+		filter: drop-shadow(0 0 6px rgb(255 255 255 / 0.9)) drop-shadow(0 0 16px rgb(95 195 201 / 0.7));
+		animation: destello 3s ease-in-out infinite;
+	}
+	@keyframes destello {
+		0%,
+		100% {
+			opacity: 0.35;
+			transform: scale(0.65) rotate(0deg);
+		}
+		50% {
+			opacity: 1;
+			transform: scale(1) rotate(15deg);
+		}
+	}
+	.brillo {
+		background: linear-gradient(100deg, transparent 0%, rgb(255 255 255 / 0.28) 50%, transparent 100%);
+		animation: brillo 5s ease-in-out infinite;
+	}
+	@keyframes brillo {
+		0%,
+		60% {
+			transform: translateX(-50%) skewX(-12deg);
+		}
+		100% {
+			transform: translateX(450%) skewX(-12deg);
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.destello,
+		.brillo {
+			animation: none;
+		}
+		.destello {
+			opacity: 1;
+		}
+		.brillo {
+			display: none;
+		}
+	}
+</style>

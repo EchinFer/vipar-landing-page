@@ -3,12 +3,14 @@ import Base from "../layouts/Base.astro";
 import Foto from "../components/Foto.astro";
 import ServicioCard from "../components/ServicioCard.astro";
 import Pasos from "../components/Pasos.astro";
+import AvisoCleanPar from "../components/AvisoCleanPar.astro";
 import BandaContacto from "../components/BandaContacto.astro";
 import NoMolesta from "../components/NoMolesta.astro";
-import { empresa } from "../data/empresa";
-import { obras, portada } from "../data/obras";
+import { desdeVipar, empresa } from "../data/empresa";
+import { obras, obrasPublicadas, portada } from "../data/obras";
 import { principales, servicios } from "../data/servicios";
 import { fotosDe } from "../lib/fotos";
+import localVipar from "../assets/obras/showroom-vipar-03.webp";
 import { avisoCorto, desdeM2, formatGs, mensajeLibre, preciosVigencia, waUrl } from "../lib/pedido";
 
 const heroObra = obras.find((obra) => obra.slug === "auditorio-arandu-loma-pyta") ?? portada[0];
@@ -17,12 +19,12 @@ const presupuesto = waUrl(mensajeLibre(`Vi la obra ${heroObra.titulo} y quiero u
 const destacadas = portada.filter((obra) => obra.slug !== heroObra.slug).slice(0, 5);
 
 const cifras = [
-	{ valor: String(empresa.desde), texto: "Empresa familiar de Ñemby" },
-	{ valor: String(obras.length), texto: "Obras documentadas en esta web" },
+	{ valor: `Desde ${empresa.desde}`, texto: "Empresa familiar de Ñemby" },
+	{ valor: String(obrasPublicadas.length), texto: "Obras documentadas en esta web" },
 	{ valor: String(servicios.length), texto: "Líneas de trabajo, todas a medida" },
 	{ valor: "Todo el país", texto: "Asunción, Gran Asunción e interior" },
 ];
-const nombresObras = ["sucursal-tigo-mra", "oficinas-corporativas-itau", "ips-central-asuncion", "natatorio-cit-luque", "pedro-juan-caballero", "carde-apf-ypane", "cooperativa-medalla"];
+const nombresObras = ["sucursal-tigo-mra", "ips-central-asuncion", "natatorio-cit-luque", "pedro-juan-caballero", "carde-apf-ypane", "cooperativa-medalla"];
 const guiasPrecio = [
 	{ nombre: "Cielo raso", desde: desdeM2("cielo"), href: "/blog/cuanto-cuesta-cielo-raso-paraguay/" },
 	{ nombre: "Mamparas divisorias", desde: desdeM2("mamparas"), href: "/blog/costo-mamparas-divisorias/" },
@@ -31,7 +33,7 @@ const accesos = [...principales.map((servicio) => ({ nombre: servicio.nombre, hr
 const garantias = ["Medimos en tu obra", "Instalado a medida", "Showroom en Ñemby"];
 /** Nombres que ya figuran en las fichas de obra. Se presentan como obras, no como clientes: VIPAR pudo trabajar como subcontratista. */
 const dondeTrabajamos = ["IPS", "Tigo", "Itaú", "APF", "Cooperativa Medalla Milagrosa", "Universidad del Pacífico", "Virgen del Huerto", "Tienda GO!", "Natatorio del CIT", "Auditorio Arandú", "Torre Provenza", "Galería Senador Long"];
-const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !destacadas.includes(obra) && obra.slug !== heroObra.slug);
+const algunas = obrasPublicadas.filter((obra) => nombresObras.includes(obra.slug) && !destacadas.includes(obra) && obra.slug !== heroObra.slug);
 ---
 
 <Base
@@ -39,6 +41,8 @@ const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !dest
 	description="Vidriería y aluminio en Ñemby desde 2000: mamparas para baño, cielo raso, mamparas divisorias, vidrios templados y fachadas en Asunción y todo Paraguay. Pedí presupuesto por WhatsApp."
 	path="/"
 	waTexto={mensajeLibre(`Vi la obra ${heroObra.titulo} y quiero un presupuesto.`)}
+	imagen={localVipar}
+	imagenAlt="Local de VIPAR en Ñemby"
 >
 	<section class="relative flex flex-col bg-brand text-white md:h-[calc(100svh-3.5rem)] md:min-h-[34rem] md:flex-row md:items-center">
 		<Foto
@@ -57,13 +61,13 @@ const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !dest
 				<p class="mt-5 text-xs font-semibold tracking-wide text-sky uppercase">¿Qué necesitás?</p>
 				<ul class="mt-2 flex flex-wrap gap-2">
 					{accesos.map((acceso) => (
-						<li><a href={acceso.href} class="block border border-white/40 bg-white/10 px-3 py-2 text-sm font-semibold transition-colors hover:bg-white hover:text-brand">{acceso.nombre}</a></li>
+						<li><a href={acceso.href} data-evento="services_nav_click" data-ubicacion="hero_cta" class="block border border-white/40 bg-white/10 px-3 py-2 text-sm font-semibold transition-colors hover:bg-white hover:text-brand">{acceso.nombre}</a></li>
 					))}
 				</ul>
 				<div class="mt-5 hidden md:block">
 					<div class="flex flex-wrap gap-3">
-						<a href={presupuesto} data-origen="inicio" class="btn btn-light">Pedir presupuesto</a>
-						<a href="/obras/" class="btn btn-line">Ver las obras</a>
+						<a href={presupuesto} data-origen="inicio" data-evento="contact_cta_click" data-ubicacion="hero_cta" class="btn btn-light">Pedir presupuesto</a>
+						<a href="/obras/" data-evento="hero_portfolio_click" data-ubicacion="hero_cta" class="btn btn-line">Ver las obras</a>
 					</div>
 					<NoMolesta claro texto="Escribinos nomás, para que te guiemos." />
 				</div>
@@ -107,7 +111,7 @@ const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !dest
 				<p class="kicker text-muted">Obras</p>
 				<h2 class="reveal mt-3 max-w-[20ch] text-3xl leading-[1.05] text-brand md:text-5xl">Se ve mejor en una obra terminada</h2>
 			</div>
-			<a href="/obras/" class="text-sm font-semibold text-brand underline underline-offset-4">Ver las {obras.length} obras →</a>
+			<a href="/obras/" class="text-sm font-semibold text-brand underline underline-offset-4">Ver las {obrasPublicadas.length} obras →</a>
 		</div>
 		<ul class="mt-8 grid grid-cols-2 gap-2 md:h-[640px] md:grid-cols-4 md:grid-rows-2 md:gap-3">
 			{
@@ -134,6 +138,8 @@ const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !dest
 		</p>
 	</section>
 
+	<AvisoCleanPar />
+
 	<section class="bg-wash px-4 py-14 md:px-8 md:py-20" aria-label="Servicios">
 		<div class="grid gap-6 md:grid-cols-[1fr_1.1fr] md:gap-16">
 			<div>
@@ -159,7 +165,7 @@ const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !dest
 			{
 				principales.map((servicio) => (
 					<li class="reveal">
-						<ServicioCard servicio={servicio} />
+						<ServicioCard servicio={servicio} ubicacion="services_hub_cta" />
 					</li>
 				))
 			}
@@ -169,7 +175,7 @@ const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !dest
 			{
 				servicios.slice(principales.length).map((servicio) => (
 					<li class="reveal">
-						<ServicioCard servicio={servicio} compacto breve />
+						<ServicioCard servicio={servicio} compacto breve ubicacion="services_hub_cta" />
 					</li>
 				))
 			}
@@ -185,7 +191,7 @@ const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !dest
 				{
 					guiasPrecio.map((guia) => (
 						<li>
-							<a href={guia.href} class="group block h-full bg-wash p-5 transition-shadow hover:shadow-lg">
+							<a href={guia.href} data-evento="blog_article_open" data-ubicacion="home_price_guide" class="group block h-full bg-wash p-5 transition-shadow hover:shadow-lg">
 								<p class="font-bold text-brand">{guia.nombre}</p>
 								<p class="mt-1">Desde <strong class="text-2xl text-brand">{guia.desde && formatGs(guia.desde)}</strong> por m²</p>
 								<p class="mt-3 text-sm font-semibold text-brand">Ver todos los precios <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span></p>
@@ -205,10 +211,11 @@ const algunas = obras.filter((obra) => nombresObras.includes(obra.slug) && !dest
 				<p class="kicker text-muted">La empresa</p>
 				<h2 class="reveal mt-3 text-3xl leading-[1.05] text-brand md:text-5xl">Desde {empresa.desde}, en {empresa.ciudad}</h2>
 				<p class="mt-5 max-w-md text-lg leading-snug">Empresa familiar. Arrancamos con cristales templados y después sumamos aluminio y terminaciones. En el showroom ves cómo queda el trabajo antes de encargarlo.</p>
+				<p class="mt-3 max-w-md text-lg leading-snug">Cuando la obra termina, la limpieza la hace <a href={desdeVipar("", "texto", "inicio")} data-evento="cleanpar_click" data-ubicacion="home_text" class="font-semibold underline underline-offset-4">CleanPar</a>.</p>
 				<a href="/nosotros/" class="mt-5 inline-block font-semibold text-brand underline underline-offset-4">Conocer la empresa →</a>
 			</div>
 			<div class="zoom aspect-[4/3] overflow-hidden bg-brand">
-				<Foto src={fotosDe("showroom-vipar").find((foto) => foto.width > 1024) ?? fotosDe("showroom-vipar")[0]} alt="Showroom de VIPAR en Ñemby" class="size-full object-cover" sizes="(min-width: 768px) 50vw, 100vw" widths={[480, 800, 1200]} />
+				<Foto src={localVipar} alt="Local de VIPAR en Ñemby" class="size-full object-cover object-left" sizes="(min-width: 768px) 50vw, 100vw" widths={[480, 800, 1200]} />
 			</div>
 		</div>
 	</section>

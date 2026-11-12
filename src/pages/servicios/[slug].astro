@@ -88,7 +88,7 @@ const jsonLd = [
 ---
 
 <Base title={`${servicio.title} | VIPAR S.A.`} description={servicio.description} path={`/servicios/${servicio.slug}/`} waTexto={wa} jsonLd={jsonLd} imagen={foto} imagenAlt={`${servicio.nombre}, obra de VIPAR`}>
-	<section class="relative isolate overflow-hidden bg-brand text-white">
+	<section data-ficha-servicio={servicio.nombre} class="relative isolate overflow-hidden bg-brand text-white">
 		<div class="relative h-[50svh] min-h-[19rem] overflow-hidden md:absolute md:inset-0 md:h-auto">
 			<div class="asentar size-full">
 				<Foto src={foto} alt={`${servicio.nombre}${heroLugar ? ` en ${heroLugar}` : ""}, obra de VIPAR`} priority class:list={["size-full object-cover", !nitida && "md:scale-110 md:opacity-50 md:blur-2xl"]} sizes="100vw" widths={[480, 800, 1200, 1600, 1920]} />
@@ -154,7 +154,7 @@ const jsonLd = [
 					{tira.map(({ obra, foto }) => (
 						<li class="w-[78%] shrink-0 snap-start sm:w-[45%] md:w-[30%] lg:w-[23%]">
 							<a href={`/obras/${obra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
-								<Foto src={foto} alt={`${servicio.nombre} en ${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 1024px) 23vw, (min-width: 768px) 30vw, 78vw" widths={[480, 800, 1200, 1600]} />
+								<Foto src={foto} alt={obra.alts?.[0] ?? `${servicio.nombre} en ${obra.titulo}${obra.ciudad ? `, ${obra.ciudad}` : ""}`} class="absolute inset-0 size-full object-cover" sizes="(min-width: 1024px) 23vw, (min-width: 768px) 30vw, 78vw" widths={[480, 800, 1200, 1600]} />
 								<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
 								<p class="absolute inset-x-0 bottom-0 p-4 font-bold text-white">{obra.titulo}<span class="block text-sm font-normal text-white/80">{obra.ciudad}</span></p>
 							</a>
@@ -234,7 +234,7 @@ const jsonLd = [
 						<ul class="mt-5 border-t border-aluminum/60">
 							{guias.map((nota) => (
 								<li>
-									<a href={`/blog/${nota.slug}/`} class="group flex items-start justify-between gap-4 border-b border-aluminum/60 py-4">
+									<a href={`/blog/${nota.slug}/`} data-evento="blog_article_open" data-ubicacion={nota.actualizado ? "service_price_guide" : "service_supporting_guide"} data-servicio={servicio.nombre} class="group flex items-start justify-between gap-4 border-b border-aluminum/60 py-4">
 										<span class="text-lg leading-snug font-bold text-brand group-hover:underline">{nota.title}</span>
 										<span aria-hidden="true" class="mt-0.5 text-brand">→</span>
 									</a>
@@ -300,7 +300,7 @@ const jsonLd = [
 					{relacionadas.map((obra) => (
 						<li>
 							<a href={`/obras/${obra.slug}/`} class="zoom group relative block aspect-[4/5] overflow-hidden bg-brand">
-								<Foto src={portadaDe(obra.slug)} alt={obra.titulo} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 25vw, 50vw" widths={[480, 720, 1100, 1400]} />
+								<Foto src={portadaDe(obra.slug)} alt={obra.alts?.[0] ?? obra.titulo} class="absolute inset-0 size-full object-cover" sizes="(min-width: 768px) 25vw, 50vw" widths={[480, 720, 1100, 1400]} />
 								<div class="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent"></div>
 								<p class="absolute inset-x-0 bottom-0 p-3 text-sm font-bold text-white md:p-4 md:text-base">{obra.titulo}</p>
 							</a>

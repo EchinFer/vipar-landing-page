@@ -17,7 +17,7 @@ const ruta = Astro.url.pathname;
 		<a href="/servicios/" class:list={["hidden sm:inline", ruta.startsWith("/servicios") && "underline underline-offset-4"]}>Servicios</a>
 		<a href="/blog/" class:list={["hidden sm:inline", ruta.startsWith("/blog") && "underline underline-offset-4"]}>Guías</a>
 		<a href="/contacto/" class:list={["hidden md:inline", ruta.startsWith("/contacto") && "underline underline-offset-4"]}>Contacto</a>
-		<a href={presupuesto} data-origen="cabecera" class="hidden bg-white px-3 py-2 font-semibold text-brand md:inline">Pedir presupuesto</a>
+		<a href={presupuesto} data-origen="cabecera" data-evento="contact_cta_click" data-ubicacion="header_cta" class="hidden bg-white px-3 py-2 font-semibold text-brand md:inline">Pedir presupuesto</a>
 		<details class="menu sm:hidden">
 			<summary class="flex h-10 items-center gap-2 border border-white/40 px-3 font-semibold">Menú</summary>
 			<div class="absolute inset-x-0 top-14 max-h-[calc(100svh-7rem)] overflow-y-auto bg-brand px-4 pt-2 pb-6 shadow-xl">
